@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- qtimageformats.qdoc -->
-  <title>Qt Image Formats 5.12</title>
+  <title>Qt 图片格式 5.12</title>
   <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
   <script type="text/javascript">
     document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
@@ -26,8 +26,8 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td >Qt Image Formats</td></tr></table><table class="buildversion"><tr>
-<td id="buildversion" width="100%" align="right">Qt 5.12.0 Reference Documentation</td>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td >Qt 图片格式</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt 5.12.0 参考文档</td>
         </tr></table>
       </div>
     </div>
@@ -36,47 +36,47 @@
 <div class="content mainContent">
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#the-image-i-o-plugins">The Image I/O Plugins</a></li>
-<li class="level2"><a href="#deployment">Deployment</a></li>
-<li class="level2"><a href="#licenses-and-attributions">Licenses and Attributions</a></li>
-<li class="level2"><a href="#security-considerations">Security considerations</a></li>
+<li class="level1"><a href="#the-image-i-o-plugins">图片IO插件</a></li>
+<li class="level2"><a href="#deployment">部署</a></li>
+<li class="level2"><a href="#licenses-and-attributions">授权与归属</a></li>
+<li class="level2"><a href="#security-considerations">安全事项</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title">Qt Image Formats</h1>
+<h1 class="title">Qt 图片格式</h1>
 <span class="subtitle"></span>
 <!-- $$$qtimageformats-index.html-description -->
 <div class="descr"> <a name="details"></a>
-<p>The core Qt Gui library by default supports reading and writing image files of the most common file formats: <code>PNG</code>, <code>JPEG</code>, <code>BMP</code>, <code>GIF</code> and a few more, ref. <a href="../qtgui/qimage.html#reading-and-writing-image-files">Reading and Writing Image Files</a>. The Qt Image Formats add-on module provides optional support for other image file formats.</p>
-<p>The file format support is provided transparently, through plugins for Qt's image I/O system. As such, this module provides no API of its own. Instead, the functionality is accessed in the same way as other image I/O in Qt: through <a href="../qtgui/qimage.html#load-1">QImage::load</a>() and <a href="../qtgui/qimage.html#save-1">QImage::save</a>(). Or, for more detailed control, through <a href="../qtgui/qimagereader.html">QImageReader</a> and <a href="../qtgui/qimagewriter.html">QImageWriter</a>.</p>
+<p>核心的Qt Gui库，默认已支持大多数通用图片文件格式的读写: <code>PNG</code>, <code>JPEG</code>, <code>BMP</code>, <code>GIF</code> 和其他格式。可参考<a href="../qtgui/qimage.html#reading-and-writing-image-files">读写图片文件</a>. Qt图片格式附加模块提供了其他图片文件格式的可选支持。</p>
+<p>通过适用于Qt图片IO系统的插件，对支持的文件格式提供易用支持。注意，该模块对自身未提供支持。但是，可在Qt其他图片IO中，通过相同方式的访问函数基础，通过<a href="../qtgui/qimage.html#load-1">QImage::load</a>() 和 <a href="../qtgui/qimage.html#save-1">QImage::save</a>(). 若想了解更多详细控制，可通过 <a href="../qtgui/qimagereader.html">QImageReader类</a> 和 <a href="../qtgui/qimagewriter.html">QImageWriter类</a>.</p>
 <a name="the-image-i-o-plugins"></a>
-<h2 id="the-image-i-o-plugins">The Image I/O Plugins</h2>
+<h2 id="the-image-i-o-plugins">图片IO插件</h2>
 <p>The actual coding and decoding of the file format is done by a codec library. The codec can be Qt or third party code. In case of a third party codec, the build process will look for it among the system libraries. If not found, it may fall back on using a bundled copy (in <code>src/3rdparty</code>).</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Format</th><th >Description</th><th >Support</th><th >3rd Party Codec</th></tr></thead>
-<tr valign="top" class="odd"><td >ICNS</td><td >Apple Icon Image</td><td >Read/write</td><td >No</td></tr>
-<tr valign="top" class="even"><td >JP2</td><td >Joint Photographic Experts Group 2000</td><td >Read/write</td><td >Yes (Not bundled)</td></tr>
-<tr valign="top" class="odd"><td >MNG</td><td >Multiple-image Network Graphics</td><td >Read</td><td >Yes (Not bundled)</td></tr>
-<tr valign="top" class="even"><td >TGA</td><td >Truevision Graphics Adapter</td><td >Read</td><td >No</td></tr>
-<tr valign="top" class="odd"><td >TIFF</td><td >Tagged Image File Format</td><td >Read/write</td><td >Yes (bundled)</td></tr>
-<tr valign="top" class="even"><td >WBMP</td><td >Wireless Bitmap</td><td >Read/write</td><td >No</td></tr>
-<tr valign="top" class="odd"><td >WEBP</td><td >WebP</td><td >Read/write</td><td >Yes (bundled)</td></tr>
+ <thead><tr class="qt-style"><th >格式</th><th >描述</th><th >支持</th><th >3rd Party Codec</th></tr></thead>
+<tr valign="top" class="odd"><td >ICNS</td><td >Apple Icon Image</td><td >读写</td><td >No</td></tr>
+<tr valign="top" class="even"><td >JP2</td><td >Joint Photographic Experts Group 2000</td><td >读写</td><td >Yes (Not bundled)</td></tr>
+<tr valign="top" class="odd"><td >MNG</td><td >Multiple-image Network Graphics</td><td >只读</td><td >Yes (Not bundled)</td></tr>
+<tr valign="top" class="even"><td >TGA</td><td >Truevision Graphics Adapter</td><td >只读</td><td >No</td></tr>
+<tr valign="top" class="odd"><td >TIFF</td><td >Tagged Image File Format</td><td >读写</td><td >Yes (bundled)</td></tr>
+<tr valign="top" class="even"><td >WBMP</td><td >Wireless Bitmap</td><td >读写</td><td >No</td></tr>
+<tr valign="top" class="odd"><td >WEBP</td><td >WebP</td><td >读写</td><td >Yes (bundled)</td></tr>
 </table></div>
-<p><b>Note: </b>Some bundled third party codecs are not maintained anymore. They are provided for manual builds only, and not used as a fallback in case system libraries are unavailable.</p><p><b>Note: </b>For security reasons, the Direct Draw Surface (DDS) handler is not built by default since Qt 5.8&#x2e; Users who still want this handler can build it from the source project.</p><a name="deployment"></a>
-<h3 >Deployment</h3>
-<p>When built, the Qt Image Formats plugins are located as dynamic libraries in the runtime plugin directory (typically <code>plugins/imageformats</code>), together with the default image format plugins. They may be deployed to the target system in the same way as other plugins, see the <a href="../qtdoc/deployment-plugins.html">Deploying Plugins</a> documentation.</p>
+<p><b>注意: </b>Some bundled third party codecs are not maintained anymore. They are provided for manual builds only, and not used as a fallback in case system libraries are unavailable.</p><p><b>Note: </b>For security reasons, the Direct Draw Surface (DDS) handler is not built by default since Qt 5.8&#x2e; Users who still want this handler can build it from the source project.</p><a name="deployment"></a>
+<h3 >部署</h3>
+<p>当编译打包时，Qt 图片格式插件作为动态库，位于运行时插件目录下 (典型形式 <code>plugins/imageformats</code>), 和默认图片格式插件一起。 这些和其他插件一样，可已同样的方式，部署到目标系统。参见 <a href="../qtdoc/deployment-plugins.html">部署插件</a> 文档。</p>
 <a name="licenses-and-attributions"></a>
-<h3 >Licenses and Attributions</h3>
-<p>Qt Image Formats is available under commercial licenses from <a href="http://www.qt.io/about-us/">The Qt Company</a>. In addition, it is available under the <a href="http://www.gnu.org/licenses/lgpl-3.0.html">GNU Lesser General Public License, version 3</a>, or the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License, version 2</a>. See <a href="../qtdoc/licensing.html">Qt Licensing</a> for further details.</p>
-<p>Furthermore Qt Image Formats potentially contains third party modules under following permissive licenses:</p>
+<h3 >授权与归属</h3>
+<p>Qt 图片格式适用于商业授权，来自于<a href="http://www.qt.io/about-us/">The Qt Company</a>. 同时，它也适用于 <a href="http://www.gnu.org/licenses/lgpl-3.0.html">GNU Lesser General Public License, version 3</a>, or the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License, version 2</a>. 查看 <a href="../qtdoc/licensing.html">Qt 授权</a> 可了解更多详情。</p>
+<p>Furthermore Qt 图片格式 potentially contains third party modules under following permissive licenses:</p>
 <div class="table"><table class="annotated">
 <tr class="odd topAlign"><td class="tblName"><p><a href="qtimageformats-attribution-libtiff.html">TIFF Software Distribution (libtiff)</a></p></td><td class="tblDescr"><p>libtiff License</p></td></tr>
 <tr class="even topAlign"><td class="tblName"><p><a href="qtimageformats-attribution-libwebp.html">WebP (libwebp)</a></p></td><td class="tblDescr"><p>BSD 3-clause &quot;New&quot; or &quot;Revised&quot; License</p></td></tr>
 </table></div>
 <a name="security-considerations"></a>
-<h3 >Security considerations</h3>
+<h3 >安全事项</h3>
 <p>Since these file formats are more rarely used, the codecs may be less thoroughly debugged against potential security holes. As always, care should be taken when creating applications that may be used to decode uncontrolled data files.</p>
 </div>
 <!-- @@@qtimageformats-index.html -->
