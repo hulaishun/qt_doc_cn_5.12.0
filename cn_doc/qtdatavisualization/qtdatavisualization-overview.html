@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qtdatavisualization-overview.qdoc -->
+  <title>Qt Data Visualization Overview | Qt Data Visualization 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtdatavisualization-index.html">Qt Data Visualization</a></td><td >Qt Data Visualization Overview</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt Data Visualization | Commercial or GPLv3</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#graph-types">Graph Types</a></li>
+<li class="level2"><a href="#3d-bar-graphs">3D Bar Graphs</a></li>
+<li class="level2"><a href="#3d-scatter-graphs">3D Scatter Graphs</a></li>
+<li class="level2"><a href="#3d-surface-graphs">3D Surface Graphs</a></li>
+<li class="level1"><a href="#using-opengl-for-rendering-data">Using OpenGL for Rendering Data</a></li>
+<li class="level2"><a href="#selecting-rendering-mode">Selecting Rendering Mode</a></li>
+<li class="level1"><a href="#3d-axes">3D Axes</a></li>
+<li class="level1"><a href="#3d-themes">3D Themes</a></li>
+<li class="level1"><a href="#customizing-3d-scenes">Customizing 3D Scenes</a></li>
+<li class="level1"><a href="#customizing-items">Customizing Items</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Qt Data Visualization Overview</h1>
+<span class="subtitle"></span>
+<!-- $$$qtdatavisualization-overview.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>The Qt Data Visualization module provides a way to develop rapidly responding, complex, and dynamic 3D visualization for analytical demanding industries such as academic research and medical. Qt 3D Data Visualization provides 3D bars, scatter, and surface visualizations. Combining user interaction and real time 3D drawing visualizations enables creating user interfaces that use space effectively. Changing between 3D and 2D presentation enables truly utilizing the value of 3D in visualizing data.</p>
+<p>The look and feel of the graphs can be customized by using the predefined themes or defining new ones. In addition, scenes can be customized by specifying settings for the camera, and individual items can be customized by using predefined or user-defined meshes.</p>
+<p>Qt Data Visualization offers ready-made data proxies that can be used to visualize data from Qt item models and height maps. Each graph type has a basic proxy type, which accepts data in a format suitable for that visualization. For more information, see <a href="qtdatavisualization-data-handling.html">Qt Data Visualization Data Handling</a>.</p>
+<p>End users can interact with the data presented by graphs in several ways, including rotating graphs, zooming into and out of data, selecting items, and viewing 2D slices of the 3D data for increased readability. For more information, see <a href="qtdatavisualization-interacting-with-data.html">Qt Data Visualization Interacting with Data</a>.</p>
+<a name="graph-types"></a>
+<h2 id="graph-types">Graph Types</h2>
+<p>The Qt Data Visualization module provides the following 3D graph types:</p>
+<ul>
+<li><a href="qtdatavisualization-overview.html#3d-bar-graphs">3D bar graphs</a></li>
+<li><a href="qtdatavisualization-overview.html#3d-scatter-graphs">3D scatter graphs</a></li>
+<li><a href="qtdatavisualization-overview.html#3d-surface-graphs">3D surface graphs</a></li>
+</ul>
+<p>The <a href="qabstract3dgraph.html">QAbstract3DGraph</a> class subclasses a <a href="../qtgui/qwindow.html">QWindow</a> and provides a render loop for its own subclasses that implement the different graph types: <a href="q3dbars.html">Q3DBars</a>, <a href="q3dscatter.html">Q3DScatter</a>, and <a href="q3dsurface.html">Q3DSurface</a>. The graph type determines how the data is presented.</p>
+<a name="3d-bar-graphs"></a>
+<h3 >3D Bar Graphs</h3>
+<p>3D bar graphs present data as 3D bars that are grouped by category. The <a href="q3dbars.html">Q3DBars</a> class is used to create a graph and the <a href="qbar3dseries.html">QBar3DSeries</a> and <a href="qbardataproxy.html">QBarDataProxy</a> classes are used to set data to the graph, as well as to control the visual properties of the graph, such as draw mode and shading. In QML, the corresponding types are <a href="qml-qtdatavisualization-bars3d.html">Bars3D</a>, <a href="qml-qtdatavisualization-bar3dseries.html">Bar3DSeries</a>, and <a href="qml-qtdatavisualization-bardataproxy.html">BarDataProxy</a>.</p>
+<p class="centerAlign"><img src="images/q3dbars-minimal.png" alt="" /></p><p>For more information, see <a href="q3dbars.html#how-to-construct-a-minimal-q3dbars-graph">How to construct a minimal Q3DBars graph</a>, <a href="qtdatavisualization-bars-example.html">Bars Example</a>, and <a href="qtdatavisualization-qmlbars-example.html">Qt Quick 2 Bars Example</a>.</p>
+<a name="3d-scatter-graphs"></a>
+<h3 >3D Scatter Graphs</h3>
+<p>3D scatter graphs present data as a collection of points. The <a href="q3dscatter.html">Q3DScatter</a> class is used to create a graph and the <a href="qscatter3dseries.html">QScatter3DSeries</a> and <a href="qscatterdataproxy.html">QScatterDataProxy</a> classes are used to set data to the graph, as well as to control the visual properties of the graph. In QML, the corresponding types are <a href="qml-qtdatavisualization-scatter3d.html">Scatter3D</a>, <a href="qml-qtdatavisualization-scatter3dseries.html">Scatter3DSeries</a>, and <a href="qml-qtdatavisualization-scatterdataproxy.html">ScatterDataProxy</a>.</p>
+<p class="centerAlign"><img src="images/q3dscatter-minimal.png" alt="" /></p><p>For more information, see <a href="q3dscatter.html#how-to-construct-a-minimal-q3dscatter-graph">How to construct a minimal Q3DScatter graph</a>, <a href="qtdatavisualization-scatter-example.html">Scatter Example</a>, and <a href="qtdatavisualization-qmlscatter-example.html">Qt Quick 2 Scatter Example</a>.</p>
+<a name="3d-surface-graphs"></a>
+<h3 >3D Surface Graphs</h3>
+<p>3D surface graphs present data as 3D surface plots. The <a href="q3dsurface.html">Q3DSurface</a> class is used to create a graph and the <a href="qsurface3dseries.html">QSurface3DSeries</a> and <a href="qsurfacedataproxy.html">QSurfaceDataProxy</a> classes are used to set data to the graph, as well as to control the visual properties of the graph. In QML, the corresponding types are <a href="qml-qtdatavisualization-surface3d.html">Surface3D</a>, <a href="qml-qtdatavisualization-surface3dseries.html">Surface3DSeries</a>, and <a href="qml-qtdatavisualization-surfacedataproxy.html">SurfaceDataProxy</a>.</p>
+<p class="centerAlign"><img src="images/q3dsurface-minimal.png" alt="" /></p><p>For more information, see <a href="q3dsurface.html#how-to-construct-a-minimal-q3dsurface-graph">How to construct a minimal Q3DSurface graph</a>, <a href="qtdatavisualization-surface-example.html">Surface Example</a>, <a href="qtdatavisualization-texturesurface-example.html">Textured Surface Example</a>, <a href="qtdatavisualization-qmlsurface-example.html">Qt Quick 2 Surface Example</a>, and <a href="qtdatavisualization-qmlsurfacelayers-example.html">Qt Quick 2 Surface Multiseries Example</a>.</p>
+<a name="using-opengl-for-rendering-data"></a>
+<h2 id="using-opengl-for-rendering-data">Using OpenGL for Rendering Data</h2>
+<p>It is recommended to use OpenGL 2.1 or later for data rendering. If OpenGL ES2 is used (including Angle builds in Windows), the following features are not supported:</p>
+<ul>
+<li>Shadows</li>
+<li>Antialiasing</li>
+<li>Flat shading for surfaces</li>
+<li>Volumetric objects, because they use 3D textures</li>
+</ul>
+<p>Only OpenGL ES2 emulation is available for software renderer (that is, when using <a href="../qtcore/qcoreapplication.html#setAttribute">QCoreApplication::setAttribute</a>(<a href="../qtcore/qt.html#ApplicationAttribute-enum">Qt::AA_UseSoftwareOpenGL</a>)).</p>
+<a name="selecting-rendering-mode"></a>
+<h3 >Selecting Rendering Mode</h3>
+<p>In QML, you can set the <a href="qml-qtdatavisualization-abstractgraph3d.html#renderingMode-prop">AbstractGraph3D.RenderingMode</a> property to determine whether the graph will be rendered directly on the window background or to an offscreen surface that is then drawn during normal QML item rendering.</p>
+<p>Background rendering modes offer slightly better performance than the indirect rendering mode, at the cost of non-standard QML behavior. For example, the graphs do not obey the z ordering of QML items and they cannot be partially transparent. Therefore, changing the rendering mode is a question of performance versus quality.</p>
+<p>Qt Quick 2 uses a dedicated scenegraph for data rendering, and is therefore the best choice for data visualization.</p>
+<a name="3d-axes"></a>
+<h2 id="3d-axes">3D Axes</h2>
+<p>Qt Data Visualization supports the following axis types:</p>
+<ul>
+<li>Value axis</li>
+<li>Category axis</li>
+</ul>
+<p>An axis can be set up to show a line or a grid. Both axis types are specializations of the <a href="qabstract3daxis.html">QAbstract3DAxis</a> class or the <a href="qml-qtdatavisualization-abstractaxis3d.html">AbstractAxis3D</a> QML type.</p>
+<p>A value axis can be given a range of values and segment and subsegment counts to divide the range into. Labels are drawn between each segment. Grid lines are drawn between each segment and each subsegment. The value axis is implemented using the <a href="qvalue3daxis.html">QValue3DAxis</a> class or the <a href="qml-qtdatavisualization-valueaxis3d.html">ValueAxis3D</a> QML type.</p>
+<p>A category axis has named ranges and adjustable range widths. It is divided into equal-sized categories based on the data window size defined by the axis range. Labels are drawn to the positions of categories, if provided. Grid lines are drawn between categories, if visible. A category axis is implemented using the <a href="qcategory3daxis.html">QCategory3DAxis</a> class or the <a href="qml-qtdatavisualization-categoryaxis3d.html">CategoryAxis3D</a> QML type.</p>
+<p>If no axes are set explicitly for a graph, temporary default axes with no labels are created. These default axes can be modified via axis accessors, but as soon as any axis is set explicitly for a particular orientation, the default axis for that orientation is destroyed.</p>
+<p>All graph types support showing multiple series simultaneously. All the series do not need to contain the same number of rows and columns. Row and column labels are taken from the first series added, unless they are explicitly defined for the row and column axes.</p>
+<p>Axis formatters can be used to customize value axis grid lines and labels. The <a href="qvalue3daxisformatter.html">QValue3DAxisFormatter</a> class and <a href="qml-qtdatavisualization-valueaxis3dformatter.html">ValueAxis3DFormatter</a> QML type provide formatting rules for a linear value 3D axis. The <a href="qlogvalue3daxisformatter.html">QLogValue3DAxisFormatter</a> class and the <a href="qml-qtdatavisualization-logvalueaxis3dformatter.html">LogValueAxis3DFormatter</a> QML type provide formatting rules for a logarithmic value 3D axis.</p>
+<p>Polar horizontal axes can be used for surface and scatter graphs by setting the <a href="qabstract3dgraph.html#polar-prop">polar</a> property.</p>
+<a name="3d-themes"></a>
+<h2 id="3d-themes">3D Themes</h2>
+<p>A theme is a built-in collection of UI style related settings applied to all the visual elements of a graph, such as the colors, fonts, and visibility of the elements, as well as the strenght of the light and ambient light.</p>
+<p>Qt Charts comes with the following predefined themes that can be used as basis for custom themes:</p>
+<ul>
+<li><i>Qt</i> is a light theme with green as the base color.</li>
+<li><i>Primary colors</i> is a light theme with yellow as the base color.</li>
+<li><i>Digia</i> is a light theme with gray as the base color.</li>
+<li><i>Stone moss</i> is a medium dark theme with yellow as the base color.</li>
+<li><i>Army blue</i> is a medium light theme with blue as the base color.</li>
+<li><i>Retro</i> is a medium light theme with brown as the base color.</li>
+<li><i>Ebony</i> is a dark theme with white as the base color.</li>
+<li><i>Isabelle</i> is a dark theme with yellow as the base color.</li>
+<li><i>User defined</i> is the default theme that is meant to be customized. For more information, see <a href="qml-qtdatavisualization-theme3d.html#default-theme">Default Theme</a>.</li>
+</ul>
+<p>Custom themes can also be created from scratch.</p>
+<p>If a graph displays the data from several data series, some settings can be specified separately for each series. For example, different gradients can be specified for different layers of the graph to make it look more realistic. For an example, see <a href="qtdatavisualization-qmlsurfacelayers-example.html">Qt Quick 2 Surface Multiseries Example</a>.</p>
+<a name="customizing-3d-scenes"></a>
+<h2 id="customizing-3d-scenes">Customizing 3D Scenes</h2>
+<p>A 3D scene is implemented by using the <a href="q3dscene.html">Q3DScene</a> class or the <a href="qml-qtdatavisualization-scene3d.html">Scene3D</a> QML type. A scene contains a single active camera, implemented by using the <a href="q3dcamera.html">Q3DCamera</a> class or the <a href="qml-qtdatavisualization-camera3d.html">Camera3D</a> type, and a single active light source, implemented by using the <a href="q3dlight.html">Q3DLight</a> class or the <a href="qml-qtdatavisualization-light3d.html">Light3D</a> type. The light source is always positioned in relation to the camera. By default, the light position follows the camera automatically.</p>
+<p>The camera can be customized by specifying its preset position, rotation, and zoom level. For an example, see <a href="qtdatavisualization-qmlscatter-example.html">Qt Quick 2 Scatter Example</a>.</p>
+<a name="customizing-items"></a>
+<h2 id="customizing-items">Customizing Items</h2>
+<p>Qt Data Visualization has predefined mesh types for bars, items, and surfaces. The mesh type determines how a bar, an item, or a surface looks on a graph. A user-defined mesh can be specified as a Wavefront OBJ geometry definition file. For more variety, a quaternion can be set for mesh rotation.</p>
+<p>In addition to customizing individual items, the <a href="qcustom3ditem.html">QCustom3DItem</a> class or the <a href="qml-qtdatavisualization-custom3ditem.html">Custom3DItem</a> QML type can be used to add custom items to graphs. The items have a custom mesh, position, scaling, rotation, and an optional texture.</p>
+<p>The <a href="qcustom3dvolume.html">QCustom3DVolume</a> class and the <a href="qml-qtdatavisualization-custom3dvolume.html">Custom3DVolume</a> QML type can be used to create volume rendered objects to be added to a graph. A volume rendered object is a box with a 3D texture. Three slice planes are supported for the volume, one along each main axis of the volume.</p>
+<p>The The <a href="qcustom3dlabel.html">QCustom3DLabel</a> class and the <a href="qml-qtdatavisualization-custom3dlabel.html">Custom3DLabel</a> QML type implement custom labels with the specified text, font, position, scaling, and rotation. Label colors, borders, and background are determined by the active theme.</p>
+</div>
+<!-- @@@qtdatavisualization-overview.html -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

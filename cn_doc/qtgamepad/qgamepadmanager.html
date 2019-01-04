@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qgamepadmanager.cpp -->
+  <title>QGamepadManager Class | Qt Gamepad 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtgamepad-index.html">Qt Gamepad</a></td><td ><a href="qtgamepad-module.html">C++ Classes</a></td><td >QGamepadManager</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt 5.12.0 Reference Documentation</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-types">Public Types</a></li>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#public-slots">Public Slots</a></li>
+<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#static-public-members">Static Public Members</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">QGamepadManager Class</h1>
+<!-- $$$QGamepadManager-brief -->
+<p>Queries attached gamepads and related events. <a href="#details">More...</a></p>
+<!-- @@@QGamepadManager -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QGamepadManager&gt;</span>
+</td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += gamepad</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <a href="../qtcore/qobject.html">QObject</a></td></tr></table></div><ul>
+<li><a href="qgamepadmanager-members.html">List of all members, including inherited members</a></li>
+<li><a href="qgamepadmanager-obsolete.html">Obsolete members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2 id="public-types">Public Types</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> flags </td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#GamepadAxis-enum">GamepadAxes</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#GamepadAxis-enum">GamepadAxis</a></b> { AxisInvalid, AxisLeftX, AxisLeftY, AxisRightX, AxisRightY }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#GamepadButton-enum">GamepadButton</a></b> { ButtonInvalid, ButtonA, ButtonB, ButtonX, ..., ButtonGuide }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> flags </td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#GamepadButton-enum">GamepadButtons</a></b></td></tr>
+</table></div>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><a href="qgamepadmanager.html#connectedGamepads-prop">connectedGamepads</a></b> : const QList&lt;int&gt;</li>
+</ul>
+<ul>
+<li class="fn">1 property inherited from <a href="../qtcore/qobject.html#properties">QObject</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2 id="public-functions">Public Functions</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> const QList&lt;int&gt; </td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#connectedGamepads">connectedGamepads</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#gamepadName">gamepadName</a></b>(int <i>deviceId</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#isGamepadConnected">isGamepadConnected</a></b>(int <i>deviceId</i>) const</td></tr>
+</table></div>
+<ul>
+<li class="fn">31 public functions inherited from <a href="../qtcore/qobject.html#public-functions">QObject</a></li>
+</ul>
+<a name="public-slots"></a>
+<h2 id="public-slots">Public Slots</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#configureAxis">configureAxis</a></b>(int <i>deviceId</i>, QGamepadManager::GamepadAxis <i>axis</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#configureButton">configureButton</a></b>(int <i>deviceId</i>, QGamepadManager::GamepadButton <i>button</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#isConfigurationNeeded">isConfigurationNeeded</a></b>(int <i>deviceId</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#resetConfiguration">resetConfiguration</a></b>(int <i>deviceId</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#setCancelConfigureButton">setCancelConfigureButton</a></b>(int <i>deviceId</i>, QGamepadManager::GamepadButton <i>button</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#setSettingsFile">setSettingsFile</a></b>(const QString &amp;<i>file</i>)</td></tr>
+</table></div>
+<ul>
+<li class="fn">1 public slot inherited from <a href="../qtcore/qobject.html#public-slots">QObject</a></li>
+</ul>
+<a name="signals"></a>
+<h2 id="signals">Signals</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#axisConfigured">axisConfigured</a></b>(int <i>deviceId</i>, QGamepadManager::GamepadAxis <i>axis</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#buttonConfigured">buttonConfigured</a></b>(int <i>deviceId</i>, QGamepadManager::GamepadButton <i>button</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#configurationCanceled">configurationCanceled</a></b>(int <i>deviceId</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#connectedGamepads-prop">connectedGamepadsChanged</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#gamepadAxisEvent">gamepadAxisEvent</a></b>(int <i>deviceId</i>, QGamepadManager::GamepadAxis <i>axis</i>, double <i>value</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#gamepadButtonPressEvent">gamepadButtonPressEvent</a></b>(int <i>deviceId</i>, QGamepadManager::GamepadButton <i>button</i>, double <i>value</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#gamepadButtonReleaseEvent">gamepadButtonReleaseEvent</a></b>(int <i>deviceId</i>, QGamepadManager::GamepadButton <i>button</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#gamepadConnected">gamepadConnected</a></b>(int <i>deviceId</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#gamepadDisconnected">gamepadDisconnected</a></b>(int <i>deviceId</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#gamepadNameChanged">gamepadNameChanged</a></b>(int <i>deviceId</i>, const QString &amp;<i>name</i>)</td></tr>
+</table></div>
+<ul>
+<li class="fn">2 signals inherited from <a href="../qtcore/qobject.html#signals">QObject</a></li>
+</ul>
+<a name="static-public-members"></a>
+<h2 id="static-public-members">Static Public Members</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> QGamepadManager *</td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#instance">instance</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const QMetaObject </td><td class="memItemRight bottomAlign"><b><a href="qgamepadmanager.html#staticMetaObject-var">staticMetaObject</a></b></td></tr>
+</table></div>
+<ul>
+<li class="fn">9 static public members inherited from <a href="../qtcore/qobject.html#static-public-members">QObject</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 public variable inherited from <a href="../qtcore/qobject.html#public-variables">QObject</a></li>
+<li class="fn">9 protected functions inherited from <a href="../qtcore/qobject.html#protected-functions">QObject</a></li>
+<li class="fn">2 protected variables inherited from <a href="../qtcore/qobject.html#protected-variables">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QGamepadManager-description -->
+<div class="descr">
+<h2 id="details">Detailed Description</h2>
+<p>Queries attached gamepads and related events.</p>
+<p><a href="qgamepadmanager.html">QGamepadManager</a> provides a high-level interface for querying the attached gamepads and events related to all of the connected devices.</p>
+</div>
+<!-- @@@QGamepadManager -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$GamepadAxis$$$AxisInvalid$$$AxisLeftX$$$AxisLeftY$$$AxisRightX$$$AxisRightY -->
+<h3 class="flags" id="GamepadAxis-enum"><a name="GamepadAxis-enum"></a>enum QGamepadManager::<span class="name">GamepadAxis</span><br/>flags QGamepadManager::<span class="name">GamepadAxes</span></h3>
+<p>The GamepadAxes type is a typedef for <a href="../qtcore/qflags.html">QFlags</a>&lt;GamepadAxis&gt;. It stores an OR combination of GamepadAxis values.</p>
+<!-- @@@GamepadAxis -->
+<!-- $$$GamepadButton$$$ButtonInvalid$$$ButtonA$$$ButtonB$$$ButtonX$$$ButtonY$$$ButtonL1$$$ButtonR1$$$ButtonL2$$$ButtonR2$$$ButtonSelect$$$ButtonStart$$$ButtonL3$$$ButtonR3$$$ButtonUp$$$ButtonDown$$$ButtonRight$$$ButtonLeft$$$ButtonCenter$$$ButtonGuide -->
+<h3 class="flags" id="GamepadButton-enum"><a name="GamepadButton-enum"></a>enum QGamepadManager::<span class="name">GamepadButton</span><br/>flags QGamepadManager::<span class="name">GamepadButtons</span></h3>
+<p>The GamepadButtons type is a typedef for <a href="../qtcore/qflags.html">QFlags</a>&lt;GamepadButton&gt;. It stores an OR combination of GamepadButton values.</p>
+<!-- @@@GamepadButton -->
+</div>
+<div class="prop">
+<h2>Property Documentation</h2>
+<!-- $$$connectedGamepads-prop$$$connectedGamepads$$$connectedGamepadsChanged -->
+<h3 class="fn" id="connectedGamepads-prop"><a name="connectedGamepads-prop"></a><span class="name">connectedGamepads</span> : const <span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type">int</span>&gt;</h3>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> const QList&lt;int&gt; </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qgamepadmanager.html#connectedGamepads">connectedGamepads</a></b></span>() const</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>connectedGamepadsChanged</b></span>()</td></tr>
+</table></div>
+<!-- @@@connectedGamepads -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$axisConfigured[overload1]$$$axisConfiguredintQGamepadManager::GamepadAxis -->
+<h3 class="fn" id="axisConfigured"><a name="axisConfigured"></a><code>[signal] </code><span class="type">void</span> QGamepadManager::<span class="name">axisConfigured</span>(<span class="type">int</span> <i>deviceId</i>, <span class="type"><a href="qgamepadmanager.html#GamepadAxis-enum">QGamepadManager::GamepadAxis</a></span> <i>axis</i>)</h3>
+<!-- @@@axisConfigured -->
+<!-- $$$buttonConfigured[overload1]$$$buttonConfiguredintQGamepadManager::GamepadButton -->
+<h3 class="fn" id="buttonConfigured"><a name="buttonConfigured"></a><code>[signal] </code><span class="type">void</span> QGamepadManager::<span class="name">buttonConfigured</span>(<span class="type">int</span> <i>deviceId</i>, <span class="type"><a href="qgamepadmanager.html#GamepadButton-enum">QGamepadManager::GamepadButton</a></span> <i>button</i>)</h3>
+<!-- @@@buttonConfigured -->
+<!-- $$$configurationCanceled[overload1]$$$configurationCanceledint -->
+<h3 class="fn" id="configurationCanceled"><a name="configurationCanceled"></a><code>[signal] </code><span class="type">void</span> QGamepadManager::<span class="name">configurationCanceled</span>(<span class="type">int</span> <i>deviceId</i>)</h3>
+<!-- @@@configurationCanceled -->
+<!-- $$$configureAxis[overload1]$$$configureAxisintQGamepadManager::GamepadAxis -->
+<h3 class="fn" id="configureAxis"><a name="configureAxis"></a><code>[slot] </code><span class="type">bool</span> QGamepadManager::<span class="name">configureAxis</span>(<span class="type">int</span> <i>deviceId</i>, <span class="type"><a href="qgamepadmanager.html#GamepadAxis-enum">QGamepadManager::GamepadAxis</a></span> <i>axis</i>)</h3>
+<p>Configures <i>axis</i> on the gamepad with the specified <i>deviceId</i>. Returns <code>true</code> in case of success.</p>
+<!-- @@@configureAxis -->
+<!-- $$$configureButton[overload1]$$$configureButtonintQGamepadManager::GamepadButton -->
+<h3 class="fn" id="configureButton"><a name="configureButton"></a><code>[slot] </code><span class="type">bool</span> QGamepadManager::<span class="name">configureButton</span>(<span class="type">int</span> <i>deviceId</i>, <span class="type"><a href="qgamepadmanager.html#GamepadButton-enum">QGamepadManager::GamepadButton</a></span> <i>button</i>)</h3>
+<p>Configures the specified <i>button</i> on the gamepad with this <i>deviceId</i>. Returns <code>true</code> in case of success.</p>
+<!-- @@@configureButton -->
+<!-- $$$connectedGamepads -->
+<h3 class="fn" id="connectedGamepads"><a name="connectedGamepads"></a>const <span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type">int</span>&gt; QGamepadManager::<span class="name">connectedGamepads</span>() const</h3>
+<p>Returns a <a href="../qtcore/qlist.html">QList</a> containing the <a href="qgamepad.html#deviceId-prop">deviceId</a> values of the connected gamepads.</p>
+<p><b>Note:</b> Getter function for property <a href="qgamepadmanager.html#connectedGamepads-prop">connectedGamepads</a>. </p><!-- @@@connectedGamepads -->
+<!-- $$$gamepadAxisEvent[overload1]$$$gamepadAxisEventintQGamepadManager::GamepadAxisdouble -->
+<h3 class="fn" id="gamepadAxisEvent"><a name="gamepadAxisEvent"></a><code>[signal] </code><span class="type">void</span> QGamepadManager::<span class="name">gamepadAxisEvent</span>(<span class="type">int</span> <i>deviceId</i>, <span class="type"><a href="qgamepadmanager.html#GamepadAxis-enum">QGamepadManager::GamepadAxis</a></span> <i>axis</i>, <span class="type">double</span> <i>value</i>)</h3>
+<!-- @@@gamepadAxisEvent -->
+<!-- $$$gamepadButtonPressEvent[overload1]$$$gamepadButtonPressEventintQGamepadManager::GamepadButtondouble -->
+<h3 class="fn" id="gamepadButtonPressEvent"><a name="gamepadButtonPressEvent"></a><code>[signal] </code><span class="type">void</span> QGamepadManager::<span class="name">gamepadButtonPressEvent</span>(<span class="type">int</span> <i>deviceId</i>, <span class="type"><a href="qgamepadmanager.html#GamepadButton-enum">QGamepadManager::GamepadButton</a></span> <i>button</i>, <span class="type">double</span> <i>value</i>)</h3>
+<!-- @@@gamepadButtonPressEvent -->
+<!-- $$$gamepadButtonReleaseEvent[overload1]$$$gamepadButtonReleaseEventintQGamepadManager::GamepadButton -->
+<h3 class="fn" id="gamepadButtonReleaseEvent"><a name="gamepadButtonReleaseEvent"></a><code>[signal] </code><span class="type">void</span> QGamepadManager::<span class="name">gamepadButtonReleaseEvent</span>(<span class="type">int</span> <i>deviceId</i>, <span class="type"><a href="qgamepadmanager.html#GamepadButton-enum">QGamepadManager::GamepadButton</a></span> <i>button</i>)</h3>
+<!-- @@@gamepadButtonReleaseEvent -->
+<!-- $$$gamepadConnected[overload1]$$$gamepadConnectedint -->
+<h3 class="fn" id="gamepadConnected"><a name="gamepadConnected"></a><code>[signal] </code><span class="type">void</span> QGamepadManager::<span class="name">gamepadConnected</span>(<span class="type">int</span> <i>deviceId</i>)</h3>
+<!-- @@@gamepadConnected -->
+<!-- $$$gamepadDisconnected[overload1]$$$gamepadDisconnectedint -->
+<h3 class="fn" id="gamepadDisconnected"><a name="gamepadDisconnected"></a><code>[signal] </code><span class="type">void</span> QGamepadManager::<span class="name">gamepadDisconnected</span>(<span class="type">int</span> <i>deviceId</i>)</h3>
+<!-- @@@gamepadDisconnected -->
+<!-- $$$gamepadName[overload1]$$$gamepadNameint -->
+<h3 class="fn" id="gamepadName"><a name="gamepadName"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QGamepadManager::<span class="name">gamepadName</span>(<span class="type">int</span> <i>deviceId</i>) const</h3>
+<p>Returns the name of the gamepad identified by <i>deviceId</i>. If <i>deviceId</i> does not identify a connected gamepad, returns an empty string.</p>
+<p>This function was introduced in  Qt 5.11.</p>
+<!-- @@@gamepadName -->
+<!-- $$$gamepadNameChanged[overload1]$$$gamepadNameChangedintconstQString& -->
+<h3 class="fn" id="gamepadNameChanged"><a name="gamepadNameChanged"></a><code>[signal] </code><span class="type">void</span> QGamepadManager::<span class="name">gamepadNameChanged</span>(<span class="type">int</span> <i>deviceId</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>name</i>)</h3>
+<!-- @@@gamepadNameChanged -->
+<!-- $$$instance[overload1]$$$instance -->
+<h3 class="fn" id="instance"><a name="instance"></a><code>[static] </code><span class="type">QGamepadManager</span> *QGamepadManager::<span class="name">instance</span>()</h3>
+<p>Returns the instance of the <a href="qgamepadmanager.html">QGamepadManager</a>.</p>
+<!-- @@@instance -->
+<!-- $$$isConfigurationNeeded[overload1]$$$isConfigurationNeededint -->
+<h3 class="fn" id="isConfigurationNeeded"><a name="isConfigurationNeeded"></a><code>[slot] </code><span class="type">bool</span> QGamepadManager::<span class="name">isConfigurationNeeded</span>(<span class="type">int</span> <i>deviceId</i>) const</h3>
+<p>Returns a boolean indicating whether configuration is needed for the specified <i>deviceId</i>.</p>
+<!-- @@@isConfigurationNeeded -->
+<!-- $$$isGamepadConnected[overload1]$$$isGamepadConnectedint -->
+<h3 class="fn" id="isGamepadConnected"><a name="isGamepadConnected"></a><span class="type">bool</span> QGamepadManager::<span class="name">isGamepadConnected</span>(<span class="type">int</span> <i>deviceId</i>) const</h3>
+<p>Returns a boolean indicating whether the gamepad with the specified <i>deviceId</i> is connected or not.</p>
+<!-- @@@isGamepadConnected -->
+<!-- $$$resetConfiguration[overload1]$$$resetConfigurationint -->
+<h3 class="fn" id="resetConfiguration"><a name="resetConfiguration"></a><code>[slot] </code><span class="type">void</span> QGamepadManager::<span class="name">resetConfiguration</span>(<span class="type">int</span> <i>deviceId</i>)</h3>
+<p>Resets the configuration on the gamepad with the specified <i>deviceId</i>.</p>
+<!-- @@@resetConfiguration -->
+<!-- $$$setCancelConfigureButton[overload1]$$$setCancelConfigureButtonintQGamepadManager::GamepadButton -->
+<h3 class="fn" id="setCancelConfigureButton"><a name="setCancelConfigureButton"></a><code>[slot] </code><span class="type">bool</span> QGamepadManager::<span class="name">setCancelConfigureButton</span>(<span class="type">int</span> <i>deviceId</i>, <span class="type"><a href="qgamepadmanager.html#GamepadButton-enum">QGamepadManager::GamepadButton</a></span> <i>button</i>)</h3>
+<p>Configures <i>button</i> as the cancel button on the gamepad with id <i>deviceId</i>. Returns <code>true</code> in case of success.</p>
+<!-- @@@setCancelConfigureButton -->
+<!-- $$$setSettingsFile[overload1]$$$setSettingsFileconstQString& -->
+<h3 class="fn" id="setSettingsFile"><a name="setSettingsFile"></a><code>[slot] </code><span class="type">void</span> QGamepadManager::<span class="name">setSettingsFile</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>file</i>)</h3>
+<p>Sets the name of the <i>file</i> that stores the button and axis configuration data.</p>
+<!-- @@@setSettingsFile -->
+</div>
+<div class="vars">
+<h2>Member Variable Documentation</h2>
+</div>
+<div class="relnonmem">
+<h2>Related Non-Members</h2>
+</div>
+<div class="macros">
+<h2>Macro Documentation</h2>
+</div>
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

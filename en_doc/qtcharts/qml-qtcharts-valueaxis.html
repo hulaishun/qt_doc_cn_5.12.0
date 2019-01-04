@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qvalueaxis.cpp -->
+  <title>ValueAxis QML Type | Qt Charts 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcharts-index.html">Qt Charts</a></td><td ><a href="qtcharts-qmlmodule.html">QML Types</a></td><td >ValueAxis QML Type</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt Charts | Commercial or GPLv3</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#methods">Methods</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">ValueAxis QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$ValueAxis-brief -->
+<p>Adds values to a chart's axes. <a href="#details">More...</a></p>
+<!-- @@@ValueAxis -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtCharts 2.3</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Instantiates:</td><td class="memItemRight bottomAlign"> <a href="qml-qtcharts-valueaxis.html"><a href="qvalueaxis.html">QValueAxis</a></td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <p><a href="qml-qtcharts-abstractaxis.html">AbstractAxis</a></p>
+</td></tr></table></div><ul>
+<li><a href="qml-qtcharts-valueaxis-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtcharts-valueaxis.html#labelFormat-prop">labelFormat</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtcharts-valueaxis.html#max-prop">max</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtcharts-valueaxis.html#min-prop">min</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtcharts-valueaxis.html#minorTickCount-prop">minorTickCount</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtcharts-valueaxis.html#tickAnchor-prop">tickAnchor</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtcharts-valueaxis.html#tickCount-prop">tickCount</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtcharts-valueaxis.html#tickInterval-prop">tickInterval</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtcharts-valueaxis.html#tickType-prop">tickType</a></b></b> : enumeration</li>
+</ul>
+<a name="signals"></a>
+<h2 id="signals">Signals</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtcharts-valueaxis.html#rangeChanged-signal">rangeChanged</a></b></b>(string <i>min</i>,  string <i>max</i>)</li>
+</ul>
+<a name="methods"></a>
+<h2 id="methods">Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtcharts-valueaxis.html#applyNiceNumbers-method">applyNiceNumbers</a></b></b>()</li>
+</ul>
+<!-- $$$ValueAxis-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+<p>The <a href="qml-qtcharts-valueaxis.html">ValueAxis</a> type can be set up to show an axis line with tick marks, grid lines, and shades. The values on the axis are drawn at the positions of tick marks.</p>
+<p>The following example code illustrates how to use the <a href="qml-qtcharts-valueaxis.html">ValueAxis</a> type:</p>
+<pre class="cpp">
+
+  ChartView {
+      ValueAxis {
+          id: xAxis
+          min: <span class="number">0</span>
+          max: <span class="number">10</span>
+      }
+  <span class="comment">// Add a few series...</span>
+  }
+
+</pre>
+<!-- @@@ValueAxis -->
+<h2>Property Documentation</h2>
+<!-- $$$labelFormat -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="labelFormat-prop">
+<td class="tblQmlPropNode"><p>
+<a name="labelFormat-prop"></a><span class="name">labelFormat</span> : <span class="type"><a href="../qtqml/qml-real.html">real</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>The format string supports the following conversion specifiers, length modifiers, and flags provided by <code>printf()</code> in the standard C++ library: d, i, o, x, X, f, F, e, E, g, G, c.</p>
+<p>If <a href="qml-qtcharts-chartview.html#localizeNumbers-prop">ChartView.localizeNumbers</a> is <code>true</code>, the supported specifiers are limited to: d, e, E, f, g, G, and i. Also, only the precision modifier is supported. The rest of the formatting comes from the default <a href="../qtcore/qlocale.html">QLocale</a> of the application.</p>
+<p><b>See also </b><a href="../qtcore/qstring.html#asprintf">QString::asprintf()</a>.</p>
+</div></div><!-- @@@labelFormat -->
+<br/>
+<!-- $$$max -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="max-prop">
+<td class="tblQmlPropNode"><p>
+<a name="max-prop"></a><span class="name">max</span> : <span class="type"><a href="../qtqml/qml-real.html">real</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>The maximum value on the axis.</p>
+<p>When setting this property, the minimum value is adjusted if necessary, to ensure that the range remains valid.</p>
+</div></div><!-- @@@max -->
+<br/>
+<!-- $$$min -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="min-prop">
+<td class="tblQmlPropNode"><p>
+<a name="min-prop"></a><span class="name">min</span> : <span class="type"><a href="../qtqml/qml-real.html">real</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>The minimum value on the axis.</p>
+<p>When setting this property, the maximum value is adjusted if necessary, to ensure that the range remains valid.</p>
+</div></div><!-- @@@min -->
+<br/>
+<!-- $$$minorTickCount -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="minorTickCount-prop">
+<td class="tblQmlPropNode"><p>
+<a name="minorTickCount-prop"></a><span class="name">minorTickCount</span> : <span class="type"><a href="../qtqml/qml-int.html">int</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>The number of minor tick marks on the axis. This indicates how many grid lines are drawn between major ticks on the chart. Labels are not drawn for minor ticks. The default value is 0.</p>
+</div></div><!-- @@@minorTickCount -->
+<br/>
+<!-- $$$tickAnchor -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="tickAnchor-prop">
+<td class="tblQmlPropNode"><p>
+<a name="tickAnchor-prop"></a><span class="name">tickAnchor</span> : <span class="type"><a href="../qtqml/qml-real.html">real</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>The base value where the dynamically placed tick marks and labels are started from.</p>
+<p>This property was introduced in  QtCharts 2.3.</p>
+</div></div><!-- @@@tickAnchor -->
+<br/>
+<!-- $$$tickCount -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="tickCount-prop">
+<td class="tblQmlPropNode"><p>
+<a name="tickCount-prop"></a><span class="name">tickCount</span> : <span class="type"><a href="../qtqml/qml-int.html">int</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>The number of tick marks on the axis. This indicates how many grid lines are drawn on the chart. The default value is 5, and the number cannot be less than 2.</p>
+</div></div><!-- @@@tickCount -->
+<br/>
+<!-- $$$tickInterval -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="tickInterval-prop">
+<td class="tblQmlPropNode"><p>
+<a name="tickInterval-prop"></a><span class="name">tickInterval</span> : <span class="type"><a href="../qtqml/qml-real.html">real</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>The interval between dynamically placed tick marks and labels.</p>
+<p>This property was introduced in  QtCharts 2.3.</p>
+</div></div><!-- @@@tickInterval -->
+<br/>
+<!-- $$$tickType -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="tickType-prop">
+<td class="tblQmlPropNode"><p>
+<a name="tickType-prop"></a><span class="name">tickType</span> : <span class="type"><a href="../qtqml/qml-enumeration.html">enumeration</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>The positioning method of tick and labels.</p>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><code>ValueAxis.TicksDynamic</code></td><td class="topAlign">Ticks are placed according to <a href="qml-qtcharts-valueaxis.html#tickAnchor-prop">tickAnchor</a> and <a href="qml-qtcharts-valueaxis.html#tickInterval-prop">tickInterval</a> values.</td></tr>
+<tr><td class="topAlign"><code>ValueAxis.TicksFixed</code></td><td class="topAlign">Ticks are placed evenly across the axis range. The <a href="qml-qtcharts-valueaxis.html#tickCount-prop">tickCount</a> value specifies the number of ticks.</td></tr>
+</table></div>
+<p>This property was introduced in  QtCharts 2.3.</p>
+</div></div><!-- @@@tickType -->
+<br/>
+<h2>Signal Documentation</h2>
+<!-- $$$rangeChanged -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="rangeChanged-signal">
+<td class="tblQmlFuncNode"><p>
+<a name="rangeChanged-signal"></a><span class="name">rangeChanged</span>(<span class="type"><a href="../qtqml/qml-string.html">string</a></span> <i>min</i>,  <span class="type"><a href="../qtqml/qml-string.html">string</a></span> <i>max</i>)</p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>This signal is emitted when <i>min</i> or <i>max</i> value of the axis changes.</p>
+<p>The corresponding signal handler is <code>onRangeChanged</code>.</p>
+</div></div><!-- @@@rangeChanged -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$applyNiceNumbers -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="applyNiceNumbers-method">
+<td class="tblQmlFuncNode"><p>
+<a name="applyNiceNumbers-method"></a><span class="name">applyNiceNumbers</span>()</p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>Modifies the current range and number of tick marks on the axis to look <i>nice</i>. The algorithm considers numbers that can be expressed as a form of 1*10^n, 2* 10^n, or 5*10^n to be nice numbers. These numbers are used for setting spacing for the tick marks.</p>
+</div></div><!-- @@@applyNiceNumbers -->
+<br/>
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

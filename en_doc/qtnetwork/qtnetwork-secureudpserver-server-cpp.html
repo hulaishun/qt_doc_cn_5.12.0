@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>server.cpp Example File | Qt Network 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtnetwork-index.html">Qt Network</a></td><td ><a href="qtnetwork-secureudpserver-example.html">DTLS server</a></td><td >server.cpp Example File</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt 5.12.0 Reference Documentation</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">server.cpp Example File</h1>
+<span class="subtitle">secureudpserver/server.cpp</span>
+<!-- $$$secureudpserver/server.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp">
+
+  <span class="comment">/****************************************************************************
+  **
+  ** Copyright (C) 2018 The Qt Company Ltd.
+  ** Contact: https://www.qt.io/licensing/
+  **
+  ** This file is part of the examples of the Qt Toolkit.
+  **
+  ** $QT_BEGIN_LICENSE:BSD$
+  ** Commercial License Usage
+  ** Licensees holding valid commercial Qt licenses may use this file in
+  ** accordance with the commercial license agreement provided with the
+  ** Software or, alternatively, in accordance with the terms contained in
+  ** a written agreement between you and The Qt Company. For licensing terms
+  ** and conditions see https://www.qt.io/terms-conditions. For further
+  ** information use the contact form at https://www.qt.io/contact-us.
+  **
+  ** BSD License Usage
+  ** Alternatively, you may use this file under the terms of the BSD license
+  ** as follows:
+  **
+  ** &quot;Redistribution and use in source and binary forms, with or without
+  ** modification, are permitted provided that the following conditions are
+  ** met:
+  **   * Redistributions of source code must retain the above copyright
+  **     notice, this list of conditions and the following disclaimer.
+  **   * Redistributions in binary form must reproduce the above copyright
+  **     notice, this list of conditions and the following disclaimer in
+  **     the documentation and/or other materials provided with the
+  **     distribution.
+  **   * Neither the name of The Qt Company Ltd nor the names of its
+  **     contributors may be used to endorse or promote products derived
+  **     from this software without specific prior written permission.
+  **
+  **
+  ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+  **
+  ** $QT_END_LICENSE$
+  **
+  ****************************************************************************/</span>
+
+  <span class="preprocessor">#include &quot;server.h&quot;</span>
+
+  <span class="preprocessor">#include &lt;algorithm&gt;</span>
+
+  <span class="keyword">namespace</span> {
+
+  <span class="type"><a href="../qtcore/qstring.html">QString</a></span> peer_info(<span class="keyword">const</span> <span class="type"><a href="qhostaddress.html">QHostAddress</a></span> <span class="operator">&amp;</span>address<span class="operator">,</span> <span class="type"><a href="../qtcore/qtglobal.html#quint16-typedef">quint16</a></span> port)
+  {
+      <span class="keyword">const</span> <span class="keyword">static</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> info <span class="operator">=</span> <span class="type"><a href="../qtcore/qstring.html#QStringLiteral">QStringLiteral</a></span>(<span class="string">&quot;(%1:%2)&quot;</span>);
+      <span class="keyword">return</span> info<span class="operator">.</span>arg(address<span class="operator">.</span>toString())<span class="operator">.</span>arg(port);
+  }
+
+  <span class="type"><a href="../qtcore/qstring.html">QString</a></span> connection_info(<span class="type"><a href="../qtcore/qsharedpointer.html">QSharedPointer</a></span><span class="operator">&lt;</span><span class="type"><a href="qdtls.html">QDtls</a></span><span class="operator">&gt;</span> connection)
+  {
+      <span class="type"><a href="../qtcore/qstring.html">QString</a></span> info(DtlsServer<span class="operator">::</span>tr(<span class="string">&quot;Session cipher: &quot;</span>));
+      info <span class="operator">+</span><span class="operator">=</span> connection<span class="operator">-</span><span class="operator">&gt;</span>sessionCipher()<span class="operator">.</span>name();
+
+      info <span class="operator">+</span><span class="operator">=</span> DtlsServer<span class="operator">::</span>tr(<span class="string">&quot;; session protocol: &quot;</span>);
+      <span class="keyword">switch</span> (connection<span class="operator">-</span><span class="operator">&gt;</span>sessionProtocol()) {
+      <span class="keyword">case</span> <span class="type"><a href="qssl.html">QSsl</a></span><span class="operator">::</span>DtlsV1_0:
+          info <span class="operator">+</span><span class="operator">=</span> DtlsServer<span class="operator">::</span>tr(<span class="string">&quot;DTLS 1.0.&quot;</span>);
+          <span class="keyword">break</span>;
+      <span class="keyword">case</span> <span class="type"><a href="qssl.html">QSsl</a></span><span class="operator">::</span>DtlsV1_2:
+          info <span class="operator">+</span><span class="operator">=</span> DtlsServer<span class="operator">::</span>tr(<span class="string">&quot;DTLS 1.2.&quot;</span>);
+          <span class="keyword">break</span>;
+      <span class="keyword">case</span> <span class="type"><a href="qssl.html">QSsl</a></span><span class="operator">::</span>DtlsV1_2OrLater:
+          info <span class="operator">+</span><span class="operator">=</span> DtlsServer<span class="operator">::</span>tr(<span class="string">&quot;DTLS 1.2 or later.&quot;</span>);
+          <span class="keyword">break</span>;
+      <span class="keyword">default</span>:
+          info <span class="operator">+</span><span class="operator">=</span> DtlsServer<span class="operator">::</span>tr(<span class="string">&quot;Unknown protocol.&quot;</span>);
+      }
+
+      <span class="keyword">return</span> info;
+  }
+
+  } <span class="comment">// unnamed namespace</span>
+
+  DtlsServer<span class="operator">::</span>DtlsServer()
+  {
+      connect(<span class="operator">&amp;</span>serverSocket<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="qabstractsocket.html">QAbstractSocket</a></span><span class="operator">::</span>readyRead<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> <span class="operator">&amp;</span>DtlsServer<span class="operator">::</span>readyRead);
+
+      serverConfiguration <span class="operator">=</span> <span class="type"><a href="qsslconfiguration.html">QSslConfiguration</a></span><span class="operator">::</span>defaultDtlsConfiguration();
+      serverConfiguration<span class="operator">.</span>setPreSharedKeyIdentityHint(<span class="string">&quot;Qt DTLS example server&quot;</span>);
+      serverConfiguration<span class="operator">.</span>setPeerVerifyMode(<span class="type"><a href="qsslsocket.html">QSslSocket</a></span><span class="operator">::</span>VerifyNone);
+  }
+
+  DtlsServer<span class="operator">::</span><span class="operator">~</span>DtlsServer()
+  {
+      shutdown();
+  }
+
+  bool DtlsServer<span class="operator">::</span>listen(<span class="keyword">const</span> <span class="type"><a href="qhostaddress.html">QHostAddress</a></span> <span class="operator">&amp;</span>address<span class="operator">,</span> <span class="type"><a href="../qtcore/qtglobal.html#quint16-typedef">quint16</a></span> port)
+  {
+      <span class="keyword">if</span> (address <span class="operator">!</span><span class="operator">=</span> serverSocket<span class="operator">.</span>localAddress() <span class="operator">|</span><span class="operator">|</span> port <span class="operator">!</span><span class="operator">=</span> serverSocket<span class="operator">.</span>localPort()) {
+          shutdown();
+          listening <span class="operator">=</span> serverSocket<span class="operator">.</span>bind(address<span class="operator">,</span> port);
+          <span class="keyword">if</span> (<span class="operator">!</span>listening)
+              <span class="keyword">emit</span> errorMessage(serverSocket<span class="operator">.</span>errorString());
+      } <span class="keyword">else</span> {
+          listening <span class="operator">=</span> <span class="keyword">true</span>;
+      }
+
+      <span class="keyword">return</span> listening;
+  }
+
+  bool DtlsServer<span class="operator">::</span>isListening() <span class="keyword">const</span>
+  {
+      <span class="keyword">return</span> listening;
+  }
+
+  <span class="type">void</span> DtlsServer<span class="operator">::</span>close()
+  {
+      listening <span class="operator">=</span> <span class="keyword">false</span>;
+  }
+
+  <span class="type">void</span> DtlsServer<span class="operator">::</span>readyRead()
+  {
+      <span class="keyword">const</span> <span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> bytesToRead <span class="operator">=</span> serverSocket<span class="operator">.</span>pendingDatagramSize();
+      <span class="keyword">if</span> (bytesToRead <span class="operator">&lt;</span><span class="operator">=</span> <span class="number">0</span>) {
+          <span class="keyword">emit</span> warningMessage(tr(<span class="string">&quot;A spurious read notification&quot;</span>));
+          <span class="keyword">return</span>;
+      }
+
+      <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> dgram(bytesToRead<span class="operator">,</span> <span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Uninitialized);
+      <span class="type"><a href="qhostaddress.html">QHostAddress</a></span> peerAddress;
+      <span class="type"><a href="../qtcore/qtglobal.html#quint16-typedef">quint16</a></span> peerPort <span class="operator">=</span> <span class="number">0</span>;
+      <span class="keyword">const</span> <span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> bytesRead <span class="operator">=</span> serverSocket<span class="operator">.</span>readDatagram(dgram<span class="operator">.</span>data()<span class="operator">,</span> dgram<span class="operator">.</span>size()<span class="operator">,</span>
+                                                         <span class="operator">&amp;</span>peerAddress<span class="operator">,</span> <span class="operator">&amp;</span>peerPort);
+      <span class="keyword">if</span> (bytesRead <span class="operator">&lt;</span><span class="operator">=</span> <span class="number">0</span>) {
+          <span class="keyword">emit</span> warningMessage(tr(<span class="string">&quot;Failed to read a datagram: &quot;</span>) <span class="operator">+</span> serverSocket<span class="operator">.</span>errorString());
+          <span class="keyword">return</span>;
+      }
+
+      dgram<span class="operator">.</span>resize(bytesRead);
+      <span class="keyword">if</span> (peerAddress<span class="operator">.</span>isNull() <span class="operator">|</span><span class="operator">|</span> <span class="operator">!</span>peerPort) {
+          <span class="keyword">emit</span> warningMessage(tr(<span class="string">&quot;Failed to extract peer info (address, port)&quot;</span>));
+          <span class="keyword">return</span>;
+      }
+
+      <span class="keyword">const</span> <span class="keyword">auto</span> client <span class="operator">=</span> std<span class="operator">::</span>find_if(knownClients<span class="operator">.</span>begin()<span class="operator">,</span> knownClients<span class="operator">.</span>end()<span class="operator">,</span>
+                                       <span class="operator">[</span><span class="operator">&amp;</span><span class="operator">]</span>(<span class="keyword">const</span> DtlsConnection <span class="operator">&amp;</span>connection){
+          <span class="keyword">return</span> connection<span class="operator">-</span><span class="operator">&gt;</span>peerAddress() <span class="operator">=</span><span class="operator">=</span> peerAddress
+                 <span class="operator">&amp;</span><span class="operator">&amp;</span> connection<span class="operator">-</span><span class="operator">&gt;</span>peerPort() <span class="operator">=</span><span class="operator">=</span> peerPort;
+      });
+
+      <span class="keyword">if</span> (client <span class="operator">=</span><span class="operator">=</span> knownClients<span class="operator">.</span>end())
+          <span class="keyword">return</span> handleNewConnection(peerAddress<span class="operator">,</span> peerPort<span class="operator">,</span> dgram);
+
+      <span class="keyword">if</span> ((<span class="operator">*</span>client)<span class="operator">-</span><span class="operator">&gt;</span>isConnectionEncrypted()) {
+          decryptDatagram(<span class="operator">*</span>client<span class="operator">,</span> dgram);
+          <span class="keyword">if</span> ((<span class="operator">*</span>client)<span class="operator">-</span><span class="operator">&gt;</span>dtlsError() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qdtls.html#QDtlsError-enum">QDtlsError</a></span><span class="operator">::</span>RemoteClosedConnectionError)
+              knownClients<span class="operator">.</span>erase(client);
+          <span class="keyword">return</span>;
+      }
+
+      doHandshake(<span class="operator">*</span>client<span class="operator">,</span> dgram);
+  }
+
+  <span class="type">void</span> DtlsServer<span class="operator">::</span>pskRequired(<span class="type"><a href="qsslpresharedkeyauthenticator.html">QSslPreSharedKeyAuthenticator</a></span> <span class="operator">*</span>auth)
+  {
+      Q_ASSERT(auth);
+
+      <span class="keyword">emit</span> infoMessage(tr(<span class="string">&quot;PSK callback, received a client's identity: '%1'&quot;</span>)
+                       <span class="operator">.</span>arg(<span class="type"><a href="../qtcore/qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(auth<span class="operator">-</span><span class="operator">&gt;</span>identity())));
+      auth<span class="operator">-</span><span class="operator">&gt;</span>setPreSharedKey(<span class="type"><a href="../qtcore/qbytearray.html#QByteArrayLiteral">QByteArrayLiteral</a></span>(<span class="string">&quot;\x1a\x2b\x3c\x4d\x5e\x6f&quot;</span>));
+  }
+
+  <span class="type">void</span> DtlsServer<span class="operator">::</span>handleNewConnection(<span class="keyword">const</span> <span class="type"><a href="qhostaddress.html">QHostAddress</a></span> <span class="operator">&amp;</span>peerAddress<span class="operator">,</span>
+                                       <span class="type"><a href="../qtcore/qtglobal.html#quint16-typedef">quint16</a></span> peerPort<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> <span class="operator">&amp;</span>clientHello)
+  {
+      <span class="keyword">if</span> (<span class="operator">!</span>listening)
+          <span class="keyword">return</span>;
+
+      <span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> peerInfo <span class="operator">=</span> peer_info(peerAddress<span class="operator">,</span> peerPort);
+      <span class="keyword">if</span> (cookieSender<span class="operator">.</span>verifyClient(<span class="operator">&amp;</span>serverSocket<span class="operator">,</span> clientHello<span class="operator">,</span> peerAddress<span class="operator">,</span> peerPort)) {
+          <span class="keyword">emit</span> infoMessage(peerInfo <span class="operator">+</span> tr(<span class="string">&quot;: verified, starting a handshake&quot;</span>));
+          DtlsConnection newConnection(<span class="keyword">new</span> <span class="type"><a href="qdtls.html">QDtls</a></span>(<span class="type"><a href="qsslsocket.html">QSslSocket</a></span><span class="operator">::</span>SslServerMode));
+          newConnection<span class="operator">-</span><span class="operator">&gt;</span>setDtlsConfiguration(serverConfiguration);
+          newConnection<span class="operator">-</span><span class="operator">&gt;</span>setPeer(peerAddress<span class="operator">,</span> peerPort);
+          newConnection<span class="operator">-</span><span class="operator">&gt;</span>connect(newConnection<span class="operator">.</span>data()<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="qdtls.html">QDtls</a></span><span class="operator">::</span>pskRequired<span class="operator">,</span>
+                                 <span class="keyword">this</span><span class="operator">,</span> <span class="operator">&amp;</span>DtlsServer<span class="operator">::</span>pskRequired);
+          knownClients<span class="operator">.</span>push_back(newConnection);
+          doHandshake(newConnection<span class="operator">,</span> clientHello);
+      } <span class="keyword">else</span> <span class="keyword">if</span> (cookieSender<span class="operator">.</span>dtlsError() <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qdtls.html#QDtlsError-enum">QDtlsError</a></span><span class="operator">::</span>NoError) {
+          <span class="keyword">emit</span> errorMessage(tr(<span class="string">&quot;DTLS error: &quot;</span>) <span class="operator">+</span> cookieSender<span class="operator">.</span>dtlsErrorString());
+      } <span class="keyword">else</span> {
+          <span class="keyword">emit</span> infoMessage(peerInfo <span class="operator">+</span> tr(<span class="string">&quot;: not verified yet&quot;</span>));
+      }
+  }
+
+  <span class="type">void</span> DtlsServer<span class="operator">::</span>doHandshake(DtlsConnection newConnection<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> <span class="operator">&amp;</span>clientHello)
+  {
+      <span class="keyword">const</span> bool result <span class="operator">=</span> newConnection<span class="operator">-</span><span class="operator">&gt;</span>doHandshake(<span class="operator">&amp;</span>serverSocket<span class="operator">,</span> clientHello);
+      <span class="keyword">if</span> (<span class="operator">!</span>result) {
+          <span class="keyword">emit</span> errorMessage(newConnection<span class="operator">-</span><span class="operator">&gt;</span>dtlsErrorString());
+          <span class="keyword">return</span>;
+      }
+
+      <span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> peerInfo <span class="operator">=</span> peer_info(newConnection<span class="operator">-</span><span class="operator">&gt;</span>peerAddress()<span class="operator">,</span>
+                                         newConnection<span class="operator">-</span><span class="operator">&gt;</span>peerPort());
+      <span class="keyword">switch</span> (newConnection<span class="operator">-</span><span class="operator">&gt;</span>handshakeState()) {
+      <span class="keyword">case</span> <span class="type"><a href="qdtls.html">QDtls</a></span><span class="operator">::</span>HandshakeInProgress:
+          <span class="keyword">emit</span> infoMessage(peerInfo <span class="operator">+</span> tr(<span class="string">&quot;: handshake is in progress ...&quot;</span>));
+          <span class="keyword">break</span>;
+      <span class="keyword">case</span> <span class="type"><a href="qdtls.html">QDtls</a></span><span class="operator">::</span>HandshakeComplete:
+          <span class="keyword">emit</span> infoMessage(tr(<span class="string">&quot;Connection with %1 encrypted. %2&quot;</span>)
+                           <span class="operator">.</span>arg(peerInfo<span class="operator">,</span> connection_info(newConnection)));
+          <span class="keyword">break</span>;
+      <span class="keyword">default</span>:
+          Q_UNREACHABLE();
+      }
+  }
+
+  <span class="type">void</span> DtlsServer<span class="operator">::</span>decryptDatagram(DtlsConnection connection<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> <span class="operator">&amp;</span>clientMessage)
+  {
+      Q_ASSERT(connection<span class="operator">-</span><span class="operator">&gt;</span>isConnectionEncrypted());
+
+      <span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> peerInfo <span class="operator">=</span> peer_info(connection<span class="operator">-</span><span class="operator">&gt;</span>peerAddress()<span class="operator">,</span> connection<span class="operator">-</span><span class="operator">&gt;</span>peerPort());
+      <span class="keyword">const</span> <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> dgram <span class="operator">=</span> connection<span class="operator">-</span><span class="operator">&gt;</span>decryptDatagram(<span class="operator">&amp;</span>serverSocket<span class="operator">,</span> clientMessage);
+      <span class="keyword">if</span> (dgram<span class="operator">.</span>size()) {
+          <span class="keyword">emit</span> datagramReceived(peerInfo<span class="operator">,</span> clientMessage<span class="operator">,</span> dgram);
+          connection<span class="operator">-</span><span class="operator">&gt;</span>writeDatagramEncrypted(<span class="operator">&amp;</span>serverSocket<span class="operator">,</span> tr(<span class="string">&quot;to %1: ACK&quot;</span>)<span class="operator">.</span>arg(peerInfo)<span class="operator">.</span>toLatin1());
+      } <span class="keyword">else</span> <span class="keyword">if</span> (connection<span class="operator">-</span><span class="operator">&gt;</span>dtlsError() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qdtls.html#QDtlsError-enum">QDtlsError</a></span><span class="operator">::</span>NoError) {
+          <span class="keyword">emit</span> warningMessage(peerInfo <span class="operator">+</span> <span class="string">&quot;: &quot;</span> <span class="operator">+</span> tr(<span class="string">&quot;0 byte dgram, could be a re-connect attempt?&quot;</span>));
+      } <span class="keyword">else</span> {
+          <span class="keyword">emit</span> errorMessage(peerInfo <span class="operator">+</span> <span class="string">&quot;: &quot;</span> <span class="operator">+</span> connection<span class="operator">-</span><span class="operator">&gt;</span>dtlsErrorString());
+      }
+  }
+
+  <span class="type">void</span> DtlsServer<span class="operator">::</span>shutdown()
+  {
+      <span class="keyword">for</span> (DtlsConnection <span class="operator">&amp;</span>connection : knownClients)
+          connection<span class="operator">-</span><span class="operator">&gt;</span>shutdown(<span class="operator">&amp;</span>serverSocket);
+
+      knownClients<span class="operator">.</span>clear();
+      serverSocket<span class="operator">.</span>close();
+  }
+
+</pre>
+</div>
+<!-- @@@secureudpserver/server.cpp -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

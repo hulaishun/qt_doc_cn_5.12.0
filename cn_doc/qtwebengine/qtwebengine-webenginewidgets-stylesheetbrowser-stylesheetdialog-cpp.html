@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>stylesheetdialog.cpp Example File | Qt WebEngine 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtwebengine-index.html">Qt WebEngine</a></td><td ><a href="qtwebengine-webenginewidgets-stylesheetbrowser-example.html">WebEngine StyleSheet Browser Example</a></td><td >stylesheetdialog.cpp Example File</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt 5.12.0 Reference Documentation</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">stylesheetdialog.cpp Example File</h1>
+<span class="subtitle">webenginewidgets/stylesheetbrowser/stylesheetdialog.cpp</span>
+<!-- $$$webenginewidgets/stylesheetbrowser/stylesheetdialog.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp">
+
+  <span class="comment">/****************************************************************************
+  **
+  ** Copyright (C) 2017 The Qt Company Ltd.
+  ** Contact: https://www.qt.io/licensing/
+  **
+  ** This file is part of the examples of the Qt Toolkit.
+  **
+  ** $QT_BEGIN_LICENSE:BSD$
+  ** Commercial License Usage
+  ** Licensees holding valid commercial Qt licenses may use this file in
+  ** accordance with the commercial license agreement provided with the
+  ** Software or, alternatively, in accordance with the terms contained in
+  ** a written agreement between you and The Qt Company. For licensing terms
+  ** and conditions see https://www.qt.io/terms-conditions. For further
+  ** information use the contact form at https://www.qt.io/contact-us.
+  **
+  ** BSD License Usage
+  ** Alternatively, you may use this file under the terms of the BSD license
+  ** as follows:
+  **
+  ** &quot;Redistribution and use in source and binary forms, with or without
+  ** modification, are permitted provided that the following conditions are
+  ** met:
+  **   * Redistributions of source code must retain the above copyright
+  **     notice, this list of conditions and the following disclaimer.
+  **   * Redistributions in binary form must reproduce the above copyright
+  **     notice, this list of conditions and the following disclaimer in
+  **     the documentation and/or other materials provided with the
+  **     distribution.
+  **   * Neither the name of The Qt Company Ltd nor the names of its
+  **     contributors may be used to endorse or promote products derived
+  **     from this software without specific prior written permission.
+  **
+  **
+  ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+  **
+  ** $QT_END_LICENSE$
+  **
+  ****************************************************************************/</span>
+
+  <span class="preprocessor">#include &quot;mainwindow.h&quot;</span>
+  <span class="preprocessor">#include &quot;stylesheetdialog.h&quot;</span>
+  <span class="preprocessor">#include &quot;ui_stylesheetdialog.h&quot;</span>
+
+  StylesheetDialog<span class="operator">::</span>StylesheetDialog(<span class="type"><a href="../qtwidgets/qwidget.html">QWidget</a></span> <span class="operator">*</span>parent) :
+      <span class="type"><a href="../qtwidgets/qdialog.html">QDialog</a></span>(parent)<span class="operator">,</span>
+      ui(<span class="keyword">new</span> Ui<span class="operator">::</span>StylesheetDialog)
+  {
+      ui<span class="operator">-</span><span class="operator">&gt;</span>setupUi(<span class="keyword">this</span>);
+
+      connect(ui<span class="operator">-</span><span class="operator">&gt;</span>styleSheetList<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="../qtwidgets/qlistwidget.html">QListWidget</a></span><span class="operator">::</span>currentItemChanged<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> <span class="operator">&amp;</span>StylesheetDialog<span class="operator">::</span>currentStyleSheetChanged);
+      connect(ui<span class="operator">-</span><span class="operator">&gt;</span>styleSheetList<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="../qtwidgets/qlistwidget.html">QListWidget</a></span><span class="operator">::</span>itemClicked<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> <span class="operator">&amp;</span>StylesheetDialog<span class="operator">::</span>listItemClicked);
+      connect(ui<span class="operator">-</span><span class="operator">&gt;</span>fileNameEdit<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="../qtwidgets/qlineedit.html">QLineEdit</a></span><span class="operator">::</span>textChanged<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> <span class="operator">&amp;</span>StylesheetDialog<span class="operator">::</span>fileNameChanged);
+
+      connect(ui<span class="operator">-</span><span class="operator">&gt;</span>addButton<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="../qtwidgets/qpushbutton.html">QPushButton</a></span><span class="operator">::</span>clicked<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> <span class="operator">&amp;</span>StylesheetDialog<span class="operator">::</span>addButtonClicked);
+      connect(ui<span class="operator">-</span><span class="operator">&gt;</span>removeButton<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="../qtwidgets/qpushbutton.html">QPushButton</a></span><span class="operator">::</span>clicked<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> <span class="operator">&amp;</span>StylesheetDialog<span class="operator">::</span>removeButtonClicked);
+
+      <span class="type"><a href="../qtcore/qsettings.html">QSettings</a></span> settings;
+      settings<span class="operator">.</span>beginGroup(<span class="string">&quot;styleSheets&quot;</span>);
+      <span class="keyword">for</span> (<span class="keyword">auto</span> name : settings<span class="operator">.</span>allKeys()) {
+          <span class="type"><a href="../qtwidgets/qlistwidgetitem.html">QListWidgetItem</a></span> <span class="operator">*</span>listItem <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="../qtwidgets/qlistwidgetitem.html">QListWidgetItem</a></span>(name<span class="operator">,</span>  ui<span class="operator">-</span><span class="operator">&gt;</span>styleSheetList);
+          listItem<span class="operator">-</span><span class="operator">&gt;</span>setFlags(listItem<span class="operator">-</span><span class="operator">&gt;</span>flags() <span class="operator">|</span> <span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>ItemIsUserCheckable);
+          bool checked <span class="operator">=</span> settings<span class="operator">.</span>value(name)<span class="operator">.</span>value<span class="operator">&lt;</span>StyleSheet<span class="operator">&gt;</span>()<span class="operator">.</span>second;
+          listItem<span class="operator">-</span><span class="operator">&gt;</span>setCheckState(checked <span class="operator">?</span> <span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Checked : <span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Unchecked);
+      }
+      settings<span class="operator">.</span>endGroup();
+  }
+
+  StylesheetDialog<span class="operator">::</span><span class="operator">~</span>StylesheetDialog()
+  {
+      <span class="keyword">delete</span> ui;
+  }
+
+  <span class="type">void</span> StylesheetDialog<span class="operator">::</span>currentStyleSheetChanged(<span class="type"><a href="../qtwidgets/qlistwidgetitem.html">QListWidgetItem</a></span> <span class="operator">*</span>current<span class="operator">,</span> <span class="type"><a href="../qtwidgets/qlistwidgetitem.html">QListWidgetItem</a></span> <span class="operator">*</span>previous)
+  {
+      <span class="keyword">if</span> (<span class="operator">!</span>previous) {
+          <span class="comment">// Select the first item on startup</span>
+          ui<span class="operator">-</span><span class="operator">&gt;</span>styleSheetList<span class="operator">-</span><span class="operator">&gt;</span>setCurrentItem(current);
+      }
+
+      <span class="keyword">if</span> (<span class="operator">!</span>current) {
+          ui<span class="operator">-</span><span class="operator">&gt;</span>fileNameEdit<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="type"><a href="../qtcore/qstring.html">QString</a></span>());
+          ui<span class="operator">-</span><span class="operator">&gt;</span>sourceCodeEdit<span class="operator">-</span><span class="operator">&gt;</span>setPlainText(<span class="type"><a href="../qtcore/qstring.html">QString</a></span>());
+          <span class="keyword">return</span>;
+      }
+
+      <span class="type"><a href="../qtcore/qsettings.html">QSettings</a></span> settings;
+      settings<span class="operator">.</span>beginGroup(<span class="string">&quot;styleSheets&quot;</span>);
+      ui<span class="operator">-</span><span class="operator">&gt;</span>fileNameEdit<span class="operator">-</span><span class="operator">&gt;</span>setText(current<span class="operator">-</span><span class="operator">&gt;</span>text());
+      <span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> source <span class="operator">=</span> settings<span class="operator">.</span>value(current<span class="operator">-</span><span class="operator">&gt;</span>text())<span class="operator">.</span>value<span class="operator">&lt;</span>StyleSheet<span class="operator">&gt;</span>()<span class="operator">.</span>first;
+      ui<span class="operator">-</span><span class="operator">&gt;</span>sourceCodeEdit<span class="operator">-</span><span class="operator">&gt;</span>setPlainText(source);
+      settings<span class="operator">.</span>endGroup();
+  }
+
+  <span class="type">void</span> StylesheetDialog<span class="operator">::</span>listItemClicked(<span class="type"><a href="../qtwidgets/qlistwidgetitem.html">QListWidgetItem</a></span> <span class="operator">*</span>item)
+  {
+      MainWindow <span class="operator">*</span>window <span class="operator">=</span> <span class="keyword">static_cast</span><span class="operator">&lt;</span>MainWindow <span class="operator">*</span><span class="operator">&gt;</span>(parent());
+      <span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> name <span class="operator">=</span> item<span class="operator">-</span><span class="operator">&gt;</span>text();
+      bool checkedStateChanged <span class="operator">=</span>
+              (item<span class="operator">-</span><span class="operator">&gt;</span>checkState() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Checked <span class="operator">&amp;</span><span class="operator">&amp;</span> <span class="operator">!</span>window<span class="operator">-</span><span class="operator">&gt;</span>hasStyleSheet(name)) <span class="operator">|</span><span class="operator">|</span>
+              (item<span class="operator">-</span><span class="operator">&gt;</span>checkState() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Unchecked <span class="operator">&amp;</span><span class="operator">&amp;</span> window<span class="operator">-</span><span class="operator">&gt;</span>hasStyleSheet(name));
+      <span class="keyword">if</span> (<span class="operator">!</span>checkedStateChanged)
+          <span class="keyword">return</span>;
+
+      <span class="type"><a href="../qtcore/qsettings.html">QSettings</a></span> settings;
+      settings<span class="operator">.</span>beginGroup(<span class="string">&quot;styleSheets&quot;</span>);
+      <span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> source <span class="operator">=</span> settings<span class="operator">.</span>value(name)<span class="operator">.</span>value<span class="operator">&lt;</span>StyleSheet<span class="operator">&gt;</span>()<span class="operator">.</span>first;
+
+      <span class="keyword">if</span> (item<span class="operator">-</span><span class="operator">&gt;</span>checkState() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Checked) {
+          settings<span class="operator">.</span>setValue(name<span class="operator">,</span> <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span><span class="operator">::</span>fromValue(<a href="../qtcore/qpair.html#qMakePair">qMakePair</a>(source<span class="operator">,</span> <span class="keyword">true</span>)));
+          window<span class="operator">-</span><span class="operator">&gt;</span>insertStyleSheet(name<span class="operator">,</span> source<span class="operator">,</span> <span class="keyword">true</span>);
+      } <span class="keyword">else</span> {
+          settings<span class="operator">.</span>setValue(name<span class="operator">,</span> <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span><span class="operator">::</span>fromValue(<a href="../qtcore/qpair.html#qMakePair">qMakePair</a>(source<span class="operator">,</span> <span class="keyword">false</span>)));
+          window<span class="operator">-</span><span class="operator">&gt;</span>removeStyleSheet(name<span class="operator">,</span> <span class="keyword">true</span>);
+      }
+
+      settings<span class="operator">.</span>endGroup();
+  }
+
+  <span class="type">void</span> StylesheetDialog<span class="operator">::</span>fileNameChanged(<span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> <span class="operator">&amp;</span>text)
+  {
+      <span class="type"><a href="../qtcore/qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="../qtwidgets/qlistwidgetitem.html">QListWidgetItem</a></span> <span class="operator">*</span><span class="operator">&gt;</span> items <span class="operator">=</span> ui<span class="operator">-</span><span class="operator">&gt;</span>styleSheetList<span class="operator">-</span><span class="operator">&gt;</span>findItems(text<span class="operator">,</span> <span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>MatchFixedString);
+      <span class="keyword">if</span> (items<span class="operator">.</span>size())
+          ui<span class="operator">-</span><span class="operator">&gt;</span>addButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+      <span class="keyword">else</span>
+          ui<span class="operator">-</span><span class="operator">&gt;</span>addButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">true</span>);
+  }
+
+  <span class="type">void</span> StylesheetDialog<span class="operator">::</span>addButtonClicked()
+  {
+      <span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> name <span class="operator">=</span> ui<span class="operator">-</span><span class="operator">&gt;</span>fileNameEdit<span class="operator">-</span><span class="operator">&gt;</span>text();
+      <span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> source <span class="operator">=</span> ui<span class="operator">-</span><span class="operator">&gt;</span>sourceCodeEdit<span class="operator">-</span><span class="operator">&gt;</span>toPlainText();
+      <span class="keyword">if</span> (name<span class="operator">.</span>isEmpty() <span class="operator">|</span><span class="operator">|</span> source<span class="operator">.</span>isEmpty())
+          <span class="keyword">return</span>;
+
+      <span class="type"><a href="../qtwidgets/qlistwidgetitem.html">QListWidgetItem</a></span> <span class="operator">*</span>listItem <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="../qtwidgets/qlistwidgetitem.html">QListWidgetItem</a></span>(ui<span class="operator">-</span><span class="operator">&gt;</span>fileNameEdit<span class="operator">-</span><span class="operator">&gt;</span>text()<span class="operator">,</span>  ui<span class="operator">-</span><span class="operator">&gt;</span>styleSheetList);
+      listItem<span class="operator">-</span><span class="operator">&gt;</span>setFlags(listItem<span class="operator">-</span><span class="operator">&gt;</span>flags() <span class="operator">|</span> <span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>ItemIsUserCheckable);
+      listItem<span class="operator">-</span><span class="operator">&gt;</span>setCheckState(<span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Checked);
+
+      MainWindow <span class="operator">*</span>window <span class="operator">=</span> <span class="keyword">static_cast</span><span class="operator">&lt;</span>MainWindow <span class="operator">*</span><span class="operator">&gt;</span>(parent());
+      window<span class="operator">-</span><span class="operator">&gt;</span>insertStyleSheet(name<span class="operator">,</span> source<span class="operator">,</span> <span class="keyword">true</span>);
+
+      <span class="type"><a href="../qtcore/qsettings.html">QSettings</a></span> settings;
+      settings<span class="operator">.</span>beginGroup(<span class="string">&quot;styleSheets&quot;</span>);
+      settings<span class="operator">.</span>setValue(name<span class="operator">,</span> <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span><span class="operator">::</span>fromValue(<a href="../qtcore/qpair.html#qMakePair">qMakePair</a>(source<span class="operator">,</span> <span class="keyword">true</span>)));
+      settings<span class="operator">.</span>endGroup();
+
+      ui<span class="operator">-</span><span class="operator">&gt;</span>addButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+  }
+
+  <span class="type">void</span> StylesheetDialog<span class="operator">::</span>removeButtonClicked()
+  {
+      <span class="keyword">if</span> (ui<span class="operator">-</span><span class="operator">&gt;</span>styleSheetList<span class="operator">-</span><span class="operator">&gt;</span>selectedItems()<span class="operator">.</span>isEmpty())
+          <span class="keyword">return</span>;
+
+      MainWindow <span class="operator">*</span>window <span class="operator">=</span> <span class="keyword">static_cast</span><span class="operator">&lt;</span>MainWindow <span class="operator">*</span><span class="operator">&gt;</span>(parent());
+      <span class="type"><a href="../qtcore/qsettings.html">QSettings</a></span> settings;
+      settings<span class="operator">.</span>beginGroup(<span class="string">&quot;styleSheets&quot;</span>);
+
+      <span class="type"><a href="../qtwidgets/qlistwidgetitem.html">QListWidgetItem</a></span> <span class="operator">*</span>item <span class="operator">=</span> ui<span class="operator">-</span><span class="operator">&gt;</span>styleSheetList<span class="operator">-</span><span class="operator">&gt;</span>selectedItems()<span class="operator">.</span>first();
+      <span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> name <span class="operator">=</span> item<span class="operator">-</span><span class="operator">&gt;</span>text();
+      window<span class="operator">-</span><span class="operator">&gt;</span>removeStyleSheet(name<span class="operator">,</span> <span class="keyword">true</span>);
+      settings<span class="operator">.</span>remove(name);
+      <span class="keyword">delete</span> item;
+
+      settings<span class="operator">.</span>endGroup();
+  }
+
+</pre>
+</div>
+<!-- @@@webenginewidgets/stylesheetbrowser/stylesheetdialog.cpp -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

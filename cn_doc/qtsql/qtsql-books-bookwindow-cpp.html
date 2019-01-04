@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>bookwindow.cpp Example File | Qt SQL 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtsql-index.html">Qt SQL</a></td><td ><a href="qtsql-books-example.html">Books</a></td><td >bookwindow.cpp Example File</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt 5.12.0 Reference Documentation</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">bookwindow.cpp Example File</h1>
+<span class="subtitle">books/bookwindow.cpp</span>
+<!-- $$$books/bookwindow.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp">
+
+  <span class="comment">/****************************************************************************
+  **
+  ** Copyright (C) 2016 The Qt Company Ltd.
+  ** Contact: https://www.qt.io/licensing/
+  **
+  ** This file is part of the demonstration applications of the Qt Toolkit.
+  **
+  ** $QT_BEGIN_LICENSE:BSD$
+  ** Commercial License Usage
+  ** Licensees holding valid commercial Qt licenses may use this file in
+  ** accordance with the commercial license agreement provided with the
+  ** Software or, alternatively, in accordance with the terms contained in
+  ** a written agreement between you and The Qt Company. For licensing terms
+  ** and conditions see https://www.qt.io/terms-conditions. For further
+  ** information use the contact form at https://www.qt.io/contact-us.
+  **
+  ** BSD License Usage
+  ** Alternatively, you may use this file under the terms of the BSD license
+  ** as follows:
+  **
+  ** &quot;Redistribution and use in source and binary forms, with or without
+  ** modification, are permitted provided that the following conditions are
+  ** met:
+  **   * Redistributions of source code must retain the above copyright
+  **     notice, this list of conditions and the following disclaimer.
+  **   * Redistributions in binary form must reproduce the above copyright
+  **     notice, this list of conditions and the following disclaimer in
+  **     the documentation and/or other materials provided with the
+  **     distribution.
+  **   * Neither the name of The Qt Company Ltd nor the names of its
+  **     contributors may be used to endorse or promote products derived
+  **     from this software without specific prior written permission.
+  **
+  **
+  ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+  **
+  ** $QT_END_LICENSE$
+  **
+  ****************************************************************************/</span>
+
+  <span class="preprocessor">#include &quot;bookwindow.h&quot;</span>
+  <span class="preprocessor">#include &quot;bookdelegate.h&quot;</span>
+  <span class="preprocessor">#include &quot;initdb.h&quot;</span>
+
+  <span class="preprocessor">#include &lt;QtSql&gt;</span>
+
+  BookWindow<span class="operator">::</span>BookWindow()
+  {
+      ui<span class="operator">.</span>setupUi(<span class="keyword">this</span>);
+
+      <span class="keyword">if</span> (<span class="operator">!</span><span class="type"><a href="qsqldatabase.html">QSqlDatabase</a></span><span class="operator">::</span>drivers()<span class="operator">.</span>contains(<span class="string">&quot;QSQLITE&quot;</span>))
+          <span class="type"><a href="../qtwidgets/qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>critical(
+                      <span class="keyword">this</span><span class="operator">,</span>
+                      <span class="string">&quot;Unable to load database&quot;</span><span class="operator">,</span>
+                      <span class="string">&quot;This demo needs the SQLITE driver&quot;</span>
+                      );
+
+      <span class="comment">// Initialize the database:</span>
+      <span class="type"><a href="qsqlerror.html">QSqlError</a></span> err <span class="operator">=</span> initDb();
+      <span class="keyword">if</span> (err<span class="operator">.</span>type() <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qsqlerror.html">QSqlError</a></span><span class="operator">::</span>NoError) {
+          showError(err);
+          <span class="keyword">return</span>;
+      }
+
+      <span class="comment">// Create the data model:</span>
+      model <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qsqlrelationaltablemodel.html">QSqlRelationalTableModel</a></span>(ui<span class="operator">.</span>bookTable);
+      model<span class="operator">-</span><span class="operator">&gt;</span>setEditStrategy(<span class="type"><a href="qsqltablemodel.html">QSqlTableModel</a></span><span class="operator">::</span>OnManualSubmit);
+      model<span class="operator">-</span><span class="operator">&gt;</span>setTable(<span class="string">&quot;books&quot;</span>);
+
+      <span class="comment">// Remember the indexes of the columns:</span>
+      authorIdx <span class="operator">=</span> model<span class="operator">-</span><span class="operator">&gt;</span>fieldIndex(<span class="string">&quot;author&quot;</span>);
+      genreIdx <span class="operator">=</span> model<span class="operator">-</span><span class="operator">&gt;</span>fieldIndex(<span class="string">&quot;genre&quot;</span>);
+
+      <span class="comment">// Set the relations to the other database tables:</span>
+      model<span class="operator">-</span><span class="operator">&gt;</span>setRelation(authorIdx<span class="operator">,</span> <span class="type"><a href="qsqlrelation.html">QSqlRelation</a></span>(<span class="string">&quot;authors&quot;</span><span class="operator">,</span> <span class="string">&quot;id&quot;</span><span class="operator">,</span> <span class="string">&quot;name&quot;</span>));
+      model<span class="operator">-</span><span class="operator">&gt;</span>setRelation(genreIdx<span class="operator">,</span> <span class="type"><a href="qsqlrelation.html">QSqlRelation</a></span>(<span class="string">&quot;genres&quot;</span><span class="operator">,</span> <span class="string">&quot;id&quot;</span><span class="operator">,</span> <span class="string">&quot;name&quot;</span>));
+
+      <span class="comment">// Set the localized header captions:</span>
+      model<span class="operator">-</span><span class="operator">&gt;</span>setHeaderData(authorIdx<span class="operator">,</span> <span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Horizontal<span class="operator">,</span> tr(<span class="string">&quot;Author Name&quot;</span>));
+      model<span class="operator">-</span><span class="operator">&gt;</span>setHeaderData(genreIdx<span class="operator">,</span> <span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Horizontal<span class="operator">,</span> tr(<span class="string">&quot;Genre&quot;</span>));
+      model<span class="operator">-</span><span class="operator">&gt;</span>setHeaderData(model<span class="operator">-</span><span class="operator">&gt;</span>fieldIndex(<span class="string">&quot;title&quot;</span>)<span class="operator">,</span>
+                           <span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Horizontal<span class="operator">,</span> tr(<span class="string">&quot;Title&quot;</span>));
+      model<span class="operator">-</span><span class="operator">&gt;</span>setHeaderData(model<span class="operator">-</span><span class="operator">&gt;</span>fieldIndex(<span class="string">&quot;year&quot;</span>)<span class="operator">,</span> <span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Horizontal<span class="operator">,</span> tr(<span class="string">&quot;Year&quot;</span>));
+      model<span class="operator">-</span><span class="operator">&gt;</span>setHeaderData(model<span class="operator">-</span><span class="operator">&gt;</span>fieldIndex(<span class="string">&quot;rating&quot;</span>)<span class="operator">,</span>
+                           <span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Horizontal<span class="operator">,</span> tr(<span class="string">&quot;Rating&quot;</span>));
+
+      <span class="comment">// Populate the model:</span>
+      <span class="keyword">if</span> (<span class="operator">!</span>model<span class="operator">-</span><span class="operator">&gt;</span>select()) {
+          showError(model<span class="operator">-</span><span class="operator">&gt;</span>lastError());
+          <span class="keyword">return</span>;
+      }
+
+      <span class="comment">// Set the model and hide the ID column:</span>
+      ui<span class="operator">.</span>bookTable<span class="operator">-</span><span class="operator">&gt;</span>setModel(model);
+      ui<span class="operator">.</span>bookTable<span class="operator">-</span><span class="operator">&gt;</span>setItemDelegate(<span class="keyword">new</span> BookDelegate(ui<span class="operator">.</span>bookTable));
+      ui<span class="operator">.</span>bookTable<span class="operator">-</span><span class="operator">&gt;</span>setColumnHidden(model<span class="operator">-</span><span class="operator">&gt;</span>fieldIndex(<span class="string">&quot;id&quot;</span>)<span class="operator">,</span> <span class="keyword">true</span>);
+      ui<span class="operator">.</span>bookTable<span class="operator">-</span><span class="operator">&gt;</span>setSelectionMode(<span class="type"><a href="../qtwidgets/qabstractitemview.html">QAbstractItemView</a></span><span class="operator">::</span>SingleSelection);
+
+      <span class="comment">// Initialize the Author combo box:</span>
+      ui<span class="operator">.</span>authorEdit<span class="operator">-</span><span class="operator">&gt;</span>setModel(model<span class="operator">-</span><span class="operator">&gt;</span>relationModel(authorIdx));
+      ui<span class="operator">.</span>authorEdit<span class="operator">-</span><span class="operator">&gt;</span>setModelColumn(
+                  model<span class="operator">-</span><span class="operator">&gt;</span>relationModel(authorIdx)<span class="operator">-</span><span class="operator">&gt;</span>fieldIndex(<span class="string">&quot;name&quot;</span>));
+
+      ui<span class="operator">.</span>genreEdit<span class="operator">-</span><span class="operator">&gt;</span>setModel(model<span class="operator">-</span><span class="operator">&gt;</span>relationModel(genreIdx));
+      ui<span class="operator">.</span>genreEdit<span class="operator">-</span><span class="operator">&gt;</span>setModelColumn(
+                  model<span class="operator">-</span><span class="operator">&gt;</span>relationModel(genreIdx)<span class="operator">-</span><span class="operator">&gt;</span>fieldIndex(<span class="string">&quot;name&quot;</span>));
+
+      <span class="comment">// Lock and prohibit resizing of the width of the rating column:</span>
+      ui<span class="operator">.</span>bookTable<span class="operator">-</span><span class="operator">&gt;</span>horizontalHeader()<span class="operator">-</span><span class="operator">&gt;</span>setSectionResizeMode(
+                  model<span class="operator">-</span><span class="operator">&gt;</span>fieldIndex(<span class="string">&quot;rating&quot;</span>)<span class="operator">,</span>
+                  <span class="type"><a href="../qtwidgets/qheaderview.html">QHeaderView</a></span><span class="operator">::</span>ResizeToContents);
+
+      <span class="type"><a href="../qtwidgets/qdatawidgetmapper.html">QDataWidgetMapper</a></span> <span class="operator">*</span>mapper <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="../qtwidgets/qdatawidgetmapper.html">QDataWidgetMapper</a></span>(<span class="keyword">this</span>);
+      mapper<span class="operator">-</span><span class="operator">&gt;</span>setModel(model);
+      mapper<span class="operator">-</span><span class="operator">&gt;</span>setItemDelegate(<span class="keyword">new</span> BookDelegate(<span class="keyword">this</span>));
+      mapper<span class="operator">-</span><span class="operator">&gt;</span>addMapping(ui<span class="operator">.</span>titleEdit<span class="operator">,</span> model<span class="operator">-</span><span class="operator">&gt;</span>fieldIndex(<span class="string">&quot;title&quot;</span>));
+      mapper<span class="operator">-</span><span class="operator">&gt;</span>addMapping(ui<span class="operator">.</span>yearEdit<span class="operator">,</span> model<span class="operator">-</span><span class="operator">&gt;</span>fieldIndex(<span class="string">&quot;year&quot;</span>));
+      mapper<span class="operator">-</span><span class="operator">&gt;</span>addMapping(ui<span class="operator">.</span>authorEdit<span class="operator">,</span> authorIdx);
+      mapper<span class="operator">-</span><span class="operator">&gt;</span>addMapping(ui<span class="operator">.</span>genreEdit<span class="operator">,</span> genreIdx);
+      mapper<span class="operator">-</span><span class="operator">&gt;</span>addMapping(ui<span class="operator">.</span>ratingEdit<span class="operator">,</span> model<span class="operator">-</span><span class="operator">&gt;</span>fieldIndex(<span class="string">&quot;rating&quot;</span>));
+
+      connect(ui<span class="operator">.</span>bookTable<span class="operator">-</span><span class="operator">&gt;</span>selectionModel()<span class="operator">,</span>
+              <span class="operator">&amp;</span><span class="type"><a href="../qtcore/qitemselectionmodel.html">QItemSelectionModel</a></span><span class="operator">::</span>currentRowChanged<span class="operator">,</span>
+              mapper<span class="operator">,</span>
+              <span class="operator">&amp;</span><span class="type"><a href="../qtwidgets/qdatawidgetmapper.html">QDataWidgetMapper</a></span><span class="operator">::</span>setCurrentModelIndex
+              );
+
+      ui<span class="operator">.</span>bookTable<span class="operator">-</span><span class="operator">&gt;</span>setCurrentIndex(model<span class="operator">-</span><span class="operator">&gt;</span>index(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>));
+      createMenuBar();
+  }
+
+  <span class="type">void</span> BookWindow<span class="operator">::</span>showError(<span class="keyword">const</span> <span class="type"><a href="qsqlerror.html">QSqlError</a></span> <span class="operator">&amp;</span>err)
+  {
+      <span class="type"><a href="../qtwidgets/qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>critical(<span class="keyword">this</span><span class="operator">,</span> <span class="string">&quot;Unable to initialize Database&quot;</span><span class="operator">,</span>
+                  <span class="string">&quot;Error initializing database: &quot;</span> <span class="operator">+</span> err<span class="operator">.</span>text());
+  }
+
+  <span class="type">void</span> BookWindow<span class="operator">::</span>createMenuBar()
+  {
+      <span class="type"><a href="../qtwidgets/qaction.html">QAction</a></span> <span class="operator">*</span>quitAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="../qtwidgets/qaction.html">QAction</a></span>(tr(<span class="string">&quot;&amp;Quit&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+      <span class="type"><a href="../qtwidgets/qaction.html">QAction</a></span> <span class="operator">*</span>aboutAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="../qtwidgets/qaction.html">QAction</a></span>(tr(<span class="string">&quot;&amp;About&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+      <span class="type"><a href="../qtwidgets/qaction.html">QAction</a></span> <span class="operator">*</span>aboutQtAction <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="../qtwidgets/qaction.html">QAction</a></span>(tr(<span class="string">&quot;&amp;About Qt&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span>);
+
+      <span class="type"><a href="../qtwidgets/qmenu.html">QMenu</a></span> <span class="operator">*</span>fileMenu <span class="operator">=</span> menuBar()<span class="operator">-</span><span class="operator">&gt;</span>addMenu(tr(<span class="string">&quot;&amp;File&quot;</span>));
+      fileMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(quitAction);
+
+      <span class="type"><a href="../qtwidgets/qmenu.html">QMenu</a></span> <span class="operator">*</span>helpMenu <span class="operator">=</span> menuBar()<span class="operator">-</span><span class="operator">&gt;</span>addMenu(tr(<span class="string">&quot;&amp;Help&quot;</span>));
+      helpMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(aboutAction);
+      helpMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(aboutQtAction);
+
+      connect(quitAction<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="../qtwidgets/qaction.html">QAction</a></span><span class="operator">::</span>triggered<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> <span class="operator">&amp;</span>BookWindow<span class="operator">::</span>close);
+      connect(aboutAction<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="../qtwidgets/qaction.html">QAction</a></span><span class="operator">::</span>triggered<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> <span class="operator">&amp;</span>BookWindow<span class="operator">::</span>about);
+      connect(aboutQtAction<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="../qtwidgets/qaction.html">QAction</a></span><span class="operator">::</span>triggered<span class="operator">,</span> <a href="../qtwidgets/qapplication.html#qApp">qApp</a><span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="../qtwidgets/qapplication.html">QApplication</a></span><span class="operator">::</span>aboutQt);
+  }
+
+  <span class="type">void</span> BookWindow<span class="operator">::</span>about()
+  {
+      <span class="type"><a href="../qtwidgets/qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>about(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;About Books&quot;</span>)<span class="operator">,</span>
+              tr(<span class="string">&quot;&lt;p&gt;The &lt;b&gt;Books&lt;/b&gt; example shows how to use Qt SQL classes &quot;</span>
+                 <span class="string">&quot;with a model/view framework.&quot;</span>));
+  }
+
+</pre>
+</div>
+<!-- @@@books/bookwindow.cpp -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

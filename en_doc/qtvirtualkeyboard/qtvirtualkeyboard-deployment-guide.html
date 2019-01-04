@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- deployment-guide.qdoc -->
+  <title>Deployment Guide | Qt Virtual Keyboard 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtvirtualkeyboard-index.html">Qt Virtual Keyboard</a></td><td >Deployment Guide</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt Virtual Keyboard | Commercial or GPLv3</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#overview">Overview</a></li>
+<li class="level1"><a href="#deployment">Deployment</a></li>
+<li class="level1"><a href="#integration-method">Integration Method</a></li>
+<li class="level2"><a href="#using-qt-virtual-keyboard-with-qt-wayland">Using Qt Virtual Keyboard with Qt Wayland</a></li>
+<li class="level1"><a href="#loading-the-plugin">Loading the Plugin</a></li>
+<li class="level1"><a href="#creating-inputpanel">Creating InputPanel</a></li>
+<li class="level1"><a href="#environment-variables">Environment Variables</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Deployment Guide</h1>
+<span class="subtitle"></span>
+<!-- $$$qtvirtualkeyboard-deployment-guide.html-description -->
+<div class="descr"> <a name="details"></a>
+<a name="overview"></a>
+<h2 id="overview">Overview</h2>
+<p>This document describes how to deploy and use the Qt Virtual Keyboard plugin with Qt 5 applications.</p>
+<a name="deployment"></a>
+<h2 id="deployment">Deployment</h2>
+<p>The various Qt Virtual Keyboard plugins and files are deployed in the following locations:</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Item</th><th >Desktop install path</th><th ><a href="http://doc.qt.io/QtForDeviceCreation/qtb2-index.html">Boot2Qt</a> install path</th></tr></thead>
+<tr valign="top" class="odd"><td >qtvirtualkeyboardplugin</td><td ><code>$$[QT_INSTALL_PLUGINS]/platforminputcontexts</code></td><td ><code>/system/plugins/platforminputcontexts</code></td></tr>
+<tr valign="top" class="even"><td >qtvirtualkeyboardextensionplugin</td><td ><code>$$[QT_INSTALL_PLUGINS]/virtualkeyboard</code></td><td ><code>/system/plugins/virtualkeyboard</code></td></tr>
+<tr valign="top" class="odd"><td >qtvirtualkeyboardplugin QML files</td><td ><code>$$[QT_INSTALL_QML]/QtQuick/VirtualKeyboard</code></td><td ><code>/system/qml/QtQuick/VirtualKeyboard</code></td></tr>
+<tr valign="top" class="even"><td >qtvirtualkeyboardstylesplugin</td><td ><code>$$[QT_INSTALL_QML]/QtQuick/VirtualKeyboard/Styles</code></td><td ><code>/system/qml/QtQuick/VirtualKeyboard/Styles</code></td></tr>
+</table></div>
+<a name="integration-method"></a>
+<h2 id="integration-method">Integration Method</h2>
+<p>Qt Virtual Keyboard currently supports two alternative integration methods for using the plugin:</p>
+<ul>
+<li><code>Desktop</code>: requires no changes to existing applications. The virtual keyboard is available to all of the Qt 5 applications in the system.<p>In this integration method, the keyboard is shown in a dedicated top-level window.</p>
+</li>
+<li><code>Application</code>: the virtual keyboard is embedded within the Qt application itself by instantiating an <a href="qml-qtquick-virtualkeyboard-inputpanel.html">InputPanel</a> item in QML.<p>This method is mandatory in environments where there is no support for multiple top-level windows (such as embedded devices), but can be used in desktop applications too.</p>
+<p>This method can also be used by Qt Wayland compositors in order to provide a server-side virtual keyboard. See the section below for details.</p>
+</li>
+</ul>
+<p>The integration method is automatically selected by the project files. However, in desktop environments, it is possible to override the desktop integration method and use the application integration method instead, by adding <code>CONFIG+=disable-desktop</code> to the <code>qmake</code> command line.</p>
+<a name="using-qt-virtual-keyboard-with-qt-wayland"></a>
+<h3 >Using Qt Virtual Keyboard with Qt Wayland</h3>
+<p>This section explains how to use Qt Virtual Keyboard to interact with the <a href="../qtwidgets/qtwidgets-widgets-lineedits-example.html">Qt Widgets Line Edits example</a> using the Pure QML example as a compositor.</p>
+<p>We will be using Ubuntu 18.04 to run the example, using the X11 as the windowing system. The example compositor (<code>pure-qml</code>) will open as a window within an X11 session.</p>
+<ol class="1" type="1"><li>Start the compositor:<pre class="cpp plain">
+
+  QT_XCB_GL_INTEGRATION=xcb_egl QT_WAYLAND_CLIENT_BUFFER_INTEGRATION=xcomposite-egl QT_IM_MODULE=qtvirtualkeyboard ./pure-qml -platform xcb
+
+</pre>
+</li>
+<li>Before running the client application, ensure that QT_IM_MODULE is unset:<pre class="cpp plain">
+
+  unset QT_IM_MODULE
+
+</pre>
+</li>
+<li>Start the Line Edits example as the client:<pre class="cpp plain">
+
+  ./lineedits -platform wayland
+
+</pre>
+</li>
+<li>Click on a line edit and Qt Virtual Keyboard's input panel will open.</li>
+</ol>
+<p>If issues are encountered, the following environment variables can be set when running the compositor to get debug output that can help diagnose the issue:</p>
+<pre class="cpp plain">
+
+  WAYLAND_DEBUG=1
+  QT_LOGGING_RULES=&quot;qt.virtualkeyboard=true;qt.qpa.wayland*=true&quot;
+
+</pre>
+<a name="loading-the-plugin"></a>
+<h2 id="loading-the-plugin">Loading the Plugin</h2>
+<p>In both integration methods, the application must use the <code>QT_IM_MODULE</code> environment variable to load the plugin. For example:</p>
+<pre class="cpp">
+
+  $ QT_IM_MODULE<span class="operator">=</span>qtvirtualkeyboard myapp
+
+</pre>
+<p>or in the main() function:</p>
+<pre class="cpp">
+
+  qputenv(<span class="string">&quot;QT_IM_MODULE&quot;</span><span class="operator">,</span> <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span>(<span class="string">&quot;qtvirtualkeyboard&quot;</span>));
+
+</pre>
+<p>In the desktop integration method, this step is all that is required to use Qt Virtual Keyboard. In the application integration method, the application is required to create an instance of <a href="qml-qtquick-virtualkeyboard-inputpanel.html">InputPanel</a> as explained in the following chapter.</p>
+<a name="creating-inputpanel"></a>
+<h2 id="creating-inputpanel">Creating InputPanel</h2>
+<p>The following example shows how to create an <a href="qml-qtquick-virtualkeyboard-inputpanel.html">InputPanel</a> and how to divide the screen area with the application container.</p>
+<pre class="cpp">
+
+  import <span class="type"><a href="../qtqml/qtquick-qmlmodule.html">QtQuick</a></span> <span class="number">2.0</span>
+  import <span class="type"><a href="../qtqml/qtquick-qmlmodule.html">QtQuick</a></span><span class="operator">.</span>VirtualKeyboard <span class="number">2.1</span>
+
+  Item {
+      id: root
+      Item {
+          id: appContainer
+          anchors<span class="operator">.</span>left: parent<span class="operator">.</span>left
+          anchors<span class="operator">.</span>top: parent<span class="operator">.</span>top
+          anchors<span class="operator">.</span>right: parent<span class="operator">.</span>right
+          anchors<span class="operator">.</span>bottom: inputPanel<span class="operator">.</span>top
+          <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+      }
+      InputPanel {
+          id: inputPanel
+          y: <span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">.</span>inputMethod<span class="operator">.</span>visible <span class="operator">?</span> parent<span class="operator">.</span>height <span class="operator">-</span> inputPanel<span class="operator">.</span>height : parent<span class="operator">.</span>height
+          anchors<span class="operator">.</span>left: parent<span class="operator">.</span>left
+          anchors<span class="operator">.</span>right: parent<span class="operator">.</span>right
+      }
+  }
+
+</pre>
+<p>The input panel must be a sibling element next to the application container. It is important not to put the input panel within the application container, as it would then overlap with the contents of the application. Also, the input panel height will be automatically updated according to the available width; the aspect ratio of the input panel is constant.</p>
+<a name="environment-variables"></a>
+<h2 id="environment-variables">Environment Variables</h2>
+<p>There are several environment variables defined by the module that are listed below:</p>
+<div class="table"><table class="generic">
+ <thead><tr class="qt-style"><th >Variable</th><th >Purpose</th></tr></thead>
+<tr valign="top" class="odd"><td >QT_VIRTUALKEYBOARD_HUNSPELL_DATA_PATH</td><td >Overrides the location of the Hunspell data files.<p>The default location depends on the value of <code>QLibraryInfo::location(QLibraryInfo::DataPath)</code>. For example, for Qt libraries built from source, it could be <code>qtbase/qtvirtualkeyboard/hunspell</code>.</p>
+<p>See <a href="qtvirtualkeyboard-build.html#hunspell-integration">Hunspell Integration</a> for more information.</p>
+</td></tr>
+<tr valign="top" class="even"><td >QT_VIRTUALKEYBOARD_PINYIN_DICTIONARY</td><td >Overrides the location of the Pinyin dictionary.<p>By default, the dictionary is bundled into the plugin's resources.</p>
+<p>To disable resource bundling, add <code>CONFIG+=no-bundle-pinyin</code> in the plugin's qmake command line. In this scenario, the default location depends on the value of <code>QLibraryInfo::location(QLibraryInfo::DataPath)</code>. For example, for Qt libraries built from source, it could be <code>qtbase/qtvirtualkeyboard/pinyin/dict_pinyin.dat</code>.</p>
+</td></tr>
+<tr valign="top" class="odd"><td >QT_VIRTUALKEYBOARD_CANGJIE_DICTIONARY</td><td >Overrides the location of the Cangjie dictionary.<p>By default, the dictionary is bundled into the plugin's resources.</p>
+<p>To disable resource bundling, add <code>CONFIG+=no-bundle-tcime</code> in the plugin's qmake command line. In this scenario, the default location depends on the value of <code>QLibraryInfo::location(QLibraryInfo::DataPath)</code>. For example, for Qt libraries built from source, it could be <code>qtbase/qtvirtualkeyboard/tcime/dict_cangjie.dat</code>.</p>
+</td></tr>
+<tr valign="top" class="even"><td >QT_VIRTUALKEYBOARD_ZHUYIN_DICTIONARY</td><td >Overrides the location of the Zhuyin dictionary.<p>By default, the dictionary is bundled into the plugin's resources.</p>
+<p>To disable resource bundling, add <code>CONFIG+=no-bundle-tcime</code> in the plugin's qmake command line. In this scenario, the default location depends on the value of <code>QLibraryInfo::location(QLibraryInfo::DataPath)</code>. For example, for Qt libraries built from source, it could be <code>qtbase/qtvirtualkeyboard/tcime/dict_zhuyin.dat</code>.</p>
+</td></tr>
+<tr valign="top" class="odd"><td >QT_VIRTUALKEYBOARD_PHRASE_DICTIONARY</td><td >Overrides the location of the phrase dictionary.<p>By default, the dictionary is bundled into the plugin's resources.</p>
+<p>To disable resource bundling, add <code>CONFIG+=no-bundle-tcime</code> in the plugin's qmake command line. In this scenario, the default location depends on the value of <code>QLibraryInfo::location(QLibraryInfo::DataPath)</code>. For example, for Qt libraries built from source, it could be <code>qtbase/qtvirtualkeyboard/tcime/dict_phrases.dat</code>.</p>
+</td></tr>
+<tr valign="top" class="even"><td >QT_VIRTUALKEYBOARD_STYLE</td><td >Specifies the location of the style to use with the virtual keyboard.<p>This can also be specified in QML by setting <a href="qml-qtquick-virtualkeyboard-settings-virtualkeyboardsettings.html#styleName-prop">VirtualKeyboardSettings::styleName</a>, or at build time by using the <a href="qtvirtualkeyboard-build.html#advanced-configuration-options">qmake configuration options</a>.</p>
+</td></tr>
+<tr valign="top" class="odd"><td >QT_VIRTUALKEYBOARD_LAYOUT_PATH</td><td >Specifies the location of the layouts to be used with the virtual keyboard.</td></tr>
+<tr valign="top" class="even"><td >LIPI_ROOT</td><td >Specifies the location of lipi-toolkit.<p>The default location depends on the value of <code>QLibraryInfo::location(QLibraryInfo::DataPath)</code>. For example, for Qt libraries built from source, it could be <code>qtbase/qtvirtualkeyboard/lipi_toolkit</code>.</p>
+</td></tr>
+<tr valign="top" class="odd"><td >LIPI_LIB</td><td >Specifies the location of lipi-toolkit plugins.<p>The default location depends on <code>LIPI_ROOT</code>:</p>
+<ul>
+<li><code>LIPI_ROOT + &quot;/lib&quot;</code> if <code>LIPI_ROOT</code> is set.</li>
+<li><code>QLibraryInfo::location(QLibraryInfo::PluginsPath) + &quot;/lipi_toolkit&quot;</code> if <code>LIPI_ROOT</code> is not set.</li>
+</ul>
+</td></tr>
+</table></div>
+</div>
+<!-- @@@qtvirtualkeyboard-deployment-guide.html -->
+<p class="naviNextPrevious footerNavi">
+</p>
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

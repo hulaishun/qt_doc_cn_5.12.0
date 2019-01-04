@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>themewidget.cpp Example File | Qt Charts 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcharts-index.html">Qt Charts</a></td><td ><a href="qtcharts-chartthemes-example.html">Chart Themes Example</a></td><td >themewidget.cpp Example File</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt Charts | Commercial or GPLv3</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">themewidget.cpp Example File</h1>
+<span class="subtitle">chartthemes/themewidget.cpp</span>
+<!-- $$$chartthemes/themewidget.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp">
+
+  <span class="comment">/****************************************************************************
+  **
+  ** Copyright (C) 2016 The Qt Company Ltd.
+  ** Contact: https://www.qt.io/licensing/
+  **
+  ** This file is part of the Qt Charts module of the Qt Toolkit.
+  **
+  ** $QT_BEGIN_LICENSE:GPL$
+  ** Commercial License Usage
+  ** Licensees holding valid commercial Qt licenses may use this file in
+  ** accordance with the commercial license agreement provided with the
+  ** Software or, alternatively, in accordance with the terms contained in
+  ** a written agreement between you and The Qt Company. For licensing terms
+  ** and conditions see https://www.qt.io/terms-conditions. For further
+  ** information use the contact form at https://www.qt.io/contact-us.
+  **
+  ** GNU General Public License Usage
+  ** Alternatively, this file may be used under the terms of the GNU
+  ** General Public License version 3 or (at your option) any later version
+  ** approved by the KDE Free Qt Foundation. The licenses are as published by
+  ** the Free Software Foundation and appearing in the file LICENSE.GPL3
+  ** included in the packaging of this file. Please review the following
+  ** information to ensure the GNU General Public License requirements will
+  ** be met: https://www.gnu.org/licenses/gpl-3.0.html.
+  **
+  ** $QT_END_LICENSE$
+  **
+  ****************************************************************************/</span>
+
+  <span class="preprocessor">#include &quot;themewidget.h&quot;</span>
+  <span class="preprocessor">#include &quot;ui_themewidget.h&quot;</span>
+
+  <span class="preprocessor">#include &lt;QtCharts/QChartView&gt;</span>
+  <span class="preprocessor">#include &lt;QtCharts/QPieSeries&gt;</span>
+  <span class="preprocessor">#include &lt;QtCharts/QPieSlice&gt;</span>
+  <span class="preprocessor">#include &lt;QtCharts/QAbstractBarSeries&gt;</span>
+  <span class="preprocessor">#include &lt;QtCharts/QPercentBarSeries&gt;</span>
+  <span class="preprocessor">#include &lt;QtCharts/QStackedBarSeries&gt;</span>
+  <span class="preprocessor">#include &lt;QtCharts/QBarSeries&gt;</span>
+  <span class="preprocessor">#include &lt;QtCharts/QBarSet&gt;</span>
+  <span class="preprocessor">#include &lt;QtCharts/QLineSeries&gt;</span>
+  <span class="preprocessor">#include &lt;QtCharts/QSplineSeries&gt;</span>
+  <span class="preprocessor">#include &lt;QtCharts/QScatterSeries&gt;</span>
+  <span class="preprocessor">#include &lt;QtCharts/QAreaSeries&gt;</span>
+  <span class="preprocessor">#include &lt;QtCharts/QLegend&gt;</span>
+  <span class="preprocessor">#include &lt;QtWidgets/QGridLayout&gt;</span>
+  <span class="preprocessor">#include &lt;QtWidgets/QFormLayout&gt;</span>
+  <span class="preprocessor">#include &lt;QtWidgets/QComboBox&gt;</span>
+  <span class="preprocessor">#include &lt;QtWidgets/QSpinBox&gt;</span>
+  <span class="preprocessor">#include &lt;QtWidgets/QCheckBox&gt;</span>
+  <span class="preprocessor">#include &lt;QtWidgets/QGroupBox&gt;</span>
+  <span class="preprocessor">#include &lt;QtWidgets/QLabel&gt;</span>
+  <span class="preprocessor">#include &lt;QtCore/QRandomGenerator&gt;</span>
+  <span class="preprocessor">#include &lt;QtCharts/QBarCategoryAxis&gt;</span>
+  <span class="preprocessor">#include &lt;QtWidgets/QApplication&gt;</span>
+  <span class="preprocessor">#include &lt;QtCharts/QValueAxis&gt;</span>
+
+  ThemeWidget<span class="operator">::</span>ThemeWidget(<span class="type"><a href="../qtwidgets/qwidget.html">QWidget</a></span> <span class="operator">*</span>parent) :
+      <span class="type"><a href="../qtwidgets/qwidget.html">QWidget</a></span>(parent)<span class="operator">,</span>
+      m_listCount(<span class="number">3</span>)<span class="operator">,</span>
+      m_valueMax(<span class="number">10</span>)<span class="operator">,</span>
+      m_valueCount(<span class="number">7</span>)<span class="operator">,</span>
+      m_dataTable(generateRandomData(m_listCount<span class="operator">,</span> m_valueMax<span class="operator">,</span> m_valueCount))<span class="operator">,</span>
+      m_ui(<span class="keyword">new</span> Ui_ThemeWidgetForm)
+  {
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>setupUi(<span class="keyword">this</span>);
+      populateThemeBox();
+      populateAnimationBox();
+      populateLegendBox();
+
+      <span class="comment">//create charts</span>
+
+      <span class="type"><a href="qchartview.html">QChartView</a></span> <span class="operator">*</span>chartView;
+
+      chartView <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qchartview.html">QChartView</a></span>(createAreaChart());
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>gridLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(chartView<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span>);
+      m_charts <span class="operator">&lt;</span><span class="operator">&lt;</span> chartView;
+
+      chartView <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qchartview.html">QChartView</a></span>(createPieChart());
+      <span class="comment">// Funny things happen if the pie slice labels do not fit the screen, so we ignore size policy</span>
+      chartView<span class="operator">-</span><span class="operator">&gt;</span>setSizePolicy(<span class="type"><a href="../qtwidgets/qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Ignored<span class="operator">,</span> <span class="type"><a href="../qtwidgets/qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Ignored);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>gridLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(chartView<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span>);
+      m_charts <span class="operator">&lt;</span><span class="operator">&lt;</span> chartView;
+
+      chartView <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qchartview.html">QChartView</a></span>(createLineChart());
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>gridLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(chartView<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">2</span>);
+      m_charts <span class="operator">&lt;</span><span class="operator">&lt;</span> chartView;
+
+      chartView <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qchartview.html">QChartView</a></span>(createBarChart(m_valueCount));
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>gridLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(chartView<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">0</span>);
+      m_charts <span class="operator">&lt;</span><span class="operator">&lt;</span> chartView;
+
+      chartView <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qchartview.html">QChartView</a></span>(createSplineChart());
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>gridLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(chartView<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">1</span>);
+      m_charts <span class="operator">&lt;</span><span class="operator">&lt;</span> chartView;
+
+      chartView <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qchartview.html">QChartView</a></span>(createScatterChart());
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>gridLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(chartView<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">2</span>);
+      m_charts <span class="operator">&lt;</span><span class="operator">&lt;</span> chartView;
+
+      <span class="comment">// Set defaults</span>
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>antialiasCheckBox<span class="operator">-</span><span class="operator">&gt;</span>setChecked(<span class="keyword">true</span>);
+
+      <span class="comment">// Set the colors from the light theme as default ones</span>
+      <span class="type"><a href="../qtgui/qpalette.html">QPalette</a></span> pal <span class="operator">=</span> <a href="../qtwidgets/qapplication.html#qApp">qApp</a><span class="operator">-</span><span class="operator">&gt;</span>palette();
+      pal<span class="operator">.</span>setColor(<span class="type"><a href="../qtgui/qpalette.html">QPalette</a></span><span class="operator">::</span>Window<span class="operator">,</span> <span class="type"><a href="../qtgui/qcolor.html#QRgb-typedef">QRgb</a></span>(<span class="number">0xf0f0f0</span>));
+      pal<span class="operator">.</span>setColor(<span class="type"><a href="../qtgui/qpalette.html">QPalette</a></span><span class="operator">::</span>WindowText<span class="operator">,</span> <span class="type"><a href="../qtgui/qcolor.html#QRgb-typedef">QRgb</a></span>(<span class="number">0x404044</span>));
+      <a href="../qtwidgets/qapplication.html#qApp">qApp</a><span class="operator">-</span><span class="operator">&gt;</span>setPalette(pal);
+
+      updateUI();
+  }
+
+  ThemeWidget<span class="operator">::</span><span class="operator">~</span>ThemeWidget()
+  {
+      <span class="keyword">delete</span> m_ui;
+  }
+
+  DataTable ThemeWidget<span class="operator">::</span>generateRandomData(<span class="type">int</span> listCount<span class="operator">,</span> <span class="type">int</span> valueMax<span class="operator">,</span> <span class="type">int</span> valueCount) <span class="keyword">const</span>
+  {
+      DataTable dataTable;
+
+      <span class="comment">// generate random data</span>
+      <span class="keyword">for</span> (<span class="type">int</span> i(<span class="number">0</span>); i <span class="operator">&lt;</span> listCount; i<span class="operator">+</span><span class="operator">+</span>) {
+          DataList dataList;
+          <span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> yValue(<span class="number">0</span>);
+          <span class="keyword">for</span> (<span class="type">int</span> j(<span class="number">0</span>); j <span class="operator">&lt;</span> valueCount; j<span class="operator">+</span><span class="operator">+</span>) {
+              yValue <span class="operator">=</span> yValue <span class="operator">+</span> <span class="type"><a href="../qtcore/qrandomgenerator.html">QRandomGenerator</a></span><span class="operator">::</span>global()<span class="operator">-</span><span class="operator">&gt;</span>bounded(valueMax <span class="operator">/</span> (<span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span>) valueCount);
+              <span class="type"><a href="../qtcore/qpointf.html">QPointF</a></span> value((j <span class="operator">+</span> <span class="type"><a href="../qtcore/qrandomgenerator.html">QRandomGenerator</a></span><span class="operator">::</span>global()<span class="operator">-</span><span class="operator">&gt;</span>generateDouble()) <span class="operator">*</span> ((<span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span>) m_valueMax <span class="operator">/</span> (<span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span>) valueCount)<span class="operator">,</span>
+                            yValue);
+              <span class="type"><a href="../qtcore/qstring.html">QString</a></span> label <span class="operator">=</span> <span class="string">&quot;Slice &quot;</span> <span class="operator">+</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span><span class="operator">::</span>number(i) <span class="operator">+</span> <span class="string">&quot;:&quot;</span> <span class="operator">+</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span><span class="operator">::</span>number(j);
+              dataList <span class="operator">&lt;</span><span class="operator">&lt;</span> Data(value<span class="operator">,</span> label);
+          }
+          dataTable <span class="operator">&lt;</span><span class="operator">&lt;</span> dataList;
+      }
+
+      <span class="keyword">return</span> dataTable;
+  }
+
+  <span class="type">void</span> ThemeWidget<span class="operator">::</span>populateThemeBox()
+  {
+      <span class="comment">// add items to theme combobox</span>
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>themeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="string">&quot;Light&quot;</span><span class="operator">,</span> <span class="type"><a href="qchart.html">QChart</a></span><span class="operator">::</span>ChartThemeLight);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>themeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="string">&quot;Blue Cerulean&quot;</span><span class="operator">,</span> <span class="type"><a href="qchart.html">QChart</a></span><span class="operator">::</span>ChartThemeBlueCerulean);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>themeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="string">&quot;Dark&quot;</span><span class="operator">,</span> <span class="type"><a href="qchart.html">QChart</a></span><span class="operator">::</span>ChartThemeDark);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>themeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="string">&quot;Brown Sand&quot;</span><span class="operator">,</span> <span class="type"><a href="qchart.html">QChart</a></span><span class="operator">::</span>ChartThemeBrownSand);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>themeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="string">&quot;Blue NCS&quot;</span><span class="operator">,</span> <span class="type"><a href="qchart.html">QChart</a></span><span class="operator">::</span>ChartThemeBlueNcs);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>themeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="string">&quot;High Contrast&quot;</span><span class="operator">,</span> <span class="type"><a href="qchart.html">QChart</a></span><span class="operator">::</span>ChartThemeHighContrast);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>themeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="string">&quot;Blue Icy&quot;</span><span class="operator">,</span> <span class="type"><a href="qchart.html">QChart</a></span><span class="operator">::</span>ChartThemeBlueIcy);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>themeComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="string">&quot;Qt&quot;</span><span class="operator">,</span> <span class="type"><a href="qchart.html">QChart</a></span><span class="operator">::</span>ChartThemeQt);
+  }
+
+  <span class="type">void</span> ThemeWidget<span class="operator">::</span>populateAnimationBox()
+  {
+      <span class="comment">// add items to animation combobox</span>
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>animatedComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="string">&quot;No Animations&quot;</span><span class="operator">,</span> <span class="type"><a href="qchart.html">QChart</a></span><span class="operator">::</span>NoAnimation);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>animatedComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="string">&quot;GridAxis Animations&quot;</span><span class="operator">,</span> <span class="type"><a href="qchart.html">QChart</a></span><span class="operator">::</span>GridAxisAnimations);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>animatedComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="string">&quot;Series Animations&quot;</span><span class="operator">,</span> <span class="type"><a href="qchart.html">QChart</a></span><span class="operator">::</span>SeriesAnimations);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>animatedComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="string">&quot;All Animations&quot;</span><span class="operator">,</span> <span class="type"><a href="qchart.html">QChart</a></span><span class="operator">::</span>AllAnimations);
+  }
+
+  <span class="type">void</span> ThemeWidget<span class="operator">::</span>populateLegendBox()
+  {
+      <span class="comment">// add items to legend combobox</span>
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>legendComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="string">&quot;No Legend &quot;</span><span class="operator">,</span> <span class="number">0</span>);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>legendComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="string">&quot;Legend Top&quot;</span><span class="operator">,</span> <span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>AlignTop);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>legendComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="string">&quot;Legend Bottom&quot;</span><span class="operator">,</span> <span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>AlignBottom);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>legendComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="string">&quot;Legend Left&quot;</span><span class="operator">,</span> <span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>AlignLeft);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>legendComboBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(<span class="string">&quot;Legend Right&quot;</span><span class="operator">,</span> <span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>AlignRight);
+  }
+
+  <span class="type"><a href="qchart.html">QChart</a></span> <span class="operator">*</span>ThemeWidget<span class="operator">::</span>createAreaChart() <span class="keyword">const</span>
+  {
+      <span class="type"><a href="qchart.html">QChart</a></span> <span class="operator">*</span>chart <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qchart.html">QChart</a></span>();
+      chart<span class="operator">-</span><span class="operator">&gt;</span>setTitle(<span class="string">&quot;Area chart&quot;</span>);
+
+      <span class="comment">// The lower series initialized to zero values</span>
+      <span class="type"><a href="qlineseries.html">QLineSeries</a></span> <span class="operator">*</span>lowerSeries <span class="operator">=</span> <span class="number">0</span>;
+      <span class="type"><a href="../qtcore/qstring.html">QString</a></span> name(<span class="string">&quot;Series &quot;</span>);
+      <span class="type">int</span> nameIndex <span class="operator">=</span> <span class="number">0</span>;
+      <span class="keyword">for</span> (<span class="type">int</span> i(<span class="number">0</span>); i <span class="operator">&lt;</span> m_dataTable<span class="operator">.</span>count(); i<span class="operator">+</span><span class="operator">+</span>) {
+          <span class="type"><a href="qlineseries.html">QLineSeries</a></span> <span class="operator">*</span>upperSeries <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlineseries.html">QLineSeries</a></span>(chart);
+          <span class="keyword">for</span> (<span class="type">int</span> j(<span class="number">0</span>); j <span class="operator">&lt;</span> m_dataTable<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>count(); j<span class="operator">+</span><span class="operator">+</span>) {
+              Data data <span class="operator">=</span> m_dataTable<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>at(j);
+              <span class="keyword">if</span> (lowerSeries) {
+                  <span class="keyword">const</span> <span class="type"><a href="../qtcore/qvector.html">QVector</a></span><span class="operator">&lt;</span><span class="type"><a href="../qtcore/qpointf.html">QPointF</a></span><span class="operator">&gt;</span><span class="operator">&amp;</span> points <span class="operator">=</span> lowerSeries<span class="operator">-</span><span class="operator">&gt;</span>pointsVector();
+                  upperSeries<span class="operator">-</span><span class="operator">&gt;</span>append(<span class="type"><a href="../qtcore/qpointf.html">QPointF</a></span>(j<span class="operator">,</span> points<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>y() <span class="operator">+</span> data<span class="operator">.</span>first<span class="operator">.</span>y()));
+              } <span class="keyword">else</span> {
+                  upperSeries<span class="operator">-</span><span class="operator">&gt;</span>append(<span class="type"><a href="../qtcore/qpointf.html">QPointF</a></span>(j<span class="operator">,</span> data<span class="operator">.</span>first<span class="operator">.</span>y()));
+              }
+          }
+          <span class="type"><a href="qareaseries.html">QAreaSeries</a></span> <span class="operator">*</span>area <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qareaseries.html">QAreaSeries</a></span>(upperSeries<span class="operator">,</span> lowerSeries);
+          area<span class="operator">-</span><span class="operator">&gt;</span>setName(name <span class="operator">+</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span><span class="operator">::</span>number(nameIndex));
+          nameIndex<span class="operator">+</span><span class="operator">+</span>;
+          chart<span class="operator">-</span><span class="operator">&gt;</span>addSeries(area);
+          lowerSeries <span class="operator">=</span> upperSeries;
+      }
+
+      chart<span class="operator">-</span><span class="operator">&gt;</span>createDefaultAxes();
+      chart<span class="operator">-</span><span class="operator">&gt;</span>axes(<span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Horizontal)<span class="operator">.</span>first()<span class="operator">-</span><span class="operator">&gt;</span>setRange(<span class="number">0</span><span class="operator">,</span> m_valueCount <span class="operator">-</span> <span class="number">1</span>);
+      chart<span class="operator">-</span><span class="operator">&gt;</span>axes(<span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Vertical)<span class="operator">.</span>first()<span class="operator">-</span><span class="operator">&gt;</span>setRange(<span class="number">0</span><span class="operator">,</span> m_valueMax);
+      <span class="comment">// Add space to label to add space between labels and axis</span>
+      <span class="type"><a href="qvalueaxis.html">QValueAxis</a></span> <span class="operator">*</span>axisY <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span><span class="type"><a href="qvalueaxis.html">QValueAxis</a></span><span class="operator">*</span><span class="operator">&gt;</span>(chart<span class="operator">-</span><span class="operator">&gt;</span>axes(<span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Vertical)<span class="operator">.</span>first());
+      Q_ASSERT(axisY);
+      axisY<span class="operator">-</span><span class="operator">&gt;</span>setLabelFormat(<span class="string">&quot;%.1f  &quot;</span>);
+
+      <span class="keyword">return</span> chart;
+  }
+
+  <span class="type"><a href="qchart.html">QChart</a></span> <span class="operator">*</span>ThemeWidget<span class="operator">::</span>createBarChart(<span class="type">int</span> valueCount) <span class="keyword">const</span>
+  {
+      Q_UNUSED(valueCount);
+      <span class="type"><a href="qchart.html">QChart</a></span> <span class="operator">*</span>chart <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qchart.html">QChart</a></span>();
+      chart<span class="operator">-</span><span class="operator">&gt;</span>setTitle(<span class="string">&quot;Bar chart&quot;</span>);
+
+      <span class="type"><a href="qstackedbarseries.html">QStackedBarSeries</a></span> <span class="operator">*</span>series <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qstackedbarseries.html">QStackedBarSeries</a></span>(chart);
+      <span class="keyword">for</span> (<span class="type">int</span> i(<span class="number">0</span>); i <span class="operator">&lt;</span> m_dataTable<span class="operator">.</span>count(); i<span class="operator">+</span><span class="operator">+</span>) {
+          <span class="type"><a href="qbarset.html">QBarSet</a></span> <span class="operator">*</span>set <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qbarset.html">QBarSet</a></span>(<span class="string">&quot;Bar set &quot;</span> <span class="operator">+</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span><span class="operator">::</span>number(i));
+          <span class="keyword">for</span> (<span class="keyword">const</span> Data <span class="operator">&amp;</span>data : m_dataTable<span class="operator">[</span>i<span class="operator">]</span>)
+              <span class="operator">*</span>set <span class="operator">&lt;</span><span class="operator">&lt;</span> data<span class="operator">.</span>first<span class="operator">.</span>y();
+          series<span class="operator">-</span><span class="operator">&gt;</span>append(set);
+      }
+      chart<span class="operator">-</span><span class="operator">&gt;</span>addSeries(series);
+
+      chart<span class="operator">-</span><span class="operator">&gt;</span>createDefaultAxes();
+      chart<span class="operator">-</span><span class="operator">&gt;</span>axes(<span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Vertical)<span class="operator">.</span>first()<span class="operator">-</span><span class="operator">&gt;</span>setRange(<span class="number">0</span><span class="operator">,</span> m_valueMax <span class="operator">*</span> <span class="number">2</span>);
+      <span class="comment">// Add space to label to add space between labels and axis</span>
+      <span class="type"><a href="qvalueaxis.html">QValueAxis</a></span> <span class="operator">*</span>axisY <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span><span class="type"><a href="qvalueaxis.html">QValueAxis</a></span><span class="operator">*</span><span class="operator">&gt;</span>(chart<span class="operator">-</span><span class="operator">&gt;</span>axes(<span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Vertical)<span class="operator">.</span>first());
+      Q_ASSERT(axisY);
+      axisY<span class="operator">-</span><span class="operator">&gt;</span>setLabelFormat(<span class="string">&quot;%.1f  &quot;</span>);
+
+      <span class="keyword">return</span> chart;
+  }
+
+  <span class="type"><a href="qchart.html">QChart</a></span> <span class="operator">*</span>ThemeWidget<span class="operator">::</span>createLineChart() <span class="keyword">const</span>
+  {
+      <span class="type"><a href="qchart.html">QChart</a></span> <span class="operator">*</span>chart <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qchart.html">QChart</a></span>();
+      chart<span class="operator">-</span><span class="operator">&gt;</span>setTitle(<span class="string">&quot;Line chart&quot;</span>);
+
+      <span class="type"><a href="../qtcore/qstring.html">QString</a></span> name(<span class="string">&quot;Series &quot;</span>);
+      <span class="type">int</span> nameIndex <span class="operator">=</span> <span class="number">0</span>;
+      <span class="keyword">for</span> (<span class="keyword">const</span> DataList <span class="operator">&amp;</span>list : m_dataTable) {
+          <span class="type"><a href="qlineseries.html">QLineSeries</a></span> <span class="operator">*</span>series <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlineseries.html">QLineSeries</a></span>(chart);
+          <span class="keyword">for</span> (<span class="keyword">const</span> Data <span class="operator">&amp;</span>data : list)
+              series<span class="operator">-</span><span class="operator">&gt;</span>append(data<span class="operator">.</span>first);
+          series<span class="operator">-</span><span class="operator">&gt;</span>setName(name <span class="operator">+</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span><span class="operator">::</span>number(nameIndex));
+          nameIndex<span class="operator">+</span><span class="operator">+</span>;
+          chart<span class="operator">-</span><span class="operator">&gt;</span>addSeries(series);
+      }
+
+      chart<span class="operator">-</span><span class="operator">&gt;</span>createDefaultAxes();
+      chart<span class="operator">-</span><span class="operator">&gt;</span>axes(<span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Horizontal)<span class="operator">.</span>first()<span class="operator">-</span><span class="operator">&gt;</span>setRange(<span class="number">0</span><span class="operator">,</span> m_valueMax);
+      chart<span class="operator">-</span><span class="operator">&gt;</span>axes(<span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Vertical)<span class="operator">.</span>first()<span class="operator">-</span><span class="operator">&gt;</span>setRange(<span class="number">0</span><span class="operator">,</span> m_valueCount);
+      <span class="comment">// Add space to label to add space between labels and axis</span>
+      <span class="type"><a href="qvalueaxis.html">QValueAxis</a></span> <span class="operator">*</span>axisY <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span><span class="type"><a href="qvalueaxis.html">QValueAxis</a></span><span class="operator">*</span><span class="operator">&gt;</span>(chart<span class="operator">-</span><span class="operator">&gt;</span>axes(<span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Vertical)<span class="operator">.</span>first());
+      Q_ASSERT(axisY);
+      axisY<span class="operator">-</span><span class="operator">&gt;</span>setLabelFormat(<span class="string">&quot;%.1f  &quot;</span>);
+
+      <span class="keyword">return</span> chart;
+  }
+
+  <span class="type"><a href="qchart.html">QChart</a></span> <span class="operator">*</span>ThemeWidget<span class="operator">::</span>createPieChart() <span class="keyword">const</span>
+  {
+      <span class="type"><a href="qchart.html">QChart</a></span> <span class="operator">*</span>chart <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qchart.html">QChart</a></span>();
+      chart<span class="operator">-</span><span class="operator">&gt;</span>setTitle(<span class="string">&quot;Pie chart&quot;</span>);
+
+      <span class="type"><a href="qpieseries.html">QPieSeries</a></span> <span class="operator">*</span>series <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpieseries.html">QPieSeries</a></span>(chart);
+      <span class="keyword">for</span> (<span class="keyword">const</span> Data <span class="operator">&amp;</span>data : m_dataTable<span class="operator">[</span><span class="number">0</span><span class="operator">]</span>) {
+          <span class="type"><a href="qpieslice.html">QPieSlice</a></span> <span class="operator">*</span>slice <span class="operator">=</span> series<span class="operator">-</span><span class="operator">&gt;</span>append(data<span class="operator">.</span>second<span class="operator">,</span> data<span class="operator">.</span>first<span class="operator">.</span>y());
+          <span class="keyword">if</span> (data <span class="operator">=</span><span class="operator">=</span> m_dataTable<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>first()) {
+              <span class="comment">// Show the first slice exploded with label</span>
+              slice<span class="operator">-</span><span class="operator">&gt;</span>setLabelVisible();
+              slice<span class="operator">-</span><span class="operator">&gt;</span>setExploded();
+              slice<span class="operator">-</span><span class="operator">&gt;</span>setExplodeDistanceFactor(<span class="number">0.5</span>);
+          }
+      }
+      series<span class="operator">-</span><span class="operator">&gt;</span>setPieSize(<span class="number">0.4</span>);
+      chart<span class="operator">-</span><span class="operator">&gt;</span>addSeries(series);
+
+      <span class="keyword">return</span> chart;
+  }
+
+  <span class="type"><a href="qchart.html">QChart</a></span> <span class="operator">*</span>ThemeWidget<span class="operator">::</span>createSplineChart() <span class="keyword">const</span>
+  {
+      <span class="type"><a href="qchart.html">QChart</a></span> <span class="operator">*</span>chart <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qchart.html">QChart</a></span>();
+      chart<span class="operator">-</span><span class="operator">&gt;</span>setTitle(<span class="string">&quot;Spline chart&quot;</span>);
+      <span class="type"><a href="../qtcore/qstring.html">QString</a></span> name(<span class="string">&quot;Series &quot;</span>);
+      <span class="type">int</span> nameIndex <span class="operator">=</span> <span class="number">0</span>;
+      <span class="keyword">for</span> (<span class="keyword">const</span> DataList <span class="operator">&amp;</span>list : m_dataTable) {
+          <span class="type"><a href="qsplineseries.html">QSplineSeries</a></span> <span class="operator">*</span>series <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qsplineseries.html">QSplineSeries</a></span>(chart);
+          <span class="keyword">for</span> (<span class="keyword">const</span> Data <span class="operator">&amp;</span>data : list)
+              series<span class="operator">-</span><span class="operator">&gt;</span>append(data<span class="operator">.</span>first);
+          series<span class="operator">-</span><span class="operator">&gt;</span>setName(name <span class="operator">+</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span><span class="operator">::</span>number(nameIndex));
+          nameIndex<span class="operator">+</span><span class="operator">+</span>;
+          chart<span class="operator">-</span><span class="operator">&gt;</span>addSeries(series);
+      }
+
+      chart<span class="operator">-</span><span class="operator">&gt;</span>createDefaultAxes();
+      chart<span class="operator">-</span><span class="operator">&gt;</span>axes(<span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Horizontal)<span class="operator">.</span>first()<span class="operator">-</span><span class="operator">&gt;</span>setRange(<span class="number">0</span><span class="operator">,</span> m_valueMax);
+      chart<span class="operator">-</span><span class="operator">&gt;</span>axes(<span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Vertical)<span class="operator">.</span>first()<span class="operator">-</span><span class="operator">&gt;</span>setRange(<span class="number">0</span><span class="operator">,</span> m_valueCount);
+
+      <span class="comment">// Add space to label to add space between labels and axis</span>
+      <span class="type"><a href="qvalueaxis.html">QValueAxis</a></span> <span class="operator">*</span>axisY <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span><span class="type"><a href="qvalueaxis.html">QValueAxis</a></span><span class="operator">*</span><span class="operator">&gt;</span>(chart<span class="operator">-</span><span class="operator">&gt;</span>axes(<span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Vertical)<span class="operator">.</span>first());
+      Q_ASSERT(axisY);
+      axisY<span class="operator">-</span><span class="operator">&gt;</span>setLabelFormat(<span class="string">&quot;%.1f  &quot;</span>);
+      <span class="keyword">return</span> chart;
+  }
+
+  <span class="type"><a href="qchart.html">QChart</a></span> <span class="operator">*</span>ThemeWidget<span class="operator">::</span>createScatterChart() <span class="keyword">const</span>
+  {
+      <span class="comment">// scatter chart</span>
+      <span class="type"><a href="qchart.html">QChart</a></span> <span class="operator">*</span>chart <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qchart.html">QChart</a></span>();
+      chart<span class="operator">-</span><span class="operator">&gt;</span>setTitle(<span class="string">&quot;Scatter chart&quot;</span>);
+      <span class="type"><a href="../qtcore/qstring.html">QString</a></span> name(<span class="string">&quot;Series &quot;</span>);
+      <span class="type">int</span> nameIndex <span class="operator">=</span> <span class="number">0</span>;
+      <span class="keyword">for</span> (<span class="keyword">const</span> DataList <span class="operator">&amp;</span>list : m_dataTable) {
+          <span class="type"><a href="qscatterseries.html">QScatterSeries</a></span> <span class="operator">*</span>series <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qscatterseries.html">QScatterSeries</a></span>(chart);
+          <span class="keyword">for</span> (<span class="keyword">const</span> Data <span class="operator">&amp;</span>data : list)
+              series<span class="operator">-</span><span class="operator">&gt;</span>append(data<span class="operator">.</span>first);
+          series<span class="operator">-</span><span class="operator">&gt;</span>setName(name <span class="operator">+</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span><span class="operator">::</span>number(nameIndex));
+          nameIndex<span class="operator">+</span><span class="operator">+</span>;
+          chart<span class="operator">-</span><span class="operator">&gt;</span>addSeries(series);
+      }
+
+      chart<span class="operator">-</span><span class="operator">&gt;</span>createDefaultAxes();
+      chart<span class="operator">-</span><span class="operator">&gt;</span>axes(<span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Horizontal)<span class="operator">.</span>first()<span class="operator">-</span><span class="operator">&gt;</span>setRange(<span class="number">0</span><span class="operator">,</span> m_valueMax);
+      chart<span class="operator">-</span><span class="operator">&gt;</span>axes(<span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Vertical)<span class="operator">.</span>first()<span class="operator">-</span><span class="operator">&gt;</span>setRange(<span class="number">0</span><span class="operator">,</span> m_valueCount);
+      <span class="comment">// Add space to label to add space between labels and axis</span>
+      <span class="type"><a href="qvalueaxis.html">QValueAxis</a></span> <span class="operator">*</span>axisY <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span><span class="type"><a href="qvalueaxis.html">QValueAxis</a></span><span class="operator">*</span><span class="operator">&gt;</span>(chart<span class="operator">-</span><span class="operator">&gt;</span>axes(<span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Vertical)<span class="operator">.</span>first());
+      Q_ASSERT(axisY);
+      axisY<span class="operator">-</span><span class="operator">&gt;</span>setLabelFormat(<span class="string">&quot;%.1f  &quot;</span>);
+      <span class="keyword">return</span> chart;
+  }
+
+  <span class="type">void</span> ThemeWidget<span class="operator">::</span>updateUI()
+  {
+      <span class="type"><a href="qchart.html">QChart</a></span><span class="operator">::</span>ChartTheme theme <span class="operator">=</span> <span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qchart.html">QChart</a></span><span class="operator">::</span>ChartTheme<span class="operator">&gt;</span>(
+                  m_ui<span class="operator">-</span><span class="operator">&gt;</span>themeComboBox<span class="operator">-</span><span class="operator">&gt;</span>itemData(m_ui<span class="operator">-</span><span class="operator">&gt;</span>themeComboBox<span class="operator">-</span><span class="operator">&gt;</span>currentIndex())<span class="operator">.</span>toInt());
+      <span class="keyword">const</span> <span class="keyword">auto</span> charts <span class="operator">=</span> m_charts;
+      <span class="keyword">if</span> (<span class="operator">!</span>m_charts<span class="operator">.</span>isEmpty() <span class="operator">&amp;</span><span class="operator">&amp;</span> m_charts<span class="operator">.</span>at(<span class="number">0</span>)<span class="operator">-</span><span class="operator">&gt;</span>chart()<span class="operator">-</span><span class="operator">&gt;</span>theme() <span class="operator">!</span><span class="operator">=</span> theme) {
+          <span class="keyword">for</span> (<span class="type"><a href="qchartview.html">QChartView</a></span> <span class="operator">*</span>chartView : charts) {
+              chartView<span class="operator">-</span><span class="operator">&gt;</span>chart()<span class="operator">-</span><span class="operator">&gt;</span>setTheme(theme);
+          }
+
+          <span class="comment">// Set palette colors based on selected theme</span>
+          <span class="type"><a href="../qtgui/qpalette.html">QPalette</a></span> pal <span class="operator">=</span> window()<span class="operator">-</span><span class="operator">&gt;</span>palette();
+          <span class="keyword">if</span> (theme <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qchart.html">QChart</a></span><span class="operator">::</span>ChartThemeLight) {
+              pal<span class="operator">.</span>setColor(<span class="type"><a href="../qtgui/qpalette.html">QPalette</a></span><span class="operator">::</span>Window<span class="operator">,</span> <span class="type"><a href="../qtgui/qcolor.html#QRgb-typedef">QRgb</a></span>(<span class="number">0xf0f0f0</span>));
+              pal<span class="operator">.</span>setColor(<span class="type"><a href="../qtgui/qpalette.html">QPalette</a></span><span class="operator">::</span>WindowText<span class="operator">,</span> <span class="type"><a href="../qtgui/qcolor.html#QRgb-typedef">QRgb</a></span>(<span class="number">0x404044</span>));
+          } <span class="keyword">else</span> <span class="keyword">if</span> (theme <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qchart.html">QChart</a></span><span class="operator">::</span>ChartThemeDark) {
+              pal<span class="operator">.</span>setColor(<span class="type"><a href="../qtgui/qpalette.html">QPalette</a></span><span class="operator">::</span>Window<span class="operator">,</span> <span class="type"><a href="../qtgui/qcolor.html#QRgb-typedef">QRgb</a></span>(<span class="number">0x121218</span>));
+              pal<span class="operator">.</span>setColor(<span class="type"><a href="../qtgui/qpalette.html">QPalette</a></span><span class="operator">::</span>WindowText<span class="operator">,</span> <span class="type"><a href="../qtgui/qcolor.html#QRgb-typedef">QRgb</a></span>(<span class="number">0xd6d6d6</span>));
+          } <span class="keyword">else</span> <span class="keyword">if</span> (theme <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qchart.html">QChart</a></span><span class="operator">::</span>ChartThemeBlueCerulean) {
+              pal<span class="operator">.</span>setColor(<span class="type"><a href="../qtgui/qpalette.html">QPalette</a></span><span class="operator">::</span>Window<span class="operator">,</span> <span class="type"><a href="../qtgui/qcolor.html#QRgb-typedef">QRgb</a></span>(<span class="number">0x40434a</span>));
+              pal<span class="operator">.</span>setColor(<span class="type"><a href="../qtgui/qpalette.html">QPalette</a></span><span class="operator">::</span>WindowText<span class="operator">,</span> <span class="type"><a href="../qtgui/qcolor.html#QRgb-typedef">QRgb</a></span>(<span class="number">0xd6d6d6</span>));
+          } <span class="keyword">else</span> <span class="keyword">if</span> (theme <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qchart.html">QChart</a></span><span class="operator">::</span>ChartThemeBrownSand) {
+              pal<span class="operator">.</span>setColor(<span class="type"><a href="../qtgui/qpalette.html">QPalette</a></span><span class="operator">::</span>Window<span class="operator">,</span> <span class="type"><a href="../qtgui/qcolor.html#QRgb-typedef">QRgb</a></span>(<span class="number">0x9e8965</span>));
+              pal<span class="operator">.</span>setColor(<span class="type"><a href="../qtgui/qpalette.html">QPalette</a></span><span class="operator">::</span>WindowText<span class="operator">,</span> <span class="type"><a href="../qtgui/qcolor.html#QRgb-typedef">QRgb</a></span>(<span class="number">0x404044</span>));
+          } <span class="keyword">else</span> <span class="keyword">if</span> (theme <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qchart.html">QChart</a></span><span class="operator">::</span>ChartThemeBlueNcs) {
+              pal<span class="operator">.</span>setColor(<span class="type"><a href="../qtgui/qpalette.html">QPalette</a></span><span class="operator">::</span>Window<span class="operator">,</span> <span class="type"><a href="../qtgui/qcolor.html#QRgb-typedef">QRgb</a></span>(<span class="number">0x018bba</span>));
+              pal<span class="operator">.</span>setColor(<span class="type"><a href="../qtgui/qpalette.html">QPalette</a></span><span class="operator">::</span>WindowText<span class="operator">,</span> <span class="type"><a href="../qtgui/qcolor.html#QRgb-typedef">QRgb</a></span>(<span class="number">0x404044</span>));
+          } <span class="keyword">else</span> <span class="keyword">if</span> (theme <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qchart.html">QChart</a></span><span class="operator">::</span>ChartThemeHighContrast) {
+              pal<span class="operator">.</span>setColor(<span class="type"><a href="../qtgui/qpalette.html">QPalette</a></span><span class="operator">::</span>Window<span class="operator">,</span> <span class="type"><a href="../qtgui/qcolor.html#QRgb-typedef">QRgb</a></span>(<span class="number">0xffab03</span>));
+              pal<span class="operator">.</span>setColor(<span class="type"><a href="../qtgui/qpalette.html">QPalette</a></span><span class="operator">::</span>WindowText<span class="operator">,</span> <span class="type"><a href="../qtgui/qcolor.html#QRgb-typedef">QRgb</a></span>(<span class="number">0x181818</span>));
+          } <span class="keyword">else</span> <span class="keyword">if</span> (theme <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qchart.html">QChart</a></span><span class="operator">::</span>ChartThemeBlueIcy) {
+              pal<span class="operator">.</span>setColor(<span class="type"><a href="../qtgui/qpalette.html">QPalette</a></span><span class="operator">::</span>Window<span class="operator">,</span> <span class="type"><a href="../qtgui/qcolor.html#QRgb-typedef">QRgb</a></span>(<span class="number">0xcee7f0</span>));
+              pal<span class="operator">.</span>setColor(<span class="type"><a href="../qtgui/qpalette.html">QPalette</a></span><span class="operator">::</span>WindowText<span class="operator">,</span> <span class="type"><a href="../qtgui/qcolor.html#QRgb-typedef">QRgb</a></span>(<span class="number">0x404044</span>));
+          } <span class="keyword">else</span> {
+              pal<span class="operator">.</span>setColor(<span class="type"><a href="../qtgui/qpalette.html">QPalette</a></span><span class="operator">::</span>Window<span class="operator">,</span> <span class="type"><a href="../qtgui/qcolor.html#QRgb-typedef">QRgb</a></span>(<span class="number">0xf0f0f0</span>));
+              pal<span class="operator">.</span>setColor(<span class="type"><a href="../qtgui/qpalette.html">QPalette</a></span><span class="operator">::</span>WindowText<span class="operator">,</span> <span class="type"><a href="../qtgui/qcolor.html#QRgb-typedef">QRgb</a></span>(<span class="number">0x404044</span>));
+          }
+          window()<span class="operator">-</span><span class="operator">&gt;</span>setPalette(pal);
+      }
+
+      <span class="comment">// Update antialiasing</span>
+      bool checked <span class="operator">=</span> m_ui<span class="operator">-</span><span class="operator">&gt;</span>antialiasCheckBox<span class="operator">-</span><span class="operator">&gt;</span>isChecked();
+      <span class="keyword">for</span> (<span class="type"><a href="qchartview.html">QChartView</a></span> <span class="operator">*</span>chart : charts)
+          chart<span class="operator">-</span><span class="operator">&gt;</span>setRenderHint(<span class="type"><a href="../qtgui/qpainter.html">QPainter</a></span><span class="operator">::</span>Antialiasing<span class="operator">,</span> checked);
+
+      <span class="comment">// Update animation options</span>
+      <span class="type"><a href="qchart.html">QChart</a></span><span class="operator">::</span>AnimationOptions options(
+                  m_ui<span class="operator">-</span><span class="operator">&gt;</span>animatedComboBox<span class="operator">-</span><span class="operator">&gt;</span>itemData(m_ui<span class="operator">-</span><span class="operator">&gt;</span>animatedComboBox<span class="operator">-</span><span class="operator">&gt;</span>currentIndex())<span class="operator">.</span>toInt());
+      <span class="keyword">if</span> (<span class="operator">!</span>m_charts<span class="operator">.</span>isEmpty() <span class="operator">&amp;</span><span class="operator">&amp;</span> m_charts<span class="operator">.</span>at(<span class="number">0</span>)<span class="operator">-</span><span class="operator">&gt;</span>chart()<span class="operator">-</span><span class="operator">&gt;</span>animationOptions() <span class="operator">!</span><span class="operator">=</span> options) {
+          <span class="keyword">for</span> (<span class="type"><a href="qchartview.html">QChartView</a></span> <span class="operator">*</span>chartView : charts)
+              chartView<span class="operator">-</span><span class="operator">&gt;</span>chart()<span class="operator">-</span><span class="operator">&gt;</span>setAnimationOptions(options);
+      }
+
+      <span class="comment">// Update legend alignment</span>
+      <span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Alignment alignment(
+                  m_ui<span class="operator">-</span><span class="operator">&gt;</span>legendComboBox<span class="operator">-</span><span class="operator">&gt;</span>itemData(m_ui<span class="operator">-</span><span class="operator">&gt;</span>legendComboBox<span class="operator">-</span><span class="operator">&gt;</span>currentIndex())<span class="operator">.</span>toInt());
+
+      <span class="keyword">if</span> (<span class="operator">!</span>alignment) {
+          <span class="keyword">for</span> (<span class="type"><a href="qchartview.html">QChartView</a></span> <span class="operator">*</span>chartView : charts)
+              chartView<span class="operator">-</span><span class="operator">&gt;</span>chart()<span class="operator">-</span><span class="operator">&gt;</span>legend()<span class="operator">-</span><span class="operator">&gt;</span>hide();
+      } <span class="keyword">else</span> {
+          <span class="keyword">for</span> (<span class="type"><a href="qchartview.html">QChartView</a></span> <span class="operator">*</span>chartView : charts) {
+              chartView<span class="operator">-</span><span class="operator">&gt;</span>chart()<span class="operator">-</span><span class="operator">&gt;</span>legend()<span class="operator">-</span><span class="operator">&gt;</span>setAlignment(alignment);
+              chartView<span class="operator">-</span><span class="operator">&gt;</span>chart()<span class="operator">-</span><span class="operator">&gt;</span>legend()<span class="operator">-</span><span class="operator">&gt;</span>show();
+          }
+      }
+  }
+
+</pre>
+</div>
+<!-- @@@chartthemes/themewidget.cpp -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>hellovulkanwidget.cpp Example File | Qt GUI 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtgui-index.html">Qt GUI</a></td><td ><a href="qtgui-hellovulkanwidget-example.html">Hello Vulkan Widget Example</a></td><td >hellovulkanwidget.cpp Example File</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt 5.12.0 Reference Documentation</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">hellovulkanwidget.cpp Example File</h1>
+<span class="subtitle">hellovulkanwidget/hellovulkanwidget.cpp</span>
+<!-- $$$hellovulkanwidget/hellovulkanwidget.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp">
+
+  <span class="comment">/****************************************************************************
+  **
+  ** Copyright (C) 2017 The Qt Company Ltd.
+  ** Contact: https://www.qt.io/licensing/
+  **
+  ** This file is part of the examples of the Qt Toolkit.
+  **
+  ** $QT_BEGIN_LICENSE:BSD$
+  ** Commercial License Usage
+  ** Licensees holding valid commercial Qt licenses may use this file in
+  ** accordance with the commercial license agreement provided with the
+  ** Software or, alternatively, in accordance with the terms contained in
+  ** a written agreement between you and The Qt Company. For licensing terms
+  ** and conditions see https://www.qt.io/terms-conditions. For further
+  ** information use the contact form at https://www.qt.io/contact-us.
+  **
+  ** BSD License Usage
+  ** Alternatively, you may use this file under the terms of the BSD license
+  ** as follows:
+  **
+  ** &quot;Redistribution and use in source and binary forms, with or without
+  ** modification, are permitted provided that the following conditions are
+  ** met:
+  **   * Redistributions of source code must retain the above copyright
+  **     notice, this list of conditions and the following disclaimer.
+  **   * Redistributions in binary form must reproduce the above copyright
+  **     notice, this list of conditions and the following disclaimer in
+  **     the documentation and/or other materials provided with the
+  **     distribution.
+  **   * Neither the name of The Qt Company Ltd nor the names of its
+  **     contributors may be used to endorse or promote products derived
+  **     from this software without specific prior written permission.
+  **
+  **
+  ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+  **
+  ** $QT_END_LICENSE$
+  **
+  ****************************************************************************/</span>
+
+  <span class="preprocessor">#include &quot;hellovulkanwidget.h&quot;</span>
+  <span class="preprocessor">#include &lt;QVulkanFunctions&gt;</span>
+  <span class="preprocessor">#include &lt;QApplication&gt;</span>
+  <span class="preprocessor">#include &lt;QVBoxLayout&gt;</span>
+  <span class="preprocessor">#include &lt;QPlainTextEdit&gt;</span>
+  <span class="preprocessor">#include &lt;QPushButton&gt;</span>
+  <span class="preprocessor">#include &lt;QLCDNumber&gt;</span>
+  <span class="preprocessor">#include &lt;QFileDialog&gt;</span>
+  <span class="preprocessor">#include &lt;QMessageBox&gt;</span>
+  <span class="preprocessor">#include &lt;QTabWidget&gt;</span>
+
+  MainWindow<span class="operator">::</span>MainWindow(VulkanWindow <span class="operator">*</span>w<span class="operator">,</span> <span class="type"><a href="../qtwidgets/qplaintextedit.html">QPlainTextEdit</a></span> <span class="operator">*</span>logWidget)
+      : m_window(w)
+  {
+      <span class="type"><a href="../qtwidgets/qwidget.html">QWidget</a></span> <span class="operator">*</span>wrapper <span class="operator">=</span> <span class="type"><a href="../qtwidgets/qwidget.html">QWidget</a></span><span class="operator">::</span>createWindowContainer(w);
+
+      m_info <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="../qtwidgets/qplaintextedit.html">QPlainTextEdit</a></span>;
+      m_info<span class="operator">-</span><span class="operator">&gt;</span>setReadOnly(<span class="keyword">true</span>);
+
+      m_number <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="../qtwidgets/qlcdnumber.html">QLCDNumber</a></span>(<span class="number">3</span>);
+      m_number<span class="operator">-</span><span class="operator">&gt;</span>setSegmentStyle(<span class="type"><a href="../qtwidgets/qlcdnumber.html">QLCDNumber</a></span><span class="operator">::</span>Filled);
+
+      <span class="type"><a href="../qtwidgets/qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>grabButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="../qtwidgets/qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;&amp;Grab&quot;</span>));
+      grabButton<span class="operator">-</span><span class="operator">&gt;</span>setFocusPolicy(<span class="type"><a href="qt-sub-qtgui.html">Qt</a></span><span class="operator">::</span>NoFocus);
+
+      connect(grabButton<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="../qtwidgets/qpushbutton.html">QPushButton</a></span><span class="operator">::</span>clicked<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> <span class="operator">&amp;</span>MainWindow<span class="operator">::</span>onGrabRequested);
+
+      <span class="type"><a href="../qtwidgets/qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>quitButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="../qtwidgets/qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;&amp;Quit&quot;</span>));
+      quitButton<span class="operator">-</span><span class="operator">&gt;</span>setFocusPolicy(<span class="type"><a href="qt-sub-qtgui.html">Qt</a></span><span class="operator">::</span>NoFocus);
+
+      connect(quitButton<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="../qtwidgets/qpushbutton.html">QPushButton</a></span><span class="operator">::</span>clicked<span class="operator">,</span> <a href="../qtwidgets/qapplication.html#qApp">qApp</a><span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="../qtcore/qcoreapplication.html">QCoreApplication</a></span><span class="operator">::</span>quit);
+
+      <span class="type"><a href="../qtwidgets/qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="../qtwidgets/qvboxlayout.html">QVBoxLayout</a></span>;
+      m_infoTab <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="../qtwidgets/qtabwidget.html">QTabWidget</a></span>(<span class="keyword">this</span>);
+      m_infoTab<span class="operator">-</span><span class="operator">&gt;</span>addTab(m_info<span class="operator">,</span> tr(<span class="string">&quot;Vulkan Info&quot;</span>));
+      m_infoTab<span class="operator">-</span><span class="operator">&gt;</span>addTab(logWidget<span class="operator">,</span> tr(<span class="string">&quot;Debug Log&quot;</span>));
+      layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_infoTab<span class="operator">,</span> <span class="number">2</span>);
+      layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_number<span class="operator">,</span> <span class="number">1</span>);
+      layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(wrapper<span class="operator">,</span> <span class="number">5</span>);
+      layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(grabButton<span class="operator">,</span> <span class="number">1</span>);
+      layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(quitButton<span class="operator">,</span> <span class="number">1</span>);
+      setLayout(layout);
+  }
+
+  <span class="type">void</span> MainWindow<span class="operator">::</span>onVulkanInfoReceived(<span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> <span class="operator">&amp;</span>text)
+  {
+      m_info<span class="operator">-</span><span class="operator">&gt;</span>setPlainText(text);
+  }
+
+  <span class="type">void</span> MainWindow<span class="operator">::</span>onFrameQueued(<span class="type">int</span> colorValue)
+  {
+      m_number<span class="operator">-</span><span class="operator">&gt;</span>display(colorValue);
+  }
+
+  <span class="type">void</span> MainWindow<span class="operator">::</span>onGrabRequested()
+  {
+      <span class="keyword">if</span> (<span class="operator">!</span>m_window<span class="operator">-</span><span class="operator">&gt;</span>supportsGrab()) {
+          <span class="type"><a href="../qtwidgets/qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>warning(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Cannot grab&quot;</span>)<span class="operator">,</span> tr(<span class="string">&quot;This swapchain does not support readbacks.&quot;</span>));
+          <span class="keyword">return</span>;
+      }
+
+      <span class="type"><a href="qimage.html">QImage</a></span> img <span class="operator">=</span> m_window<span class="operator">-</span><span class="operator">&gt;</span>grab();
+
+      <span class="comment">// Our startNextFrame() implementation is synchronous so img is ready to be</span>
+      <span class="comment">// used right here.</span>
+
+      <span class="type"><a href="../qtwidgets/qfiledialog.html">QFileDialog</a></span> fd(<span class="keyword">this</span>);
+      fd<span class="operator">.</span>setAcceptMode(<span class="type"><a href="../qtwidgets/qfiledialog.html">QFileDialog</a></span><span class="operator">::</span>AcceptSave);
+      fd<span class="operator">.</span>setDefaultSuffix(<span class="string">&quot;png&quot;</span>);
+      fd<span class="operator">.</span>selectFile(<span class="string">&quot;test.png&quot;</span>);
+      <span class="keyword">if</span> (fd<span class="operator">.</span>exec() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="../qtwidgets/qdialog.html">QDialog</a></span><span class="operator">::</span>Accepted)
+          img<span class="operator">.</span>save(fd<span class="operator">.</span>selectedFiles()<span class="operator">.</span>first());
+  }
+
+  <span class="type"><a href="qvulkanwindowrenderer.html">QVulkanWindowRenderer</a></span> <span class="operator">*</span>VulkanWindow<span class="operator">::</span>createRenderer()
+  {
+      <span class="keyword">return</span> <span class="keyword">new</span> VulkanRenderer(<span class="keyword">this</span>);
+  }
+
+  VulkanRenderer<span class="operator">::</span>VulkanRenderer(VulkanWindow <span class="operator">*</span>w)
+      : TriangleRenderer(w)
+  {
+  }
+
+  <span class="type">void</span> VulkanRenderer<span class="operator">::</span>initResources()
+  {
+      TriangleRenderer<span class="operator">::</span>initResources();
+
+      <span class="type"><a href="qvulkaninstance.html">QVulkanInstance</a></span> <span class="operator">*</span>inst <span class="operator">=</span> m_window<span class="operator">-</span><span class="operator">&gt;</span>vulkanInstance();
+      m_devFuncs <span class="operator">=</span> inst<span class="operator">-</span><span class="operator">&gt;</span>deviceFunctions(m_window<span class="operator">-</span><span class="operator">&gt;</span>device());
+
+      <span class="type"><a href="../qtcore/qstring.html">QString</a></span> info;
+      info <span class="operator">+</span><span class="operator">=</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span>()<span class="operator">.</span>sprintf(<span class="string">&quot;Number of physical devices: %d\n&quot;</span><span class="operator">,</span> m_window<span class="operator">-</span><span class="operator">&gt;</span>availablePhysicalDevices()<span class="operator">.</span>count());
+
+      <span class="type">QVulkanFunctions</span> <span class="operator">*</span>f <span class="operator">=</span> inst<span class="operator">-</span><span class="operator">&gt;</span>functions();
+      VkPhysicalDeviceProperties props;
+      f<span class="operator">-</span><span class="operator">&gt;</span>vkGetPhysicalDeviceProperties(m_window<span class="operator">-</span><span class="operator">&gt;</span>physicalDevice()<span class="operator">,</span> <span class="operator">&amp;</span>props);
+      info <span class="operator">+</span><span class="operator">=</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span>()<span class="operator">.</span>sprintf(<span class="string">&quot;Active physical device name: '%s' version %d.%d.%d\nAPI version %d.%d.%d\n&quot;</span><span class="operator">,</span>
+                                props<span class="operator">.</span>deviceName<span class="operator">,</span>
+                                VK_VERSION_MAJOR(props<span class="operator">.</span>driverVersion)<span class="operator">,</span> VK_VERSION_MINOR(props<span class="operator">.</span>driverVersion)<span class="operator">,</span>
+                                VK_VERSION_PATCH(props<span class="operator">.</span>driverVersion)<span class="operator">,</span>
+                                VK_VERSION_MAJOR(props<span class="operator">.</span>apiVersion)<span class="operator">,</span> VK_VERSION_MINOR(props<span class="operator">.</span>apiVersion)<span class="operator">,</span>
+                                VK_VERSION_PATCH(props<span class="operator">.</span>apiVersion));
+
+      info <span class="operator">+</span><span class="operator">=</span> <span class="type"><a href="../qtcore/qstring.html#QStringLiteral">QStringLiteral</a></span>(<span class="string">&quot;Supported instance layers:\n&quot;</span>);
+      <span class="keyword">for</span> (<span class="keyword">const</span> <span class="type"><a href="qvulkanlayer.html">QVulkanLayer</a></span> <span class="operator">&amp;</span>layer : inst<span class="operator">-</span><span class="operator">&gt;</span>supportedLayers())
+          info <span class="operator">+</span><span class="operator">=</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span>()<span class="operator">.</span>sprintf(<span class="string">&quot;    %s v%u\n&quot;</span><span class="operator">,</span> layer<span class="operator">.</span>name<span class="operator">.</span>constData()<span class="operator">,</span> layer<span class="operator">.</span>version);
+      info <span class="operator">+</span><span class="operator">=</span> <span class="type"><a href="../qtcore/qstring.html#QStringLiteral">QStringLiteral</a></span>(<span class="string">&quot;Enabled instance layers:\n&quot;</span>);
+      <span class="keyword">for</span> (<span class="keyword">const</span> <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> <span class="operator">&amp;</span>layer : inst<span class="operator">-</span><span class="operator">&gt;</span>layers())
+          info <span class="operator">+</span><span class="operator">=</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span>()<span class="operator">.</span>sprintf(<span class="string">&quot;    %s\n&quot;</span><span class="operator">,</span> layer<span class="operator">.</span>constData());
+
+      info <span class="operator">+</span><span class="operator">=</span> <span class="type"><a href="../qtcore/qstring.html#QStringLiteral">QStringLiteral</a></span>(<span class="string">&quot;Supported instance extensions:\n&quot;</span>);
+      <span class="keyword">for</span> (<span class="keyword">const</span> <span class="type"><a href="qvulkanextension.html">QVulkanExtension</a></span> <span class="operator">&amp;</span>ext : inst<span class="operator">-</span><span class="operator">&gt;</span>supportedExtensions())
+          info <span class="operator">+</span><span class="operator">=</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span>()<span class="operator">.</span>sprintf(<span class="string">&quot;    %s v%u\n&quot;</span><span class="operator">,</span> ext<span class="operator">.</span>name<span class="operator">.</span>constData()<span class="operator">,</span> ext<span class="operator">.</span>version);
+      info <span class="operator">+</span><span class="operator">=</span> <span class="type"><a href="../qtcore/qstring.html#QStringLiteral">QStringLiteral</a></span>(<span class="string">&quot;Enabled instance extensions:\n&quot;</span>);
+      <span class="keyword">for</span> (<span class="keyword">const</span> <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> <span class="operator">&amp;</span>ext : inst<span class="operator">-</span><span class="operator">&gt;</span>extensions())
+          info <span class="operator">+</span><span class="operator">=</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span>()<span class="operator">.</span>sprintf(<span class="string">&quot;    %s\n&quot;</span><span class="operator">,</span> ext<span class="operator">.</span>constData());
+
+      info <span class="operator">+</span><span class="operator">=</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span>()<span class="operator">.</span>sprintf(<span class="string">&quot;Color format: %u\nDepth-stencil format: %u\n&quot;</span><span class="operator">,</span>
+                                m_window<span class="operator">-</span><span class="operator">&gt;</span>colorFormat()<span class="operator">,</span> m_window<span class="operator">-</span><span class="operator">&gt;</span>depthStencilFormat());
+
+      info <span class="operator">+</span><span class="operator">=</span> <span class="type"><a href="../qtcore/qstring.html#QStringLiteral">QStringLiteral</a></span>(<span class="string">&quot;Supported sample counts:&quot;</span>);
+      <span class="keyword">const</span> <span class="type"><a href="../qtcore/qvector.html">QVector</a></span><span class="operator">&lt;</span><span class="type">int</span><span class="operator">&gt;</span> sampleCounts <span class="operator">=</span> m_window<span class="operator">-</span><span class="operator">&gt;</span>supportedSampleCounts();
+      <span class="keyword">for</span> (<span class="type">int</span> count : sampleCounts)
+          info <span class="operator">+</span><span class="operator">=</span> QLatin1Char(<span class="char">' '</span>) <span class="operator">+</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span><span class="operator">::</span>number(count);
+      info <span class="operator">+</span><span class="operator">=</span> QLatin1Char(<span class="char">'\n'</span>);
+
+      <span class="keyword">emit</span> <span class="keyword">static_cast</span><span class="operator">&lt;</span>VulkanWindow <span class="operator">*</span><span class="operator">&gt;</span>(m_window)<span class="operator">-</span><span class="operator">&gt;</span>vulkanInfoReceived(info);
+  }
+
+  <span class="type">void</span> VulkanRenderer<span class="operator">::</span>startNextFrame()
+  {
+      TriangleRenderer<span class="operator">::</span>startNextFrame();
+      <span class="keyword">emit</span> <span class="keyword">static_cast</span><span class="operator">&lt;</span>VulkanWindow <span class="operator">*</span><span class="operator">&gt;</span>(m_window)<span class="operator">-</span><span class="operator">&gt;</span>frameQueued(<span class="type">int</span>(m_rotation) <span class="operator">%</span> <span class="number">360</span>);
+  }
+
+</pre>
+</div>
+<!-- @@@hellovulkanwidget/hellovulkanwidget.cpp -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

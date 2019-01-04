@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qtwebengine-platform-notes.qdoc -->
+  <title>Qt WebEngine Platform Notes | Qt WebEngine 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtwebengine-index.html">Qt WebEngine</a></td><td >Qt WebEngine Platform Notes</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt 5.12.0 Reference Documentation</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#building-qt-webengine-from-source">Building Qt WebEngine from Source</a></li>
+<li class="level2"><a href="#all-platforms">All Platforms</a></li>
+<li class="level2"><a href="#windows">Windows</a></li>
+<li class="level2"><a href="#linux">Linux</a></li>
+<li class="level2"><a href="#macos">macOS</a></li>
+<li class="level1"><a href="#using-earlier-qt-versions-to-build-qt-webengine">Using Earlier Qt Versions to Build Qt WebEngine</a></li>
+<li class="level1"><a href="#mac-app-store-compatibility">Mac App Store Compatibility</a></li>
+<li class="level1"><a href="#macos-airplay-support-on-macbooks-with-dual-gpus">macOS Airplay Support on MacBooks with Dual GPUs</a></li>
+<li class="level1"><a href="#default-qsurfaceformat-opengl-profile-support">Default QSurfaceFormat OpenGL Profile Support</a></li>
+<li class="level1"><a href="#sandboxing-support">Sandboxing Support</a></li>
+<li class="level1"><a href="#accessibility-and-performance">Accessibility and Performance</a></li>
+<li class="level1"><a href="#popups-in-fullscreen-applications-on-windows">Popups in Fullscreen Applications on Windows</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Qt WebEngine Platform Notes</h1>
+<span class="subtitle"></span>
+<!-- $$$qtwebengine-platform-notes.html-description -->
+<div class="descr"> <a name="details"></a>
+<a name="building-qt-webengine-from-source"></a>
+<h2 id="building-qt-webengine-from-source">Building Qt WebEngine from Source</h2>
+<p>Static builds are not supported.</p>
+<p>The requirements for building Qt 5 modules from source are listed separately for each supported platform:</p>
+<ul>
+<li><a href="../qtdoc/windows-requirements.html">Qt for Windows - Requirements</a></li>
+<li><a href="../qtdoc/linux-requirements.html">Qt for X11 Requirements</a></li>
+<li>Qt for macOS - Requirements</li>
+</ul>
+<p>In addition, the following tools are required for building the <a href="qtwebengine-index.html">Qt WebEngine</a> module:</p>
+<ul>
+<li><a href="qtwebengine-platform-notes.html#all-platforms">All Platforms</a></li>
+<li><a href="qtwebengine-platform-notes.html#windows">Windows</a></li>
+<li><a href="qtwebengine-platform-notes.html#linux">Linux</a></li>
+<li><a href="qtwebengine-platform-notes.html#macos">macOS</a></li>
+</ul>
+<p>The tests for skipping the Qt WebEngine build are located in the <code>qtwebengine</code> repository, in the <code>tools\qmake\mkspecs</code> subdirectory. They can be found by searching for <code>skipBuild</code>.</p>
+<a name="all-platforms"></a>
+<h3 >All Platforms</h3>
+<p>On all platforms, the following tools are required:</p>
+<ul>
+<li><a href="http://www.python.org/">Python</a> 2.7&#x2e;5 or later. Python 3 is not supported.</li>
+<li>Bison, Flex</li>
+<li>GPerf</li>
+</ul>
+<a name="windows"></a>
+<h3 >Windows</h3>
+<p>On Windows, Visual Studio 2017 and Windows 10 SDK are required.</p>
+<p>Qt WebEngine can only be built on 64-bit Windows, with a x64-bit toolchain. For building Qt WebEngine for x86 applications, you need to configure and compile Qt with the Visual Studio 2017 x64 to x86 cross-compile toolchain. This toolchain can be set up on the command line by running <code>vcvarsall.bat amd64_x86</code>.</p>
+<a name="linux"></a>
+<h3 >Linux</h3>
+<p>On Linux, Clang or GCC version 5 or later is required. Supported configurations are <code>linux-g++</code> and <code>linux-clang</code>.</p>
+<p>Qt WebEngine requires <code>pkg-config</code> to detect most of its dependencies. The following <code>pkg-config</code> files are required:</p>
+<ul>
+<li><code>dbus-1</code></li>
+<li><code>fontconfig</code></li>
+</ul>
+<p>If Qt was configured for <code>xcb</code>, the following <code>pkg-config</code> files are also required:</p>
+<ul>
+<li><code>libdrm</code></li>
+<li><code>xcomposite</code></li>
+<li><code>xcursor</code></li>
+<li><code>xi</code></li>
+<li><code>xrandr</code></li>
+<li><code>xscrnsaver</code></li>
+<li><code>xtst</code></li>
+</ul>
+<p>Further, development packages for <code>khr</code> and <code>libcap</code> need to be installed.</p>
+<a name="macos"></a>
+<h3 >macOS</h3>
+<p>On <a href="qtwebengine-platform-notes.html#macos">macOS</a>, the following are required:</p>
+<ul>
+<li><a href="qtwebengine-platform-notes.html#macos">macOS</a> 10.12 or later</li>
+<li>Xcode 8.3&#x2e;3 or later</li>
+<li><a href="qtwebengine-platform-notes.html#macos">macOS</a> 10.12 SDK or later</li>
+</ul>
+<p><b>Note: </b>Qt WebEngine cannot be built for the 32-bit mode of <a href="qtwebengine-platform-notes.html#macos">macOS</a> (using the <code>macx-clang-32</code> <code>mkspec</code>).</p><a name="using-earlier-qt-versions-to-build-qt-webengine"></a>
+<h2 id="using-earlier-qt-versions-to-build-qt-webengine">Using Earlier Qt Versions to Build Qt WebEngine</h2>
+<p>Building Qt WebEngine with earlier Qt versions (down to the last LTS version) is supported. It means that Qt WebEngine 5.11 can be built with Qt 5.9&#x2e;x, Qt 5.10.x, and Qt 5.11.</p>
+<p>To use an earlier Qt version to build Qt Webengine:</p>
+<ol class="1" type="1"><li>Download the qtwebengine sources.</li>
+<li>From the earlier Qt version, run <code>qmake &amp;&amp; make (&amp;&amp; make install)</code>.</li>
+</ol>
+<a name="mac-app-store-compatibility"></a>
+<h2 id="mac-app-store-compatibility">Mac App Store Compatibility</h2>
+<p>Applications using Qt WebEngine are not compatible with the Mac App Store, because:</p>
+<ul>
+<li>The Chromium part of the code uses several private API methods, which are prohibited by the App Store.</li>
+<li>Applications submitted to the App Store must be code-signed with the App Sandbox feature enabled. The App Sandbox feature interferes with Chromium's own sandbox initialization, which results in Chromium not being properly initialized. This also ties in with the private API usage. Furthermore, standalone Chromium itself is not officially tested with the App Sandbox enabled, and even if work is done to bypass the App Store's restrictions, that would not guarantee correct behavior of the library.</li>
+</ul>
+<a name="macos-airplay-support-on-macbooks-with-dual-gpus"></a>
+<h2 id="macos-airplay-support-on-macbooks-with-dual-gpus">macOS Airplay Support on MacBooks with Dual GPUs</h2>
+<p>To make Qt WebEngine work correctly when streaming to an AppleTV from a MacBook that supports GPU switching, it is important to add the <code>NSSupportsAutomaticGraphicsSwitching</code> option to the application Info.plist file, with the value set to <code>YES</code>. Otherwise rendering issues might occur when creating new web engine view instances after Airplay is switched on or off.</p>
+<a name="default-qsurfaceformat-opengl-profile-support"></a>
+<h2 id="default-qsurfaceformat-opengl-profile-support">Default QSurfaceFormat OpenGL Profile Support</h2>
+<p>If a new default <a href="../qtgui/qsurfaceformat.html">QSurfaceFormat</a> with a modified OpenGL profile has to be set, it should be set before the application instance is declared, to make sure that all created OpenGL contexts use the same OpenGL profile.</p>
+<p>On <a href="qtwebengine-platform-notes.html#macos">macOS</a>, if the default <a href="../qtgui/qsurfaceformat.html">QSurfaceFormat</a> is set after the application instance, the application will exit with <a href="../qtcore/qtglobal.html#qFatal">qFatal</a>(), and print a message that the default <a href="../qtgui/qsurfaceformat.html">QSurfaceFormat</a> should be set before the application instance.</p>
+<a name="sandboxing-support"></a>
+<h2 id="sandboxing-support">Sandboxing Support</h2>
+<p>Qt WebEngine provides out-of-the-box sandboxing support for Chromium render processes on Linux and <a href="qtwebengine-platform-notes.html#macos">macOS</a>. Sandboxing is currently not supported on Windows due to a limitation in how the sandbox is set up and how it interacts with the host process provided by the Qt WebEngine libraries.</p>
+<p>On <a href="qtwebengine-platform-notes.html#macos">macOS</a>, there are no special requirements for enabling sandbox support.</p>
+<p>On Linux, the kernel has to support the anonymous namespaces feature (kernel version &gt;= 3.8) and seccomp-bpf feature (kernel version &gt;= 3.5). Setuid sandboxes are not supported and are thus disabled.</p>
+<p>To explicitly disable sandboxing, the <code>QTWEBENGINE_DISABLE_SANDBOX</code> environment variable can be set to 1 or alternatively the <code>--no-sandbox</code> command line argument can be passed to the user application executable.</p>
+<a name="accessibility-and-performance"></a>
+<h2 id="accessibility-and-performance">Accessibility and Performance</h2>
+<p>Qt WebEngine enables accessibility support for web pages when the following conditions are met:</p>
+<ul>
+<li>Qt Core is configured and built with accessibility support enabled.</li>
+<li>The QPA plugin is notified by the operating system that accessibility should be activated. This happens for example when using a screen reader application on Windows or VoiceOver on <a href="qtwebengine-platform-notes.html#macos">macOS</a>.</li>
+</ul>
+<p>Due to some limitations, the Linux QPA plugin almost always reports that accessibility should be activated. On big HTML pages, this can cause a significant slowdown in rendering speed.</p>
+<p>Because of that, from Qt 5.9 onwards, Qt WebEngine accessibility support is disabled by default on Linux. It can be re-enabled by setting the <code>QTWEBENGINE_ENABLE_LINUX_ACCESSIBILITY</code> environment variable to a non-empty value.</p>
+<a name="popups-in-fullscreen-applications-on-windows"></a>
+<h2 id="popups-in-fullscreen-applications-on-windows">Popups in Fullscreen Applications on Windows</h2>
+<p>Because of a limitation in the Windows compositor, applications that show a fullscreen web engine view will not properly display popups or other top-level windows. The reason and workaround for the issue can be found at <a href="../qtdoc/windows-issues.html#fullscreen-opengl-based-windows">Fullscreen OpenGL Based Windows</a> and <a href="../qtplatformheaders/qwindowswindowfunctions.html#setHasBorderInFullScreen">QWindowsWindowFunctions::setHasBorderInFullScreen</a>.</p>
+</div>
+<!-- @@@qtwebengine-platform-notes.html -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

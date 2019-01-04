@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qvboxplotmodelmapper.cpp -->
+  <title>VBoxPlotModelMapper QML Type | Qt Charts 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcharts-index.html">Qt Charts</a></td><td ><a href="qtcharts-qmlmodule.html">QML Types</a></td><td >VBoxPlotModelMapper QML Type</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt Charts | Commercial or GPLv3</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">VBoxPlotModelMapper QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$VBoxPlotModelMapper-brief -->
+<p>Vertical model mapper for box plot series. <a href="#details">More...</a></p>
+<!-- @@@VBoxPlotModelMapper -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtCharts 2.3</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Instantiates:</td><td class="memItemRight bottomAlign"> <a href="qml-qtcharts-vboxplotmodelmapper.html"><a href="qvboxplotmodelmapper.html">QVBoxPlotModelMapper</a></td></tr></table></div><ul>
+<li><a href="qml-qtcharts-vboxplotmodelmapper-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtcharts-vboxplotmodelmapper.html#firstBoxSetColumn-prop">firstBoxSetColumn</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtcharts-vboxplotmodelmapper.html#firstRow-prop">firstRow</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtcharts-vboxplotmodelmapper.html#lastBoxSetColumn-prop">lastBoxSetColumn</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtcharts-vboxplotmodelmapper.html#model-prop">model</a></b></b> : SomeModel</li>
+<li class="fn"><b><b><a href="qml-qtcharts-vboxplotmodelmapper.html#rowCount-prop">rowCount</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtcharts-vboxplotmodelmapper.html#series-prop">series</a></b></b> : AbstractBarSeries</li>
+</ul>
+<!-- $$$VBoxPlotModelMapper-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+<p>The <a href="qml-qtcharts-vboxplotmodelmapper.html">VBoxPlotModelMapper</a> type enables using a data model derived from the <a href="../qtcore/qabstractitemmodel.html">QAbstractItemModel</a> class as a data source for a chart. A vertical model mapper is used to create a connection between a data model and a <a href="qml-qtcharts-boxplotseries.html">BoxPlotSeries</a> type, so that each column in the data model defines a box-and-whiskers item and each row maps to the range and three median values of the box-and-whiskers item.</p>
+<p>Both model and series properties can be used to manipulate the data. The model mapper keeps the series and the data model in sync.</p>
+<p>The model mapper ensures that all the bar box-and-whiskers items in the box plot series have equal sizes. Therefore, adding or removing a value from a box-and-whiskers item causes the same change to be made in all the box-and-whiskers items in the box plot series.</p>
+<p>The following QML code snippet creates a box plot series with three box-and-whiskers items (assuming the model has at least four columns). Each box-and-whiskers item contains data starting from row 1. The name of an item is defined by the column header.</p>
+<pre class="cpp">
+
+  BoxPlotSeries {
+      VBoxPlotModelMapper {
+          model: myCustomModel <span class="comment">// QAbstractItemModel derived implementation</span>
+          firstBoxSetColumn: <span class="number">1</span>
+          lastBoxSetColumn: <span class="number">3</span>
+          firstRow: <span class="number">1</span>
+      }
+  }
+
+</pre>
+<p><b>See also </b><a href="qml-qtcharts-hboxplotmodelmapper.html">HBoxPlotModelMapper</a>.</p>
+<!-- @@@VBoxPlotModelMapper -->
+<h2>Property Documentation</h2>
+<!-- $$$firstBoxSetColumn -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="firstBoxSetColumn-prop">
+<td class="tblQmlPropNode"><p>
+<a name="firstBoxSetColumn-prop"></a><span class="name">firstBoxSetColumn</span> : <span class="type"><a href="../qtqml/qml-int.html">int</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>The column of the model that is used as the data source for the first box-and-whiskers item. The default value is -1 (invalid mapping).</p>
+</div></div><!-- @@@firstBoxSetColumn -->
+<br/>
+<!-- $$$firstRow -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="firstRow-prop">
+<td class="tblQmlPropNode"><p>
+<a name="firstRow-prop"></a><span class="name">firstRow</span> : <span class="type"><a href="../qtqml/qml-int.html">int</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>The row of the model that contains the first values of the box-and-whiskers items in the box plot series.</p>
+<p>The default value is 0.</p>
+</div></div><!-- @@@firstRow -->
+<br/>
+<!-- $$$lastBoxSetColumn -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="lastBoxSetColumn-prop">
+<td class="tblQmlPropNode"><p>
+<a name="lastBoxSetColumn-prop"></a><span class="name">lastBoxSetColumn</span> : <span class="type"><a href="../qtqml/qml-int.html">int</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>The column of the model that is used as the data source for the last box-and-whiskers item. The default value is -1 (invalid mapping).</p>
+</div></div><!-- @@@lastBoxSetColumn -->
+<br/>
+<!-- $$$model -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="model-prop">
+<td class="tblQmlPropNode"><p>
+<a name="model-prop"></a><span class="name">model</span> : <span class="type">SomeModel</span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>The data model that is used by the mapper. You need to implement the model and expose it to QML.</p>
+<p><b>Note: </b>The model has to support adding and removing rows or columns and modifying the data in the cells.</p></div></div><!-- @@@model -->
+<br/>
+<!-- $$$rowCount -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="rowCount-prop">
+<td class="tblQmlPropNode"><p>
+<a name="rowCount-prop"></a><span class="name">rowCount</span> : <span class="type"><a href="../qtqml/qml-int.html">int</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>The number of rows of the model that are mapped as the data for the box plot series.</p>
+<p>The default value is -1 (number limited to the number of columns in the model).</p>
+</div></div><!-- @@@rowCount -->
+<br/>
+<!-- $$$series -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="series-prop">
+<td class="tblQmlPropNode"><p>
+<a name="series-prop"></a><span class="name">series</span> : <span class="type"><a href="qml-qtcharts-abstractbarseries.html">AbstractBarSeries</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>The box plot series that is used by the mapper.</p>
+<p>All the data in the series is discarded when it is set to the mapper. When a new series is specified, the old series is disconnected (but it preserves its data).</p>
+</div></div><!-- @@@series -->
+<br/>
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

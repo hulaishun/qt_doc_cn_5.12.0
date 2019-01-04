@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- webui.qdoc -->
+  <title>WebEngine Widgets WebUI Example | Qt WebEngine 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtwebengine-index.html">Qt WebEngine</a></td><td ><a href="webengine-widgetexamples.html">Qt WebEngine Widgets Examples</a></td><td >WebEngine Widgets WebUI Example</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt 5.12.0 Reference Documentation</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#running-the-example">Running the Example</a></li>
+<li class="level1"><a href="#overview">Overview</a></li>
+<li class="level1"><a href="#registering-the-scheme">Registering the Scheme</a></li>
+<li class="level1"><a href="#handling-requests">Handling Requests</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">WebEngine Widgets WebUI Example</h1>
+<span class="subtitle"></span>
+<!-- $$$webenginewidgets/webui-brief -->
+<p>Displays HTML over a custom scheme.</p>
+<!-- @@@webenginewidgets/webui -->
+<!-- $$$webenginewidgets/webui-description -->
+<div class="descr"> <a name="details"></a>
+<p class="centerAlign"><img src="images/webui-example.png" alt="" /></p><p><i>WebUI</i> demonstrates how to implement a custom scheme in a secure way.</p>
+<p>Aside from the built-in URL schemes, such as <code>http</code> and <code>qrc</code>, Qt WebEngine may be extended with <i>custom schemes</i> by creating <i>custom scheme handlers</i>. This example shows:</p>
+<ul>
+<li>How to create a custom scheme handler which serves HTML and handles HTML form submissions.</li>
+<li>How to prevent ordinary web content from accessing the custom scheme.</li>
+<li>How to prevent any other scheme from submitting HTML form data.</li>
+</ul>
+<a name="running-the-example"></a>
+<h2 id="running-the-example">Running the Example</h2>
+<p>To run the example from <a href="http://doc.qt.io/qtcreator/index.html">Qt Creator</a>, open the <b>Welcome</b> mode and select the example from <b>Examples</b>. For more information, visit <a href="http://doc.qt.io/qtcreator/creator-build-example-application.html">Building and Running an Example</a>.</p>
+<a name="overview"></a>
+<h2 id="overview">Overview</h2>
+<p>The example program consists of a single <a href="qwebengineview.html">QWebEngineView</a> showing a simple HTML page loaded from the URL <code>webui:about</code>, over our custom scheme. Pressing the button at the bottom of the page will trigger an HTML form submission via POST to the same URL, at which point our custom scheme handler will cause the application to exit.</p>
+<p>The program is divided into two parts, the <code>main</code> function for setting everything up, and the <code>WebUiHandler</code> class for implementing our custom scheme handler. The <code>main</code> function is quite short:</p>
+<pre class="cpp">
+
+  <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
+  {
+      <span class="type"><a href="../qtwidgets/qapplication.html">QApplication</a></span><span class="operator">::</span>setAttribute(<span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>AA_EnableHighDpiScaling);
+
+      WebUiHandler<span class="operator">::</span>registerUrlScheme();
+
+      <span class="type"><a href="../qtwidgets/qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+
+      <span class="type"><a href="qwebengineprofile.html">QWebEngineProfile</a></span> profile;
+
+      WebUiHandler handler;
+      profile<span class="operator">.</span>installUrlSchemeHandler(WebUiHandler<span class="operator">::</span>schemeName<span class="operator">,</span> <span class="operator">&amp;</span>handler);
+
+      <span class="type"><a href="qwebenginepage.html">QWebEnginePage</a></span> page(<span class="operator">&amp;</span>profile);
+      page<span class="operator">.</span>load(WebUiHandler<span class="operator">::</span>aboutUrl);
+
+      <span class="type"><a href="qwebengineview.html">QWebEngineView</a></span> view;
+      view<span class="operator">.</span>setPage(<span class="operator">&amp;</span>page);
+      view<span class="operator">.</span>setContextMenuPolicy(<span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>NoContextMenu);
+      view<span class="operator">.</span>resize(<span class="number">500</span><span class="operator">,</span> <span class="number">600</span>);
+      view<span class="operator">.</span>show();
+
+      <span class="keyword">return</span> app<span class="operator">.</span>exec();
+  }
+
+</pre>
+<p>Aside from the relatively standard setup of widgets, two points are noteworthy. First, we call the static method <code>WebUiHandler::registerUrlScheme()</code> to register our custom scheme with the web engine. Second, we create and install our custom scheme handler <code>WebUiHandler</code> using <a href="qwebengineprofile.html#installUrlSchemeHandler">installUrlSchemeHandler()</a>. The following sections describe these aspects in more detail.</p>
+<a name="registering-the-scheme"></a>
+<h2 id="registering-the-scheme">Registering the Scheme</h2>
+<p>As custom schemes are integrated directly into the web engine, they do not necessarily need to follow the standard security rules which apply to ordinary web content. Depending on the chosen configuration, content served over a custom scheme may be given access to local resources, be set to ignore Content-Security-Policy rules, or conversely, be denied access to any other content entirely.</p>
+<p>In order to take advantage of these possibilities, the custom scheme must first be registered. This means creating and configuring a <a href="qwebengineurlscheme.html">QWebEngineUrlScheme</a> object and then handing it over to <a href="qwebengineurlscheme.html#registerScheme">QWebEngineUrlScheme::registerScheme</a>(). The example program does exactly this in the static method <code>WebUiHandler::registerUrlScheme()</code>:</p>
+<pre class="cpp">
+
+  <span class="type">void</span> WebUiHandler<span class="operator">::</span>registerUrlScheme()
+  {
+      <span class="type"><a href="qwebengineurlscheme.html">QWebEngineUrlScheme</a></span> webUiScheme(schemeName);
+      webUiScheme<span class="operator">.</span>setFlags(<span class="type"><a href="qwebengineurlscheme.html">QWebEngineUrlScheme</a></span><span class="operator">::</span>SecureScheme <span class="operator">|</span>
+                           <span class="type"><a href="qwebengineurlscheme.html">QWebEngineUrlScheme</a></span><span class="operator">::</span>LocalScheme <span class="operator">|</span>
+                           <span class="type"><a href="qwebengineurlscheme.html">QWebEngineUrlScheme</a></span><span class="operator">::</span>LocalAccessAllowed);
+      <span class="type"><a href="qwebengineurlscheme.html">QWebEngineUrlScheme</a></span><span class="operator">::</span>registerScheme(webUiScheme);
+  }
+
+</pre>
+<p>A custom scheme needs a name, which can be set by passing it to the constructor of <code>QWebEngineUrlScheme</code> or by calling <a href="qwebengineurlscheme.html#setName">QWebEngineUrlScheme::setName</a>. In the above, the name <code>webui</code> is set through the constructor. Additionally, we activate the flags <a href="qwebengineurlscheme.html#Flag-enum">SecureScheme</a>, <a href="qwebengineurlscheme.html#Flag-enum">LocalScheme</a> and <a href="qwebengineurlscheme.html#Flag-enum">LocalAccessAllowed</a>. Since our custom scheme handler will not deliver resources received from insecure network connections, we can safely mark it as a <code>SecureScheme</code>. The <code>LocalScheme</code> flag prevents content from non-local schemes (such as <code>http</code>) from interacting with our custom scheme. Without this flag it would be possible, for example, to embed the <code>webui:about</code> page in an <code>&lt;iframe&gt;</code> element on a remotely loaded HTML page, perhaps to attempt a phishing attack. We also need the <code>LocalAccessAllowed</code> flag without which we would not be able to access the <code>webui</code> scheme from our <code>webui:about</code> page.</p>
+<p>Earlier we saw that the call to <code>WebUiHandler::registerUrlScheme()</code> is made already at the top of the <code>main</code> function. This is so because custom schemes need to be registered as early as possible so that that they can be passed to all subprocesses. Specifically, custom schemes need to be registered before any other Qt WebEngine classes are instantiated by the application.</p>
+<a name="handling-requests"></a>
+<h2 id="handling-requests">Handling Requests</h2>
+<p>A custom scheme handler is, broadly speaking, similar to a web application served over HTTP. However, because custom schemes are integrated directly into the web engine, they have the advantage in terms of efficiency: there's no need for generating and parsing HTTP messages or for transferring data over sockets.</p>
+<p>Implementing a handler means creating a subclass of <a href="qwebengineurlschemehandler.html">QWebEngineUrlSchemeHandler</a>, which is just what is done by the <code>WebUiHandler</code> class of the example program:</p>
+<pre class="cpp">
+
+  <span class="keyword">class</span> WebUiHandler : <span class="keyword">public</span> <span class="type"><a href="qwebengineurlschemehandler.html">QWebEngineUrlSchemeHandler</a></span>
+  {
+      Q_OBJECT
+  <span class="keyword">public</span>:
+      <span class="keyword">explicit</span> WebUiHandler(<span class="type"><a href="../qtcore/qobject.html">QObject</a></span> <span class="operator">*</span>parent <span class="operator">=</span> nullptr);
+
+      <span class="type">void</span> requestStarted(<span class="type"><a href="qwebengineurlrequestjob.html">QWebEngineUrlRequestJob</a></span> <span class="operator">*</span>job) override;
+
+      <span class="keyword">static</span> <span class="type">void</span> registerUrlScheme();
+
+      <span class="keyword">const</span> <span class="keyword">static</span> <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> schemeName;
+      <span class="keyword">const</span> <span class="keyword">static</span> <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> aboutUrl;
+  };
+
+</pre>
+<p>For each request to a <code>webui</code> URL, the <code>WebUiHandler::requestStarted()</code> method will be called:</p>
+<pre class="cpp">
+
+  <span class="type">void</span> WebUiHandler<span class="operator">::</span>requestStarted(<span class="type"><a href="qwebengineurlrequestjob.html">QWebEngineUrlRequestJob</a></span> <span class="operator">*</span>job)
+  {
+      <span class="keyword">static</span> <span class="keyword">const</span> <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> webUiOrigin(<span class="type"><a href="../qtcore/qstring.html#QStringLiteral">QStringLiteral</a></span>(SCHEMENAME <span class="string">&quot;:&quot;</span>));
+      <span class="keyword">static</span> <span class="keyword">const</span> <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> GET(<span class="type"><a href="../qtcore/qbytearray.html#QByteArrayLiteral">QByteArrayLiteral</a></span>(<span class="string">&quot;GET&quot;</span>));
+      <span class="keyword">static</span> <span class="keyword">const</span> <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> POST(<span class="type"><a href="../qtcore/qbytearray.html#QByteArrayLiteral">QByteArrayLiteral</a></span>(<span class="string">&quot;POST&quot;</span>));
+
+      <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> method <span class="operator">=</span> job<span class="operator">-</span><span class="operator">&gt;</span>requestMethod();
+      <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> url <span class="operator">=</span> job<span class="operator">-</span><span class="operator">&gt;</span>requestUrl();
+      <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> initiator <span class="operator">=</span> job<span class="operator">-</span><span class="operator">&gt;</span>initiator();
+
+      <span class="keyword">if</span> (method <span class="operator">=</span><span class="operator">=</span> GET <span class="operator">&amp;</span><span class="operator">&amp;</span> url <span class="operator">=</span><span class="operator">=</span> aboutUrl) {
+          <span class="type"><a href="../qtcore/qfile.html">QFile</a></span> <span class="operator">*</span>file <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="../qtcore/qfile.html">QFile</a></span>(<span class="type"><a href="../qtcore/qstring.html#QStringLiteral">QStringLiteral</a></span>(<span class="string">&quot;:/about.html&quot;</span>)<span class="operator">,</span> job);
+          file<span class="operator">-</span><span class="operator">&gt;</span>open(<span class="type"><a href="../qtcore/qiodevice.html">QIODevice</a></span><span class="operator">::</span>ReadOnly);
+          job<span class="operator">-</span><span class="operator">&gt;</span>reply(<span class="type"><a href="../qtcore/qbytearray.html#QByteArrayLiteral">QByteArrayLiteral</a></span>(<span class="string">&quot;text/html&quot;</span>)<span class="operator">,</span> file);
+      } <span class="keyword">else</span> <span class="keyword">if</span> (method <span class="operator">=</span><span class="operator">=</span> POST <span class="operator">&amp;</span><span class="operator">&amp;</span> url <span class="operator">=</span><span class="operator">=</span> aboutUrl <span class="operator">&amp;</span><span class="operator">&amp;</span> initiator <span class="operator">=</span><span class="operator">=</span> webUiOrigin) {
+          job<span class="operator">-</span><span class="operator">&gt;</span>fail(<span class="type"><a href="qwebengineurlrequestjob.html">QWebEngineUrlRequestJob</a></span><span class="operator">::</span>RequestAborted);
+          <span class="type"><a href="../qtwidgets/qapplication.html">QApplication</a></span><span class="operator">::</span>exit();
+      } <span class="keyword">else</span> {
+          job<span class="operator">-</span><span class="operator">&gt;</span>fail(<span class="type"><a href="qwebengineurlrequestjob.html">QWebEngineUrlRequestJob</a></span><span class="operator">::</span>UrlNotFound);
+      }
+  }
+
+</pre>
+<p>The <a href="qwebengineurlrequestjob.html">QWebEngineUrlRequestJob</a> object <code>job</code> contains the request's attributes and provides methods for replying to the request with a response. Responses are generated asynchronously by reading them from the <a href="../qtcore/qiodevice.html">QIODevice</a> that the application passes to <a href="qwebengineurlrequestjob.html#reply">reply()</a>.</p>
+<p><b>Warning:</b> The <code>requestStarted()</code> method is not called from the main thread, but from the web engine's IO thread. Care must be taken to synchronize access to any resources on the main thread.</p>
+<p>Aside from the usual fare of <a href="qwebengineurlrequestjob.html#requestMethod">requestMethod</a> and <a href="qwebengineurlrequestjob.html#requestUrl">requestUrl</a>, there is also the <a href="qwebengineurlrequestjob.html#initiator">initiator</a>, holding the origin of the content which initiated the request. An empty <code>initiator</code> means the request was initiated directly by the application (via <a href="qwebenginepage.html#url-prop">QWebEnginePage::setUrl</a>(), for example). The special value <code>&quot;null&quot;</code> corresponds to an opaque origin (a sandboxed <code>&lt;iframe&gt;</code> element, for example). Otherwise, the <code>initiator</code> will contain the URL scheme, hostname, and port of the content which initiated the request.</p>
+<p>In this example, the <code>initiator</code> is used to ensure that <code>POST</code> requests to <code>webui:about</code> will only trigger the application's exit if they originate from the <code>webui</code> scheme. This prevents content loaded over other schemes from triggering the application's exit.</p>
+<p>Files:</p>
+<ul>
+<li><a href="qtwebengine-webenginewidgets-webui-about-html.html">webenginewidgets/webui/about.html</a></li>
+<li><a href="qtwebengine-webenginewidgets-webui-main-cpp.html">webenginewidgets/webui/main.cpp</a></li>
+<li><a href="qtwebengine-webenginewidgets-webui-webui-pro.html">webenginewidgets/webui/webui.pro</a></li>
+<li><a href="qtwebengine-webenginewidgets-webui-webui-qrc.html">webenginewidgets/webui/webui.qrc</a></li>
+<li><a href="qtwebengine-webenginewidgets-webui-webuihandler-cpp.html">webenginewidgets/webui/webuihandler.cpp</a></li>
+<li><a href="qtwebengine-webenginewidgets-webui-webuihandler-h.html">webenginewidgets/webui/webuihandler.h</a></li>
+</ul>
+</div>
+<!-- @@@webenginewidgets/webui -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

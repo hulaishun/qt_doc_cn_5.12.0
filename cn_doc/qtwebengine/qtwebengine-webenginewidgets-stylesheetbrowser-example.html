@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- stylesheetbrowser.qdoc -->
+  <title>WebEngine StyleSheet Browser Example | Qt WebEngine 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtwebengine-index.html">Qt WebEngine</a></td><td ><a href="webengine-widgetexamples.html">Qt WebEngine Widgets Examples</a></td><td >WebEngine StyleSheet Browser Example</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt 5.12.0 Reference Documentation</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#running-the-example">Running the Example</a></li>
+<li class="level1"><a href="#working-with-stylesheets">Working With Stylesheets</a></li>
+<li class="level1"><a href="#files-and-attributions">Files and Attributions</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">WebEngine StyleSheet Browser Example</h1>
+<span class="subtitle"></span>
+<!-- $$$webenginewidgets/stylesheetbrowser-brief -->
+<p>Demonstrates how to inject CSS into web pages using user scripts.</p>
+<!-- @@@webenginewidgets/stylesheetbrowser -->
+<!-- $$$webenginewidgets/stylesheetbrowser-description -->
+<div class="descr"> <a name="details"></a>
+<p class="centerAlign"><img src="images/stylesheetbrowser.png" alt="" /></p><p><i><a href="../qtwidgets/stylesheet.html">StyleSheet</a> Browser</i> demonstrates how to use the <a href="qtwebenginewidgets-module.html">Qt WebEngine C++ classes</a> to inject user stylesheets into web pages.</p>
+<a name="running-the-example"></a>
+<h2 id="running-the-example">Running the Example</h2>
+<p>To run the example from <a href="http://doc.qt.io/qtcreator/index.html">Qt Creator</a>, open the <b>Welcome</b> mode and select the example from <b>Examples</b>. For more information, visit <a href="http://doc.qt.io/qtcreator/creator-build-example-application.html">Building and Running an Example</a>.</p>
+<a name="working-with-stylesheets"></a>
+<h2 id="working-with-stylesheets">Working With Stylesheets</h2>
+<p>We use JavaScript to create and append CSS elements to the documents. After declaring the script source, <a href="qwebenginepage.html#runJavaScript">QWebEnginePage::runJavaScript</a>() can run it immediately and apply newly created styles on the current content of the web view. Encapsulating the script into a <a href="qwebenginescript.html">QWebEngineScript</a> and adding it to the script collection of <a href="qwebenginepage.html">QWebEnginePage</a> makes its effect permanent.</p>
+<pre class="cpp">
+
+  <span class="type">void</span> MainWindow<span class="operator">::</span>insertStyleSheet(<span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> <span class="operator">&amp;</span>name<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> <span class="operator">&amp;</span>source<span class="operator">,</span> bool immediately)
+  {
+      <span class="type"><a href="qwebenginescript.html">QWebEngineScript</a></span> script;
+      <span class="type"><a href="../qtcore/qstring.html">QString</a></span> s <span class="operator">=</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot;(function() {&quot;</span>\
+                                      <span class="string">&quot;    css = document.createElement('style');&quot;</span>\
+                                      <span class="string">&quot;    css.type = 'text/css';&quot;</span>\
+                                      <span class="string">&quot;    css.id = '%1';&quot;</span>\
+                                      <span class="string">&quot;    document.head.appendChild(css);&quot;</span>\
+                                      <span class="string">&quot;    css.innerText = '%2';&quot;</span>\
+                                      <span class="string">&quot;})()&quot;</span>)<span class="operator">.</span>arg(name)<span class="operator">.</span>arg(source<span class="operator">.</span>simplified());
+      <span class="keyword">if</span> (immediately)
+          ui<span class="operator">-</span><span class="operator">&gt;</span>webEngineView<span class="operator">-</span><span class="operator">&gt;</span>page()<span class="operator">-</span><span class="operator">&gt;</span>runJavaScript(s<span class="operator">,</span> <span class="type"><a href="qwebenginescript.html">QWebEngineScript</a></span><span class="operator">::</span>ApplicationWorld);
+
+      script<span class="operator">.</span>setName(name);
+      script<span class="operator">.</span>setSourceCode(s);
+      script<span class="operator">.</span>setInjectionPoint(<span class="type"><a href="qwebenginescript.html">QWebEngineScript</a></span><span class="operator">::</span>DocumentReady);
+      script<span class="operator">.</span>setRunsOnSubFrames(<span class="keyword">true</span>);
+      script<span class="operator">.</span>setWorldId(<span class="type"><a href="qwebenginescript.html">QWebEngineScript</a></span><span class="operator">::</span>ApplicationWorld);
+      ui<span class="operator">-</span><span class="operator">&gt;</span>webEngineView<span class="operator">-</span><span class="operator">&gt;</span>page()<span class="operator">-</span><span class="operator">&gt;</span>scripts()<span class="operator">.</span>insert(script);
+  }
+
+</pre>
+<p>Removing stylesheets can be done similarly:</p>
+<pre class="cpp">
+
+  <span class="type">void</span> MainWindow<span class="operator">::</span>removeStyleSheet(<span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> <span class="operator">&amp;</span>name<span class="operator">,</span> bool immediately)
+  {
+      <span class="type"><a href="../qtcore/qstring.html">QString</a></span> s <span class="operator">=</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot;(function() {&quot;</span>\
+                                      <span class="string">&quot;    var element = document.getElementById('%1');&quot;</span>\
+                                      <span class="string">&quot;    element.outerHTML = '';&quot;</span>\
+                                      <span class="string">&quot;    delete element;&quot;</span>\
+                                      <span class="string">&quot;})()&quot;</span>)<span class="operator">.</span>arg(name);
+      <span class="keyword">if</span> (immediately)
+          ui<span class="operator">-</span><span class="operator">&gt;</span>webEngineView<span class="operator">-</span><span class="operator">&gt;</span>page()<span class="operator">-</span><span class="operator">&gt;</span>runJavaScript(s<span class="operator">,</span> <span class="type"><a href="qwebenginescript.html">QWebEngineScript</a></span><span class="operator">::</span>ApplicationWorld);
+
+      <span class="type"><a href="qwebenginescript.html">QWebEngineScript</a></span> script <span class="operator">=</span> ui<span class="operator">-</span><span class="operator">&gt;</span>webEngineView<span class="operator">-</span><span class="operator">&gt;</span>page()<span class="operator">-</span><span class="operator">&gt;</span>scripts()<span class="operator">.</span>findScript(name);
+      ui<span class="operator">-</span><span class="operator">&gt;</span>webEngineView<span class="operator">-</span><span class="operator">&gt;</span>page()<span class="operator">-</span><span class="operator">&gt;</span>scripts()<span class="operator">.</span>remove(script);
+  }
+
+</pre>
+<a name="files-and-attributions"></a>
+<h2 id="files-and-attributions">Files and Attributions</h2>
+<p>The example uses icons from the Tango Icon Library:</p>
+<div class="table"><table class="generic">
+ <tr valign="top" class="odd"><td ><a href="qtwebengine-attribution-stylesheetbrowser-tango.html#stylesheetbrowser-tango">Tango Icon Library</a></td><td >Public Domain</td></tr>
+</table></div>
+<p>Files:</p>
+<ul>
+<li><a href="qtwebengine-webenginewidgets-stylesheetbrowser-main-cpp.html">webenginewidgets/stylesheetbrowser/main.cpp</a></li>
+<li><a href="qtwebengine-webenginewidgets-stylesheetbrowser-mainwindow-cpp.html">webenginewidgets/stylesheetbrowser/mainwindow.cpp</a></li>
+<li><a href="qtwebengine-webenginewidgets-stylesheetbrowser-mainwindow-h.html">webenginewidgets/stylesheetbrowser/mainwindow.h</a></li>
+<li><a href="qtwebengine-webenginewidgets-stylesheetbrowser-mainwindow-ui.html">webenginewidgets/stylesheetbrowser/mainwindow.ui</a></li>
+<li><a href="qtwebengine-webenginewidgets-stylesheetbrowser-stylesheetbrowser-pro.html">webenginewidgets/stylesheetbrowser/stylesheetbrowser.pro</a></li>
+<li><a href="qtwebengine-webenginewidgets-stylesheetbrowser-stylesheetbrowser-qrc.html">webenginewidgets/stylesheetbrowser/stylesheetbrowser.qrc</a></li>
+<li><a href="qtwebengine-webenginewidgets-stylesheetbrowser-stylesheetdialog-cpp.html">webenginewidgets/stylesheetbrowser/stylesheetdialog.cpp</a></li>
+<li><a href="qtwebengine-webenginewidgets-stylesheetbrowser-stylesheetdialog-h.html">webenginewidgets/stylesheetbrowser/stylesheetdialog.h</a></li>
+<li><a href="qtwebengine-webenginewidgets-stylesheetbrowser-stylesheetdialog-ui.html">webenginewidgets/stylesheetbrowser/stylesheetdialog.ui</a></li>
+</ul>
+<p>Images:</p>
+<ul>
+<li><a href="images/used-in-examples/webenginewidgets/stylesheetbrowser/3rdparty/view-refresh.png">webenginewidgets/stylesheetbrowser/3rdparty/view-refresh.png</a></li>
+</ul>
+</div>
+<!-- @@@webenginewidgets/stylesheetbrowser -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

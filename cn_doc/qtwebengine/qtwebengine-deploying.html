@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qtwebengine-deploying.qdoc -->
+  <title>Deploying Qt WebEngine Applications | Qt WebEngine 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtwebengine-index.html">Qt WebEngine</a></td><td >Deploying Qt WebEngine Applications</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt 5.12.0 Reference Documentation</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#target-platforms">Target Platforms</a></li>
+<li class="level1"><a href="#deploying-applications-manually">Deploying Applications Manually</a></li>
+<li class="level2"><a href="#deploying-libraries">Deploying Libraries</a></li>
+<li class="level2"><a href="#deploying-qml-imports">Deploying QML Imports</a></li>
+<li class="level2"><a href="#deploying-qt-webengine-processes">Deploying Qt WebEngine Processes</a></li>
+<li class="level2"><a href="#deploying-resources">Deploying Resources</a></li>
+<li class="level2"><a href="#translations">Translations</a></li>
+<li class="level2"><a href="#javascript-files-in-qt-resource-files">JavaScript Files in Qt Resource Files</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Deploying Qt WebEngine Applications</h1>
+<span class="subtitle"></span>
+<!-- $$$qtwebengine-deploying.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>The way to package and deploy applications varies between operating systems. For Windows and <a href="qtwebengine-platform-notes.html#macos">macOS</a>, <a href="../qtdoc/windows-deployment.html#the-windows-deployment-tool">windeployqt</a> and <a href="../qtdoc/macos.html#deploying-applications-on-macos">macdeployqt</a> automate the steps to generate a stand-alone application package.</p>
+<p>When manually deploying applications that depend on Qt WebEngine, all the files that are required to run the application have to be included: libraries, QML imports, plugins, and translations.</p>
+<p>For more information, see <a href="../qtdoc/deployment.html">Deploying Qt Applications</a>.</p>
+<a name="target-platforms"></a>
+<h2 id="target-platforms">Target Platforms</h2>
+<p>Qt WebEngine does try to support all <a href="../qtdoc/supported-platforms.html">Supported Platforms</a> of Qt. However, due to different requirements of Chromium this is not always possible. Known limitations are:</p>
+<ul>
+<li>Qt WebEngine currently supports only Windows, Linux, and <a href="qtwebengine-platform-notes.html#macos">macOS</a>.</li>
+<li>On Windows, Qt WebEngine only supports Windows Vista or newer as target platform. Due to use of newer API in Chromium, Windows XP is not supported. <a href="../qtdoc/supported-platforms.html#winrt">WinRT</a> is not supported, either.</li>
+</ul>
+<a name="deploying-applications-manually"></a>
+<h2 id="deploying-applications-manually">Deploying Applications Manually</h2>
+<p>When manually deploying applications that depend on Qt WebEngine, the following files might have to be deployed:</p>
+<ul>
+<li>Libraries</li>
+<li>QML imports</li>
+<li>Qt WebEngine process</li>
+<li>Resources</li>
+<li>Translations</li>
+<li>Audio and video codecs</li>
+</ul>
+<a name="deploying-libraries"></a>
+<h3 >Deploying Libraries</h3>
+<p>The following libraries must be deployed with applications that depend on Qt WebEngine:</p>
+<ul>
+<li><a href="qtwebenginecore-module.html">QtWebEngineCore</a> library</li>
+<li><a href="qtwebenginewidgets-module.html">QtWebEngineWidgets</a> or <a href="qtwebengine-module.html">QtWebEngine</a> libraries, depending on application type</li>
+</ul>
+<a name="deploying-qml-imports"></a>
+<h3 >Deploying QML Imports</h3>
+<p>If Qt Quick integration is used in the application, the <a href="qtwebengine-module.html">QtWebEngine</a> import directory needs to be deployed.</p>
+<a name="deploying-qt-webengine-processes"></a>
+<h3 >Deploying Qt WebEngine Processes</h3>
+<p>Qt WebEngine takes advantage of the multi-process model that the Chromium project offers. The multi-process model requires that the Qt WebEngine Process executable be deployed alongside your application.</p>
+<p>The WebEngine process is executed for each <a href="qwebengineview.html">QWebEngineView</a> or <a href="qml-qtwebengine-webengineview.html">WebEngineView</a> instance. For example, a browser application with two tabs open should have two separate instances of the process running. This is a common approach used by most modern web engines to provide a stable browsing experience.</p>
+<p>At runtime, Qt WebEngine looks for the <code>QtWebEngineProcess</code> executable in the directory that <a href="../qtcore/qlibraryinfo.html#location">QLibraryInfo::location</a>(<a href="../qtcore/qlibraryinfo.html#LibraryLocation-enum">QLibraryInfo::LibraryExecutablesPath</a>) returns. For Qt installations, this is <code>QTDIR/libexec</code> (Linux) or <code>QTDIR\bin</code> (Windows). The path can be changed by defining a <code>qt.conf</code> file, for example. Alternatively, an executable path can be set as a value of the <code>QTWEBENGINEPROCESS_PATH</code> environment variable. On <a href="qtwebengine-platform-notes.html#macos">macOS</a>, Qt WebEngine looks for the executable in <code>.app/Helpers/QtWebEngineProcess</code>.</p>
+<a name="deploying-resources"></a>
+<h3 >Deploying Resources</h3>
+<p>Qt WebEngine requires the following resource files:</p>
+<ul>
+<li><code>qtwebengine_resources.pak</code> contains the resources needed by Chromium.</li>
+<li><code>qtwebengine_devtools_resources.pak</code> contains tools for remote debugging.</li>
+<li><code>qtwebengine_resources_100p.pak</code> contains images suitable for low resolution displays.</li>
+<li><code>qtwebengine_resources_200p.pak</code> contains images suitable for high DPI displays.</li>
+<li><code>icudtl.dat</code> provides support for International Components for Unicode (ICU). It is the Chromium version of ICU, which is not needed if Qt WebEngine was configured to use the system ICU.</li>
+</ul>
+<p>Resources are searched from the following locations:</p>
+<ul>
+<li>On Linux and Windows: the <code>resources</code> directory in the directory specified by <a href="../qtcore/qlibraryinfo.html#location">QLibraryInfo::location</a>(<a href="../qtcore/qlibraryinfo.html#LibraryLocation-enum">QLibraryInfo::DataPath</a>)</li>
+<li>On <a href="qtwebengine-platform-notes.html#macos">macOS</a>: <code>.app/Content/Resources</code></li>
+</ul>
+<a name="translations"></a>
+<h3 >Translations</h3>
+<p>Locale data (such as <code>en-US.pak</code>) is searched form the following locations:</p>
+<ul>
+<li>On <a href="qtwebengine-platform-notes.html#macos">macOS</a>: <code>.app/Content/Resources</code></li>
+<li>On Linux and Windows: <code>qtwebengine_locales</code> directory in the directory specified by <a href="../qtcore/qlibraryinfo.html#location">QLibraryInfo::location</a>(<a href="../qtcore/qlibraryinfo.html#LibraryLocation-enum">QLibraryInfo::TranslationsPath</a>)</li>
+</ul>
+<a name="javascript-files-in-qt-resource-files"></a>
+<h3 >JavaScript Files in Qt Resource Files</h3>
+<p>If your WebEngine application is built using the Qt Quick Compiler, and the application ships JavaScript files inside .qrc resources, and these files are supposed to be loaded from inside HTML pages, make sure to specify the resource files in a <code>QTQUICK_COMPILER_SKIPPED_RESOURCES</code> qmake variable inside your project. This prevents the Qt Quick Compiler from trying to generate C++ code for the corresponding JavaScript code, as well as removing the original JavaScript code from the Qt resources file, which would lead to broken HTML pages. For example:</p>
+<pre class="cpp">
+
+  QTQUICK_COMPILER_SKIPPED_RESOURCES <span class="operator">+</span><span class="operator">=</span> resources<span class="operator">/</span>my_resource<span class="operator">.</span>qrc
+
+</pre>
+</div>
+<!-- @@@qtwebengine-deploying.html -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qoauth1.cpp -->
+  <title>QOAuth1 Class | Qt Network Authorization 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtnetworkauth-index.html">Qt Network Authorization</a></td><td ><a href="qtnetworkauth-module.html">C++ Classes</a></td><td >QOAuth1</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt 5.12.0 Reference Documentation</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-types">Public Types</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#reimplemented-public-functions">Reimplemented Public Functions</a></li>
+<li class="level1"><a href="#public-slots">Public Slots</a></li>
+<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#static-public-members">Static Public Members</a></li>
+<li class="level1"><a href="#protected-functions">Protected Functions</a></li>
+<li class="level1"><a href="#static-protected-members">Static Protected Members</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">QOAuth1 Class</h1>
+<!-- $$$QOAuth1-brief -->
+<p>The <a href="qoauth1.html">QOAuth1</a> class provides an implementation of the <a href="https://tools.ietf.org/html/rfc5849">OAuth 1 Protocol</a>. <a href="#details">More...</a></p>
+<!-- @@@QOAuth1 -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QOAuth1&gt;</span>
+</td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += networkauth</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.8</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <a href="qabstractoauth.html">QAbstractOAuth</a></td></tr></table></div><ul>
+<li><a href="qoauth1-members.html">List of all members, including inherited members</a></li>
+<li><a href="qoauth1-obsolete.html">Obsolete members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2 id="public-types">Public Types</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#SignatureMethod-enum">SignatureMethod</a></b> { Hmac_Sha1, Rsa_Sha1, PlainText }</td></tr>
+</table></div>
+<a name="public-functions"></a>
+<h2 id="public-functions">Public Functions</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#QOAuth1">QOAuth1</a></b>(QObject *<i>parent</i> = nullptr)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#QOAuth1-1">QOAuth1</a></b>(QNetworkAccessManager *<i>manager</i>, QObject *<i>parent</i> = nullptr)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#QOAuth1-2">QOAuth1</a></b>(const QString &amp;<i>clientIdentifier</i>, const QString &amp;<i>clientSharedSecret</i>, QNetworkAccessManager *<i>manager</i>, QObject *<i>parent</i> = nullptr)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QPair&lt;QString, QString&gt; </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#clientCredentials">clientCredentials</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#clientSharedSecret">clientSharedSecret</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#setClientCredentials">setClientCredentials</a></b>(const QPair&lt;QString, QString&gt; &amp;<i>clientCredentials</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#setClientCredentials-1">setClientCredentials</a></b>(const QString &amp;<i>clientIdentifier</i>, const QString &amp;<i>clientSharedSecret</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#setClientSharedSecret">setClientSharedSecret</a></b>(const QString &amp;<i>clientSharedSecret</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#setSignatureMethod">setSignatureMethod</a></b>(QOAuth1::SignatureMethod <i>value</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#setTemporaryCredentialsUrl">setTemporaryCredentialsUrl</a></b>(const QUrl &amp;<i>url</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#setTokenCredentials">setTokenCredentials</a></b>(const QPair&lt;QString, QString&gt; &amp;<i>tokenCredentials</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#setTokenCredentials-1">setTokenCredentials</a></b>(const QString &amp;<i>token</i>, const QString &amp;<i>tokenSecret</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#setTokenCredentialsUrl">setTokenCredentialsUrl</a></b>(const QUrl &amp;<i>url</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#setTokenSecret">setTokenSecret</a></b>(const QString &amp;<i>tokenSecret</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QOAuth1::SignatureMethod </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#signatureMethod">signatureMethod</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QUrl </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#temporaryCredentialsUrl">temporaryCredentialsUrl</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QPair&lt;QString, QString&gt; </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#tokenCredentials">tokenCredentials</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QUrl </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#tokenCredentialsUrl">tokenCredentialsUrl</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#tokenSecret">tokenSecret</a></b>() const</td></tr>
+</table></div>
+<a name="reimplemented-public-functions"></a>
+<h2 id="reimplemented-public-functions">Reimplemented Public Functions</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QNetworkReply *</td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#deleteResource">deleteResource</a></b>(const QUrl &amp;<i>url</i>, const QVariantMap &amp;<i>parameters</i> = ...) override</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QNetworkReply *</td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#get">get</a></b>(const QUrl &amp;<i>url</i>, const QVariantMap &amp;<i>parameters</i> = ...) override</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QNetworkReply *</td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#head">head</a></b>(const QUrl &amp;<i>url</i>, const QVariantMap &amp;<i>parameters</i> = ...) override</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QNetworkReply *</td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#post">post</a></b>(const QUrl &amp;<i>url</i>, const QVariantMap &amp;<i>parameters</i> = ...) override</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QNetworkReply *</td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#put">put</a></b>(const QUrl &amp;<i>url</i>, const QVariantMap &amp;<i>parameters</i> = ...) override</td></tr>
+</table></div>
+<ul>
+<li class="fn">21 public functions inherited from <a href="qabstractoauth.html#public-functions">QAbstractOAuth</a></li>
+<li class="fn">31 public functions inherited from <a href="../qtcore/qobject.html#public-functions">QObject</a></li>
+</ul>
+<a name="public-slots"></a>
+<h2 id="public-slots">Public Slots</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#continueGrantWithVerifier">continueGrantWithVerifier</a></b>(const QString &amp;<i>verifier</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#grant">grant</a></b>() override</td></tr>
+</table></div>
+<ul>
+<li class="fn">1 public slot inherited from <a href="qabstractoauth.html#public-slots">QAbstractOAuth</a></li>
+<li class="fn">1 public slot inherited from <a href="../qtcore/qobject.html#public-slots">QObject</a></li>
+</ul>
+<a name="signals"></a>
+<h2 id="signals">Signals</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#clientSharedSecretChanged">clientSharedSecretChanged</a></b>(const QString &amp;<i>credential</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#signatureMethodChanged">signatureMethodChanged</a></b>(QOAuth1::SignatureMethod <i>method</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#temporaryCredentialsUrlChanged">temporaryCredentialsUrlChanged</a></b>(const QUrl &amp;<i>url</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#tokenCredentialsUrlChanged">tokenCredentialsUrlChanged</a></b>(const QUrl &amp;<i>url</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#tokenSecretChanged">tokenSecretChanged</a></b>(const QString &amp;<i>token</i>)</td></tr>
+</table></div>
+<ul>
+<li class="fn">11 signals inherited from <a href="qabstractoauth.html#signals">QAbstractOAuth</a></li>
+<li class="fn">2 signals inherited from <a href="../qtcore/qobject.html#signals">QObject</a></li>
+</ul>
+<a name="static-public-members"></a>
+<h2 id="static-public-members">Static Public Members</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> const QMetaObject </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#staticMetaObject-var">staticMetaObject</a></b></td></tr>
+</table></div>
+<ul>
+<li class="fn">1 static public member inherited from <a href="qabstractoauth.html#static-public-members">QAbstractOAuth</a></li>
+<li class="fn">9 static public members inherited from <a href="../qtcore/qobject.html#static-public-members">QObject</a></li>
+</ul>
+<a name="protected-functions"></a>
+<h2 id="protected-functions">Protected Functions</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> QNetworkReply *</td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#requestTemporaryCredentials">requestTemporaryCredentials</a></b>(QNetworkAccessManager::Operation <i>operation</i>, const QUrl &amp;<i>url</i>, const QVariantMap &amp;<i>parameters</i> = ...)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QNetworkReply *</td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#requestTokenCredentials">requestTokenCredentials</a></b>(QNetworkAccessManager::Operation <i>operation</i>, const QUrl &amp;<i>url</i>, const QPair&lt;QString, QString&gt; &amp;<i>temporaryToken</i>, const QVariantMap &amp;<i>parameters</i> = ...)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#setup">setup</a></b>(QNetworkRequest *<i>request</i>, const QVariantMap &amp;<i>signingParameters</i>, QNetworkAccessManager::Operation <i>operation</i>)</td></tr>
+</table></div>
+<ul>
+<li class="fn">3 protected functions inherited from <a href="qabstractoauth.html#protected-functions">QAbstractOAuth</a></li>
+<li class="fn">9 protected functions inherited from <a href="../qtcore/qobject.html#protected-functions">QObject</a></li>
+</ul>
+<a name="static-protected-members"></a>
+<h2 id="static-protected-members">Static Protected Members</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> QByteArray </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#generateAuthorizationHeader">generateAuthorizationHeader</a></b>(const QVariantMap &amp;<i>oauthParams</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QByteArray </td><td class="memItemRight bottomAlign"><b><a href="qoauth1.html#nonce">nonce</a></b>()</td></tr>
+</table></div>
+<ul>
+<li class="fn">1 static protected member inherited from <a href="qabstractoauth.html#static-protected-members">QAbstractOAuth</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">6 properties inherited from <a href="qabstractoauth.html#properties">QAbstractOAuth</a></li>
+<li class="fn">1 property inherited from <a href="../qtcore/qobject.html#properties">QObject</a></li>
+<li class="fn">1 public variable inherited from <a href="../qtcore/qobject.html#public-variables">QObject</a></li>
+<li class="fn">2 protected variables inherited from <a href="../qtcore/qobject.html#protected-variables">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QOAuth1-description -->
+<div class="descr">
+<h2 id="details">Detailed Description</h2>
+<p>The <a href="qoauth1.html">QOAuth1</a> class provides an implementation of the <a href="https://tools.ietf.org/html/rfc5849">OAuth 1 Protocol</a>.</p>
+<p><a href="qoauth1.html">QOAuth1</a> provides a method for clients to access server resources on behalf of a resource owner (such as a different client or an end-user). It also provides a process for end-users to authorize third-party access to their server resources without sharing their credentials (typically, a username and password pair), using user-agent redirections.</p>
+<p><a href="qoauth1.html">QOAuth1</a> uses tokens to represent the authorization granted to the client by the resource owner. Typically, token credentials are issued by the server at the resource owner's request, after authenticating the resource owner's identity (usually using a username and password).</p>
+<p>When making the temporary credentials request, the client authenticates using only the client credentials. When making the token request, the client authenticates using the client credentials as well as the temporary credentials. Once the client receives and stores the token credentials, it can proceed to access protected resources on behalf of the resource owner by making authenticated requests using the client credentials together with the token credentials received.</p>
+</div>
+<!-- @@@QOAuth1 -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$SignatureMethod$$$Hmac_Sha1$$$Rsa_Sha1$$$PlainText -->
+<h3 class="fn" id="SignatureMethod-enum"><a name="SignatureMethod-enum"></a>enum QOAuth1::<span class="name">SignatureMethod</span></h3>
+<p>Indicates the signature method to be used to sign requests.</p>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><code>QOAuth1::Hmac_Sha1</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign"><a href="https://tools.ietf.org/html/rfc5849#section-3.4.2">HMAC-SHA1</a> signature method.</td></tr>
+<tr><td class="topAlign"><code>QOAuth1::Rsa_Sha1</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign"><a href="https://tools.ietf.org/html/rfc5849#section-3.4.3">RSA-SHA1</a> signature method (not supported).</td></tr>
+<tr><td class="topAlign"><code>QOAuth1::PlainText</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign"><a href="https://tools.ietf.org/html/rfc5849#section-3.4.4">PLAINTEXT</a> signature method.</td></tr>
+</table></div>
+<!-- @@@SignatureMethod -->
+</div>
+<div class="prop">
+<h2>Property Documentation</h2>
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QOAuth1[overload1]$$$QOAuth1QObject* -->
+<h3 class="fn" id="QOAuth1"><a name="QOAuth1"></a>QOAuth1::<span class="name">QOAuth1</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
+<p>Constructs a <a href="qoauth1.html">QOAuth1</a> object with parent object <i>parent</i>.</p>
+<!-- @@@QOAuth1 -->
+<!-- $$$QOAuth1$$$QOAuth1QNetworkAccessManager*QObject* -->
+<h3 class="fn" id="QOAuth1-1"><a name="QOAuth1-1"></a>QOAuth1::<span class="name">QOAuth1</span>(<span class="type"><a href="../qtnetwork/qnetworkaccessmanager.html">QNetworkAccessManager</a></span> *<i>manager</i>, <span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
+<p>Constructs a <a href="qoauth1.html">QOAuth1</a> object with parent object <i>parent</i>, using <i>manager</i> to access the network.</p>
+<!-- @@@QOAuth1 -->
+<!-- $$$QOAuth1$$$QOAuth1constQString&constQString&QNetworkAccessManager*QObject* -->
+<h3 class="fn" id="QOAuth1-2"><a name="QOAuth1-2"></a>QOAuth1::<span class="name">QOAuth1</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>clientIdentifier</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>clientSharedSecret</i>, <span class="type"><a href="../qtnetwork/qnetworkaccessmanager.html">QNetworkAccessManager</a></span> *<i>manager</i>, <span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
+<p>Constructs a <a href="qoauth1.html">QOAuth1</a> object with parent object <i>parent</i>, using <i>manager</i> to access the network. Also sets <i>clientIdentifier</i> and <i>clientSharedSecret</i> to sign the calls to the web server and identify the application.</p>
+<!-- @@@QOAuth1 -->
+<!-- $$$clientCredentials[overload1]$$$clientCredentials -->
+<h3 class="fn" id="clientCredentials"><a name="clientCredentials"></a><span class="type"><a href="../qtcore/qpair.html">QPair</a></span>&lt;<span class="type"><a href="../qtcore/qstring.html">QString</a></span>, <span class="type"><a href="../qtcore/qstring.html">QString</a></span>&gt; QOAuth1::<span class="name">clientCredentials</span>() const</h3>
+<p>Returns the pair of <a href="../qtcore/qstring.html">QString</a> used to identify the application and sign requests to the web server.</p>
+<p><b>See also </b><a href="qoauth1.html#setClientCredentials">setClientCredentials</a>().</p>
+<!-- @@@clientCredentials -->
+<!-- $$$clientSharedSecret[overload1]$$$clientSharedSecret -->
+<h3 class="fn" id="clientSharedSecret"><a name="clientSharedSecret"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QOAuth1::<span class="name">clientSharedSecret</span>() const</h3>
+<p>Returns the current shared secret used to sign requests to the web server.</p>
+<p><b>See also </b><a href="qoauth1.html#setClientSharedSecret">setClientSharedSecret</a>() and <a href="qoauth1.html#clientCredentials">clientCredentials</a>().</p>
+<!-- @@@clientSharedSecret -->
+<!-- $$$clientSharedSecretChanged[overload1]$$$clientSharedSecretChangedconstQString& -->
+<h3 class="fn" id="clientSharedSecretChanged"><a name="clientSharedSecretChanged"></a><code>[signal] </code><span class="type">void</span> QOAuth1::<span class="name">clientSharedSecretChanged</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>credential</i>)</h3>
+<!-- @@@clientSharedSecretChanged -->
+<!-- $$$continueGrantWithVerifier[overload1]$$$continueGrantWithVerifierconstQString& -->
+<h3 class="fn" id="continueGrantWithVerifier"><a name="continueGrantWithVerifier"></a><code>[slot] </code><span class="type">void</span> QOAuth1::<span class="name">continueGrantWithVerifier</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>verifier</i>)</h3>
+<p>Continues the Redirection-Based Authorization flow using <i>verifier</i>. Call this function when using an Out-of-band reply handler to supply the verifier provided by the web server.</p>
+<!-- @@@continueGrantWithVerifier -->
+<!-- $$$deleteResource[overload1]$$$deleteResourceconstQUrl&constQVariantMap& -->
+<h3 class="fn" id="deleteResource"><a name="deleteResource"></a><code>[override virtual] </code><span class="type"><a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a></span> *QOAuth1::<span class="name">deleteResource</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>parameters</i> = ...)</h3>
+<p>Reimplemented from <a href="qabstractoauth.html#deleteResource">QAbstractOAuth::deleteResource</a>().</p>
+<p>Sends an authenticated DELETE request and returns a new <a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a>. The <i>url</i> and <i>parameters</i> are used to create the request.</p>
+<p><b>See also</b>: <a href="https://tools.ietf.org/html/rfc2616#section-9.7">Hypertext Transfer Protocol -- HTTP/1.1: DELETE</a></p>
+<!-- @@@deleteResource -->
+<!-- $$$generateAuthorizationHeader[overload1]$$$generateAuthorizationHeaderconstQVariantMap& -->
+<h3 class="fn" id="generateAuthorizationHeader"><a name="generateAuthorizationHeader"></a><code>[static protected] </code><span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> QOAuth1::<span class="name">generateAuthorizationHeader</span>(const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>oauthParams</i>)</h3>
+<p>Generates an authorization header using <i>oauthParams</i>.</p>
+<p><b>See also</b>: <a href="https://tools.ietf.org/html/rfc5849#section-3.5.1">The OAuth 1.0 Protocol: Authorization Header</a></p>
+<!-- @@@generateAuthorizationHeader -->
+<!-- $$$get[overload1]$$$getconstQUrl&constQVariantMap& -->
+<h3 class="fn" id="get"><a name="get"></a><code>[override virtual] </code><span class="type"><a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a></span> *QOAuth1::<span class="name">get</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>parameters</i> = ...)</h3>
+<p>Reimplemented from <a href="qabstractoauth.html#get">QAbstractOAuth::get</a>().</p>
+<p>Sends an authenticated GET request and returns a new <a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a>. The <i>url</i> and <i>parameters</i> are used to create the request.</p>
+<p><b>See also</b>: <a href="https://tools.ietf.org/html/rfc2616#section-9.3">Hypertext Transfer Protocol -- HTTP/1.1: GET</a></p>
+<!-- @@@get -->
+<!-- $$$grant[overload1]$$$grant -->
+<h3 class="fn" id="grant"><a name="grant"></a><code>[override virtual slot] </code><span class="type">void</span> QOAuth1::<span class="name">grant</span>()</h3>
+<p>Reimplemented from <a href="qabstractoauth.html#grant">QAbstractOAuth::grant</a>().</p>
+<p>Starts the Redirection-Based Authorization flow.</p>
+<p><b>Note: </b>For an out-of-band reply handler, a verifier string is received after the call to this function; pass that to <a href="qoauth1.html#continueGrantWithVerifier">continueGrantWithVerifier</a>() to continue the grant process.</p><p><b>See also</b>: <a href="https://tools.ietf.org/html/rfc5849#section-2">The OAuth 1.0 Protocol: Redirection-Based Authorization</a></p>
+<p><b>See also </b><a href="qoauth1.html#continueGrantWithVerifier">continueGrantWithVerifier</a>().</p>
+<!-- @@@grant -->
+<!-- $$$head[overload1]$$$headconstQUrl&constQVariantMap& -->
+<h3 class="fn" id="head"><a name="head"></a><code>[override virtual] </code><span class="type"><a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a></span> *QOAuth1::<span class="name">head</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>parameters</i> = ...)</h3>
+<p>Reimplemented from <a href="qabstractoauth.html#head">QAbstractOAuth::head</a>().</p>
+<p>Sends an authenticated HEAD request and returns a new <a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a>. The <i>url</i> and <i>parameters</i> are used to create the request.</p>
+<p><b>See also</b>: <a href="https://tools.ietf.org/html/rfc2616#section-9.4">Hypertext Transfer Protocol -- HTTP/1.1: HEAD</a></p>
+<!-- @@@head -->
+<!-- $$$nonce[overload1]$$$nonce -->
+<h3 class="fn" id="nonce"><a name="nonce"></a><code>[static protected] </code><span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> QOAuth1::<span class="name">nonce</span>()</h3>
+<p>Generates a nonce.</p>
+<p><b>See also</b>: <a href="https://tools.ietf.org/html/rfc5849#section-3.3">The OAuth 1.0 Protocol: Nonce and Timestamp</a></p>
+<!-- @@@nonce -->
+<!-- $$$post[overload1]$$$postconstQUrl&constQVariantMap& -->
+<h3 class="fn" id="post"><a name="post"></a><code>[override virtual] </code><span class="type"><a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a></span> *QOAuth1::<span class="name">post</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>parameters</i> = ...)</h3>
+<p>Reimplemented from <a href="qabstractoauth.html#post">QAbstractOAuth::post</a>().</p>
+<p>Sends an authenticated POST request and returns a new <a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a>. The <i>url</i> and <i>parameters</i> are used to create the request.</p>
+<p><b>See also</b>: <a href="https://tools.ietf.org/html/rfc2616#section-9.5">Hypertext Transfer Protocol -- HTTP/1.1: POST</a></p>
+<!-- @@@post -->
+<!-- $$$put[overload1]$$$putconstQUrl&constQVariantMap& -->
+<h3 class="fn" id="put"><a name="put"></a><code>[override virtual] </code><span class="type"><a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a></span> *QOAuth1::<span class="name">put</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>parameters</i> = ...)</h3>
+<p>Reimplemented from <a href="qabstractoauth.html#put">QAbstractOAuth::put</a>().</p>
+<p>Sends an authenticated PUT request and returns a new <a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a>. The <i>url</i> and <i>parameters</i> are used to create the request.</p>
+<p><b>See also</b>: <a href="https://tools.ietf.org/html/rfc2616#section-9.6">Hypertext Transfer Protocol -- HTTP/1.1: PUT</a></p>
+<!-- @@@put -->
+<!-- $$$requestTemporaryCredentials[overload1]$$$requestTemporaryCredentialsQNetworkAccessManager::OperationconstQUrl&constQVariantMap& -->
+<h3 class="fn" id="requestTemporaryCredentials"><a name="requestTemporaryCredentials"></a><code>[protected] </code><span class="type"><a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a></span> *QOAuth1::<span class="name">requestTemporaryCredentials</span>(<span class="type"><a href="../qtnetwork/qnetworkaccessmanager.html#Operation-enum">QNetworkAccessManager::Operation</a></span> <i>operation</i>, const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>parameters</i> = ...)</h3>
+<p>Starts the a request for temporary credentials using the request method <i>operation</i>. The request URL is <i>url</i> and the <i>parameters</i> shall encoded and sent during the request.</p>
+<p><b>See also</b>: <a href="https://tools.ietf.org/html/rfc5849#section-2.1">The OAuth 1.0 Protocol: Temporary Credentials</a></p>
+<!-- @@@requestTemporaryCredentials -->
+<!-- $$$requestTokenCredentials[overload1]$$$requestTokenCredentialsQNetworkAccessManager::OperationconstQUrl&constQPair<QString,QString>&constQVariantMap& -->
+<h3 class="fn" id="requestTokenCredentials"><a name="requestTokenCredentials"></a><code>[protected] </code><span class="type"><a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a></span> *QOAuth1::<span class="name">requestTokenCredentials</span>(<span class="type"><a href="../qtnetwork/qnetworkaccessmanager.html#Operation-enum">QNetworkAccessManager::Operation</a></span> <i>operation</i>, const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, const <span class="type"><a href="../qtcore/qpair.html">QPair</a></span>&lt;<span class="type"><a href="../qtcore/qstring.html">QString</a></span>, <span class="type"><a href="../qtcore/qstring.html">QString</a></span>&gt; &amp;<i>temporaryToken</i>, const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>parameters</i> = ...)</h3>
+<p>Starts a request for token credentials using the request method <i>operation</i>. The request URL is <i>url</i> and the <i>parameters</i> shall be encoded and sent during the request. The <i>temporaryToken</i> pair of string is used to identify and sign the request.</p>
+<p><b>See also</b>: <a href="https://tools.ietf.org/html/rfc5849#section-2.3">The OAuth 1.0 Protocol: Token Credentials</a></p>
+<!-- @@@requestTokenCredentials -->
+<!-- $$$setClientCredentials[overload1]$$$setClientCredentialsconstQPair<QString,QString>& -->
+<h3 class="fn" id="setClientCredentials"><a name="setClientCredentials"></a><span class="type">void</span> QOAuth1::<span class="name">setClientCredentials</span>(const <span class="type"><a href="../qtcore/qpair.html">QPair</a></span>&lt;<span class="type"><a href="../qtcore/qstring.html">QString</a></span>, <span class="type"><a href="../qtcore/qstring.html">QString</a></span>&gt; &amp;<i>clientCredentials</i>)</h3>
+<p>Sets <i>clientCredentials</i> as the pair of <a href="../qtcore/qstring.html">QString</a> used to identify the application and sign requests to the web server.</p>
+<p><b>See also </b><a href="qoauth1.html#clientCredentials">clientCredentials</a>().</p>
+<!-- @@@setClientCredentials -->
+<!-- $$$setClientCredentials$$$setClientCredentialsconstQString&constQString& -->
+<h3 class="fn" id="setClientCredentials-1"><a name="setClientCredentials-1"></a><span class="type">void</span> QOAuth1::<span class="name">setClientCredentials</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>clientIdentifier</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>clientSharedSecret</i>)</h3>
+<p>Sets <i>clientIdentifier</i> and <i>clientSharedSecret</i> as the pair of <a href="../qtcore/qstring.html">QString</a> used to identify the application and sign requests to the web server. <i>clientIdentifier</i> identifies the application and <i>clientSharedSecret</i> is used to sign requests.</p>
+<p><b>See also </b><a href="qoauth1.html#clientCredentials">clientCredentials</a>().</p>
+<!-- @@@setClientCredentials -->
+<!-- $$$setClientSharedSecret[overload1]$$$setClientSharedSecretconstQString& -->
+<h3 class="fn" id="setClientSharedSecret"><a name="setClientSharedSecret"></a><span class="type">void</span> QOAuth1::<span class="name">setClientSharedSecret</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>clientSharedSecret</i>)</h3>
+<p>Sets <i>clientSharedSecret</i> as the string used to sign the requests to the web server.</p>
+<p><b>See also </b><a href="qoauth1.html#clientSharedSecret">clientSharedSecret</a>() and <a href="qoauth1.html#setClientCredentials">setClientCredentials</a>().</p>
+<!-- @@@setClientSharedSecret -->
+<!-- $$$setSignatureMethod[overload1]$$$setSignatureMethodQOAuth1::SignatureMethod -->
+<h3 class="fn" id="setSignatureMethod"><a name="setSignatureMethod"></a><span class="type">void</span> QOAuth1::<span class="name">setSignatureMethod</span>(<span class="type"><a href="qoauth1.html#SignatureMethod-enum">QOAuth1::SignatureMethod</a></span> <i>value</i>)</h3>
+<p>Sets <i>value</i> as the method used to sign requests to the web server.</p>
+<p><b>See also </b><a href="qoauth1.html#signatureMethod">signatureMethod</a>().</p>
+<!-- @@@setSignatureMethod -->
+<!-- $$$setTemporaryCredentialsUrl[overload1]$$$setTemporaryCredentialsUrlconstQUrl& -->
+<h3 class="fn" id="setTemporaryCredentialsUrl"><a name="setTemporaryCredentialsUrl"></a><span class="type">void</span> QOAuth1::<span class="name">setTemporaryCredentialsUrl</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
+<p>Sets <i>url</i> as the URL to request temporary credentials to start the authentication process.</p>
+<p><b>See also </b><a href="qoauth1.html#temporaryCredentialsUrl">temporaryCredentialsUrl</a>().</p>
+<!-- @@@setTemporaryCredentialsUrl -->
+<!-- $$$setTokenCredentials[overload1]$$$setTokenCredentialsconstQPair<QString,QString>& -->
+<h3 class="fn" id="setTokenCredentials"><a name="setTokenCredentials"></a><span class="type">void</span> QOAuth1::<span class="name">setTokenCredentials</span>(const <span class="type"><a href="../qtcore/qpair.html">QPair</a></span>&lt;<span class="type"><a href="../qtcore/qstring.html">QString</a></span>, <span class="type"><a href="../qtcore/qstring.html">QString</a></span>&gt; &amp;<i>tokenCredentials</i>)</h3>
+<p>Sets <i>tokenCredentials</i> as the pair of <a href="../qtcore/qstring.html">QString</a> used to identify and sign authenticated requests to the web server.</p>
+<p><b>See also </b><a href="qoauth1.html#tokenCredentials">tokenCredentials</a>().</p>
+<!-- @@@setTokenCredentials -->
+<!-- $$$setTokenCredentials$$$setTokenCredentialsconstQString&constQString& -->
+<h3 class="fn" id="setTokenCredentials-1"><a name="setTokenCredentials-1"></a><span class="type">void</span> QOAuth1::<span class="name">setTokenCredentials</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>token</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>tokenSecret</i>)</h3>
+<p>Sets <i>token</i> and <i>tokenSecret</i> as the pair of <a href="../qtcore/qstring.html">QString</a> used to identify and sign authenticated requests to the web server. Once the client receives and stores the token credentials, it can proceed to access protected resources on behalf of the resource owner by making authenticated requests using the client credentials together with the token credentials received.</p>
+<p><b>See also </b><a href="qoauth1.html#tokenCredentials">tokenCredentials</a>().</p>
+<!-- @@@setTokenCredentials -->
+<!-- $$$setTokenCredentialsUrl[overload1]$$$setTokenCredentialsUrlconstQUrl& -->
+<h3 class="fn" id="setTokenCredentialsUrl"><a name="setTokenCredentialsUrl"></a><span class="type">void</span> QOAuth1::<span class="name">setTokenCredentialsUrl</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
+<p>Sets <i>url</i> as the URL to request the token credentials to continue the authentication process.</p>
+<p><b>See also </b><a href="qoauth1.html#tokenCredentialsUrl">tokenCredentialsUrl</a>().</p>
+<!-- @@@setTokenCredentialsUrl -->
+<!-- $$$setTokenSecret[overload1]$$$setTokenSecretconstQString& -->
+<h3 class="fn" id="setTokenSecret"><a name="setTokenSecret"></a><span class="type">void</span> QOAuth1::<span class="name">setTokenSecret</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>tokenSecret</i>)</h3>
+<p>Sets <i>tokenSecret</i> as the current token secret used to sign authenticated calls to the web server.</p>
+<p><b>See also </b><a href="qoauth1.html#tokenSecret">tokenSecret</a>() and <a href="qoauth1.html#setTokenCredentials">setTokenCredentials</a>().</p>
+<!-- @@@setTokenSecret -->
+<!-- $$$setup[overload1]$$$setupQNetworkRequest*constQVariantMap&QNetworkAccessManager::Operation -->
+<h3 class="fn" id="setup"><a name="setup"></a><code>[protected] </code><span class="type">void</span> QOAuth1::<span class="name">setup</span>(<span class="type"><a href="../qtnetwork/qnetworkrequest.html">QNetworkRequest</a></span> *<i>request</i>, const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>signingParameters</i>, <span class="type"><a href="../qtnetwork/qnetworkaccessmanager.html#Operation-enum">QNetworkAccessManager::Operation</a></span> <i>operation</i>)</h3>
+<p>Signs the <i>request</i> using <i>signingParameters</i> and <i>operation</i>.</p>
+<!-- @@@setup -->
+<!-- $$$signatureMethod[overload1]$$$signatureMethod -->
+<h3 class="fn" id="signatureMethod"><a name="signatureMethod"></a><span class="type"><a href="qoauth1.html#SignatureMethod-enum">QOAuth1::SignatureMethod</a></span> QOAuth1::<span class="name">signatureMethod</span>() const</h3>
+<p>Returns the method used to sign the request to the web server.</p>
+<p><b>See also </b><a href="qoauth1.html#setSignatureMethod">setSignatureMethod</a>().</p>
+<!-- @@@signatureMethod -->
+<!-- $$$signatureMethodChanged[overload1]$$$signatureMethodChangedQOAuth1::SignatureMethod -->
+<h3 class="fn" id="signatureMethodChanged"><a name="signatureMethodChanged"></a><code>[signal] </code><span class="type">void</span> QOAuth1::<span class="name">signatureMethodChanged</span>(<span class="type"><a href="qoauth1.html#SignatureMethod-enum">QOAuth1::SignatureMethod</a></span> <i>method</i>)</h3>
+<!-- @@@signatureMethodChanged -->
+<!-- $$$temporaryCredentialsUrl[overload1]$$$temporaryCredentialsUrl -->
+<h3 class="fn" id="temporaryCredentialsUrl"><a name="temporaryCredentialsUrl"></a><span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> QOAuth1::<span class="name">temporaryCredentialsUrl</span>() const</h3>
+<p>Returns the url used to request temporary credentials to start the authentication process.</p>
+<p><b>See also </b><a href="qoauth1.html#setTemporaryCredentialsUrl">setTemporaryCredentialsUrl</a>().</p>
+<!-- @@@temporaryCredentialsUrl -->
+<!-- $$$temporaryCredentialsUrlChanged[overload1]$$$temporaryCredentialsUrlChangedconstQUrl& -->
+<h3 class="fn" id="temporaryCredentialsUrlChanged"><a name="temporaryCredentialsUrlChanged"></a><code>[signal] </code><span class="type">void</span> QOAuth1::<span class="name">temporaryCredentialsUrlChanged</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
+<!-- @@@temporaryCredentialsUrlChanged -->
+<!-- $$$tokenCredentials[overload1]$$$tokenCredentials -->
+<h3 class="fn" id="tokenCredentials"><a name="tokenCredentials"></a><span class="type"><a href="../qtcore/qpair.html">QPair</a></span>&lt;<span class="type"><a href="../qtcore/qstring.html">QString</a></span>, <span class="type"><a href="../qtcore/qstring.html">QString</a></span>&gt; QOAuth1::<span class="name">tokenCredentials</span>() const</h3>
+<p>Returns the pair of <a href="../qtcore/qstring.html">QString</a> used to identify and sign authenticated requests to the web server.</p>
+<p><b>See also </b><a href="qoauth1.html#setTokenCredentials">setTokenCredentials</a>().</p>
+<!-- @@@tokenCredentials -->
+<!-- $$$tokenCredentialsUrl[overload1]$$$tokenCredentialsUrl -->
+<h3 class="fn" id="tokenCredentialsUrl"><a name="tokenCredentialsUrl"></a><span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> QOAuth1::<span class="name">tokenCredentialsUrl</span>() const</h3>
+<p>Returns the url used to request token credentials to continue the authentication process.</p>
+<p><b>See also </b><a href="qoauth1.html#setTokenCredentialsUrl">setTokenCredentialsUrl</a>().</p>
+<!-- @@@tokenCredentialsUrl -->
+<!-- $$$tokenCredentialsUrlChanged[overload1]$$$tokenCredentialsUrlChangedconstQUrl& -->
+<h3 class="fn" id="tokenCredentialsUrlChanged"><a name="tokenCredentialsUrlChanged"></a><code>[signal] </code><span class="type">void</span> QOAuth1::<span class="name">tokenCredentialsUrlChanged</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
+<!-- @@@tokenCredentialsUrlChanged -->
+<!-- $$$tokenSecret[overload1]$$$tokenSecret -->
+<h3 class="fn" id="tokenSecret"><a name="tokenSecret"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QOAuth1::<span class="name">tokenSecret</span>() const</h3>
+<p>Returns the current token secret used to sign authenticated requests to the web server.</p>
+<p><b>See also </b><a href="qoauth1.html#setTokenSecret">setTokenSecret</a>() and <a href="qoauth1.html#tokenCredentials">tokenCredentials</a>().</p>
+<!-- @@@tokenSecret -->
+<!-- $$$tokenSecretChanged[overload1]$$$tokenSecretChangedconstQString& -->
+<h3 class="fn" id="tokenSecretChanged"><a name="tokenSecretChanged"></a><code>[signal] </code><span class="type">void</span> QOAuth1::<span class="name">tokenSecretChanged</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>token</i>)</h3>
+<!-- @@@tokenSecretChanged -->
+</div>
+<div class="vars">
+<h2>Member Variable Documentation</h2>
+</div>
+<div class="relnonmem">
+<h2>Related Non-Members</h2>
+</div>
+<div class="macros">
+<h2>Macro Documentation</h2>
+</div>
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qquickwebenginecontextmenurequest.cpp -->
+  <title>ContextMenuRequest QML Type | Qt WebEngine 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtwebengine-index.html">Qt WebEngine</a></td><td ><a href="qtwebengine-qmlmodule.html">QML Types</a></td><td >ContextMenuRequest QML Type</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt 5.12.0 Reference Documentation</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">ContextMenuRequest QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$ContextMenuRequest-brief -->
+<p>A request for showing a context menu. <a href="#details">More...</a></p>
+<!-- @@@ContextMenuRequest -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtWebEngine 1.8</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  QtWebEngine 1.4</td></tr></table></div><ul>
+<li><a href="qml-qtwebengine-contextmenurequest-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtwebengine-contextmenurequest.html#accepted-prop">accepted</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtwebengine-contextmenurequest.html#editFlags-prop">editFlags</a></b></b> : flags</li>
+<li class="fn"><b><b><a href="qml-qtwebengine-contextmenurequest.html#isContentEditable-prop">isContentEditable</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtwebengine-contextmenurequest.html#linkText-prop">linkText</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtwebengine-contextmenurequest.html#linkUrl-prop">linkUrl</a></b></b> : url</li>
+<li class="fn"><b><b><a href="qml-qtwebengine-contextmenurequest.html#mediaFlags-prop">mediaFlags</a></b></b> : flags</li>
+<li class="fn"><b><b><a href="qml-qtwebengine-contextmenurequest.html#mediaType-prop">mediaType</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-qtwebengine-contextmenurequest.html#mediaUrl-prop">mediaUrl</a></b></b> : url</li>
+<li class="fn"><b><b><a href="qml-qtwebengine-contextmenurequest.html#misspelledWord-prop">misspelledWord</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtwebengine-contextmenurequest.html#selectedText-prop">selectedText</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtwebengine-contextmenurequest.html#spellCheckerSuggestions-prop">spellCheckerSuggestions</a></b></b> : stringlist</li>
+<li class="fn"><b><b><a href="qml-qtwebengine-contextmenurequest.html#x-prop">x</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtwebengine-contextmenurequest.html#y-prop">y</a></b></b> : int</li>
+</ul>
+<!-- $$$ContextMenuRequest-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+<p>A <a href="qml-qtwebengine-contextmenurequest.html">ContextMenuRequest</a> is passed as an argument of the <a href="qml-qtwebengine-webengineview.html#contextMenuRequested-signal">WebEngineView::contextMenuRequested</a> signal. It provides further information about the context of the request. The position of the request origin can be found via the <a href="qml-qtwebengine-contextmenurequest.html#x-prop">x</a> and <a href="qml-qtwebengine-contextmenurequest.html#y-prop">y</a> properties.</p>
+<p>The <a href="qml-qtwebengine-contextmenurequest.html#accepted-prop">accepted</a> property of the request indicates whether the request is handled by the user code or the default context menu should be displayed.</p>
+<p>The following code uses a custom menu to handle the request:</p>
+<pre class="cpp">
+
+  WebEngineView {
+      id: view
+      <span class="comment">// ...</span>
+      onContextMenuRequested: function(request) {
+          request<span class="operator">.</span>accepted <span class="operator">=</span> <span class="keyword">true</span>;
+          myMenu<span class="operator">.</span>x <span class="operator">=</span> request<span class="operator">.</span>x;
+          myMenu<span class="operator">.</span>y <span class="operator">=</span> request<span class="operator">.</span>y;
+          myMenu<span class="operator">.</span>trigger<span class="operator">.</span>connect(view<span class="operator">.</span>triggerWebAction);
+          myMenu<span class="operator">.</span>popup();
+      }
+      <span class="comment">// ...</span>
+  }
+
+</pre>
+<!-- @@@ContextMenuRequest -->
+<h2>Property Documentation</h2>
+<!-- $$$accepted -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="accepted-prop">
+<td class="tblQmlPropNode"><p>
+<a name="accepted-prop"></a><span class="name">accepted</span> : <span class="type"><a href="../qtqml/qml-bool.html">bool</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>Indicates whether the context menu request has been handled by the signal handler.</p>
+<p>If the property is <code>false</code> after any signal handlers for <a href="qml-qtwebengine-webengineview.html#contextMenuRequested-signal">WebEngineView::contextMenuRequested</a> have been executed, a default context menu will be shown. To prevent this, set <code>request.accepted</code> to <code>true</code>.</p>
+<p>The default is <code>false</code>.</p>
+<p><b>Note: </b>The default content of the context menu depends on the web element for which the request was actually generated.</p></div></div><!-- @@@accepted -->
+<br/>
+<!-- $$$editFlags -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="editFlags-prop">
+<td class="tblQmlPropNode"><p>
+<a name="editFlags-prop"></a><span class="qmlreadonly">[read-only] </span><span class="name">editFlags</span> : <span class="type">flags</span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>The available edit operations in the current context or <code>CanDoNone</code> if no actions are available.</p>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.CanUndo</code></td><td class="topAlign">Undo is available.</td></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.CanRedo</code></td><td class="topAlign">Redo is available.</td></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.CanCut</code></td><td class="topAlign">Cut is available.</td></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.CanCopy</code></td><td class="topAlign">Copy is available.</td></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.CanPaste</code></td><td class="topAlign">Paste is available.</td></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.CanDelete</code></td><td class="topAlign">Delete is available.</td></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.CanSelectAll</code></td><td class="topAlign">Select All is available.</td></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.CanTranslate</code></td><td class="topAlign">Translate is available.</td></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.CanEditRichly</code></td><td class="topAlign">Context is richly editable.</td></tr>
+</table></div>
+<p>This property was introduced in  QtWebEngine 1.7.</p>
+</div></div><!-- @@@editFlags -->
+<br/>
+<!-- $$$isContentEditable -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="isContentEditable-prop">
+<td class="tblQmlPropNode"><p>
+<a name="isContentEditable-prop"></a><span class="qmlreadonly">[read-only] </span><span class="name">isContentEditable</span> : <span class="type"><a href="../qtqml/qml-bool.html">bool</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>Indicates whether the selected web content is editable.</p>
+</div></div><!-- @@@isContentEditable -->
+<br/>
+<!-- $$$linkText -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="linkText-prop">
+<td class="tblQmlPropNode"><p>
+<a name="linkText-prop"></a><span class="qmlreadonly">[read-only] </span><span class="name">linkText</span> : <span class="type"><a href="../qtqml/qml-string.html">string</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>The text of the link if the context menu was requested for a link.</p>
+</div></div><!-- @@@linkText -->
+<br/>
+<!-- $$$linkUrl -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="linkUrl-prop">
+<td class="tblQmlPropNode"><p>
+<a name="linkUrl-prop"></a><span class="qmlreadonly">[read-only] </span><span class="name">linkUrl</span> : <span class="type"><a href="../qtqml/qml-url.html">url</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>The URL of the link if the selected web page content is a link. It is not guaranteed to be a valid URL.</p>
+</div></div><!-- @@@linkUrl -->
+<br/>
+<!-- $$$mediaFlags -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="mediaFlags-prop">
+<td class="tblQmlPropNode"><p>
+<a name="mediaFlags-prop"></a><span class="qmlreadonly">[read-only] </span><span class="name">mediaFlags</span> : <span class="type">flags</span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>The current media element's status and its available operations. <code>MediaNone</code> if the selected web page content is not a media element.</p>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.MediaInError</code></td><td class="topAlign">An error occurred.</td></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.MediaPaused</code></td><td class="topAlign">Media is paused.</td></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.MediaMuted</code></td><td class="topAlign">Media is muted.</td></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.MediaLoop</code></td><td class="topAlign">Media can be looped.</td></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.MediaCanSave</code></td><td class="topAlign">Media can be saved.</td></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.MediaHasAudio</code></td><td class="topAlign">Media has audio.</td></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.MediaCanToggleControls</code></td><td class="topAlign">Media can show controls.</td></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.MediaControls</code></td><td class="topAlign">Media controls are shown.</td></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.MediaCanPrint</code></td><td class="topAlign">Media is printable.</td></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.MediaCanRotate</code></td><td class="topAlign">Media is rotatable.</td></tr>
+</table></div>
+<p>This property was introduced in  QtWebEngine 1.7.</p>
+</div></div><!-- @@@mediaFlags -->
+<br/>
+<!-- $$$mediaType -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="mediaType-prop">
+<td class="tblQmlPropNode"><p>
+<a name="mediaType-prop"></a><span class="qmlreadonly">[read-only] </span><span class="name">mediaType</span> : <span class="type"><a href="../qtqml/qml-enumeration.html">enumeration</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>The type of the media element or <code>MediaTypeNone</code> if the selected web page content is not a media element.</p>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.MediaTypeNone</code></td><td class="topAlign">Not a media.</td></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.MediaTypeImage</code></td><td class="topAlign">An image.</td></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.MediaTypeVideo</code></td><td class="topAlign">A video.</td></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.MediaTypeAudio</code></td><td class="topAlign">An audio element.</td></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.MediaTypeCanvas</code></td><td class="topAlign">A canvas.</td></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.MediaTypeFile</code></td><td class="topAlign">A file.</td></tr>
+<tr><td class="topAlign"><code>ContextMenuRequest.MediaTypePlugin</code></td><td class="topAlign">A plugin.</td></tr>
+</table></div>
+</div></div><!-- @@@mediaType -->
+<br/>
+<!-- $$$mediaUrl -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="mediaUrl-prop">
+<td class="tblQmlPropNode"><p>
+<a name="mediaUrl-prop"></a><span class="qmlreadonly">[read-only] </span><span class="name">mediaUrl</span> : <span class="type"><a href="../qtqml/qml-url.html">url</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>The URL of media if the selected web content is a media element.</p>
+</div></div><!-- @@@mediaUrl -->
+<br/>
+<!-- $$$misspelledWord -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="misspelledWord-prop">
+<td class="tblQmlPropNode"><p>
+<a name="misspelledWord-prop"></a><span class="qmlreadonly">[read-only] </span><span class="name">misspelledWord</span> : <span class="type"><a href="../qtqml/qml-string.html">string</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>If the context is a word considered misspelled by the spell-checker, returns the misspelled word.</p>
+</div></div><!-- @@@misspelledWord -->
+<br/>
+<!-- $$$selectedText -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="selectedText-prop">
+<td class="tblQmlPropNode"><p>
+<a name="selectedText-prop"></a><span class="qmlreadonly">[read-only] </span><span class="name">selectedText</span> : <span class="type"><a href="../qtqml/qml-string.html">string</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>The selected text the context menu was created for.</p>
+</div></div><!-- @@@selectedText -->
+<br/>
+<!-- $$$spellCheckerSuggestions -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="spellCheckerSuggestions-prop">
+<td class="tblQmlPropNode"><p>
+<a name="spellCheckerSuggestions-prop"></a><span class="qmlreadonly">[read-only] </span><span class="name">spellCheckerSuggestions</span> : <span class="type">stringlist</span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>If the context is a word considered misspelled by the spell-checker, returns a list of suggested replacements.</p>
+</div></div><!-- @@@spellCheckerSuggestions -->
+<br/>
+<!-- $$$x -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="x-prop">
+<td class="tblQmlPropNode"><p>
+<a name="x-prop"></a><span class="qmlreadonly">[read-only] </span><span class="name">x</span> : <span class="type"><a href="../qtqml/qml-int.html">int</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>The x coordinate of the user action from where the context menu request originates.</p>
+</div></div><!-- @@@x -->
+<br/>
+<!-- $$$y -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="y-prop">
+<td class="tblQmlPropNode"><p>
+<a name="y-prop"></a><span class="qmlreadonly">[read-only] </span><span class="name">y</span> : <span class="type"><a href="../qtqml/qml-int.html">int</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>The y coordinate of the user action from where the context menu request originates.</p>
+</div></div><!-- @@@y -->
+<br/>
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

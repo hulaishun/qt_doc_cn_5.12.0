@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qabstractoauth2.cpp -->
+  <title>QAbstractOAuth2 Class | Qt Network Authorization 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtnetworkauth-index.html">Qt Network Authorization</a></td><td ><a href="qtnetworkauth-module.html">C++ Classes</a></td><td >QAbstractOAuth2</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt 5.12.0 Reference Documentation</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#reimplemented-public-functions">Reimplemented Public Functions</a></li>
+<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#static-public-members">Static Public Members</a></li>
+<li class="level1"><a href="#protected-functions">Protected Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">QAbstractOAuth2 Class</h1>
+<!-- $$$QAbstractOAuth2-brief -->
+<p>The <a href="qabstractoauth2.html">QAbstractOAuth2</a> class is the base of all implementations of OAuth 2 authentication methods. <a href="#details">More...</a></p>
+<!-- @@@QAbstractOAuth2 -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QAbstractOAuth2&gt;</span>
+</td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += networkauth</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.8</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <a href="qabstractoauth.html">QAbstractOAuth</a></td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherited By:</td><td class="memItemRight bottomAlign"> <p><a href="qoauth2authorizationcodeflow.html">QOAuth2AuthorizationCodeFlow</a></p>
+</td></tr></table></div><ul>
+<li><a href="qabstractoauth2-members.html">List of all members, including inherited members</a></li>
+<li><a href="qabstractoauth2-obsolete.html">Obsolete members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<div class="table"><table class="propsummary">
+<tr><td class="topAlign"><ul>
+<li class="fn"><b><a href="qabstractoauth2.html#clientIdentifierSharedKey-prop">clientIdentifierSharedKey</a></b> : QString</li>
+<li class="fn"><b><a href="qabstractoauth2.html#expiration-prop">expiration</a></b> : const QDateTime</li>
+<li class="fn"><b><a href="qabstractoauth2.html#refreshToken-prop">refreshToken</a></b> : QString</li>
+</ul></td><td class="topAlign"><ul>
+<li class="fn"><b><a href="qabstractoauth2.html#scope-prop">scope</a></b> : QString</li>
+<li class="fn"><b><a href="qabstractoauth2.html#state-prop">state</a></b> : QString</li>
+<li class="fn"><b><a href="qabstractoauth2.html#userAgent-prop">userAgent</a></b> : QString</li>
+</ul>
+</td></tr>
+</table></div>
+<ul>
+<li class="fn">6 properties inherited from <a href="qabstractoauth.html#properties">QAbstractOAuth</a></li>
+<li class="fn">1 property inherited from <a href="../qtcore/qobject.html#properties">QObject</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2 id="public-functions">Public Functions</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#QAbstractOAuth2">QAbstractOAuth2</a></b>(QObject *<i>parent</i> = nullptr)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#QAbstractOAuth2-1">QAbstractOAuth2</a></b>(QNetworkAccessManager *<i>manager</i>, QObject *<i>parent</i> = nullptr)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#dtor.QAbstractOAuth2">~QAbstractOAuth2</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#clientIdentifierSharedKey-prop">clientIdentifierSharedKey</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QUrl </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#createAuthenticatedUrl">createAuthenticatedUrl</a></b>(const QUrl &amp;<i>url</i>, const QVariantMap &amp;<i>parameters</i> = ...)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDateTime </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#expiration-prop">expirationAt</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QNetworkReply *</td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#post-1">post</a></b>(const QUrl &amp;<i>url</i>, const QByteArray &amp;<i>data</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QNetworkReply *</td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#post-2">post</a></b>(const QUrl &amp;<i>url</i>, QHttpMultiPart *<i>multiPart</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QNetworkReply *</td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#put-1">put</a></b>(const QUrl &amp;<i>url</i>, const QByteArray &amp;<i>data</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QNetworkReply *</td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#put-2">put</a></b>(const QUrl &amp;<i>url</i>, QHttpMultiPart *<i>multiPart</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#refreshToken">refreshToken</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#responseType">responseType</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#scope-prop">scope</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#clientIdentifierSharedKey-prop">setClientIdentifierSharedKey</a></b>(const QString &amp;<i>clientIdentifierSharedKey</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#setRefreshToken">setRefreshToken</a></b>(const QString &amp;<i>refreshToken</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#scope-prop">setScope</a></b>(const QString &amp;<i>scope</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#state-prop">setState</a></b>(const QString &amp;<i>state</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#userAgent-prop">setUserAgent</a></b>(const QString &amp;<i>userAgent</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#state-prop">state</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#userAgent-prop">userAgent</a></b>() const</td></tr>
+</table></div>
+<a name="reimplemented-public-functions"></a>
+<h2 id="reimplemented-public-functions">Reimplemented Public Functions</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QNetworkReply *</td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#deleteResource">deleteResource</a></b>(const QUrl &amp;<i>url</i>, const QVariantMap &amp;<i>parameters</i> = ...) override</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QNetworkReply *</td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#get">get</a></b>(const QUrl &amp;<i>url</i>, const QVariantMap &amp;<i>parameters</i> = ...) override</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QNetworkReply *</td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#head">head</a></b>(const QUrl &amp;<i>url</i>, const QVariantMap &amp;<i>parameters</i> = ...) override</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QNetworkReply *</td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#post">post</a></b>(const QUrl &amp;<i>url</i>, const QVariantMap &amp;<i>parameters</i> = ...) override</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QNetworkReply *</td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#put">put</a></b>(const QUrl &amp;<i>url</i>, const QVariantMap &amp;<i>parameters</i> = ...) override</td></tr>
+</table></div>
+<ul>
+<li class="fn">21 public functions inherited from <a href="qabstractoauth.html#public-functions">QAbstractOAuth</a></li>
+<li class="fn">31 public functions inherited from <a href="../qtcore/qobject.html#public-functions">QObject</a></li>
+</ul>
+<a name="signals"></a>
+<h2 id="signals">Signals</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#authorizationCallbackReceived">authorizationCallbackReceived</a></b>(const QVariantMap &amp;<i>data</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#clientIdentifierSharedKey-prop">clientIdentifierSharedKeyChanged</a></b>(const QString &amp;<i>clientIdentifierSharedKey</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#error">error</a></b>(const QString &amp;<i>error</i>, const QString &amp;<i>errorDescription</i>, const QUrl &amp;<i>uri</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#expiration-prop">expirationAtChanged</a></b>(const QDateTime &amp;<i>expiration</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#refreshToken-prop">refreshTokenChanged</a></b>(const QString &amp;<i>refreshToken</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#responseTypeChanged">responseTypeChanged</a></b>(const QString &amp;<i>responseType</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#scope-prop">scopeChanged</a></b>(const QString &amp;<i>scope</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#state-prop">stateChanged</a></b>(const QString &amp;<i>state</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#userAgent-prop">userAgentChanged</a></b>(const QString &amp;<i>userAgent</i>)</td></tr>
+</table></div>
+<ul>
+<li class="fn">11 signals inherited from <a href="qabstractoauth.html#signals">QAbstractOAuth</a></li>
+<li class="fn">2 signals inherited from <a href="../qtcore/qobject.html#signals">QObject</a></li>
+</ul>
+<a name="static-public-members"></a>
+<h2 id="static-public-members">Static Public Members</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> const QMetaObject </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#staticMetaObject-var">staticMetaObject</a></b></td></tr>
+</table></div>
+<ul>
+<li class="fn">1 static public member inherited from <a href="qabstractoauth.html#static-public-members">QAbstractOAuth</a></li>
+<li class="fn">9 static public members inherited from <a href="../qtcore/qobject.html#static-public-members">QObject</a></li>
+</ul>
+<a name="protected-functions"></a>
+<h2 id="protected-functions">Protected Functions</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#QAbstractOAuth2-2">QAbstractOAuth2</a></b>(<i>QAbstractOAuth2Private &amp;</i>, QObject *<i>parent</i> = nullptr)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth2.html#setResponseType">setResponseType</a></b>(const QString &amp;<i>responseType</i>)</td></tr>
+</table></div>
+<ul>
+<li class="fn">3 protected functions inherited from <a href="qabstractoauth.html#protected-functions">QAbstractOAuth</a></li>
+<li class="fn">9 protected functions inherited from <a href="../qtcore/qobject.html#protected-functions">QObject</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 public slot inherited from <a href="qabstractoauth.html#public-slots">QAbstractOAuth</a></li>
+<li class="fn">1 public slot inherited from <a href="../qtcore/qobject.html#public-slots">QObject</a></li>
+<li class="fn">1 public variable inherited from <a href="../qtcore/qobject.html#public-variables">QObject</a></li>
+<li class="fn">2 protected variables inherited from <a href="../qtcore/qobject.html#protected-variables">QObject</a></li>
+<li class="fn">1 static protected member inherited from <a href="qabstractoauth.html#static-protected-members">QAbstractOAuth</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QAbstractOAuth2-description -->
+<div class="descr">
+<h2 id="details">Detailed Description</h2>
+<p>The <a href="qabstractoauth2.html">QAbstractOAuth2</a> class is the base of all implementations of OAuth 2 authentication methods.</p>
+<p>The class defines the basic interface of the OAuth 2 authentication classes. By inheriting this class, you can create custom authentication methods using the OAuth 2 standard for different web services.</p>
+<p>A description of how OAuth 2 works can be found in: <a href="https://tools.ietf.org/html/rfc6749">The OAuth 2.0 Authorization Framework</a></p>
+</div>
+<!-- @@@QAbstractOAuth2 -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+</div>
+<div class="prop">
+<h2>Property Documentation</h2>
+<!-- $$$clientIdentifierSharedKey-prop$$$clientIdentifierSharedKey$$$setClientIdentifierSharedKeyconstQString&$$$clientIdentifierSharedKeyChangedconstQString& -->
+<h3 class="fn" id="clientIdentifierSharedKey-prop"><a name="clientIdentifierSharedKey-prop"></a><span class="name">clientIdentifierSharedKey</span> : <span class="type"><a href="../qtcore/qstring.html">QString</a></span></h3>
+<p>This property holds the client shared key used as a password if the server requires authentication to request the token.</p>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><span class="name"><b>clientIdentifierSharedKey</b></span>() const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setClientIdentifierSharedKey</b></span>(const QString &amp;<i>clientIdentifierSharedKey</i>)</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>clientIdentifierSharedKeyChanged</b></span>(const QString &amp;<i>clientIdentifierSharedKey</i>)</td></tr>
+</table></div>
+<!-- @@@clientIdentifierSharedKey -->
+<!-- $$$expiration-prop$$$expirationAt$$$expirationAtChangedconstQDateTime& -->
+<h3 class="fn" id="expiration-prop"><a name="expiration-prop"></a><span class="name">expiration</span> : const <span class="type"><a href="../qtcore/qdatetime.html">QDateTime</a></span></h3>
+<p>This property holds the expiration time of the current access token.</p>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QDateTime </td><td class="memItemRight bottomAlign"><span class="name"><b>expirationAt</b></span>() const</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>expirationAtChanged</b></span>(const QDateTime &amp;<i>expiration</i>)</td></tr>
+</table></div>
+<!-- @@@expiration -->
+<!-- $$$refreshToken-prop$$$refreshToken$$$setRefreshTokenconstQString&$$$refreshTokenChangedconstQString& -->
+<h3 class="fn" id="refreshToken-prop"><a name="refreshToken-prop"></a><span class="name">refreshToken</span> : <span class="type"><a href="../qtcore/qstring.html">QString</a></span></h3>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qabstractoauth2.html#refreshToken">refreshToken</a></b></span>() const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qabstractoauth2.html#setRefreshToken">setRefreshToken</a></b></span>(const QString &amp;<i>refreshToken</i>)</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>refreshTokenChanged</b></span>(const QString &amp;<i>refreshToken</i>)</td></tr>
+</table></div>
+<!-- @@@refreshToken -->
+<!-- $$$scope-prop$$$scope$$$setScopeconstQString&$$$scopeChangedconstQString& -->
+<h3 class="fn" id="scope-prop"><a name="scope-prop"></a><span class="name">scope</span> : <span class="type"><a href="../qtcore/qstring.html">QString</a></span></h3>
+<p>This property holds the desired scope which defines the permissions requested by the client.</p>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><span class="name"><b>scope</b></span>() const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setScope</b></span>(const QString &amp;<i>scope</i>)</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>scopeChanged</b></span>(const QString &amp;<i>scope</i>)</td></tr>
+</table></div>
+<!-- @@@scope -->
+<!-- $$$state-prop$$$state$$$setStateconstQString&$$$stateChangedconstQString& -->
+<h3 class="fn" id="state-prop"><a name="state-prop"></a><span class="name">state</span> : <span class="type"><a href="../qtcore/qstring.html">QString</a></span></h3>
+<p>This property holds the string sent to the server during authentication. The state is used to identify and validate the request when the callback is received.</p>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><span class="name"><b>state</b></span>() const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setState</b></span>(const QString &amp;<i>state</i>)</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>stateChanged</b></span>(const QString &amp;<i>state</i>)</td></tr>
+</table></div>
+<!-- @@@state -->
+<!-- $$$userAgent-prop$$$userAgent$$$setUserAgentconstQString&$$$userAgentChangedconstQString& -->
+<h3 class="fn" id="userAgent-prop"><a name="userAgent-prop"></a><span class="name">userAgent</span> : <span class="type"><a href="../qtcore/qstring.html">QString</a></span></h3>
+<p>This property holds the User-Agent header used to create the network requests.</p>
+<p>The default value is &quot;QtOAuth/1.0 (+https://www.qt.io)&quot;.</p>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><span class="name"><b>userAgent</b></span>() const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setUserAgent</b></span>(const QString &amp;<i>userAgent</i>)</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>userAgentChanged</b></span>(const QString &amp;<i>userAgent</i>)</td></tr>
+</table></div>
+<!-- @@@userAgent -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QAbstractOAuth2[overload1]$$$QAbstractOAuth2QObject* -->
+<h3 class="fn" id="QAbstractOAuth2"><a name="QAbstractOAuth2"></a>QAbstractOAuth2::<span class="name">QAbstractOAuth2</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
+<p>Constructs a <a href="qabstractoauth2.html">QAbstractOAuth2</a> object using <i>parent</i> as parent.</p>
+<!-- @@@QAbstractOAuth2 -->
+<!-- $$$QAbstractOAuth2$$$QAbstractOAuth2QNetworkAccessManager*QObject* -->
+<h3 class="fn" id="QAbstractOAuth2-1"><a name="QAbstractOAuth2-1"></a>QAbstractOAuth2::<span class="name">QAbstractOAuth2</span>(<span class="type"><a href="../qtnetwork/qnetworkaccessmanager.html">QNetworkAccessManager</a></span> *<i>manager</i>, <span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
+<p>Constructs a <a href="qabstractoauth2.html">QAbstractOAuth2</a> object using <i>parent</i> as parent and sets <i>manager</i> as the network access manager.</p>
+<!-- @@@QAbstractOAuth2 -->
+<!-- $$$QAbstractOAuth2$$$QAbstractOAuth2QAbstractOAuth2Private&QObject* -->
+<h3 class="fn" id="QAbstractOAuth2-2"><a name="QAbstractOAuth2-2"></a><code>[protected] </code>QAbstractOAuth2::<span class="name">QAbstractOAuth2</span>(<i>QAbstractOAuth2Private &amp;</i>, <span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
+<p>Default constructs an instance of QAbstractOAuth2.</p><!-- @@@QAbstractOAuth2 -->
+<!-- $$$~QAbstractOAuth2[overload1]$$$~QAbstractOAuth2 -->
+<h3 class="fn" id="dtor.QAbstractOAuth2"><a name="dtor.QAbstractOAuth2"></a><code>[virtual] </code>QAbstractOAuth2::<span class="name">~QAbstractOAuth2</span>()</h3>
+<p>Destroys the <a href="qabstractoauth2.html">QAbstractOAuth2</a> instance.</p>
+<!-- @@@~QAbstractOAuth2 -->
+<!-- $$$authorizationCallbackReceived[overload1]$$$authorizationCallbackReceivedconstQVariantMap& -->
+<h3 class="fn" id="authorizationCallbackReceived"><a name="authorizationCallbackReceived"></a><code>[signal] </code><span class="type">void</span> QAbstractOAuth2::<span class="name">authorizationCallbackReceived</span>(const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>data</i>)</h3>
+<p>Signal emitted when the reply server receives the authorization callback from the server: <i>data</i> contains the values received from the server.</p>
+<!-- @@@authorizationCallbackReceived -->
+<!-- $$$createAuthenticatedUrl[overload1]$$$createAuthenticatedUrlconstQUrl&constQVariantMap& -->
+<h3 class="fn" id="createAuthenticatedUrl"><a name="createAuthenticatedUrl"></a><code>[virtual] </code><span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> QAbstractOAuth2::<span class="name">createAuthenticatedUrl</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>parameters</i> = ...)</h3>
+<p>The returned URL is based on <i>url</i>, combining it with the given <i>parameters</i> and the access token.</p>
+<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<!-- @@@createAuthenticatedUrl -->
+<!-- $$$deleteResource[overload1]$$$deleteResourceconstQUrl&constQVariantMap& -->
+<h3 class="fn" id="deleteResource"><a name="deleteResource"></a><code>[override virtual] </code><span class="type"><a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a></span> *QAbstractOAuth2::<span class="name">deleteResource</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>parameters</i> = ...)</h3>
+<p>Reimplemented from <a href="qabstractoauth.html#deleteResource">QAbstractOAuth::deleteResource</a>().</p>
+<p>Sends an authenticated DELETE request and returns a new <a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a>. The <i>url</i> and <i>parameters</i> are used to create the request.</p>
+<p><b>See also</b>: <a href="https://tools.ietf.org/html/rfc2616#section-9.7">Hypertext Transfer Protocol -- HTTP/1.1: DELETE</a></p>
+<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<!-- @@@deleteResource -->
+<!-- $$$error[overload1]$$$errorconstQString&constQString&constQUrl& -->
+<h3 class="fn" id="error"><a name="error"></a><code>[signal] </code><span class="type">void</span> QAbstractOAuth2::<span class="name">error</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>error</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>errorDescription</i>, const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>uri</i>)</h3>
+<p>Signal emitted when the server responds to the request with an error: <i>error</i> is the name of the error; <i>errorDescription</i> describes the error and <i>uri</i> is an optional URI containing more information about the error.</p>
+<!-- @@@error -->
+<!-- $$$get[overload1]$$$getconstQUrl&constQVariantMap& -->
+<h3 class="fn" id="get"><a name="get"></a><code>[override virtual] </code><span class="type"><a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a></span> *QAbstractOAuth2::<span class="name">get</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>parameters</i> = ...)</h3>
+<p>Reimplemented from <a href="qabstractoauth.html#get">QAbstractOAuth::get</a>().</p>
+<p>Sends an authenticated GET request and returns a new <a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a>. The <i>url</i> and <i>parameters</i> are used to create the request.</p>
+<p><b>See also</b>: <a href="https://tools.ietf.org/html/rfc2616#section-9.3">Hypertext Transfer Protocol -- HTTP/1.1: GET</a></p>
+<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<!-- @@@get -->
+<!-- $$$head[overload1]$$$headconstQUrl&constQVariantMap& -->
+<h3 class="fn" id="head"><a name="head"></a><code>[override virtual] </code><span class="type"><a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a></span> *QAbstractOAuth2::<span class="name">head</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>parameters</i> = ...)</h3>
+<p>Reimplemented from <a href="qabstractoauth.html#head">QAbstractOAuth::head</a>().</p>
+<p>Sends an authenticated HEAD request and returns a new <a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a>. The <i>url</i> and <i>parameters</i> are used to create the request.</p>
+<p><b>See also</b>: <a href="https://tools.ietf.org/html/rfc2616#section-9.4">Hypertext Transfer Protocol -- HTTP/1.1: HEAD</a></p>
+<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<!-- @@@head -->
+<!-- $$$post[overload1]$$$postconstQUrl&constQVariantMap& -->
+<h3 class="fn" id="post"><a name="post"></a><code>[override virtual] </code><span class="type"><a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a></span> *QAbstractOAuth2::<span class="name">post</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>parameters</i> = ...)</h3>
+<p>Reimplemented from <a href="qabstractoauth.html#post">QAbstractOAuth::post</a>().</p>
+<p>Sends an authenticated POST request and returns a new <a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a>. The <i>url</i> and <i>parameters</i> are used to create the request.</p>
+<p><b>See also</b>: <a href="https://tools.ietf.org/html/rfc2616#section-9.5">Hypertext Transfer Protocol -- HTTP/1.1: POST</a></p>
+<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<!-- @@@post -->
+<!-- $$$post$$$postconstQUrl&constQByteArray& -->
+<h3 class="fn" id="post-1"><a name="post-1"></a><code>[virtual] </code><span class="type"><a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a></span> *QAbstractOAuth2::<span class="name">post</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>data</i>)</h3>
+<p>This is an overloaded function.</p>
+<p>Sends an authenticated POST request and returns a new <a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a>. The <i>url</i> and <i>data</i> are used to create the request.</p>
+<p>{Hypertext Transfer Protocol -- HTTP/1.1: POST}</p>
+<p>This function was introduced in  Qt 5.10.</p>
+<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>See also </b><a href="qabstractoauth2.html#post">post</a>() and <a href="https://tools.ietf.org/html/rfc2616#section-9.6">https://tools.ietf.org/html/rfc2616#section-9.6</a>.</p>
+<!-- @@@post -->
+<!-- $$$post$$$postconstQUrl&QHttpMultiPart* -->
+<h3 class="fn" id="post-2"><a name="post-2"></a><code>[virtual] </code><span class="type"><a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a></span> *QAbstractOAuth2::<span class="name">post</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, <span class="type"><a href="../qtnetwork/qhttpmultipart.html">QHttpMultiPart</a></span> *<i>multiPart</i>)</h3>
+<p>This is an overloaded function.</p>
+<p>Sends an authenticated POST request and returns a new <a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a>. The <i>url</i> and <i>multiPart</i> are used to create the request.</p>
+<p>{Hypertext Transfer Protocol -- HTTP/1.1: POST}</p>
+<p>This function was introduced in  Qt 5.10.</p>
+<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>See also </b><a href="qabstractoauth2.html#post">post</a>(), <a href="../qtnetwork/qhttpmultipart.html">QHttpMultiPart</a>, and <a href="https://tools.ietf.org/html/rfc2616#section-9.6">https://tools.ietf.org/html/rfc2616#section-9.6</a>.</p>
+<!-- @@@post -->
+<!-- $$$put[overload1]$$$putconstQUrl&constQVariantMap& -->
+<h3 class="fn" id="put"><a name="put"></a><code>[override virtual] </code><span class="type"><a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a></span> *QAbstractOAuth2::<span class="name">put</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>parameters</i> = ...)</h3>
+<p>Reimplemented from <a href="qabstractoauth.html#put">QAbstractOAuth::put</a>().</p>
+<p>Sends an authenticated PUT request and returns a new <a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a>. The <i>url</i> and <i>parameters</i> are used to create the request.</p>
+<p><b>See also</b>: <a href="https://tools.ietf.org/html/rfc2616#section-9.6">Hypertext Transfer Protocol -- HTTP/1.1: PUT</a></p>
+<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<!-- @@@put -->
+<!-- $$$put$$$putconstQUrl&constQByteArray& -->
+<h3 class="fn" id="put-1"><a name="put-1"></a><code>[virtual] </code><span class="type"><a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a></span> *QAbstractOAuth2::<span class="name">put</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>data</i>)</h3>
+<p>This is an overloaded function.</p>
+<p>Sends an authenticated PUT request and returns a new <a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a>. The <i>url</i> and <i>data</i> are used to create the request.</p>
+<p>{Hypertext Transfer Protocol -- HTTP/1.1: PUT}</p>
+<p>This function was introduced in  Qt 5.10.</p>
+<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>See also </b><a href="qabstractoauth2.html#put">put</a>() and <a href="https://tools.ietf.org/html/rfc2616#section-9.6">https://tools.ietf.org/html/rfc2616#section-9.6</a>.</p>
+<!-- @@@put -->
+<!-- $$$put$$$putconstQUrl&QHttpMultiPart* -->
+<h3 class="fn" id="put-2"><a name="put-2"></a><code>[virtual] </code><span class="type"><a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a></span> *QAbstractOAuth2::<span class="name">put</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, <span class="type"><a href="../qtnetwork/qhttpmultipart.html">QHttpMultiPart</a></span> *<i>multiPart</i>)</h3>
+<p>This is an overloaded function.</p>
+<p>Sends an authenticated PUT request and returns a new <a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a>. The <i>url</i> and <i>multiPart</i> are used to create the request.</p>
+<p>{Hypertext Transfer Protocol -- HTTP/1.1: PUT}</p>
+<p>This function was introduced in  Qt 5.10.</p>
+<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>See also </b><a href="qabstractoauth2.html#put">put</a>(), <a href="../qtnetwork/qhttpmultipart.html">QHttpMultiPart</a>, and <a href="https://tools.ietf.org/html/rfc2616#section-9.6">https://tools.ietf.org/html/rfc2616#section-9.6</a>.</p>
+<!-- @@@put -->
+<!-- $$$refreshToken -->
+<h3 class="fn" id="refreshToken"><a name="refreshToken"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QAbstractOAuth2::<span class="name">refreshToken</span>() const</h3>
+<p>Gets the current refresh token.</p>
+<p>Refresh tokens usually have longer lifespans than access tokens, so it makes sense to save them for later use.</p>
+<p>Returns the current refresh token or an empty string, if there is no refresh token available.</p>
+<p><b>Note:</b> Getter function for property <a href="qabstractoauth2.html#refreshToken-prop">refreshToken</a>. </p><p><b>See also </b><a href="qabstractoauth2.html#setRefreshToken">setRefreshToken</a>().</p>
+<!-- @@@refreshToken -->
+<!-- $$$responseType[overload1]$$$responseType -->
+<h3 class="fn" id="responseType"><a name="responseType"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QAbstractOAuth2::<span class="name">responseType</span>() const</h3>
+<p>Returns the <a href="https://tools.ietf.org/html/rfc6749#section-3.1.1">response_type</a> used.</p>
+<p><b>See also </b><a href="qabstractoauth2.html#setResponseType">setResponseType</a>().</p>
+<!-- @@@responseType -->
+<!-- $$$responseTypeChanged[overload1]$$$responseTypeChangedconstQString& -->
+<h3 class="fn" id="responseTypeChanged"><a name="responseTypeChanged"></a><code>[signal] </code><span class="type">void</span> QAbstractOAuth2::<span class="name">responseTypeChanged</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>responseType</i>)</h3>
+<!-- @@@responseTypeChanged -->
+<!-- $$$setRefreshToken -->
+<h3 class="fn" id="setRefreshToken"><a name="setRefreshToken"></a><span class="type">void</span> QAbstractOAuth2::<span class="name">setRefreshToken</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>refreshToken</i>)</h3>
+<p>Sets the new refresh token <i>refreshToken</i> to be used.</p>
+<p>A custom refresh token can be used to refresh the access token via this method and then the access token can be refreshed via <a href="qoauth2authorizationcodeflow.html#refreshAccessToken">QOAuth2AuthorizationCodeFlow::refreshAccessToken</a>().</p>
+<p><b>Note:</b> Setter function for property <a href="qabstractoauth2.html#refreshToken-prop">refreshToken</a>. </p><p><b>See also </b><a href="qabstractoauth2.html#refreshToken">refreshToken</a>().</p>
+<!-- @@@setRefreshToken -->
+<!-- $$$setResponseType[overload1]$$$setResponseTypeconstQString& -->
+<h3 class="fn" id="setResponseType"><a name="setResponseType"></a><code>[protected] </code><span class="type">void</span> QAbstractOAuth2::<span class="name">setResponseType</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>responseType</i>)</h3>
+<p><b>See also </b><a href="qabstractoauth2.html#responseType">responseType</a>().</p>
+<!-- @@@setResponseType -->
+</div>
+<div class="vars">
+<h2>Member Variable Documentation</h2>
+</div>
+<div class="relnonmem">
+<h2>Related Non-Members</h2>
+</div>
+<div class="macros">
+<h2>Macro Documentation</h2>
+</div>
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

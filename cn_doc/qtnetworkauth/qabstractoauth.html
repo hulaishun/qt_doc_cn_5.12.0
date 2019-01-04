@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qabstractoauth.cpp -->
+  <title>QAbstractOAuth Class | Qt Network Authorization 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtnetworkauth-index.html">Qt Network Authorization</a></td><td ><a href="qtnetworkauth-module.html">C++ Classes</a></td><td >QAbstractOAuth</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt 5.12.0 Reference Documentation</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-types">Public Types</a></li>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#public-slots">Public Slots</a></li>
+<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#static-public-members">Static Public Members</a></li>
+<li class="level1"><a href="#protected-functions">Protected Functions</a></li>
+<li class="level1"><a href="#static-protected-members">Static Protected Members</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">QAbstractOAuth Class</h1>
+<!-- $$$QAbstractOAuth-brief -->
+<p>The <a href="qabstractoauth.html">QAbstractOAuth</a> class is the base of all implementations of OAuth authentication methods. <a href="#details">More...</a></p>
+<!-- @@@QAbstractOAuth -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QAbstractOAuth&gt;</span>
+</td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += networkauth</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.8</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <a href="../qtcore/qobject.html">QObject</a></td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherited By:</td><td class="memItemRight bottomAlign"> <p><a href="qabstractoauth2.html">QAbstractOAuth2</a> and <a href="qoauth1.html">QOAuth1</a></p>
+</td></tr></table></div><ul>
+<li><a href="qabstractoauth-members.html">List of all members, including inherited members</a></li>
+<li><a href="qabstractoauth-obsolete.html">Obsolete members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2 id="public-types">Public Types</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#ContentType-enum">ContentType</a></b> { WwwFormUrlEncoded, Json }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#Error-enum">Error</a></b> { NoError, NetworkError, ServerError, OAuthTokenNotFoundError, OAuthTokenSecretNotFoundError, OAuthCallbackNotVerified }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> typedef </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#ModifyParametersFunction-typedef">ModifyParametersFunction</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#Stage-enum">Stage</a></b> { RequestingTemporaryCredentials, RequestingAuthorization, RequestingAccessToken, RefreshingAccessToken }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#Status-enum">Status</a></b> { NotAuthenticated, TemporaryCredentialsReceived, Granted, RefreshingToken }</td></tr>
+</table></div>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<div class="table"><table class="propsummary">
+<tr><td class="topAlign"><ul>
+<li class="fn"><b><a href="qabstractoauth.html#authorizationUrl-prop">authorizationUrl</a></b> : QUrl</li>
+<li class="fn"><b><a href="qabstractoauth.html#clientIdentifier-prop">clientIdentifier</a></b> : QString</li>
+<li class="fn"><b><a href="qabstractoauth.html#contentType-prop">contentType</a></b> : QAbstractOAuth::ContentType</li>
+</ul></td><td class="topAlign"><ul>
+<li class="fn"><b><a href="qabstractoauth.html#extraTokens-prop">extraTokens</a></b> : const QVariantMap</li>
+<li class="fn"><b><a href="qabstractoauth.html#status-prop">status</a></b> : const Status</li>
+<li class="fn"><b><a href="qabstractoauth.html#token-prop">token</a></b> : QString</li>
+</ul>
+</td></tr>
+</table></div>
+<ul>
+<li class="fn">1 property inherited from <a href="../qtcore/qobject.html#properties">QObject</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2 id="public-functions">Public Functions</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#dtor.QAbstractOAuth">~QAbstractOAuth</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QUrl </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#authorizationUrl">authorizationUrl</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#clientIdentifier">clientIdentifier</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QAbstractOAuth::ContentType </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#contentType">contentType</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QNetworkReply *</td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#deleteResource">deleteResource</a></b>(const QUrl &amp;<i>url</i>, const QVariantMap &amp;<i>parameters</i> = ...) = 0</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QVariantMap </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#extraTokens">extraTokens</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QNetworkReply *</td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#get">get</a></b>(const QUrl &amp;<i>url</i>, const QVariantMap &amp;<i>parameters</i> = ...) = 0</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QNetworkReply *</td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#head">head</a></b>(const QUrl &amp;<i>url</i>, const QVariantMap &amp;<i>parameters</i> = ...) = 0</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QAbstractOAuth::ModifyParametersFunction </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#modifyParametersFunction">modifyParametersFunction</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QNetworkAccessManager *</td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#networkAccessManager">networkAccessManager</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QNetworkReply *</td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#post">post</a></b>(const QUrl &amp;<i>url</i>, const QVariantMap &amp;<i>parameters</i> = ...) = 0</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QNetworkReply *</td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#put">put</a></b>(const QUrl &amp;<i>url</i>, const QVariantMap &amp;<i>parameters</i> = ...) = 0</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QAbstractOAuthReplyHandler *</td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#replyHandler">replyHandler</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#setAuthorizationUrl">setAuthorizationUrl</a></b>(const QUrl &amp;<i>url</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#setClientIdentifier">setClientIdentifier</a></b>(const QString &amp;<i>clientIdentifier</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#setContentType">setContentType</a></b>(QAbstractOAuth::ContentType <i>contentType</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#setModifyParametersFunction">setModifyParametersFunction</a></b>(const QAbstractOAuth::ModifyParametersFunction &amp;<i>modifyParametersFunction</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#setNetworkAccessManager">setNetworkAccessManager</a></b>(QNetworkAccessManager *<i>networkAccessManager</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#setReplyHandler">setReplyHandler</a></b>(QAbstractOAuthReplyHandler *<i>handler</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#setToken">setToken</a></b>(const QString &amp;<i>token</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QAbstractOAuth::Status </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#status">status</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#token">token</a></b>() const</td></tr>
+</table></div>
+<ul>
+<li class="fn">31 public functions inherited from <a href="../qtcore/qobject.html#public-functions">QObject</a></li>
+</ul>
+<a name="public-slots"></a>
+<h2 id="public-slots">Public Slots</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#grant">grant</a></b>() = 0</td></tr>
+</table></div>
+<ul>
+<li class="fn">1 public slot inherited from <a href="../qtcore/qobject.html#public-slots">QObject</a></li>
+</ul>
+<a name="signals"></a>
+<h2 id="signals">Signals</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#authorizationUrl-prop">authorizationUrlChanged</a></b>(const QUrl &amp;<i>url</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#authorizeWithBrowser">authorizeWithBrowser</a></b>(const QUrl &amp;<i>url</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#clientIdentifier-prop">clientIdentifierChanged</a></b>(const QString &amp;<i>clientIdentifier</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#contentType-prop">contentTypeChanged</a></b>(QAbstractOAuth::ContentType <i>contentType</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#extraTokens-prop">extraTokensChanged</a></b>(const QVariantMap &amp;<i>tokens</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#finished">finished</a></b>(QNetworkReply *<i>reply</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#granted">granted</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#replyDataReceived">replyDataReceived</a></b>(const QByteArray &amp;<i>data</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#requestFailed">requestFailed</a></b>(const QAbstractOAuth::Error <i>error</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#status-prop">statusChanged</a></b>(QAbstractOAuth::Status <i>status</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#token-prop">tokenChanged</a></b>(const QString &amp;<i>token</i>)</td></tr>
+</table></div>
+<ul>
+<li class="fn">2 signals inherited from <a href="../qtcore/qobject.html#signals">QObject</a></li>
+</ul>
+<a name="static-public-members"></a>
+<h2 id="static-public-members">Static Public Members</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> const QMetaObject </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#staticMetaObject-var">staticMetaObject</a></b></td></tr>
+</table></div>
+<ul>
+<li class="fn">9 static public members inherited from <a href="../qtcore/qobject.html#static-public-members">QObject</a></li>
+</ul>
+<a name="protected-functions"></a>
+<h2 id="protected-functions">Protected Functions</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#QAbstractOAuth">QAbstractOAuth</a></b>(<i>QAbstractOAuthPrivate &amp;</i>, QObject *<i>parent</i> = nullptr)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#callback">callback</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#resourceOwnerAuthorization">resourceOwnerAuthorization</a></b>(const QUrl &amp;<i>url</i>, const QVariantMap &amp;<i>parameters</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#setStatus">setStatus</a></b>(QAbstractOAuth::Status <i>status</i>)</td></tr>
+</table></div>
+<ul>
+<li class="fn">9 protected functions inherited from <a href="../qtcore/qobject.html#protected-functions">QObject</a></li>
+</ul>
+<a name="static-protected-members"></a>
+<h2 id="static-protected-members">Static Protected Members</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> QByteArray </td><td class="memItemRight bottomAlign"><b><a href="qabstractoauth.html#generateRandomString">generateRandomString</a></b>(quint8 <i>length</i>)</td></tr>
+</table></div>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 public variable inherited from <a href="../qtcore/qobject.html#public-variables">QObject</a></li>
+<li class="fn">2 protected variables inherited from <a href="../qtcore/qobject.html#protected-variables">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QAbstractOAuth-description -->
+<div class="descr">
+<h2 id="details">Detailed Description</h2>
+<p>The <a href="qabstractoauth.html">QAbstractOAuth</a> class is the base of all implementations of OAuth authentication methods.</p>
+<p>The class defines the basic interface of the OAuth authentication classes. By inheriting this class, you can create custom authentication methods for different web services.</p>
+<p>It also contains some functions to ease the process of implementing different authentication flows.</p>
+</div>
+<!-- @@@QAbstractOAuth -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$ContentType$$$WwwFormUrlEncoded$$$Json -->
+<h3 class="fn" id="ContentType-enum"><a name="ContentType-enum"></a>enum QAbstractOAuth::<span class="name">ContentType</span></h3>
+<p>Indicates the MIME Content-Type of the POST methods in authenticated calls.</p>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><code>QAbstractOAuth::WwwFormUrlEncoded</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">Uses application/x-www-form-urlencoded format.</td></tr>
+<tr><td class="topAlign"><code>QAbstractOAuth::Json</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">Uses application/json format.</td></tr>
+</table></div>
+<!-- @@@ContentType -->
+<!-- $$$Error$$$NoError$$$NetworkError$$$ServerError$$$OAuthTokenNotFoundError$$$OAuthTokenSecretNotFoundError$$$OAuthCallbackNotVerified -->
+<h3 class="fn" id="Error-enum"><a name="Error-enum"></a>enum QAbstractOAuth::<span class="name">Error</span></h3>
+<p>Indicates the latest received error.</p>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><code>QAbstractOAuth::NoError</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">No error has ocurred.</td></tr>
+<tr><td class="topAlign"><code>QAbstractOAuth::NetworkError</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">Failed to connect to the server.</td></tr>
+<tr><td class="topAlign"><code>QAbstractOAuth::ServerError</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">The server answered the request with an error.</td></tr>
+<tr><td class="topAlign"><code>QAbstractOAuth::OAuthTokenNotFoundError</code></td><td class="topAlign tblval"><code>3</code></td><td class="topAlign">The server's response to a token request provided no token identifier.</td></tr>
+<tr><td class="topAlign"><code>QAbstractOAuth::OAuthTokenSecretNotFoundError</code></td><td class="topAlign tblval"><code>4</code></td><td class="topAlign">The server's response to a token request provided no token secret.</td></tr>
+<tr><td class="topAlign"><code>QAbstractOAuth::OAuthCallbackNotVerified</code></td><td class="topAlign tblval"><code>5</code></td><td class="topAlign">The authorization server has not verified the supplied callback URI in the request. This usually happens when the provided callback does not match with the callback supplied during client registration.</td></tr>
+</table></div>
+<!-- @@@Error -->
+<!-- $$$ModifyParametersFunction -->
+<h3 class="fn" id="ModifyParametersFunction-typedef"><a name="ModifyParametersFunction-typedef"></a>typedef QAbstractOAuth::<span class="name">ModifyParametersFunction</span></h3>
+<!-- @@@ModifyParametersFunction -->
+<!-- $$$Stage$$$RequestingTemporaryCredentials$$$RequestingAuthorization$$$RequestingAccessToken$$$RefreshingAccessToken -->
+<h3 class="fn" id="Stage-enum"><a name="Stage-enum"></a>enum QAbstractOAuth::<span class="name">Stage</span></h3>
+<p>Identifies an authentication stage. It's passed to a <a href="qabstractoauth.html#ModifyParametersFunction-typedef">ModifyParametersFunction</a> so that it can make different changes to parameters at each call to it during the process of authentication.</p>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><code>QAbstractOAuth::RequestingTemporaryCredentials</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">Preparing the temporary credentials request.</td></tr>
+<tr><td class="topAlign"><code>QAbstractOAuth::RequestingAuthorization</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">Preparing the authorization grant URL.</td></tr>
+<tr><td class="topAlign"><code>QAbstractOAuth::RequestingAccessToken</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">Preparing the token request.</td></tr>
+<tr><td class="topAlign"><code>QAbstractOAuth::RefreshingAccessToken</code></td><td class="topAlign tblval"><code>3</code></td><td class="topAlign">Preparing the access token refresh.</td></tr>
+</table></div>
+<!-- @@@Stage -->
+<!-- $$$Status$$$NotAuthenticated$$$TemporaryCredentialsReceived$$$Granted$$$RefreshingToken -->
+<h3 class="fn" id="Status-enum"><a name="Status-enum"></a>enum QAbstractOAuth::<span class="name">Status</span></h3>
+<p>Indicates the current authentication status.</p>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><code>QAbstractOAuth::NotAuthenticated</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">No token has been retrieved.</td></tr>
+<tr><td class="topAlign"><code>QAbstractOAuth::TemporaryCredentialsReceived</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">Temporary credentials have been received, this status is used in some OAuth authetication methods.</td></tr>
+<tr><td class="topAlign"><code>QAbstractOAuth::Granted</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">Token credentials have been received and authenticated calls are allowed.</td></tr>
+<tr><td class="topAlign"><code>QAbstractOAuth::RefreshingToken</code></td><td class="topAlign tblval"><code>3</code></td><td class="topAlign">New token credentials have been requested.</td></tr>
+</table></div>
+<!-- @@@Status -->
+</div>
+<div class="prop">
+<h2>Property Documentation</h2>
+<!-- $$$authorizationUrl-prop$$$authorizationUrl$$$setAuthorizationUrlconstQUrl&$$$authorizationUrlChangedconstQUrl& -->
+<h3 class="fn" id="authorizationUrl-prop"><a name="authorizationUrl-prop"></a><span class="name">authorizationUrl</span> : <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span></h3>
+<p>This property holds the URL used to request the Resource Owner Authorization as described in: <a href="https://tools.ietf.org/html/rfc5849#section-2.2">The OAuth 1.0 Protocol: Resource Owner Authorization</a></p>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QUrl </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qabstractoauth.html#authorizationUrl">authorizationUrl</a></b></span>() const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qabstractoauth.html#setAuthorizationUrl">setAuthorizationUrl</a></b></span>(const QUrl &amp;<i>url</i>)</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>authorizationUrlChanged</b></span>(const QUrl &amp;<i>url</i>)</td></tr>
+</table></div>
+<!-- @@@authorizationUrl -->
+<!-- $$$clientIdentifier-prop$$$clientIdentifier$$$setClientIdentifierconstQString&$$$clientIdentifierChangedconstQString& -->
+<h3 class="fn" id="clientIdentifier-prop"><a name="clientIdentifier-prop"></a><span class="name">clientIdentifier</span> : <span class="type"><a href="../qtcore/qstring.html">QString</a></span></h3>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qabstractoauth.html#clientIdentifier">clientIdentifier</a></b></span>() const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qabstractoauth.html#setClientIdentifier">setClientIdentifier</a></b></span>(const QString &amp;<i>clientIdentifier</i>)</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>clientIdentifierChanged</b></span>(const QString &amp;<i>clientIdentifier</i>)</td></tr>
+</table></div>
+<!-- @@@clientIdentifier -->
+<!-- $$$contentType-prop$$$contentType$$$setContentTypeQAbstractOAuth::ContentType$$$contentTypeChangedQAbstractOAuth::ContentType -->
+<h3 class="fn" id="contentType-prop"><a name="contentType-prop"></a><span class="name">contentType</span> : <span class="type"><a href="qabstractoauth.html#ContentType-enum">QAbstractOAuth::ContentType</a></span></h3>
+<p>This property holds the Content-Type to use when sending authorization parameters.</p>
+<p>This property controls how parameters are formatted when sent with a POST request. A suitable header is also added.</p>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QAbstractOAuth::ContentType </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qabstractoauth.html#contentType">contentType</a></b></span>() const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qabstractoauth.html#setContentType">setContentType</a></b></span>(QAbstractOAuth::ContentType <i>contentType</i>)</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>contentTypeChanged</b></span>(QAbstractOAuth::ContentType <i>contentType</i>)</td></tr>
+</table></div>
+<!-- @@@contentType -->
+<!-- $$$extraTokens-prop$$$extraTokens$$$extraTokensChangedconstQVariantMap& -->
+<h3 class="fn" id="extraTokens-prop"><a name="extraTokens-prop"></a><span class="name">extraTokens</span> : const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span></h3>
+<p>This property holds the extra tokens received from the server.</p>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QVariantMap </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qabstractoauth.html#extraTokens">extraTokens</a></b></span>() const</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>extraTokensChanged</b></span>(const QVariantMap &amp;<i>tokens</i>)</td></tr>
+</table></div>
+<!-- @@@extraTokens -->
+<!-- $$$status-prop$$$status$$$statusChangedQAbstractOAuth::Status -->
+<h3 class="fn" id="status-prop"><a name="status-prop"></a><span class="name">status</span> : const <span class="type"><a href="qabstractoauth.html#Status-enum">Status</a></span></h3>
+<p>This property holds the current authentication status.</p>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QAbstractOAuth::Status </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qabstractoauth.html#status">status</a></b></span>() const</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>statusChanged</b></span>(QAbstractOAuth::Status <i>status</i>)</td></tr>
+</table></div>
+<!-- @@@status -->
+<!-- $$$token-prop$$$token$$$setTokenconstQString&$$$tokenChangedconstQString& -->
+<h3 class="fn" id="token-prop"><a name="token-prop"></a><span class="name">token</span> : <span class="type"><a href="../qtcore/qstring.html">QString</a></span></h3>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qabstractoauth.html#token">token</a></b></span>() const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qabstractoauth.html#setToken">setToken</a></b></span>(const QString &amp;<i>token</i>)</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>tokenChanged</b></span>(const QString &amp;<i>token</i>)</td></tr>
+</table></div>
+<!-- @@@token -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QAbstractOAuth[overload1]$$$QAbstractOAuthQAbstractOAuthPrivate&QObject* -->
+<h3 class="fn" id="QAbstractOAuth"><a name="QAbstractOAuth"></a><code>[protected] </code>QAbstractOAuth::<span class="name">QAbstractOAuth</span>(<i>QAbstractOAuthPrivate &amp;</i>, <span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
+<p>Default constructs an instance of QAbstractOAuth.</p><!-- @@@QAbstractOAuth -->
+<!-- $$$~QAbstractOAuth[overload1]$$$~QAbstractOAuth -->
+<h3 class="fn" id="dtor.QAbstractOAuth"><a name="dtor.QAbstractOAuth"></a><code>[virtual] </code>QAbstractOAuth::<span class="name">~QAbstractOAuth</span>()</h3>
+<p>Destroys the abstract OAuth.</p>
+<!-- @@@~QAbstractOAuth -->
+<!-- $$$authorizationUrl -->
+<h3 class="fn" id="authorizationUrl"><a name="authorizationUrl"></a><span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> QAbstractOAuth::<span class="name">authorizationUrl</span>() const</h3>
+<p>Returns the authorization request URL.</p>
+<p><b>Note:</b> Getter function for property <a href="qabstractoauth.html#authorizationUrl-prop">authorizationUrl</a>. </p><p><b>See also </b><a href="qabstractoauth.html#setAuthorizationUrl">setAuthorizationUrl</a>().</p>
+<!-- @@@authorizationUrl -->
+<!-- $$$authorizeWithBrowser[overload1]$$$authorizeWithBrowserconstQUrl& -->
+<h3 class="fn" id="authorizeWithBrowser"><a name="authorizeWithBrowser"></a><code>[signal] </code><span class="type">void</span> QAbstractOAuth::<span class="name">authorizeWithBrowser</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
+<p>This signal is emitted when the <i>url</i> generated by <a href="qabstractoauth.html#resourceOwnerAuthorization">resourceOwnerAuthorization</a>() is ready to be used in the web browser to allow the application to impersonate the user.</p>
+<p><b>See also </b><a href="qabstractoauth.html#resourceOwnerAuthorization">resourceOwnerAuthorization</a>().</p>
+<!-- @@@authorizeWithBrowser -->
+<!-- $$$callback[overload1]$$$callback -->
+<h3 class="fn" id="callback"><a name="callback"></a><code>[protected] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QAbstractOAuth::<span class="name">callback</span>() const</h3>
+<p>Returns the current callback string corresponding to the current reply handler. The returned string is the string sent to the server to specify the callback URI, or the word identifying the alternative method in headless devices.</p>
+<p><b>See also </b><a href="qabstractoauth.html#replyHandler">replyHandler</a>() and <a href="qabstractoauth.html#setReplyHandler">setReplyHandler</a>().</p>
+<!-- @@@callback -->
+<!-- $$$clientIdentifier -->
+<h3 class="fn" id="clientIdentifier"><a name="clientIdentifier"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QAbstractOAuth::<span class="name">clientIdentifier</span>() const</h3>
+<p>Returns the current client identifier used in the authentication process.</p>
+<p><b>Note:</b> Getter function for property <a href="qabstractoauth.html#clientIdentifier-prop">clientIdentifier</a>. </p><p><b>See also </b><a href="qabstractoauth.html#setClientIdentifier">setClientIdentifier</a>().</p>
+<!-- @@@clientIdentifier -->
+<!-- $$$contentType -->
+<h3 class="fn" id="contentType"><a name="contentType"></a><span class="type"><a href="qabstractoauth.html#ContentType-enum">QAbstractOAuth::ContentType</a></span> QAbstractOAuth::<span class="name">contentType</span>() const</h3>
+<p>Returns the current Content-Type used in authenticated calls.</p>
+<p><b>Note:</b> Getter function for property <a href="qabstractoauth.html#contentType-prop">contentType</a>. </p><p><b>See also </b><a href="qabstractoauth.html#setContentType">setContentType</a>() and <a href="qabstractoauth.html#post">post</a>().</p>
+<!-- @@@contentType -->
+<!-- $$$deleteResource[overload1]$$$deleteResourceconstQUrl&constQVariantMap& -->
+<h3 class="fn" id="deleteResource"><a name="deleteResource"></a><code>[pure virtual] </code><span class="type"><a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a></span> *QAbstractOAuth::<span class="name">deleteResource</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>parameters</i> = ...)</h3>
+<p>Sends an authenticated DELETE request and returns a new <a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a>. The <i>url</i> and <i>parameters</i> are used to create the request.</p>
+<p><b>See also</b>: <a href="https://tools.ietf.org/html/rfc2616#section-9.7">Hypertext Transfer Protocol -- HTTP/1.1: DELETE</a></p>
+<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<!-- @@@deleteResource -->
+<!-- $$$extraTokens -->
+<h3 class="fn" id="extraTokens"><a name="extraTokens"></a><span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> QAbstractOAuth::<span class="name">extraTokens</span>() const</h3>
+<p>Returns the extra tokens received from the server during authentication.</p>
+<p><b>Note:</b> Getter function for property <a href="qabstractoauth.html#extraTokens-prop">extraTokens</a>. </p><p><b>See also </b><a href="qabstractoauth.html#extraTokens-prop">extraTokensChanged</a>().</p>
+<!-- @@@extraTokens -->
+<!-- $$$finished[overload1]$$$finishedQNetworkReply* -->
+<h3 class="fn" id="finished"><a name="finished"></a><code>[signal] </code><span class="type">void</span> QAbstractOAuth::<span class="name">finished</span>(<span class="type"><a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a></span> *<i>reply</i>)</h3>
+<!-- @@@finished -->
+<!-- $$$generateRandomString[overload1]$$$generateRandomStringquint8 -->
+<h3 class="fn" id="generateRandomString"><a name="generateRandomString"></a><code>[static protected] </code><span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> QAbstractOAuth::<span class="name">generateRandomString</span>(<span class="type"><a href="../qtcore/qtglobal.html#quint8-typedef">quint8</a></span> <i>length</i>)</h3>
+<p>Generates a random string which could be used as state or nonce. The parameter <i>length</i> determines the size of the generated string.</p>
+<p><b>See also</b>: <a href="https://tools.ietf.org/html/rfc5849#section-3.3">The OAuth 1.0 Protocol: Nonce and Timestamp</a>.</p>
+<!-- @@@generateRandomString -->
+<!-- $$$get[overload1]$$$getconstQUrl&constQVariantMap& -->
+<h3 class="fn" id="get"><a name="get"></a><code>[pure virtual] </code><span class="type"><a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a></span> *QAbstractOAuth::<span class="name">get</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>parameters</i> = ...)</h3>
+<p>Sends an authenticated GET request and returns a new <a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a>. The <i>url</i> and <i>parameters</i> are used to create the request.</p>
+<p><b>See also</b>: <a href="https://tools.ietf.org/html/rfc2616#section-9.3">Hypertext Transfer Protocol -- HTTP/1.1: GET</a></p>
+<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<!-- @@@get -->
+<!-- $$$grant[overload1]$$$grant -->
+<h3 class="fn" id="grant"><a name="grant"></a><code>[pure virtual slot] </code><span class="type">void</span> QAbstractOAuth::<span class="name">grant</span>()</h3>
+<p>Override this function to implement the corresponding authentication flow in the subclasses. Client code calls this function to start the authentication workflow. This may require user interaction: for example, asking the user's authorization via a web browser. When the authentication succeeds, it should emit <a href="qabstractoauth.html#granted">granted</a>(); this gives notice that credentials are ready to be used in authenticated calls.</p>
+<!-- @@@grant -->
+<!-- $$$granted[overload1]$$$granted -->
+<h3 class="fn" id="granted"><a name="granted"></a><code>[signal] </code><span class="type">void</span> QAbstractOAuth::<span class="name">granted</span>()</h3>
+<p>This signal is emitted when the authorization flow finishes successfully.</p>
+<!-- @@@granted -->
+<!-- $$$head[overload1]$$$headconstQUrl&constQVariantMap& -->
+<h3 class="fn" id="head"><a name="head"></a><code>[pure virtual] </code><span class="type"><a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a></span> *QAbstractOAuth::<span class="name">head</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>parameters</i> = ...)</h3>
+<p>Sends an authenticated HEAD request and returns a new <a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a>. The <i>url</i> and <i>parameters</i> are used to create the request.</p>
+<p><b>See also</b>: <a href="https://tools.ietf.org/html/rfc2616#section-9.4">Hypertext Transfer Protocol -- HTTP/1.1: HEAD</a></p>
+<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<!-- @@@head -->
+<!-- $$$modifyParametersFunction[overload1]$$$modifyParametersFunction -->
+<h3 class="fn" id="modifyParametersFunction"><a name="modifyParametersFunction"></a><span class="type"><a href="qabstractoauth.html#ModifyParametersFunction-typedef">QAbstractOAuth::ModifyParametersFunction</a></span> QAbstractOAuth::<span class="name">modifyParametersFunction</span>() const</h3>
+<p>Returns the current parameter-modification function.</p>
+<p><b>See also </b><a href="qabstractoauth.html#ModifyParametersFunction-typedef">ModifyParametersFunction</a>, <a href="qabstractoauth.html#setModifyParametersFunction">setModifyParametersFunction</a>(), and <a href="qabstractoauth.html#Stage-enum">Stage</a>.</p>
+<!-- @@@modifyParametersFunction -->
+<!-- $$$networkAccessManager[overload1]$$$networkAccessManager -->
+<h3 class="fn" id="networkAccessManager"><a name="networkAccessManager"></a><span class="type"><a href="../qtnetwork/qnetworkaccessmanager.html">QNetworkAccessManager</a></span> *QAbstractOAuth::<span class="name">networkAccessManager</span>() const</h3>
+<p>Returns the current network access manager used to send the requests to the server during authentication flows or to make authentication calls.</p>
+<p><b>See also </b><a href="qabstractoauth.html#setNetworkAccessManager">setNetworkAccessManager</a>() and <a href="../qtnetwork/qnetworkaccessmanager.html">QNetworkAccessManager</a>.</p>
+<!-- @@@networkAccessManager -->
+<!-- $$$post[overload1]$$$postconstQUrl&constQVariantMap& -->
+<h3 class="fn" id="post"><a name="post"></a><code>[pure virtual] </code><span class="type"><a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a></span> *QAbstractOAuth::<span class="name">post</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>parameters</i> = ...)</h3>
+<p>Sends an authenticated POST request and returns a new <a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a>. The <i>url</i> and <i>parameters</i> are used to create the request.</p>
+<p><b>See also</b>: <a href="https://tools.ietf.org/html/rfc2616#section-9.5">Hypertext Transfer Protocol -- HTTP/1.1: POST</a></p>
+<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<!-- @@@post -->
+<!-- $$$put[overload1]$$$putconstQUrl&constQVariantMap& -->
+<h3 class="fn" id="put"><a name="put"></a><code>[pure virtual] </code><span class="type"><a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a></span> *QAbstractOAuth::<span class="name">put</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>parameters</i> = ...)</h3>
+<p>Sends an authenticated PUT request and returns a new <a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a>. The <i>url</i> and <i>parameters</i> are used to create the request.</p>
+<p><b>See also</b>: <a href="https://tools.ietf.org/html/rfc2616#section-9.6">Hypertext Transfer Protocol -- HTTP/1.1: PUT</a></p>
+<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<!-- @@@put -->
+<!-- $$$replyDataReceived[overload1]$$$replyDataReceivedconstQByteArray& -->
+<h3 class="fn" id="replyDataReceived"><a name="replyDataReceived"></a><code>[signal] </code><span class="type">void</span> QAbstractOAuth::<span class="name">replyDataReceived</span>(const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>data</i>)</h3>
+<!-- @@@replyDataReceived -->
+<!-- $$$replyHandler[overload1]$$$replyHandler -->
+<h3 class="fn" id="replyHandler"><a name="replyHandler"></a><span class="type"><a href="qabstractoauthreplyhandler.html">QAbstractOAuthReplyHandler</a></span> *QAbstractOAuth::<span class="name">replyHandler</span>() const</h3>
+<p>Returns the reply handler currently in use.</p>
+<p><b>See also </b><a href="qabstractoauth.html#setReplyHandler">setReplyHandler</a>() and <a href="qabstractoauthreplyhandler.html">QAbstractOAuthReplyHandler</a>.</p>
+<!-- @@@replyHandler -->
+<!-- $$$requestFailed[overload1]$$$requestFailedconstQAbstractOAuth::Error -->
+<h3 class="fn" id="requestFailed"><a name="requestFailed"></a><code>[signal] </code><span class="type">void</span> QAbstractOAuth::<span class="name">requestFailed</span>(const <span class="type"><a href="qabstractoauth.html#Error-enum">QAbstractOAuth::Error</a></span> <i>error</i>)</h3>
+<!-- @@@requestFailed -->
+<!-- $$$resourceOwnerAuthorization[overload1]$$$resourceOwnerAuthorizationconstQUrl&constQVariantMap& -->
+<h3 class="fn" id="resourceOwnerAuthorization"><a name="resourceOwnerAuthorization"></a><code>[virtual protected] </code><span class="type">void</span> QAbstractOAuth::<span class="name">resourceOwnerAuthorization</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>parameters</i>)</h3>
+<p>Builds the resource owner authorization URL to be used in the web browser: <i>url</i> is used as the base URL and the query is created using <i>parameters</i>. When the URL is ready, the <a href="qabstractoauth.html#authorizeWithBrowser">authorizeWithBrowser</a>() signal will be emitted with the generated URL.</p>
+<p><b>See also </b><a href="qabstractoauth.html#authorizeWithBrowser">authorizeWithBrowser</a>().</p>
+<!-- @@@resourceOwnerAuthorization -->
+<!-- $$$setAuthorizationUrl -->
+<h3 class="fn" id="setAuthorizationUrl"><a name="setAuthorizationUrl"></a><span class="type">void</span> QAbstractOAuth::<span class="name">setAuthorizationUrl</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
+<p>Sets the authorization request URL to <i>url</i>. This address will be used to allow the user to grant the application the ability to make authenticated calls on behalf of the user.</p>
+<p><b>Note:</b> Setter function for property <a href="qabstractoauth.html#authorizationUrl-prop">authorizationUrl</a>. </p><p><b>See also </b><a href="qabstractoauth.html#authorizationUrl">authorizationUrl</a>().</p>
+<!-- @@@setAuthorizationUrl -->
+<!-- $$$setClientIdentifier -->
+<h3 class="fn" id="setClientIdentifier"><a name="setClientIdentifier"></a><span class="type">void</span> QAbstractOAuth::<span class="name">setClientIdentifier</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>clientIdentifier</i>)</h3>
+<p>Sets the current client identifier to <i>clientIdentifier</i>.</p>
+<p><b>Note:</b> Setter function for property <a href="qabstractoauth.html#clientIdentifier-prop">clientIdentifier</a>. </p><p><b>See also </b><a href="qabstractoauth.html#clientIdentifier">clientIdentifier</a>().</p>
+<!-- @@@setClientIdentifier -->
+<!-- $$$setContentType -->
+<h3 class="fn" id="setContentType"><a name="setContentType"></a><span class="type">void</span> QAbstractOAuth::<span class="name">setContentType</span>(<span class="type"><a href="qabstractoauth.html#ContentType-enum">QAbstractOAuth::ContentType</a></span> <i>contentType</i>)</h3>
+<p>Sets the current Content-Type to <i>contentType</i>.</p>
+<p><b>Note:</b> Setter function for property <a href="qabstractoauth.html#contentType-prop">contentType</a>. </p><p><b>See also </b><a href="qabstractoauth.html#contentType">contentType</a>().</p>
+<!-- @@@setContentType -->
+<!-- $$$setModifyParametersFunction[overload1]$$$setModifyParametersFunctionconstQAbstractOAuth::ModifyParametersFunction& -->
+<h3 class="fn" id="setModifyParametersFunction"><a name="setModifyParametersFunction"></a><span class="type">void</span> QAbstractOAuth::<span class="name">setModifyParametersFunction</span>(const <span class="type"><a href="qabstractoauth.html#ModifyParametersFunction-typedef">QAbstractOAuth::ModifyParametersFunction</a></span> &amp;<i>modifyParametersFunction</i>)</h3>
+<p>Sets the parameter-modification function <i>modifyParametersFunction</i>. This function is used to customize the parameters sent to the server during a specified authorization stage. The number of calls to this function depends on the flow used during the authentication.</p>
+<p><b>See also </b><a href="qabstractoauth.html#modifyParametersFunction">modifyParametersFunction</a>(), <a href="qabstractoauth.html#ModifyParametersFunction-typedef">ModifyParametersFunction</a>, and <a href="qabstractoauth.html#Stage-enum">Stage</a>.</p>
+<!-- @@@setModifyParametersFunction -->
+<!-- $$$setNetworkAccessManager[overload1]$$$setNetworkAccessManagerQNetworkAccessManager* -->
+<h3 class="fn" id="setNetworkAccessManager"><a name="setNetworkAccessManager"></a><span class="type">void</span> QAbstractOAuth::<span class="name">setNetworkAccessManager</span>(<span class="type"><a href="../qtnetwork/qnetworkaccessmanager.html">QNetworkAccessManager</a></span> *<i>networkAccessManager</i>)</h3>
+<p>Sets the network manager to <i>networkAccessManager</i>. <a href="qabstractoauth.html">QAbstractOAuth</a> does not take ownership of <i>networkAccessManager</i>. If no custom network access manager is set, an internal network access manager is used. This network access manager will be used to make the request to the authentication server and the authenticated request to the web service.</p>
+<p><b>See also </b><a href="qabstractoauth.html#networkAccessManager">networkAccessManager</a>() and <a href="../qtnetwork/qnetworkaccessmanager.html">QNetworkAccessManager</a>.</p>
+<!-- @@@setNetworkAccessManager -->
+<!-- $$$setReplyHandler[overload1]$$$setReplyHandlerQAbstractOAuthReplyHandler* -->
+<h3 class="fn" id="setReplyHandler"><a name="setReplyHandler"></a><span class="type">void</span> QAbstractOAuth::<span class="name">setReplyHandler</span>(<span class="type"><a href="qabstractoauthreplyhandler.html">QAbstractOAuthReplyHandler</a></span> *<i>handler</i>)</h3>
+<p>Sets the current reply handler to <i>handler</i>.</p>
+<p><b>Note: </b>Does not take ownership of <i>handler</i>.</p><p><b>See also </b><a href="qabstractoauth.html#replyHandler">replyHandler</a>().</p>
+<!-- @@@setReplyHandler -->
+<!-- $$$setStatus[overload1]$$$setStatusQAbstractOAuth::Status -->
+<h3 class="fn" id="setStatus"><a name="setStatus"></a><code>[protected] </code><span class="type">void</span> QAbstractOAuth::<span class="name">setStatus</span>(<span class="type"><a href="qabstractoauth.html#Status-enum">QAbstractOAuth::Status</a></span> <i>status</i>)</h3>
+<p>Sets the current status to <i>status</i>. This method is for use by classes based on <a href="qabstractoauth.html">QAbstractOAuth</a>.</p>
+<p><b>See also </b><a href="qabstractoauth.html#status">status</a>().</p>
+<!-- @@@setStatus -->
+<!-- $$$setToken -->
+<h3 class="fn" id="setToken"><a name="setToken"></a><span class="type">void</span> QAbstractOAuth::<span class="name">setToken</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>token</i>)</h3>
+<p>Sets the token used to sign authenticated requests to <i>token</i>.</p>
+<p><b>Note:</b> Setter function for property <a href="qabstractoauth.html#token-prop">token</a>. </p><p><b>See also </b><a href="qabstractoauth.html#token">token</a>().</p>
+<!-- @@@setToken -->
+<!-- $$$status -->
+<h3 class="fn" id="status"><a name="status"></a><span class="type"><a href="qabstractoauth.html#Status-enum">QAbstractOAuth::Status</a></span> QAbstractOAuth::<span class="name">status</span>() const</h3>
+<p>Returns the current authentication status.</p>
+<p><b>Note:</b> Getter function for property <a href="qabstractoauth.html#status-prop">status</a>. </p><p><b>See also </b><a href="qabstractoauth.html#setStatus">setStatus</a>() and <a href="qabstractoauth.html#Status-enum">Status</a>.</p>
+<!-- @@@status -->
+<!-- $$$token -->
+<h3 class="fn" id="token"><a name="token"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QAbstractOAuth::<span class="name">token</span>() const</h3>
+<p>Returns the token used to sign the authenticated requests.</p>
+<p><b>Note:</b> Getter function for property <a href="qabstractoauth.html#token-prop">token</a>. </p><p><b>See also </b><a href="qabstractoauth.html#setToken">setToken</a>().</p>
+<!-- @@@token -->
+</div>
+<div class="vars">
+<h2>Member Variable Documentation</h2>
+</div>
+<div class="relnonmem">
+<h2>Related Non-Members</h2>
+</div>
+<div class="macros">
+<h2>Macro Documentation</h2>
+</div>
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

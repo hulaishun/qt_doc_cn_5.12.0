@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>renderer.h Example File | Qt GUI 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtgui-index.html">Qt GUI</a></td><td ><a href="qtgui-hellovulkancubes-example.html">Hello Vulkan Cubes Example</a></td><td >renderer.h Example File</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt 5.12.0 Reference Documentation</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">renderer.h Example File</h1>
+<span class="subtitle">hellovulkancubes/renderer.h</span>
+<!-- $$$hellovulkancubes/renderer.h-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp">
+
+  <span class="comment">/****************************************************************************
+  **
+  ** Copyright (C) 2017 The Qt Company Ltd.
+  ** Contact: https://www.qt.io/licensing/
+  **
+  ** This file is part of the examples of the Qt Toolkit.
+  **
+  ** $QT_BEGIN_LICENSE:BSD$
+  ** Commercial License Usage
+  ** Licensees holding valid commercial Qt licenses may use this file in
+  ** accordance with the commercial license agreement provided with the
+  ** Software or, alternatively, in accordance with the terms contained in
+  ** a written agreement between you and The Qt Company. For licensing terms
+  ** and conditions see https://www.qt.io/terms-conditions. For further
+  ** information use the contact form at https://www.qt.io/contact-us.
+  **
+  ** BSD License Usage
+  ** Alternatively, you may use this file under the terms of the BSD license
+  ** as follows:
+  **
+  ** &quot;Redistribution and use in source and binary forms, with or without
+  ** modification, are permitted provided that the following conditions are
+  ** met:
+  **   * Redistributions of source code must retain the above copyright
+  **     notice, this list of conditions and the following disclaimer.
+  **   * Redistributions in binary form must reproduce the above copyright
+  **     notice, this list of conditions and the following disclaimer in
+  **     the documentation and/or other materials provided with the
+  **     distribution.
+  **   * Neither the name of The Qt Company Ltd nor the names of its
+  **     contributors may be used to endorse or promote products derived
+  **     from this software without specific prior written permission.
+  **
+  **
+  ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+  **
+  ** $QT_END_LICENSE$
+  **
+  ****************************************************************************/</span>
+
+  <span class="preprocessor">#ifndef RENDERER_H</span>
+  <span class="preprocessor">#define RENDERER_H</span>
+
+  <span class="preprocessor">#include &quot;vulkanwindow.h&quot;</span>
+  <span class="preprocessor">#include &quot;mesh.h&quot;</span>
+  <span class="preprocessor">#include &quot;shader.h&quot;</span>
+  <span class="preprocessor">#include &quot;camera.h&quot;</span>
+  <span class="preprocessor">#include &lt;QFutureWatcher&gt;</span>
+  <span class="preprocessor">#include &lt;QMutex&gt;</span>
+
+  <span class="keyword">class</span> Renderer : <span class="keyword">public</span> <span class="type"><a href="qvulkanwindowrenderer.html">QVulkanWindowRenderer</a></span>
+  {
+  <span class="keyword">public</span>:
+      Renderer(VulkanWindow <span class="operator">*</span>w<span class="operator">,</span> <span class="type">int</span> initialCount);
+
+      <span class="type">void</span> preInitResources() override;
+      <span class="type">void</span> initResources() override;
+      <span class="type">void</span> initSwapChainResources() override;
+      <span class="type">void</span> releaseSwapChainResources() override;
+      <span class="type">void</span> releaseResources() override;
+
+      <span class="type">void</span> startNextFrame() override;
+
+      bool animating() <span class="keyword">const</span> { <span class="keyword">return</span> m_animating; }
+      <span class="type">void</span> setAnimating(bool a) { m_animating <span class="operator">=</span> a; }
+
+      <span class="type">int</span> instanceCount() <span class="keyword">const</span> { <span class="keyword">return</span> m_instCount; }
+      <span class="type">void</span> addNew();
+
+      <span class="type">void</span> yaw(<span class="type">float</span> degrees);
+      <span class="type">void</span> pitch(<span class="type">float</span> degrees);
+      <span class="type">void</span> walk(<span class="type">float</span> amount);
+      <span class="type">void</span> strafe(<span class="type">float</span> amount);
+
+      <span class="type">void</span> setUseLogo(bool b);
+
+  <span class="keyword">private</span>:
+      <span class="type">void</span> createPipelines();
+      <span class="type">void</span> createItemPipeline();
+      <span class="type">void</span> createFloorPipeline();
+      <span class="type">void</span> ensureBuffers();
+      <span class="type">void</span> ensureInstanceBuffer();
+      <span class="type">void</span> getMatrices(QMatrix4x4 <span class="operator">*</span>mvp<span class="operator">,</span> QMatrix4x4 <span class="operator">*</span>model<span class="operator">,</span> QMatrix3x3 <span class="operator">*</span>modelNormal<span class="operator">,</span> QVector3D <span class="operator">*</span>eyePos);
+      <span class="type">void</span> writeFragUni(<span class="type"><a href="../qtcore/qtglobal.html#quint8-typedef">quint8</a></span> <span class="operator">*</span>p<span class="operator">,</span> <span class="keyword">const</span> QVector3D <span class="operator">&amp;</span>eyePos);
+      <span class="type">void</span> buildFrame();
+      <span class="type">void</span> buildDrawCallsForItems();
+      <span class="type">void</span> buildDrawCallsForFloor();
+
+      <span class="type">void</span> markViewProjDirty() { m_vpDirty <span class="operator">=</span> m_window<span class="operator">-</span><span class="operator">&gt;</span>concurrentFrameCount(); }
+
+      VulkanWindow <span class="operator">*</span>m_window;
+      <span class="type">QVulkanDeviceFunctions</span> <span class="operator">*</span>m_devFuncs;
+
+      bool m_useLogo <span class="operator">=</span> <span class="keyword">false</span>;
+      Mesh m_blockMesh;
+      Mesh m_logoMesh;
+      VkBuffer m_blockVertexBuf <span class="operator">=</span> VK_NULL_HANDLE;
+      VkBuffer m_logoVertexBuf <span class="operator">=</span> VK_NULL_HANDLE;
+      <span class="keyword">struct</span> {
+          VkDeviceSize vertUniSize;
+          VkDeviceSize fragUniSize;
+          VkDeviceSize uniMemStartOffset;
+          Shader vs;
+          Shader fs;
+          VkDescriptorPool descPool <span class="operator">=</span> VK_NULL_HANDLE;
+          VkDescriptorSetLayout descSetLayout <span class="operator">=</span> VK_NULL_HANDLE;
+          VkDescriptorSet descSet;
+          VkPipelineLayout pipelineLayout <span class="operator">=</span> VK_NULL_HANDLE;
+          VkPipeline pipeline <span class="operator">=</span> VK_NULL_HANDLE;
+      } m_itemMaterial;
+
+      VkBuffer m_floorVertexBuf <span class="operator">=</span> VK_NULL_HANDLE;
+      <span class="keyword">struct</span> {
+          Shader vs;
+          Shader fs;
+          VkPipelineLayout pipelineLayout <span class="operator">=</span> VK_NULL_HANDLE;
+          VkPipeline pipeline <span class="operator">=</span> VK_NULL_HANDLE;
+      } m_floorMaterial;
+
+      VkDeviceMemory m_bufMem <span class="operator">=</span> VK_NULL_HANDLE;
+      VkBuffer m_uniBuf <span class="operator">=</span> VK_NULL_HANDLE;
+
+      VkPipelineCache m_pipelineCache <span class="operator">=</span> VK_NULL_HANDLE;
+      <span class="type"><a href="../qtcore/qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type">void</span><span class="operator">&gt;</span> m_pipelinesFuture;
+
+      QVector3D m_lightPos;
+      Camera m_cam;
+
+      QMatrix4x4 m_proj;
+      <span class="type">int</span> m_vpDirty <span class="operator">=</span> <span class="number">0</span>;
+      QMatrix4x4 m_floorModel;
+
+      bool m_animating;
+      <span class="type">float</span> m_rotation <span class="operator">=</span> <span class="number">0.0f</span>;
+
+      <span class="type">int</span> m_instCount;
+      <span class="type">int</span> m_preparedInstCount <span class="operator">=</span> <span class="number">0</span>;
+      <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> m_instData;
+      VkBuffer m_instBuf <span class="operator">=</span> VK_NULL_HANDLE;
+      VkDeviceMemory m_instBufMem <span class="operator">=</span> VK_NULL_HANDLE;
+
+      <span class="type"><a href="../qtcore/qfuturewatcher.html">QFutureWatcher</a></span><span class="operator">&lt;</span><span class="type">void</span><span class="operator">&gt;</span> m_frameWatcher;
+      bool m_framePending;
+
+      <span class="type"><a href="../qtcore/qmutex.html">QMutex</a></span> m_guiMutex;
+  };
+
+  <span class="preprocessor">#endif</span>
+
+</pre>
+</div>
+<!-- @@@hellovulkancubes/renderer.h -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

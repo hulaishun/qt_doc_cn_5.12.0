@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- remoteobjects-overview.qdoc -->
+  <title>Overview Qt Remote Objects | Qt Remote Objects 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtremoteobjects-index.html">Qt Remote Objects</a></td><td >Overview Qt Remote Objects</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt 5.12.0 Reference Documentation</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#introduction">Introduction</a></li>
+<li class="level1"><a href="#implementation">Implementation</a></li>
+<li class="level1"><a href="#example-1-direct-connection-using-a-static-source">Example 1: Direct Connection Using a Static Source</a></li>
+<li class="level2"><a href="#replica-code">Replica Code</a></li>
+<li class="level1"><a href="#example-2-direct-connection-with-a-dynamic-replica">Example 2: Direct Connection with a Dynamic Replica</a></li>
+<li class="level1"><a href="#example-3-remote-nodes-using-a-registry">Example 3: Remote Nodes using a Registry</a></li>
+<li class="level2"><a href="#source-code">Source Code</a></li>
+<li class="level2"><a href="#replica-code">Replica Code</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Overview Qt Remote Objects</h1>
+<span class="subtitle"></span>
+<!-- $$$qtremoteobjects-gettingstarted.html-description -->
+<div class="descr"> <a name="details"></a>
+<a name="introduction"></a>
+<h2 id="introduction">Introduction</h2>
+<p>The <i>Qt Remote Objects</i> (QtRO) module provides an easy way to share Qt APIs between processes and devices. A data channel between processes and devices is required for this to work. Therefore, the first thing you need in QtRO is a <a href="qremoteobjectnode.html">QRemoteObjectNode</a>. In QtRO, a node is an endpoint for communication. Each participant in a remote objects network, be it a process or a device, needs its own node. QtRO is a peer-to-peer network, with connected nodes being the links in the network.</p>
+<p>Nodes, by themselves, don’t provide much use. The value comes from adding <a href="../qtcore/qobject.html">QObject</a> classes to a node for sharing. Any peer node can then request a copy/instance of the shared object from the node that shares it (called the <i>host node</i>). Unlike when using normal class instances (with independent properties and signal emissions), the idea in QtRO is to synchronize the changes of the shared object to all of the copies. With a few exceptions, the copies have the exact same Qt API as the original object, and are intended to be used exactly as if the original object were available. In QtRO, the original object is called the <a href="qtremoteobjects-source.html#source">Source</a>. It is a fully implemented C++ class, with whatever business logic is needed to provide the desired functionality. Copies of this object are called <a href="qtremoteobjects-replica.html#replica">Replica</a>s. You don’t need to write any C++ code for a replica; instead, you simply request an instance from a node. You still need some code to use it, such as connecting signals to your own slots, but you don’t need to implement the internal behavior – that was already done in the source object.</p>
+<p>Because the source can be in a different process or even on a different device, there are concerns in QtRO that you won’t run into when developing without Inter-Process Communication (IPC). Specifically, what happens if the process or device isn’t there? This is where the additions to the <a href="qtremoteobjects-replica.html#replica">Replica</a> API come in. There is an <a href="qremoteobjectreplica.html#initialized">initialized()</a> signal that is emitted once the replica has received the <a href="qtremoteobjects-source.html#source">source</a> state from the QtRO network. There is also an <a href="qremoteobjectreplica.html#isReplicaValid">isReplicaValid</a> property and a <a href="qremoteobjectreplica.html#stateChanged">stateChanged()</a> signal to alert you if the connection is lost.</p>
+<p>Objects shared over QtRO use the links (conduits) between nodes for all communication. If you intend to share a <a href="../qtcore/qobject.html">QObject</a>, you must create a <i>host node</i> with a URL other nodes can connect to. You can also use the QtRO <a href="qtremoteobjects-registry.html#registry">Registry</a> to facilitate connections, but your nodes sharing <a href="qtremoteobjects-source.html#source">sources</a> still need to be Host nodes. Each shared object is given a name (a <a href="../qtcore/qstring.html">QString</a>), used for identifying it on the QtRO network.</p>
+<p>See the <a href="qtremoteobjects-index.html">Overview</a> for a more detailed description, or use the following examples to get started with QtRO.</p>
+<a name="implementation"></a>
+<h2 id="implementation">Implementation</h2>
+<p>To illustrate the use of remote objects, on the source side we need to:</p>
+<ol class="1" type="1"><li>Create the <a href="qtremoteobjects-source.html#source">Source</a> object that will be replicated to other nodes (with or without using <a href="qtremoteobjects-repc.html">repc</a>, the Qt Remote Objects Compiler).</li>
+<li>(Optional) Create the <a href="qtremoteobjects-registry.html#registry">Registry</a>. If not used, direct connections are required.</li>
+<li>Create a host node so the source object can be shared.</li>
+<li>Call the node's <a href="qremoteobjecthostbase.html#enableRemoting">enableRemoting()</a> function to share the source object.</li>
+</ol>
+<p>And on the replica side:</p>
+<ol class="1" type="1"><li>(Optional) Use <a href="qtremoteobjects-repc.html">repc</a> to generate a <a href="qtremoteobjects-replica.html#replica">Replica</a> header for your project.</li>
+<li>Create the node that will connect with the <a href="qtremoteobjects-source.html#source">Source</a> host node.</li>
+<li>Call the node's <a href="qremoteobjectnode.html#acquire">acquire()</a> function to create a pointer to a replica.</li>
+</ol>
+<p>The examples below will show both <a href="qtremoteobjects-repc.html">repc</a>-compiled static objects and dynamic source objects. The examples will also show direct connections as well as connections using a <a href="qtremoteobjects-registry.html#registry">Registry</a> between nodes.</p>
+<a name="qtro-example1"></a><a name="example-1-direct-connection-using-a-static-source"></a>
+<h2 id="example-1-direct-connection-using-a-static-source">Example 1: Direct Connection Using a Static Source</h2>
+<p>In this example, the source object is a simple binary switch that will toggle its state based on a timer. When the state changes, a signal is emitted by the source which QtRO propagates to all replicas. As the replica will have the same properties, signals and slots as were exposed from the source object, any slots connected to the replica's signal will be called when the replica receives the signal. The client process then echoes back the received switch state to the source by emitting its own signal which is connected to a slot on the replica.</p>
+<ol class="1" type="1"><li><b>Create a source object</b><p>To create this <a href="qtremoteobjects-source.html#source">Source</a> object, we first create the definition file, <code>simpleswitch.rep</code>. This file describes the properties and methods for the object and is input to the <a href="qtremoteobjects-repc.html">repc</a> utility which is part of Qt Remote Objects. Only the interfaces that need to be exposed to <a href="qtremoteobjects-replica.html#replica">Replica</a> objects are defined in this file.</p>
+<p><code>simpleswitch.rep</code></p>
+<pre class="cpp">
+
+  <span class="keyword">class</span> SimpleSwitch
+  {
+      PROP(bool currState<span class="operator">=</span><span class="keyword">false</span>);
+      SLOT(server_slot(bool clientState));
+  };
+
+</pre>
+<p>Above,</p>
+<ul>
+<li><code>currState</code> holds the current state of the switch, and</li>
+<li><code>server_slot()</code> allows us to interact with the <a href="qtremoteobjects-source.html#source">Source</a> - it will be connected to the <code>echoSwitchState(bool newstate)</code> signal.</li>
+</ul>
+<p>For <a href="qtremoteobjects-repc.html">repc</a> to process this file, add the following line to the <code>.pro</code> file:</p>
+<pre class="cpp">
+
+  REPC_SOURCE <span class="operator">=</span> simpleswitch<span class="operator">.</span>rep
+
+</pre>
+<p>The <code>REPC_SOURCE</code> variable is only relevant for the Qt Remote Object module, so you need to add it to your project as well:</p>
+<pre class="cpp">
+
+  QT       <span class="operator">+</span><span class="operator">=</span> remoteobjects
+
+</pre>
+<p><a href="qtremoteobjects-repc.html">repc</a> creates the header <code>rep_SimpleSwitch_source.h</code> in your specified build directory. Refer to the <a href="qtremoteobjects-source.html#source">Source</a> section for more details about this file.</p>
+<p>Repc creates three helper classes for use with QtRO. For this example, we will use the most basic: <code>SimpleSwitchSimpleSource</code>. It is an abstract class, defined in <code>rep_SimpleSwitch_source.h</code>. We derive from it to define our SimpleSwitch implementation class as shown below:</p>
+<p><code>simpleswitch.h</code></p>
+<pre class="cpp">
+
+  <span class="preprocessor">#ifndef SIMPLESWITCH_H</span>
+  <span class="preprocessor">#define SIMPLESWITCH_H</span>
+
+  <span class="preprocessor">#include &quot;rep_SimpleSwitch_source.h&quot;</span>
+
+  <span class="keyword">class</span> SimpleSwitch : <span class="keyword">public</span> SimpleSwitchSimpleSource
+  {
+      Q_OBJECT
+  <span class="keyword">public</span>:
+      SimpleSwitch(<span class="type"><a href="../qtcore/qobject.html">QObject</a></span> <span class="operator">*</span>parent <span class="operator">=</span> nullptr);
+      <span class="operator">~</span>SimpleSwitch();
+      <span class="keyword">virtual</span> <span class="type">void</span> server_slot(bool clientState);
+  <span class="keyword">public</span> Q_SLOTS:
+      <span class="type">void</span> timeout_slot();
+  <span class="keyword">private</span>:
+      <span class="type"><a href="../qtcore/qtimer.html">QTimer</a></span> <span class="operator">*</span>stateChangeTimer;
+  };
+
+  <span class="preprocessor">#endif</span>
+
+</pre>
+<p>Above,</p>
+<ul>
+<li><code>stateChangeTimer</code> is a <a href="../qtcore/qtimer.html">QTimer</a> that is used to toggle the state of our SimpleSwitch,</li>
+<li><code>timeout_slot()</code> is connected to the timeout() signal of <code>stateChangeTimer</code>,</li>
+<li><code>server_slot()</code> -- which is called on the source (automatically via QtRO) whenever any replica calls their version of the slot -- outputs the received value, and</li>
+<li><code>currStateChanged(bool)</code>, defined in <a href="qtremoteobjects-repc.html">repc</a>-generated <code>rep_SimpleSwitch_source.h</code>, is emitted whenever currState toggles. In this example, we ignore the signal on the source side, and handle it later on the replica side.</li>
+</ul>
+<p>The definition of our <code>SwitchState</code> class is shown below:</p>
+<p><code>simpleswitch.cpp</code></p>
+<pre class="cpp">
+
+  <span class="preprocessor">#include &quot;simpleswitch.h&quot;</span>
+
+  <span class="comment">// constructor</span>
+  SimpleSwitch<span class="operator">::</span>SimpleSwitch(<span class="type"><a href="../qtcore/qobject.html">QObject</a></span> <span class="operator">*</span>parent) : SimpleSwitchSimpleSource(parent)
+  {
+      stateChangeTimer <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="../qtcore/qtimer.html">QTimer</a></span>(<span class="keyword">this</span>); <span class="comment">// Initialize timer</span>
+      <span class="type"><a href="../qtcore/qobject.html">QObject</a></span><span class="operator">::</span>connect(stateChangeTimer<span class="operator">,</span> SIGNAL(timeout())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(timeout_slot())); <span class="comment">// connect timeout() signal from stateChangeTimer to timeout_slot() of simpleSwitch</span>
+      stateChangeTimer<span class="operator">-</span><span class="operator">&gt;</span>start(<span class="number">2000</span>); <span class="comment">// Start timer and set timout to 2 seconds</span>
+      <a href="../qtcore/qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Source Node Started&quot;</span>;
+  }
+
+  <span class="comment">//destructor</span>
+  SimpleSwitch<span class="operator">::</span><span class="operator">~</span>SimpleSwitch()
+  {
+      stateChangeTimer<span class="operator">-</span><span class="operator">&gt;</span>stop();
+  }
+
+  <span class="type">void</span> SimpleSwitch<span class="operator">::</span>server_slot(bool clientState)
+  {
+      <a href="../qtcore/qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Replica state is &quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> clientState; <span class="comment">// print switch state echoed back by client</span>
+  }
+
+  <span class="type">void</span> SimpleSwitch<span class="operator">::</span>timeout_slot()
+  {
+      <span class="comment">// slot called on timer timeout</span>
+      <span class="keyword">if</span> (currState()) <span class="comment">// check if current state is true, currState() is defined in repc generated rep_SimpleSwitch_source.h</span>
+          setCurrState(<span class="keyword">false</span>); <span class="comment">// set state to false</span>
+      <span class="keyword">else</span>
+          setCurrState(<span class="keyword">true</span>); <span class="comment">// set state to true</span>
+      <a href="../qtcore/qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Source State is &quot;</span><span class="operator">&lt;</span><span class="operator">&lt;</span>currState();
+
+  }
+
+</pre>
+</li>
+<li><b>Create a registry</b><p>Because this example involves using a direct connection between nodes, step 2 for <a href="qtremoteobjects-registry.html#registry">Registry</a> creation is omitted.</p>
+</li>
+<li><b>Create a host node</b><p>The host node is created as shown below:</p>
+<pre class="cpp">
+
+  <span class="type"><a href="qremoteobjecthost.html">QRemoteObjectHost</a></span> srcNode(<span class="type"><a href="../qtcore/qurl.html">QUrl</a></span>(<span class="type"><a href="../qtcore/qstring.html#QStringLiteral">QStringLiteral</a></span>(<span class="string">&quot;local:switch&quot;</span>)));
+
+</pre>
+</li>
+<li><b>Host source object and remoting</b><p>The following statements instantiate the <a href="qtremoteobjects-source.html#source">Source</a> object and pass it to the host to enable &quot;remoting&quot;, that is, making the object visible to the QtRO network:</p>
+<pre class="cpp">
+
+  SimpleSwitch srcSwitch; <span class="comment">// create simple switch</span>
+  srcNode<span class="operator">.</span>enableRemoting(<span class="operator">&amp;</span>srcSwitch); <span class="comment">// enable remoting</span>
+
+</pre>
+<p>The contents of <code>main.cpp</code> file that implements the above steps are shown below:</p>
+<p><code>main.cpp</code></p>
+<pre class="cpp">
+
+  <span class="preprocessor">#include &lt;QCoreApplication&gt;</span>
+  <span class="preprocessor">#include &quot;simpleswitch.h&quot;</span>
+
+  <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
+  {
+      <span class="type"><a href="../qtcore/qcoreapplication.html">QCoreApplication</a></span> a(argc<span class="operator">,</span> argv);
+
+      SimpleSwitch srcSwitch; <span class="comment">// create simple switch</span>
+
+      <span class="type"><a href="qremoteobjecthost.html">QRemoteObjectHost</a></span> srcNode(<span class="type"><a href="../qtcore/qurl.html">QUrl</a></span>(<span class="type"><a href="../qtcore/qstring.html#QStringLiteral">QStringLiteral</a></span>(<span class="string">&quot;local:switch&quot;</span>)); <span class="comment">// create host node without Registry</span>
+      srcNode<span class="operator">.</span>enableRemoting(<span class="operator">&amp;</span>srcSwitch); <span class="comment">// enable remoting/sharing</span>
+
+      <span class="keyword">return</span> a<span class="operator">.</span>exec();
+  }
+
+</pre>
+<p>Compile and run this (source side) project. The output (without any replicas created) should look as shown below with the switch state toggling between <code>true</code> and <code>false</code> every two seconds.</p>
+<p class="centerAlign"><img src="images/DirectConnectServerOutput.png" alt="&quot;Example 1: Server output&quot;" /></p><p>Next are the steps for creating the replica side of the network, which in this example gets the state of switch from the <a href="qtremoteobjects-source.html#source">Source</a> and echoes it back.</p>
+</li>
+</ol>
+<a name="replica-code"></a>
+<h3 >Replica Code</h3>
+<ol class="1" type="1"><li><b>Use repc to add a replica to your project</b><p>The same API definition file as was used on the source side, <code>SimpleSwitch.rep</code>, is used for creating a <a href="qtremoteobjects-replica.html#replica">Replica</a> header file using the <a href="qtremoteobjects-repc.html">repc</a> utility. Include the following line in your client side <code>.pro</code> file, specifying a <code>.rep</code> file input:</p>
+<pre class="cpp">
+
+  REPC_REPLICA <span class="operator">=</span> simpleswitch<span class="operator">.</span>rep
+
+</pre>
+<p>The <a href="qtremoteobjects-repc.html">repc</a> tool generates a <code>rep_SimpleSwitch_replica.h</code> file in the build directory. Refer to <a href="qtremoteobjects-replica.html#replica">Replica</a> section for more details about this file.</p>
+</li>
+<li><b>Create a node to connect with the source's host node</b><p>The following code instantiates the second node on the network and connects it with the source host node:</p>
+<pre class="cpp">
+
+  <span class="type"><a href="qremoteobjectnode.html">QRemoteObjectNode</a></span> repNode; <span class="comment">// create remote object node</span>
+  repNode<span class="operator">.</span>connectToNode(<span class="type"><a href="../qtcore/qurl.html">QUrl</a></span>(<span class="type"><a href="../qtcore/qstring.html#QStringLiteral">QStringLiteral</a></span>(<span class="string">&quot;local:switch&quot;</span>)); <span class="comment">// connect with remote host node</span>
+
+</pre>
+</li>
+<li><b>Call node's <a href="qremoteobjectnode.html#acquire">acquire()</a> to create a pointer to a replica</b><p>First, a replica is instantiated:</p>
+<pre class="cpp">
+
+  <span class="type"><a href="../qtcore/qsharedpointer.html">QSharedPointer</a></span><span class="operator">&lt;</span>SimpleSwitchReplica<span class="operator">&gt;</span> ptr;
+  ptr<span class="operator">.</span>reset(repNode<span class="operator">.</span>acquire<span class="operator">&lt;</span>SimpleSwitchReplica<span class="operator">&gt;</span>()); <span class="comment">// acquire replica of source from host node</span>
+
+</pre>
+<p>Note that <a href="qremoteobjectnode.html#acquire">acquire()</a> returns a pointer to the replica. However, it does not manage the pointer lifetime. This example uses the recommended process of wrapping the returned pointer in a <a href="../qtcore/qsharedpointer.html">QSharedPointer</a> or <a href="../qtcore/qscopedpointer.html">QScopedPointer</a> to ensure the pointer is properly deleted.</p>
+<p><code>main.cpp</code> implements above steps and instantiates our object:</p>
+<p><code>main.cpp</code></p>
+<pre class="cpp">
+
+  <span class="preprocessor">#include &lt;QCoreApplication&gt;</span>
+  <span class="preprocessor">#include &quot;client.h&quot;</span>
+
+  <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
+  {
+      <span class="type"><a href="../qtcore/qcoreapplication.html">QCoreApplication</a></span> a(argc<span class="operator">,</span> argv);
+
+      <span class="type"><a href="../qtcore/qsharedpointer.html">QSharedPointer</a></span><span class="operator">&lt;</span>SimpleSwitchReplica<span class="operator">&gt;</span> ptr; <span class="comment">// shared pointer to hold source replica</span>
+
+      <span class="type"><a href="qremoteobjectnode.html">QRemoteObjectNode</a></span> repNode; <span class="comment">// create remote object node</span>
+      repNode<span class="operator">.</span>connectToNode(<span class="type"><a href="../qtcore/qurl.html">QUrl</a></span>(<span class="type"><a href="../qtcore/qstring.html#QStringLiteral">QStringLiteral</a></span>(<span class="string">&quot;local:switch&quot;</span>)); <span class="comment">// connect with remote host node</span>
+
+      ptr<span class="operator">.</span>reset(repNode<span class="operator">.</span>acquire<span class="operator">&lt;</span>SimpleSwitchReplica<span class="operator">&gt;</span>()); <span class="comment">// acquire replica of source from host node</span>
+
+      Client rswitch(ptr); <span class="comment">// create client switch object and pass reference of replica to it</span>
+
+      <span class="keyword">return</span> a<span class="operator">.</span>exec();
+  }
+
+</pre>
+<p>Complete declaration and definition of the <code>Client</code> class:</p>
+<p><code>client.h</code></p>
+<pre class="cpp">
+
+  <span class="preprocessor">#ifndef _CLIENT_H</span>
+  <span class="preprocessor">#define _CLIENT_H</span>
+
+  <span class="preprocessor">#include &lt;QObject&gt;</span>
+  <span class="preprocessor">#include &lt;QSharedPointer&gt;</span>
+
+  <span class="preprocessor">#include &quot;rep_SimpleSwitch_replica.h&quot;</span>
+
+  <span class="keyword">class</span> Client : <span class="keyword">public</span> <span class="type"><a href="../qtcore/qobject.html">QObject</a></span>
+  {
+      Q_OBJECT
+  <span class="keyword">public</span>:
+      Client(<span class="type"><a href="../qtcore/qsharedpointer.html">QSharedPointer</a></span><span class="operator">&lt;</span>SimpleSwitchReplica<span class="operator">&gt;</span> ptr);
+      <span class="operator">~</span>Client();
+      <span class="type">void</span> initConnections();<span class="comment">// Function to connect signals and slots of source and client</span>
+
+  Q_SIGNALS:
+      <span class="type">void</span> echoSwitchState(bool switchState);<span class="comment">// this signal is connected with server_slot(..) on the source object and echoes back switch state received from source</span>
+
+  <span class="keyword">public</span> Q_SLOTS:
+      <span class="type">void</span> recSwitchState_slot(); <span class="comment">// slot to receive source state</span>
+  <span class="keyword">private</span>:
+      bool clientSwitchState; <span class="comment">// holds received server switch state</span>
+      <span class="type"><a href="../qtcore/qsharedpointer.html">QSharedPointer</a></span><span class="operator">&lt;</span>SimpleSwitchReplica<span class="operator">&gt;</span> reptr;<span class="comment">// holds reference to replica</span>
+
+   };
+
+  <span class="preprocessor">#endif</span>
+
+</pre>
+<p><code>client.cpp</code></p>
+<pre class="cpp">
+
+  <span class="preprocessor">#include &quot;client.h&quot;</span>
+
+  <span class="comment">// constructor</span>
+  Client<span class="operator">::</span>Client(<span class="type"><a href="../qtcore/qsharedpointer.html">QSharedPointer</a></span><span class="operator">&lt;</span>SimpleSwitchReplica<span class="operator">&gt;</span> ptr) :
+      <span class="type"><a href="../qtcore/qobject.html">QObject</a></span>(nullptr)<span class="operator">,</span>reptr(ptr)
+  {
+      initConnections();
+      <span class="comment">//We can connect to SimpleSwitchReplica Signals/Slots</span>
+      <span class="comment">//directly because our Replica was generated by repc.</span>
+  }
+
+  <span class="comment">//destructor</span>
+  Client<span class="operator">::</span><span class="operator">~</span>Client()
+  {
+  }
+
+  <span class="type">void</span> Client<span class="operator">::</span>initConnections()
+  {
+          <span class="comment">// initialize connections between signals and slots</span>
+
+         <span class="comment">// connect source replica signal currStateChanged() with client's recSwitchState() slot to receive source's current state</span>
+          <span class="type"><a href="../qtcore/qobject.html">QObject</a></span><span class="operator">::</span>connect(reptr<span class="operator">.</span>data()<span class="operator">,</span> SIGNAL(currStateChanged())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(recSwitchState_slot()));
+         <span class="comment">// connect client's echoSwitchState(..) signal with replica's server_slot(..) to echo back received state</span>
+          <span class="type"><a href="../qtcore/qobject.html">QObject</a></span><span class="operator">::</span>connect(<span class="keyword">this</span><span class="operator">,</span> SIGNAL(echoSwitchState(bool))<span class="operator">,</span>reptr<span class="operator">.</span>data()<span class="operator">,</span> SLOT(server_slot(bool)));
+  }
+
+  <span class="type">void</span> Client<span class="operator">::</span>recSwitchState_slot()
+  {
+      <a href="../qtcore/qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Received source state &quot;</span><span class="operator">&lt;</span><span class="operator">&lt;</span>reptr<span class="operator">.</span>data()<span class="operator">-</span><span class="operator">&gt;</span>currState();
+      clientSwitchState <span class="operator">=</span> reptr<span class="operator">.</span>data()<span class="operator">-</span><span class="operator">&gt;</span>currState();
+      Q_EMIT echoSwitchState(clientSwitchState); <span class="comment">// Emit signal to echo received state back to server</span>
+  }
+
+</pre>
+<p>Compiling and executing this example together with the source-side example generates the following output:</p>
+<p class="centerAlign"><img src="images/DirectConnectClientServerOutput.png" alt="&quot;Direct Connect Server Client Communication output&quot;" /></p></li>
+</ol>
+<a name="qtro-example2"></a><a name="example-2-direct-connection-with-a-dynamic-replica"></a>
+<h2 id="example-2-direct-connection-with-a-dynamic-replica">Example 2: Direct Connection with a Dynamic Replica</h2>
+<p>A dynamic replica is initially created as a &quot;bare&quot; <a href="../qtcore/qobject.html">QObject</a> - that is, it has no properties, signals or slots. QtRO returns the API for the object during initialization (after the connection to the source is made), thus the API is added to the object at runtime.</p>
+<p>There are no changes to the source side as a dynamic <a href="qtremoteobjects-replica.html#replica">Replica</a> only impacts how the requestor node acquires the replica. The source-side code shown in <a href="qtremoteobjects-gettingstarted.html#qtro-example1">Example 1</a> will be used.</p>
+<ol class="1" type="1"><li>Add replica generation to project.<p>Because the replica is dynamically acquired, no <code>.rep</code> file is required unlike in <a href="qtremoteobjects-gettingstarted.html#qtro-example1">Example 1</a>.</p>
+</li>
+<li>Create the remote node and connect it with the source host node.<p>The code for this step is unchanged from <a href="qtremoteobjects-gettingstarted.html#qtro-example1">Example 1</a>.</p>
+<pre class="cpp">
+
+  <span class="type"><a href="qremoteobjectnode.html">QRemoteObjectNode</a></span> repNode; <span class="comment">// create remote object node</span>
+  repNode<span class="operator">.</span>connectToNode(<span class="type"><a href="../qtcore/qurl.html">QUrl</a></span>(<span class="type"><a href="../qtcore/qstring.html#QStringLiteral">QStringLiteral</a></span>(<span class="string">&quot;local:switch&quot;</span>)); <span class="comment">// connect with remote host node</span>
+
+</pre>
+</li>
+<li>Acquire a replica of the remote source object.<p>In <code>main.cpp</code>, we use a <a href="../qtcore/qsharedpointer.html">QSharedPointer</a> to hold a replica of the remote object, and then instantiate a replica requestor object:</p>
+<pre class="cpp">
+
+  <span class="preprocessor">#include &lt;QCoreApplication&gt;</span>
+
+  <span class="preprocessor">#include &quot;dynamicclient.h&quot;</span>
+
+  <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
+  {
+      <span class="type"><a href="../qtcore/qcoreapplication.html">QCoreApplication</a></span> a(argc<span class="operator">,</span> argv);
+
+      <span class="type"><a href="../qtcore/qsharedpointer.html">QSharedPointer</a></span><span class="operator">&lt;</span><span class="type"><a href="qremoteobjectdynamicreplica.html">QRemoteObjectDynamicReplica</a></span><span class="operator">&gt;</span> ptr; <span class="comment">// shared pointer to hold replica</span>
+
+      <span class="type"><a href="qremoteobjectnode.html">QRemoteObjectNode</a></span> repNode;
+      repNode<span class="operator">.</span>connectToNode(<span class="type"><a href="../qtcore/qurl.html">QUrl</a></span>(<span class="type"><a href="../qtcore/qstring.html#QStringLiteral">QStringLiteral</a></span>(<span class="string">&quot;local:switch&quot;</span>));
+
+      ptr<span class="operator">.</span>reset(repNode<span class="operator">.</span>acquireDynamic(<span class="string">&quot;SimpleSwitch&quot;</span>)); <span class="comment">// acquire replica of source from host node</span>
+
+      DynamicClient rswitch(ptr); <span class="comment">// create client switch object and pass replica reference to it</span>
+  }
+
+</pre>
+</li>
+</ol>
+<p>Below is the complete declaration and definition of the requestor class (<code>DynamicClient</code> in this example):</p>
+<p><code>dynamicclient.h</code></p>
+<pre class="cpp">
+
+  <span class="preprocessor">#ifndef _DYNAMICCLIENT_H</span>
+  <span class="preprocessor">#define _DYNAMICCLIENT_H</span>
+
+  <span class="preprocessor">#include &lt;QObject&gt;</span>
+  <span class="preprocessor">#include &lt;QSharedPointer&gt;</span>
+
+  <span class="preprocessor">#include &lt;QRemoteObjectNode&gt;</span>
+  <span class="preprocessor">#include &lt;qremoteobjectdynamicreplica.h&gt;</span>
+
+  <span class="keyword">class</span> DynamicClient : <span class="keyword">public</span> <span class="type"><a href="../qtcore/qobject.html">QObject</a></span>
+  {
+      Q_OBJECT
+  <span class="keyword">public</span>:
+      DynamicClient(<span class="type"><a href="../qtcore/qsharedpointer.html">QSharedPointer</a></span><span class="operator">&lt;</span><span class="type"><a href="qremoteobjectdynamicreplica.html">QRemoteObjectDynamicReplica</a></span><span class="operator">&gt;</span> ptr);
+      <span class="operator">~</span>DynamicClient();
+
+  Q_SIGNALS:
+      <span class="type">void</span> echoSwitchState(bool switchState);<span class="comment">// this signal is connected with server_slot(..) slot of source object and echoes back switch state received from source</span>
+
+  <span class="keyword">public</span> Q_SLOTS:
+      <span class="type">void</span> recSwitchState_slot(); <span class="comment">// Slot to receive source state</span>
+      <span class="type">void</span> initConnection_slot(); <span class="comment">//Slot to connect signals/slot on replica initialization</span>
+
+  <span class="keyword">private</span>:
+      bool clientSwitchState; <span class="comment">// holds received server switch state</span>
+      <span class="type"><a href="../qtcore/qsharedpointer.html">QSharedPointer</a></span><span class="operator">&lt;</span><span class="type"><a href="qremoteobjectdynamicreplica.html">QRemoteObjectDynamicReplica</a></span><span class="operator">&gt;</span> reptr;<span class="comment">// holds reference to replica</span>
+   };
+
+  <span class="preprocessor">#endif</span>
+
+</pre>
+<p><code>dynamicclient.cpp</code></p>
+<pre class="cpp">
+
+  <span class="preprocessor">#include &quot;dynamicclient.h&quot;</span>
+
+  <span class="comment">// constructor</span>
+  DynamicClient<span class="operator">::</span>DynamicClient(<span class="type"><a href="../qtcore/qsharedpointer.html">QSharedPointer</a></span><span class="operator">&lt;</span><span class="type"><a href="qremoteobjectdynamicreplica.html">QRemoteObjectDynamicReplica</a></span><span class="operator">&gt;</span> ptr) :
+      <span class="type"><a href="../qtcore/qobject.html">QObject</a></span>(nullptr)<span class="operator">,</span> reptr(ptr)
+  {
+
+      <span class="comment">//connect signal for replica valid changed with signal slot initialization</span>
+      <span class="type"><a href="../qtcore/qobject.html">QObject</a></span><span class="operator">::</span>connect(reptr<span class="operator">.</span>data()<span class="operator">,</span> SIGNAL(initialized())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(initConnection_slot()));
+  }
+
+  <span class="comment">//destructor</span>
+  DynamicClient<span class="operator">::</span><span class="operator">~</span>DynamicClient()
+  {
+  }
+
+  <span class="comment">// Function to initialize connections between slots and signals</span>
+  <span class="type">void</span> DynamicClient<span class="operator">::</span>initConnection_slot()
+  {
+
+      <span class="comment">// connect source replica signal currStateChanged() with client's recSwitchState() slot to receive source's current state</span>
+     <span class="type"><a href="../qtcore/qobject.html">QObject</a></span><span class="operator">::</span>connect(reptr<span class="operator">.</span>data()<span class="operator">,</span> SIGNAL(currStateChanged())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(recSwitchState_slot()));
+     <span class="comment">// connect client's echoSwitchState(..) signal with replica's server_slot(..) to echo back received state</span>
+     <span class="type"><a href="../qtcore/qobject.html">QObject</a></span><span class="operator">::</span>connect(<span class="keyword">this</span><span class="operator">,</span> SIGNAL(echoSwitchState(bool))<span class="operator">,</span>reptr<span class="operator">.</span>data()<span class="operator">,</span> SLOT(server_slot(bool)));
+  }
+
+  <span class="type">void</span> DynamicClient<span class="operator">::</span>recSwitchState_slot()
+  {
+     clientSwitchState <span class="operator">=</span> reptr<span class="operator">-</span><span class="operator">&gt;</span>property(<span class="string">&quot;currState&quot;</span>)<span class="operator">.</span>toBool(); <span class="comment">// use replica property to get currState from source</span>
+     <a href="../qtcore/qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Received source state &quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> clientSwitchState;
+     Q_EMIT echoSwitchState(clientSwitchState); <span class="comment">// Emit signal to echo received state back to server</span>
+  }
+
+</pre>
+<p>When executed together with the source-side example, the output is identical to <a href="qtremoteobjects-gettingstarted.html#qtro-example1">Example 1</a>.</p>
+<a name="qtro-example3"></a><a name="example-3-remote-nodes-using-a-registry"></a>
+<h2 id="example-3-remote-nodes-using-a-registry">Example 3: Remote Nodes using a Registry</h2>
+<p>This example will illustrate the use of a <a href="qtremoteobjects-registry.html#registry">Registry</a> for building the node topology. For only two nodes, the benefits of using a registry are minimal. With a registry, instead of using a <a href="../qtcore/qurl.html">QUrl</a> to create a direct connection between two nodes, you use a different <a href="../qtcore/qurl.html">QUrl</a> to point both the host and replica nodes to the registry. As the network grows, using a registry means that all nodes only need to connect to the registry via a single <a href="../qtcore/qurl.html">QUrl</a>. With direct connections, nodes would have to maintain a list of <a href="../qtcore/qurl.html">QUrl</a>s for each node they link to.</p>
+<a name="source-code"></a>
+<h3 >Source Code</h3>
+<p>The <code>simpleswitch.h</code> and <code>simpleswitch.cpp</code> sources from <a href="qtremoteobjects-gettingstarted.html#qtro-example1">Example</a> can be used without modification. The difference is in the way a host node is created and connected to the <a href="qtremoteobjects-registry.html#registry">Registry</a>:</p>
+<p><code>main.cpp</code></p>
+<pre class="cpp">
+
+  <span class="preprocessor">#include &lt;QCoreApplication&gt;</span>
+  <span class="preprocessor">#include &quot;simpleswitch.h&quot;</span>
+
+  <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
+  {
+      <span class="type"><a href="../qtcore/qcoreapplication.html">QCoreApplication</a></span> a(argc<span class="operator">,</span> argv);
+
+      SimpleSwitch srcSwitch; <span class="comment">// create SimpleSwitch</span>
+
+      <span class="type"><a href="qremoteobjectregistryhost.html">QRemoteObjectRegistryHost</a></span> regNode(<span class="type"><a href="../qtcore/qurl.html">QUrl</a></span>(<span class="type"><a href="../qtcore/qstring.html#QStringLiteral">QStringLiteral</a></span>(<span class="string">&quot;local:registry&quot;</span>))); <span class="comment">// create node that hosts registry</span>
+      <span class="type"><a href="qremoteobjecthost.html">QRemoteObjectHost</a></span> srcNode(<span class="type"><a href="../qtcore/qurl.html">QUrl</a></span>(<span class="type"><a href="../qtcore/qstring.html#QStringLiteral">QStringLiteral</a></span>(<span class="string">&quot;local:switch&quot;</span>))<span class="operator">,</span> <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span>(<span class="type"><a href="../qtcore/qstring.html#QStringLiteral">QStringLiteral</a></span>(<span class="string">&quot;local:registry&quot;</span>))); <span class="comment">// create node that will host source and connect to registry</span>
+      <span class="comment">//Note, you can add srcSwitch directly to regNode if desired.</span>
+      <span class="comment">//We use two Nodes here, as the regNode could easily be in a third process.</span>
+
+      srcNode<span class="operator">.</span>enableRemoting(<span class="operator">&amp;</span>srcSwitch); <span class="comment">// enable remoting of source object</span>
+
+      <span class="keyword">return</span> a<span class="operator">.</span>exec();
+  }
+
+</pre>
+<a name="replica-code"></a>
+<h3 >Replica Code</h3>
+<p>The requestor object used for this example is the dynamic replica client discussed in <a href="qtremoteobjects-gettingstarted.html#qtro-example2">Example 2</a>.</p>
+<p>The only modification is in <code>main.cpp</code>: a <a href="qtremoteobjects-registry.html#registry">Registry</a> node is created to acquire a <a href="qtremoteobjects-replica.html#replica">Replica</a>:</p>
+<pre class="cpp">
+
+      <span class="type"><a href="qremoteobjectnode.html">QRemoteObjectNode</a></span> repNode(<span class="type"><a href="../qtcore/qurl.html">QUrl</a></span>(<span class="type"><a href="../qtcore/qstring.html#QStringLiteral">QStringLiteral</a></span>(<span class="string">&quot;local:registry&quot;</span>)));
+
+</pre>
+<p>When executed together with the source-side example, the output is identical to <a href="qtremoteobjects-gettingstarted.html#qtro-example1">Example 1</a>.</p>
+</div>
+<!-- @@@qtremoteobjects-gettingstarted.html -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

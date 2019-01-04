@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qfloat16.cpp -->
+  <title>&lt;QFloat16&gt; - 16-bit Floating Point Support | Qt Core 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcore-index.html">Qt Core</a></td><td >&lt;QFloat16&gt; - 16-bit Floating Point Support</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt 5.12.0 Reference Documentation</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">&lt;QFloat16&gt; - 16-bit Floating Point Support</h1>
+<span class="subtitle"></span>
+<!-- $$$<QFloat16>-brief -->
+<p>The &lt;QFloat16&gt; header file provides 16-bit floating point support. <a href="#details">More...</a></p>
+<!-- @@@<QFloat16> -->
+<p>This documentation was introduced in  Qt 5.9.</p>
+<ul>
+</ul>
+<a name="Functions"></a>
+<h2 id="Functions">Functions</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qfloat16.html#qFloatFromFloat16">qFloatFromFloat16</a></b>(float *<i>out</i>, const qfloat16 *<i>in</i>, qsizetype <i>len</i>)</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qfloat16.html#qFloatToFloat16">qFloatToFloat16</a></b>(qfloat16 *<i>out</i>, const float *<i>in</i>, qsizetype <i>len</i>)</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qfloat16.html#qFuzzyCompare">qFuzzyCompare</a></b>(qfloat16 <i>p1</i>, qfloat16 <i>p2</i>)</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qfloat16.html#qIsFinite">qIsFinite</a></b>(qfloat16 <i>f</i>)</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qfloat16.html#qIsInf">qIsInf</a></b>(qfloat16 <i>f</i>)</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qfloat16.html#qIsNaN">qIsNaN</a></b>(qfloat16 <i>f</i>)</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> qint64 </td><td class="memItemRight bottomAlign"><b><a href="qfloat16.html#qRound64">qRound64</a></b>(qfloat16 <i>value</i>)</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qfloat16.html#qRound">qRound</a></b>(qfloat16 <i>value</i>)</td></tr>
+</table></div>
+<!-- $$$<QFloat16>-description -->
+<div class="descr"> <a name="details"></a>
+<p>This header file provides support for half-precision (16-bit) floating point data with the class <code>qfloat16</code>. It is fully compliant with IEEE 754 as a storage type. This implies that any arithmetic operation on a <code>qfloat16</code> instance results in the value first being converted to a <code>float</code>. This conversion to and from <code>float</code> is performed by hardware when possible, but on processors that do not natively support half-precision, the conversion is performed through a sequence of lookup table operations.</p>
+<p><code>qfloat16</code> should be treated as if it were a POD (plain old data) type. Consequently, none of the supported operations need any elaboration beyond stating that it supports all arithmetic operators incident to floating point types.</p>
+</div>
+<!-- @@@<QFloat16> -->
+<h2>Function Documentation</h2>
+<!-- $$$qFloatFromFloat16[overload1]$$$qFloatFromFloat16float*constqfloat16*qsizetype -->
+<h3 class="fn" id="qFloatFromFloat16"><a name="qFloatFromFloat16"></a><span class="type">void</span> <span class="name">qFloatFromFloat16</span>(<span class="type">float</span> *<i>out</i>, const <span class="type">qfloat16</span> *<i>in</i>, <span class="type">qsizetype</span> <i>len</i>)</h3>
+<p>Converts <i>len</i> qfloat16 from <i>in</i> to floats and stores them in <i>out</i>. Both <i>in</i> and <i>out</i> must have <i>len</i> allocated entries.</p>
+<p>This function was introduced in  Qt 5.11.</p>
+<!-- @@@qFloatFromFloat16 -->
+<!-- $$$qFloatToFloat16[overload1]$$$qFloatToFloat16qfloat16*constfloat*qsizetype -->
+<h3 class="fn" id="qFloatToFloat16"><a name="qFloatToFloat16"></a><span class="type">void</span> <span class="name">qFloatToFloat16</span>(<span class="type">qfloat16</span> *<i>out</i>, const <span class="type">float</span> *<i>in</i>, <span class="type">qsizetype</span> <i>len</i>)</h3>
+<p>Converts <i>len</i> floats from <i>in</i> to qfloat16 and stores them in <i>out</i>. Both <i>in</i> and <i>out</i> must have <i>len</i> allocated entries.</p>
+<p>This function was introduced in  Qt 5.11.</p>
+<!-- @@@qFloatToFloat16 -->
+<!-- $$$qFuzzyCompare[overload1]$$$qFuzzyCompareqfloat16qfloat16 -->
+<h3 class="fn" id="qFuzzyCompare"><a name="qFuzzyCompare"></a><span class="type">bool</span> <span class="name">qFuzzyCompare</span>(<span class="type">qfloat16</span> <i>p1</i>, <span class="type">qfloat16</span> <i>p2</i>)</h3>
+<p>Compares the floating point value <i>p1</i> and <i>p2</i> and returns <code>true</code> if they are considered equal, otherwise <code>false</code>.</p>
+<p>The two numbers are compared in a relative way, where the exactness is stronger the smaller the numbers are.</p>
+<!-- @@@qFuzzyCompare -->
+<!-- $$$qIsFinite[overload1]$$$qIsFiniteqfloat16 -->
+<h3 class="fn" id="qIsFinite"><a name="qIsFinite"></a><span class="type">bool</span> <span class="name">qIsFinite</span>(<span class="type">qfloat16</span> <i>f</i>)</h3>
+<p>Returns true if the <code>qfloat16</code> <i>f</i> is a finite number.</p>
+<p><b>See also </b><a href="qtglobal.html#qIsFinite">qIsFinite</a>.</p>
+<!-- @@@qIsFinite -->
+<!-- $$$qIsInf[overload1]$$$qIsInfqfloat16 -->
+<h3 class="fn" id="qIsInf"><a name="qIsInf"></a><span class="type">bool</span> <span class="name">qIsInf</span>(<span class="type">qfloat16</span> <i>f</i>)</h3>
+<p>Returns true if the <code>qfloat16</code> <i>f</i> is equivalent to infinity.</p>
+<p><b>See also </b><a href="qtglobal.html#qIsInf">qIsInf</a>.</p>
+<!-- @@@qIsInf -->
+<!-- $$$qIsNaN[overload1]$$$qIsNaNqfloat16 -->
+<h3 class="fn" id="qIsNaN"><a name="qIsNaN"></a><span class="type">bool</span> <span class="name">qIsNaN</span>(<span class="type">qfloat16</span> <i>f</i>)</h3>
+<p>Returns true if the <code>qfloat16</code> <i>f</i> is not a number (NaN).</p>
+<p><b>See also </b><a href="qtglobal.html#qIsNaN">qIsNaN</a>.</p>
+<!-- @@@qIsNaN -->
+<!-- $$$qRound64[overload1]$$$qRound64qfloat16 -->
+<h3 class="fn" id="qRound64"><a name="qRound64"></a><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> <span class="name">qRound64</span>(<span class="type">qfloat16</span> <i>value</i>)</h3>
+<p>Rounds <i>value</i> to the nearest 64-bit integer.</p>
+<p><b>See also </b><a href="qtglobal.html#qRound64">qRound64</a>.</p>
+<!-- @@@qRound64 -->
+<!-- $$$qRound[overload1]$$$qRoundqfloat16 -->
+<h3 class="fn" id="qRound"><a name="qRound"></a><span class="type">int</span> <span class="name">qRound</span>(<span class="type">qfloat16</span> <i>value</i>)</h3>
+<p>Rounds <i>value</i> to the nearest integer.</p>
+<p><b>See also </b><a href="qtglobal.html#qRound">qRound</a>.</p>
+<!-- @@@qRound -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

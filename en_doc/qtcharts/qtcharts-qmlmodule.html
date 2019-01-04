@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qtcharts.qdoc -->
+  <title>Qt Charts QML Types | Qt Charts 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcharts-index.html">Qt Charts</a></td><td >Qt Charts QML Types</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt Charts | Commercial or GPLv3</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#qml-types">QML Types</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Qt Charts QML Types</h1>
+<span class="subtitle"></span>
+<!-- $$$QtCharts-description -->
+<div class="descr"> <a name="details"></a>
+<p>The Qt Charts QML API is an intuitive and simple way to show charts in your QML applications.</p>
+<p>Use the following QML to create a simple pie chart:</p>
+<p class="centerAlign"><img src="images/examples_qmlpiechart.png" alt="" /></p><pre class="qml">
+
+  import QtQuick 2.0
+  import QtCharts 2.0
+
+  <span class="type"><a href="qml-qtcharts-chartview.html">ChartView</a></span> {
+      <span class="name">width</span>: <span class="number">400</span>
+      <span class="name">height</span>: <span class="number">300</span>
+      <span class="name">theme</span>: <span class="name">ChartView</span>.<span class="name">ChartThemeBrownSand</span>
+      <span class="name">antialiasing</span>: <span class="number">true</span>
+
+      <span class="type"><a href="qml-qtcharts-pieseries.html">PieSeries</a></span> {
+          <span class="name">id</span>: <span class="name">pieSeries</span>
+          <span class="type"><a href="qml-qtcharts-pieslice.html">PieSlice</a></span> { <span class="name">label</span>: <span class="string">&quot;eaten&quot;</span>; <span class="name">value</span>: <span class="number">94.9</span> }
+          <span class="type"><a href="qml-qtcharts-pieslice.html">PieSlice</a></span> { <span class="name">label</span>: <span class="string">&quot;not yet eaten&quot;</span>; <span class="name">value</span>: <span class="number">5.1</span> }
+      }
+  }
+
+</pre>
+<p><b>Note: </b>Since Qt Creator 3.0 the project created with Qt Quick Application wizard based on Qt Quick 2 template uses <a href="../qtgui/qguiapplication.html">QGuiApplication</a> by default. As Qt Charts utilizes Qt Graphics View Framework for drawing, <a href="../qtwidgets/qapplication.html">QApplication</a> must be used. The project created with the wizard is usable with Qt Charts after the <a href="../qtgui/qguiapplication.html">QGuiApplication</a> is replaced with <a href="../qtwidgets/qapplication.html">QApplication</a>.</p><a name="qml-types"></a>
+<h2 id="qml-types">QML Types</h2>
+</div>
+<!-- @@@QtCharts -->
+<div class="table"><table class="annotated">
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-qtcharts-abstractaxis.html">AbstractAxis</a></p></td><td class="tblDescr"><p>A base type used for specialized axis types</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-qtcharts-abstractbarseries.html">AbstractBarSeries</a></p></td><td class="tblDescr"><p>An abstract parent type for all bar series types</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-qtcharts-abstractseries.html">AbstractSeries</a></p></td><td class="tblDescr"><p>Base type for all Qt Chart series types</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-qtcharts-areaseries.html">AreaSeries</a></p></td><td class="tblDescr"><p>Presents data in area charts</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-qtcharts-barcategoryaxis.html">BarCategoryAxis</a></p></td><td class="tblDescr"><p>Adds categories to a chart's axes</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-qtcharts-barseries.html">BarSeries</a></p></td><td class="tblDescr"><p>Presents a series of data as vertical bars grouped by category</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-qtcharts-barset.html">BarSet</a></p></td><td class="tblDescr"><p>Represents one set of bars in a bar chart</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-qtcharts-boxplotseries.html">BoxPlotSeries</a></p></td><td class="tblDescr"><p>Presents data in box-and-whiskers charts</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-qtcharts-boxset.html">BoxSet</a></p></td><td class="tblDescr"><p>Represents one item in a box-and-whiskers chart</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-qtcharts-candlestickseries.html">CandlestickSeries</a></p></td><td class="tblDescr"><p>Represents a series of data as candlesticks</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-qtcharts-candlestickset.html">CandlestickSet</a></p></td><td class="tblDescr"><p>Represents a single candlestick item in a candlestick chart</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-qtcharts-categoryaxis.html">CategoryAxis</a></p></td><td class="tblDescr"><p>Places named ranges on the axis</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-qtcharts-categoryrange.html">CategoryRange</a></p></td><td class="tblDescr"><p>Defines a range on a category axis</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-qtcharts-chartview.html">ChartView</a></p></td><td class="tblDescr"><p>Manages the graphical representation of the chart's series, legends, and axes</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-qtcharts-datetimeaxis.html">DateTimeAxis</a></p></td><td class="tblDescr"><p>Adds dates and times to a chart's axis</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-qtcharts-hbarmodelmapper.html">HBarModelMapper</a></p></td><td class="tblDescr"><p>Horizontal model mapper for bar series</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-qtcharts-hboxplotmodelmapper.html">HBoxPlotModelMapper</a></p></td><td class="tblDescr"><p>Horizontal model mapper for box plot series</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-qtcharts-hcandlestickmodelmapper.html">HCandlestickModelMapper</a></p></td><td class="tblDescr"><p>Horizontal model mapper for a candlestick series</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-qtcharts-hpiemodelmapper.html">HPieModelMapper</a></p></td><td class="tblDescr"><p>Horizontal model mapper for pie series</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-qtcharts-hxymodelmapper.html">HXYModelMapper</a></p></td><td class="tblDescr"><p>A horizontal model mapper for XYSeries</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-qtcharts-horizontalbarseries.html">HorizontalBarSeries</a></p></td><td class="tblDescr"><p>Presents a series of data as horizontal bars grouped by category</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-qtcharts-horizontalpercentbarseries.html">HorizontalPercentBarSeries</a></p></td><td class="tblDescr"><p>Presents a series of categorized data as a percentage of each category</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-qtcharts-horizontalstackedbarseries.html">HorizontalStackedBarSeries</a></p></td><td class="tblDescr"><p>Presents a series of data as stacked horizontal bars, with one bar per category</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-qtcharts-legend.html">Legend</a></p></td><td class="tblDescr"><p>Displays the legend of a chart</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-qtcharts-lineseries.html">LineSeries</a></p></td><td class="tblDescr"><p>Presents data in line charts</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-qtcharts-logvalueaxis.html">LogValueAxis</a></p></td><td class="tblDescr"><p>Adds a logarithmic scale to a chart's axis</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-qtcharts-margins.html">Margins</a></p></td><td class="tblDescr"><p>Defines margins between the edge of the chart rectangle and the plot area</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-qtcharts-percentbarseries.html">PercentBarSeries</a></p></td><td class="tblDescr"><p>Presents a series of categorized data as a percentage of each category</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-qtcharts-pieseries.html">PieSeries</a></p></td><td class="tblDescr"><p>Presents data in pie charts</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-qtcharts-pieslice.html">PieSlice</a></p></td><td class="tblDescr"><p>Represents a single slice in a pie series</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-qtcharts-polarchartview.html">PolarChartView</a></p></td><td class="tblDescr"><p>Presents data in polar charts</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-qtcharts-scatterseries.html">ScatterSeries</a></p></td><td class="tblDescr"><p>Type presents data in scatter charts</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-qtcharts-splineseries.html">SplineSeries</a></p></td><td class="tblDescr"><p>Presents data as spline charts</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-qtcharts-stackedbarseries.html">StackedBarSeries</a></p></td><td class="tblDescr"><p>Presents a series of data as vertically stacked bars, with one bar per category</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-qtcharts-vbarmodelmapper.html">VBarModelMapper</a></p></td><td class="tblDescr"><p>Vertical model mapper for bar series</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-qtcharts-vboxplotmodelmapper.html">VBoxPlotModelMapper</a></p></td><td class="tblDescr"><p>Vertical model mapper for box plot series</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-qtcharts-vcandlestickmodelmapper.html">VCandlestickModelMapper</a></p></td><td class="tblDescr"><p>Vertical model mapper for a candlestick series</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-qtcharts-vpiemodelmapper.html">VPieModelMapper</a></p></td><td class="tblDescr"><p>Vertical model mapper for pie series</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-qtcharts-vxymodelmapper.html">VXYModelMapper</a></p></td><td class="tblDescr"><p>A vertical model mapper for XYSeries</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-qtcharts-valueaxis.html">ValueAxis</a></p></td><td class="tblDescr"><p>Adds values to a chart's axes</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-qtcharts-xypoint.html">XYPoint</a></p></td><td class="tblDescr"><p>Initializes XY-series coordinate data</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-qtcharts-xyseries.html">XYSeries</a></p></td><td class="tblDescr"><p>A base type for line, spline, and scatter series</p></td></tr>
+</table></div>
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

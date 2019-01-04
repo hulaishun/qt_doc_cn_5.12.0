@@ -1,0 +1,1574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>marked.js Example File | Qt WebEngine 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtwebengine-index.html">Qt WebEngine</a></td><td ><a href="qtwebengine-webenginewidgets-markdowneditor-example.html">WebEngine Markdown Editor Example</a></td><td >marked.js Example File</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt 5.12.0 Reference Documentation</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">marked.js Example File</h1>
+<span class="subtitle">webenginewidgets/markdowneditor/resources/3rdparty/marked.js</span>
+<!-- $$$webenginewidgets/markdowneditor/resources/3rdparty/marked.js-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="js">
+
+  <span class="comment">/**
+   * marked - a markdown parser
+   * Copyright (c) 2011-2014, Christopher Jeffrey. (MIT Licensed)
+   * https://github.com/markedjs/marked
+   */</span>
+
+  ;(<span class="keyword">function</span>(root) {
+  <span class="string">'use strict'</span>;
+
+  <span class="comment">/**
+   * Block-Level Grammar
+   */</span>
+
+  var block = {
+    newline: /^\n+/,
+    code: /^( {4}[^\n]+\n*)+/,
+    fences: <span class="name">noop</span>,
+    hr: /^ {0,3}((?:- *){3,}|(?:_ *){3,}|(?:\* *){3,})(?:\n+|$)/,
+    heading: /^ *(#{1,6}) *([^\n]+?) *(?:#+ *)?(?:\n+|$)/,
+    nptable: <span class="name">noop</span>,
+    blockquote: /^( {0,3}&gt; ?(paragraph|[^\n]*)(?:\n|$))+/,
+    list: /^( *)(bull) [\s\S]+?(?:hr|def|\n{2,}(?! )(?!\1bull )\n*|\s*$)/,
+    html: <span class="string">'^ {0,3}(?:'</span> <span class="comment">// optional indentation</span>
+      <span class="operator">+</span> <span class="string">'&lt;(script|pre|style)[\\s&gt;][\\s\\S]*?(?:&lt;/\\1&gt;[^\\n]*\\n+|$)'</span> <span class="comment">// (1)</span>
+      <span class="operator">+</span> <span class="string">'|comment[^\\n]*(\\n+|$)'</span> <span class="comment">// (2)</span>
+      <span class="operator">+</span> <span class="string">'|&lt;\\?[\\s\\S]*?\\?&gt;\\n*'</span> <span class="comment">// (3)</span>
+      <span class="operator">+</span> <span class="string">'|&lt;![A-Z][\\s\\S]*?&gt;\\n*'</span> <span class="comment">// (4)</span>
+      <span class="operator">+</span> <span class="string">'|&lt;!\\[CDATA\\[[\\s\\S]*?\\]\\]&gt;\\n*'</span> <span class="comment">// (5)</span>
+      <span class="operator">+</span> <span class="string">'|&lt;/?(tag)(?: +|\\n|/?&gt;)[\\s\\S]*?(?:\\n{2,}|$)'</span> <span class="comment">// (6)</span>
+      <span class="operator">+</span> <span class="string">'|&lt;(?!script|pre|style)([a-z][\\w-]*)(?:attribute)*? */?&gt;(?=\\h*\\n)[\\s\\S]*?(?:\\n{2,}|$)'</span> <span class="comment">// (7) open tag</span>
+      <span class="operator">+</span> <span class="string">'|&lt;/(?!script|pre|style)[a-z][\\w-]*\\s*&gt;(?=\\h*\\n)[\\s\\S]*?(?:\\n{2,}|$)'</span> <span class="comment">// (7) closing tag</span>
+      <span class="operator">+</span> <span class="string">')'</span>,
+    def: /^ {0,3}\[(label)\]: *\n? *&lt;?([^\s&gt;]+)&gt;?(?:(?: +\n? *| *\n *)(title))? *(?:\n+|$)/,
+    table: <span class="name">noop</span>,
+    lheading: /^([^\n]+)\n *(=|-){2,} *(?:\n+|$)/,
+    paragraph: /^([^\n]+(?:\n(?!hr|heading|lheading| {0,3}&gt;|&lt;\/?(?:tag)(?: +|\n|\/?&gt;)|&lt;(?:script|pre|style|!--))[^\n]+)*)/,
+    text: /^[^\n]+/
+  };
+
+  <span class="name">block</span>.<span class="name">_label</span> <span class="operator">=</span> /(?!\s*\])(?:\\[\[\]]|[^\[\]])+/;
+  <span class="name">block</span>.<span class="name">_title</span> <span class="operator">=</span> /(?:&quot;(?:\\&quot;?|[^&quot;\\])*&quot;|'[^'\n]*(?:\n[^'\n]+)*\n?'|\([^()]*\))/;
+  <span class="name">block</span>.<span class="name">def</span> <span class="operator">=</span> <span class="name">edit</span>(<span class="name">block</span>.<span class="name">def</span>)
+    .<span class="name">replace</span>(<span class="string">'label'</span>, <span class="name">block</span>.<span class="name">_label</span>)
+    .<span class="name">replace</span>(<span class="string">'title'</span>, <span class="name">block</span>.<span class="name">_title</span>)
+    .<span class="name">getRegex</span>();
+
+  <span class="name">block</span>.<span class="name">bullet</span> <span class="operator">=</span> /(?:[*+-]|\d+\.)/;
+  <span class="name">block</span>.<span class="name">item</span> <span class="operator">=</span> /^( *)(bull) [^\n]*(?:\n(?!\1bull )[^\n]*)*/;
+  <span class="name">block</span>.<span class="name">item</span> <span class="operator">=</span> <span class="name">edit</span>(<span class="name">block</span>.<span class="name">item</span>, <span class="string">'gm'</span>)
+    .<span class="name">replace</span>(/bull/g, <span class="name">block</span>.<span class="name">bullet</span>)
+    .<span class="name">getRegex</span>();
+
+  <span class="name">block</span>.<span class="name">list</span> <span class="operator">=</span> <span class="name">edit</span>(<span class="name">block</span>.<span class="name">list</span>)
+    .<span class="name">replace</span>(/bull/g, <span class="name">block</span>.<span class="name">bullet</span>)
+    .<span class="name">replace</span>(<span class="string">'hr'</span>, <span class="string">'\\n+(?=\\1?(?:(?:- *){3,}|(?:_ *){3,}|(?:\\* *){3,})(?:\\n+|$))'</span>)
+    .<span class="name">replace</span>(<span class="string">'def'</span>, <span class="string">'\\n+(?='</span> <span class="operator">+</span> <span class="name">block</span>.<span class="name">def</span>.<span class="name">source</span> <span class="operator">+</span> <span class="string">')'</span>)
+    .<span class="name">getRegex</span>();
+
+  <span class="name">block</span>.<span class="name">_tag</span> <span class="operator">=</span> <span class="string">'address|article|aside|base|basefont|blockquote|body|caption'</span>
+    <span class="operator">+</span> <span class="string">'|center|col|colgroup|dd|details|dialog|dir|div|dl|dt|fieldset|figcaption'</span>
+    <span class="operator">+</span> <span class="string">'|figure|footer|form|frame|frameset|h[1-6]|head|header|hr|html|iframe'</span>
+    <span class="operator">+</span> <span class="string">'|legend|li|link|main|menu|menuitem|meta|nav|noframes|ol|optgroup|option'</span>
+    <span class="operator">+</span> <span class="string">'|p|param|section|source|summary|table|tbody|td|tfoot|th|thead|title|tr'</span>
+    <span class="operator">+</span> <span class="string">'|track|ul'</span>;
+  <span class="name">block</span>.<span class="name">_comment</span> <span class="operator">=</span> /&lt;!--(?!-?&gt;)[\s\S]*?--&gt;/;
+  <span class="name">block</span>.<span class="name">html</span> <span class="operator">=</span> <span class="name">edit</span>(<span class="name">block</span>.<span class="name">html</span>, <span class="string">'i'</span>)
+    .<span class="name">replace</span>(<span class="string">'comment'</span>, <span class="name">block</span>.<span class="name">_comment</span>)
+    .<span class="name">replace</span>(<span class="string">'tag'</span>, <span class="name">block</span>.<span class="name">_tag</span>)
+    .<span class="name">replace</span>(<span class="string">'attribute'</span>, / +[a-zA-Z:_][\w.:-]*(?: *= *&quot;[^&quot;\n]*&quot;| *= *'[^'\n]*'| *= *[^\s&quot;'=&lt;&gt;`]+)?/)
+    .<span class="name">getRegex</span>();
+
+  <span class="name">block</span>.<span class="name">paragraph</span> <span class="operator">=</span> <span class="name">edit</span>(<span class="name">block</span>.<span class="name">paragraph</span>)
+    .<span class="name">replace</span>(<span class="string">'hr'</span>, <span class="name">block</span>.<span class="name">hr</span>)
+    .<span class="name">replace</span>(<span class="string">'heading'</span>, <span class="name">block</span>.<span class="name">heading</span>)
+    .<span class="name">replace</span>(<span class="string">'lheading'</span>, <span class="name">block</span>.<span class="name">lheading</span>)
+    .<span class="name">replace</span>(<span class="string">'tag'</span>, <span class="name">block</span>.<span class="name">_tag</span>) <span class="comment">// pars can be interrupted by type (6) html blocks</span>
+    .<span class="name">getRegex</span>();
+
+  <span class="name">block</span>.<span class="name">blockquote</span> <span class="operator">=</span> <span class="name">edit</span>(<span class="name">block</span>.<span class="name">blockquote</span>)
+    .<span class="name">replace</span>(<span class="string">'paragraph'</span>, <span class="name">block</span>.<span class="name">paragraph</span>)
+    .<span class="name">getRegex</span>();
+
+  <span class="comment">/**
+   * Normal Block Grammar
+   */</span>
+
+  <span class="name">block</span>.<span class="name">normal</span> <span class="operator">=</span> <span class="name">merge</span>({}, <span class="name">block</span>);
+
+  <span class="comment">/**
+   * GFM Block Grammar
+   */</span>
+
+  <span class="name">block</span>.<span class="name">gfm</span> <span class="operator">=</span> <span class="name">merge</span>({}, <span class="name">block</span>.<span class="name">normal</span>, {
+    fences: /^ *(`{3,}|~{3,})[ \.]*(\S+)? *\n([\s\S]*?)\n? *\1 *(?:\n+|$)/,
+    paragraph: /^/,
+    heading: /^ *(#{1,6}) +([^\n]+?) *#* *(?:\n+|$)/
+  });
+
+  <span class="name">block</span>.<span class="name">gfm</span>.<span class="name">paragraph</span> <span class="operator">=</span> <span class="name">edit</span>(<span class="name">block</span>.<span class="name">paragraph</span>)
+    .<span class="name">replace</span>(<span class="string">'(?!'</span>, <span class="string">'(?!'</span>
+      <span class="operator">+</span> <span class="name">block</span>.<span class="name">gfm</span>.<span class="name">fences</span>.<span class="name">source</span>.<span class="name">replace</span>(<span class="string">'\\1'</span>, <span class="string">'\\2'</span>) <span class="operator">+</span> <span class="string">'|'</span>
+      <span class="operator">+</span> <span class="name">block</span>.<span class="name">list</span>.<span class="name">source</span>.<span class="name">replace</span>(<span class="string">'\\1'</span>, <span class="string">'\\3'</span>) <span class="operator">+</span> <span class="string">'|'</span>)
+    .<span class="name">getRegex</span>();
+
+  <span class="comment">/**
+   * GFM + Tables Block Grammar
+   */</span>
+
+  <span class="name">block</span>.<span class="name">tables</span> <span class="operator">=</span> <span class="name">merge</span>({}, <span class="name">block</span>.<span class="name">gfm</span>, {
+    nptable: /^ *([^|\n ].*\|.*)\n *([-:]+ *\|[-| :]*)(?:\n((?:.*[^&gt;\n ].*(?:\n|$))*)\n*|$)/,
+    table: /^ *\|(.+)\n *\|?( *[-:]+[-| :]*)(?:\n((?: *[^&gt;\n ].*(?:\n|$))*)\n*|$)/
+  });
+
+  <span class="comment">/**
+   * Pedantic grammar
+   */</span>
+
+  <span class="name">block</span>.<span class="name">pedantic</span> <span class="operator">=</span> <span class="name">merge</span>({}, <span class="name">block</span>.<span class="name">normal</span>, {
+    html: <span class="name">edit</span>(
+      <span class="string">'^ *(?:comment *(?:\\n|\\s*$)'</span>
+      <span class="operator">+</span> <span class="string">'|&lt;(tag)[\\s\\S]+?&lt;/\\1&gt; *(?:\\n{2,}|\\s*$)'</span> <span class="comment">// closed tag</span>
+      <span class="operator">+</span> <span class="string">'|&lt;tag(?:&quot;[^&quot;]*&quot;|\'[^\']*\'|\\s[^\'&quot;/&gt;\\s]*)*?/?&gt; *(?:\\n{2,}|\\s*$))'</span>)
+      .<span class="name">replace</span>(<span class="string">'comment'</span>, <span class="name">block</span>.<span class="name">_comment</span>)
+      .<span class="name">replace</span>(/tag/g, <span class="string">'(?!(?:'</span>
+        <span class="operator">+</span> <span class="string">'a|em|strong|small|s|cite|q|dfn|abbr|data|time|code|var|samp|kbd|sub'</span>
+        <span class="operator">+</span> <span class="string">'|sup|i|b|u|mark|ruby|rt|rp|bdi|bdo|span|br|wbr|ins|del|img)'</span>
+        <span class="operator">+</span> <span class="string">'\\b)\\w+(?!:|[^\\w\\s@]*@)\\b'</span>)
+      .<span class="name">getRegex</span>(),
+    def: /^ *\[([^\]]+)\]: *&lt;?([^\s&gt;]+)&gt;?(?: +([&quot;(][^\n]+[&quot;)]))? *(?:\n+|$)/
+  });
+
+  <span class="comment">/**
+   * Block Lexer
+   */</span>
+
+  <span class="keyword">function</span> <span class="name">Lexer</span>(options) {
+    this.<span class="name">tokens</span> <span class="operator">=</span> [];
+    this.<span class="name">tokens</span>.<span class="name">links</span> <span class="operator">=</span> {};
+    this.<span class="name">options</span> <span class="operator">=</span> <span class="name">options</span> <span class="operator">||</span> <span class="name">marked</span>.<span class="name">defaults</span>;
+    this.<span class="name">rules</span> <span class="operator">=</span> <span class="name">block</span>.<span class="name">normal</span>;
+
+    <span class="keyword">if</span> (this.<span class="name">options</span>.<span class="name">pedantic</span>) {
+      this.<span class="name">rules</span> <span class="operator">=</span> <span class="name">block</span>.<span class="name">pedantic</span>;
+    } <span class="keyword">else</span> <span class="keyword">if</span> (this.<span class="name">options</span>.<span class="name">gfm</span>) {
+      <span class="keyword">if</span> (this.<span class="name">options</span>.<span class="name">tables</span>) {
+        this.<span class="name">rules</span> <span class="operator">=</span> <span class="name">block</span>.<span class="name">tables</span>;
+      } <span class="keyword">else</span> {
+        this.<span class="name">rules</span> <span class="operator">=</span> <span class="name">block</span>.<span class="name">gfm</span>;
+      }
+    }
+  }
+
+  <span class="comment">/**
+   * Expose Block Rules
+   */</span>
+
+  <span class="name">Lexer</span>.<span class="name">rules</span> <span class="operator">=</span> <span class="name">block</span>;
+
+  <span class="comment">/**
+   * Static Lex Method
+   */</span>
+
+  <span class="name">Lexer</span>.<span class="name">lex</span> <span class="operator">=</span> <span class="keyword">function</span>(src, options) {
+    var lexer = new <span class="name">Lexer</span>(<span class="name">options</span>);
+    <span class="keyword">return</span> <span class="name">lexer</span>.<span class="name">lex</span>(<span class="name">src</span>);
+  };
+
+  <span class="comment">/**
+   * Preprocessing
+   */</span>
+
+  <span class="name">Lexer</span>.<span class="name">prototype</span>.<span class="name">lex</span> <span class="operator">=</span> <span class="keyword">function</span>(src) {
+    <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>
+      .<span class="name">replace</span>(/\r\n|\r/g, <span class="string">'\n'</span>)
+      .<span class="name">replace</span>(/\t/g, <span class="string">'    '</span>)
+      .<span class="name">replace</span>(/\u00a0/g, <span class="string">' '</span>)
+      .<span class="name">replace</span>(/\u2424/g, <span class="string">'\n'</span>);
+
+    <span class="keyword">return</span> this.<span class="name">token</span>(<span class="name">src</span>, <span class="number">true</span>);
+  };
+
+  <span class="comment">/**
+   * Lexing
+   */</span>
+
+  <span class="name">Lexer</span>.<span class="name">prototype</span>.<span class="name">token</span> <span class="operator">=</span> <span class="keyword">function</span>(src, top) {
+    <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">replace</span>(/^ +$/gm, <span class="string">''</span>);
+    var next,
+        loose,
+        cap,
+        bull,
+        b,
+        item,
+        space,
+        i,
+        tag,
+        l,
+        isordered,
+        istask,
+        ischecked;
+
+    <span class="keyword">while</span> (<span class="name">src</span>) {
+      <span class="comment">// newline</span>
+      <span class="keyword">if</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">newline</span>.<span class="name">exec</span>(<span class="name">src</span>)) {
+        <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+        <span class="keyword">if</span> (<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span> <span class="operator">&gt;</span> <span class="number">1</span>) {
+          this.<span class="name">tokens</span>.<span class="name">push</span>({
+            type: <span class="string">'space'</span>
+          });
+        }
+      }
+
+      <span class="comment">// code</span>
+      <span class="keyword">if</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">code</span>.<span class="name">exec</span>(<span class="name">src</span>)) {
+        <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+        <span class="name">cap</span> <span class="operator">=</span> <span class="name">cap</span>[<span class="number">0</span>].<span class="name">replace</span>(/^ {4}/gm, <span class="string">''</span>);
+        this.<span class="name">tokens</span>.<span class="name">push</span>({
+          type: <span class="string">'code'</span>,
+          text: !this.<span class="name">options</span>.<span class="name">pedantic</span>
+            ? <span class="name">cap</span>.<span class="name">replace</span>(/\n+$/, <span class="string">''</span>)
+            : <span class="name">cap</span>
+        });
+        <span class="keyword">continue</span>;
+      }
+
+      <span class="comment">// fences (gfm)</span>
+      <span class="keyword">if</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">fences</span>.<span class="name">exec</span>(<span class="name">src</span>)) {
+        <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+        this.<span class="name">tokens</span>.<span class="name">push</span>({
+          type: <span class="string">'code'</span>,
+          lang: <span class="name">cap</span>[<span class="number">2</span>],
+          text: <span class="name">cap</span>[<span class="number">3</span>] <span class="operator">||</span> <span class="string">''</span>
+        });
+        <span class="keyword">continue</span>;
+      }
+
+      <span class="comment">// heading</span>
+      <span class="keyword">if</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">heading</span>.<span class="name">exec</span>(<span class="name">src</span>)) {
+        <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+        this.<span class="name">tokens</span>.<span class="name">push</span>({
+          type: <span class="string">'heading'</span>,
+          depth: <span class="name">cap</span>[<span class="number">1</span>].<span class="name">length</span>,
+          text: <span class="name">cap</span>[<span class="number">2</span>]
+        });
+        <span class="keyword">continue</span>;
+      }
+
+      <span class="comment">// table no leading pipe (gfm)</span>
+      <span class="keyword">if</span> (<span class="name">top</span> <span class="operator">&amp;&amp;</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">nptable</span>.<span class="name">exec</span>(<span class="name">src</span>))) {
+        <span class="name">item</span> <span class="operator">=</span> {
+          type: <span class="string">'table'</span>,
+          header: <span class="name">splitCells</span>(<span class="name">cap</span>[<span class="number">1</span>].<span class="name">replace</span>(/^ *| *\| *$/g, <span class="string">''</span>)),
+          align: <span class="name">cap</span>[<span class="number">2</span>].<span class="name">replace</span>(/^ *|\| *$/g, <span class="string">''</span>).<span class="name">split</span>(/ *\| */),
+          cells: <span class="name">cap</span>[<span class="number">3</span>] ? <span class="name">cap</span>[<span class="number">3</span>].<span class="name">replace</span>(/\n$/, <span class="string">''</span>).<span class="name">split</span>(<span class="string">'\n'</span>) : []
+        };
+
+        <span class="keyword">if</span> (<span class="name">item</span>.<span class="name">header</span>.<span class="name">length</span> <span class="operator">===</span> <span class="name">item</span>.<span class="name">align</span>.<span class="name">length</span>) {
+          <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+
+          <span class="keyword">for</span> (<span class="name">i</span> <span class="operator">=</span> <span class="number">0</span>; <span class="name">i</span> <span class="operator">&lt;</span> <span class="name">item</span>.<span class="name">align</span>.<span class="name">length</span>; i++) {
+            <span class="keyword">if</span> (/^ *-+: *$/.<span class="name">test</span>(<span class="name">item</span>.<span class="name">align</span>[<span class="name">i</span>])) {
+              <span class="name">item</span>.<span class="name">align</span>[<span class="name">i</span>] <span class="operator">=</span> <span class="string">'right'</span>;
+            } <span class="keyword">else</span> <span class="keyword">if</span> (/^ *:-+: *$/.<span class="name">test</span>(<span class="name">item</span>.<span class="name">align</span>[<span class="name">i</span>])) {
+              <span class="name">item</span>.<span class="name">align</span>[<span class="name">i</span>] <span class="operator">=</span> <span class="string">'center'</span>;
+            } <span class="keyword">else</span> <span class="keyword">if</span> (/^ *:-+ *$/.<span class="name">test</span>(<span class="name">item</span>.<span class="name">align</span>[<span class="name">i</span>])) {
+              <span class="name">item</span>.<span class="name">align</span>[<span class="name">i</span>] <span class="operator">=</span> <span class="string">'left'</span>;
+            } <span class="keyword">else</span> {
+              <span class="name">item</span>.<span class="name">align</span>[<span class="name">i</span>] <span class="operator">=</span> <span class="number">null</span>;
+            }
+          }
+
+          <span class="keyword">for</span> (<span class="name">i</span> <span class="operator">=</span> <span class="number">0</span>; <span class="name">i</span> <span class="operator">&lt;</span> <span class="name">item</span>.<span class="name">cells</span>.<span class="name">length</span>; i++) {
+            <span class="name">item</span>.<span class="name">cells</span>[<span class="name">i</span>] <span class="operator">=</span> <span class="name">splitCells</span>(<span class="name">item</span>.<span class="name">cells</span>[<span class="name">i</span>], <span class="name">item</span>.<span class="name">header</span>.<span class="name">length</span>);
+          }
+
+          this.<span class="name">tokens</span>.<span class="name">push</span>(<span class="name">item</span>);
+
+          <span class="keyword">continue</span>;
+        }
+      }
+
+      <span class="comment">// hr</span>
+      <span class="keyword">if</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">hr</span>.<span class="name">exec</span>(<span class="name">src</span>)) {
+        <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+        this.<span class="name">tokens</span>.<span class="name">push</span>({
+          type: <span class="string">'hr'</span>
+        });
+        <span class="keyword">continue</span>;
+      }
+
+      <span class="comment">// blockquote</span>
+      <span class="keyword">if</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">blockquote</span>.<span class="name">exec</span>(<span class="name">src</span>)) {
+        <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+
+        this.<span class="name">tokens</span>.<span class="name">push</span>({
+          type: <span class="string">'blockquote_start'</span>
+        });
+
+        <span class="name">cap</span> <span class="operator">=</span> <span class="name">cap</span>[<span class="number">0</span>].<span class="name">replace</span>(/^ *&gt; ?/gm, <span class="string">''</span>);
+
+        <span class="comment">// Pass `top` to keep the current</span>
+        <span class="comment">// &quot;toplevel&quot; state. This is exactly</span>
+        <span class="comment">// how markdown.pl works.</span>
+        this.<span class="name">token</span>(<span class="name">cap</span>, <span class="name">top</span>);
+
+        this.<span class="name">tokens</span>.<span class="name">push</span>({
+          type: <span class="string">'blockquote_end'</span>
+        });
+
+        <span class="keyword">continue</span>;
+      }
+
+      <span class="comment">// list</span>
+      <span class="keyword">if</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">list</span>.<span class="name">exec</span>(<span class="name">src</span>)) {
+        <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+        <span class="name">bull</span> <span class="operator">=</span> <span class="name">cap</span>[<span class="number">2</span>];
+        <span class="name">isordered</span> <span class="operator">=</span> <span class="name">bull</span>.<span class="name">length</span> <span class="operator">&gt;</span> <span class="number">1</span>;
+
+        this.<span class="name">tokens</span>.<span class="name">push</span>({
+          type: <span class="string">'list_start'</span>,
+          ordered: <span class="name">isordered</span>,
+          start: <span class="name">isordered</span> ? +<span class="name">bull</span> : <span class="string">''</span>
+        });
+
+        <span class="comment">// Get each top-level item.</span>
+        <span class="name">cap</span> <span class="operator">=</span> <span class="name">cap</span>[<span class="number">0</span>].<span class="name">match</span>(this.<span class="name">rules</span>.<span class="name">item</span>);
+
+        <span class="name">next</span> <span class="operator">=</span> <span class="number">false</span>;
+        <span class="name">l</span> <span class="operator">=</span> <span class="name">cap</span>.<span class="name">length</span>;
+        <span class="name">i</span> <span class="operator">=</span> <span class="number">0</span>;
+
+        <span class="keyword">for</span> (; <span class="name">i</span> <span class="operator">&lt;</span> <span class="name">l</span>; i++) {
+          <span class="name">item</span> <span class="operator">=</span> <span class="name">cap</span>[<span class="name">i</span>];
+
+          <span class="comment">// Remove the list item's bullet</span>
+          <span class="comment">// so it is seen as the next token.</span>
+          <span class="name">space</span> <span class="operator">=</span> <span class="name">item</span>.<span class="name">length</span>;
+          <span class="name">item</span> <span class="operator">=</span> <span class="name">item</span>.<span class="name">replace</span>(/^ *([*+-]|\d+\.) +/, <span class="string">''</span>);
+
+          <span class="comment">// Outdent whatever the</span>
+          <span class="comment">// list item contains. Hacky.</span>
+          <span class="keyword">if</span> (~<span class="name">item</span>.<span class="name">indexOf</span>(<span class="string">'\n '</span>)) {
+            <span class="name">space</span> <span class="operator">-=</span> <span class="name">item</span>.<span class="name">length</span>;
+            <span class="name">item</span> <span class="operator">=</span> !this.<span class="name">options</span>.<span class="name">pedantic</span>
+              ? <span class="name">item</span>.<span class="name">replace</span>(new <span class="name">RegExp</span>(<span class="string">'^ {1,'</span> <span class="operator">+</span> <span class="name">space</span> <span class="operator">+</span> <span class="string">'}'</span>, <span class="string">'gm'</span>), <span class="string">''</span>)
+              : <span class="name">item</span>.<span class="name">replace</span>(/^ {1,4}/gm, <span class="string">''</span>);
+          }
+
+          <span class="comment">// Determine whether the next list item belongs here.</span>
+          <span class="comment">// Backpedal if it does not belong in this list.</span>
+          <span class="keyword">if</span> (this.<span class="name">options</span>.<span class="name">smartLists</span> <span class="operator">&amp;&amp;</span> <span class="name">i</span> <span class="operator">!==</span> <span class="name">l</span> <span class="operator">-</span> <span class="number">1</span>) {
+            <span class="name">b</span> <span class="operator">=</span> <span class="name">block</span>.<span class="name">bullet</span>.<span class="name">exec</span>(<span class="name">cap</span>[<span class="name">i</span> <span class="operator">+</span> <span class="number">1</span>])[<span class="number">0</span>];
+            <span class="keyword">if</span> (<span class="name">bull</span> <span class="operator">!==</span> <span class="name">b</span> <span class="operator">&amp;&amp;</span> !(<span class="name">bull</span>.<span class="name">length</span> <span class="operator">&gt;</span> <span class="number">1</span> <span class="operator">&amp;&amp;</span> <span class="name">b</span>.<span class="name">length</span> <span class="operator">&gt;</span> <span class="number">1</span>)) {
+              <span class="name">src</span> <span class="operator">=</span> <span class="name">cap</span>.<span class="name">slice</span>(<span class="name">i</span> <span class="operator">+</span> <span class="number">1</span>).<span class="name">join</span>(<span class="string">'\n'</span>) <span class="operator">+</span> <span class="name">src</span>;
+              <span class="name">i</span> <span class="operator">=</span> <span class="name">l</span> <span class="operator">-</span> <span class="number">1</span>;
+            }
+          }
+
+          <span class="comment">// Determine whether item is loose or not.</span>
+          <span class="comment">// Use: /(^|\n)(?! )[^\n]+\n\n(?!\s*$)/</span>
+          <span class="comment">// for discount behavior.</span>
+          <span class="name">loose</span> <span class="operator">=</span> <span class="name">next</span> <span class="operator">||</span> /\n\n(?!\s*$)/.<span class="name">test</span>(<span class="name">item</span>);
+          <span class="keyword">if</span> (<span class="name">i</span> <span class="operator">!==</span> <span class="name">l</span> <span class="operator">-</span> <span class="number">1</span>) {
+            <span class="name">next</span> <span class="operator">=</span> <span class="name">item</span>.<span class="name">charAt</span>(<span class="name">item</span>.<span class="name">length</span> <span class="operator">-</span> <span class="number">1</span>) <span class="operator">===</span> <span class="string">'\n'</span>;
+            <span class="keyword">if</span> (!<span class="name">loose</span>) <span class="name">loose</span> <span class="operator">=</span> <span class="name">next</span>;
+          }
+
+          <span class="comment">// Check for task list items</span>
+          <span class="name">istask</span> <span class="operator">=</span> /^\[[ xX]\] /.<span class="name">test</span>(<span class="name">item</span>);
+          <span class="name">ischecked</span> <span class="operator">=</span> <span class="name">undefined</span>;
+          <span class="keyword">if</span> (<span class="name">istask</span>) {
+            <span class="name">ischecked</span> <span class="operator">=</span> <span class="name">item</span>[<span class="number">1</span>] <span class="operator">!==</span> <span class="string">' '</span>;
+            <span class="name">item</span> <span class="operator">=</span> <span class="name">item</span>.<span class="name">replace</span>(/^\[[ xX]\] +/, <span class="string">''</span>);
+          }
+
+          this.<span class="name">tokens</span>.<span class="name">push</span>({
+            type: <span class="name">loose</span>
+              ? <span class="string">'loose_item_start'</span>
+              : <span class="string">'list_item_start'</span>,
+            task: <span class="name">istask</span>,
+            checked: <span class="name">ischecked</span>
+          });
+
+          <span class="comment">// Recurse.</span>
+          this.<span class="name">token</span>(<span class="name">item</span>, <span class="number">false</span>);
+
+          this.<span class="name">tokens</span>.<span class="name">push</span>({
+            type: <span class="string">'list_item_end'</span>
+          });
+        }
+
+        this.<span class="name">tokens</span>.<span class="name">push</span>({
+          type: <span class="string">'list_end'</span>
+        });
+
+        <span class="keyword">continue</span>;
+      }
+
+      <span class="comment">// html</span>
+      <span class="keyword">if</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">html</span>.<span class="name">exec</span>(<span class="name">src</span>)) {
+        <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+        this.<span class="name">tokens</span>.<span class="name">push</span>({
+          type: this.<span class="name">options</span>.<span class="name">sanitize</span>
+            ? <span class="string">'paragraph'</span>
+            : <span class="string">'html'</span>,
+          pre: !this.<span class="name">options</span>.<span class="name">sanitizer</span>
+            <span class="operator">&amp;&amp;</span> (<span class="name">cap</span>[<span class="number">1</span>] <span class="operator">===</span> <span class="string">'pre'</span> <span class="operator">||</span> <span class="name">cap</span>[<span class="number">1</span>] <span class="operator">===</span> <span class="string">'script'</span> <span class="operator">||</span> <span class="name">cap</span>[<span class="number">1</span>] <span class="operator">===</span> <span class="string">'style'</span>),
+          text: <span class="name">cap</span>[<span class="number">0</span>]
+        });
+        <span class="keyword">continue</span>;
+      }
+
+      <span class="comment">// def</span>
+      <span class="keyword">if</span> (<span class="name">top</span> <span class="operator">&amp;&amp;</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">def</span>.<span class="name">exec</span>(<span class="name">src</span>))) {
+        <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+        <span class="keyword">if</span> (<span class="name">cap</span>[<span class="number">3</span>]) <span class="name">cap</span>[<span class="number">3</span>] <span class="operator">=</span> <span class="name">cap</span>[<span class="number">3</span>].<span class="name">substring</span>(<span class="number">1</span>, <span class="name">cap</span>[<span class="number">3</span>].<span class="name">length</span> <span class="operator">-</span> <span class="number">1</span>);
+        <span class="name">tag</span> <span class="operator">=</span> <span class="name">cap</span>[<span class="number">1</span>].<span class="name">toLowerCase</span>().<span class="name">replace</span>(/\s+/g, <span class="string">' '</span>);
+        <span class="keyword">if</span> (!this.<span class="name">tokens</span>.<span class="name">links</span>[<span class="name">tag</span>]) {
+          this.<span class="name">tokens</span>.<span class="name">links</span>[<span class="name">tag</span>] <span class="operator">=</span> {
+            href: <span class="name">cap</span>[<span class="number">2</span>],
+            title: <span class="name">cap</span>[<span class="number">3</span>]
+          };
+        }
+        <span class="keyword">continue</span>;
+      }
+
+      <span class="comment">// table (gfm)</span>
+      <span class="keyword">if</span> (<span class="name">top</span> <span class="operator">&amp;&amp;</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">table</span>.<span class="name">exec</span>(<span class="name">src</span>))) {
+        <span class="name">item</span> <span class="operator">=</span> {
+          type: <span class="string">'table'</span>,
+          header: <span class="name">splitCells</span>(<span class="name">cap</span>[<span class="number">1</span>].<span class="name">replace</span>(/^ *| *\| *$/g, <span class="string">''</span>)),
+          align: <span class="name">cap</span>[<span class="number">2</span>].<span class="name">replace</span>(/^ *|\| *$/g, <span class="string">''</span>).<span class="name">split</span>(/ *\| */),
+          cells: <span class="name">cap</span>[<span class="number">3</span>] ? <span class="name">cap</span>[<span class="number">3</span>].<span class="name">replace</span>(/(?: *\| *)?\n$/, <span class="string">''</span>).<span class="name">split</span>(<span class="string">'\n'</span>) : []
+        };
+
+        <span class="keyword">if</span> (<span class="name">item</span>.<span class="name">header</span>.<span class="name">length</span> <span class="operator">===</span> <span class="name">item</span>.<span class="name">align</span>.<span class="name">length</span>) {
+          <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+
+          <span class="keyword">for</span> (<span class="name">i</span> <span class="operator">=</span> <span class="number">0</span>; <span class="name">i</span> <span class="operator">&lt;</span> <span class="name">item</span>.<span class="name">align</span>.<span class="name">length</span>; i++) {
+            <span class="keyword">if</span> (/^ *-+: *$/.<span class="name">test</span>(<span class="name">item</span>.<span class="name">align</span>[<span class="name">i</span>])) {
+              <span class="name">item</span>.<span class="name">align</span>[<span class="name">i</span>] <span class="operator">=</span> <span class="string">'right'</span>;
+            } <span class="keyword">else</span> <span class="keyword">if</span> (/^ *:-+: *$/.<span class="name">test</span>(<span class="name">item</span>.<span class="name">align</span>[<span class="name">i</span>])) {
+              <span class="name">item</span>.<span class="name">align</span>[<span class="name">i</span>] <span class="operator">=</span> <span class="string">'center'</span>;
+            } <span class="keyword">else</span> <span class="keyword">if</span> (/^ *:-+ *$/.<span class="name">test</span>(<span class="name">item</span>.<span class="name">align</span>[<span class="name">i</span>])) {
+              <span class="name">item</span>.<span class="name">align</span>[<span class="name">i</span>] <span class="operator">=</span> <span class="string">'left'</span>;
+            } <span class="keyword">else</span> {
+              <span class="name">item</span>.<span class="name">align</span>[<span class="name">i</span>] <span class="operator">=</span> <span class="number">null</span>;
+            }
+          }
+
+          <span class="keyword">for</span> (<span class="name">i</span> <span class="operator">=</span> <span class="number">0</span>; <span class="name">i</span> <span class="operator">&lt;</span> <span class="name">item</span>.<span class="name">cells</span>.<span class="name">length</span>; i++) {
+            <span class="name">item</span>.<span class="name">cells</span>[<span class="name">i</span>] <span class="operator">=</span> <span class="name">splitCells</span>(
+              <span class="name">item</span>.<span class="name">cells</span>[<span class="name">i</span>].<span class="name">replace</span>(/^ *\| *| *\| *$/g, <span class="string">''</span>),
+              <span class="name">item</span>.<span class="name">header</span>.<span class="name">length</span>);
+          }
+
+          this.<span class="name">tokens</span>.<span class="name">push</span>(<span class="name">item</span>);
+
+          <span class="keyword">continue</span>;
+        }
+      }
+
+      <span class="comment">// lheading</span>
+      <span class="keyword">if</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">lheading</span>.<span class="name">exec</span>(<span class="name">src</span>)) {
+        <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+        this.<span class="name">tokens</span>.<span class="name">push</span>({
+          type: <span class="string">'heading'</span>,
+          depth: <span class="name">cap</span>[<span class="number">2</span>] <span class="operator">===</span> <span class="string">'='</span> ? <span class="number">1</span> : <span class="number">2</span>,
+          text: <span class="name">cap</span>[<span class="number">1</span>]
+        });
+        <span class="keyword">continue</span>;
+      }
+
+      <span class="comment">// top-level paragraph</span>
+      <span class="keyword">if</span> (<span class="name">top</span> <span class="operator">&amp;&amp;</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">paragraph</span>.<span class="name">exec</span>(<span class="name">src</span>))) {
+        <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+        this.<span class="name">tokens</span>.<span class="name">push</span>({
+          type: <span class="string">'paragraph'</span>,
+          text: <span class="name">cap</span>[<span class="number">1</span>].<span class="name">charAt</span>(<span class="name">cap</span>[<span class="number">1</span>].<span class="name">length</span> <span class="operator">-</span> <span class="number">1</span>) <span class="operator">===</span> <span class="string">'\n'</span>
+            ? <span class="name">cap</span>[<span class="number">1</span>].<span class="name">slice</span>(<span class="number">0</span>, -<span class="number">1</span>)
+            : <span class="name">cap</span>[<span class="number">1</span>]
+        });
+        <span class="keyword">continue</span>;
+      }
+
+      <span class="comment">// text</span>
+      <span class="keyword">if</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">text</span>.<span class="name">exec</span>(<span class="name">src</span>)) {
+        <span class="comment">// Top-level should never reach here.</span>
+        <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+        this.<span class="name">tokens</span>.<span class="name">push</span>({
+          type: <span class="string">'text'</span>,
+          text: <span class="name">cap</span>[<span class="number">0</span>]
+        });
+        <span class="keyword">continue</span>;
+      }
+
+      <span class="keyword">if</span> (<span class="name">src</span>) {
+        <span class="keyword">throw</span> new <span class="name">Error</span>(<span class="string">'Infinite loop on byte: '</span> <span class="operator">+</span> <span class="name">src</span>.<span class="name">charCodeAt</span>(<span class="number">0</span>));
+      }
+    }
+
+    <span class="keyword">return</span> this.<span class="name">tokens</span>;
+  };
+
+  <span class="comment">/**
+   * Inline-Level Grammar
+   */</span>
+
+  var inline = {
+    escape: /^\\([!&quot;#$%&amp;'()*+,\-./:;&lt;=&gt;?@\[\]\\^_`{|}~])/,
+    autolink: /^&lt;(scheme:[^\s\x00-\x1f&lt;&gt;]*|email)&gt;/,
+    url: <span class="name">noop</span>,
+    tag: <span class="string">'^comment'</span>
+      <span class="operator">+</span> <span class="string">'|^&lt;/[a-zA-Z][\\w:-]*\\s*&gt;'</span> <span class="comment">// self-closing tag</span>
+      <span class="operator">+</span> <span class="string">'|^&lt;[a-zA-Z][\\w-]*(?:attribute)*?\\s*/?&gt;'</span> <span class="comment">// open tag</span>
+      <span class="operator">+</span> <span class="string">'|^&lt;\\?[\\s\\S]*?\\?&gt;'</span> <span class="comment">// processing instruction, e.g. &lt;?php ?&gt;</span>
+      <span class="operator">+</span> <span class="string">'|^&lt;![a-zA-Z]+\\s[\\s\\S]*?&gt;'</span> <span class="comment">// declaration, e.g. &lt;!DOCTYPE html&gt;</span>
+      <span class="operator">+</span> <span class="string">'|^&lt;!\\[CDATA\\[[\\s\\S]*?\\]\\]&gt;'</span>, <span class="comment">// CDATA section</span>
+    link: /^!?\[(label)\]\(href(?:\s+(title))?\s*\)/,
+    reflink: /^!?\[(label)\]\[(?!\s*\])((?:\\[\[\]]?|[^\[\]\\])+)\]/,
+    nolink: /^!?\[(?!\s*\])((?:\[[^\[\]]*\]|\\[\[\]]|[^\[\]])*)\](?:\[\])?/,
+    strong: /^__([^\s][\s\S]*?[^\s])__(?!_)|^\*\*([^\s][\s\S]*?[^\s])\*\*(?!\*)|^__([^\s])__(?!_)|^\*\*([^\s])\*\*(?!\*)/,
+    em: /^_([^\s][\s\S]*?[^\s_])_(?!_)|^_([^\s_][\s\S]*?[^\s])_(?!_)|^\*([^\s][\s\S]*?[^\s*])\*(?!\*)|^\*([^\s*][\s\S]*?[^\s])\*(?!\*)|^_([^\s_])_(?!_)|^\*([^\s*])\*(?!\*)/,
+    code: /^(`+)\s*([\s\S]*?[^`]?)\s*\1(?!`)/,
+    br: /^ {2,}\n(?!\s*$)/,
+    del: <span class="name">noop</span>,
+    text: /^[\s\S]+?(?=[\\&lt;!\[`*]|\b_| {2,}\n|$)/
+  };
+
+  <span class="name">inline</span>.<span class="name">_escapes</span> <span class="operator">=</span> /\\([!&quot;#$%&amp;'()*+,\-./:;&lt;=&gt;?@\[\]\\^_`{|}~])/g;
+
+  <span class="name">inline</span>.<span class="name">_scheme</span> <span class="operator">=</span> /[a-zA-Z][a-zA-Z0-9+.-]{1,31}/;
+  <span class="name">inline</span>.<span class="name">_email</span> <span class="operator">=</span> /[a-zA-Z0-9.!#$%&amp;'*+/=?^_`{|}~-]+(@)[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+(?![-_])/;
+  <span class="name">inline</span>.<span class="name">autolink</span> <span class="operator">=</span> <span class="name">edit</span>(<span class="name">inline</span>.<span class="name">autolink</span>)
+    .<span class="name">replace</span>(<span class="string">'scheme'</span>, <span class="name">inline</span>.<span class="name">_scheme</span>)
+    .<span class="name">replace</span>(<span class="string">'email'</span>, <span class="name">inline</span>.<span class="name">_email</span>)
+    .<span class="name">getRegex</span>();
+
+  <span class="name">inline</span>.<span class="name">_attribute</span> <span class="operator">=</span> /\s+[a-zA-Z:_][\w.:-]*(?:\s*=\s*&quot;[^&quot;]*&quot;|\s*=\s*'[^']*'|\s*=\s*[^\s&quot;'=&lt;&gt;`]+)?/;
+
+  <span class="name">inline</span>.<span class="name">tag</span> <span class="operator">=</span> <span class="name">edit</span>(<span class="name">inline</span>.<span class="name">tag</span>)
+    .<span class="name">replace</span>(<span class="string">'comment'</span>, <span class="name">block</span>.<span class="name">_comment</span>)
+    .<span class="name">replace</span>(<span class="string">'attribute'</span>, <span class="name">inline</span>.<span class="name">_attribute</span>)
+    .<span class="name">getRegex</span>();
+
+  <span class="name">inline</span>.<span class="name">_label</span> <span class="operator">=</span> /(?:\[[^\[\]]*\]|\\[\[\]]?|`[^`]*`|[^\[\]\\])*?/;
+  <span class="name">inline</span>.<span class="name">_href</span> <span class="operator">=</span> /\s*(&lt;(?:\\[&lt;&gt;]?|[^\s&lt;&gt;\\])*&gt;|(?:\\[()]?|\([^\s\x00-\x1f()\\]*\)|[^\s\x00-\x1f()\\])*?)/;
+  <span class="name">inline</span>.<span class="name">_title</span> <span class="operator">=</span> /&quot;(?:\\&quot;?|[^&quot;\\])*&quot;|'(?:\\'?|[^'\\])*'|\((?:\\\)?|[^)\\])*\)/;
+
+  <span class="name">inline</span>.<span class="name">link</span> <span class="operator">=</span> <span class="name">edit</span>(<span class="name">inline</span>.<span class="name">link</span>)
+    .<span class="name">replace</span>(<span class="string">'label'</span>, <span class="name">inline</span>.<span class="name">_label</span>)
+    .<span class="name">replace</span>(<span class="string">'href'</span>, <span class="name">inline</span>.<span class="name">_href</span>)
+    .<span class="name">replace</span>(<span class="string">'title'</span>, <span class="name">inline</span>.<span class="name">_title</span>)
+    .<span class="name">getRegex</span>();
+
+  <span class="name">inline</span>.<span class="name">reflink</span> <span class="operator">=</span> <span class="name">edit</span>(<span class="name">inline</span>.<span class="name">reflink</span>)
+    .<span class="name">replace</span>(<span class="string">'label'</span>, <span class="name">inline</span>.<span class="name">_label</span>)
+    .<span class="name">getRegex</span>();
+
+  <span class="comment">/**
+   * Normal Inline Grammar
+   */</span>
+
+  <span class="name">inline</span>.<span class="name">normal</span> <span class="operator">=</span> <span class="name">merge</span>({}, <span class="name">inline</span>);
+
+  <span class="comment">/**
+   * Pedantic Inline Grammar
+   */</span>
+
+  <span class="name">inline</span>.<span class="name">pedantic</span> <span class="operator">=</span> <span class="name">merge</span>({}, <span class="name">inline</span>.<span class="name">normal</span>, {
+    strong: /^__(?=\S)([\s\S]*?\S)__(?!_)|^\*\*(?=\S)([\s\S]*?\S)\*\*(?!\*)/,
+    em: /^_(?=\S)([\s\S]*?\S)_(?!_)|^\*(?=\S)([\s\S]*?\S)\*(?!\*)/,
+    link: <span class="name">edit</span>(/^!?\[(label)\]\((.*?)\)/)
+      .<span class="name">replace</span>(<span class="string">'label'</span>, <span class="name">inline</span>.<span class="name">_label</span>)
+      .<span class="name">getRegex</span>(),
+    reflink: <span class="name">edit</span>(/^!?\[(label)\]\s*\[([^\]]*)\]/)
+      .<span class="name">replace</span>(<span class="string">'label'</span>, <span class="name">inline</span>.<span class="name">_label</span>)
+      .<span class="name">getRegex</span>()
+  });
+
+  <span class="comment">/**
+   * GFM Inline Grammar
+   */</span>
+
+  <span class="name">inline</span>.<span class="name">gfm</span> <span class="operator">=</span> <span class="name">merge</span>({}, <span class="name">inline</span>.<span class="name">normal</span>, {
+    escape: <span class="name">edit</span>(<span class="name">inline</span>.<span class="name">escape</span>).<span class="name">replace</span>(<span class="string">'])'</span>, <span class="string">'~|])'</span>).<span class="name">getRegex</span>(),
+    url: <span class="name">edit</span>(/^((?:ftp|https?):\/\/|www\.)(?:[a-zA-Z0-9\-]+\.?)+[^\s&lt;]*|^email/)
+      .<span class="name">replace</span>(<span class="string">'email'</span>, <span class="name">inline</span>.<span class="name">_email</span>)
+      .<span class="name">getRegex</span>(),
+    _backpedal: /(?:[^?!.,:;*_~()&amp;]+|\([^)]*\)|&amp;(?![a-zA-Z0-9]+;$)|[?!.,:;*_~)]+(?!$))+/,
+    del: /^~~(?=\S)([\s\S]*?\S)~~/,
+    text: <span class="name">edit</span>(<span class="name">inline</span>.<span class="name">text</span>)
+      .<span class="name">replace</span>(<span class="string">']|'</span>, <span class="string">'~]|'</span>)
+      .<span class="name">replace</span>(<span class="string">'|'</span>, <span class="string">'|https?://|ftp://|www\\.|[a-zA-Z0-9.!#$%&amp;\'*+/=?^_`{\\|}~-]+@|'</span>)
+      .<span class="name">getRegex</span>()
+  });
+
+  <span class="comment">/**
+   * GFM + Line Breaks Inline Grammar
+   */</span>
+
+  <span class="name">inline</span>.<span class="name">breaks</span> <span class="operator">=</span> <span class="name">merge</span>({}, <span class="name">inline</span>.<span class="name">gfm</span>, {
+    br: <span class="name">edit</span>(<span class="name">inline</span>.<span class="name">br</span>).<span class="name">replace</span>(<span class="string">'{2,}'</span>, <span class="string">'*'</span>).<span class="name">getRegex</span>(),
+    text: <span class="name">edit</span>(<span class="name">inline</span>.<span class="name">gfm</span>.<span class="name">text</span>).<span class="name">replace</span>(<span class="string">'{2,}'</span>, <span class="string">'*'</span>).<span class="name">getRegex</span>()
+  });
+
+  <span class="comment">/**
+   * Inline Lexer &amp; Compiler
+   */</span>
+
+  <span class="keyword">function</span> <span class="name">InlineLexer</span>(links, options) {
+    this.<span class="name">options</span> <span class="operator">=</span> <span class="name">options</span> <span class="operator">||</span> <span class="name">marked</span>.<span class="name">defaults</span>;
+    this.<span class="name">links</span> <span class="operator">=</span> <span class="name">links</span>;
+    this.<span class="name">rules</span> <span class="operator">=</span> <span class="name">inline</span>.<span class="name">normal</span>;
+    this.<span class="name">renderer</span> <span class="operator">=</span> this.<span class="name">options</span>.<span class="name">renderer</span> <span class="operator">||</span> new <span class="name">Renderer</span>();
+    this.<span class="name">renderer</span>.<span class="name">options</span> <span class="operator">=</span> this.<span class="name">options</span>;
+
+    <span class="keyword">if</span> (!this.<span class="name">links</span>) {
+      <span class="keyword">throw</span> new <span class="name">Error</span>(<span class="string">'Tokens array requires a `links` property.'</span>);
+    }
+
+    <span class="keyword">if</span> (this.<span class="name">options</span>.<span class="name">pedantic</span>) {
+      this.<span class="name">rules</span> <span class="operator">=</span> <span class="name">inline</span>.<span class="name">pedantic</span>;
+    } <span class="keyword">else</span> <span class="keyword">if</span> (this.<span class="name">options</span>.<span class="name">gfm</span>) {
+      <span class="keyword">if</span> (this.<span class="name">options</span>.<span class="name">breaks</span>) {
+        this.<span class="name">rules</span> <span class="operator">=</span> <span class="name">inline</span>.<span class="name">breaks</span>;
+      } <span class="keyword">else</span> {
+        this.<span class="name">rules</span> <span class="operator">=</span> <span class="name">inline</span>.<span class="name">gfm</span>;
+      }
+    }
+  }
+
+  <span class="comment">/**
+   * Expose Inline Rules
+   */</span>
+
+  <span class="name">InlineLexer</span>.<span class="name">rules</span> <span class="operator">=</span> <span class="name">inline</span>;
+
+  <span class="comment">/**
+   * Static Lexing/Compiling Method
+   */</span>
+
+  <span class="name">InlineLexer</span>.<span class="name">output</span> <span class="operator">=</span> <span class="keyword">function</span>(src, links, options) {
+    var inline = new <span class="name">InlineLexer</span>(<span class="name">links</span>, <span class="name">options</span>);
+    <span class="keyword">return</span> <span class="name">inline</span>.<span class="name">output</span>(<span class="name">src</span>);
+  };
+
+  <span class="comment">/**
+   * Lexing/Compiling
+   */</span>
+
+  <span class="name">InlineLexer</span>.<span class="name">prototype</span>.<span class="name">output</span> <span class="operator">=</span> <span class="keyword">function</span>(src) {
+    var out = <span class="string">''</span>,
+        link,
+        text,
+        href,
+        title,
+        cap;
+
+    <span class="keyword">while</span> (<span class="name">src</span>) {
+      <span class="comment">// escape</span>
+      <span class="keyword">if</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">escape</span>.<span class="name">exec</span>(<span class="name">src</span>)) {
+        <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+        <span class="name">out</span> <span class="operator">+=</span> <span class="name">cap</span>[<span class="number">1</span>];
+        <span class="keyword">continue</span>;
+      }
+
+      <span class="comment">// autolink</span>
+      <span class="keyword">if</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">autolink</span>.<span class="name">exec</span>(<span class="name">src</span>)) {
+        <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+        <span class="keyword">if</span> (<span class="name">cap</span>[<span class="number">2</span>] <span class="operator">===</span> <span class="string">'@'</span>) {
+          <span class="name">text</span> <span class="operator">=</span> <span class="name">escape</span>(this.<span class="name">mangle</span>(<span class="name">cap</span>[<span class="number">1</span>]));
+          <span class="name">href</span> <span class="operator">=</span> <span class="string">'mailto:'</span> <span class="operator">+</span> <span class="name">text</span>;
+        } <span class="keyword">else</span> {
+          <span class="name">text</span> <span class="operator">=</span> <span class="name">escape</span>(<span class="name">cap</span>[<span class="number">1</span>]);
+          <span class="name">href</span> <span class="operator">=</span> <span class="name">text</span>;
+        }
+        <span class="name">out</span> <span class="operator">+=</span> this.<span class="name">renderer</span>.<span class="name">link</span>(<span class="name">href</span>, <span class="number">null</span>, <span class="name">text</span>);
+        <span class="keyword">continue</span>;
+      }
+
+      <span class="comment">// url (gfm)</span>
+      <span class="keyword">if</span> (!this.<span class="name">inLink</span> <span class="operator">&amp;&amp;</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">url</span>.<span class="name">exec</span>(<span class="name">src</span>))) {
+        <span class="name">cap</span>[<span class="number">0</span>] <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">_backpedal</span>.<span class="name">exec</span>(<span class="name">cap</span>[<span class="number">0</span>])[<span class="number">0</span>];
+        <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+        <span class="keyword">if</span> (<span class="name">cap</span>[<span class="number">2</span>] <span class="operator">===</span> <span class="string">'@'</span>) {
+          <span class="name">text</span> <span class="operator">=</span> <span class="name">escape</span>(<span class="name">cap</span>[<span class="number">0</span>]);
+          <span class="name">href</span> <span class="operator">=</span> <span class="string">'mailto:'</span> <span class="operator">+</span> <span class="name">text</span>;
+        } <span class="keyword">else</span> {
+          <span class="name">text</span> <span class="operator">=</span> <span class="name">escape</span>(<span class="name">cap</span>[<span class="number">0</span>]);
+          <span class="keyword">if</span> (<span class="name">cap</span>[<span class="number">1</span>] <span class="operator">===</span> <span class="string">'www.'</span>) {
+            <span class="name">href</span> <span class="operator">=</span> <span class="string">'http://'</span> <span class="operator">+</span> <span class="name">text</span>;
+          } <span class="keyword">else</span> {
+            <span class="name">href</span> <span class="operator">=</span> <span class="name">text</span>;
+          }
+        }
+        <span class="name">out</span> <span class="operator">+=</span> this.<span class="name">renderer</span>.<span class="name">link</span>(<span class="name">href</span>, <span class="number">null</span>, <span class="name">text</span>);
+        <span class="keyword">continue</span>;
+      }
+
+      <span class="comment">// tag</span>
+      <span class="keyword">if</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">tag</span>.<span class="name">exec</span>(<span class="name">src</span>)) {
+        <span class="keyword">if</span> (!this.<span class="name">inLink</span> <span class="operator">&amp;&amp;</span> /^&lt;a /i.<span class="name">test</span>(<span class="name">cap</span>[<span class="number">0</span>])) {
+          this.<span class="name">inLink</span> <span class="operator">=</span> <span class="number">true</span>;
+        } <span class="keyword">else</span> <span class="keyword">if</span> (this.<span class="name">inLink</span> <span class="operator">&amp;&amp;</span> /^&lt;\/a&gt;/i.<span class="name">test</span>(<span class="name">cap</span>[<span class="number">0</span>])) {
+          this.<span class="name">inLink</span> <span class="operator">=</span> <span class="number">false</span>;
+        }
+        <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+        <span class="name">out</span> <span class="operator">+=</span> this.<span class="name">options</span>.<span class="name">sanitize</span>
+          ? this.<span class="name">options</span>.<span class="name">sanitizer</span>
+            ? this.<span class="name">options</span>.<span class="name">sanitizer</span>(<span class="name">cap</span>[<span class="number">0</span>])
+            : <span class="name">escape</span>(<span class="name">cap</span>[<span class="number">0</span>])
+          : <span class="name">cap</span>[<span class="number">0</span>]
+        <span class="keyword">continue</span>;
+      }
+
+      <span class="comment">// link</span>
+      <span class="keyword">if</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">link</span>.<span class="name">exec</span>(<span class="name">src</span>)) {
+        <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+        this.<span class="name">inLink</span> <span class="operator">=</span> <span class="number">true</span>;
+        <span class="name">href</span> <span class="operator">=</span> <span class="name">cap</span>[<span class="number">2</span>];
+        <span class="keyword">if</span> (this.<span class="name">options</span>.<span class="name">pedantic</span>) {
+          <span class="name">link</span> <span class="operator">=</span> /^([^'&quot;]*[^\s])\s+(['&quot;])(.*)\2/.<span class="name">exec</span>(<span class="name">href</span>);
+
+          <span class="keyword">if</span> (<span class="name">link</span>) {
+            <span class="name">href</span> <span class="operator">=</span> <span class="name">link</span>[<span class="number">1</span>];
+            <span class="name">title</span> <span class="operator">=</span> <span class="name">link</span>[<span class="number">3</span>];
+          } <span class="keyword">else</span> {
+            <span class="name">title</span> <span class="operator">=</span> <span class="string">''</span>;
+          }
+        } <span class="keyword">else</span> {
+          <span class="name">title</span> <span class="operator">=</span> <span class="name">cap</span>[<span class="number">3</span>] ? <span class="name">cap</span>[<span class="number">3</span>].<span class="name">slice</span>(<span class="number">1</span>, -<span class="number">1</span>) : <span class="string">''</span>;
+        }
+        <span class="name">href</span> <span class="operator">=</span> <span class="name">href</span>.<span class="name">trim</span>().<span class="name">replace</span>(/^&lt;([\s\S]*)&gt;$/, <span class="string">'$1'</span>);
+        <span class="name">out</span> <span class="operator">+=</span> this.<span class="name">outputLink</span>(<span class="name">cap</span>, {
+          href: <span class="name">InlineLexer</span>.<span class="name">escapes</span>(<span class="name">href</span>),
+          title: <span class="name">InlineLexer</span>.<span class="name">escapes</span>(<span class="name">title</span>)
+        });
+        this.<span class="name">inLink</span> <span class="operator">=</span> <span class="number">false</span>;
+        <span class="keyword">continue</span>;
+      }
+
+      <span class="comment">// reflink, nolink</span>
+      <span class="keyword">if</span> ((<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">reflink</span>.<span class="name">exec</span>(<span class="name">src</span>))
+          <span class="operator">||</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">nolink</span>.<span class="name">exec</span>(<span class="name">src</span>))) {
+        <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+        <span class="name">link</span> <span class="operator">=</span> (<span class="name">cap</span>[<span class="number">2</span>] <span class="operator">||</span> <span class="name">cap</span>[<span class="number">1</span>]).<span class="name">replace</span>(/\s+/g, <span class="string">' '</span>);
+        <span class="name">link</span> <span class="operator">=</span> this.<span class="name">links</span>[<span class="name">link</span>.<span class="name">toLowerCase</span>()];
+        <span class="keyword">if</span> (!<span class="name">link</span> <span class="operator">||</span> !<span class="name">link</span>.<span class="name">href</span>) {
+          <span class="name">out</span> <span class="operator">+=</span> <span class="name">cap</span>[<span class="number">0</span>].<span class="name">charAt</span>(<span class="number">0</span>);
+          <span class="name">src</span> <span class="operator">=</span> <span class="name">cap</span>[<span class="number">0</span>].<span class="name">substring</span>(<span class="number">1</span>) <span class="operator">+</span> <span class="name">src</span>;
+          <span class="keyword">continue</span>;
+        }
+        this.<span class="name">inLink</span> <span class="operator">=</span> <span class="number">true</span>;
+        <span class="name">out</span> <span class="operator">+=</span> this.<span class="name">outputLink</span>(<span class="name">cap</span>, <span class="name">link</span>);
+        this.<span class="name">inLink</span> <span class="operator">=</span> <span class="number">false</span>;
+        <span class="keyword">continue</span>;
+      }
+
+      <span class="comment">// strong</span>
+      <span class="keyword">if</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">strong</span>.<span class="name">exec</span>(<span class="name">src</span>)) {
+        <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+        <span class="name">out</span> <span class="operator">+=</span> this.<span class="name">renderer</span>.<span class="name">strong</span>(this.<span class="name">output</span>(<span class="name">cap</span>[<span class="number">4</span>] <span class="operator">||</span> <span class="name">cap</span>[<span class="number">3</span>] <span class="operator">||</span> <span class="name">cap</span>[<span class="number">2</span>] <span class="operator">||</span> <span class="name">cap</span>[<span class="number">1</span>]));
+        <span class="keyword">continue</span>;
+      }
+
+      <span class="comment">// em</span>
+      <span class="keyword">if</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">em</span>.<span class="name">exec</span>(<span class="name">src</span>)) {
+        <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+        <span class="name">out</span> <span class="operator">+=</span> this.<span class="name">renderer</span>.<span class="name">em</span>(this.<span class="name">output</span>(<span class="name">cap</span>[<span class="number">6</span>] <span class="operator">||</span> <span class="name">cap</span>[<span class="number">5</span>] <span class="operator">||</span> <span class="name">cap</span>[<span class="number">4</span>] <span class="operator">||</span> <span class="name">cap</span>[<span class="number">3</span>] <span class="operator">||</span> <span class="name">cap</span>[<span class="number">2</span>] <span class="operator">||</span> <span class="name">cap</span>[<span class="number">1</span>]));
+        <span class="keyword">continue</span>;
+      }
+
+      <span class="comment">// code</span>
+      <span class="keyword">if</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">code</span>.<span class="name">exec</span>(<span class="name">src</span>)) {
+        <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+        <span class="name">out</span> <span class="operator">+=</span> this.<span class="name">renderer</span>.<span class="name">codespan</span>(<span class="name">escape</span>(<span class="name">cap</span>[<span class="number">2</span>].<span class="name">trim</span>(), <span class="number">true</span>));
+        <span class="keyword">continue</span>;
+      }
+
+      <span class="comment">// br</span>
+      <span class="keyword">if</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">br</span>.<span class="name">exec</span>(<span class="name">src</span>)) {
+        <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+        <span class="name">out</span> <span class="operator">+=</span> this.<span class="name">renderer</span>.<span class="name">br</span>();
+        <span class="keyword">continue</span>;
+      }
+
+      <span class="comment">// del (gfm)</span>
+      <span class="keyword">if</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">del</span>.<span class="name">exec</span>(<span class="name">src</span>)) {
+        <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+        <span class="name">out</span> <span class="operator">+=</span> this.<span class="name">renderer</span>.<span class="name">del</span>(this.<span class="name">output</span>(<span class="name">cap</span>[<span class="number">1</span>]));
+        <span class="keyword">continue</span>;
+      }
+
+      <span class="comment">// text</span>
+      <span class="keyword">if</span> (<span class="name">cap</span> <span class="operator">=</span> this.<span class="name">rules</span>.<span class="name">text</span>.<span class="name">exec</span>(<span class="name">src</span>)) {
+        <span class="name">src</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">substring</span>(<span class="name">cap</span>[<span class="number">0</span>].<span class="name">length</span>);
+        <span class="name">out</span> <span class="operator">+=</span> this.<span class="name">renderer</span>.<span class="name">text</span>(<span class="name">escape</span>(this.<span class="name">smartypants</span>(<span class="name">cap</span>[<span class="number">0</span>])));
+        <span class="keyword">continue</span>;
+      }
+
+      <span class="keyword">if</span> (<span class="name">src</span>) {
+        <span class="keyword">throw</span> new <span class="name">Error</span>(<span class="string">'Infinite loop on byte: '</span> <span class="operator">+</span> <span class="name">src</span>.<span class="name">charCodeAt</span>(<span class="number">0</span>));
+      }
+    }
+
+    <span class="keyword">return</span> <span class="name">out</span>;
+  };
+
+  <span class="name">InlineLexer</span>.<span class="name">escapes</span> <span class="operator">=</span> <span class="keyword">function</span>(text) {
+    <span class="keyword">return</span> <span class="name">text</span> ? <span class="name">text</span>.<span class="name">replace</span>(<span class="name">InlineLexer</span>.<span class="name">rules</span>.<span class="name">_escapes</span>, <span class="string">'$1'</span>) : <span class="name">text</span>;
+  }
+
+  <span class="comment">/**
+   * Compile Link
+   */</span>
+
+  <span class="name">InlineLexer</span>.<span class="name">prototype</span>.<span class="name">outputLink</span> <span class="operator">=</span> <span class="keyword">function</span>(cap, link) {
+    var href = <span class="name">link</span>.<span class="name">href</span>,
+        title = <span class="name">link</span>.<span class="name">title</span> ? <span class="name">escape</span>(<span class="name">link</span>.<span class="name">title</span>) : <span class="number">null</span>;
+
+    <span class="keyword">return</span> <span class="name">cap</span>[<span class="number">0</span>].<span class="name">charAt</span>(<span class="number">0</span>) <span class="operator">!==</span> <span class="string">'!'</span>
+      ? this.<span class="name">renderer</span>.<span class="name">link</span>(<span class="name">href</span>, <span class="name">title</span>, this.<span class="name">output</span>(<span class="name">cap</span>[<span class="number">1</span>]))
+      : this.<span class="name">renderer</span>.<span class="name">image</span>(<span class="name">href</span>, <span class="name">title</span>, <span class="name">escape</span>(<span class="name">cap</span>[<span class="number">1</span>]));
+  };
+
+  <span class="comment">/**
+   * Smartypants Transformations
+   */</span>
+
+  <span class="name">InlineLexer</span>.<span class="name">prototype</span>.<span class="name">smartypants</span> <span class="operator">=</span> <span class="keyword">function</span>(text) {
+    <span class="keyword">if</span> (!this.<span class="name">options</span>.<span class="name">smartypants</span>) <span class="keyword">return</span> <span class="name">text</span>;
+    <span class="keyword">return</span> <span class="name">text</span>
+      <span class="comment">// em-dashes</span>
+      .<span class="name">replace</span>(/---/g, <span class="string">'\u2014'</span>)
+      <span class="comment">// en-dashes</span>
+      .<span class="name">replace</span>(/--/g, <span class="string">'\u2013'</span>)
+      <span class="comment">// opening singles</span>
+      .<span class="name">replace</span>(/(^|[-\u2014/(\[{&quot;\s])'/g, <span class="string">'$1\u2018'</span>)
+      <span class="comment">// closing singles &amp; apostrophes</span>
+      .<span class="name">replace</span>(/'/g, <span class="string">'\u2019'</span>)
+      <span class="comment">// opening doubles</span>
+      .<span class="name">replace</span>(/(^|[-\u2014/(\[{\u2018\s])&quot;/g, <span class="string">'$1\u201c'</span>)
+      <span class="comment">// closing doubles</span>
+      .<span class="name">replace</span>(/&quot;/g, <span class="string">'\u201d'</span>)
+      <span class="comment">// ellipses</span>
+      .<span class="name">replace</span>(/\.{3}/g, <span class="string">'\u2026'</span>);
+  };
+
+  <span class="comment">/**
+   * Mangle Links
+   */</span>
+
+  <span class="name">InlineLexer</span>.<span class="name">prototype</span>.<span class="name">mangle</span> <span class="operator">=</span> <span class="keyword">function</span>(text) {
+    <span class="keyword">if</span> (!this.<span class="name">options</span>.<span class="name">mangle</span>) <span class="keyword">return</span> <span class="name">text</span>;
+    var out = <span class="string">''</span>,
+        l = <span class="name">text</span>.<span class="name">length</span>,
+        i = <span class="number">0</span>,
+        ch;
+
+    <span class="keyword">for</span> (; <span class="name">i</span> <span class="operator">&lt;</span> <span class="name">l</span>; i++) {
+      <span class="name">ch</span> <span class="operator">=</span> <span class="name">text</span>.<span class="name">charCodeAt</span>(<span class="name">i</span>);
+      <span class="keyword">if</span> (<span class="name">Math</span>.<span class="name">random</span>() <span class="operator">&gt;</span> <span class="number">0.5</span>) {
+        <span class="name">ch</span> <span class="operator">=</span> <span class="string">'x'</span> <span class="operator">+</span> <span class="name">ch</span>.<span class="name">toString</span>(<span class="number">16</span>);
+      }
+      <span class="name">out</span> <span class="operator">+=</span> <span class="string">'&amp;#'</span> <span class="operator">+</span> <span class="name">ch</span> <span class="operator">+</span> <span class="string">';'</span>;
+    }
+
+    <span class="keyword">return</span> <span class="name">out</span>;
+  };
+
+  <span class="comment">/**
+   * Renderer
+   */</span>
+
+  <span class="keyword">function</span> <span class="name">Renderer</span>(options) {
+    this.<span class="name">options</span> <span class="operator">=</span> <span class="name">options</span> <span class="operator">||</span> <span class="name">marked</span>.<span class="name">defaults</span>;
+  }
+
+  <span class="name">Renderer</span>.<span class="name">prototype</span>.<span class="name">code</span> <span class="operator">=</span> <span class="keyword">function</span>(code, lang, escaped) {
+    <span class="keyword">if</span> (this.<span class="name">options</span>.<span class="name">highlight</span>) {
+      var out = this.<span class="name">options</span>.<span class="name">highlight</span>(<span class="name">code</span>, <span class="name">lang</span>);
+      <span class="keyword">if</span> (<span class="name">out</span> <span class="operator">!=</span> <span class="number">null</span> <span class="operator">&amp;&amp;</span> <span class="name">out</span> <span class="operator">!==</span> <span class="name">code</span>) {
+        <span class="name">escaped</span> <span class="operator">=</span> <span class="number">true</span>;
+        <span class="name">code</span> <span class="operator">=</span> <span class="name">out</span>;
+      }
+    }
+
+    <span class="keyword">if</span> (!<span class="name">lang</span>) {
+      <span class="keyword">return</span> <span class="string">'&lt;pre&gt;&lt;code&gt;'</span>
+        <span class="operator">+</span> (<span class="name">escaped</span> ? <span class="name">code</span> : <span class="name">escape</span>(<span class="name">code</span>, <span class="number">true</span>))
+        <span class="operator">+</span> <span class="string">'&lt;/code&gt;&lt;/pre&gt;'</span>;
+    }
+
+    <span class="keyword">return</span> <span class="string">'&lt;pre&gt;&lt;code class=&quot;'</span>
+      <span class="operator">+</span> this.<span class="name">options</span>.<span class="name">langPrefix</span>
+      <span class="operator">+</span> <span class="name">escape</span>(<span class="name">lang</span>, <span class="number">true</span>)
+      <span class="operator">+</span> <span class="string">'&quot;&gt;'</span>
+      <span class="operator">+</span> (<span class="name">escaped</span> ? <span class="name">code</span> : <span class="name">escape</span>(<span class="name">code</span>, <span class="number">true</span>))
+      <span class="operator">+</span> <span class="string">'&lt;/code&gt;&lt;/pre&gt;\n'</span>;
+  };
+
+  <span class="name">Renderer</span>.<span class="name">prototype</span>.<span class="name">blockquote</span> <span class="operator">=</span> <span class="keyword">function</span>(quote) {
+    <span class="keyword">return</span> <span class="string">'&lt;blockquote&gt;\n'</span> <span class="operator">+</span> <span class="name">quote</span> <span class="operator">+</span> <span class="string">'&lt;/blockquote&gt;\n'</span>;
+  };
+
+  <span class="name">Renderer</span>.<span class="name">prototype</span>.<span class="name">html</span> <span class="operator">=</span> <span class="keyword">function</span>(html) {
+    <span class="keyword">return</span> <span class="name">html</span>;
+  };
+
+  <span class="name">Renderer</span>.<span class="name">prototype</span>.<span class="name">heading</span> <span class="operator">=</span> <span class="keyword">function</span>(text, level, raw) {
+    <span class="keyword">if</span> (this.<span class="name">options</span>.<span class="name">headerIds</span>) {
+      <span class="keyword">return</span> <span class="string">'&lt;h'</span>
+        <span class="operator">+</span> <span class="name">level</span>
+        <span class="operator">+</span> <span class="string">' id=&quot;'</span>
+        <span class="operator">+</span> this.<span class="name">options</span>.<span class="name">headerPrefix</span>
+        <span class="operator">+</span> <span class="name">raw</span>.<span class="name">toLowerCase</span>().<span class="name">replace</span>(/[^\w]+/g, <span class="string">'-'</span>)
+        <span class="operator">+</span> <span class="string">'&quot;&gt;'</span>
+        <span class="operator">+</span> <span class="name">text</span>
+        <span class="operator">+</span> <span class="string">'&lt;/h'</span>
+        <span class="operator">+</span> <span class="name">level</span>
+        <span class="operator">+</span> <span class="string">'&gt;\n'</span>;
+    }
+    <span class="comment">// ignore IDs</span>
+    <span class="keyword">return</span> <span class="string">'&lt;h'</span> <span class="operator">+</span> <span class="name">level</span> <span class="operator">+</span> <span class="string">'&gt;'</span> <span class="operator">+</span> <span class="name">text</span> <span class="operator">+</span> <span class="string">'&lt;/h'</span> <span class="operator">+</span> <span class="name">level</span> <span class="operator">+</span> <span class="string">'&gt;\n'</span>;
+  };
+
+  <span class="name">Renderer</span>.<span class="name">prototype</span>.<span class="name">hr</span> <span class="operator">=</span> <span class="keyword">function</span>() {
+    <span class="keyword">return</span> this.<span class="name">options</span>.<span class="name">xhtml</span> ? <span class="string">'&lt;hr/&gt;\n'</span> : <span class="string">'&lt;hr&gt;\n'</span>;
+  };
+
+  <span class="name">Renderer</span>.<span class="name">prototype</span>.<span class="name">list</span> <span class="operator">=</span> <span class="keyword">function</span>(body, ordered, start) {
+    var type = <span class="name">ordered</span> ? <span class="string">'ol'</span> : <span class="string">'ul'</span>,
+        startatt = (<span class="name">ordered</span> <span class="operator">&amp;&amp;</span> <span class="name">start</span> <span class="operator">!==</span> <span class="number">1</span>) ? (<span class="string">' start=&quot;'</span> <span class="operator">+</span> <span class="name">start</span> <span class="operator">+</span> <span class="string">'&quot;'</span>) : <span class="string">''</span>;
+    <span class="keyword">return</span> <span class="string">'&lt;'</span> <span class="operator">+</span> <span class="name">type</span> <span class="operator">+</span> <span class="name">startatt</span> <span class="operator">+</span> <span class="string">'&gt;\n'</span> <span class="operator">+</span> <span class="name">body</span> <span class="operator">+</span> <span class="string">'&lt;/'</span> <span class="operator">+</span> <span class="name">type</span> <span class="operator">+</span> <span class="string">'&gt;\n'</span>;
+  };
+
+  <span class="name">Renderer</span>.<span class="name">prototype</span>.<span class="name">listitem</span> <span class="operator">=</span> <span class="keyword">function</span>(text) {
+    <span class="keyword">return</span> <span class="string">'&lt;li&gt;'</span> <span class="operator">+</span> <span class="name">text</span> <span class="operator">+</span> <span class="string">'&lt;/li&gt;\n'</span>;
+  };
+
+  <span class="name">Renderer</span>.<span class="name">prototype</span>.<span class="name">checkbox</span> <span class="operator">=</span> <span class="keyword">function</span>(checked) {
+    <span class="keyword">return</span> <span class="string">'&lt;input '</span>
+      <span class="operator">+</span> (<span class="name">checked</span> ? <span class="string">'checked=&quot;&quot; '</span> : <span class="string">''</span>)
+      <span class="operator">+</span> <span class="string">'disabled=&quot;&quot; type=&quot;checkbox&quot;'</span>
+      <span class="operator">+</span> (this.<span class="name">options</span>.<span class="name">xhtml</span> ? <span class="string">' /'</span> : <span class="string">''</span>)
+      <span class="operator">+</span> <span class="string">'&gt; '</span>;
+  }
+
+  <span class="name">Renderer</span>.<span class="name">prototype</span>.<span class="name">paragraph</span> <span class="operator">=</span> <span class="keyword">function</span>(text) {
+    <span class="keyword">return</span> <span class="string">'&lt;p&gt;'</span> <span class="operator">+</span> <span class="name">text</span> <span class="operator">+</span> <span class="string">'&lt;/p&gt;\n'</span>;
+  };
+
+  <span class="name">Renderer</span>.<span class="name">prototype</span>.<span class="name">table</span> <span class="operator">=</span> <span class="keyword">function</span>(header, body) {
+    <span class="keyword">if</span> (<span class="name">body</span>) <span class="name">body</span> <span class="operator">=</span> <span class="string">'&lt;tbody&gt;'</span> <span class="operator">+</span> <span class="name">body</span> <span class="operator">+</span> <span class="string">'&lt;/tbody&gt;'</span>;
+
+    <span class="keyword">return</span> <span class="string">'&lt;table&gt;\n'</span>
+      <span class="operator">+</span> <span class="string">'&lt;thead&gt;\n'</span>
+      <span class="operator">+</span> <span class="name">header</span>
+      <span class="operator">+</span> <span class="string">'&lt;/thead&gt;\n'</span>
+      <span class="operator">+</span> <span class="name">body</span>
+      <span class="operator">+</span> <span class="string">'&lt;/table&gt;\n'</span>;
+  };
+
+  <span class="name">Renderer</span>.<span class="name">prototype</span>.<span class="name">tablerow</span> <span class="operator">=</span> <span class="keyword">function</span>(content) {
+    <span class="keyword">return</span> <span class="string">'&lt;tr&gt;\n'</span> <span class="operator">+</span> <span class="name">content</span> <span class="operator">+</span> <span class="string">'&lt;/tr&gt;\n'</span>;
+  };
+
+  <span class="name">Renderer</span>.<span class="name">prototype</span>.<span class="name">tablecell</span> <span class="operator">=</span> <span class="keyword">function</span>(content, flags) {
+    var type = <span class="name">flags</span>.<span class="name">header</span> ? <span class="string">'th'</span> : <span class="string">'td'</span>;
+    var tag = <span class="name">flags</span>.<span class="name">align</span>
+      ? <span class="string">'&lt;'</span> <span class="operator">+</span> <span class="name">type</span> <span class="operator">+</span> <span class="string">' align=&quot;'</span> <span class="operator">+</span> <span class="name">flags</span>.<span class="name">align</span> <span class="operator">+</span> <span class="string">'&quot;&gt;'</span>
+      : <span class="string">'&lt;'</span> <span class="operator">+</span> <span class="name">type</span> <span class="operator">+</span> <span class="string">'&gt;'</span>;
+    <span class="keyword">return</span> <span class="name">tag</span> <span class="operator">+</span> <span class="name">content</span> <span class="operator">+</span> <span class="string">'&lt;/'</span> <span class="operator">+</span> <span class="name">type</span> <span class="operator">+</span> <span class="string">'&gt;\n'</span>;
+  };
+
+  <span class="comment">// span level renderer</span>
+  <span class="name">Renderer</span>.<span class="name">prototype</span>.<span class="name">strong</span> <span class="operator">=</span> <span class="keyword">function</span>(text) {
+    <span class="keyword">return</span> <span class="string">'&lt;strong&gt;'</span> <span class="operator">+</span> <span class="name">text</span> <span class="operator">+</span> <span class="string">'&lt;/strong&gt;'</span>;
+  };
+
+  <span class="name">Renderer</span>.<span class="name">prototype</span>.<span class="name">em</span> <span class="operator">=</span> <span class="keyword">function</span>(text) {
+    <span class="keyword">return</span> <span class="string">'&lt;em&gt;'</span> <span class="operator">+</span> <span class="name">text</span> <span class="operator">+</span> <span class="string">'&lt;/em&gt;'</span>;
+  };
+
+  <span class="name">Renderer</span>.<span class="name">prototype</span>.<span class="name">codespan</span> <span class="operator">=</span> <span class="keyword">function</span>(text) {
+    <span class="keyword">return</span> <span class="string">'&lt;code&gt;'</span> <span class="operator">+</span> <span class="name">text</span> <span class="operator">+</span> <span class="string">'&lt;/code&gt;'</span>;
+  };
+
+  <span class="name">Renderer</span>.<span class="name">prototype</span>.<span class="name">br</span> <span class="operator">=</span> <span class="keyword">function</span>() {
+    <span class="keyword">return</span> this.<span class="name">options</span>.<span class="name">xhtml</span> ? <span class="string">'&lt;br/&gt;'</span> : <span class="string">'&lt;br&gt;'</span>;
+  };
+
+  <span class="name">Renderer</span>.<span class="name">prototype</span>.<span class="name">del</span> <span class="operator">=</span> <span class="keyword">function</span>(text) {
+    <span class="keyword">return</span> <span class="string">'&lt;del&gt;'</span> <span class="operator">+</span> <span class="name">text</span> <span class="operator">+</span> <span class="string">'&lt;/del&gt;'</span>;
+  };
+
+  <span class="name">Renderer</span>.<span class="name">prototype</span>.<span class="name">link</span> <span class="operator">=</span> <span class="keyword">function</span>(href, title, text) {
+    <span class="keyword">if</span> (this.<span class="name">options</span>.<span class="name">sanitize</span>) {
+      <span class="keyword">try</span> {
+        var prot = <span class="name">decodeURIComponent</span>(<span class="name">unescape</span>(<span class="name">href</span>))
+          .<span class="name">replace</span>(/[^\w:]/g, <span class="string">''</span>)
+          .<span class="name">toLowerCase</span>();
+      } <span class="keyword">catch</span> (<span class="name">e</span>) {
+        return text;
+      }
+      <span class="keyword">if</span> (<span class="name">prot</span>.<span class="name">indexOf</span>(<span class="string">'javascript:'</span>) <span class="operator">===</span> <span class="number">0</span> <span class="operator">||</span> <span class="name">prot</span>.<span class="name">indexOf</span>(<span class="string">'vbscript:'</span>) <span class="operator">===</span> <span class="number">0</span> <span class="operator">||</span> <span class="name">prot</span>.<span class="name">indexOf</span>(<span class="string">'data:'</span>) <span class="operator">===</span> <span class="number">0</span>) {
+        <span class="keyword">return</span> <span class="name">text</span>;
+      }
+    }
+    <span class="keyword">if</span> (this.<span class="name">options</span>.<span class="name">baseUrl</span> <span class="operator">&amp;&amp;</span> !<span class="name">originIndependentUrl</span>.<span class="name">test</span>(<span class="name">href</span>)) {
+      <span class="name">href</span> <span class="operator">=</span> <span class="name">resolveUrl</span>(this.<span class="name">options</span>.<span class="name">baseUrl</span>, <span class="name">href</span>);
+    }
+    <span class="keyword">try</span> {
+      <span class="name">href</span> <span class="operator">=</span> <span class="name">encodeURI</span>(<span class="name">href</span>).<span class="name">replace</span>(/%25/g, <span class="string">'%'</span>);
+    } <span class="keyword">catch</span> (<span class="name">e</span>) {
+      return text;
+    }
+    var out = <span class="string">'&lt;a href=&quot;'</span> <span class="operator">+</span> <span class="name">escape</span>(<span class="name">href</span>) <span class="operator">+</span> <span class="string">'&quot;'</span>;
+    <span class="keyword">if</span> (<span class="name">title</span>) {
+      <span class="name">out</span> <span class="operator">+=</span> <span class="string">' title=&quot;'</span> <span class="operator">+</span> <span class="name">title</span> <span class="operator">+</span> <span class="string">'&quot;'</span>;
+    }
+    <span class="name">out</span> <span class="operator">+=</span> <span class="string">'&gt;'</span> <span class="operator">+</span> <span class="name">text</span> <span class="operator">+</span> <span class="string">'&lt;/a&gt;'</span>;
+    <span class="keyword">return</span> <span class="name">out</span>;
+  };
+
+  <span class="name">Renderer</span>.<span class="name">prototype</span>.<span class="name">image</span> <span class="operator">=</span> <span class="keyword">function</span>(href, title, text) {
+    <span class="keyword">if</span> (this.<span class="name">options</span>.<span class="name">baseUrl</span> <span class="operator">&amp;&amp;</span> !<span class="name">originIndependentUrl</span>.<span class="name">test</span>(<span class="name">href</span>)) {
+      <span class="name">href</span> <span class="operator">=</span> <span class="name">resolveUrl</span>(this.<span class="name">options</span>.<span class="name">baseUrl</span>, <span class="name">href</span>);
+    }
+    var out = <span class="string">'&lt;img src=&quot;'</span> <span class="operator">+</span> <span class="name">href</span> <span class="operator">+</span> <span class="string">'&quot; alt=&quot;'</span> <span class="operator">+</span> <span class="name">text</span> <span class="operator">+</span> <span class="string">'&quot;'</span>;
+    <span class="keyword">if</span> (<span class="name">title</span>) {
+      <span class="name">out</span> <span class="operator">+=</span> <span class="string">' title=&quot;'</span> <span class="operator">+</span> <span class="name">title</span> <span class="operator">+</span> <span class="string">'&quot;'</span>;
+    }
+    <span class="name">out</span> <span class="operator">+=</span> this.<span class="name">options</span>.<span class="name">xhtml</span> ? <span class="string">'/&gt;'</span> : <span class="string">'&gt;'</span>;
+    <span class="keyword">return</span> <span class="name">out</span>;
+  };
+
+  <span class="name">Renderer</span>.<span class="name">prototype</span>.<span class="name">text</span> <span class="operator">=</span> <span class="keyword">function</span>(text) {
+    <span class="keyword">return</span> <span class="name">text</span>;
+  };
+
+  <span class="comment">/**
+   * TextRenderer
+   * returns only the textual part of the token
+   */</span>
+
+  <span class="keyword">function</span> <span class="name">TextRenderer</span>() {}
+
+  <span class="comment">// no need for block level renderers</span>
+
+  <span class="name">TextRenderer</span>.<span class="name">prototype</span>.<span class="name">strong</span> <span class="operator">=</span>
+  <span class="name">TextRenderer</span>.<span class="name">prototype</span>.<span class="name">em</span> <span class="operator">=</span>
+  <span class="name">TextRenderer</span>.<span class="name">prototype</span>.<span class="name">codespan</span> <span class="operator">=</span>
+  <span class="name">TextRenderer</span>.<span class="name">prototype</span>.<span class="name">del</span> <span class="operator">=</span>
+  <span class="name">TextRenderer</span>.<span class="name">prototype</span>.<span class="name">text</span> <span class="operator">=</span> <span class="keyword">function</span> (text) {
+    <span class="keyword">return</span> <span class="name">text</span>;
+  }
+
+  <span class="name">TextRenderer</span>.<span class="name">prototype</span>.<span class="name">link</span> <span class="operator">=</span>
+  <span class="name">TextRenderer</span>.<span class="name">prototype</span>.<span class="name">image</span> <span class="operator">=</span> <span class="keyword">function</span>(href, title, text) {
+    <span class="keyword">return</span> <span class="string">''</span> <span class="operator">+</span> <span class="name">text</span>;
+  }
+
+  <span class="name">TextRenderer</span>.<span class="name">prototype</span>.<span class="name">br</span> <span class="operator">=</span> <span class="keyword">function</span>() {
+    <span class="keyword">return</span> <span class="string">''</span>;
+  }
+
+  <span class="comment">/**
+   * Parsing &amp; Compiling
+   */</span>
+
+  <span class="keyword">function</span> <span class="name">Parser</span>(options) {
+    this.<span class="name">tokens</span> <span class="operator">=</span> [];
+    this.<span class="name">token</span> <span class="operator">=</span> <span class="number">null</span>;
+    this.<span class="name">options</span> <span class="operator">=</span> <span class="name">options</span> <span class="operator">||</span> <span class="name">marked</span>.<span class="name">defaults</span>;
+    this.<span class="name">options</span>.<span class="name">renderer</span> <span class="operator">=</span> this.<span class="name">options</span>.<span class="name">renderer</span> <span class="operator">||</span> new <span class="name">Renderer</span>();
+    this.<span class="name">renderer</span> <span class="operator">=</span> this.<span class="name">options</span>.<span class="name">renderer</span>;
+    this.<span class="name">renderer</span>.<span class="name">options</span> <span class="operator">=</span> this.<span class="name">options</span>;
+  }
+
+  <span class="comment">/**
+   * Static Parse Method
+   */</span>
+
+  <span class="name">Parser</span>.<span class="name">parse</span> <span class="operator">=</span> <span class="keyword">function</span>(src, options) {
+    var parser = new <span class="name">Parser</span>(<span class="name">options</span>);
+    <span class="keyword">return</span> <span class="name">parser</span>.<span class="name">parse</span>(<span class="name">src</span>);
+  };
+
+  <span class="comment">/**
+   * Parse Loop
+   */</span>
+
+  <span class="name">Parser</span>.<span class="name">prototype</span>.<span class="name">parse</span> <span class="operator">=</span> <span class="keyword">function</span>(src) {
+    this.<span class="name">inline</span> <span class="operator">=</span> new <span class="name">InlineLexer</span>(<span class="name">src</span>.<span class="name">links</span>, this.<span class="name">options</span>);
+    <span class="comment">// use an InlineLexer with a TextRenderer to extract pure text</span>
+    this.<span class="name">inlineText</span> <span class="operator">=</span> new <span class="name">InlineLexer</span>(
+      <span class="name">src</span>.<span class="name">links</span>,
+      <span class="name">merge</span>({}, this.<span class="name">options</span>, {renderer: new <span class="name">TextRenderer</span>()})
+    );
+    this.<span class="name">tokens</span> <span class="operator">=</span> <span class="name">src</span>.<span class="name">reverse</span>();
+
+    var out = <span class="string">''</span>;
+    <span class="keyword">while</span> (this.<span class="name">next</span>()) {
+      <span class="name">out</span> <span class="operator">+=</span> this.<span class="name">tok</span>();
+    }
+
+    <span class="keyword">return</span> <span class="name">out</span>;
+  };
+
+  <span class="comment">/**
+   * Next Token
+   */</span>
+
+  <span class="name">Parser</span>.<span class="name">prototype</span>.<span class="name">next</span> <span class="operator">=</span> <span class="keyword">function</span>() {
+    <span class="keyword">return</span> this.<span class="name">token</span> <span class="operator">=</span> this.<span class="name">tokens</span>.<span class="name">pop</span>();
+  };
+
+  <span class="comment">/**
+   * Preview Next Token
+   */</span>
+
+  <span class="name">Parser</span>.<span class="name">prototype</span>.<span class="name">peek</span> <span class="operator">=</span> <span class="keyword">function</span>() {
+    <span class="keyword">return</span> this.<span class="name">tokens</span>[this.<span class="name">tokens</span>.<span class="name">length</span> <span class="operator">-</span> <span class="number">1</span>] <span class="operator">||</span> <span class="number">0</span>;
+  };
+
+  <span class="comment">/**
+   * Parse Text Tokens
+   */</span>
+
+  <span class="name">Parser</span>.<span class="name">prototype</span>.<span class="name">parseText</span> <span class="operator">=</span> <span class="keyword">function</span>() {
+    var body = this.<span class="name">token</span>.<span class="name">text</span>;
+
+    <span class="keyword">while</span> (this.<span class="name">peek</span>().<span class="name">type</span> <span class="operator">===</span> <span class="string">'text'</span>) {
+      <span class="name">body</span> <span class="operator">+=</span> <span class="string">'\n'</span> <span class="operator">+</span> this.<span class="name">next</span>().<span class="name">text</span>;
+    }
+
+    <span class="keyword">return</span> this.<span class="name">inline</span>.<span class="name">output</span>(<span class="name">body</span>);
+  };
+
+  <span class="comment">/**
+   * Parse Current Token
+   */</span>
+
+  <span class="name">Parser</span>.<span class="name">prototype</span>.<span class="name">tok</span> <span class="operator">=</span> <span class="keyword">function</span>() {
+    <span class="keyword">switch</span> (this.<span class="name">token</span>.<span class="name">type</span>) {
+      <span class="keyword">case</span> <span class="string">'space'</span>: {
+        <span class="keyword">return</span> <span class="string">''</span>;
+      }
+      <span class="keyword">case</span> <span class="string">'hr'</span>: {
+        <span class="keyword">return</span> this.<span class="name">renderer</span>.<span class="name">hr</span>();
+      }
+      <span class="keyword">case</span> <span class="string">'heading'</span>: {
+        <span class="keyword">return</span> this.<span class="name">renderer</span>.<span class="name">heading</span>(
+          this.<span class="name">inline</span>.<span class="name">output</span>(this.<span class="name">token</span>.<span class="name">text</span>),
+          this.<span class="name">token</span>.<span class="name">depth</span>,
+          <span class="name">unescape</span>(this.<span class="name">inlineText</span>.<span class="name">output</span>(this.<span class="name">token</span>.<span class="name">text</span>)));
+      }
+      <span class="keyword">case</span> <span class="string">'code'</span>: {
+        <span class="keyword">return</span> this.<span class="name">renderer</span>.<span class="name">code</span>(this.<span class="name">token</span>.<span class="name">text</span>,
+          this.<span class="name">token</span>.<span class="name">lang</span>,
+          this.<span class="name">token</span>.<span class="name">escaped</span>);
+      }
+      <span class="keyword">case</span> <span class="string">'table'</span>: {
+        var header = <span class="string">''</span>,
+            body = <span class="string">''</span>,
+            i,
+            row,
+            cell,
+            j;
+
+        <span class="comment">// header</span>
+        <span class="name">cell</span> <span class="operator">=</span> <span class="string">''</span>;
+        <span class="keyword">for</span> (<span class="name">i</span> <span class="operator">=</span> <span class="number">0</span>; <span class="name">i</span> <span class="operator">&lt;</span> this.<span class="name">token</span>.<span class="name">header</span>.<span class="name">length</span>; i++) {
+          <span class="name">cell</span> <span class="operator">+=</span> this.<span class="name">renderer</span>.<span class="name">tablecell</span>(
+            this.<span class="name">inline</span>.<span class="name">output</span>(this.<span class="name">token</span>.<span class="name">header</span>[<span class="name">i</span>]),
+            { header: <span class="number">true</span>, align: this.<span class="name">token</span>.<span class="name">align</span>[<span class="name">i</span>] }
+          );
+        }
+        <span class="name">header</span> <span class="operator">+=</span> this.<span class="name">renderer</span>.<span class="name">tablerow</span>(<span class="name">cell</span>);
+
+        <span class="keyword">for</span> (<span class="name">i</span> <span class="operator">=</span> <span class="number">0</span>; <span class="name">i</span> <span class="operator">&lt;</span> this.<span class="name">token</span>.<span class="name">cells</span>.<span class="name">length</span>; i++) {
+          <span class="name">row</span> <span class="operator">=</span> this.<span class="name">token</span>.<span class="name">cells</span>[<span class="name">i</span>];
+
+          <span class="name">cell</span> <span class="operator">=</span> <span class="string">''</span>;
+          <span class="keyword">for</span> (<span class="name">j</span> <span class="operator">=</span> <span class="number">0</span>; <span class="name">j</span> <span class="operator">&lt;</span> <span class="name">row</span>.<span class="name">length</span>; j++) {
+            <span class="name">cell</span> <span class="operator">+=</span> this.<span class="name">renderer</span>.<span class="name">tablecell</span>(
+              this.<span class="name">inline</span>.<span class="name">output</span>(<span class="name">row</span>[<span class="name">j</span>]),
+              { header: <span class="number">false</span>, align: this.<span class="name">token</span>.<span class="name">align</span>[<span class="name">j</span>] }
+            );
+          }
+
+          <span class="name">body</span> <span class="operator">+=</span> this.<span class="name">renderer</span>.<span class="name">tablerow</span>(<span class="name">cell</span>);
+        }
+        <span class="keyword">return</span> this.<span class="name">renderer</span>.<span class="name">table</span>(<span class="name">header</span>, <span class="name">body</span>);
+      }
+      <span class="keyword">case</span> <span class="string">'blockquote_start'</span>: {
+        <span class="name">body</span> <span class="operator">=</span> <span class="string">''</span>;
+
+        <span class="keyword">while</span> (this.<span class="name">next</span>().<span class="name">type</span> <span class="operator">!==</span> <span class="string">'blockquote_end'</span>) {
+          <span class="name">body</span> <span class="operator">+=</span> this.<span class="name">tok</span>();
+        }
+
+        <span class="keyword">return</span> this.<span class="name">renderer</span>.<span class="name">blockquote</span>(<span class="name">body</span>);
+      }
+      <span class="keyword">case</span> <span class="string">'list_start'</span>: {
+        <span class="name">body</span> <span class="operator">=</span> <span class="string">''</span>;
+        var ordered = this.<span class="name">token</span>.<span class="name">ordered</span>,
+            start = this.<span class="name">token</span>.<span class="name">start</span>;
+
+        <span class="keyword">while</span> (this.<span class="name">next</span>().<span class="name">type</span> <span class="operator">!==</span> <span class="string">'list_end'</span>) {
+          <span class="name">body</span> <span class="operator">+=</span> this.<span class="name">tok</span>();
+        }
+
+        <span class="keyword">return</span> this.<span class="name">renderer</span>.<span class="name">list</span>(<span class="name">body</span>, <span class="name">ordered</span>, <span class="name">start</span>);
+      }
+      <span class="keyword">case</span> <span class="string">'list_item_start'</span>: {
+        <span class="name">body</span> <span class="operator">=</span> <span class="string">''</span>;
+
+        <span class="keyword">if</span> (this.<span class="name">token</span>.<span class="name">task</span>) {
+          <span class="name">body</span> <span class="operator">+=</span> this.<span class="name">renderer</span>.<span class="name">checkbox</span>(this.<span class="name">token</span>.<span class="name">checked</span>);
+        }
+
+        <span class="keyword">while</span> (this.<span class="name">next</span>().<span class="name">type</span> <span class="operator">!==</span> <span class="string">'list_item_end'</span>) {
+          <span class="name">body</span> <span class="operator">+=</span> this.<span class="name">token</span>.<span class="name">type</span> <span class="operator">===</span> <span class="string">'text'</span>
+            ? this.<span class="name">parseText</span>()
+            : this.<span class="name">tok</span>();
+        }
+
+        <span class="keyword">return</span> this.<span class="name">renderer</span>.<span class="name">listitem</span>(<span class="name">body</span>);
+      }
+      <span class="keyword">case</span> <span class="string">'loose_item_start'</span>: {
+        <span class="name">body</span> <span class="operator">=</span> <span class="string">''</span>;
+
+        <span class="keyword">while</span> (this.<span class="name">next</span>().<span class="name">type</span> <span class="operator">!==</span> <span class="string">'list_item_end'</span>) {
+          <span class="name">body</span> <span class="operator">+=</span> this.<span class="name">tok</span>();
+        }
+
+        <span class="keyword">return</span> this.<span class="name">renderer</span>.<span class="name">listitem</span>(<span class="name">body</span>);
+      }
+      <span class="keyword">case</span> <span class="string">'html'</span>: {
+        <span class="comment">// TODO parse inline content if parameter markdown=1</span>
+        <span class="keyword">return</span> this.<span class="name">renderer</span>.<span class="name">html</span>(this.<span class="name">token</span>.<span class="name">text</span>);
+      }
+      <span class="keyword">case</span> <span class="string">'paragraph'</span>: {
+        <span class="keyword">return</span> this.<span class="name">renderer</span>.<span class="name">paragraph</span>(this.<span class="name">inline</span>.<span class="name">output</span>(this.<span class="name">token</span>.<span class="name">text</span>));
+      }
+      <span class="keyword">case</span> <span class="string">'text'</span>: {
+        <span class="keyword">return</span> this.<span class="name">renderer</span>.<span class="name">paragraph</span>(this.<span class="name">parseText</span>());
+      }
+    }
+  };
+
+  <span class="comment">/**
+   * Helpers
+   */</span>
+
+  <span class="keyword">function</span> <span class="name">escape</span>(html, encode) {
+    <span class="keyword">return</span> <span class="name">html</span>
+      .<span class="name">replace</span>(!<span class="name">encode</span> ? /&amp;(?!#?\w+;)/g : /&amp;/g, <span class="string">'&amp;amp;'</span>)
+      .<span class="name">replace</span>(/&lt;/g, <span class="string">'&amp;lt;'</span>)
+      .<span class="name">replace</span>(/&gt;/g, <span class="string">'&amp;gt;'</span>)
+      .<span class="name">replace</span>(/&quot;/g, <span class="string">'&amp;quot;'</span>)
+      .<span class="name">replace</span>(/'/g, <span class="string">'&amp;#39;'</span>);
+  }
+
+  <span class="keyword">function</span> <span class="name">unescape</span>(html) {
+    <span class="comment">// explicitly match decimal, hex, and named HTML entities</span>
+    <span class="keyword">return</span> <span class="name">html</span>.<span class="name">replace</span>(/&amp;(#(?:\d+)|(?:#x[0-9A-Fa-f]+)|(?:\w+));?/ig, <span class="keyword">function</span>(_, n) {
+      <span class="name">n</span> <span class="operator">=</span> <span class="name">n</span>.<span class="name">toLowerCase</span>();
+      <span class="keyword">if</span> (<span class="name">n</span> <span class="operator">===</span> <span class="string">'colon'</span>) <span class="keyword">return</span> <span class="string">':'</span>;
+      <span class="keyword">if</span> (<span class="name">n</span>.<span class="name">charAt</span>(<span class="number">0</span>) <span class="operator">===</span> <span class="string">'#'</span>) {
+        <span class="keyword">return</span> <span class="name">n</span>.<span class="name">charAt</span>(<span class="number">1</span>) <span class="operator">===</span> <span class="string">'x'</span>
+          ? <span class="name">String</span>.<span class="name">fromCharCode</span>(<span class="name">parseInt</span>(<span class="name">n</span>.<span class="name">substring</span>(<span class="number">2</span>), <span class="number">16</span>))
+          : <span class="name">String</span>.<span class="name">fromCharCode</span>(+<span class="name">n</span>.<span class="name">substring</span>(<span class="number">1</span>));
+      }
+      <span class="keyword">return</span> <span class="string">''</span>;
+    });
+  }
+
+  <span class="keyword">function</span> <span class="name">edit</span>(regex, opt) {
+    <span class="name">regex</span> <span class="operator">=</span> <span class="name">regex</span>.<span class="name">source</span> <span class="operator">||</span> <span class="name">regex</span>;
+    <span class="name">opt</span> <span class="operator">=</span> <span class="name">opt</span> <span class="operator">||</span> <span class="string">''</span>;
+    <span class="keyword">return</span> {
+      replace: <span class="keyword">function</span>(name, val) {
+        <span class="name">val</span> <span class="operator">=</span> <span class="name">val</span>.<span class="name">source</span> <span class="operator">||</span> <span class="name">val</span>;
+        <span class="name">val</span> <span class="operator">=</span> <span class="name">val</span>.<span class="name">replace</span>(/(^|[^\[])\^/g, <span class="string">'$1'</span>);
+        <span class="name">regex</span> <span class="operator">=</span> <span class="name">regex</span>.<span class="name">replace</span>(<span class="name">name</span>, <span class="name">val</span>);
+        <span class="keyword">return</span> this;
+      },
+      getRegex: <span class="keyword">function</span>() {
+        <span class="keyword">return</span> new <span class="name">RegExp</span>(<span class="name">regex</span>, <span class="name">opt</span>);
+      }
+    };
+  }
+
+  <span class="keyword">function</span> <span class="name">resolveUrl</span>(base, href) {
+    <span class="keyword">if</span> (!<span class="name">baseUrls</span>[<span class="string">' '</span> <span class="operator">+</span> <span class="name">base</span>]) {
+      <span class="comment">// we can ignore everything in base after the last slash of its path component,</span>
+      <span class="comment">// but we might need to add _that_</span>
+      <span class="comment">// https://tools.ietf.org/html/rfc3986#section-3</span>
+      <span class="keyword">if</span> (/^[^:]+:\/*[^/]*$/.<span class="name">test</span>(<span class="name">base</span>)) {
+        <span class="name">baseUrls</span>[<span class="string">' '</span> <span class="operator">+</span> <span class="name">base</span>] <span class="operator">=</span> <span class="name">base</span> <span class="operator">+</span> <span class="string">'/'</span>;
+      } <span class="keyword">else</span> {
+        <span class="name">baseUrls</span>[<span class="string">' '</span> <span class="operator">+</span> <span class="name">base</span>] <span class="operator">=</span> <span class="name">base</span>.<span class="name">replace</span>(/[^/]*$/, <span class="string">''</span>);
+      }
+    }
+    <span class="name">base</span> <span class="operator">=</span> <span class="name">baseUrls</span>[<span class="string">' '</span> <span class="operator">+</span> <span class="name">base</span>];
+
+    <span class="keyword">if</span> (<span class="name">href</span>.<span class="name">slice</span>(<span class="number">0</span>, <span class="number">2</span>) <span class="operator">===</span> <span class="string">'//'</span>) {
+      <span class="keyword">return</span> <span class="name">base</span>.<span class="name">replace</span>(/:[\s\S]*/, <span class="string">':'</span>) <span class="operator">+</span> <span class="name">href</span>;
+    } <span class="keyword">else</span> <span class="keyword">if</span> (<span class="name">href</span>.<span class="name">charAt</span>(<span class="number">0</span>) <span class="operator">===</span> <span class="string">'/'</span>) {
+      <span class="keyword">return</span> <span class="name">base</span>.<span class="name">replace</span>(/(:\/*[^/]*)[\s\S]*/, <span class="string">'$1'</span>) <span class="operator">+</span> <span class="name">href</span>;
+    } <span class="keyword">else</span> {
+      <span class="keyword">return</span> <span class="name">base</span> <span class="operator">+</span> <span class="name">href</span>;
+    }
+  }
+  var baseUrls = {};
+  var originIndependentUrl = /^$|^[a-z][a-z0-9+.-]*:|^[?#]/i;
+
+  <span class="keyword">function</span> <span class="name">noop</span>() {}
+  <span class="name">noop</span>.<span class="name">exec</span> <span class="operator">=</span> <span class="name">noop</span>;
+
+  <span class="keyword">function</span> <span class="name">merge</span>(obj) {
+    var i = <span class="number">1</span>,
+        target,
+        key;
+
+    <span class="keyword">for</span> (; <span class="name">i</span> <span class="operator">&lt;</span> <span class="name">arguments</span>.<span class="name">length</span>; i++) {
+      <span class="name">target</span> <span class="operator">=</span> <span class="name">arguments</span>[<span class="name">i</span>];
+      <span class="keyword">for</span> (<span class="name">key</span> in <span class="name">target</span>) {
+        <span class="keyword">if</span> (<span class="name">Object</span>.<span class="name">prototype</span>.<span class="name">hasOwnProperty</span>.<span class="name">call</span>(<span class="name">target</span>, <span class="name">key</span>)) {
+          <span class="name">obj</span>[<span class="name">key</span>] <span class="operator">=</span> <span class="name">target</span>[<span class="name">key</span>];
+        }
+      }
+    }
+
+    <span class="keyword">return</span> <span class="name">obj</span>;
+  }
+
+  <span class="keyword">function</span> <span class="name">splitCells</span>(tableRow, count) {
+    var cells = <span class="name">tableRow</span>.<span class="name">replace</span>(/([^\\])\|/g, <span class="string">'$1 |'</span>).<span class="name">split</span>(/ +\| */),
+        i = <span class="number">0</span>;
+
+    <span class="keyword">if</span> (<span class="name">cells</span>.<span class="name">length</span> <span class="operator">&gt;</span> <span class="name">count</span>) {
+      <span class="name">cells</span>.<span class="name">splice</span>(<span class="name">count</span>);
+    } <span class="keyword">else</span> {
+      <span class="keyword">while</span> (<span class="name">cells</span>.<span class="name">length</span> <span class="operator">&lt;</span> <span class="name">count</span>) <span class="name">cells</span>.<span class="name">push</span>(<span class="string">''</span>);
+    }
+
+    <span class="keyword">for</span> (; <span class="name">i</span> <span class="operator">&lt;</span> <span class="name">cells</span>.<span class="name">length</span>; i++) {
+      <span class="name">cells</span>[<span class="name">i</span>] <span class="operator">=</span> <span class="name">cells</span>[<span class="name">i</span>].<span class="name">replace</span>(/\\\|/g, <span class="string">'|'</span>);
+    }
+    <span class="keyword">return</span> <span class="name">cells</span>;
+  }
+
+  <span class="comment">/**
+   * Marked
+   */</span>
+
+  <span class="keyword">function</span> <span class="name">marked</span>(src, opt, callback) {
+    <span class="comment">// throw error in case of non string input</span>
+    <span class="keyword">if</span> (typeof <span class="name">src</span> <span class="operator">===</span> <span class="string">'undefined'</span> <span class="operator">||</span> <span class="name">src</span> <span class="operator">===</span> <span class="number">null</span>) {
+      <span class="keyword">throw</span> new <span class="name">Error</span>(<span class="string">'marked(): input parameter is undefined or null'</span>);
+    }
+    <span class="keyword">if</span> (typeof <span class="name">src</span> <span class="operator">!==</span> <span class="string">'string'</span>) {
+      <span class="keyword">throw</span> new <span class="name">Error</span>(<span class="string">'marked(): input parameter is of type '</span>
+        <span class="operator">+</span> <span class="name">Object</span>.<span class="name">prototype</span>.<span class="name">toString</span>.<span class="name">call</span>(<span class="name">src</span>) <span class="operator">+</span> <span class="string">', string expected'</span>);
+    }
+
+    <span class="keyword">if</span> (<span class="name">callback</span> <span class="operator">||</span> typeof <span class="name">opt</span> <span class="operator">===</span> <span class="string">'function'</span>) {
+      <span class="keyword">if</span> (!<span class="name">callback</span>) {
+        <span class="name">callback</span> <span class="operator">=</span> <span class="name">opt</span>;
+        <span class="name">opt</span> <span class="operator">=</span> <span class="number">null</span>;
+      }
+
+      <span class="name">opt</span> <span class="operator">=</span> <span class="name">merge</span>({}, <span class="name">marked</span>.<span class="name">defaults</span>, <span class="name">opt</span> <span class="operator">||</span> {});
+
+      var highlight = <span class="name">opt</span>.<span class="name">highlight</span>,
+          tokens,
+          pending,
+          i = <span class="number">0</span>;
+
+      <span class="keyword">try</span> {
+        <span class="name">tokens</span> <span class="operator">=</span> <span class="name">Lexer</span>.<span class="name">lex</span>(<span class="name">src</span>, <span class="name">opt</span>)
+      } <span class="keyword">catch</span> (<span class="name">e</span>) {
+        return callback(e);
+      }
+
+      <span class="name">pending</span> <span class="operator">=</span> <span class="name">tokens</span>.<span class="name">length</span>;
+
+      var done = <span class="keyword">function</span>(err) {
+        <span class="keyword">if</span> (<span class="name">err</span>) {
+          <span class="name">opt</span>.<span class="name">highlight</span> <span class="operator">=</span> <span class="name">highlight</span>;
+          <span class="keyword">return</span> <span class="name">callback</span>(<span class="name">err</span>);
+        }
+
+        var out;
+
+        <span class="keyword">try</span> {
+          <span class="name">out</span> <span class="operator">=</span> <span class="name">Parser</span>.<span class="name">parse</span>(<span class="name">tokens</span>, <span class="name">opt</span>);
+        } <span class="keyword">catch</span> (<span class="name">e</span>) {
+          err = e;
+        }
+
+        <span class="name">opt</span>.<span class="name">highlight</span> <span class="operator">=</span> <span class="name">highlight</span>;
+
+        <span class="keyword">return</span> <span class="name">err</span>
+          ? <span class="name">callback</span>(<span class="name">err</span>)
+          : <span class="name">callback</span>(<span class="number">null</span>, <span class="name">out</span>);
+      };
+
+      <span class="keyword">if</span> (!<span class="name">highlight</span> <span class="operator">||</span> <span class="name">highlight</span>.<span class="name">length</span> <span class="operator">&lt;</span> <span class="number">3</span>) {
+        <span class="keyword">return</span> <span class="name">done</span>();
+      }
+
+      delete <span class="name">opt</span>.<span class="name">highlight</span>;
+
+      <span class="keyword">if</span> (!<span class="name">pending</span>) <span class="keyword">return</span> <span class="name">done</span>();
+
+      <span class="keyword">for</span> (; <span class="name">i</span> <span class="operator">&lt;</span> <span class="name">tokens</span>.<span class="name">length</span>; i++) {
+        (<span class="keyword">function</span>(token) {
+          <span class="keyword">if</span> (<span class="name">token</span>.<span class="name">type</span> <span class="operator">!==</span> <span class="string">'code'</span>) {
+            <span class="keyword">return</span> --<span class="name">pending</span> <span class="operator">||</span> <span class="name">done</span>();
+          }
+          <span class="keyword">return</span> <span class="name">highlight</span>(<span class="name">token</span>.<span class="name">text</span>, <span class="name">token</span>.<span class="name">lang</span>, <span class="keyword">function</span>(err, code) {
+            <span class="keyword">if</span> (<span class="name">err</span>) <span class="keyword">return</span> <span class="name">done</span>(<span class="name">err</span>);
+            <span class="keyword">if</span> (<span class="name">code</span> <span class="operator">==</span> <span class="number">null</span> <span class="operator">||</span> <span class="name">code</span> <span class="operator">===</span> <span class="name">token</span>.<span class="name">text</span>) {
+              <span class="keyword">return</span> --<span class="name">pending</span> <span class="operator">||</span> <span class="name">done</span>();
+            }
+            <span class="name">token</span>.<span class="name">text</span> <span class="operator">=</span> <span class="name">code</span>;
+            <span class="name">token</span>.<span class="name">escaped</span> <span class="operator">=</span> <span class="number">true</span>;
+            --<span class="name">pending</span> <span class="operator">||</span> <span class="name">done</span>();
+          });
+        })(<span class="name">tokens</span>[<span class="name">i</span>]);
+      }
+
+      <span class="keyword">return</span>;
+    }
+    <span class="keyword">try</span> {
+      <span class="keyword">if</span> (<span class="name">opt</span>) <span class="name">opt</span> <span class="operator">=</span> <span class="name">merge</span>({}, <span class="name">marked</span>.<span class="name">defaults</span>, <span class="name">opt</span>);
+      <span class="keyword">return</span> <span class="name">Parser</span>.<span class="name">parse</span>(<span class="name">Lexer</span>.<span class="name">lex</span>(<span class="name">src</span>, <span class="name">opt</span>), <span class="name">opt</span>);
+    } <span class="keyword">catch</span> (<span class="name">e</span>) {
+      e.message += '\nPlease report this to https://github.com/markedjs/marked.';
+      if ((opt || marked.defaults).silent) {
+        return '&lt;p&gt;An error occurred:&lt;/p&gt;&lt;pre&gt;'
+          + escape(e.message + '', true)
+          + '&lt;/pre&gt;';
+      }
+      throw e;
+    }
+  }
+
+  <span class="comment">/**
+   * Options
+   */</span>
+
+  <span class="name">marked</span>.<span class="name">options</span> <span class="operator">=</span>
+  <span class="name">marked</span>.<span class="name">setOptions</span> <span class="operator">=</span> <span class="keyword">function</span>(opt) {
+    <span class="name">merge</span>(<span class="name">marked</span>.<span class="name">defaults</span>, <span class="name">opt</span>);
+    <span class="keyword">return</span> <span class="name">marked</span>;
+  };
+
+  <span class="name">marked</span>.<span class="name">getDefaults</span> <span class="operator">=</span> <span class="keyword">function</span> () {
+    <span class="keyword">return</span> {
+      baseUrl: <span class="number">null</span>,
+      breaks: <span class="number">false</span>,
+      gfm: <span class="number">true</span>,
+      headerIds: <span class="number">true</span>,
+      headerPrefix: <span class="string">''</span>,
+      highlight: <span class="number">null</span>,
+      langPrefix: <span class="string">'language-'</span>,
+      mangle: <span class="number">true</span>,
+      pedantic: <span class="number">false</span>,
+      renderer: new <span class="name">Renderer</span>(),
+      sanitize: <span class="number">false</span>,
+      sanitizer: <span class="number">null</span>,
+      silent: <span class="number">false</span>,
+      smartLists: <span class="number">false</span>,
+      smartypants: <span class="number">false</span>,
+      tables: <span class="number">true</span>,
+      xhtml: <span class="number">false</span>
+    };
+  }
+
+  <span class="name">marked</span>.<span class="name">defaults</span> <span class="operator">=</span> <span class="name">marked</span>.<span class="name">getDefaults</span>();
+
+  <span class="comment">/**
+   * Expose
+   */</span>
+
+  <span class="name">marked</span>.<span class="name">Parser</span> <span class="operator">=</span> <span class="name">Parser</span>;
+  <span class="name">marked</span>.<span class="name">parser</span> <span class="operator">=</span> <span class="name">Parser</span>.<span class="name">parse</span>;
+
+  <span class="name">marked</span>.<span class="name">Renderer</span> <span class="operator">=</span> <span class="name">Renderer</span>;
+  <span class="name">marked</span>.<span class="name">TextRenderer</span> <span class="operator">=</span> <span class="name">TextRenderer</span>;
+
+  <span class="name">marked</span>.<span class="name">Lexer</span> <span class="operator">=</span> <span class="name">Lexer</span>;
+  <span class="name">marked</span>.<span class="name">lexer</span> <span class="operator">=</span> <span class="name">Lexer</span>.<span class="name">lex</span>;
+
+  <span class="name">marked</span>.<span class="name">InlineLexer</span> <span class="operator">=</span> <span class="name">InlineLexer</span>;
+  <span class="name">marked</span>.<span class="name">inlineLexer</span> <span class="operator">=</span> <span class="name">InlineLexer</span>.<span class="name">output</span>;
+
+  <span class="name">marked</span>.<span class="name">parse</span> <span class="operator">=</span> <span class="name">marked</span>;
+
+  <span class="keyword">if</span> (typeof <span class="name">module</span> <span class="operator">!==</span> <span class="string">'undefined'</span> <span class="operator">&amp;&amp;</span> typeof <span class="name">exports</span> <span class="operator">===</span> <span class="string">'object'</span>) {
+    <span class="name">module</span>.<span class="name">exports</span> <span class="operator">=</span> <span class="name">marked</span>;
+  } <span class="keyword">else</span> <span class="keyword">if</span> (typeof <span class="name">define</span> <span class="operator">===</span> <span class="string">'function'</span> <span class="operator">&amp;&amp;</span> <span class="name">define</span>.<span class="name">amd</span>) {
+    <span class="name">define</span>(<span class="keyword">function</span>() { <span class="keyword">return</span> <span class="name">marked</span>; });
+  } <span class="keyword">else</span> {
+    <span class="name">root</span>.<span class="name">marked</span> <span class="operator">=</span> <span class="name">marked</span>;
+  }
+  })(this <span class="operator">||</span> (typeof <span class="name">window</span> <span class="operator">!==</span> <span class="string">'undefined'</span> ? <span class="name">window</span> : <span class="name">global</span>));
+
+</pre>
+</div>
+<!-- @@@webenginewidgets/markdowneditor/resources/3rdparty/marked.js -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

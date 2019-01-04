@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>connectdialog.cpp Example File | Qt Serial Bus 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtserialbus-index.html">Qt Serial Bus</a></td><td ><a href="qtserialbus-can-example.html">CAN Bus example</a></td><td >connectdialog.cpp Example File</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt 5.12.0 Reference Documentation</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">connectdialog.cpp Example File</h1>
+<span class="subtitle">can/connectdialog.cpp</span>
+<!-- $$$can/connectdialog.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp">
+
+  <span class="comment">/****************************************************************************
+  **
+  ** Copyright (C) 2017 The Qt Company Ltd.
+  ** Contact: https://www.qt.io/licensing/
+  **
+  ** This file is part of the examples of the QtSerialBus module.
+  **
+  ** $QT_BEGIN_LICENSE:BSD$
+  ** Commercial License Usage
+  ** Licensees holding valid commercial Qt licenses may use this file in
+  ** accordance with the commercial license agreement provided with the
+  ** Software or, alternatively, in accordance with the terms contained in
+  ** a written agreement between you and The Qt Company. For licensing terms
+  ** and conditions see https://www.qt.io/terms-conditions. For further
+  ** information use the contact form at https://www.qt.io/contact-us.
+  **
+  ** BSD License Usage
+  ** Alternatively, you may use this file under the terms of the BSD license
+  ** as follows:
+  **
+  ** &quot;Redistribution and use in source and binary forms, with or without
+  ** modification, are permitted provided that the following conditions are
+  ** met:
+  **   * Redistributions of source code must retain the above copyright
+  **     notice, this list of conditions and the following disclaimer.
+  **   * Redistributions in binary form must reproduce the above copyright
+  **     notice, this list of conditions and the following disclaimer in
+  **     the documentation and/or other materials provided with the
+  **     distribution.
+  **   * Neither the name of The Qt Company Ltd nor the names of its
+  **     contributors may be used to endorse or promote products derived
+  **     from this software without specific prior written permission.
+  **
+  **
+  ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+  **
+  ** $QT_END_LICENSE$
+  **
+  ****************************************************************************/</span>
+
+  <span class="preprocessor">#include &quot;connectdialog.h&quot;</span>
+  <span class="preprocessor">#include &quot;ui_connectdialog.h&quot;</span>
+
+  <span class="preprocessor">#include &lt;QCanBus&gt;</span>
+
+  ConnectDialog<span class="operator">::</span>ConnectDialog(<span class="type">QWidget</span> <span class="operator">*</span>parent) :
+      <span class="type">QDialog</span>(parent)<span class="operator">,</span>
+      m_ui(<span class="keyword">new</span> Ui<span class="operator">::</span>ConnectDialog)
+  {
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>setupUi(<span class="keyword">this</span>);
+
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>errorFilterEdit<span class="operator">-</span><span class="operator">&gt;</span>setValidator(<span class="keyword">new</span> <span class="type">QIntValidator</span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0x1FFFFFFFU</span><span class="operator">,</span> <span class="keyword">this</span>));
+
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>loopbackBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;unspecified&quot;</span>)<span class="operator">,</span> <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span>());
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>loopbackBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;false&quot;</span>)<span class="operator">,</span> <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span>(<span class="keyword">false</span>));
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>loopbackBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;true&quot;</span>)<span class="operator">,</span> <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span>(<span class="keyword">true</span>));
+
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>receiveOwnBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;unspecified&quot;</span>)<span class="operator">,</span> <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span>());
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>receiveOwnBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;false&quot;</span>)<span class="operator">,</span> <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span>(<span class="keyword">false</span>));
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>receiveOwnBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;true&quot;</span>)<span class="operator">,</span> <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span>(<span class="keyword">true</span>));
+
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>canFdBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;false&quot;</span>)<span class="operator">,</span> <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span>(<span class="keyword">false</span>));
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>canFdBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(tr(<span class="string">&quot;true&quot;</span>)<span class="operator">,</span> <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span>(<span class="keyword">true</span>));
+
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>dataBitrateBox<span class="operator">-</span><span class="operator">&gt;</span>setFlexibleDateRateEnabled(<span class="keyword">true</span>);
+
+      connect(m_ui<span class="operator">-</span><span class="operator">&gt;</span>okButton<span class="operator">,</span> <span class="operator">&amp;</span><span class="type">QPushButton</span><span class="operator">::</span>clicked<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> <span class="operator">&amp;</span>ConnectDialog<span class="operator">::</span>ok);
+      connect(m_ui<span class="operator">-</span><span class="operator">&gt;</span>cancelButton<span class="operator">,</span> <span class="operator">&amp;</span><span class="type">QPushButton</span><span class="operator">::</span>clicked<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> <span class="operator">&amp;</span>ConnectDialog<span class="operator">::</span>cancel);
+      connect(m_ui<span class="operator">-</span><span class="operator">&gt;</span>useConfigurationBox<span class="operator">,</span> <span class="operator">&amp;</span><span class="type">QCheckBox</span><span class="operator">::</span>clicked<span class="operator">,</span>
+              m_ui<span class="operator">-</span><span class="operator">&gt;</span>configurationBox<span class="operator">,</span> <span class="operator">&amp;</span><span class="type">QGroupBox</span><span class="operator">::</span>setEnabled);
+      connect(m_ui<span class="operator">-</span><span class="operator">&gt;</span>pluginListBox<span class="operator">,</span> <span class="operator">&amp;</span><span class="type">QComboBox</span><span class="operator">::</span>currentTextChanged<span class="operator">,</span>
+              <span class="keyword">this</span><span class="operator">,</span> <span class="operator">&amp;</span>ConnectDialog<span class="operator">::</span>pluginChanged);
+      connect(m_ui<span class="operator">-</span><span class="operator">&gt;</span>interfaceListBox<span class="operator">,</span> <span class="operator">&amp;</span><span class="type">QComboBox</span><span class="operator">::</span>currentTextChanged<span class="operator">,</span>
+              <span class="keyword">this</span><span class="operator">,</span> <span class="operator">&amp;</span>ConnectDialog<span class="operator">::</span>interfaceChanged);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>rawFilterEdit<span class="operator">-</span><span class="operator">&gt;</span>hide();
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>rawFilterLabel<span class="operator">-</span><span class="operator">&gt;</span>hide();
+
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>pluginListBox<span class="operator">-</span><span class="operator">&gt;</span>addItems(<span class="type"><a href="qcanbus.html">QCanBus</a></span><span class="operator">::</span>instance()<span class="operator">-</span><span class="operator">&gt;</span>plugins());
+
+      updateSettings();
+  }
+
+  ConnectDialog<span class="operator">::</span><span class="operator">~</span>ConnectDialog()
+  {
+      <span class="keyword">delete</span> m_ui;
+  }
+
+  ConnectDialog<span class="operator">::</span>Settings ConnectDialog<span class="operator">::</span>settings() <span class="keyword">const</span>
+  {
+      <span class="keyword">return</span> m_currentSettings;
+  }
+
+  <span class="type">void</span> ConnectDialog<span class="operator">::</span>pluginChanged(<span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> <span class="operator">&amp;</span>plugin)
+  {
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>interfaceListBox<span class="operator">-</span><span class="operator">&gt;</span>clear();
+      m_interfaces <span class="operator">=</span> <span class="type"><a href="qcanbus.html">QCanBus</a></span><span class="operator">::</span>instance()<span class="operator">-</span><span class="operator">&gt;</span>availableDevices(plugin);
+      <span class="keyword">for</span> (<span class="keyword">const</span> <span class="type"><a href="qcanbusdeviceinfo.html">QCanBusDeviceInfo</a></span> <span class="operator">&amp;</span>info : <a href="../qtcore/qtglobal.html#qAsConst">qAsConst</a>(m_interfaces))
+          m_ui<span class="operator">-</span><span class="operator">&gt;</span>interfaceListBox<span class="operator">-</span><span class="operator">&gt;</span>addItem(info<span class="operator">.</span>name());
+  }
+
+  <span class="type">void</span> ConnectDialog<span class="operator">::</span>interfaceChanged(<span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> <span class="operator">&amp;</span>interface)
+  {
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>isVirtual<span class="operator">-</span><span class="operator">&gt;</span>setChecked(<span class="keyword">false</span>);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>isFlexibleDataRateCapable<span class="operator">-</span><span class="operator">&gt;</span>setChecked(<span class="keyword">false</span>);
+
+      <span class="keyword">for</span> (<span class="keyword">const</span> <span class="type"><a href="qcanbusdeviceinfo.html">QCanBusDeviceInfo</a></span> <span class="operator">&amp;</span>info : <a href="../qtcore/qtglobal.html#qAsConst">qAsConst</a>(m_interfaces)) {
+          <span class="keyword">if</span> (info<span class="operator">.</span>name() <span class="operator">=</span><span class="operator">=</span> interface) {
+              m_ui<span class="operator">-</span><span class="operator">&gt;</span>descriptionLabel<span class="operator">-</span><span class="operator">&gt;</span>setText(info<span class="operator">.</span>description());
+              <span class="type"><a href="../qtcore/qstring.html">QString</a></span> serialNumber <span class="operator">=</span> info<span class="operator">.</span>serialNumber();
+              <span class="keyword">if</span> (serialNumber<span class="operator">.</span>isEmpty())
+                  serialNumber <span class="operator">=</span> tr(<span class="string">&quot;n/a&quot;</span>);
+              m_ui<span class="operator">-</span><span class="operator">&gt;</span>serialNumberLabel<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;Serial: %1&quot;</span>)<span class="operator">.</span>arg(serialNumber));
+              m_ui<span class="operator">-</span><span class="operator">&gt;</span>channelLabel<span class="operator">-</span><span class="operator">&gt;</span>setText(tr(<span class="string">&quot;Channel: %1&quot;</span>)<span class="operator">.</span>arg(info<span class="operator">.</span>channel()));
+              m_ui<span class="operator">-</span><span class="operator">&gt;</span>isVirtual<span class="operator">-</span><span class="operator">&gt;</span>setChecked(info<span class="operator">.</span>isVirtual());
+              m_ui<span class="operator">-</span><span class="operator">&gt;</span>isFlexibleDataRateCapable<span class="operator">-</span><span class="operator">&gt;</span>setChecked(info<span class="operator">.</span>hasFlexibleDataRate());
+              <span class="keyword">break</span>;
+          }
+      }
+  }
+
+  <span class="type">void</span> ConnectDialog<span class="operator">::</span>ok()
+  {
+      updateSettings();
+      accept();
+  }
+
+  <span class="type">void</span> ConnectDialog<span class="operator">::</span>cancel()
+  {
+      revertSettings();
+      reject();
+  }
+
+  <span class="type"><a href="../qtcore/qstring.html">QString</a></span> ConnectDialog<span class="operator">::</span>configurationValue(<span class="type"><a href="qcanbusdevice.html">QCanBusDevice</a></span><span class="operator">::</span>ConfigurationKey key)
+  {
+      <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> result;
+
+      <span class="keyword">for</span> (<span class="keyword">const</span> ConfigurationItem <span class="operator">&amp;</span>item : <a href="../qtcore/qtglobal.html#qAsConst">qAsConst</a>(m_currentSettings<span class="operator">.</span>configurations)) {
+          <span class="keyword">if</span> (item<span class="operator">.</span>first <span class="operator">=</span><span class="operator">=</span> key) {
+              result <span class="operator">=</span> item<span class="operator">.</span>second;
+              <span class="keyword">break</span>;
+          }
+      }
+
+      <span class="keyword">if</span> (result<span class="operator">.</span>isNull() <span class="operator">&amp;</span><span class="operator">&amp;</span> (
+                  key <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qcanbusdevice.html">QCanBusDevice</a></span><span class="operator">::</span>LoopbackKey <span class="operator">|</span><span class="operator">|</span>
+                  key <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qcanbusdevice.html">QCanBusDevice</a></span><span class="operator">::</span>ReceiveOwnKey)) {
+          <span class="keyword">return</span> tr(<span class="string">&quot;unspecified&quot;</span>);
+      }
+
+      <span class="keyword">return</span> result<span class="operator">.</span>toString();
+  }
+
+  <span class="type">void</span> ConnectDialog<span class="operator">::</span>revertSettings()
+  {
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>pluginListBox<span class="operator">-</span><span class="operator">&gt;</span>setCurrentText(m_currentSettings<span class="operator">.</span>pluginName);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>interfaceListBox<span class="operator">-</span><span class="operator">&gt;</span>setCurrentText(m_currentSettings<span class="operator">.</span>deviceInterfaceName);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>useConfigurationBox<span class="operator">-</span><span class="operator">&gt;</span>setChecked(m_currentSettings<span class="operator">.</span>useConfigurationEnabled);
+
+      <span class="type"><a href="../qtcore/qstring.html">QString</a></span> value <span class="operator">=</span> configurationValue(<span class="type"><a href="qcanbusdevice.html">QCanBusDevice</a></span><span class="operator">::</span>LoopbackKey);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>loopbackBox<span class="operator">-</span><span class="operator">&gt;</span>setCurrentText(value);
+
+      value <span class="operator">=</span> configurationValue(<span class="type"><a href="qcanbusdevice.html">QCanBusDevice</a></span><span class="operator">::</span>ReceiveOwnKey);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>receiveOwnBox<span class="operator">-</span><span class="operator">&gt;</span>setCurrentText(value);
+
+      value <span class="operator">=</span> configurationValue(<span class="type"><a href="qcanbusdevice.html">QCanBusDevice</a></span><span class="operator">::</span>ErrorFilterKey);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>errorFilterEdit<span class="operator">-</span><span class="operator">&gt;</span>setText(value);
+
+      value <span class="operator">=</span> configurationValue(<span class="type"><a href="qcanbusdevice.html">QCanBusDevice</a></span><span class="operator">::</span>BitRateKey);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>bitrateBox<span class="operator">-</span><span class="operator">&gt;</span>setCurrentText(value);
+
+      value <span class="operator">=</span> configurationValue(<span class="type"><a href="qcanbusdevice.html">QCanBusDevice</a></span><span class="operator">::</span>CanFdKey);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>canFdBox<span class="operator">-</span><span class="operator">&gt;</span>setCurrentText(value);
+
+      value <span class="operator">=</span> configurationValue(<span class="type"><a href="qcanbusdevice.html">QCanBusDevice</a></span><span class="operator">::</span>DataBitRateKey);
+      m_ui<span class="operator">-</span><span class="operator">&gt;</span>dataBitrateBox<span class="operator">-</span><span class="operator">&gt;</span>setCurrentText(value);
+  }
+
+  <span class="type">void</span> ConnectDialog<span class="operator">::</span>updateSettings()
+  {
+      m_currentSettings<span class="operator">.</span>pluginName <span class="operator">=</span> m_ui<span class="operator">-</span><span class="operator">&gt;</span>pluginListBox<span class="operator">-</span><span class="operator">&gt;</span>currentText();
+      m_currentSettings<span class="operator">.</span>deviceInterfaceName <span class="operator">=</span> m_ui<span class="operator">-</span><span class="operator">&gt;</span>interfaceListBox<span class="operator">-</span><span class="operator">&gt;</span>currentText();
+      m_currentSettings<span class="operator">.</span>useConfigurationEnabled <span class="operator">=</span> m_ui<span class="operator">-</span><span class="operator">&gt;</span>useConfigurationBox<span class="operator">-</span><span class="operator">&gt;</span>isChecked();
+
+      <span class="keyword">if</span> (m_currentSettings<span class="operator">.</span>useConfigurationEnabled) {
+          m_currentSettings<span class="operator">.</span>configurations<span class="operator">.</span>clear();
+          <span class="comment">// process LoopBack</span>
+          <span class="keyword">if</span> (m_ui<span class="operator">-</span><span class="operator">&gt;</span>loopbackBox<span class="operator">-</span><span class="operator">&gt;</span>currentIndex() <span class="operator">!</span><span class="operator">=</span> <span class="number">0</span>) {
+              ConfigurationItem item;
+              item<span class="operator">.</span>first <span class="operator">=</span> <span class="type"><a href="qcanbusdevice.html">QCanBusDevice</a></span><span class="operator">::</span>LoopbackKey;
+              item<span class="operator">.</span>second <span class="operator">=</span> m_ui<span class="operator">-</span><span class="operator">&gt;</span>loopbackBox<span class="operator">-</span><span class="operator">&gt;</span>currentData();
+              m_currentSettings<span class="operator">.</span>configurations<span class="operator">.</span>append(item);
+          }
+
+          <span class="comment">// process ReceiveOwnKey</span>
+          <span class="keyword">if</span> (m_ui<span class="operator">-</span><span class="operator">&gt;</span>receiveOwnBox<span class="operator">-</span><span class="operator">&gt;</span>currentIndex() <span class="operator">!</span><span class="operator">=</span> <span class="number">0</span>) {
+              ConfigurationItem item;
+              item<span class="operator">.</span>first <span class="operator">=</span> <span class="type"><a href="qcanbusdevice.html">QCanBusDevice</a></span><span class="operator">::</span>ReceiveOwnKey;
+              item<span class="operator">.</span>second <span class="operator">=</span> m_ui<span class="operator">-</span><span class="operator">&gt;</span>receiveOwnBox<span class="operator">-</span><span class="operator">&gt;</span>currentData();
+              m_currentSettings<span class="operator">.</span>configurations<span class="operator">.</span>append(item);
+          }
+
+          <span class="comment">// process error filter</span>
+          <span class="keyword">if</span> (<span class="operator">!</span>m_ui<span class="operator">-</span><span class="operator">&gt;</span>errorFilterEdit<span class="operator">-</span><span class="operator">&gt;</span>text()<span class="operator">.</span>isEmpty()) {
+              <span class="type"><a href="../qtcore/qstring.html">QString</a></span> value <span class="operator">=</span> m_ui<span class="operator">-</span><span class="operator">&gt;</span>errorFilterEdit<span class="operator">-</span><span class="operator">&gt;</span>text();
+              bool ok <span class="operator">=</span> <span class="keyword">false</span>;
+              <span class="type">int</span> dec <span class="operator">=</span> value<span class="operator">.</span>toInt(<span class="operator">&amp;</span>ok);
+              <span class="keyword">if</span> (ok) {
+                  ConfigurationItem item;
+                  item<span class="operator">.</span>first <span class="operator">=</span> <span class="type"><a href="qcanbusdevice.html">QCanBusDevice</a></span><span class="operator">::</span>ErrorFilterKey;
+                  item<span class="operator">.</span>second <span class="operator">=</span> <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span><span class="operator">::</span>fromValue(<span class="type"><a href="qcanbusframe.html">QCanBusFrame</a></span><span class="operator">::</span>FrameErrors(dec));
+                  m_currentSettings<span class="operator">.</span>configurations<span class="operator">.</span>append(item);
+              }
+          }
+
+          <span class="comment">// process raw filter list</span>
+          <span class="keyword">if</span> (<span class="operator">!</span>m_ui<span class="operator">-</span><span class="operator">&gt;</span>rawFilterEdit<span class="operator">-</span><span class="operator">&gt;</span>text()<span class="operator">.</span>isEmpty()) {
+              <span class="comment">//TODO current ui not sfficient to reflect this param</span>
+          }
+
+          <span class="comment">// process bitrate</span>
+          <span class="keyword">const</span> <span class="type">int</span> bitrate <span class="operator">=</span> m_ui<span class="operator">-</span><span class="operator">&gt;</span>bitrateBox<span class="operator">-</span><span class="operator">&gt;</span>bitRate();
+          <span class="keyword">if</span> (bitrate <span class="operator">&gt;</span> <span class="number">0</span>) {
+              <span class="keyword">const</span> ConfigurationItem item(<span class="type"><a href="qcanbusdevice.html">QCanBusDevice</a></span><span class="operator">::</span>BitRateKey<span class="operator">,</span> <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span>(bitrate));
+              m_currentSettings<span class="operator">.</span>configurations<span class="operator">.</span>append(item);
+          }
+
+          <span class="comment">// process CAN FD setting</span>
+          ConfigurationItem fdItem;
+          fdItem<span class="operator">.</span>first <span class="operator">=</span> <span class="type"><a href="qcanbusdevice.html">QCanBusDevice</a></span><span class="operator">::</span>CanFdKey;
+          fdItem<span class="operator">.</span>second <span class="operator">=</span> m_ui<span class="operator">-</span><span class="operator">&gt;</span>canFdBox<span class="operator">-</span><span class="operator">&gt;</span>currentData();
+          m_currentSettings<span class="operator">.</span>configurations<span class="operator">.</span>append(fdItem);
+
+          <span class="comment">// process data bitrate</span>
+          <span class="keyword">const</span> <span class="type">int</span> dataBitrate <span class="operator">=</span> m_ui<span class="operator">-</span><span class="operator">&gt;</span>dataBitrateBox<span class="operator">-</span><span class="operator">&gt;</span>bitRate();
+          <span class="keyword">if</span> (dataBitrate <span class="operator">&gt;</span> <span class="number">0</span>) {
+              <span class="keyword">const</span> ConfigurationItem item(<span class="type"><a href="qcanbusdevice.html">QCanBusDevice</a></span><span class="operator">::</span>DataBitRateKey<span class="operator">,</span> <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span>(dataBitrate));
+              m_currentSettings<span class="operator">.</span>configurations<span class="operator">.</span>append(item);
+          }
+      }
+  }
+
+</pre>
+</div>
+<!-- @@@can/connectdialog.cpp -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

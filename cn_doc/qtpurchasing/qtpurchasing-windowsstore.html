@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- windowsstore.qdoc -->
+  <title>Registering Products in Windows Store | Qt Purchasing 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtpurchasing-index.html">Qt Purchasing</a></td><td >Registering Products in Windows Store</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt 5.12.0 Reference Documentation</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#using-the-simulation-mode">Using the Simulation Mode</a></li>
+<li class="level1"><a href="#using-the-windows-store">Using the Windows Store</a></li>
+<li class="level2"><a href="#adding-in-app-products-to-windows-store">Adding In-App Products to Windows Store</a></li>
+<li class="level2"><a href="#publishing-your-application">Publishing Your Application</a></li>
+<li class="level1"><a href="#platform-notes">Platform Notes</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Registering Products in Windows Store</h1>
+<span class="subtitle"></span>
+<!-- $$$qtpurchasing-windowsstore.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>This guide provides a brief introduction to registering an application and its in-app products on Windows Store.</p>
+<p>In-App purchasing for <a href="../qtdoc/supported-platforms.html#winrt">WinRT</a> differentiates between two modes:</p>
+<ul>
+<li><code>Simulation</code>: All Windows Store interaction is emulated and controlled via a configuration XML file. A project containing this file will fail certification and cannot be published.</li>
+<li><code>Store interaction</code>: The application talks to the Windows Store directly without any layer in between. This binary can neither be side-loaded nor tested locally. The user has to retrieve the app through the Windows Store itself.</li>
+</ul>
+<a name="using-the-simulation-mode"></a>
+<h2 id="using-the-simulation-mode">Using the Simulation Mode</h2>
+<p>During the development process it is not allowed to interact with the Windows Store directly. Instead, an XML file has to be used, describing the available in-app products and the license of the application itself. Go to the <a href="https://msdn.microsoft.com/en-us/library/windows/apps/windows.applicationmodel.store.currentappsimulator.aspx">MSDN documentation</a> for more information on the format of this XML file.</p>
+<p>This XML file has to be added to the root directory of the application resources and named <b>QtStoreSimulation.xml</b>.</p>
+<a name="using-the-windows-store"></a>
+<h2 id="using-the-windows-store">Using the Windows Store</h2>
+<a name="adding-in-app-products-to-windows-store"></a>
+<h3 >Adding In-App Products to Windows Store</h3>
+<p>In order to access in-app products from your application, you must register them to the Windows Store. Go the the <b>IAPs</b> page and click <b>Create a new IAP</b>.</p>
+<p>Fill out the following information about your product:</p>
+<ul>
+<li><b>Product type</b> – Choose either <b>Consumable</b> or <b>Durable</b> depending on the type of the in-app product. Note that you will <b>not</b> be able to change this later.</li>
+<li><b>Product ID</b> – An identifier that is used to access the product from your code.</li>
+<li><b>Pricing and Availability</b> – Price for the product and the geographical areas where it is available.</li>
+</ul>
+<p>In-app products will be available once you have published the application.</p>
+<a name="publishing-your-application"></a>
+<h3 >Publishing Your Application</h3>
+<p>In order to test in-app purchases in your application, you first have to publish it. To limit the users who can access the application before it is ready for production, it can be published as either alpha or beta.</p>
+<a name="platform-notes"></a>
+<h2 id="platform-notes">Platform Notes</h2>
+<p>The Windows Store provides a way to set an application into trial mode and buy the application itself via in-app purchases. To reflect this functionality, the <a href="../qtdoc/supported-platforms.html#winrt">WinRT</a> backend uses the <b>app</b> keyword as an <a href="qinappproduct.html#identifier-prop">identifier</a>. If a product query for <b>app</b> succeeds, the current license is valid. The <a href="qinappproduct.html#title-prop">product name</a> itself will provide information on the license state of the app and can have the following content:</p>
+<ul>
+<li><code>Trial period</code>: The app is in trial mode and can be purchased.</li>
+<li><code>Fully licensed</code>: The app has been bought.</li>
+</ul>
+<p>If a product query for <b>app</b> fails, then either the trial has expired or the license is invalid. Your app should check for this product and react accordingly, for instance by showing a dialog to the user.</p>
+</div>
+<!-- @@@qtpurchasing-windowsstore.html -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

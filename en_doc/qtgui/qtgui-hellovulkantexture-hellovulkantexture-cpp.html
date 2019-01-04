@@ -1,0 +1,899 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>hellovulkantexture.cpp Example File | Qt GUI 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtgui-index.html">Qt GUI</a></td><td ><a href="qtgui-hellovulkantexture-example.html">Hello Vulkan Texture Vulkan Example</a></td><td >hellovulkantexture.cpp Example File</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt 5.12.0 Reference Documentation</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">hellovulkantexture.cpp Example File</h1>
+<span class="subtitle">hellovulkantexture/hellovulkantexture.cpp</span>
+<!-- $$$hellovulkantexture/hellovulkantexture.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp">
+
+  <span class="comment">/****************************************************************************
+  **
+  ** Copyright (C) 2017 The Qt Company Ltd.
+  ** Contact: https://www.qt.io/licensing/
+  **
+  ** This file is part of the examples of the Qt Toolkit.
+  **
+  ** $QT_BEGIN_LICENSE:BSD$
+  ** Commercial License Usage
+  ** Licensees holding valid commercial Qt licenses may use this file in
+  ** accordance with the commercial license agreement provided with the
+  ** Software or, alternatively, in accordance with the terms contained in
+  ** a written agreement between you and The Qt Company. For licensing terms
+  ** and conditions see https://www.qt.io/terms-conditions. For further
+  ** information use the contact form at https://www.qt.io/contact-us.
+  **
+  ** BSD License Usage
+  ** Alternatively, you may use this file under the terms of the BSD license
+  ** as follows:
+  **
+  ** &quot;Redistribution and use in source and binary forms, with or without
+  ** modification, are permitted provided that the following conditions are
+  ** met:
+  **   * Redistributions of source code must retain the above copyright
+  **     notice, this list of conditions and the following disclaimer.
+  **   * Redistributions in binary form must reproduce the above copyright
+  **     notice, this list of conditions and the following disclaimer in
+  **     the documentation and/or other materials provided with the
+  **     distribution.
+  **   * Neither the name of The Qt Company Ltd nor the names of its
+  **     contributors may be used to endorse or promote products derived
+  **     from this software without specific prior written permission.
+  **
+  **
+  ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+  **
+  ** $QT_END_LICENSE$
+  **
+  ****************************************************************************/</span>
+
+  <span class="preprocessor">#include &quot;hellovulkantexture.h&quot;</span>
+  <span class="preprocessor">#include &lt;QVulkanFunctions&gt;</span>
+  <span class="preprocessor">#include &lt;QCoreApplication&gt;</span>
+  <span class="preprocessor">#include &lt;QFile&gt;</span>
+
+  <span class="comment">// Use a triangle strip to get a quad.</span>
+  <span class="comment">//</span>
+  <span class="comment">// Note that the vertex data and the projection matrix assume OpenGL. With</span>
+  <span class="comment">// Vulkan Y is negated in clip space and the near/far plane is at 0/1 instead</span>
+  <span class="comment">// of -1/1. These will be corrected for by an extra transformation when</span>
+  <span class="comment">// calculating the modelview-projection matrix.</span>
+  <span class="keyword">static</span> <span class="type">float</span> vertexData<span class="operator">[</span><span class="operator">]</span> <span class="operator">=</span> { <span class="comment">// Y up, front = CW</span>
+      <span class="comment">// x, y, z, u, v</span>
+      <span class="operator">-</span><span class="number">1</span><span class="operator">,</span> <span class="operator">-</span><span class="number">1</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span>
+      <span class="operator">-</span><span class="number">1</span><span class="operator">,</span>  <span class="number">1</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span>
+       <span class="number">1</span><span class="operator">,</span> <span class="operator">-</span><span class="number">1</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span>
+       <span class="number">1</span><span class="operator">,</span>  <span class="number">1</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span>
+  };
+
+  <span class="keyword">static</span> <span class="keyword">const</span> <span class="type">int</span> UNIFORM_DATA_SIZE <span class="operator">=</span> <span class="number">16</span> <span class="operator">*</span> <span class="keyword">sizeof</span>(<span class="type">float</span>);
+
+  <span class="keyword">static</span> <span class="keyword">inline</span> VkDeviceSize aligned(VkDeviceSize v<span class="operator">,</span> VkDeviceSize byteAlign)
+  {
+      <span class="keyword">return</span> (v <span class="operator">+</span> byteAlign <span class="operator">-</span> <span class="number">1</span>) <span class="operator">&amp;</span> <span class="operator">~</span>(byteAlign <span class="operator">-</span> <span class="number">1</span>);
+  }
+
+  <span class="type"><a href="qvulkanwindowrenderer.html">QVulkanWindowRenderer</a></span> <span class="operator">*</span>VulkanWindow<span class="operator">::</span>createRenderer()
+  {
+      <span class="keyword">return</span> <span class="keyword">new</span> VulkanRenderer(<span class="keyword">this</span>);
+  }
+
+  VulkanRenderer<span class="operator">::</span>VulkanRenderer(<span class="type"><a href="qvulkanwindow.html">QVulkanWindow</a></span> <span class="operator">*</span>w)
+      : m_window(w)
+  {
+  }
+
+  VkShaderModule VulkanRenderer<span class="operator">::</span>createShader(<span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> <span class="operator">&amp;</span>name)
+  {
+      <span class="type"><a href="../qtcore/qfile.html">QFile</a></span> file(name);
+      <span class="keyword">if</span> (<span class="operator">!</span>file<span class="operator">.</span>open(<span class="type"><a href="../qtcore/qiodevice.html">QIODevice</a></span><span class="operator">::</span>ReadOnly)) {
+          <a href="../qtcore/qtglobal.html#qWarning">qWarning</a>(<span class="string">&quot;Failed to read shader %s&quot;</span><span class="operator">,</span> <a href="../qtcore/qtglobal.html#qPrintable">qPrintable</a>(name));
+          <span class="keyword">return</span> VK_NULL_HANDLE;
+      }
+      <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> blob <span class="operator">=</span> file<span class="operator">.</span>readAll();
+      file<span class="operator">.</span>close();
+
+      VkShaderModuleCreateInfo shaderInfo;
+      memset(<span class="operator">&amp;</span>shaderInfo<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">sizeof</span>(shaderInfo));
+      shaderInfo<span class="operator">.</span>sType <span class="operator">=</span> VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO;
+      shaderInfo<span class="operator">.</span>codeSize <span class="operator">=</span> blob<span class="operator">.</span>size();
+      shaderInfo<span class="operator">.</span>pCode <span class="operator">=</span> <span class="keyword">reinterpret_cast</span><span class="operator">&lt;</span><span class="keyword">const</span> uint32_t <span class="operator">*</span><span class="operator">&gt;</span>(blob<span class="operator">.</span>constData());
+      VkShaderModule shaderModule;
+      VkResult err <span class="operator">=</span> m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkCreateShaderModule(m_window<span class="operator">-</span><span class="operator">&gt;</span>device()<span class="operator">,</span> <span class="operator">&amp;</span>shaderInfo<span class="operator">,</span> nullptr<span class="operator">,</span> <span class="operator">&amp;</span>shaderModule);
+      <span class="keyword">if</span> (err <span class="operator">!</span><span class="operator">=</span> VK_SUCCESS) {
+          <a href="../qtcore/qtglobal.html#qWarning">qWarning</a>(<span class="string">&quot;Failed to create shader module: %d&quot;</span><span class="operator">,</span> err);
+          <span class="keyword">return</span> VK_NULL_HANDLE;
+      }
+
+      <span class="keyword">return</span> shaderModule;
+  }
+
+  bool VulkanRenderer<span class="operator">::</span>createTexture(<span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> <span class="operator">&amp;</span>name)
+  {
+      <span class="type"><a href="qimage.html">QImage</a></span> img(name);
+      <span class="keyword">if</span> (img<span class="operator">.</span>isNull()) {
+          <a href="../qtcore/qtglobal.html#qWarning">qWarning</a>(<span class="string">&quot;Failed to load image %s&quot;</span><span class="operator">,</span> <a href="../qtcore/qtglobal.html#qPrintable">qPrintable</a>(name));
+          <span class="keyword">return</span> <span class="keyword">false</span>;
+      }
+
+      <span class="comment">// Convert to byte ordered RGBA8. Use premultiplied alpha, see pColorBlendState in the pipeline.</span>
+      img <span class="operator">=</span> img<span class="operator">.</span>convertToFormat(<span class="type"><a href="qimage.html">QImage</a></span><span class="operator">::</span>Format_RGBA8888_Premultiplied);
+
+      <span class="type">QVulkanFunctions</span> <span class="operator">*</span>f <span class="operator">=</span> m_window<span class="operator">-</span><span class="operator">&gt;</span>vulkanInstance()<span class="operator">-</span><span class="operator">&gt;</span>functions();
+      VkDevice dev <span class="operator">=</span> m_window<span class="operator">-</span><span class="operator">&gt;</span>device();
+
+      <span class="keyword">const</span> bool srgb <span class="operator">=</span> <span class="type"><a href="../qtcore/qcoreapplication.html">QCoreApplication</a></span><span class="operator">::</span>arguments()<span class="operator">.</span>contains(<span class="type"><a href="../qtcore/qstring.html#QStringLiteral">QStringLiteral</a></span>(<span class="string">&quot;--srgb&quot;</span>));
+      <span class="keyword">if</span> (srgb)
+          <a href="../qtcore/qtglobal.html#qDebug">qDebug</a>(<span class="string">&quot;sRGB swapchain was requested, making texture sRGB too&quot;</span>);
+
+      m_texFormat <span class="operator">=</span> srgb <span class="operator">?</span> VK_FORMAT_R8G8B8A8_SRGB : VK_FORMAT_R8G8B8A8_UNORM;
+
+      <span class="comment">// Now we can either map and copy the image data directly, or have to go</span>
+      <span class="comment">// through a staging buffer to copy and convert into the internal optimal</span>
+      <span class="comment">// tiling format.</span>
+      VkFormatProperties props;
+      f<span class="operator">-</span><span class="operator">&gt;</span>vkGetPhysicalDeviceFormatProperties(m_window<span class="operator">-</span><span class="operator">&gt;</span>physicalDevice()<span class="operator">,</span> m_texFormat<span class="operator">,</span> <span class="operator">&amp;</span>props);
+      <span class="keyword">const</span> bool canSampleLinear <span class="operator">=</span> (props<span class="operator">.</span>linearTilingFeatures <span class="operator">&amp;</span> VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT);
+      <span class="keyword">const</span> bool canSampleOptimal <span class="operator">=</span> (props<span class="operator">.</span>optimalTilingFeatures <span class="operator">&amp;</span> VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT);
+      <span class="keyword">if</span> (<span class="operator">!</span>canSampleLinear <span class="operator">&amp;</span><span class="operator">&amp;</span> <span class="operator">!</span>canSampleOptimal) {
+          <a href="../qtcore/qtglobal.html#qWarning">qWarning</a>(<span class="string">&quot;Neither linear nor optimal image sampling is supported for RGBA8&quot;</span>);
+          <span class="keyword">return</span> <span class="keyword">false</span>;
+      }
+
+      <span class="keyword">static</span> bool alwaysStage <span class="operator">=</span> <a href="../qtcore/qtglobal.html#qEnvironmentVariableIntValue">qEnvironmentVariableIntValue</a>(<span class="string">&quot;QT_VK_FORCE_STAGE_TEX&quot;</span>);
+
+      <span class="keyword">if</span> (canSampleLinear <span class="operator">&amp;</span><span class="operator">&amp;</span> <span class="operator">!</span>alwaysStage) {
+          <span class="keyword">if</span> (<span class="operator">!</span>createTextureImage(img<span class="operator">.</span>size()<span class="operator">,</span> <span class="operator">&amp;</span>m_texImage<span class="operator">,</span> <span class="operator">&amp;</span>m_texMem<span class="operator">,</span>
+                                  VK_IMAGE_TILING_LINEAR<span class="operator">,</span> VK_IMAGE_USAGE_SAMPLED_BIT<span class="operator">,</span>
+                                  m_window<span class="operator">-</span><span class="operator">&gt;</span>hostVisibleMemoryIndex()))
+              <span class="keyword">return</span> <span class="keyword">false</span>;
+
+          <span class="keyword">if</span> (<span class="operator">!</span>writeLinearImage(img<span class="operator">,</span> m_texImage<span class="operator">,</span> m_texMem))
+              <span class="keyword">return</span> <span class="keyword">false</span>;
+
+          m_texLayoutPending <span class="operator">=</span> <span class="keyword">true</span>;
+      } <span class="keyword">else</span> {
+          <span class="keyword">if</span> (<span class="operator">!</span>createTextureImage(img<span class="operator">.</span>size()<span class="operator">,</span> <span class="operator">&amp;</span>m_texStaging<span class="operator">,</span> <span class="operator">&amp;</span>m_texStagingMem<span class="operator">,</span>
+                                  VK_IMAGE_TILING_LINEAR<span class="operator">,</span> VK_IMAGE_USAGE_TRANSFER_SRC_BIT<span class="operator">,</span>
+                                  m_window<span class="operator">-</span><span class="operator">&gt;</span>hostVisibleMemoryIndex()))
+              <span class="keyword">return</span> <span class="keyword">false</span>;
+
+          <span class="keyword">if</span> (<span class="operator">!</span>createTextureImage(img<span class="operator">.</span>size()<span class="operator">,</span> <span class="operator">&amp;</span>m_texImage<span class="operator">,</span> <span class="operator">&amp;</span>m_texMem<span class="operator">,</span>
+                                  VK_IMAGE_TILING_OPTIMAL<span class="operator">,</span> VK_IMAGE_USAGE_TRANSFER_DST_BIT <span class="operator">|</span> VK_IMAGE_USAGE_SAMPLED_BIT<span class="operator">,</span>
+                                  m_window<span class="operator">-</span><span class="operator">&gt;</span>deviceLocalMemoryIndex()))
+              <span class="keyword">return</span> <span class="keyword">false</span>;
+
+          <span class="keyword">if</span> (<span class="operator">!</span>writeLinearImage(img<span class="operator">,</span> m_texStaging<span class="operator">,</span> m_texStagingMem))
+              <span class="keyword">return</span> <span class="keyword">false</span>;
+
+          m_texStagingPending <span class="operator">=</span> <span class="keyword">true</span>;
+      }
+
+      VkImageViewCreateInfo viewInfo;
+      memset(<span class="operator">&amp;</span>viewInfo<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">sizeof</span>(viewInfo));
+      viewInfo<span class="operator">.</span>sType <span class="operator">=</span> VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO;
+      viewInfo<span class="operator">.</span>image <span class="operator">=</span> m_texImage;
+      viewInfo<span class="operator">.</span>viewType <span class="operator">=</span> VK_IMAGE_VIEW_TYPE_2D;
+      viewInfo<span class="operator">.</span>format <span class="operator">=</span> m_texFormat;
+      viewInfo<span class="operator">.</span>components<span class="operator">.</span>r <span class="operator">=</span> VK_COMPONENT_SWIZZLE_R;
+      viewInfo<span class="operator">.</span>components<span class="operator">.</span>g <span class="operator">=</span> VK_COMPONENT_SWIZZLE_G;
+      viewInfo<span class="operator">.</span>components<span class="operator">.</span>b <span class="operator">=</span> VK_COMPONENT_SWIZZLE_B;
+      viewInfo<span class="operator">.</span>components<span class="operator">.</span>a <span class="operator">=</span> VK_COMPONENT_SWIZZLE_A;
+      viewInfo<span class="operator">.</span>subresourceRange<span class="operator">.</span>aspectMask <span class="operator">=</span> VK_IMAGE_ASPECT_COLOR_BIT;
+      viewInfo<span class="operator">.</span>subresourceRange<span class="operator">.</span>levelCount <span class="operator">=</span> viewInfo<span class="operator">.</span>subresourceRange<span class="operator">.</span>layerCount <span class="operator">=</span> <span class="number">1</span>;
+
+      VkResult err <span class="operator">=</span> m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkCreateImageView(dev<span class="operator">,</span> <span class="operator">&amp;</span>viewInfo<span class="operator">,</span> nullptr<span class="operator">,</span> <span class="operator">&amp;</span>m_texView);
+      <span class="keyword">if</span> (err <span class="operator">!</span><span class="operator">=</span> VK_SUCCESS) {
+          <a href="../qtcore/qtglobal.html#qWarning">qWarning</a>(<span class="string">&quot;Failed to create image view for texture: %d&quot;</span><span class="operator">,</span> err);
+          <span class="keyword">return</span> <span class="keyword">false</span>;
+      }
+
+      m_texSize <span class="operator">=</span> img<span class="operator">.</span>size();
+
+      <span class="keyword">return</span> <span class="keyword">true</span>;
+  }
+
+  bool VulkanRenderer<span class="operator">::</span>createTextureImage(<span class="keyword">const</span> <span class="type"><a href="../qtcore/qsize.html">QSize</a></span> <span class="operator">&amp;</span>size<span class="operator">,</span> VkImage <span class="operator">*</span>image<span class="operator">,</span> VkDeviceMemory <span class="operator">*</span>mem<span class="operator">,</span>
+                                          VkImageTiling tiling<span class="operator">,</span> VkImageUsageFlags usage<span class="operator">,</span> uint32_t memIndex)
+  {
+      VkDevice dev <span class="operator">=</span> m_window<span class="operator">-</span><span class="operator">&gt;</span>device();
+
+      VkImageCreateInfo imageInfo;
+      memset(<span class="operator">&amp;</span>imageInfo<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">sizeof</span>(imageInfo));
+      imageInfo<span class="operator">.</span>sType <span class="operator">=</span> VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO;
+      imageInfo<span class="operator">.</span>imageType <span class="operator">=</span> VK_IMAGE_TYPE_2D;
+      imageInfo<span class="operator">.</span>format <span class="operator">=</span> m_texFormat;
+      imageInfo<span class="operator">.</span>extent<span class="operator">.</span>width <span class="operator">=</span> size<span class="operator">.</span>width();
+      imageInfo<span class="operator">.</span>extent<span class="operator">.</span>height <span class="operator">=</span> size<span class="operator">.</span>height();
+      imageInfo<span class="operator">.</span>extent<span class="operator">.</span>depth <span class="operator">=</span> <span class="number">1</span>;
+      imageInfo<span class="operator">.</span>mipLevels <span class="operator">=</span> <span class="number">1</span>;
+      imageInfo<span class="operator">.</span>arrayLayers <span class="operator">=</span> <span class="number">1</span>;
+      imageInfo<span class="operator">.</span>samples <span class="operator">=</span> VK_SAMPLE_COUNT_1_BIT;
+      imageInfo<span class="operator">.</span>tiling <span class="operator">=</span> tiling;
+      imageInfo<span class="operator">.</span>usage <span class="operator">=</span> usage;
+      imageInfo<span class="operator">.</span>initialLayout <span class="operator">=</span> VK_IMAGE_LAYOUT_PREINITIALIZED;
+
+      VkResult err <span class="operator">=</span> m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkCreateImage(dev<span class="operator">,</span> <span class="operator">&amp;</span>imageInfo<span class="operator">,</span> nullptr<span class="operator">,</span> image);
+      <span class="keyword">if</span> (err <span class="operator">!</span><span class="operator">=</span> VK_SUCCESS) {
+          <a href="../qtcore/qtglobal.html#qWarning">qWarning</a>(<span class="string">&quot;Failed to create linear image for texture: %d&quot;</span><span class="operator">,</span> err);
+          <span class="keyword">return</span> <span class="keyword">false</span>;
+      }
+
+      VkMemoryRequirements memReq;
+      m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkGetImageMemoryRequirements(dev<span class="operator">,</span> <span class="operator">*</span>image<span class="operator">,</span> <span class="operator">&amp;</span>memReq);
+
+      <span class="keyword">if</span> (<span class="operator">!</span>(memReq<span class="operator">.</span>memoryTypeBits <span class="operator">&amp;</span> (<span class="number">1</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> memIndex))) {
+          VkPhysicalDeviceMemoryProperties physDevMemProps;
+          m_window<span class="operator">-</span><span class="operator">&gt;</span>vulkanInstance()<span class="operator">-</span><span class="operator">&gt;</span>functions()<span class="operator">-</span><span class="operator">&gt;</span>vkGetPhysicalDeviceMemoryProperties(m_window<span class="operator">-</span><span class="operator">&gt;</span>physicalDevice()<span class="operator">,</span> <span class="operator">&amp;</span>physDevMemProps);
+          <span class="keyword">for</span> (uint32_t i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> physDevMemProps<span class="operator">.</span>memoryTypeCount; <span class="operator">+</span><span class="operator">+</span>i) {
+              <span class="keyword">if</span> (<span class="operator">!</span>(memReq<span class="operator">.</span>memoryTypeBits <span class="operator">&amp;</span> (<span class="number">1</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> i)))
+                  <span class="keyword">continue</span>;
+              memIndex <span class="operator">=</span> i;
+          }
+      }
+
+      VkMemoryAllocateInfo allocInfo <span class="operator">=</span> {
+          VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO<span class="operator">,</span>
+          nullptr<span class="operator">,</span>
+          memReq<span class="operator">.</span>size<span class="operator">,</span>
+          memIndex
+      };
+      <a href="../qtcore/qtglobal.html#qDebug">qDebug</a>(<span class="string">&quot;allocating %u bytes for texture image&quot;</span><span class="operator">,</span> uint32_t(memReq<span class="operator">.</span>size));
+
+      err <span class="operator">=</span> m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkAllocateMemory(dev<span class="operator">,</span> <span class="operator">&amp;</span>allocInfo<span class="operator">,</span> nullptr<span class="operator">,</span> mem);
+      <span class="keyword">if</span> (err <span class="operator">!</span><span class="operator">=</span> VK_SUCCESS) {
+          <a href="../qtcore/qtglobal.html#qWarning">qWarning</a>(<span class="string">&quot;Failed to allocate memory for linear image: %d&quot;</span><span class="operator">,</span> err);
+          <span class="keyword">return</span> <span class="keyword">false</span>;
+      }
+
+      err <span class="operator">=</span> m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkBindImageMemory(dev<span class="operator">,</span> <span class="operator">*</span>image<span class="operator">,</span> <span class="operator">*</span>mem<span class="operator">,</span> <span class="number">0</span>);
+      <span class="keyword">if</span> (err <span class="operator">!</span><span class="operator">=</span> VK_SUCCESS) {
+          <a href="../qtcore/qtglobal.html#qWarning">qWarning</a>(<span class="string">&quot;Failed to bind linear image memory: %d&quot;</span><span class="operator">,</span> err);
+          <span class="keyword">return</span> <span class="keyword">false</span>;
+      }
+
+      <span class="keyword">return</span> <span class="keyword">true</span>;
+  }
+
+  bool VulkanRenderer<span class="operator">::</span>writeLinearImage(<span class="keyword">const</span> <span class="type"><a href="qimage.html">QImage</a></span> <span class="operator">&amp;</span>img<span class="operator">,</span> VkImage image<span class="operator">,</span> VkDeviceMemory memory)
+  {
+      VkDevice dev <span class="operator">=</span> m_window<span class="operator">-</span><span class="operator">&gt;</span>device();
+
+      VkImageSubresource subres <span class="operator">=</span> {
+          VK_IMAGE_ASPECT_COLOR_BIT<span class="operator">,</span>
+          <span class="number">0</span><span class="operator">,</span> <span class="comment">// mip level</span>
+          <span class="number">0</span>
+      };
+      VkSubresourceLayout layout;
+      m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkGetImageSubresourceLayout(dev<span class="operator">,</span> image<span class="operator">,</span> <span class="operator">&amp;</span>subres<span class="operator">,</span> <span class="operator">&amp;</span>layout);
+
+      <span class="type"><a href="../qtcore/qtglobal.html#uchar-typedef">uchar</a></span> <span class="operator">*</span>p;
+      VkResult err <span class="operator">=</span> m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkMapMemory(dev<span class="operator">,</span> memory<span class="operator">,</span> layout<span class="operator">.</span>offset<span class="operator">,</span> layout<span class="operator">.</span>size<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">reinterpret_cast</span><span class="operator">&lt;</span><span class="type">void</span> <span class="operator">*</span><span class="operator">*</span><span class="operator">&gt;</span>(<span class="operator">&amp;</span>p));
+      <span class="keyword">if</span> (err <span class="operator">!</span><span class="operator">=</span> VK_SUCCESS) {
+          <a href="../qtcore/qtglobal.html#qWarning">qWarning</a>(<span class="string">&quot;Failed to map memory for linear image: %d&quot;</span><span class="operator">,</span> err);
+          <span class="keyword">return</span> <span class="keyword">false</span>;
+      }
+
+      <span class="keyword">for</span> (<span class="type">int</span> y <span class="operator">=</span> <span class="number">0</span>; y <span class="operator">&lt;</span> img<span class="operator">.</span>height(); <span class="operator">+</span><span class="operator">+</span>y) {
+          <span class="keyword">const</span> <span class="type"><a href="../qtcore/qtglobal.html#uchar-typedef">uchar</a></span> <span class="operator">*</span>line <span class="operator">=</span> img<span class="operator">.</span>constScanLine(y);
+          memcpy(p<span class="operator">,</span> line<span class="operator">,</span> img<span class="operator">.</span>width() <span class="operator">*</span> <span class="number">4</span>);
+          p <span class="operator">+</span><span class="operator">=</span> layout<span class="operator">.</span>rowPitch;
+      }
+
+      m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkUnmapMemory(dev<span class="operator">,</span> memory);
+      <span class="keyword">return</span> <span class="keyword">true</span>;
+  }
+
+  <span class="type">void</span> VulkanRenderer<span class="operator">::</span>ensureTexture()
+  {
+      <span class="keyword">if</span> (<span class="operator">!</span>m_texLayoutPending <span class="operator">&amp;</span><span class="operator">&amp;</span> <span class="operator">!</span>m_texStagingPending)
+          <span class="keyword">return</span>;
+
+      Q_ASSERT(m_texLayoutPending <span class="operator">!</span><span class="operator">=</span> m_texStagingPending);
+      VkCommandBuffer cb <span class="operator">=</span> m_window<span class="operator">-</span><span class="operator">&gt;</span>currentCommandBuffer();
+
+      VkImageMemoryBarrier barrier;
+      memset(<span class="operator">&amp;</span>barrier<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">sizeof</span>(barrier));
+      barrier<span class="operator">.</span>sType <span class="operator">=</span> VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER;
+      barrier<span class="operator">.</span>subresourceRange<span class="operator">.</span>aspectMask <span class="operator">=</span> VK_IMAGE_ASPECT_COLOR_BIT;
+      barrier<span class="operator">.</span>subresourceRange<span class="operator">.</span>levelCount <span class="operator">=</span> barrier<span class="operator">.</span>subresourceRange<span class="operator">.</span>layerCount <span class="operator">=</span> <span class="number">1</span>;
+
+      <span class="keyword">if</span> (m_texLayoutPending) {
+          m_texLayoutPending <span class="operator">=</span> <span class="keyword">false</span>;
+
+          barrier<span class="operator">.</span>oldLayout <span class="operator">=</span> VK_IMAGE_LAYOUT_PREINITIALIZED;
+          barrier<span class="operator">.</span>newLayout <span class="operator">=</span> VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+          barrier<span class="operator">.</span>srcAccessMask <span class="operator">=</span> VK_ACCESS_HOST_WRITE_BIT;
+          barrier<span class="operator">.</span>dstAccessMask <span class="operator">=</span> VK_ACCESS_SHADER_READ_BIT;
+          barrier<span class="operator">.</span>image <span class="operator">=</span> m_texImage;
+
+          m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkCmdPipelineBarrier(cb<span class="operator">,</span>
+                                  VK_PIPELINE_STAGE_HOST_BIT<span class="operator">,</span>
+                                  VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT<span class="operator">,</span>
+                                  <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> nullptr<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> nullptr<span class="operator">,</span>
+                                  <span class="number">1</span><span class="operator">,</span> <span class="operator">&amp;</span>barrier);
+      } <span class="keyword">else</span> {
+          m_texStagingPending <span class="operator">=</span> <span class="keyword">false</span>;
+
+          barrier<span class="operator">.</span>oldLayout <span class="operator">=</span> VK_IMAGE_LAYOUT_PREINITIALIZED;
+          barrier<span class="operator">.</span>newLayout <span class="operator">=</span> VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL;
+          barrier<span class="operator">.</span>srcAccessMask <span class="operator">=</span> VK_ACCESS_HOST_WRITE_BIT;
+          barrier<span class="operator">.</span>dstAccessMask <span class="operator">=</span> VK_ACCESS_TRANSFER_READ_BIT;
+          barrier<span class="operator">.</span>image <span class="operator">=</span> m_texStaging;
+          m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkCmdPipelineBarrier(cb<span class="operator">,</span>
+                                  VK_PIPELINE_STAGE_HOST_BIT<span class="operator">,</span>
+                                  VK_PIPELINE_STAGE_TRANSFER_BIT<span class="operator">,</span>
+                                  <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> nullptr<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> nullptr<span class="operator">,</span>
+                                  <span class="number">1</span><span class="operator">,</span> <span class="operator">&amp;</span>barrier);
+
+          barrier<span class="operator">.</span>oldLayout <span class="operator">=</span> VK_IMAGE_LAYOUT_PREINITIALIZED;
+          barrier<span class="operator">.</span>newLayout <span class="operator">=</span> VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL;
+          barrier<span class="operator">.</span>srcAccessMask <span class="operator">=</span> <span class="number">0</span>;
+          barrier<span class="operator">.</span>dstAccessMask <span class="operator">=</span> VK_ACCESS_TRANSFER_WRITE_BIT;
+          barrier<span class="operator">.</span>image <span class="operator">=</span> m_texImage;
+          m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkCmdPipelineBarrier(cb<span class="operator">,</span>
+                                  VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT<span class="operator">,</span>
+                                  VK_PIPELINE_STAGE_TRANSFER_BIT<span class="operator">,</span>
+                                  <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> nullptr<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> nullptr<span class="operator">,</span>
+                                  <span class="number">1</span><span class="operator">,</span> <span class="operator">&amp;</span>barrier);
+
+          VkImageCopy copyInfo;
+          memset(<span class="operator">&amp;</span>copyInfo<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">sizeof</span>(copyInfo));
+          copyInfo<span class="operator">.</span>srcSubresource<span class="operator">.</span>aspectMask <span class="operator">=</span> VK_IMAGE_ASPECT_COLOR_BIT;
+          copyInfo<span class="operator">.</span>srcSubresource<span class="operator">.</span>layerCount <span class="operator">=</span> <span class="number">1</span>;
+          copyInfo<span class="operator">.</span>dstSubresource<span class="operator">.</span>aspectMask <span class="operator">=</span> VK_IMAGE_ASPECT_COLOR_BIT;
+          copyInfo<span class="operator">.</span>dstSubresource<span class="operator">.</span>layerCount <span class="operator">=</span> <span class="number">1</span>;
+          copyInfo<span class="operator">.</span>extent<span class="operator">.</span>width <span class="operator">=</span> m_texSize<span class="operator">.</span>width();
+          copyInfo<span class="operator">.</span>extent<span class="operator">.</span>height <span class="operator">=</span> m_texSize<span class="operator">.</span>height();
+          copyInfo<span class="operator">.</span>extent<span class="operator">.</span>depth <span class="operator">=</span> <span class="number">1</span>;
+          m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkCmdCopyImage(cb<span class="operator">,</span> m_texStaging<span class="operator">,</span> VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL<span class="operator">,</span>
+                            m_texImage<span class="operator">,</span> VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="operator">&amp;</span>copyInfo);
+
+          barrier<span class="operator">.</span>oldLayout <span class="operator">=</span> VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL;
+          barrier<span class="operator">.</span>newLayout <span class="operator">=</span> VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+          barrier<span class="operator">.</span>srcAccessMask <span class="operator">=</span> VK_ACCESS_TRANSFER_WRITE_BIT;
+          barrier<span class="operator">.</span>dstAccessMask <span class="operator">=</span> VK_ACCESS_SHADER_READ_BIT;
+          barrier<span class="operator">.</span>image <span class="operator">=</span> m_texImage;
+          m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkCmdPipelineBarrier(cb<span class="operator">,</span>
+                                  VK_PIPELINE_STAGE_TRANSFER_BIT<span class="operator">,</span>
+                                  VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT<span class="operator">,</span>
+                                  <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> nullptr<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> nullptr<span class="operator">,</span>
+                                  <span class="number">1</span><span class="operator">,</span> <span class="operator">&amp;</span>barrier);
+      }
+  }
+
+  <span class="type">void</span> VulkanRenderer<span class="operator">::</span>initResources()
+  {
+      <a href="../qtcore/qtglobal.html#qDebug">qDebug</a>(<span class="string">&quot;initResources&quot;</span>);
+
+      VkDevice dev <span class="operator">=</span> m_window<span class="operator">-</span><span class="operator">&gt;</span>device();
+      m_devFuncs <span class="operator">=</span> m_window<span class="operator">-</span><span class="operator">&gt;</span>vulkanInstance()<span class="operator">-</span><span class="operator">&gt;</span>deviceFunctions(dev);
+
+      <span class="comment">// The setup is similar to hellovulkantriangle. The difference is the</span>
+      <span class="comment">// presence of a second vertex attribute (texcoord), a sampler, and that we</span>
+      <span class="comment">// need blending.</span>
+
+      <span class="keyword">const</span> <span class="type">int</span> concurrentFrameCount <span class="operator">=</span> m_window<span class="operator">-</span><span class="operator">&gt;</span>concurrentFrameCount();
+      <span class="keyword">const</span> VkPhysicalDeviceLimits <span class="operator">*</span>pdevLimits <span class="operator">=</span> <span class="operator">&amp;</span>m_window<span class="operator">-</span><span class="operator">&gt;</span>physicalDeviceProperties()<span class="operator">-</span><span class="operator">&gt;</span>limits;
+      <span class="keyword">const</span> VkDeviceSize uniAlign <span class="operator">=</span> pdevLimits<span class="operator">-</span><span class="operator">&gt;</span>minUniformBufferOffsetAlignment;
+      <a href="../qtcore/qtglobal.html#qDebug">qDebug</a>(<span class="string">&quot;uniform buffer offset alignment is %u&quot;</span><span class="operator">,</span> (<span class="type"><a href="../qtcore/qtglobal.html#uint-typedef">uint</a></span>) uniAlign);
+      VkBufferCreateInfo bufInfo;
+      memset(<span class="operator">&amp;</span>bufInfo<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">sizeof</span>(bufInfo));
+      bufInfo<span class="operator">.</span>sType <span class="operator">=</span> VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO;
+      <span class="comment">// Our internal layout is vertex, uniform, uniform, ... with each uniform buffer start offset aligned to uniAlign.</span>
+      <span class="keyword">const</span> VkDeviceSize vertexAllocSize <span class="operator">=</span> aligned(<span class="keyword">sizeof</span>(vertexData)<span class="operator">,</span> uniAlign);
+      <span class="keyword">const</span> VkDeviceSize uniformAllocSize <span class="operator">=</span> aligned(UNIFORM_DATA_SIZE<span class="operator">,</span> uniAlign);
+      bufInfo<span class="operator">.</span>size <span class="operator">=</span> vertexAllocSize <span class="operator">+</span> concurrentFrameCount <span class="operator">*</span> uniformAllocSize;
+      bufInfo<span class="operator">.</span>usage <span class="operator">=</span> VK_BUFFER_USAGE_VERTEX_BUFFER_BIT <span class="operator">|</span> VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT;
+
+      VkResult err <span class="operator">=</span> m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkCreateBuffer(dev<span class="operator">,</span> <span class="operator">&amp;</span>bufInfo<span class="operator">,</span> nullptr<span class="operator">,</span> <span class="operator">&amp;</span>m_buf);
+      <span class="keyword">if</span> (err <span class="operator">!</span><span class="operator">=</span> VK_SUCCESS)
+          <a href="../qtcore/qtglobal.html#qFatal">qFatal</a>(<span class="string">&quot;Failed to create buffer: %d&quot;</span><span class="operator">,</span> err);
+
+      VkMemoryRequirements memReq;
+      m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkGetBufferMemoryRequirements(dev<span class="operator">,</span> m_buf<span class="operator">,</span> <span class="operator">&amp;</span>memReq);
+
+      VkMemoryAllocateInfo memAllocInfo <span class="operator">=</span> {
+          VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO<span class="operator">,</span>
+          nullptr<span class="operator">,</span>
+          memReq<span class="operator">.</span>size<span class="operator">,</span>
+          m_window<span class="operator">-</span><span class="operator">&gt;</span>hostVisibleMemoryIndex()
+      };
+
+      err <span class="operator">=</span> m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkAllocateMemory(dev<span class="operator">,</span> <span class="operator">&amp;</span>memAllocInfo<span class="operator">,</span> nullptr<span class="operator">,</span> <span class="operator">&amp;</span>m_bufMem);
+      <span class="keyword">if</span> (err <span class="operator">!</span><span class="operator">=</span> VK_SUCCESS)
+          <a href="../qtcore/qtglobal.html#qFatal">qFatal</a>(<span class="string">&quot;Failed to allocate memory: %d&quot;</span><span class="operator">,</span> err);
+
+      err <span class="operator">=</span> m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkBindBufferMemory(dev<span class="operator">,</span> m_buf<span class="operator">,</span> m_bufMem<span class="operator">,</span> <span class="number">0</span>);
+      <span class="keyword">if</span> (err <span class="operator">!</span><span class="operator">=</span> VK_SUCCESS)
+          <a href="../qtcore/qtglobal.html#qFatal">qFatal</a>(<span class="string">&quot;Failed to bind buffer memory: %d&quot;</span><span class="operator">,</span> err);
+
+      <span class="type"><a href="../qtcore/qtglobal.html#quint8-typedef">quint8</a></span> <span class="operator">*</span>p;
+      err <span class="operator">=</span> m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkMapMemory(dev<span class="operator">,</span> m_bufMem<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> memReq<span class="operator">.</span>size<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">reinterpret_cast</span><span class="operator">&lt;</span><span class="type">void</span> <span class="operator">*</span><span class="operator">*</span><span class="operator">&gt;</span>(<span class="operator">&amp;</span>p));
+      <span class="keyword">if</span> (err <span class="operator">!</span><span class="operator">=</span> VK_SUCCESS)
+          <a href="../qtcore/qtglobal.html#qFatal">qFatal</a>(<span class="string">&quot;Failed to map memory: %d&quot;</span><span class="operator">,</span> err);
+      memcpy(p<span class="operator">,</span> vertexData<span class="operator">,</span> <span class="keyword">sizeof</span>(vertexData));
+      QMatrix4x4 ident;
+      memset(m_uniformBufInfo<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">sizeof</span>(m_uniformBufInfo));
+      <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> concurrentFrameCount; <span class="operator">+</span><span class="operator">+</span>i) {
+          <span class="keyword">const</span> VkDeviceSize offset <span class="operator">=</span> vertexAllocSize <span class="operator">+</span> i <span class="operator">*</span> uniformAllocSize;
+          memcpy(p <span class="operator">+</span> offset<span class="operator">,</span> ident<span class="operator">.</span>constData()<span class="operator">,</span> <span class="number">16</span> <span class="operator">*</span> <span class="keyword">sizeof</span>(<span class="type">float</span>));
+          m_uniformBufInfo<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>buffer <span class="operator">=</span> m_buf;
+          m_uniformBufInfo<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>offset <span class="operator">=</span> offset;
+          m_uniformBufInfo<span class="operator">[</span>i<span class="operator">]</span><span class="operator">.</span>range <span class="operator">=</span> uniformAllocSize;
+      }
+      m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkUnmapMemory(dev<span class="operator">,</span> m_bufMem);
+
+      VkVertexInputBindingDescription vertexBindingDesc <span class="operator">=</span> {
+          <span class="number">0</span><span class="operator">,</span> <span class="comment">// binding</span>
+          <span class="number">5</span> <span class="operator">*</span> <span class="keyword">sizeof</span>(<span class="type">float</span>)<span class="operator">,</span>
+          VK_VERTEX_INPUT_RATE_VERTEX
+      };
+      VkVertexInputAttributeDescription vertexAttrDesc<span class="operator">[</span><span class="operator">]</span> <span class="operator">=</span> {
+          { <span class="comment">// position</span>
+              <span class="number">0</span><span class="operator">,</span> <span class="comment">// location</span>
+              <span class="number">0</span><span class="operator">,</span> <span class="comment">// binding</span>
+              VK_FORMAT_R32G32B32_SFLOAT<span class="operator">,</span>
+              <span class="number">0</span>
+          }<span class="operator">,</span>
+          { <span class="comment">// texcoord</span>
+              <span class="number">1</span><span class="operator">,</span>
+              <span class="number">0</span><span class="operator">,</span>
+              VK_FORMAT_R32G32_SFLOAT<span class="operator">,</span>
+              <span class="number">3</span> <span class="operator">*</span> <span class="keyword">sizeof</span>(<span class="type">float</span>)
+          }
+      };
+
+      VkPipelineVertexInputStateCreateInfo vertexInputInfo;
+      vertexInputInfo<span class="operator">.</span>sType <span class="operator">=</span> VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO;
+      vertexInputInfo<span class="operator">.</span>pNext <span class="operator">=</span> nullptr;
+      vertexInputInfo<span class="operator">.</span>flags <span class="operator">=</span> <span class="number">0</span>;
+      vertexInputInfo<span class="operator">.</span>vertexBindingDescriptionCount <span class="operator">=</span> <span class="number">1</span>;
+      vertexInputInfo<span class="operator">.</span>pVertexBindingDescriptions <span class="operator">=</span> <span class="operator">&amp;</span>vertexBindingDesc;
+      vertexInputInfo<span class="operator">.</span>vertexAttributeDescriptionCount <span class="operator">=</span> <span class="number">2</span>;
+      vertexInputInfo<span class="operator">.</span>pVertexAttributeDescriptions <span class="operator">=</span> vertexAttrDesc;
+
+      <span class="comment">// Sampler.</span>
+      VkSamplerCreateInfo samplerInfo;
+      memset(<span class="operator">&amp;</span>samplerInfo<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">sizeof</span>(samplerInfo));
+      samplerInfo<span class="operator">.</span>sType <span class="operator">=</span> VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO;
+      samplerInfo<span class="operator">.</span>magFilter <span class="operator">=</span> VK_FILTER_NEAREST;
+      samplerInfo<span class="operator">.</span>minFilter <span class="operator">=</span> VK_FILTER_NEAREST;
+      samplerInfo<span class="operator">.</span>addressModeU <span class="operator">=</span> VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE;
+      samplerInfo<span class="operator">.</span>addressModeV <span class="operator">=</span> VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE;
+      samplerInfo<span class="operator">.</span>addressModeW <span class="operator">=</span> VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE;
+      samplerInfo<span class="operator">.</span>maxAnisotropy <span class="operator">=</span> <span class="number">1.0f</span>;
+      err <span class="operator">=</span> m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkCreateSampler(dev<span class="operator">,</span> <span class="operator">&amp;</span>samplerInfo<span class="operator">,</span> nullptr<span class="operator">,</span> <span class="operator">&amp;</span>m_sampler);
+      <span class="keyword">if</span> (err <span class="operator">!</span><span class="operator">=</span> VK_SUCCESS)
+          <a href="../qtcore/qtglobal.html#qFatal">qFatal</a>(<span class="string">&quot;Failed to create sampler: %d&quot;</span><span class="operator">,</span> err);
+
+      <span class="comment">// Texture.</span>
+      <span class="keyword">if</span> (<span class="operator">!</span>createTexture(<span class="type"><a href="../qtcore/qstring.html#QStringLiteral">QStringLiteral</a></span>(<span class="string">&quot;:/qt256.png&quot;</span>)))
+          <a href="../qtcore/qtglobal.html#qFatal">qFatal</a>(<span class="string">&quot;Failed to create texture&quot;</span>);
+
+      <span class="comment">// Set up descriptor set and its layout.</span>
+      VkDescriptorPoolSize descPoolSizes<span class="operator">[</span><span class="number">2</span><span class="operator">]</span> <span class="operator">=</span> {
+          { VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER<span class="operator">,</span> uint32_t(concurrentFrameCount) }<span class="operator">,</span>
+          { VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER<span class="operator">,</span> uint32_t(concurrentFrameCount) }
+      };
+      VkDescriptorPoolCreateInfo descPoolInfo;
+      memset(<span class="operator">&amp;</span>descPoolInfo<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">sizeof</span>(descPoolInfo));
+      descPoolInfo<span class="operator">.</span>sType <span class="operator">=</span> VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO;
+      descPoolInfo<span class="operator">.</span>maxSets <span class="operator">=</span> concurrentFrameCount;
+      descPoolInfo<span class="operator">.</span>poolSizeCount <span class="operator">=</span> <span class="number">2</span>;
+      descPoolInfo<span class="operator">.</span>pPoolSizes <span class="operator">=</span> descPoolSizes;
+      err <span class="operator">=</span> m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkCreateDescriptorPool(dev<span class="operator">,</span> <span class="operator">&amp;</span>descPoolInfo<span class="operator">,</span> nullptr<span class="operator">,</span> <span class="operator">&amp;</span>m_descPool);
+      <span class="keyword">if</span> (err <span class="operator">!</span><span class="operator">=</span> VK_SUCCESS)
+          <a href="../qtcore/qtglobal.html#qFatal">qFatal</a>(<span class="string">&quot;Failed to create descriptor pool: %d&quot;</span><span class="operator">,</span> err);
+
+      VkDescriptorSetLayoutBinding layoutBinding<span class="operator">[</span><span class="number">2</span><span class="operator">]</span> <span class="operator">=</span>
+      {
+          {
+              <span class="number">0</span><span class="operator">,</span> <span class="comment">// binding</span>
+              VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER<span class="operator">,</span>
+              <span class="number">1</span><span class="operator">,</span> <span class="comment">// descriptorCount</span>
+              VK_SHADER_STAGE_VERTEX_BIT<span class="operator">,</span>
+              nullptr
+          }<span class="operator">,</span>
+          {
+              <span class="number">1</span><span class="operator">,</span> <span class="comment">// binding</span>
+              VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER<span class="operator">,</span>
+              <span class="number">1</span><span class="operator">,</span> <span class="comment">// descriptorCount</span>
+              VK_SHADER_STAGE_FRAGMENT_BIT<span class="operator">,</span>
+              nullptr
+          }
+      };
+      VkDescriptorSetLayoutCreateInfo descLayoutInfo <span class="operator">=</span> {
+          VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO<span class="operator">,</span>
+          nullptr<span class="operator">,</span>
+          <span class="number">0</span><span class="operator">,</span>
+          <span class="number">2</span><span class="operator">,</span> <span class="comment">// bindingCount</span>
+          layoutBinding
+      };
+      err <span class="operator">=</span> m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkCreateDescriptorSetLayout(dev<span class="operator">,</span> <span class="operator">&amp;</span>descLayoutInfo<span class="operator">,</span> nullptr<span class="operator">,</span> <span class="operator">&amp;</span>m_descSetLayout);
+      <span class="keyword">if</span> (err <span class="operator">!</span><span class="operator">=</span> VK_SUCCESS)
+          <a href="../qtcore/qtglobal.html#qFatal">qFatal</a>(<span class="string">&quot;Failed to create descriptor set layout: %d&quot;</span><span class="operator">,</span> err);
+
+      <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> concurrentFrameCount; <span class="operator">+</span><span class="operator">+</span>i) {
+          VkDescriptorSetAllocateInfo descSetAllocInfo <span class="operator">=</span> {
+              VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO<span class="operator">,</span>
+              nullptr<span class="operator">,</span>
+              m_descPool<span class="operator">,</span>
+              <span class="number">1</span><span class="operator">,</span>
+              <span class="operator">&amp;</span>m_descSetLayout
+          };
+          err <span class="operator">=</span> m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkAllocateDescriptorSets(dev<span class="operator">,</span> <span class="operator">&amp;</span>descSetAllocInfo<span class="operator">,</span> <span class="operator">&amp;</span>m_descSet<span class="operator">[</span>i<span class="operator">]</span>);
+          <span class="keyword">if</span> (err <span class="operator">!</span><span class="operator">=</span> VK_SUCCESS)
+              <a href="../qtcore/qtglobal.html#qFatal">qFatal</a>(<span class="string">&quot;Failed to allocate descriptor set: %d&quot;</span><span class="operator">,</span> err);
+
+          VkWriteDescriptorSet descWrite<span class="operator">[</span><span class="number">2</span><span class="operator">]</span>;
+          memset(descWrite<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">sizeof</span>(descWrite));
+          descWrite<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>sType <span class="operator">=</span> VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+          descWrite<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>dstSet <span class="operator">=</span> m_descSet<span class="operator">[</span>i<span class="operator">]</span>;
+          descWrite<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>dstBinding <span class="operator">=</span> <span class="number">0</span>;
+          descWrite<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>descriptorCount <span class="operator">=</span> <span class="number">1</span>;
+          descWrite<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>descriptorType <span class="operator">=</span> VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+          descWrite<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>pBufferInfo <span class="operator">=</span> <span class="operator">&amp;</span>m_uniformBufInfo<span class="operator">[</span>i<span class="operator">]</span>;
+
+          VkDescriptorImageInfo descImageInfo <span class="operator">=</span> {
+              m_sampler<span class="operator">,</span>
+              m_texView<span class="operator">,</span>
+              VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL
+          };
+
+          descWrite<span class="operator">[</span><span class="number">1</span><span class="operator">]</span><span class="operator">.</span>sType <span class="operator">=</span> VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+          descWrite<span class="operator">[</span><span class="number">1</span><span class="operator">]</span><span class="operator">.</span>dstSet <span class="operator">=</span> m_descSet<span class="operator">[</span>i<span class="operator">]</span>;
+          descWrite<span class="operator">[</span><span class="number">1</span><span class="operator">]</span><span class="operator">.</span>dstBinding <span class="operator">=</span> <span class="number">1</span>;
+          descWrite<span class="operator">[</span><span class="number">1</span><span class="operator">]</span><span class="operator">.</span>descriptorCount <span class="operator">=</span> <span class="number">1</span>;
+          descWrite<span class="operator">[</span><span class="number">1</span><span class="operator">]</span><span class="operator">.</span>descriptorType <span class="operator">=</span> VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+          descWrite<span class="operator">[</span><span class="number">1</span><span class="operator">]</span><span class="operator">.</span>pImageInfo <span class="operator">=</span> <span class="operator">&amp;</span>descImageInfo;
+
+          m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkUpdateDescriptorSets(dev<span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> descWrite<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> nullptr);
+      }
+
+      <span class="comment">// Pipeline cache</span>
+      VkPipelineCacheCreateInfo pipelineCacheInfo;
+      memset(<span class="operator">&amp;</span>pipelineCacheInfo<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">sizeof</span>(pipelineCacheInfo));
+      pipelineCacheInfo<span class="operator">.</span>sType <span class="operator">=</span> VK_STRUCTURE_TYPE_PIPELINE_CACHE_CREATE_INFO;
+      err <span class="operator">=</span> m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkCreatePipelineCache(dev<span class="operator">,</span> <span class="operator">&amp;</span>pipelineCacheInfo<span class="operator">,</span> nullptr<span class="operator">,</span> <span class="operator">&amp;</span>m_pipelineCache);
+      <span class="keyword">if</span> (err <span class="operator">!</span><span class="operator">=</span> VK_SUCCESS)
+          <a href="../qtcore/qtglobal.html#qFatal">qFatal</a>(<span class="string">&quot;Failed to create pipeline cache: %d&quot;</span><span class="operator">,</span> err);
+
+      <span class="comment">// Pipeline layout</span>
+      VkPipelineLayoutCreateInfo pipelineLayoutInfo;
+      memset(<span class="operator">&amp;</span>pipelineLayoutInfo<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">sizeof</span>(pipelineLayoutInfo));
+      pipelineLayoutInfo<span class="operator">.</span>sType <span class="operator">=</span> VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO;
+      pipelineLayoutInfo<span class="operator">.</span>setLayoutCount <span class="operator">=</span> <span class="number">1</span>;
+      pipelineLayoutInfo<span class="operator">.</span>pSetLayouts <span class="operator">=</span> <span class="operator">&amp;</span>m_descSetLayout;
+      err <span class="operator">=</span> m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkCreatePipelineLayout(dev<span class="operator">,</span> <span class="operator">&amp;</span>pipelineLayoutInfo<span class="operator">,</span> nullptr<span class="operator">,</span> <span class="operator">&amp;</span>m_pipelineLayout);
+      <span class="keyword">if</span> (err <span class="operator">!</span><span class="operator">=</span> VK_SUCCESS)
+          <a href="../qtcore/qtglobal.html#qFatal">qFatal</a>(<span class="string">&quot;Failed to create pipeline layout: %d&quot;</span><span class="operator">,</span> err);
+
+      <span class="comment">// Shaders</span>
+      VkShaderModule vertShaderModule <span class="operator">=</span> createShader(<span class="type"><a href="../qtcore/qstring.html#QStringLiteral">QStringLiteral</a></span>(<span class="string">&quot;:/texture_vert.spv&quot;</span>));
+      VkShaderModule fragShaderModule <span class="operator">=</span> createShader(<span class="type"><a href="../qtcore/qstring.html#QStringLiteral">QStringLiteral</a></span>(<span class="string">&quot;:/texture_frag.spv&quot;</span>));
+
+      <span class="comment">// Graphics pipeline</span>
+      VkGraphicsPipelineCreateInfo pipelineInfo;
+      memset(<span class="operator">&amp;</span>pipelineInfo<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">sizeof</span>(pipelineInfo));
+      pipelineInfo<span class="operator">.</span>sType <span class="operator">=</span> VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO;
+
+      VkPipelineShaderStageCreateInfo shaderStages<span class="operator">[</span><span class="number">2</span><span class="operator">]</span> <span class="operator">=</span> {
+          {
+              VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO<span class="operator">,</span>
+              nullptr<span class="operator">,</span>
+              <span class="number">0</span><span class="operator">,</span>
+              VK_SHADER_STAGE_VERTEX_BIT<span class="operator">,</span>
+              vertShaderModule<span class="operator">,</span>
+              <span class="string">&quot;main&quot;</span><span class="operator">,</span>
+              nullptr
+          }<span class="operator">,</span>
+          {
+              VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO<span class="operator">,</span>
+              nullptr<span class="operator">,</span>
+              <span class="number">0</span><span class="operator">,</span>
+              VK_SHADER_STAGE_FRAGMENT_BIT<span class="operator">,</span>
+              fragShaderModule<span class="operator">,</span>
+              <span class="string">&quot;main&quot;</span><span class="operator">,</span>
+              nullptr
+          }
+      };
+      pipelineInfo<span class="operator">.</span>stageCount <span class="operator">=</span> <span class="number">2</span>;
+      pipelineInfo<span class="operator">.</span>pStages <span class="operator">=</span> shaderStages;
+
+      pipelineInfo<span class="operator">.</span>pVertexInputState <span class="operator">=</span> <span class="operator">&amp;</span>vertexInputInfo;
+
+      VkPipelineInputAssemblyStateCreateInfo ia;
+      memset(<span class="operator">&amp;</span>ia<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">sizeof</span>(ia));
+      ia<span class="operator">.</span>sType <span class="operator">=</span> VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO;
+      ia<span class="operator">.</span>topology <span class="operator">=</span> VK_PRIMITIVE_TOPOLOGY_TRIANGLE_STRIP;
+      pipelineInfo<span class="operator">.</span>pInputAssemblyState <span class="operator">=</span> <span class="operator">&amp;</span>ia;
+
+      <span class="comment">// The viewport and scissor will be set dynamically via vkCmdSetViewport/Scissor.</span>
+      <span class="comment">// This way the pipeline does not need to be touched when resizing the window.</span>
+      VkPipelineViewportStateCreateInfo vp;
+      memset(<span class="operator">&amp;</span>vp<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">sizeof</span>(vp));
+      vp<span class="operator">.</span>sType <span class="operator">=</span> VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_STATE_CREATE_INFO;
+      vp<span class="operator">.</span>viewportCount <span class="operator">=</span> <span class="number">1</span>;
+      vp<span class="operator">.</span>scissorCount <span class="operator">=</span> <span class="number">1</span>;
+      pipelineInfo<span class="operator">.</span>pViewportState <span class="operator">=</span> <span class="operator">&amp;</span>vp;
+
+      VkPipelineRasterizationStateCreateInfo rs;
+      memset(<span class="operator">&amp;</span>rs<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">sizeof</span>(rs));
+      rs<span class="operator">.</span>sType <span class="operator">=</span> VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO;
+      rs<span class="operator">.</span>polygonMode <span class="operator">=</span> VK_POLYGON_MODE_FILL;
+      rs<span class="operator">.</span>cullMode <span class="operator">=</span> VK_CULL_MODE_BACK_BIT;
+      rs<span class="operator">.</span>frontFace <span class="operator">=</span> VK_FRONT_FACE_CLOCKWISE;
+      rs<span class="operator">.</span>lineWidth <span class="operator">=</span> <span class="number">1.0f</span>;
+      pipelineInfo<span class="operator">.</span>pRasterizationState <span class="operator">=</span> <span class="operator">&amp;</span>rs;
+
+      VkPipelineMultisampleStateCreateInfo ms;
+      memset(<span class="operator">&amp;</span>ms<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">sizeof</span>(ms));
+      ms<span class="operator">.</span>sType <span class="operator">=</span> VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO;
+      ms<span class="operator">.</span>rasterizationSamples <span class="operator">=</span> VK_SAMPLE_COUNT_1_BIT;
+      pipelineInfo<span class="operator">.</span>pMultisampleState <span class="operator">=</span> <span class="operator">&amp;</span>ms;
+
+      VkPipelineDepthStencilStateCreateInfo ds;
+      memset(<span class="operator">&amp;</span>ds<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">sizeof</span>(ds));
+      ds<span class="operator">.</span>sType <span class="operator">=</span> VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO;
+      ds<span class="operator">.</span>depthTestEnable <span class="operator">=</span> VK_TRUE;
+      ds<span class="operator">.</span>depthWriteEnable <span class="operator">=</span> VK_TRUE;
+      ds<span class="operator">.</span>depthCompareOp <span class="operator">=</span> VK_COMPARE_OP_LESS_OR_EQUAL;
+      pipelineInfo<span class="operator">.</span>pDepthStencilState <span class="operator">=</span> <span class="operator">&amp;</span>ds;
+
+      VkPipelineColorBlendStateCreateInfo cb;
+      memset(<span class="operator">&amp;</span>cb<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">sizeof</span>(cb));
+      cb<span class="operator">.</span>sType <span class="operator">=</span> VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO;
+      <span class="comment">// assume pre-multiplied alpha, blend, write out all of rgba</span>
+      VkPipelineColorBlendAttachmentState att;
+      memset(<span class="operator">&amp;</span>att<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">sizeof</span>(att));
+      att<span class="operator">.</span>colorWriteMask <span class="operator">=</span> <span class="number">0xF</span>;
+      att<span class="operator">.</span>blendEnable <span class="operator">=</span> VK_TRUE;
+      att<span class="operator">.</span>srcColorBlendFactor <span class="operator">=</span> VK_BLEND_FACTOR_ONE;
+      att<span class="operator">.</span>dstColorBlendFactor <span class="operator">=</span> VK_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA;
+      att<span class="operator">.</span>colorBlendOp <span class="operator">=</span> VK_BLEND_OP_ADD;
+      att<span class="operator">.</span>srcAlphaBlendFactor <span class="operator">=</span> VK_BLEND_FACTOR_ONE;
+      att<span class="operator">.</span>dstAlphaBlendFactor <span class="operator">=</span> VK_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA;
+      att<span class="operator">.</span>alphaBlendOp <span class="operator">=</span> VK_BLEND_OP_ADD;
+      cb<span class="operator">.</span>attachmentCount <span class="operator">=</span> <span class="number">1</span>;
+      cb<span class="operator">.</span>pAttachments <span class="operator">=</span> <span class="operator">&amp;</span>att;
+      pipelineInfo<span class="operator">.</span>pColorBlendState <span class="operator">=</span> <span class="operator">&amp;</span>cb;
+
+      VkDynamicState dynEnable<span class="operator">[</span><span class="operator">]</span> <span class="operator">=</span> { VK_DYNAMIC_STATE_VIEWPORT<span class="operator">,</span> VK_DYNAMIC_STATE_SCISSOR };
+      VkPipelineDynamicStateCreateInfo dyn;
+      memset(<span class="operator">&amp;</span>dyn<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">sizeof</span>(dyn));
+      dyn<span class="operator">.</span>sType <span class="operator">=</span> VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO;
+      dyn<span class="operator">.</span>dynamicStateCount <span class="operator">=</span> <span class="keyword">sizeof</span>(dynEnable) <span class="operator">/</span> <span class="keyword">sizeof</span>(VkDynamicState);
+      dyn<span class="operator">.</span>pDynamicStates <span class="operator">=</span> dynEnable;
+      pipelineInfo<span class="operator">.</span>pDynamicState <span class="operator">=</span> <span class="operator">&amp;</span>dyn;
+
+      pipelineInfo<span class="operator">.</span>layout <span class="operator">=</span> m_pipelineLayout;
+      pipelineInfo<span class="operator">.</span>renderPass <span class="operator">=</span> m_window<span class="operator">-</span><span class="operator">&gt;</span>defaultRenderPass();
+
+      err <span class="operator">=</span> m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkCreateGraphicsPipelines(dev<span class="operator">,</span> m_pipelineCache<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="operator">&amp;</span>pipelineInfo<span class="operator">,</span> nullptr<span class="operator">,</span> <span class="operator">&amp;</span>m_pipeline);
+      <span class="keyword">if</span> (err <span class="operator">!</span><span class="operator">=</span> VK_SUCCESS)
+          <a href="../qtcore/qtglobal.html#qFatal">qFatal</a>(<span class="string">&quot;Failed to create graphics pipeline: %d&quot;</span><span class="operator">,</span> err);
+
+      <span class="keyword">if</span> (vertShaderModule)
+          m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkDestroyShaderModule(dev<span class="operator">,</span> vertShaderModule<span class="operator">,</span> nullptr);
+      <span class="keyword">if</span> (fragShaderModule)
+          m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkDestroyShaderModule(dev<span class="operator">,</span> fragShaderModule<span class="operator">,</span> nullptr);
+  }
+
+  <span class="type">void</span> VulkanRenderer<span class="operator">::</span>initSwapChainResources()
+  {
+      <a href="../qtcore/qtglobal.html#qDebug">qDebug</a>(<span class="string">&quot;initSwapChainResources&quot;</span>);
+
+      <span class="comment">// Projection matrix</span>
+      m_proj <span class="operator">=</span> m_window<span class="operator">-</span><span class="operator">&gt;</span>clipCorrectionMatrix(); <span class="comment">// adjust for Vulkan-OpenGL clip space differences</span>
+      <span class="keyword">const</span> <span class="type"><a href="../qtcore/qsize.html">QSize</a></span> sz <span class="operator">=</span> m_window<span class="operator">-</span><span class="operator">&gt;</span>swapChainImageSize();
+      m_proj<span class="operator">.</span>perspective(<span class="number">45.0f</span><span class="operator">,</span> sz<span class="operator">.</span>width() <span class="operator">/</span> (<span class="type">float</span>) sz<span class="operator">.</span>height()<span class="operator">,</span> <span class="number">0.01f</span><span class="operator">,</span> <span class="number">100.0f</span>);
+      m_proj<span class="operator">.</span>translate(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">4</span>);
+  }
+
+  <span class="type">void</span> VulkanRenderer<span class="operator">::</span>releaseSwapChainResources()
+  {
+      <a href="../qtcore/qtglobal.html#qDebug">qDebug</a>(<span class="string">&quot;releaseSwapChainResources&quot;</span>);
+  }
+
+  <span class="type">void</span> VulkanRenderer<span class="operator">::</span>releaseResources()
+  {
+      <a href="../qtcore/qtglobal.html#qDebug">qDebug</a>(<span class="string">&quot;releaseResources&quot;</span>);
+
+      VkDevice dev <span class="operator">=</span> m_window<span class="operator">-</span><span class="operator">&gt;</span>device();
+
+      <span class="keyword">if</span> (m_sampler) {
+          m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkDestroySampler(dev<span class="operator">,</span> m_sampler<span class="operator">,</span> nullptr);
+          m_sampler <span class="operator">=</span> VK_NULL_HANDLE;
+      }
+
+      <span class="keyword">if</span> (m_texStaging) {
+          m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkDestroyImage(dev<span class="operator">,</span> m_texStaging<span class="operator">,</span> nullptr);
+          m_texStaging <span class="operator">=</span> VK_NULL_HANDLE;
+      }
+
+      <span class="keyword">if</span> (m_texStagingMem) {
+          m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkFreeMemory(dev<span class="operator">,</span> m_texStagingMem<span class="operator">,</span> nullptr);
+          m_texStagingMem <span class="operator">=</span> VK_NULL_HANDLE;
+      }
+
+      <span class="keyword">if</span> (m_texView) {
+          m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkDestroyImageView(dev<span class="operator">,</span> m_texView<span class="operator">,</span> nullptr);
+          m_texView <span class="operator">=</span> VK_NULL_HANDLE;
+      }
+
+      <span class="keyword">if</span> (m_texImage) {
+          m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkDestroyImage(dev<span class="operator">,</span> m_texImage<span class="operator">,</span> nullptr);
+          m_texImage <span class="operator">=</span> VK_NULL_HANDLE;
+      }
+
+      <span class="keyword">if</span> (m_texMem) {
+          m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkFreeMemory(dev<span class="operator">,</span> m_texMem<span class="operator">,</span> nullptr);
+          m_texMem <span class="operator">=</span> VK_NULL_HANDLE;
+      }
+
+      <span class="keyword">if</span> (m_pipeline) {
+          m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkDestroyPipeline(dev<span class="operator">,</span> m_pipeline<span class="operator">,</span> nullptr);
+          m_pipeline <span class="operator">=</span> VK_NULL_HANDLE;
+      }
+
+      <span class="keyword">if</span> (m_pipelineLayout) {
+          m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkDestroyPipelineLayout(dev<span class="operator">,</span> m_pipelineLayout<span class="operator">,</span> nullptr);
+          m_pipelineLayout <span class="operator">=</span> VK_NULL_HANDLE;
+      }
+
+      <span class="keyword">if</span> (m_pipelineCache) {
+          m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkDestroyPipelineCache(dev<span class="operator">,</span> m_pipelineCache<span class="operator">,</span> nullptr);
+          m_pipelineCache <span class="operator">=</span> VK_NULL_HANDLE;
+      }
+
+      <span class="keyword">if</span> (m_descSetLayout) {
+          m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkDestroyDescriptorSetLayout(dev<span class="operator">,</span> m_descSetLayout<span class="operator">,</span> nullptr);
+          m_descSetLayout <span class="operator">=</span> VK_NULL_HANDLE;
+      }
+
+      <span class="keyword">if</span> (m_descPool) {
+          m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkDestroyDescriptorPool(dev<span class="operator">,</span> m_descPool<span class="operator">,</span> nullptr);
+          m_descPool <span class="operator">=</span> VK_NULL_HANDLE;
+      }
+
+      <span class="keyword">if</span> (m_buf) {
+          m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkDestroyBuffer(dev<span class="operator">,</span> m_buf<span class="operator">,</span> nullptr);
+          m_buf <span class="operator">=</span> VK_NULL_HANDLE;
+      }
+
+      <span class="keyword">if</span> (m_bufMem) {
+          m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkFreeMemory(dev<span class="operator">,</span> m_bufMem<span class="operator">,</span> nullptr);
+          m_bufMem <span class="operator">=</span> VK_NULL_HANDLE;
+      }
+  }
+
+  <span class="type">void</span> VulkanRenderer<span class="operator">::</span>startNextFrame()
+  {
+      VkDevice dev <span class="operator">=</span> m_window<span class="operator">-</span><span class="operator">&gt;</span>device();
+      VkCommandBuffer cb <span class="operator">=</span> m_window<span class="operator">-</span><span class="operator">&gt;</span>currentCommandBuffer();
+      <span class="keyword">const</span> <span class="type"><a href="../qtcore/qsize.html">QSize</a></span> sz <span class="operator">=</span> m_window<span class="operator">-</span><span class="operator">&gt;</span>swapChainImageSize();
+
+      <span class="comment">// Add the necessary barriers and do the host-linear -&gt; device-optimal copy, if not yet done.</span>
+      ensureTexture();
+
+      VkClearColorValue clearColor <span class="operator">=</span> {{ <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span> }};
+      VkClearDepthStencilValue clearDS <span class="operator">=</span> { <span class="number">1</span><span class="operator">,</span> <span class="number">0</span> };
+      VkClearValue clearValues<span class="operator">[</span><span class="number">2</span><span class="operator">]</span>;
+      memset(clearValues<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">sizeof</span>(clearValues));
+      clearValues<span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>color <span class="operator">=</span> clearColor;
+      clearValues<span class="operator">[</span><span class="number">1</span><span class="operator">]</span><span class="operator">.</span>depthStencil <span class="operator">=</span> clearDS;
+
+      VkRenderPassBeginInfo rpBeginInfo;
+      memset(<span class="operator">&amp;</span>rpBeginInfo<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">sizeof</span>(rpBeginInfo));
+      rpBeginInfo<span class="operator">.</span>sType <span class="operator">=</span> VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO;
+      rpBeginInfo<span class="operator">.</span>renderPass <span class="operator">=</span> m_window<span class="operator">-</span><span class="operator">&gt;</span>defaultRenderPass();
+      rpBeginInfo<span class="operator">.</span>framebuffer <span class="operator">=</span> m_window<span class="operator">-</span><span class="operator">&gt;</span>currentFramebuffer();
+      rpBeginInfo<span class="operator">.</span>renderArea<span class="operator">.</span>extent<span class="operator">.</span>width <span class="operator">=</span> sz<span class="operator">.</span>width();
+      rpBeginInfo<span class="operator">.</span>renderArea<span class="operator">.</span>extent<span class="operator">.</span>height <span class="operator">=</span> sz<span class="operator">.</span>height();
+      rpBeginInfo<span class="operator">.</span>clearValueCount <span class="operator">=</span> <span class="number">2</span>;
+      rpBeginInfo<span class="operator">.</span>pClearValues <span class="operator">=</span> clearValues;
+      VkCommandBuffer cmdBuf <span class="operator">=</span> m_window<span class="operator">-</span><span class="operator">&gt;</span>currentCommandBuffer();
+      m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkCmdBeginRenderPass(cmdBuf<span class="operator">,</span> <span class="operator">&amp;</span>rpBeginInfo<span class="operator">,</span> VK_SUBPASS_CONTENTS_INLINE);
+
+      <span class="type"><a href="../qtcore/qtglobal.html#quint8-typedef">quint8</a></span> <span class="operator">*</span>p;
+      VkResult err <span class="operator">=</span> m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkMapMemory(dev<span class="operator">,</span> m_bufMem<span class="operator">,</span> m_uniformBufInfo<span class="operator">[</span>m_window<span class="operator">-</span><span class="operator">&gt;</span>currentFrame()<span class="operator">]</span><span class="operator">.</span>offset<span class="operator">,</span>
+              UNIFORM_DATA_SIZE<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="keyword">reinterpret_cast</span><span class="operator">&lt;</span><span class="type">void</span> <span class="operator">*</span><span class="operator">*</span><span class="operator">&gt;</span>(<span class="operator">&amp;</span>p));
+      <span class="keyword">if</span> (err <span class="operator">!</span><span class="operator">=</span> VK_SUCCESS)
+          <a href="../qtcore/qtglobal.html#qFatal">qFatal</a>(<span class="string">&quot;Failed to map memory: %d&quot;</span><span class="operator">,</span> err);
+      QMatrix4x4 m <span class="operator">=</span> m_proj;
+      m<span class="operator">.</span>rotate(m_rotation<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span>);
+      memcpy(p<span class="operator">,</span> m<span class="operator">.</span>constData()<span class="operator">,</span> <span class="number">16</span> <span class="operator">*</span> <span class="keyword">sizeof</span>(<span class="type">float</span>));
+      m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkUnmapMemory(dev<span class="operator">,</span> m_bufMem);
+
+      <span class="comment">// Not exactly a real animation system, just advance on every frame for now.</span>
+      m_rotation <span class="operator">+</span><span class="operator">=</span> <span class="number">1.0f</span>;
+
+      m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkCmdBindPipeline(cb<span class="operator">,</span> VK_PIPELINE_BIND_POINT_GRAPHICS<span class="operator">,</span> m_pipeline);
+      m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkCmdBindDescriptorSets(cb<span class="operator">,</span> VK_PIPELINE_BIND_POINT_GRAPHICS<span class="operator">,</span> m_pipelineLayout<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span>
+                                 <span class="operator">&amp;</span>m_descSet<span class="operator">[</span>m_window<span class="operator">-</span><span class="operator">&gt;</span>currentFrame()<span class="operator">]</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> nullptr);
+      VkDeviceSize vbOffset <span class="operator">=</span> <span class="number">0</span>;
+      m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkCmdBindVertexBuffers(cb<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="operator">&amp;</span>m_buf<span class="operator">,</span> <span class="operator">&amp;</span>vbOffset);
+
+      VkViewport viewport;
+      viewport<span class="operator">.</span>x <span class="operator">=</span> viewport<span class="operator">.</span>y <span class="operator">=</span> <span class="number">0</span>;
+      viewport<span class="operator">.</span>width <span class="operator">=</span> sz<span class="operator">.</span>width();
+      viewport<span class="operator">.</span>height <span class="operator">=</span> sz<span class="operator">.</span>height();
+      viewport<span class="operator">.</span>minDepth <span class="operator">=</span> <span class="number">0</span>;
+      viewport<span class="operator">.</span>maxDepth <span class="operator">=</span> <span class="number">1</span>;
+      m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkCmdSetViewport(cb<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="operator">&amp;</span>viewport);
+
+      VkRect2D scissor;
+      scissor<span class="operator">.</span>offset<span class="operator">.</span>x <span class="operator">=</span> scissor<span class="operator">.</span>offset<span class="operator">.</span>y <span class="operator">=</span> <span class="number">0</span>;
+      scissor<span class="operator">.</span>extent<span class="operator">.</span>width <span class="operator">=</span> viewport<span class="operator">.</span>width;
+      scissor<span class="operator">.</span>extent<span class="operator">.</span>height <span class="operator">=</span> viewport<span class="operator">.</span>height;
+      m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkCmdSetScissor(cb<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="operator">&amp;</span>scissor);
+
+      m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkCmdDraw(cb<span class="operator">,</span> <span class="number">4</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+
+      m_devFuncs<span class="operator">-</span><span class="operator">&gt;</span>vkCmdEndRenderPass(cmdBuf);
+
+      m_window<span class="operator">-</span><span class="operator">&gt;</span>frameReady();
+      m_window<span class="operator">-</span><span class="operator">&gt;</span>requestUpdate(); <span class="comment">// render continuously, throttled by the presentation rate</span>
+  }
+
+</pre>
+</div>
+<!-- @@@hellovulkantexture/hellovulkantexture.cpp -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

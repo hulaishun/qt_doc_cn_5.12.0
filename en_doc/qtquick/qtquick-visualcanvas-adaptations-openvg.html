@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- adaptations.qdoc -->
+  <title>Qt Quick OpenVG Adaptation | Qt Quick 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtquick-index.html">Qt Quick</a></td><td >Qt Quick OpenVG Adaptation</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt 5.12.0 Reference Documentation</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level2"><a href="#egl-requirement">EGL Requirement</a></li>
+<li class="level2"><a href="#renderer">Renderer</a></li>
+<li class="level2"><a href="#render-loop">Render Loop</a></li>
+<li class="level2"><a href="#shader-effects">Shader Effects</a></li>
+<li class="level2"><a href="#qt-graphical-effects-module">Qt Graphical Effects Module</a></li>
+<li class="level2"><a href="#particle-effects">Particle Effects</a></li>
+<li class="level2"><a href="#rendering-text">Rendering Text</a></li>
+<li class="level2"><a href="#perspective-transforms">Perspective Transforms</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Qt Quick OpenVG Adaptation</h1>
+<span class="subtitle"></span>
+<!-- $$$qtquick-visualcanvas-adaptations-openvg.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>The <a href="qtquick-visualcanvas-adaptations.html#openvg">OpenVG</a> adaptation is an alternative renderer for <a href="qtquick-index.html">Qt Quick</a> 2 that will renderer the contents of the scene graph using <a href="qtquick-visualcanvas-adaptations.html#openvg">OpenVG</a> commands to provide hardware-acclerated 2D vector and raster graphics. Much like the Software adaptation, some features and optimizations are no longer available. Most Qt Quick 2 applications will run without modification though any attempts to use unsupported features will be ignored.</p>
+<a name="egl-requirement"></a>
+<h3 >EGL Requirement</h3>
+<p>Unlike the defualt OpenGL Renderer, there is no built in support for acquiring an <a href="qtquick-visualcanvas-adaptations.html#openvg">OpenVG</a> context. This means that the renderer has the responsbility of requesting and managing the the current context. To do this EGL has to be used directly in the <a href="qtquick-visualcanvas-adaptations.html#openvg">OpenVG</a> renderer. This means that the <a href="qtquick-visualcanvas-adaptations.html#openvg">OpenVG</a> renderer is only usable with platform plugins that support creating QWindows with support for <a href="../qtgui/qsurfaceformat.html#RenderableType-enum">QSurfaceFormat::OpenVG</a>. From this window, the renderer can get an EGLSurface which can be used with an EGLContext to render <a href="qtquick-visualcanvas-adaptations.html#openvg">OpenVG</a> content.</p>
+<a name="renderer"></a>
+<h3 >Renderer</h3>
+<p>The <a href="qtquick-visualcanvas-adaptations.html#openvg">OpenVG</a> Renderer works by using the <a href="qtquick-visualcanvas-adaptations.html#openvg">OpenVG</a> API to send commands and data to a Vector GPU which will render the scenegraph in an accelerated manner, offloading graphics rendering from the CPU. Many operations like the rendering of rectangles and fonts glyphs ideal for <a href="qtquick-visualcanvas-adaptations.html#openvg">OpenVG</a> because these can be represented as paths which are stroked and filled. Rendering scenegraph items that would typically involve textures are handled in the <a href="qtquick-visualcanvas-adaptations.html#openvg">OpenVG</a> renderer by using VGImage. In addition when rendering to offscreen surfaces (like when using Layers), the scene subtree is rendered to a VGImage which can be reused in the scene.</p>
+<a name="render-loop"></a>
+<h3 >Render Loop</h3>
+<p>The <a href="qtquick-visualcanvas-adaptations.html#openvg">OpenVG</a> Renderer mirrors the behavior of the Basic render loop and will execute all <a href="qtquick-visualcanvas-adaptations.html#openvg">OpenVG</a> commands in a single thread.</p>
+<p>See the <a href="qtquick-visualcanvas-scenegraph.html">Scene Graph page</a> for more information on render loops</p>
+<a name="shader-effects"></a>
+<h3 >Shader Effects</h3>
+<p><a href="qml-qtquick-shadereffect.html">ShaderEffect</a> components in <a href="qtquick-module.html">QtQuick</a> 2 can not be rendered by the <a href="qtquick-visualcanvas-adaptations.html#openvg">OpenVG</a> adaptation. While it is possible to user <a href="qml-qtquick-shadereffectsource.html">ShaderEffectSource</a> and QML Item Layers (which are both offscreen surfaces), it is not actually possible to apply shader effects to them via the <a href="qml-qtquick-shadereffect.html">ShaderEffect</a> item. This is because <a href="qtquick-visualcanvas-adaptations.html#openvg">OpenVG</a> lacks an API for applying per vertex and per fragment shader operations. It may be possible however to take advantage of Image Filter operations in the <a href="qtquick-visualcanvas-adaptations.html#openvg">OpenVG</a> API to get similar effects to what is provided by ShaderEffects in custom items. To integrate custom <a href="qtquick-visualcanvas-adaptations.html#openvg">OpenVG</a> rendering, use <a href="qsgrendernode.html">QSGRenderNode</a> in combination with <a href="qsgrendererinterface.html">QSGRendererInterface</a>.</p>
+<a name="qt-graphical-effects-module"></a>
+<h3 >Qt Graphical Effects Module</h3>
+<p><a href="../qtgraphicaleffects/qtgraphicaleffects-index.html">Qt Graphical Effects</a> uses <a href="qml-qtquick-shadereffect.html">ShaderEffect</a> items to render effects. If you use graphical effects from this module, then you should not hide the source item so that the original item can still be rendered.</p>
+<a name="particle-effects"></a>
+<h3 >Particle Effects</h3>
+<p>It is not possible to render particle effects with the <a href="qtquick-visualcanvas-adaptations.html#openvg">OpenVG</a> adaptation. Whenever possible, remove particles completely from the scene. Otherwise they will still require some processing, even though they are not visible.</p>
+<a name="rendering-text"></a>
+<h3 >Rendering Text</h3>
+<p>The text rendering with the <a href="qtquick-visualcanvas-adaptations.html#openvg">OpenVG</a> adaptation is based on rendering the glpyh paths, and does not use the distance fields technique used by the OpenGL backend.</p>
+<a name="perspective-transforms"></a>
+<h3 >Perspective Transforms</h3>
+<p>The <a href="qtquick-visualcanvas-adaptations.html#openvg">OpenVG</a> API does not allow paths to be transformed with non-affine transforms, while it is possible with Qt Quick. This means that rendering components using paths like Rectangles and Text, when applying perspective transforms the <a href="qtquick-visualcanvas-adaptations.html#openvg">OpenVG</a> backend will first render to a VGImage before applying transformations. This uses more memory at runtime and is a slower path so avoid doing this if necessary.</p>
+</div>
+<!-- @@@qtquick-visualcanvas-adaptations-openvg.html -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qquickwebengineaction.cpp -->
+  <title>WebEngineAction QML Type | Qt WebEngine 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtwebengine-index.html">Qt WebEngine</a></td><td ><a href="qtwebengine-qmlmodule.html">QML Types</a></td><td >WebEngineAction QML Type</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt 5.12.0 Reference Documentation</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#methods">Methods</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">WebEngineAction QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$WebEngineAction-brief -->
+<p>An action that represents a <a href="qml-qtwebengine-webengineview.html#WebAction-prop">WebEngineView::WebAction</a>. <a href="#details">More...</a></p>
+<!-- @@@WebEngineAction -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtWebEngine 1.8</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  QtWebEngine 1.8</td></tr></table></div><ul>
+<li><a href="qml-qtwebengine-webengineaction-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtwebengine-webengineaction.html#enabled-prop">enabled</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtwebengine-webengineaction.html#iconName-prop">iconName</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtwebengine-webengineaction.html#text-prop">text</a></b></b> : int</li>
+</ul>
+<a name="methods"></a>
+<h2 id="methods">Methods</h2>
+<ul>
+<li class="fn">void <b><b><a href="qml-qtwebengine-webengineaction.html#trigger-method">trigger</a></b></b>()</li>
+</ul>
+<!-- $$$WebEngineAction-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+<p>A <a href="qml-qtwebengine-webengineaction.html">WebEngineAction</a> is returned by the <a href="qml-qtwebengine-webengineview.html#action-method">WebEngineView::action()</a> method. It provides information about the action, such as whether it is <a href="qml-qtwebengine-webengineaction.html#enabled-prop">enabled</a>.</p>
+<p>The following code uses the <a href="qml-qtwebengine-webengineview.html#action-method">WebEngineView::action()</a> method to check if the the copy action is enabled:</p>
+<pre class="cpp">
+
+  var copyAction <span class="operator">=</span> webEngineView<span class="operator">.</span>action(WebEngineView<span class="operator">.</span>Copy);
+  <span class="keyword">if</span> (copyAction<span class="operator">.</span>enabled)
+      console<span class="operator">.</span>log(<span class="string">&quot;Copy is enabled.&quot;</span>);
+  <span class="keyword">else</span>
+      console<span class="operator">.</span>log(<span class="string">&quot;Copy is disabled.&quot;</span>);
+
+</pre>
+<!-- @@@WebEngineAction -->
+<h2>Property Documentation</h2>
+<!-- $$$enabled -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="enabled-prop">
+<td class="tblQmlPropNode"><p>
+<a name="enabled-prop"></a><span class="name">enabled</span> : <span class="type"><a href="../qtqml/qml-bool.html">bool</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>This property holds whether the action is enabled.</p>
+</div></div><!-- @@@enabled -->
+<br/>
+<!-- $$$iconName -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="iconName-prop">
+<td class="tblQmlPropNode"><p>
+<a name="iconName-prop"></a><span class="name">iconName</span> : <span class="type"><a href="../qtqml/qml-string.html">string</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>This property holds the name of the icon for the action. This name can be used to pick the icon from a theme.</p>
+</div></div><!-- @@@iconName -->
+<br/>
+<!-- $$$text -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="text-prop">
+<td class="tblQmlPropNode"><p>
+<a name="text-prop"></a><span class="name">text</span> : <span class="type"><a href="../qtqml/qml-int.html">int</a></span></p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>This property holds a textual description of the action.</p>
+</div></div><!-- @@@text -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$trigger -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="trigger-method">
+<td class="tblQmlFuncNode"><p>
+<a name="trigger-method"></a><span class="type">void</span> <span class="name">trigger</span>()</p></td></tr>
+</table></div>
+</div><div class="qmldoc"><p>Triggers the action.</p>
+</div></div><!-- @@@trigger -->
+<br/>
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

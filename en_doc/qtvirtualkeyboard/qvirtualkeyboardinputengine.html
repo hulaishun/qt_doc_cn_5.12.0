@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qvirtualkeyboardinputengine.cpp -->
+  <title>QVirtualKeyboardInputEngine Class | Qt Virtual Keyboard 5.12</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="main">
+    <div class="main-rounded">
+      <div class="navigationbar">
+        <table><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtvirtualkeyboard-index.html">Qt Virtual Keyboard</a></td><td ><a href="qtvirtualkeyboard-module.html">C++ Classes</a></td><td >QVirtualKeyboardInputEngine</td></tr></table><table class="buildversion"><tr>
+<td id="buildversion" width="100%" align="right">Qt Virtual Keyboard | Commercial or GPLv3</td>
+        </tr></table>
+      </div>
+    </div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-types">Public Types</a></li>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#static-public-members">Static Public Members</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">QVirtualKeyboardInputEngine Class</h1>
+<!-- $$$QVirtualKeyboardInputEngine-brief -->
+<p>The <a href="qml-qtquick-virtualkeyboard-inputengine.html">InputEngine</a> class provides an input engine that supports C++ and QML integration. <a href="#details">More...</a></p>
+<!-- @@@QVirtualKeyboardInputEngine -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QVirtualKeyboardInputEngine&gt;</span>
+</td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += virtualkeyboard</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Instantiated By:</td><td class="memItemRight bottomAlign"> <a href="qml-qtquick-virtualkeyboard-inputengine.html">InputEngine</a></td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <a href="../qtcore/qobject.html">QObject</a></td></tr></table></div><ul>
+<li><a href="qvirtualkeyboardinputengine-members.html">List of all members, including inherited members</a></li>
+<li><a href="qvirtualkeyboardinputengine-obsolete.html">Obsolete members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2 id="public-types">Public Types</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#InputMode-enum">InputMode</a></b> { InputMode::Latin, InputMode::Numeric, InputMode::Dialable, InputMode::Pinyin, ..., InputMode::Hebrew }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#PatternRecognitionMode-enum">PatternRecognitionMode</a></b> { PatternRecognitionMode::None, PatternRecognitionMode::PatternRecognitionDisabled, PatternRecognitionMode::Handwriting, PatternRecognitionMode::HandwritingRecoginition }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#ReselectFlag-enum">ReselectFlag</a></b> { ReselectFlag::WordBeforeCursor, ReselectFlag::WordAfterCursor, ReselectFlag::WordAtCursor }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> typedef </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#ReselectFlags-typedef">ReselectFlags</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#TextCase-enum">TextCase</a></b> { TextCase::Lower, TextCase::Upper }</td></tr>
+</table></div>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<div class="table"><table class="propsummary">
+<tr><td class="topAlign"><ul>
+<li class="fn"><b><a href="qvirtualkeyboardinputengine.html#activeKey-prop">activeKey</a></b> : const Qt::Key</li>
+<li class="fn"><b><a href="qvirtualkeyboardinputengine.html#inputMethod-prop">inputMethod</a></b> : QVirtualKeyboardAbstractInputMethod*</li>
+<li class="fn"><b><a href="qvirtualkeyboardinputengine.html#inputMode-prop">inputMode</a></b> : InputMode</li>
+<li class="fn"><b><a href="qvirtualkeyboardinputengine.html#inputModes-prop">inputModes</a></b> : const QList&lt;int&gt;</li>
+</ul></td><td class="topAlign"><ul>
+<li class="fn"><b><a href="qvirtualkeyboardinputengine.html#patternRecognitionModes-prop">patternRecognitionModes</a></b> : const QList&lt;int&gt;</li>
+<li class="fn"><b><a href="qvirtualkeyboardinputengine.html#previousKey-prop">previousKey</a></b> : const Qt::Key</li>
+<li class="fn"><b><a href="qvirtualkeyboardinputengine.html#wordCandidateListModel-prop">wordCandidateListModel</a></b> : QVirtualKeyboardSelectionListModel* const</li>
+<li class="fn"><b><a href="qvirtualkeyboardinputengine.html#wordCandidateListVisibleHint-prop">wordCandidateListVisibleHint</a></b> : const bool</li>
+</ul>
+</td></tr>
+</table></div>
+<ul>
+<li class="fn">1 property inherited from <a href="../qtcore/qobject.html#properties">QObject</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2 id="public-functions">Public Functions</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Qt::Key </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#activeKey">activeKey</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QVirtualKeyboardInputContext *</td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#inputContext">inputContext</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QVirtualKeyboardAbstractInputMethod *</td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#inputMethod">inputMethod</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QVirtualKeyboardInputEngine::InputMode </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#inputMode-prop">inputMode</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QList&lt;int&gt; </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#inputModes">inputModes</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QList&lt;int&gt; </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#patternRecognitionModes">patternRecognitionModes</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> Qt::Key </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#previousKey">previousKey</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#reselect">reselect</a></b>(int <i>cursorPosition</i>, const QVirtualKeyboardInputEngine::ReselectFlags &amp;<i>reselectFlags</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#setInputMethod">setInputMethod</a></b>(QVirtualKeyboardAbstractInputMethod *<i>inputMethod</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#inputMode-prop">setInputMode</a></b>(QVirtualKeyboardInputEngine::InputMode <i>inputMode</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QVirtualKeyboardTrace *</td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#traceBegin">traceBegin</a></b>(int <i>traceId</i>, QVirtualKeyboardInputEngine::PatternRecognitionMode <i>patternRecognitionMode</i>, const QVariantMap &amp;<i>traceCaptureDeviceInfo</i>, const QVariantMap &amp;<i>traceScreenInfo</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#traceEnd">traceEnd</a></b>(QVirtualKeyboardTrace *<i>trace</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#virtualKeyCancel">virtualKeyCancel</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#virtualKeyClick">virtualKeyClick</a></b>(Qt::Key <i>key</i>, const QString &amp;<i>text</i>, Qt::KeyboardModifiers <i>modifiers</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#virtualKeyPress">virtualKeyPress</a></b>(Qt::Key <i>key</i>, const QString &amp;<i>text</i>, Qt::KeyboardModifiers <i>modifiers</i>, bool <i>repeat</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#virtualKeyRelease">virtualKeyRelease</a></b>(Qt::Key <i>key</i>, const QString &amp;<i>text</i>, Qt::KeyboardModifiers <i>modifiers</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QVirtualKeyboardSelectionListModel *</td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#wordCandidateListModel-prop">wordCandidateListModel</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#wordCandidateListVisibleHint-prop">wordCandidateListVisibleHint</a></b>() const</td></tr>
+</table></div>
+<ul>
+<li class="fn">31 public functions inherited from <a href="../qtcore/qobject.html#public-functions">QObject</a></li>
+</ul>
+<a name="signals"></a>
+<h2 id="signals">Signals</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#activeKey-prop">activeKeyChanged</a></b>(Qt::Key <i>key</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#inputMethod-prop">inputMethodChanged</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#inputMethodReset">inputMethodReset</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#inputMethodUpdate">inputMethodUpdate</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#inputMode-prop">inputModeChanged</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#inputModes-prop">inputModesChanged</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#patternRecognitionModes-prop">patternRecognitionModesChanged</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#previousKey-prop">previousKeyChanged</a></b>(Qt::Key <i>key</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#virtualKeyClicked">virtualKeyClicked</a></b>(Qt::Key <i>key</i>, const QString &amp;<i>text</i>, Qt::KeyboardModifiers <i>modifiers</i>, bool <i>isAutoRepeat</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#wordCandidateListModel-prop">wordCandidateListModelChanged</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#wordCandidateListVisibleHint-prop">wordCandidateListVisibleHintChanged</a></b>()</td></tr>
+</table></div>
+<ul>
+<li class="fn">2 signals inherited from <a href="../qtcore/qobject.html#signals">QObject</a></li>
+</ul>
+<a name="static-public-members"></a>
+<h2 id="static-public-members">Static Public Members</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> const QMetaObject </td><td class="memItemRight bottomAlign"><b><a href="qvirtualkeyboardinputengine.html#staticMetaObject-var">staticMetaObject</a></b></td></tr>
+</table></div>
+<ul>
+<li class="fn">9 static public members inherited from <a href="../qtcore/qobject.html#static-public-members">QObject</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 public slot inherited from <a href="../qtcore/qobject.html#public-slots">QObject</a></li>
+<li class="fn">1 public variable inherited from <a href="../qtcore/qobject.html#public-variables">QObject</a></li>
+<li class="fn">9 protected functions inherited from <a href="../qtcore/qobject.html#protected-functions">QObject</a></li>
+<li class="fn">2 protected variables inherited from <a href="../qtcore/qobject.html#protected-variables">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QVirtualKeyboardInputEngine-description -->
+<div class="descr">
+<h2 id="details">Detailed Description</h2>
+<p>The <a href="qml-qtquick-virtualkeyboard-inputengine.html">InputEngine</a> class provides an input engine that supports C++ and QML integration.</p>
+<p>The input engine is responsible for routing input events to input methods. The actual input logic is implemented by the input methods.</p>
+<p>The input engine also includes the default input method, which takes care of default processing if the active input method does not handle the event.</p>
+</div>
+<!-- @@@QVirtualKeyboardInputEngine -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$InputMode$$$Latin$$$Numeric$$$Dialable$$$Pinyin$$$Cangjie$$$Zhuyin$$$Hangul$$$Hiragana$$$Katakana$$$FullwidthLatin$$$Greek$$$Cyrillic$$$Arabic$$$Hebrew$$$ChineseHandwriting$$$JapaneseHandwriting$$$KoreanHandwriting$$$Thai -->
+<h3 class="fn" id="InputMode-enum"><a name="InputMode-enum"></a>enum QVirtualKeyboardInputEngine::<span class="name">InputMode</span></h3>
+<p>This enum specifies the input mode for the input method.</p>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><code>QVirtualKeyboardInputEngine::InputMode::Latin</code></td><td class="topAlign tblval">?</td><td class="topAlign">The default input mode for latin text.</td></tr>
+<tr><td class="topAlign"><code>QVirtualKeyboardInputEngine::InputMode::Numeric</code></td><td class="topAlign tblval">?</td><td class="topAlign">Only numeric input is allowed.</td></tr>
+<tr><td class="topAlign"><code>QVirtualKeyboardInputEngine::InputMode::Dialable</code></td><td class="topAlign tblval">?</td><td class="topAlign">Only dialable input is allowed.</td></tr>
+<tr><td class="topAlign"><code>QVirtualKeyboardInputEngine::InputMode::Pinyin</code></td><td class="topAlign tblval">?</td><td class="topAlign">Pinyin input mode for Chinese.</td></tr>
+<tr><td class="topAlign"><code>QVirtualKeyboardInputEngine::InputMode::Cangjie</code></td><td class="topAlign tblval">?</td><td class="topAlign">Cangjie input mode for Chinese.</td></tr>
+<tr><td class="topAlign"><code>QVirtualKeyboardInputEngine::InputMode::Zhuyin</code></td><td class="topAlign tblval">?</td><td class="topAlign">Zhuyin input mode for Chinese.</td></tr>
+<tr><td class="topAlign"><code>QVirtualKeyboardInputEngine::InputMode::Hangul</code></td><td class="topAlign tblval">?</td><td class="topAlign">Hangul input mode for Korean.</td></tr>
+<tr><td class="topAlign"><code>QVirtualKeyboardInputEngine::InputMode::Hiragana</code></td><td class="topAlign tblval">?</td><td class="topAlign">Hiragana input mode for Japanese.</td></tr>
+<tr><td class="topAlign"><code>QVirtualKeyboardInputEngine::InputMode::Katakana</code></td><td class="topAlign tblval">?</td><td class="topAlign">Katakana input mode for Japanese.</td></tr>
+<tr><td class="topAlign"><code>QVirtualKeyboardInputEngine::InputMode::FullwidthLatin</code></td><td class="topAlign tblval">?</td><td class="topAlign">Fullwidth latin input mode for East Asian languages.</td></tr>
+<tr><td class="topAlign"><code>QVirtualKeyboardInputEngine::InputMode::Greek</code></td><td class="topAlign tblval">?</td><td class="topAlign">Greek input mode.</td></tr>
+<tr><td class="topAlign"><code>QVirtualKeyboardInputEngine::InputMode::Cyrillic</code></td><td class="topAlign tblval">?</td><td class="topAlign">Cyrillic input mode.</td></tr>
+<tr><td class="topAlign"><code>QVirtualKeyboardInputEngine::InputMode::Arabic</code></td><td class="topAlign tblval">?</td><td class="topAlign">Arabic input mode.</td></tr>
+<tr><td class="topAlign"><code>QVirtualKeyboardInputEngine::InputMode::Hebrew</code></td><td class="topAlign tblval">?</td><td class="topAlign">Hebrew input mode.</td></tr>
+</table></div>
+<!-- @@@InputMode -->
+<!-- $$$PatternRecognitionMode$$$None$$$PatternRecognitionDisabled$$$Handwriting$$$HandwritingRecoginition -->
+<h3 class="fn" id="PatternRecognitionMode-enum"><a name="PatternRecognitionMode-enum"></a>enum QVirtualKeyboardInputEngine::<span class="name">PatternRecognitionMode</span></h3>
+<p>This enum specifies the input mode for the input method.</p>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><code>QVirtualKeyboardInputEngine::PatternRecognitionMode::None</code></td><td class="topAlign tblval">?</td><td class="topAlign">Pattern recognition is not available.</td></tr>
+<tr><td class="topAlign"><code>QVirtualKeyboardInputEngine::PatternRecognitionMode::PatternRecognitionDisabled</code></td><td class="topAlign tblval">?</td><td class="topAlign"><code>obsolete</code> Use PatternRecognitionMode::None</td></tr>
+<tr><td class="topAlign"><code>QVirtualKeyboardInputEngine::PatternRecognitionMode::Handwriting</code></td><td class="topAlign tblval">?</td><td class="topAlign">Pattern recognition mode for handwriting recognition.</td></tr>
+<tr><td class="topAlign"><code>QVirtualKeyboardInputEngine::PatternRecognitionMode::HandwritingRecoginition</code></td><td class="topAlign tblval">?</td><td class="topAlign"><code>obsolete</code> Use PatternRecognitionMode::Handwriting</td></tr>
+</table></div>
+<!-- @@@PatternRecognitionMode -->
+<!-- $$$ReselectFlag$$$WordBeforeCursor$$$WordAfterCursor$$$WordAtCursor -->
+<h3 class="fn" id="ReselectFlag-enum"><a name="ReselectFlag-enum"></a>enum QVirtualKeyboardInputEngine::<span class="name">ReselectFlag</span></h3>
+<p>This enum specifies the rules for word reselection.</p>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><code>QVirtualKeyboardInputEngine::ReselectFlag::WordBeforeCursor</code></td><td class="topAlign tblval">?</td><td class="topAlign">Activate the word before the cursor. When this flag is used exclusively, the word must end exactly at the cursor.</td></tr>
+<tr><td class="topAlign"><code>QVirtualKeyboardInputEngine::ReselectFlag::WordAfterCursor</code></td><td class="topAlign tblval">?</td><td class="topAlign">Activate the word after the cursor. When this flag is used exclusively, the word must start exactly at the cursor.</td></tr>
+<tr><td class="topAlign"><code>QVirtualKeyboardInputEngine::ReselectFlag::WordAtCursor</code></td><td class="topAlign tblval">?</td><td class="topAlign">Activate the word at the cursor. This flag is a combination of the above flags with the exception that the word cannot start or stop at the cursor.</td></tr>
+</table></div>
+<!-- @@@ReselectFlag -->
+<!-- $$$ReselectFlags -->
+<h3 class="fn" id="ReselectFlags-typedef"><a name="ReselectFlags-typedef"></a>typedef QVirtualKeyboardInputEngine::<span class="name">ReselectFlags</span></h3>
+<!-- @@@ReselectFlags -->
+<!-- $$$TextCase$$$Lower$$$Upper -->
+<h3 class="fn" id="TextCase-enum"><a name="TextCase-enum"></a>enum QVirtualKeyboardInputEngine::<span class="name">TextCase</span></h3>
+<p>This enum specifies the text case for the input method.</p>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><code>QVirtualKeyboardInputEngine::TextCase::Lower</code></td><td class="topAlign tblval">?</td><td class="topAlign">Lower case text.</td></tr>
+<tr><td class="topAlign"><code>QVirtualKeyboardInputEngine::TextCase::Upper</code></td><td class="topAlign tblval">?</td><td class="topAlign">Upper case text.</td></tr>
+</table></div>
+<!-- @@@TextCase -->
+</div>
+<div class="prop">
+<h2>Property Documentation</h2>
+<!-- $$$activeKey-prop$$$activeKey$$$activeKeyChangedQt::Key -->
+<h3 class="fn" id="activeKey-prop"><a name="activeKey-prop"></a><span class="name">activeKey</span> : const <span class="type">Qt::Key</span></h3>
+<p>This property holds the active key.</p>
+<p>Currently pressed key.</p>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> Qt::Key </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qvirtualkeyboardinputengine.html#activeKey">activeKey</a></b></span>() const</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>activeKeyChanged</b></span>(Qt::Key <i>key</i>)</td></tr>
+</table></div>
+<!-- @@@activeKey -->
+<!-- $$$inputMethod-prop$$$inputMethod$$$setInputMethodQVirtualKeyboardAbstractInputMethod*$$$inputMethodChanged -->
+<h3 class="fn" id="inputMethod-prop"><a name="inputMethod-prop"></a><span class="name">inputMethod</span> : <span class="type"><a href="qvirtualkeyboardabstractinputmethod.html">QVirtualKeyboardAbstractInputMethod</a></span>*</h3>
+<p>This property holds the active input method.</p>
+<p>Use this property to set active the input method, or to monitor when the active input method changes.</p>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QVirtualKeyboardAbstractInputMethod *</td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qvirtualkeyboardinputengine.html#inputMethod">inputMethod</a></b></span>() const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qvirtualkeyboardinputengine.html#setInputMethod">setInputMethod</a></b></span>(QVirtualKeyboardAbstractInputMethod *<i>inputMethod</i>)</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>inputMethodChanged</b></span>()</td></tr>
+</table></div>
+<!-- @@@inputMethod -->
+<!-- $$$inputMode-prop$$$inputMode$$$setInputModeQVirtualKeyboardInputEngine::InputMode$$$inputModeChanged -->
+<h3 class="fn" id="inputMode-prop"><a name="inputMode-prop"></a><span class="name">inputMode</span> : <span class="type"><a href="qvirtualkeyboardinputengine.html#InputMode-enum">InputMode</a></span></h3>
+<p>This property holds the current input mode.</p>
+<p>Use this property to get or set the current input mode. The <a href="qml-qtquick-virtualkeyboard-inputengine.html#inputModes-prop">InputEngine::inputModes</a> provides list of valid input modes for current input method and locale.</p>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QVirtualKeyboardInputEngine::InputMode </td><td class="memItemRight bottomAlign"><span class="name"><b>inputMode</b></span>() const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setInputMode</b></span>(QVirtualKeyboardInputEngine::InputMode <i>inputMode</i>)</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>inputModeChanged</b></span>()</td></tr>
+</table></div>
+<!-- @@@inputMode -->
+<!-- $$$inputModes-prop$$$inputModes$$$inputModesChanged -->
+<h3 class="fn" id="inputModes-prop"><a name="inputModes-prop"></a><span class="name">inputModes</span> : const <span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type">int</span>&gt;</h3>
+<p>This property holds the available input modes for active input method.</p>
+<p>The list of available input modes is dependent on the input method and locale. This property is updated when either of the dependencies changes.</p>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QList&lt;int&gt; </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qvirtualkeyboardinputengine.html#inputModes">inputModes</a></b></span>() const</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>inputModesChanged</b></span>()</td></tr>
+</table></div>
+<!-- @@@inputModes -->
+<!-- $$$patternRecognitionModes-prop$$$patternRecognitionModes$$$patternRecognitionModesChanged -->
+<h3 class="fn" id="patternRecognitionModes-prop"><a name="patternRecognitionModes-prop"></a><span class="name">patternRecognitionModes</span> : const <span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type">int</span>&gt;</h3>
+<p>This property holds the list of available pattern recognition modes.</p>
+<p>The list of available pattern recognition modes.</p>
+<p>This property was introduced in  QtQuick.VirtualKeyboard 2.0.</p>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QList&lt;int&gt; </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qvirtualkeyboardinputengine.html#patternRecognitionModes">patternRecognitionModes</a></b></span>() const</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>patternRecognitionModesChanged</b></span>()</td></tr>
+</table></div>
+<!-- @@@patternRecognitionModes -->
+<!-- $$$previousKey-prop$$$previousKey$$$previousKeyChangedQt::Key -->
+<h3 class="fn" id="previousKey-prop"><a name="previousKey-prop"></a><span class="name">previousKey</span> : const <span class="type">Qt::Key</span></h3>
+<p>This property holds the previous active key.</p>
+<p>Previously pressed key.</p>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> Qt::Key </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qvirtualkeyboardinputengine.html#previousKey">previousKey</a></b></span>() const</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>previousKeyChanged</b></span>(Qt::Key <i>key</i>)</td></tr>
+</table></div>
+<!-- @@@previousKey -->
+<!-- $$$wordCandidateListModel-prop$$$wordCandidateListModel$$$wordCandidateListModelChanged -->
+<h3 class="fn" id="wordCandidateListModel-prop"><a name="wordCandidateListModel-prop"></a><span class="name">wordCandidateListModel</span> : <span class="type"><a href="qvirtualkeyboardselectionlistmodel.html">QVirtualKeyboardSelectionListModel</a></span>* const</h3>
+<p>list model for the word candidate list.</p>
+<p>Use this property to access the list model for the word candidate list.</p>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QVirtualKeyboardSelectionListModel *</td><td class="memItemRight bottomAlign"><span class="name"><b>wordCandidateListModel</b></span>() const</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>wordCandidateListModelChanged</b></span>()</td></tr>
+</table></div>
+<!-- @@@wordCandidateListModel -->
+<!-- $$$wordCandidateListVisibleHint-prop$$$wordCandidateListVisibleHint$$$wordCandidateListVisibleHintChanged -->
+<h3 class="fn" id="wordCandidateListVisibleHint-prop"><a name="wordCandidateListVisibleHint-prop"></a><span class="name">wordCandidateListVisibleHint</span> : const <span class="type">bool</span></h3>
+<p>visible hint for the word candidate list.</p>
+<p>Use this property to check if the word candidate list should be visible in the UI.</p>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>wordCandidateListVisibleHint</b></span>() const</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>wordCandidateListVisibleHintChanged</b></span>()</td></tr>
+</table></div>
+<!-- @@@wordCandidateListVisibleHint -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$activeKey -->
+<h3 class="fn" id="activeKey"><a name="activeKey"></a><span class="type">Qt::Key</span> QVirtualKeyboardInputEngine::<span class="name">activeKey</span>() const</h3>
+<p>Returns the currently active key, or <a href="../qtcore/qt.html#Key-enum">Qt::Key_unknown</a> if no key is active.</p>
+<p><b>Note:</b> Getter function for property <a href="qvirtualkeyboardinputengine.html#activeKey-prop">activeKey</a>. </p><!-- @@@activeKey -->
+<!-- $$$inputContext[overload1]$$$inputContext -->
+<h3 class="fn" id="inputContext"><a name="inputContext"></a><span class="type"><a href="qvirtualkeyboardinputcontext.html">QVirtualKeyboardInputContext</a></span> *QVirtualKeyboardInputEngine::<span class="name">inputContext</span>() const</h3>
+<p>Returns the <code>InputContext</code> instance associated with the input engine.</p>
+<!-- @@@inputContext -->
+<!-- $$$inputMethod -->
+<h3 class="fn" id="inputMethod"><a name="inputMethod"></a><span class="type"><a href="qvirtualkeyboardabstractinputmethod.html">QVirtualKeyboardAbstractInputMethod</a></span> *QVirtualKeyboardInputEngine::<span class="name">inputMethod</span>() const</h3>
+<p>Returns the active input method.</p>
+<p><b>Note:</b> Getter function for property <a href="qvirtualkeyboardinputengine.html#inputMethod-prop">inputMethod</a>. </p><p><b>See also </b><a href="qvirtualkeyboardinputengine.html#setInputMethod">setInputMethod</a>().</p>
+<!-- @@@inputMethod -->
+<!-- $$$inputMethodReset[overload1]$$$inputMethodReset -->
+<h3 class="fn" id="inputMethodReset"><a name="inputMethodReset"></a><code>[signal] </code><span class="type">void</span> QVirtualKeyboardInputEngine::<span class="name">inputMethodReset</span>()</h3>
+<!-- @@@inputMethodReset -->
+<!-- $$$inputMethodUpdate[overload1]$$$inputMethodUpdate -->
+<h3 class="fn" id="inputMethodUpdate"><a name="inputMethodUpdate"></a><code>[signal] </code><span class="type">void</span> QVirtualKeyboardInputEngine::<span class="name">inputMethodUpdate</span>()</h3>
+<!-- @@@inputMethodUpdate -->
+<!-- $$$inputModes -->
+<h3 class="fn" id="inputModes"><a name="inputModes"></a><span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type">int</span>&gt; QVirtualKeyboardInputEngine::<span class="name">inputModes</span>() const</h3>
+<p>Returns the list of available input modes.</p>
+<p><b>Note:</b> Getter function for property <a href="qvirtualkeyboardinputengine.html#inputModes-prop">inputModes</a>. </p><!-- @@@inputModes -->
+<!-- $$$patternRecognitionModes -->
+<h3 class="fn" id="patternRecognitionModes"><a name="patternRecognitionModes"></a><span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type">int</span>&gt; QVirtualKeyboardInputEngine::<span class="name">patternRecognitionModes</span>() const</h3>
+<p>Returns list of supported pattern recognition modes.</p>
+<p><b>Note:</b> Getter function for property <a href="qvirtualkeyboardinputengine.html#patternRecognitionModes-prop">patternRecognitionModes</a>. </p><!-- @@@patternRecognitionModes -->
+<!-- $$$previousKey -->
+<h3 class="fn" id="previousKey"><a name="previousKey"></a><span class="type">Qt::Key</span> QVirtualKeyboardInputEngine::<span class="name">previousKey</span>() const</h3>
+<p>Returns the previously active key, or <a href="../qtcore/qt.html#Key-enum">Qt::Key_unknown</a> if no key has been active.</p>
+<p><b>Note:</b> Getter function for property <a href="qvirtualkeyboardinputengine.html#previousKey-prop">previousKey</a>. </p><!-- @@@previousKey -->
+<!-- $$$reselect[overload1]$$$reselectintconstQVirtualKeyboardInputEngine::ReselectFlags& -->
+<h3 class="fn" id="reselect"><a name="reselect"></a><span class="type">bool</span> QVirtualKeyboardInputEngine::<span class="name">reselect</span>(<span class="type">int</span> <i>cursorPosition</i>, const <span class="type"><a href="qvirtualkeyboardinputengine.html#ReselectFlags-typedef">QVirtualKeyboardInputEngine::ReselectFlags</a></span> &amp;<i>reselectFlags</i>)</h3>
+<p>This function attempts to reselect a word located at the <i>cursorPosition</i>. The <i>reselectFlags</i> define the rules for how the word should be selected in relation to the cursor position.</p>
+<p>The function returns <code>true</code> if the word was successfully reselected.</p>
+<p>This function was introduced in  QtQuick.VirtualKeyboard 2.0.</p>
+<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<!-- @@@reselect -->
+<!-- $$$setInputMethod -->
+<h3 class="fn" id="setInputMethod"><a name="setInputMethod"></a><span class="type">void</span> QVirtualKeyboardInputEngine::<span class="name">setInputMethod</span>(<span class="type"><a href="qvirtualkeyboardabstractinputmethod.html">QVirtualKeyboardAbstractInputMethod</a></span> *<i>inputMethod</i>)</h3>
+<p>Sets <i>inputMethod</i> as the active input method.</p>
+<p><b>Note:</b> Setter function for property <a href="qvirtualkeyboardinputengine.html#inputMethod-prop">inputMethod</a>. </p><p><b>See also </b><a href="qvirtualkeyboardinputengine.html#inputMethod">inputMethod</a>().</p>
+<!-- @@@setInputMethod -->
+<!-- $$$traceBegin[overload1]$$$traceBeginintQVirtualKeyboardInputEngine::PatternRecognitionModeconstQVariantMap&constQVariantMap& -->
+<h3 class="fn" id="traceBegin"><a name="traceBegin"></a><span class="type"><a href="qvirtualkeyboardtrace.html">QVirtualKeyboardTrace</a></span> *QVirtualKeyboardInputEngine::<span class="name">traceBegin</span>(<span class="type">int</span> <i>traceId</i>, <span class="type"><a href="qvirtualkeyboardinputengine.html#PatternRecognitionMode-enum">QVirtualKeyboardInputEngine::PatternRecognitionMode</a></span> <i>patternRecognitionMode</i>, const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>traceCaptureDeviceInfo</i>, const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>traceScreenInfo</i>)</h3>
+<p>Starts a trace interaction with the input engine.</p>
+<p>The trace is uniquely identified by the <i>traceId</i>. The input engine will assign the id to the <a href="qvirtualkeyboardtrace.html">QVirtualKeyboardTrace</a> object if the input method accepts the event.</p>
+<p>The <i>patternRecognitionMode</i> specifies the recognition mode used for the pattern.</p>
+<p>If the current input method accepts the event it returns a <a href="qvirtualkeyboardtrace.html">QVirtualKeyboardTrace</a> object associated with this interaction. If the input method discards the event, it returns a NULL value.</p>
+<p>The <i>traceCaptureDeviceInfo</i> provides information about the source device and the <i>traceScreenInfo</i> provides information about the screen context.</p>
+<p>By definition, the <a href="qvirtualkeyboardtrace.html">QVirtualKeyboardTrace</a> object remains valid until the <a href="qvirtualkeyboardinputengine.html#traceEnd">traceEnd</a>() method is called.</p>
+<p>The trace interaction is ended by calling the <a href="qvirtualkeyboardinputengine.html#traceEnd">traceEnd</a>() method.</p>
+<p>This function was introduced in  QtQuick.VirtualKeyboard 2.0.</p>
+<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<!-- @@@traceBegin -->
+<!-- $$$traceEnd[overload1]$$$traceEndQVirtualKeyboardTrace* -->
+<h3 class="fn" id="traceEnd"><a name="traceEnd"></a><span class="type">bool</span> QVirtualKeyboardInputEngine::<span class="name">traceEnd</span>(<span class="type"><a href="qvirtualkeyboardtrace.html">QVirtualKeyboardTrace</a></span> *<i>trace</i>)</h3>
+<p>Ends the trace interaction with the input engine.</p>
+<p>The <i>trace</i> object may be discarded at any point after calling this function.</p>
+<p>The function returns true if the trace interaction was accepted (i.e&#x2e; the touch events should not be used for anything else).</p>
+<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<!-- @@@traceEnd -->
+<!-- $$$virtualKeyCancel[overload1]$$$virtualKeyCancel -->
+<h3 class="fn" id="virtualKeyCancel"><a name="virtualKeyCancel"></a><span class="type">void</span> QVirtualKeyboardInputEngine::<span class="name">virtualKeyCancel</span>()</h3>
+<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<!-- @@@virtualKeyCancel -->
+<!-- $$$virtualKeyClick[overload1]$$$virtualKeyClickQt::KeyconstQString&Qt::KeyboardModifiers -->
+<h3 class="fn" id="virtualKeyClick"><a name="virtualKeyClick"></a><span class="type">bool</span> QVirtualKeyboardInputEngine::<span class="name">virtualKeyClick</span>(<span class="type">Qt::Key</span> <i>key</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>text</i>, <span class="type">Qt::KeyboardModifiers</span> <i>modifiers</i>)</h3>
+<p>Emits a key click event for the given <i>key</i>, <i>text</i> and <i>modifiers</i>. Returns <code>true</code> if the key event was accepted by the input engine.</p>
+<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<!-- @@@virtualKeyClick -->
+<!-- $$$virtualKeyClicked[overload1]$$$virtualKeyClickedQt::KeyconstQString&Qt::KeyboardModifiersbool -->
+<h3 class="fn" id="virtualKeyClicked"><a name="virtualKeyClicked"></a><code>[signal] </code><span class="type">void</span> QVirtualKeyboardInputEngine::<span class="name">virtualKeyClicked</span>(<span class="type">Qt::Key</span> <i>key</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>text</i>, <span class="type">Qt::KeyboardModifiers</span> <i>modifiers</i>, <span class="type">bool</span> <i>isAutoRepeat</i>)</h3>
+<!-- @@@virtualKeyClicked -->
+<!-- $$$virtualKeyPress[overload1]$$$virtualKeyPressQt::KeyconstQString&Qt::KeyboardModifiersbool -->
+<h3 class="fn" id="virtualKeyPress"><a name="virtualKeyPress"></a><span class="type">bool</span> QVirtualKeyboardInputEngine::<span class="name">virtualKeyPress</span>(<span class="type">Qt::Key</span> <i>key</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>text</i>, <span class="type">Qt::KeyboardModifiers</span> <i>modifiers</i>, <span class="type">bool</span> <i>repeat</i>)</h3>
+<p>Called by the keyboard layer to indicate that <i>key</i> was pressed, with the given <i>text</i> and <i>modifiers</i>.</p>
+<p>The <i>key</i> is set as an active key (down key). The actual key event is triggered when the key is released by the <a href="qvirtualkeyboardinputengine.html#virtualKeyRelease">virtualKeyRelease</a>() method. The key press event can be discarded by calling <a href="qvirtualkeyboardinputengine.html#virtualKeyCancel">virtualKeyCancel</a>().</p>
+<p>The key press also initiates the key repeat timer if <i>repeat</i> is <code>true</code>.</p>
+<p>Returns <code>true</code> if the key was accepted by this input engine.</p>
+<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>See also </b><a href="qvirtualkeyboardinputengine.html#virtualKeyCancel">virtualKeyCancel</a>() and <a href="qvirtualkeyboardinputengine.html#virtualKeyRelease">virtualKeyRelease</a>().</p>
+<!-- @@@virtualKeyPress -->
+<!-- $$$virtualKeyRelease[overload1]$$$virtualKeyReleaseQt::KeyconstQString&Qt::KeyboardModifiers -->
+<h3 class="fn" id="virtualKeyRelease"><a name="virtualKeyRelease"></a><span class="type">bool</span> QVirtualKeyboardInputEngine::<span class="name">virtualKeyRelease</span>(<span class="type">Qt::Key</span> <i>key</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>text</i>, <span class="type">Qt::KeyboardModifiers</span> <i>modifiers</i>)</h3>
+<p>Releases the key at <i>key</i>. The method emits a key event for the input method if the event has not been generated by a repeating timer. The <i>text</i> and <i>modifiers</i> are passed to the input method.</p>
+<p>Returns <code>true</code> if the key was accepted by the input engine.</p>
+<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<!-- @@@virtualKeyRelease -->
+</div>
+<div class="vars">
+<h2>Member Variable Documentation</h2>
+</div>
+<div class="relnonmem">
+<h2>Related Non-Members</h2>
+</div>
+<div class="macros">
+<h2>Macro Documentation</h2>
+</div>
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2018 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>
