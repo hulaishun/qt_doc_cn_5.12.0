@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- qmake-manual.qdoc -->
-  <title>Creating Project Files | qmake Manual</title>
+  <title>创建工程文件 | qmake手册</title>
   <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
   <script type="text/javascript">
     document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qmake-manual.html">qmake Manual</a></td><td >Creating Project Files</td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qmake-manual.html">qmake手册</a></td><td >创建工程文件</td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -37,16 +37,16 @@
   <link rel="prev" href="qmake-tutorial.html" />
   <link rel="next" href="qmake-common-projects.html" />
 <p class="naviNextPrevious headerNavi">
-<a class="prevPage" href="qmake-tutorial.html">Getting Started</a>
+<a class="prevPage" href="qmake-tutorial.html">快速向导</a>
 <span class="naviSeparator">  &#9702;  </span>
-<a class="nextPage" href="qmake-common-projects.html">Building Common Project Types</a>
+<a class="nextPage" href="qmake-common-projects.html">构建通用工程类型</a>
 </p><p/>
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3><a name="toc">目录</a></h3>
 <ul>
 <li class="level1"><a href="#project-file-elements">Project File Elements</a></li>
-<li class="level2"><a href="#variables">Variables</a></li>
+<li class="level2"><a href="#variables">变量</a></li>
 <li class="level2"><a href="#comments">Comments</a></li>
 <li class="level2"><a href="#built-in-functions-and-control-flow">Built-in Functions and Control Flow</a></li>
 <li class="level1"><a href="#project-templates">Project Templates</a></li>
@@ -57,7 +57,7 @@
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title">Creating Project Files</h1>
+<h1 class="title">创建工程文件</h1>
 <span class="subtitle"></span>
 <!-- $$$qmake-project-files.html-description -->
 <div class="descr"> <a name="details"></a>
@@ -67,7 +67,7 @@
 <p>The project file format used by qmake can be used to support both simple and fairly complex build systems. Simple project files use a straightforward declarative style, defining standard variables to indicate the source and header files that are used in the project. Complex projects may use control flow structures to fine-tune the build process.</p>
 <p>The following sections describe the different types of elements used in project files.</p>
 <a name="projectfileelementsvariables"></a><a name="variables"></a>
-<h3 >Variables</h3>
+<h3 >变量</h3>
 <p>In a project file, variables are used to hold lists of strings. In the simplest projects, these variables inform qmake about the configuration options to use, or supply filenames and paths to use in the build process.</p>
 <p>qmake looks for certain variables in each project file, and it uses the contents of these to determine what it should write to a Makefile. For example, the lists of values in the <a href="qmake-variable-reference.html#headers">HEADERS</a> and <a href="qmake-variable-reference.html#sources">SOURCES</a> variables are used to tell qmake about header and source files in the same directory as the project file.</p>
 <p>Variables can also be used internally to store temporary lists of values, and existing lists of values can be overwritten or extended with new values.</p>
@@ -86,9 +86,9 @@
 
 </pre>
 <p><b>Note: </b>The first assignment only includes values that are specified on the same line as the <code>HEADERS</code> variable. The second assignment splits the values in the <code>SOURCES</code> variable across lines by using a backslash (\).</p><p>The <a href="qmake-variable-reference.html#config">CONFIG</a> variable is another special variable that qmake uses when generating a Makefile. It is discussed in <a href="qmake-project-files.html#general-configuration">General Configuration</a>. In the snippet above, <code>console</code> is added to the list of existing values contained in <code>CONFIG</code>.</p>
-<p>The following table lists some frequently used variables and describes their contents. For a full list of variables and their descriptions, see <a href="qmake-variable-reference.html">Variables</a>.</p>
+<p>The following table lists some frequently used variables and describes their contents. For a full list of variables and their descriptions, see <a href="qmake-variable-reference.html">变量</a>.</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Variable</th><th >Contents</th></tr></thead>
+ <thead><tr class="qt-style"><th >变量</th><th >目录</th></tr></thead>
 <tr valign="top" class="odd"><td ><a href="qmake-variable-reference.html#config">CONFIG</a></td><td >General project configuration options.</td></tr>
 <tr valign="top" class="even"><td ><a href="qmake-variable-reference.html#destdir">DESTDIR</a></td><td >The directory in which the executable or binary file will be placed.</td></tr>
 <tr valign="top" class="odd"><td ><a href="qmake-variable-reference.html#forms">FORMS</a></td><td >A list of UI files to be processed by the <a href="../qtdoc/uic.html">user interface compiler (uic)</a>.</td></tr>
@@ -104,7 +104,7 @@
   TEMP_SOURCES = $$SOURCES
 
 </pre>
-<p>The <code>$$</code> operator is used extensively with built-in functions that operate on strings and lists of values. For more information, see <a href="qmake-language.html">qmake Language</a>.</p>
+<p>The <code>$$</code> operator is used extensively with built-in functions that operate on strings and lists of values. For more information, see <a href="qmake-language.html">qmake语言</a>.</p>
 <a name="whitespace"></a>
 <h4 >Whitespace</h4>
 <p>Usually, whitespace separates values in variable assignments. To specify values that contain spaces, you must enclose the values in double quotes:</p>
@@ -147,7 +147,7 @@
 
 </pre>
 <p>The assignments inside the braces are only made if the condition is true. In this case, the <code>win32</code> <a href="qmake-variable-reference.html#config">CONFIG</a> option must be set. This happens automatically on Windows. The opening brace must stand on the same line as the condition.</p>
-<p>More complex operations on variables that would usually require loops are provided by built-in functions such as <a href="qmake-function-reference.html#findfunction">find()</a>, <a href="qmake-function-reference.html#unique">unique()</a>, and <a href="qmake-test-function-reference.html#countfunction">count()</a>. These functions, and many others are provided to manipulate strings and paths, support user input, and call external tools. For more information about using the functions, see <a href="qmake-language.html">qmake Language</a>. For lists of all functions and their descriptions, see <a href="qmake-function-reference.html">Replace Functions</a> and <a href="qmake-test-function-reference.html">Test Functions</a>.</p>
+<p>More complex operations on variables that would usually require loops are provided by built-in functions such as <a href="qmake-function-reference.html#findfunction">find()</a>, <a href="qmake-function-reference.html#unique">unique()</a>, and <a href="qmake-test-function-reference.html#countfunction">count()</a>. These functions, and many others are provided to manipulate strings and paths, support user input, and call external tools. For more information about using the functions, see <a href="qmake-language.html">qmake语言</a>. For lists of all functions and their descriptions, see <a href="qmake-function-reference.html">替换函数</a> and <a href="qmake-test-function-reference.html">测试函数</a>.</p>
 <a name="project-templates"></a>
 <h2 id="project-templates">Project Templates</h2>
 <p>The <a href="qmake-variable-reference.html#template">TEMPLATE</a> variable is used to define the type of project that will be built. If this is not declared in the project file, qmake assumes that an application should be built, and will generate an appropriate Makefile (or equivalent file) for the purpose.</p>
@@ -162,7 +162,7 @@
 <tr valign="top" class="even"><td >vclib</td><td >Visual Studio Project file to build a library.</td></tr>
 <tr valign="top" class="odd"><td >vcsubdirs</td><td >Visual Studio Solution file to build projects in sub-directories.</td></tr>
 </table></div>
-<p>See <a href="qmake-common-projects.html">Building Common Project Types</a> for advice on writing project files for projects that use the <code>app</code> and <code>lib</code> templates.</p>
+<p>See <a href="qmake-common-projects.html">构建通用工程类型</a> for advice on writing project files for projects that use the <code>app</code> and <code>lib</code> templates.</p>
 <p>When the <code>subdirs</code> template is used, qmake generates a Makefile to examine each specified subdirectory, process any project file it finds there, and run the platform's <code>make</code> tool on the newly-created Makefile. The <code>SUBDIRS</code> variable is used to contain a list of all the subdirectories to be processed.</p>
 <a name="generalconfiguration"></a><a name="general-configuration"></a>
 <h2 id="general-configuration">General Configuration</h2>
@@ -190,7 +190,7 @@
 <tr valign="top" class="odd"><td >qt</td><td >The project is a Qt application and should link against the Qt library. You can use the <code>QT</code> variable to control any additional Qt modules that are required by your application. This value is added by default, but you can remove it to use qmake for a non-Qt project.</td></tr>
 <tr valign="top" class="even"><td >x11</td><td >The project is an X11 application or library. This value is not needed if the target uses Qt.</td></tr>
 </table></div>
-<p>The <a href="qmake-variable-reference.html#template">application and library project templates</a> provide you with more specialized configuration options to fine tune the build process. The options are explained in detail in <a href="qmake-common-projects.html">Building Common Project Types</a>.</p>
+<p>The <a href="qmake-variable-reference.html#template">application and library project templates</a> provide you with more specialized configuration options to fine tune the build process. The options are explained in detail in <a href="qmake-common-projects.html">构建通用工程类型</a>.</p>
 <p>For example, if your application uses the Qt library and you want to build it in <code>debug</code> mode, your project file will contain the following line:</p>
 <pre class="cpp">
 
@@ -248,9 +248,9 @@
 </div>
 <!-- @@@qmake-project-files.html -->
 <p class="naviNextPrevious footerNavi">
-<a class="prevPage" href="qmake-tutorial.html">Getting Started</a>
+<a class="prevPage" href="qmake-tutorial.html">快速向导</a>
 <span class="naviSeparator">  &#9702;  </span>
-<a class="nextPage" href="qmake-common-projects.html">Building Common Project Types</a>
+<a class="nextPage" href="qmake-common-projects.html">构建通用工程类型</a>
 </p>
         </div>
        </div>
