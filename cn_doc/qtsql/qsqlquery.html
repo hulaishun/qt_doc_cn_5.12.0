@@ -373,7 +373,7 @@
 </pre>
 <p>To bind NULL values, a null <a href="../qtcore/qvariant.html">QVariant</a> of the relevant type has to be added to the bound <a href="../qtcore/qvariant.html#QVariantList-typedef">QVariantList</a>; for example, <code>QVariant(QVariant::String)</code> should be used if you are using strings.</p>
 <p><b>Note: </b>Every bound <a href="../qtcore/qvariant.html#QVariantList-typedef">QVariantList</a> must contain the same amount of variants.</p><p><b>Note: </b>The type of the QVariants in a list must not change. For example, you cannot mix integer and string variants within a <a href="../qtcore/qvariant.html#QVariantList-typedef">QVariantList</a>.</p><p>The <i>mode</i> parameter indicates how the bound <a href="../qtcore/qvariant.html#QVariantList-typedef">QVariantList</a> will be interpreted. If <i>mode</i> is <code>ValuesAsRows</code>, every variant within the <a href="../qtcore/qvariant.html#QVariantList-typedef">QVariantList</a> will be interpreted as a value for a new row. <code>ValuesAsColumns</code> is a special case for the Oracle driver. In this mode, every entry within a <a href="../qtcore/qvariant.html#QVariantList-typedef">QVariantList</a> will be interpreted as array-value for an IN or OUT value within a stored procedure. Note that this will only work if the IN or OUT value is a table-type consisting of only one column of a basic type, for example <code>TYPE myType IS TABLE OF VARCHAR(64) INDEX BY BINARY_INTEGER;</code></p>
-<p>This function was introduced in  Qt 4.2.</p>
+<p>这个函数是在Qt 4.2版本中新增引入的。</p>
 <p><b>See also </b><a href="qsqlquery.html#prepare">prepare</a>(), <a href="qsqlquery.html#bindValue">bindValue</a>(), and <a href="qsqlquery.html#addBindValue">addBindValue</a>().</p>
 <!-- @@@execBatch -->
 <!-- $$$executedQuery[overload1]$$$executedQuery -->
@@ -463,7 +463,7 @@
 <p>If a new result set is available this function will return true. The query will be repositioned on an <i>invalid</i> record in the new result set and must be navigated to a valid record before data values can be retrieved. If a new result set isn't available the function returns <code>false</code> and the query is set to inactive. In any case the old result set will be discarded.</p>
 <p>When one of the statements is a non-select statement a count of affected rows may be available instead of a result set.</p>
 <p>Note that some databases, i.e&#x2e; Microsoft SQL Server, requires non-scrollable cursors when working with multiple result sets. Some databases may execute all statements at once while others may delay the execution until the result set is actually accessed, and some databases may have restrictions on which statements are allowed to be used in a SQL batch.</p>
-<p>This function was introduced in  Qt 4.4.</p>
+<p>这个函数是在Qt 4.4版本中新增引入的。</p>
 <p><b>See also </b><a href="qsqldriver.html#hasFeature">QSqlDriver::hasFeature</a>(), <a href="qsqlquery.html#setForwardOnly">setForwardOnly</a>(), <a href="qsqlquery.html#next">next</a>(), <a href="qsqlquery.html#isSelect">isSelect</a>(), <a href="qsqlquery.html#numRowsAffected">numRowsAffected</a>(), <a href="qsqlquery.html#isActive">isActive</a>(), and <a href="qsqlquery.html#lastError">lastError</a>().</p>
 <!-- @@@nextResult -->
 <!-- $$$numRowsAffected[overload1]$$$numRowsAffected -->
