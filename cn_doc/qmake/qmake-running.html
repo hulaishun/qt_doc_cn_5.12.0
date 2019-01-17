@@ -45,12 +45,12 @@
 <div class="toc">
 <h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#command-syntax">Command Syntax</a></li>
-<li class="level1"><a href="#operating-modes">Operating Modes</a></li>
+<li class="level1"><a href="#command-syntax">命令语法</a></li>
+<li class="level1"><a href="#operating-modes">操作模式</a></li>
 <li class="level1"><a href="#files">Files</a></li>
-<li class="level1"><a href="#general-options">General Options</a></li>
-<li class="level1"><a href="#makefile-mode-options">Makefile Mode Options</a></li>
-<li class="level1"><a href="#project-mode-options">Project Mode Options</a></li>
+<li class="level1"><a href="#general-options">通用选项</a></li>
+<li class="level1"><a href="#makefile-mode-options">Makefile模式选项</a></li>
+<li class="level1"><a href="#project-mode-options">工程模式选项</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
@@ -60,26 +60,26 @@
 <div class="descr"> <a name="details"></a>
 <p>The behavior of qmake can be customized when it is run by specifying various options on the command line. These allow the build process to be fine-tuned, provide useful diagnostic information, and can be used to specify the target platform for your project.</p>
 <a name="command-syntax"></a>
-<h2 id="command-syntax">Command Syntax</h2>
-<p>The syntax used to run qmake takes the following simple form:</p>
+<h2 id="command-syntax">命令语法</h2>
+<p>运行qmake的语法是如下的简单形式：</p>
 <pre class="cpp">
 
   qmake [mode] [options] files
 
 </pre>
 <a name="operating-modes"></a>
-<h2 id="operating-modes">Operating Modes</h2>
+<h2 id="operating-modes">操作模式</h2>
 <p>qmake supports two different modes of operation. In the default mode, qmake uses the information in a project file to generate a Makefile, but it is also possible to use qmake to generate project files. If you want to explicitly set the mode, you must specify it before all other options. The <code>mode</code> can be either of the following two values:</p>
 <ul>
-<li><code>-makefile</code> <br /> qmake output will be a Makefile.</li>
-<li><code>-project</code> <br /> qmake output will be a project file. <br /><p><b>Note: </b>It is likely that the created file will need to be edited. For example, adding the <code>QT</code> variable to suit what modules are required for the project.</p></li>
+<li><code>-makefile</code> <br /> qmake的输出内容将是个Makefile文件。</li>
+<li><code>-project</code> <br /> qmake output will be a project file. <br /><p><b>注意： </b>It is likely that the created file will need to be edited. For example, adding the <code>QT</code> variable to suit what modules are required for the project.</p></li>
 </ul>
-<p>You can use the <code>options</code> to specify both general and mode-specific settings. Options that only apply to the Makefile mode are described in the <a href="qmake-running.html#makefilemode">Makefile Mode Options</a> section, whereas options that influence the creation of project files are described in the <a href="qmake-running.html#projectmode">Project Mode Options</a> section.</p>
+<p>You can use the <code>options</code> to specify both general and mode-specific settings. Options that only apply to the Makefile mode are described in the <a href="qmake-running.html#makefilemode">Makefile模式选项</a> section, whereas options that influence the creation of project files are described in the <a href="qmake-running.html#projectmode">工程模式选项</a> section.</p>
 <a name="files"></a>
 <h2 id="files">Files</h2>
 <p>The <code>files</code> argument represents a list of one or more project files, separated by spaces.</p>
 <a name="general-options"></a>
-<h2 id="general-options">General Options</h2>
+<h2 id="general-options">通用选项</h2>
 <p>A wide range of options can be specified on the command line to qmake in order to customize the build process, and to override default settings for your platform. The following basic options provide help on using qmake, specify where qmake writes the output file, and control the level of debugging information that will be written to the console:</p>
 <ul>
 <li><code>-help</code> <br /> qmake will go over these features and give some useful help.</li>
@@ -99,7 +99,7 @@
 <li><code>-Wlogic</code> <br /> qmake will warn of common pitfalls and potential problems in your project file. For example, qmake will report multiple occurrences of files in lists and missing files.</li>
 </ul>
 <a name="makefilemode"></a><a name="makefile-mode-options"></a>
-<h2 id="makefile-mode-options">Makefile Mode Options</h2>
+<h2 id="makefile-mode-options">Makefile模式选项</h2>
 <pre class="cpp">
 
   qmake -makefile [options] files
@@ -109,7 +109,7 @@
 <ul>
 <li><code>-after</code> <br /> qmake will process assignments given on the command line after the specified files.</li>
 <li><code>-nocache</code> <br /> qmake will ignore the <code>.qmake.cache</code> file.</li>
-<li><code>-nodepend</code> <br /> qmake will not generate any dependency information.</li>
+<li><code>-nodepend</code> <br /> qmake将不会生成任何依赖信息。</li>
 <li><code>-cache file</code> <br /> qmake will use <code>file</code> as the cache file, ignoring any other .qmake.cache files found.</li>
 <li><code>-spec spec</code> <br /> qmake will use <code>spec</code> as a path to platform and compiler information, and ignore the value of <a href="qmake-environment-reference.html#qmakespec">QMAKESPEC</a>.</li>
 </ul>
@@ -127,18 +127,18 @@
 </pre>
 <p>If you are certain you want your variables processed after the files specified, then you may pass the <code>-after</code> option. When this is specified, all assignments on the command line after the <code>-after</code> option will be postponed until after the specified files are parsed.</p>
 <a name="projectmode"></a><a name="project-mode-options"></a>
-<h2 id="project-mode-options">Project Mode Options</h2>
+<h2 id="project-mode-options">工程模式选项</h2>
 <pre class="cpp">
 
   qmake -project [options] files
 
 </pre>
-<p>In project mode, qmake will generate a project file. Additionally, you may supply the following options in this mode:</p>
+<p>在工程模式中，qmake将生成一个工程文件。总之，在此模式下，你还可以支持如下的选项：</p>
 <ul>
-<li><code>-r</code> <br /> qmake will look through supplied directories recursively.</li>
-<li><code>-nopwd</code> <br /> qmake will not look in your current working directory for source code. It will only use the specified <code>files</code>.</li>
+<li><code>-r</code> <br /> qmake将在支持的目录中递归循环的查找。</li>
+<li><code>-nopwd</code> <br />qmake不会在源代码的当前工作目录中查找。It will only use the specified <code>files</code>.</li>
 </ul>
-<p>In this mode, the <code>files</code> argument can be a list of files or directories. If a directory is specified, it will be included in the <a href="qmake-variable-reference.html#dependpath">DEPENDPATH</a> variable, and relevant code from there will be included in the generated project file. If a file is given, it will be appended to the correct variable, depending on its extension. For example, UI files are added to <a href="qmake-variable-reference.html#forms">FORMS</a>, and C++ files are added to <a href="qmake-variable-reference.html#sources">SOURCES</a>.</p>
+<p>在此模式中，<code>files</code>参数可以是多个文件或路径的列表。 If a directory is specified, it will be included in the <a href="qmake-variable-reference.html#dependpath">DEPENDPATH</a> variable, and relevant code from there will be included in the generated project file. If a file is given, it will be appended to the correct variable, depending on its extension. For example, UI files are added to <a href="qmake-variable-reference.html#forms">FORMS</a>, and C++ files are added to <a href="qmake-variable-reference.html#sources">SOURCES</a>.</p>
 <p>You may also pass assignments on the command line in this mode. When doing so, these assignments will be placed last in the generated project file.</p>
 </div>
 <!-- @@@qmake-running.html -->
