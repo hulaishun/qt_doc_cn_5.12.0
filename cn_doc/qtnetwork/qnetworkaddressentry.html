@@ -137,7 +137,7 @@
 <!-- $$$clearAddressLifetime[overload1]$$$clearAddressLifetime -->
 <h3 class="fn" id="clearAddressLifetime"><a name="clearAddressLifetime"></a><span class="type">void</span> QNetworkAddressEntry::<span class="name">clearAddressLifetime</span>()</h3>
 <p>Resets both the preferred and valid lifetimes for this address. After this call, <a href="qnetworkaddressentry.html#isLifetimeKnown">isLifetimeKnown</a>() will return <code>false</code>.</p>
-<p>This function was introduced in  Qt 5.11.</p>
+<p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <p><b>See also </b><a href="qnetworkaddressentry.html#preferredLifetime">preferredLifetime</a>(), <a href="qnetworkaddressentry.html#validityLifetime">validityLifetime</a>(), <a href="qnetworkaddressentry.html#isLifetimeKnown">isLifetimeKnown</a>(), and <a href="qnetworkaddressentry.html#setAddressLifetime">setAddressLifetime</a>().</p>
 <!-- @@@clearAddressLifetime -->
 <!-- $$$dnsEligibility[overload1]$$$dnsEligibility -->
@@ -145,7 +145,7 @@
 <p>Returns whether this address is eligible for publication in the Domain Name System (DNS) or similar name resolution mechanisms.</p>
 <p>In general, an address is suitable for publication if it is an address this machine will be reached at for an indeterminate amount of time, though it need not be permanent. For example, addresses obtained via DHCP are often eligible, but cryptographically-generated temporary IPv6 addresses are not.</p>
 <p>On some systems, <a href="qnetworkinterface.html">QNetworkInterface</a> will need to heuristically determine which addresses are eligible.</p>
-<p>This function was introduced in  Qt 5.11.</p>
+<p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <p><b>See also </b><a href="qnetworkaddressentry.html#isLifetimeKnown">isLifetimeKnown</a>(), <a href="qnetworkaddressentry.html#isPermanent">isPermanent</a>(), and <a href="qnetworkaddressentry.html#setDnsEligibility">setDnsEligibility</a>().</p>
 <!-- @@@dnsEligibility -->
 <!-- $$$ip[overload1]$$$ip -->
@@ -156,20 +156,20 @@
 <!-- $$$isLifetimeKnown[overload1]$$$isLifetimeKnown -->
 <h3 class="fn" id="isLifetimeKnown"><a name="isLifetimeKnown"></a><span class="type">bool</span> QNetworkAddressEntry::<span class="name">isLifetimeKnown</span>() const</h3>
 <p>Returns <code>true</code> if the address lifetime is known, <code>false</code> if not. If the lifetime is not known, both <a href="qnetworkaddressentry.html#preferredLifetime">preferredLifetime</a>() and <a href="qnetworkaddressentry.html#validityLifetime">validityLifetime</a>() will return <a href="../qtcore/qdeadlinetimer.html#ForeverConstant-enum">QDeadlineTimer::Forever</a>.</p>
-<p>This function was introduced in  Qt 5.11.</p>
+<p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <p><b>See also </b><a href="qnetworkaddressentry.html#preferredLifetime">preferredLifetime</a>(), <a href="qnetworkaddressentry.html#validityLifetime">validityLifetime</a>(), <a href="qnetworkaddressentry.html#setAddressLifetime">setAddressLifetime</a>(), and <a href="qnetworkaddressentry.html#clearAddressLifetime">clearAddressLifetime</a>().</p>
 <!-- @@@isLifetimeKnown -->
 <!-- $$$isPermanent[overload1]$$$isPermanent -->
 <h3 class="fn" id="isPermanent"><a name="isPermanent"></a><span class="type">bool</span> QNetworkAddressEntry::<span class="name">isPermanent</span>() const</h3>
 <p>Returns <code>true</code> if this address is permanent on this interface, <code>false</code> if it's temporary. A permenant address is one which has no expiration time and is often static (manually configured).</p>
 <p>If this information could not be determined, this function returns <code>true</code>.</p>
-<p><b>Note: </b>Depending on the operating system and the networking configuration tool, it is possible for a temporary address to be interpreted as permanent, if the tool did not inform the details correctly to the operating system.</p><p>This function was introduced in  Qt 5.11.</p>
+<p><b>Note: </b>Depending on the operating system and the networking configuration tool, it is possible for a temporary address to be interpreted as permanent, if the tool did not inform the details correctly to the operating system.</p><p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <p><b>See also </b><a href="qnetworkaddressentry.html#isLifetimeKnown">isLifetimeKnown</a>(), <a href="qnetworkaddressentry.html#validityLifetime">validityLifetime</a>(), and <a href="qnetworkaddressentry.html#isTemporary">isTemporary</a>().</p>
 <!-- @@@isPermanent -->
 <!-- $$$isTemporary[overload1]$$$isTemporary -->
 <h3 class="fn" id="isTemporary"><a name="isTemporary"></a><span class="type">bool</span> QNetworkAddressEntry::<span class="name">isTemporary</span>() const</h3>
 <p>Returns <code>true</code> if this address is temporary on this interface, <code>false</code> if it's permanent.</p>
-<p>This function was introduced in  Qt 5.11.</p>
+<p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <p><b>See also </b><a href="qnetworkaddressentry.html#isLifetimeKnown">isLifetimeKnown</a>(), <a href="qnetworkaddressentry.html#validityLifetime">validityLifetime</a>(), and <a href="qnetworkaddressentry.html#isPermanent">isPermanent</a>().</p>
 <!-- @@@isTemporary -->
 <!-- $$$netmask[overload1]$$$netmask -->
@@ -182,20 +182,20 @@
 <h3 class="fn" id="preferredLifetime"><a name="preferredLifetime"></a><span class="type"><a href="../qtcore/qdeadlinetimer.html">QDeadlineTimer</a></span> QNetworkAddressEntry::<span class="name">preferredLifetime</span>() const</h3>
 <p>Returns the deadline when this address becomes deprecated (no longer preferred), if known. If the address lifetime is not known (see <a href="qnetworkaddressentry.html#isLifetimeKnown">isLifetimeKnown</a>()), this function always returns <a href="../qtcore/qdeadlinetimer.html#ForeverConstant-enum">QDeadlineTimer::Forever</a>.</p>
 <p>While an address is preferred, it may be used by the operating system as the source address for new, outgoing packets. After it becomes deprecated, it will remain valid for incoming packets for a while longer until finally removed (see <a href="qnetworkaddressentry.html#validityLifetime">validityLifetime</a>()).</p>
-<p>This function was introduced in  Qt 5.11.</p>
+<p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <p><b>See also </b><a href="qnetworkaddressentry.html#validityLifetime">validityLifetime</a>(), <a href="qnetworkaddressentry.html#isLifetimeKnown">isLifetimeKnown</a>(), <a href="qnetworkaddressentry.html#setAddressLifetime">setAddressLifetime</a>(), and <a href="qnetworkaddressentry.html#clearAddressLifetime">clearAddressLifetime</a>().</p>
 <!-- @@@preferredLifetime -->
 <!-- $$$prefixLength[overload1]$$$prefixLength -->
 <h3 class="fn" id="prefixLength"><a name="prefixLength"></a><span class="type">int</span> QNetworkAddressEntry::<span class="name">prefixLength</span>() const</h3>
 <p>Returns the prefix length of this IP address. The prefix length matches the number of bits set to 1 in the netmask (see <a href="qnetworkaddressentry.html#netmask">netmask</a>()). For IPv4 addresses, the value is between 0 and 32. For IPv6 addresses, it's contained between 0 and 128 and is the preferred form of representing addresses.</p>
 <p>This function returns -1 if the prefix length could not be determined (i.e&#x2e;, <a href="qnetworkaddressentry.html#netmask">netmask</a>() returns a null QHostAddress()).</p>
-<p>This function was introduced in  Qt 4.5.</p>
+<p>这个函数是在Qt 4.5版本中新增引入的。</p>
 <p><b>See also </b><a href="qnetworkaddressentry.html#setPrefixLength">setPrefixLength</a>() and <a href="qnetworkaddressentry.html#netmask">netmask</a>().</p>
 <!-- @@@prefixLength -->
 <!-- $$$setAddressLifetime[overload1]$$$setAddressLifetimeQDeadlineTimerQDeadlineTimer -->
 <h3 class="fn" id="setAddressLifetime"><a name="setAddressLifetime"></a><span class="type">void</span> QNetworkAddressEntry::<span class="name">setAddressLifetime</span>(<span class="type"><a href="../qtcore/qdeadlinetimer.html">QDeadlineTimer</a></span> <i>preferred</i>, <span class="type"><a href="../qtcore/qdeadlinetimer.html">QDeadlineTimer</a></span> <i>validity</i>)</h3>
 <p>Sets both the preferred and valid lifetimes for this address to the <i>preferred</i> and <i>validity</i> deadlines, respectively. After this call, <a href="qnetworkaddressentry.html#isLifetimeKnown">isLifetimeKnown</a>() will return <code>true</code>, even if both parameters are <a href="../qtcore/qdeadlinetimer.html#ForeverConstant-enum">QDeadlineTimer::Forever</a>.</p>
-<p>This function was introduced in  Qt 5.11.</p>
+<p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <p><b>See also </b><a href="qnetworkaddressentry.html#preferredLifetime">preferredLifetime</a>(), <a href="qnetworkaddressentry.html#validityLifetime">validityLifetime</a>(), <a href="qnetworkaddressentry.html#isLifetimeKnown">isLifetimeKnown</a>(), and <a href="qnetworkaddressentry.html#clearAddressLifetime">clearAddressLifetime</a>().</p>
 <!-- @@@setAddressLifetime -->
 <!-- $$$setBroadcast[overload1]$$$setBroadcastconstQHostAddress& -->
@@ -206,7 +206,7 @@
 <!-- $$$setDnsEligibility[overload1]$$$setDnsEligibilityQNetworkAddressEntry::DnsEligibilityStatus -->
 <h3 class="fn" id="setDnsEligibility"><a name="setDnsEligibility"></a><span class="type">void</span> QNetworkAddressEntry::<span class="name">setDnsEligibility</span>(<span class="type"><a href="qnetworkaddressentry.html#DnsEligibilityStatus-enum">QNetworkAddressEntry::DnsEligibilityStatus</a></span> <i>status</i>)</h3>
 <p>Sets the DNS eligibility flag for this address to <i>status</i>.</p>
-<p>This function was introduced in  Qt 5.11.</p>
+<p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <p><b>See also </b><a href="qnetworkaddressentry.html#dnsEligibility">dnsEligibility</a>().</p>
 <!-- @@@setDnsEligibility -->
 <!-- $$$setIp[overload1]$$$setIpconstQHostAddress& -->
@@ -223,19 +223,19 @@
 <h3 class="fn" id="setPrefixLength"><a name="setPrefixLength"></a><span class="type">void</span> QNetworkAddressEntry::<span class="name">setPrefixLength</span>(<span class="type">int</span> <i>length</i>)</h3>
 <p>Sets the prefix length of this IP address to <i>length</i>. The value of <i>length</i> must be valid for this type of IP address: between 0 and 32 for IPv4 addresses, between 0 and 128 for IPv6 addresses. Setting to any invalid value is equivalent to setting to -1, which means &quot;no prefix length&quot;.</p>
 <p>Setting the prefix length also sets the netmask (see <a href="qnetworkaddressentry.html#netmask">netmask</a>()).</p>
-<p>This function was introduced in  Qt 4.5.</p>
+<p>这个函数是在Qt 4.5版本中新增引入的。</p>
 <p><b>See also </b><a href="qnetworkaddressentry.html#prefixLength">prefixLength</a>() and <a href="qnetworkaddressentry.html#setNetmask">setNetmask</a>().</p>
 <!-- @@@setPrefixLength -->
 <!-- $$$swap[overload1]$$$swapQNetworkAddressEntry& -->
 <h3 class="fn" id="swap"><a name="swap"></a><span class="type">void</span> QNetworkAddressEntry::<span class="name">swap</span>(<span class="type"><a href="qnetworkaddressentry.html#QNetworkAddressEntry">QNetworkAddressEntry</a></span> &amp;<i>other</i>)</h3>
 <p>Swaps this network address entry instance with <i>other</i>. This function is very fast and never fails.</p>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <!-- @@@swap -->
 <!-- $$$validityLifetime[overload1]$$$validityLifetime -->
 <h3 class="fn" id="validityLifetime"><a name="validityLifetime"></a><span class="type"><a href="../qtcore/qdeadlinetimer.html">QDeadlineTimer</a></span> QNetworkAddressEntry::<span class="name">validityLifetime</span>() const</h3>
 <p>Returns the deadline when this address becomes invalid and will be removed from the networking stack, if known. If the address lifetime is not known (see <a href="qnetworkaddressentry.html#isLifetimeKnown">isLifetimeKnown</a>()), this function always returns <a href="../qtcore/qdeadlinetimer.html#ForeverConstant-enum">QDeadlineTimer::Forever</a>.</p>
 <p>While an address is valid, it will be accepted by the operating system as a valid destination address for this machine. Whether it is used as a source address for new, outgoing packets is controlled by, among other rules, the preferred lifetime (see <a href="qnetworkaddressentry.html#preferredLifetime">preferredLifetime</a>()).</p>
-<p>This function was introduced in  Qt 5.11.</p>
+<p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <p><b>See also </b><a href="qnetworkaddressentry.html#preferredLifetime">preferredLifetime</a>(), <a href="qnetworkaddressentry.html#isLifetimeKnown">isLifetimeKnown</a>(), <a href="qnetworkaddressentry.html#setAddressLifetime">setAddressLifetime</a>(), and <a href="qnetworkaddressentry.html#clearAddressLifetime">clearAddressLifetime</a>().</p>
 <!-- @@@validityLifetime -->
 <!-- $$$operator!=[overload1]$$$operator!=constQNetworkAddressEntry& -->

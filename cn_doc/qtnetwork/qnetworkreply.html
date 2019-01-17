@@ -268,7 +268,7 @@
 <h3 class="fn" id="encrypted"><a name="encrypted"></a><code>[signal] </code><span class="type">void</span> QNetworkReply::<span class="name">encrypted</span>()</h3>
 <p>This signal is emitted when an SSL/TLS session has successfully completed the initial handshake. At this point, no user data has been transmitted. The signal can be used to perform additional checks on the certificate chain, for example to notify users when the certificate for a website has changed. If the reply does not match the expected criteria then it should be aborted by calling <a href="qnetworkreply.html#abort">QNetworkReply::abort</a>() by a slot connected to this signal. The SSL configuration in use can be inspected using the <a href="qnetworkreply.html#sslConfiguration">QNetworkReply::sslConfiguration</a>() method.</p>
 <p>Internally, <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a> may open multiple connections to a server, in order to allow it process requests in parallel. These connections may be reused, which means that the encrypted() signal would not be emitted. This means that you are only guaranteed to receive this signal for the first connection to a site in the lifespan of the <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>.</p>
-<p>This function was introduced in  Qt 5.1.</p>
+<p>这个函数是在Qt 5.1版本中新增引入的。</p>
 <p><b>See also </b><a href="qsslsocket.html#encrypted">QSslSocket::encrypted</a>() and <a href="qnetworkaccessmanager.html#encrypted">QNetworkAccessManager::encrypted</a>().</p>
 <!-- @@@encrypted -->
 <!-- $$$error[overload1]$$$error -->
@@ -330,25 +330,25 @@
 
 </pre>
 <p>Multiple calls to this function will replace the list of errors that were passed in previous calls. You can clear the list of errors you want to ignore by calling this function with an empty list.</p>
-<p><b>Note: </b>If HTTP Strict Transport Security is enabled for <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>, this function has no effect.</p><p>This function was introduced in  Qt 4.6.</p>
+<p><b>Note: </b>If HTTP Strict Transport Security is enabled for <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>, this function has no effect.</p><p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qnetworkreply.html#sslConfiguration">sslConfiguration</a>(), <a href="qnetworkreply.html#sslErrors">sslErrors</a>(), <a href="qsslsocket.html#ignoreSslErrors">QSslSocket::ignoreSslErrors</a>(), and <a href="qnetworkaccessmanager.html#setStrictTransportSecurityEnabled">QNetworkAccessManager::setStrictTransportSecurityEnabled</a>().</p>
 <!-- @@@ignoreSslErrors -->
 <!-- $$$ignoreSslErrorsImplementation[overload1]$$$ignoreSslErrorsImplementationconstQList<QSslError>& -->
 <h3 class="fn" id="ignoreSslErrorsImplementation"><a name="ignoreSslErrorsImplementation"></a><code>[virtual protected] </code><span class="type">void</span> QNetworkReply::<span class="name">ignoreSslErrorsImplementation</span>(const <span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qsslerror.html">QSslError</a></span>&gt; &amp;<i>errors</i>)</h3>
 <p>This virtual method is provided to enable overriding the behavior of <a href="qnetworkreply.html#ignoreSslErrors">ignoreSslErrors</a>(). <a href="qnetworkreply.html#ignoreSslErrors">ignoreSslErrors</a>() is a public wrapper for this method. <i>errors</i> contains the errors the user wishes ignored.</p>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b>See also </b><a href="qnetworkreply.html#ignoreSslErrors">ignoreSslErrors</a>().</p>
 <!-- @@@ignoreSslErrorsImplementation -->
 <!-- $$$isFinished[overload1]$$$isFinished -->
 <h3 class="fn" id="isFinished"><a name="isFinished"></a><span class="type">bool</span> QNetworkReply::<span class="name">isFinished</span>() const</h3>
 <p>Returns <code>true</code> when the reply has finished or was aborted.</p>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qnetworkreply.html#isRunning">isRunning</a>().</p>
 <!-- @@@isFinished -->
 <!-- $$$isRunning[overload1]$$$isRunning -->
 <h3 class="fn" id="isRunning"><a name="isRunning"></a><span class="type">bool</span> QNetworkReply::<span class="name">isRunning</span>() const</h3>
 <p>Returns <code>true</code> when the request is still processing and the reply has not finished or was aborted yet.</p>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qnetworkreply.html#isFinished">isFinished</a>().</p>
 <!-- @@@isRunning -->
 <!-- $$$manager[overload1]$$$manager -->
@@ -369,7 +369,7 @@
 <h3 class="fn" id="preSharedKeyAuthenticationRequired"><a name="preSharedKeyAuthenticationRequired"></a><code>[signal] </code><span class="type">void</span> QNetworkReply::<span class="name">preSharedKeyAuthenticationRequired</span>(<span class="type"><a href="qsslpresharedkeyauthenticator.html">QSslPreSharedKeyAuthenticator</a></span> *<i>authenticator</i>)</h3>
 <p>This signal is emitted if the SSL/TLS handshake negotiates a PSK ciphersuite, and therefore a PSK authentication is then required.</p>
 <p>When using PSK, the client must send to the server a valid identity and a valid pre shared key, in order for the SSL handshake to continue. Applications can provide this information in a slot connected to this signal, by filling in the passed <i>authenticator</i> object according to their needs.</p>
-<p><b>Note: </b>Ignoring this signal, or failing to provide the required credentials, will cause the handshake to fail, and therefore the connection to be aborted.</p><p><b>Note: </b>The <i>authenticator</i> object is owned by the reply and must not be deleted by the application.</p><p>This function was introduced in  Qt 5.5.</p>
+<p><b>Note: </b>Ignoring this signal, or failing to provide the required credentials, will cause the handshake to fail, and therefore the connection to be aborted.</p><p><b>Note: </b>The <i>authenticator</i> object is owned by the reply and must not be deleted by the application.</p><p>这个函数是在Qt 5.5版本中新增引入的。</p>
 <p><b>See also </b><a href="qsslpresharedkeyauthenticator.html">QSslPreSharedKeyAuthenticator</a>.</p>
 <!-- @@@preSharedKeyAuthenticationRequired -->
 <!-- $$$rawHeader[overload1]$$$rawHeaderconstQByteArray& -->
@@ -393,13 +393,13 @@
 <!-- $$$redirectAllowed[overload1]$$$redirectAllowed -->
 <h3 class="fn" id="redirectAllowed"><a name="redirectAllowed"></a><code>[signal] </code><span class="type">void</span> QNetworkReply::<span class="name">redirectAllowed</span>()</h3>
 <p>When client code handling the <a href="qnetworkreply.html#redirected">redirected</a>() signal has verified the new URL, it emits this signal to allow the redirect to go ahead. This protocol applies to network requests whose redirects policy is set to <a href="qnetworkrequest.html#RedirectPolicy-enum">QNetworkRequest::UserVerifiedRedirectPolicy</a></p>
-<p>This function was introduced in  Qt 5.9.</p>
+<p>这个函数是在Qt 5.9版本中新增引入的。</p>
 <p><b>See also </b><a href="qnetworkrequest.html#RedirectPolicy-enum">QNetworkRequest::UserVerifiedRedirectPolicy</a>, <a href="qnetworkaccessmanager.html#setRedirectPolicy">QNetworkAccessManager::setRedirectPolicy</a>(), and <a href="qnetworkrequest.html#Attribute-enum">QNetworkRequest::RedirectPolicyAttribute</a>.</p>
 <!-- @@@redirectAllowed -->
 <!-- $$$redirected[overload1]$$$redirectedconstQUrl& -->
 <h3 class="fn" id="redirected"><a name="redirected"></a><code>[signal] </code><span class="type">void</span> QNetworkReply::<span class="name">redirected</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
 <p>This signal is emitted if the <a href="qnetworkrequest.html#Attribute-enum">QNetworkRequest::FollowRedirectsAttribute</a> was set in the request and the server responded with a 3xx status (specifically 301, 302, 303, 305, 307 or 308 status code) with a valid url in the location header, indicating a HTTP redirect. The <i>url</i> parameter contains the new redirect url as returned by the server in the location header.</p>
-<p>This function was introduced in  Qt 5.6.</p>
+<p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qnetworkrequest.html#Attribute-enum">QNetworkRequest::FollowRedirectsAttribute</a>.</p>
 <!-- @@@redirected -->
 <!-- $$$request[overload1]$$$request -->
@@ -422,7 +422,7 @@
 <h3 class="fn" id="setFinished"><a name="setFinished"></a><code>[protected] </code><span class="type">void</span> QNetworkReply::<span class="name">setFinished</span>(<span class="type">bool</span> <i>finished</i>)</h3>
 <p>Sets the reply as <i>finished</i>.</p>
 <p>After having this set the replies data must not change.</p>
-<p>This function was introduced in  Qt 4.8.</p>
+<p>这个函数是在Qt 4.8版本中新增引入的。</p>
 <p><b>See also </b><a href="qnetworkreply.html#finished">finished</a>() and <a href="qnetworkreply.html#isFinished">isFinished</a>().</p>
 <!-- @@@setFinished -->
 <!-- $$$setHeader[overload1]$$$setHeaderQNetworkRequest::KnownHeadersconstQVariant& -->
@@ -461,7 +461,7 @@
 <!-- $$$setSslConfigurationImplementation[overload1]$$$setSslConfigurationImplementationconstQSslConfiguration& -->
 <h3 class="fn" id="setSslConfigurationImplementation"><a name="setSslConfigurationImplementation"></a><code>[virtual protected] </code><span class="type">void</span> QNetworkReply::<span class="name">setSslConfigurationImplementation</span>(const <span class="type"><a href="qsslconfiguration.html">QSslConfiguration</a></span> &amp;<i>configuration</i>)</h3>
 <p>This virtual method is provided to enable overriding the behavior of <a href="qnetworkreply.html#setSslConfiguration">setSslConfiguration</a>(). <a href="qnetworkreply.html#setSslConfiguration">setSslConfiguration</a>() is a public wrapper for this method. If you override this method use <i>configuration</i> to set the SSL configuration.</p>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b>See also </b><a href="qnetworkreply.html#sslConfigurationImplementation">sslConfigurationImplementation</a>() and <a href="qnetworkreply.html#setSslConfiguration">setSslConfiguration</a>().</p>
 <!-- @@@setSslConfigurationImplementation -->
 <!-- $$$setUrl[overload1]$$$setUrlconstQUrl& -->
@@ -478,7 +478,7 @@
 <!-- $$$sslConfigurationImplementation[overload1]$$$sslConfigurationImplementationQSslConfiguration& -->
 <h3 class="fn" id="sslConfigurationImplementation"><a name="sslConfigurationImplementation"></a><code>[virtual protected] </code><span class="type">void</span> QNetworkReply::<span class="name">sslConfigurationImplementation</span>(<span class="type"><a href="qsslconfiguration.html">QSslConfiguration</a></span> &amp;<i>configuration</i>) const</h3>
 <p>This virtual method is provided to enable overriding the behavior of <a href="qnetworkreply.html#sslConfiguration">sslConfiguration</a>(). <a href="qnetworkreply.html#sslConfiguration">sslConfiguration</a>() is a public wrapper for this method. The configuration will be returned in <i>configuration</i>.</p>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b>See also </b><a href="qnetworkreply.html#setSslConfigurationImplementation">setSslConfigurationImplementation</a>() and <a href="qnetworkreply.html#sslConfiguration">sslConfiguration</a>().</p>
 <!-- @@@sslConfigurationImplementation -->
 <!-- $$$sslErrors[overload1]$$$sslErrorsconstQList<QSslError>& -->

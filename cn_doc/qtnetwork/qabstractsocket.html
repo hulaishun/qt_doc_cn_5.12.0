@@ -390,14 +390,14 @@
 <p>For TCP sockets, this function may be used to specify which interface to use for an outgoing connection, which is useful in case of multiple network interfaces.</p>
 <p>By default, the socket is bound using the <a href="qabstractsocket.html#BindFlag-enum">DefaultForPlatform</a> <a href="qabstractsocket.html#BindFlag-enum">BindMode</a>. If a port is not specified, a random port is chosen.</p>
 <p>On success, the functions returns <code>true</code> and the socket enters <a href="qabstractsocket.html#SocketState-enum">BoundState</a>; otherwise it returns <code>false</code>.</p>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <!-- @@@bind -->
 <!-- $$$bind$$$bindquint16QAbstractSocket::BindMode -->
 <h3 class="fn" id="bind-1"><a name="bind-1"></a><span class="type">bool</span> QAbstractSocket::<span class="name">bind</span>(<span class="type"><a href="../qtcore/qtglobal.html#quint16-typedef">quint16</a></span> <i>port</i>, <span class="type"><a href="qabstractsocket.html#BindFlag-enum">QAbstractSocket::BindMode</a></span> <i>mode</i>)</h3>
 <p>This is an overloaded function.</p>
 <p>Binds to <a href="qhostaddress.html">QHostAddress</a>:Any on port <i>port</i>, using the <a href="qabstractsocket.html#BindFlag-enum">BindMode</a> <i>mode</i>.</p>
 <p>By default, the socket is bound using the <a href="qabstractsocket.html#BindFlag-enum">DefaultForPlatform</a> <a href="qabstractsocket.html#BindFlag-enum">BindMode</a>. If a port is not specified, a random port is chosen.</p>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <!-- @@@bind -->
 <!-- $$$bytesAvailable[overload1]$$$bytesAvailable -->
 <h3 class="fn" id="bytesAvailable"><a name="bytesAvailable"></a><code>[override virtual] </code><span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> QAbstractSocket::<span class="name">bytesAvailable</span>() const</h3>
@@ -505,7 +505,7 @@
 <!-- $$$pauseMode[overload1]$$$pauseMode -->
 <h3 class="fn" id="pauseMode"><a name="pauseMode"></a><span class="type"><a href="qabstractsocket.html#PauseMode-enum">QAbstractSocket::PauseModes</a></span> QAbstractSocket::<span class="name">pauseMode</span>() const</h3>
 <p>Returns the pause mode of this socket.</p>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstractsocket.html#setPauseMode">setPauseMode</a>() and <a href="qabstractsocket.html#resume">resume</a>().</p>
 <!-- @@@pauseMode -->
 <!-- $$$peerAddress[overload1]$$$peerAddress -->
@@ -526,13 +526,13 @@
 <!-- $$$proxy[overload1]$$$proxy -->
 <h3 class="fn" id="proxy"><a name="proxy"></a><span class="type"><a href="qnetworkproxy.html">QNetworkProxy</a></span> QAbstractSocket::<span class="name">proxy</span>() const</h3>
 <p>Returns the network proxy for this socket. By default <a href="qnetworkproxy.html#ProxyType-enum">QNetworkProxy::DefaultProxy</a> is used, which means this socket will query the default proxy settings for the application.</p>
-<p>This function was introduced in  Qt 4.1.</p>
+<p>这个函数是在Qt 4.1版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstractsocket.html#setProxy">setProxy</a>(), <a href="qnetworkproxy.html">QNetworkProxy</a>, and <a href="qnetworkproxyfactory.html">QNetworkProxyFactory</a>.</p>
 <!-- @@@proxy -->
 <!-- $$$proxyAuthenticationRequired[overload1]$$$proxyAuthenticationRequiredconstQNetworkProxy&QAuthenticator* -->
 <h3 class="fn" id="proxyAuthenticationRequired"><a name="proxyAuthenticationRequired"></a><code>[signal] </code><span class="type">void</span> QAbstractSocket::<span class="name">proxyAuthenticationRequired</span>(const <span class="type"><a href="qnetworkproxy.html">QNetworkProxy</a></span> &amp;<i>proxy</i>, <span class="type"><a href="qauthenticator.html">QAuthenticator</a></span> *<i>authenticator</i>)</h3>
 <p>This signal can be emitted when a <i>proxy</i> that requires authentication is used. The <i>authenticator</i> object can then be filled in with the required details to allow authentication and continue the connection.</p>
-<p><b>Note: </b>It is not possible to use a QueuedConnection to connect to this signal, as the connection will fail if the authenticator has not been filled in with new information when the signal returns.</p><p>This function was introduced in  Qt 4.3.</p>
+<p><b>Note: </b>It is not possible to use a QueuedConnection to connect to this signal, as the connection will fail if the authenticator has not been filled in with new information when the signal returns.</p><p>这个函数是在Qt 4.3版本中新增引入的。</p>
 <p><b>See also </b><a href="qauthenticator.html">QAuthenticator</a> and <a href="qnetworkproxy.html">QNetworkProxy</a>.</p>
 <!-- @@@proxyAuthenticationRequired -->
 <!-- $$$readBufferSize[overload1]$$$readBufferSize -->
@@ -552,7 +552,7 @@
 <!-- $$$resume[overload1]$$$resume -->
 <h3 class="fn" id="resume"><a name="resume"></a><code>[virtual] </code><span class="type">void</span> QAbstractSocket::<span class="name">resume</span>()</h3>
 <p>Continues data transfer on the socket. This method should only be used after the socket has been set to pause upon notifications and a notification has been received. The only notification currently supported is <a href="qsslsocket.html#sslErrors">QSslSocket::sslErrors</a>(). Calling this method if the socket is not paused results in undefined behavior.</p>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstractsocket.html#pauseMode">pauseMode</a>() and <a href="qabstractsocket.html#setPauseMode">setPauseMode</a>().</p>
 <!-- @@@resume -->
 <!-- $$$setLocalAddress[overload1]$$$setLocalAddressconstQHostAddress& -->
@@ -560,7 +560,7 @@
 <p>Sets the address on the local side of a connection to <i>address</i>.</p>
 <p>You can call this function in a subclass of <a href="qabstractsocket.html">QAbstractSocket</a> to change the return value of the <a href="qabstractsocket.html#localAddress">localAddress</a>() function after a connection has been established. This feature is commonly used by proxy connections for virtual connection settings.</p>
 <p>Note that this function does not bind the local address of the socket prior to a connection (e.g&#x2e;, <a href="qabstractsocket.html#bind">QAbstractSocket::bind</a>()).</p>
-<p>This function was introduced in  Qt 4.1.</p>
+<p>这个函数是在Qt 4.1版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstractsocket.html#localAddress">localAddress</a>(), <a href="qabstractsocket.html#setLocalPort">setLocalPort</a>(), and <a href="qabstractsocket.html#setPeerAddress">setPeerAddress</a>().</p>
 <!-- @@@setLocalAddress -->
 <!-- $$$setLocalPort[overload1]$$$setLocalPortquint16 -->
@@ -568,34 +568,34 @@
 <p>Sets the port on the local side of a connection to <i>port</i>.</p>
 <p>You can call this function in a subclass of <a href="qabstractsocket.html">QAbstractSocket</a> to change the return value of the <a href="qabstractsocket.html#localPort">localPort</a>() function after a connection has been established. This feature is commonly used by proxy connections for virtual connection settings.</p>
 <p>Note that this function does not bind the local port of the socket prior to a connection (e.g&#x2e;, <a href="qabstractsocket.html#bind">QAbstractSocket::bind</a>()).</p>
-<p>This function was introduced in  Qt 4.1.</p>
+<p>这个函数是在Qt 4.1版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstractsocket.html#localPort">localPort</a>(), <a href="qabstractsocket.html#localAddress">localAddress</a>(), <a href="qabstractsocket.html#setLocalAddress">setLocalAddress</a>(), and <a href="qabstractsocket.html#setPeerPort">setPeerPort</a>().</p>
 <!-- @@@setLocalPort -->
 <!-- $$$setPauseMode[overload1]$$$setPauseModeQAbstractSocket::PauseModes -->
 <h3 class="fn" id="setPauseMode"><a name="setPauseMode"></a><span class="type">void</span> QAbstractSocket::<span class="name">setPauseMode</span>(<span class="type"><a href="qabstractsocket.html#PauseMode-enum">QAbstractSocket::PauseModes</a></span> <i>pauseMode</i>)</h3>
 <p>Controls whether to pause upon receiving a notification. The <i>pauseMode</i> parameter specifies the conditions in which the socket should be paused. The only notification currently supported is <a href="qsslsocket.html#sslErrors">QSslSocket::sslErrors</a>(). If set to <a href="qabstractsocket.html#PauseMode-enum">PauseOnSslErrors</a>, data transfer on the socket will be paused and needs to be enabled explicitly again by calling <a href="qabstractsocket.html#resume">resume</a>(). By default this option is set to <a href="qabstractsocket.html#PauseMode-enum">PauseNever</a>. This option must be called before connecting to the server, otherwise it will result in undefined behavior.</p>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstractsocket.html#pauseMode">pauseMode</a>() and <a href="qabstractsocket.html#resume">resume</a>().</p>
 <!-- @@@setPauseMode -->
 <!-- $$$setPeerAddress[overload1]$$$setPeerAddressconstQHostAddress& -->
 <h3 class="fn" id="setPeerAddress"><a name="setPeerAddress"></a><code>[protected] </code><span class="type">void</span> QAbstractSocket::<span class="name">setPeerAddress</span>(const <span class="type"><a href="qhostaddress.html">QHostAddress</a></span> &amp;<i>address</i>)</h3>
 <p>Sets the address of the remote side of the connection to <i>address</i>.</p>
 <p>You can call this function in a subclass of <a href="qabstractsocket.html">QAbstractSocket</a> to change the return value of the <a href="qabstractsocket.html#peerAddress">peerAddress</a>() function after a connection has been established. This feature is commonly used by proxy connections for virtual connection settings.</p>
-<p>This function was introduced in  Qt 4.1.</p>
+<p>这个函数是在Qt 4.1版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstractsocket.html#peerAddress">peerAddress</a>(), <a href="qabstractsocket.html#setPeerPort">setPeerPort</a>(), and <a href="qabstractsocket.html#setLocalAddress">setLocalAddress</a>().</p>
 <!-- @@@setPeerAddress -->
 <!-- $$$setPeerName[overload1]$$$setPeerNameconstQString& -->
 <h3 class="fn" id="setPeerName"><a name="setPeerName"></a><code>[protected] </code><span class="type">void</span> QAbstractSocket::<span class="name">setPeerName</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>name</i>)</h3>
 <p>Sets the host name of the remote peer to <i>name</i>.</p>
 <p>You can call this function in a subclass of <a href="qabstractsocket.html">QAbstractSocket</a> to change the return value of the <a href="qabstractsocket.html#peerName">peerName</a>() function after a connection has been established. This feature is commonly used by proxy connections for virtual connection settings.</p>
-<p>This function was introduced in  Qt 4.1.</p>
+<p>这个函数是在Qt 4.1版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstractsocket.html#peerName">peerName</a>().</p>
 <!-- @@@setPeerName -->
 <!-- $$$setPeerPort[overload1]$$$setPeerPortquint16 -->
 <h3 class="fn" id="setPeerPort"><a name="setPeerPort"></a><code>[protected] </code><span class="type">void</span> QAbstractSocket::<span class="name">setPeerPort</span>(<span class="type"><a href="../qtcore/qtglobal.html#quint16-typedef">quint16</a></span> <i>port</i>)</h3>
 <p>Sets the port of the remote side of the connection to <i>port</i>.</p>
 <p>You can call this function in a subclass of <a href="qabstractsocket.html">QAbstractSocket</a> to change the return value of the <a href="qabstractsocket.html#peerPort">peerPort</a>() function after a connection has been established. This feature is commonly used by proxy connections for virtual connection settings.</p>
-<p>This function was introduced in  Qt 4.1.</p>
+<p>这个函数是在Qt 4.1版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstractsocket.html#peerPort">peerPort</a>(), <a href="qabstractsocket.html#setPeerAddress">setPeerAddress</a>(), and <a href="qabstractsocket.html#setLocalPort">setLocalPort</a>().</p>
 <!-- @@@setPeerPort -->
 <!-- $$$setProxy[overload1]$$$setProxyconstQNetworkProxy& -->
@@ -608,7 +608,7 @@
 
 </pre>
 <p>The default value for the proxy is <a href="qnetworkproxy.html#ProxyType-enum">QNetworkProxy::DefaultProxy</a>, which means the socket will use the application settings: if a proxy is set with <a href="qnetworkproxy.html#setApplicationProxy">QNetworkProxy::setApplicationProxy</a>, it will use that; otherwise, if a factory is set with <a href="qnetworkproxyfactory.html#setApplicationProxyFactory">QNetworkProxyFactory::setApplicationProxyFactory</a>, it will query that factory with type <a href="qnetworkproxyquery.html#QueryType-enum">QNetworkProxyQuery::TcpSocket</a>.</p>
-<p>This function was introduced in  Qt 4.1.</p>
+<p>这个函数是在Qt 4.1版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstractsocket.html#proxy">proxy</a>(), <a href="qnetworkproxy.html">QNetworkProxy</a>, and <a href="qnetworkproxyfactory.html#queryProxy">QNetworkProxyFactory::queryProxy</a>().</p>
 <!-- @@@setProxy -->
 <!-- $$$setReadBufferSize[overload1]$$$setReadBufferSizeqint64 -->
@@ -633,7 +633,7 @@
 <!-- $$$setSocketOption[overload1]$$$setSocketOptionQAbstractSocket::SocketOptionconstQVariant& -->
 <h3 class="fn" id="setSocketOption"><a name="setSocketOption"></a><code>[virtual] </code><span class="type">void</span> QAbstractSocket::<span class="name">setSocketOption</span>(<span class="type"><a href="qabstractsocket.html#SocketOption-enum">QAbstractSocket::SocketOption</a></span> <i>option</i>, const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>value</i>)</h3>
 <p>Sets the given <i>option</i> to the value described by <i>value</i>.</p>
-<p><b>Note: </b>On Windows Runtime, <a href="qabstractsocket.html#SocketOption-enum">QAbstractSocket::KeepAliveOption</a> must be set before the socket is connected.</p><p>This function was introduced in  Qt 4.6.</p>
+<p><b>Note: </b>On Windows Runtime, <a href="qabstractsocket.html#SocketOption-enum">QAbstractSocket::KeepAliveOption</a> must be set before the socket is connected.</p><p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstractsocket.html#socketOption">socketOption</a>().</p>
 <!-- @@@setSocketOption -->
 <!-- $$$setSocketState[overload1]$$$setSocketStateQAbstractSocket::SocketState -->
@@ -651,7 +651,7 @@
 <!-- $$$socketOption[overload1]$$$socketOptionQAbstractSocket::SocketOption -->
 <h3 class="fn" id="socketOption"><a name="socketOption"></a><code>[virtual] </code><span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> QAbstractSocket::<span class="name">socketOption</span>(<span class="type"><a href="qabstractsocket.html#SocketOption-enum">QAbstractSocket::SocketOption</a></span> <i>option</i>)</h3>
 <p>Returns the value of the <i>option</i> option.</p>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstractsocket.html#setSocketOption">setSocketOption</a>().</p>
 <!-- @@@socketOption -->
 <!-- $$$socketType[overload1]$$$socketType -->

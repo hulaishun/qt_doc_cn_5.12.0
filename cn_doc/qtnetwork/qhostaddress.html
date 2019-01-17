@@ -195,7 +195,7 @@
 <h3 class="fn" id="QHostAddress-3"><a name="QHostAddress-3"></a>QHostAddress::<span class="name">QHostAddress</span>(const <span class="type"><a href="../qtcore/qtglobal.html#quint8-typedef">quint8</a></span> *<i>ip6Addr</i>)</h3>
 <p>Constructs a host address object with the IPv6 address <i>ip6Addr</i>.</p>
 <p><i>ip6Addr</i> must be a 16-byte array in network byte order (big endian).</p>
-<p>This function was introduced in  Qt 5.5.</p>
+<p>这个函数是在Qt 5.5版本中新增引入的。</p>
 <!-- @@@QHostAddress -->
 <!-- $$$QHostAddress$$$QHostAddressconstQ_IPV6ADDR& -->
 <h3 class="fn" id="QHostAddress-4"><a name="QHostAddress-4"></a>QHostAddress::<span class="name">QHostAddress</span>(const <span class="type">Q_IPV6ADDR</span> &amp;<i>ip6Addr</i>)</h3>
@@ -232,14 +232,14 @@
 <h3 class="fn" id="isBroadcast"><a name="isBroadcast"></a><span class="type">bool</span> QHostAddress::<span class="name">isBroadcast</span>() const</h3>
 <p>Returns <code>true</code> if the address is the IPv4 broadcast address, <code>false</code> otherwise. The IPv4 broadcast address is 255.255.255.255.</p>
 <p>Note that this function does not return true for an IPv4 network's local broadcast address. For that, please use <a href="qnetworkinterface.html">QNetworkInterface</a> to obtain the broadcast addresses of the local machine.</p>
-<p>This function was introduced in  Qt 5.11.</p>
+<p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <p><b>See also </b><a href="qhostaddress.html#isLoopback">isLoopback</a>(), <a href="qhostaddress.html#isGlobal">isGlobal</a>(), <a href="qhostaddress.html#isMulticast">isMulticast</a>(), <a href="qhostaddress.html#isLinkLocal">isLinkLocal</a>(), and <a href="qhostaddress.html#isUniqueLocalUnicast">isUniqueLocalUnicast</a>().</p>
 <!-- @@@isBroadcast -->
 <!-- $$$isEqual[overload1]$$$isEqualconstQHostAddress&QHostAddress::ConversionMode -->
 <h3 class="fn" id="isEqual"><a name="isEqual"></a><span class="type">bool</span> QHostAddress::<span class="name">isEqual</span>(const <span class="type"><a href="qhostaddress.html#QHostAddress">QHostAddress</a></span> &amp;<i>other</i>, <span class="type"><a href="qhostaddress.html#ConversionModeFlag-enum">QHostAddress::ConversionMode</a></span> <i>mode</i>) const</h3>
 <p>Returns <code>true</code> if this host address is the same as the <i>other</i> address given; otherwise returns <code>false</code>.</p>
 <p>The parameter <i>mode</i> controls which conversions are preformed between addresses of differing protocols. If no <i>mode</i> is given, <code>TolerantConversion</code> is performed by default.</p>
-<p>This function was introduced in  Qt 5.8.</p>
+<p>这个函数是在Qt 5.8版本中新增引入的。</p>
 <p><b>See also </b><a href="qhostaddress.html#ConversionModeFlag-enum">ConversionMode</a> and <a href="qhostaddress.html#operator-eq-eq">operator==</a>().</p>
 <!-- @@@isEqual -->
 <!-- $$$isGlobal[overload1]$$$isGlobal -->
@@ -247,7 +247,7 @@
 <p>Returns <code>true</code> if the address is an IPv4 or IPv6 global address, <code>false</code> otherwise. A global address is an address that is not reserved for special purposes (like loopback or multicast) or future purposes.</p>
 <p>Note that IPv6 unique local unicast addresses are considered global addresses (see <a href="qhostaddress.html#isUniqueLocalUnicast">isUniqueLocalUnicast</a>()), as are IPv4 addresses reserved for local networks by <a href="https://tools.ietf.org/html/rfc1918">RFC 1918</a>.</p>
 <p>Also note that IPv6 site-local addresses are deprecated and should be considered as global in new applications. This function returns true for site-local addresses too.</p>
-<p>This function was introduced in  Qt 5.11.</p>
+<p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <p><b>See also </b><a href="qhostaddress.html#isLoopback">isLoopback</a>(), <a href="qhostaddress.html#isSiteLocal">isSiteLocal</a>(), and <a href="qhostaddress.html#isUniqueLocalUnicast">isUniqueLocalUnicast</a>().</p>
 <!-- @@@isGlobal -->
 <!-- $$$isInSubnet[overload1]$$$isInSubnetconstQHostAddress&int -->
@@ -255,31 +255,31 @@
 <p>Returns <code>true</code> if this IP is in the subnet described by the network prefix <i>subnet</i> and netmask <i>netmask</i>.</p>
 <p>An IP is considered to belong to a subnet if it is contained between the lowest and the highest address in that subnet. In the case of IP version 4, the lowest address is the network address, while the highest address is the broadcast address.</p>
 <p>The <i>subnet</i> argument does not have to be the actual network address (the lowest address in the subnet). It can be any valid IP belonging to that subnet. In particular, if it is equal to the IP address held by this object, this function will always return true (provided the netmask is a valid value).</p>
-<p>This function was introduced in  Qt 4.5.</p>
+<p>这个函数是在Qt 4.5版本中新增引入的。</p>
 <p><b>See also </b><a href="qhostaddress.html#parseSubnet">parseSubnet</a>().</p>
 <!-- @@@isInSubnet -->
 <!-- $$$isInSubnet$$$isInSubnetconstQPair<QHostAddress,int>& -->
 <h3 class="fn" id="isInSubnet-1"><a name="isInSubnet-1"></a><span class="type">bool</span> QHostAddress::<span class="name">isInSubnet</span>(const <span class="type"><a href="../qtcore/qpair.html">QPair</a></span>&lt;<span class="type"><a href="qhostaddress.html#QHostAddress">QHostAddress</a></span>, <span class="type">int</span>&gt; &amp;<i>subnet</i>) const</h3>
 <p>This is an overloaded function.</p>
 <p>Returns <code>true</code> if this IP is in the subnet described by <i>subnet</i>. The <a href="qhostaddress.html">QHostAddress</a> member of <i>subnet</i> contains the network prefix and the int (second) member contains the netmask (prefix length).</p>
-<p>This function was introduced in  Qt 4.5.</p>
+<p>这个函数是在Qt 4.5版本中新增引入的。</p>
 <!-- @@@isInSubnet -->
 <!-- $$$isLinkLocal[overload1]$$$isLinkLocal -->
 <h3 class="fn" id="isLinkLocal"><a name="isLinkLocal"></a><span class="type">bool</span> QHostAddress::<span class="name">isLinkLocal</span>() const</h3>
 <p>Returns <code>true</code> if the address is an IPv4 or IPv6 link-local address, <code>false</code> otherwise.</p>
 <p>An IPv4 link-local address is an address in the network 169.254.0&#x2e;0/16. An IPv6 link-local address is one in the network fe80::/10. See the <a href="https://www.iana.org/assignments/ipv6-address-space/ipv6-address-space.xhtml">IANA IPv6 Address Space</a> registry for more information.</p>
-<p>This function was introduced in  Qt 5.11.</p>
+<p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <p><b>See also </b><a href="qhostaddress.html#isLoopback">isLoopback</a>(), <a href="qhostaddress.html#isGlobal">isGlobal</a>(), <a href="qhostaddress.html#isMulticast">isMulticast</a>(), <a href="qhostaddress.html#isSiteLocal">isSiteLocal</a>(), and <a href="qhostaddress.html#isUniqueLocalUnicast">isUniqueLocalUnicast</a>().</p>
 <!-- @@@isLinkLocal -->
 <!-- $$$isLoopback[overload1]$$$isLoopback -->
 <h3 class="fn" id="isLoopback"><a name="isLoopback"></a><span class="type">bool</span> QHostAddress::<span class="name">isLoopback</span>() const</h3>
 <p>returns <code>true</code> if the address is the IPv6 loopback address, or any of the IPv4 loopback addresses.</p>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <!-- @@@isLoopback -->
 <!-- $$$isMulticast[overload1]$$$isMulticast -->
 <h3 class="fn" id="isMulticast"><a name="isMulticast"></a><span class="type">bool</span> QHostAddress::<span class="name">isMulticast</span>() const</h3>
 <p>Returns <code>true</code> if the address is an IPv4 or IPv6 multicast address, <code>false</code> otherwise.</p>
-<p>This function was introduced in  Qt 5.6.</p>
+<p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qhostaddress.html#isLoopback">isLoopback</a>(), <a href="qhostaddress.html#isGlobal">isGlobal</a>(), <a href="qhostaddress.html#isLinkLocal">isLinkLocal</a>(), <a href="qhostaddress.html#isSiteLocal">isSiteLocal</a>(), and <a href="qhostaddress.html#isUniqueLocalUnicast">isUniqueLocalUnicast</a>().</p>
 <!-- @@@isMulticast -->
 <!-- $$$isNull[overload1]$$$isNull -->
@@ -293,7 +293,7 @@
 <p>Returns <code>true</code> if the address is an IPv6 site-local address, <code>false</code> otherwise.</p>
 <p>An IPv6 site-local address is one in the network fec0::/10. See the <a href="https://www.iana.org/assignments/ipv6-address-space/ipv6-address-space.xhtml">IANA IPv6 Address Space</a> registry for more information.</p>
 <p>IPv6 site-local addresses are deprecated and should not be depended upon in new applications. New applications should not depend on this function and should consider site-local addresses the same as global (which is why <a href="qhostaddress.html#isGlobal">isGlobal</a>() also returns true). Site-local addresses were replaced by Unique Local Addresses (ULA).</p>
-<p>This function was introduced in  Qt 5.11.</p>
+<p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <p><b>See also </b><a href="qhostaddress.html#isLoopback">isLoopback</a>(), <a href="qhostaddress.html#isGlobal">isGlobal</a>(), <a href="qhostaddress.html#isMulticast">isMulticast</a>(), <a href="qhostaddress.html#isLinkLocal">isLinkLocal</a>(), and <a href="qhostaddress.html#isUniqueLocalUnicast">isUniqueLocalUnicast</a>().</p>
 <!-- @@@isSiteLocal -->
 <!-- $$$isUniqueLocalUnicast[overload1]$$$isUniqueLocalUnicast -->
@@ -301,7 +301,7 @@
 <p>Returns <code>true</code> if the address is an IPv6 unique local unicast address, <code>false</code> otherwise.</p>
 <p>An IPv6 unique local unicast address is one in the network fc00::/7. See the <a href="https://www.iana.org/assignments/ipv6-address-space/ipv6-address-space.xhtml">IANA IPv6 Address Space</a> registry for more information.</p>
 <p>Note that Unique local unicast addresses count as global addresses too. RFC 4193 says that, in practice, &quot;applications may treat these addresses like global scoped addresses.&quot; Only routers need care about the distinction.</p>
-<p>This function was introduced in  Qt 5.11.</p>
+<p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <p><b>See also </b><a href="qhostaddress.html#isLoopback">isLoopback</a>(), <a href="qhostaddress.html#isGlobal">isGlobal</a>(), <a href="qhostaddress.html#isMulticast">isMulticast</a>(), <a href="qhostaddress.html#isLinkLocal">isLinkLocal</a>(), and isUniqueLocalUnicast().</p>
 <!-- @@@isUniqueLocalUnicast -->
 <!-- $$$parseSubnet[overload1]$$$parseSubnetconstQString& -->
@@ -315,7 +315,7 @@
 <li>&lt;ipv6-address&gt;/n where n is any value between 0 and 128</li>
 </ul>
 <p>For IP version 4, this function accepts as well missing trailing components (i.e&#x2e;, less than 4 octets, like &quot;192.168.1&quot;), followed or not by a dot. If the netmask is also missing in that case, it is set to the number of octets actually passed (in the example above, it would be 24, for 3 octets).</p>
-<p>This function was introduced in  Qt 4.5.</p>
+<p>这个函数是在Qt 4.5版本中新增引入的。</p>
 <p><b>See also </b><a href="qhostaddress.html#isInSubnet">isInSubnet</a>().</p>
 <!-- @@@parseSubnet -->
 <!-- $$$protocol[overload1]$$$protocol -->
@@ -333,7 +333,7 @@
 <li>Global: For globally routable addresses, such as public servers on the Internet.</li>
 </ul>
 <p>When using a link-local or site-local address for IPv6 connections, you must specify the scope ID. The scope ID for a link-local address is usually the same as the interface name (e.g&#x2e;, &quot;eth0&quot;, &quot;en1&quot;) or number (e.g&#x2e;, &quot;1&quot;, &quot;2&quot;).</p>
-<p>This function was introduced in  Qt 4.1.</p>
+<p>这个函数是在Qt 4.1版本中新增引入的。</p>
 <p><b>See also </b><a href="qhostaddress.html#setScopeId">setScopeId</a>(), <a href="qnetworkinterface.html">QNetworkInterface</a>, and <a href="qnetworkinterface.html#interfaceFromName">QNetworkInterface::interfaceFromName</a>.</p>
 <!-- @@@scopeId -->
 <!-- $$$setAddress[overload1]$$$setAddressquint32 -->
@@ -351,7 +351,7 @@
 <p>This is an overloaded function.</p>
 <p>Set the IPv6 address specified by <i>ip6Addr</i>.</p>
 <p><i>ip6Addr</i> must be an array of 16 bytes in network byte order (high-order byte first).</p>
-<p>This function was introduced in  Qt 5.5.</p>
+<p>这个函数是在Qt 5.5版本中新增引入的。</p>
 <!-- @@@setAddress -->
 <!-- $$$setAddress$$$setAddressconstQ_IPV6ADDR& -->
 <h3 class="fn" id="setAddress-3"><a name="setAddress-3"></a><span class="type">void</span> QHostAddress::<span class="name">setAddress</span>(const <span class="type">Q_IPV6ADDR</span> &amp;<i>ip6Addr</i>)</h3>
@@ -372,18 +372,18 @@
 <h3 class="fn" id="setAddress-6"><a name="setAddress-6"></a><span class="type">void</span> QHostAddress::<span class="name">setAddress</span>(<span class="type"><a href="qhostaddress.html#SpecialAddress-enum">QHostAddress::SpecialAddress</a></span> <i>address</i>)</h3>
 <p>This is an overloaded function.</p>
 <p>Sets the special address specified by <i>address</i>.</p>
-<p>This function was introduced in  Qt 5.8.</p>
+<p>这个函数是在Qt 5.8版本中新增引入的。</p>
 <!-- @@@setAddress -->
 <!-- $$$setScopeId[overload1]$$$setScopeIdconstQString& -->
 <h3 class="fn" id="setScopeId"><a name="setScopeId"></a><span class="type">void</span> QHostAddress::<span class="name">setScopeId</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>id</i>)</h3>
 <p>Sets the IPv6 scope ID of the address to <i>id</i>. If the address protocol is not IPv6, this function does nothing. The scope ID may be set as an interface name (such as &quot;eth0&quot; or &quot;en1&quot;) or as an integer representing the interface index. If <i>id</i> is an interface name, <a href="qtnetwork-module.html">QtNetwork</a> will convert to an interface index using <a href="qnetworkinterface.html#interfaceIndexFromName">QNetworkInterface::interfaceIndexFromName</a>() before calling the operating system networking functions.</p>
-<p>This function was introduced in  Qt 4.1.</p>
+<p>这个函数是在Qt 4.1版本中新增引入的。</p>
 <p><b>See also </b><a href="qhostaddress.html#scopeId">scopeId</a>(), <a href="qnetworkinterface.html">QNetworkInterface</a>, and <a href="qnetworkinterface.html#interfaceFromName">QNetworkInterface::interfaceFromName</a>.</p>
 <!-- @@@setScopeId -->
 <!-- $$$swap[overload1]$$$swapQHostAddress& -->
 <h3 class="fn" id="swap"><a name="swap"></a><span class="type">void</span> QHostAddress::<span class="name">swap</span>(<span class="type"><a href="qhostaddress.html#QHostAddress">QHostAddress</a></span> &amp;<i>other</i>)</h3>
 <p>Swaps this host address with <i>other</i>. This operation is very fast and never fails.</p>
-<p>This function was introduced in  Qt 5.6.</p>
+<p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <!-- @@@swap -->
 <!-- $$$toIPv4Address[overload1]$$$toIPv4Address -->
 <h3 class="fn" id="toIPv4Address"><a name="toIPv4Address"></a><span class="type"><a href="../qtcore/qtglobal.html#quint32-typedef">quint32</a></span> QHostAddress::<span class="name">toIPv4Address</span>() const</h3>
@@ -424,7 +424,7 @@
 <!-- $$$operator!=[overload1]$$$operator!=constQHostAddress& -->
 <h3 class="fn" id="operator-not-eq"><a name="operator-not-eq"></a><span class="type">bool</span> QHostAddress::<span class="name">operator!=</span>(const <span class="type"><a href="qhostaddress.html#QHostAddress">QHostAddress</a></span> &amp;<i>other</i>) const</h3>
 <p>Returns <code>true</code> if this host address is not the same as the <i>other</i> address given; otherwise returns <code>false</code>.</p>
-<p>This function was introduced in  Qt 4.2.</p>
+<p>这个函数是在Qt 4.2版本中新增引入的。</p>
 <!-- @@@operator!= -->
 <!-- $$$operator!=$$$operator!=QHostAddress::SpecialAddress -->
 <h3 class="fn" id="operator-not-eq-1"><a name="operator-not-eq-1"></a><span class="type">bool</span> QHostAddress::<span class="name">operator!=</span>(<span class="type"><a href="qhostaddress.html#SpecialAddress-enum">QHostAddress::SpecialAddress</a></span> <i>other</i>) const</h3>
@@ -445,7 +445,7 @@
 <!-- $$$operator=$$$operator=QHostAddress::SpecialAddress -->
 <h3 class="fn" id="operator-eq-3"><a name="operator-eq-3"></a><span class="type"><a href="qhostaddress.html#QHostAddress">QHostAddress</a></span> &amp;QHostAddress::<span class="name">operator=</span>(<span class="type"><a href="qhostaddress.html#SpecialAddress-enum">QHostAddress::SpecialAddress</a></span> <i>address</i>)</h3>
 <p>Assigns the special address <i>address</i> to this object, and returns a reference to this object.</p>
-<p>This function was introduced in  Qt 5.8.</p>
+<p>这个函数是在Qt 5.8版本中新增引入的。</p>
 <p><b>See also </b><a href="qhostaddress.html#setAddress">setAddress</a>().</p>
 <!-- @@@operator= -->
 <!-- $$$operator==[overload1]$$$operator==constQHostAddress& -->
@@ -466,12 +466,12 @@
 <!-- $$$qHash[overload1]$$$qHashconstQHostAddress&uint -->
 <h3 class="fn" id="qHash"><a name="qHash"></a><span class="type"><a href="../qtcore/qtglobal.html#uint-typedef">uint</a></span> <span class="name">qHash</span>(const <span class="type"><a href="qhostaddress.html#QHostAddress">QHostAddress</a></span> &amp;<i>key</i>, <span class="type"><a href="../qtcore/qtglobal.html#uint-typedef">uint</a></span> <i>seed</i> = 0)</h3>
 <p>Returns a hash of the host address <i>key</i>, using <i>seed</i> to seed the calculation.</p>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <!-- @@@qHash -->
 <!-- $$$operator!=$$$operator!=QHostAddress::SpecialAddressconstQHostAddress& -->
 <h3 class="fn" id="operator-not-eq-1"><a name="operator-not-eq-1"></a><span class="type">bool</span> <span class="name">operator!=</span>(<span class="type"><a href="qhostaddress.html#SpecialAddress-enum">QHostAddress::SpecialAddress</a></span> <i>lhs</i>, const <span class="type"><a href="qhostaddress.html#QHostAddress">QHostAddress</a></span> &amp;<i>rhs</i>)</h3>
 <p>Returns <code>false</code> if special address <i>lhs</i> is the same as host address <i>rhs</i>; otherwise returns <code>true</code>.</p>
-<p>This function was introduced in  Qt 5.9.</p>
+<p>这个函数是在Qt 5.9版本中新增引入的。</p>
 <p><b>See also </b><a href="../qmake/qmake-test-function-reference.html#isequal">isEqual</a>().</p>
 <!-- @@@operator!= -->
 <!-- $$$operator<<[overload1]$$$operator<<QDataStream&constQHostAddress& -->
