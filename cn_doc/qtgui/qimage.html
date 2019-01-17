@@ -478,7 +478,7 @@
 <!-- $$$QImage$$$QImageQImage&& -->
 <h3 class="fn" id="QImage-10"><a name="QImage-10"></a>QImage::<span class="name">QImage</span>(<span class="type"><a href="qimage.html#QImage">QImage</a></span> &amp;&amp;<i>other</i>)</h3>
 <p>Move-constructs a <a href="qimage.html">QImage</a> instance, making it point at the same object that <i>other</i> was pointing to.</p>
-<p>This function was introduced in  Qt 5.2.</p>
+<p>这个函数是在Qt 5.2版本中新增引入的。</p>
 <!-- @@@QImage -->
 <!-- $$$~QImage[overload1]$$$~QImage -->
 <h3 class="fn" id="dtor.QImage"><a name="dtor.QImage"></a><code>[virtual] </code>QImage::<span class="name">~QImage</span>()</h3>
@@ -494,7 +494,7 @@
 <h3 class="fn" id="bitPlaneCount"><a name="bitPlaneCount"></a><span class="type">int</span> QImage::<span class="name">bitPlaneCount</span>() const</h3>
 <p>Returns the number of bit planes in the image.</p>
 <p>The number of bit planes is the number of bits of color and transparency information for each pixel. This is different from (i.e&#x2e; smaller than) the depth when the image format contains unused bits.</p>
-<p>This function was introduced in  Qt 4.7.</p>
+<p>这个函数是在Qt 4.7版本中新增引入的。</p>
 <p><b>See also </b><a href="qimage.html#depth">depth</a>(), <a href="qimage.html#format">format</a>(), and <a href="qimage.html#image-formats">Image Formats</a>.</p>
 <!-- @@@bitPlaneCount -->
 <!-- $$$bits[overload1]$$$bits -->
@@ -529,7 +529,7 @@
 <h3 class="fn" id="colorCount"><a name="colorCount"></a><span class="type">int</span> QImage::<span class="name">colorCount</span>() const</h3>
 <p>Returns the size of the color table for the image.</p>
 <p>Notice that colorCount() returns 0 for 32-bpp images because these images do not use color tables, but instead encode pixel values as ARGB quadruplets.</p>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qimage.html#setColorCount">setColorCount</a>() and <a href="qimage.html#image-information">Image Information</a>.</p>
 <!-- @@@colorCount -->
 <!-- $$$colorTable[overload1]$$$colorTable -->
@@ -541,7 +541,7 @@
 <h3 class="fn" id="constBits"><a name="constBits"></a>const <span class="type"><a href="../qtcore/qtglobal.html#uchar-typedef">uchar</a></span> *QImage::<span class="name">constBits</span>() const</h3>
 <p>Returns a pointer to the first pixel data.</p>
 <p>Note that <a href="qimage.html">QImage</a> uses <a href="../qtcore/implicit-sharing.html">implicit data sharing</a>, but this function does <i>not</i> perform a deep copy of the shared pixel data, because the returned data is const.</p>
-<p>This function was introduced in  Qt 4.7.</p>
+<p>这个函数是在Qt 4.7版本中新增引入的。</p>
 <p><b>See also </b><a href="qimage.html#bits">bits</a>() and <a href="qimage.html#constScanLine">constScanLine</a>().</p>
 <!-- @@@constBits -->
 <!-- $$$constScanLine[overload1]$$$constScanLineint -->
@@ -549,7 +549,7 @@
 <p>Returns a pointer to the pixel data at the scanline with index <i>i</i>. The first scanline is at index 0.</p>
 <p>The scanline data is aligned on a 32-bit boundary.</p>
 <p>Note that <a href="qimage.html">QImage</a> uses <a href="../qtcore/implicit-sharing.html">implicit data sharing</a>, but this function does <i>not</i> perform a deep copy of the shared pixel data, because the returned data is const.</p>
-<p>This function was introduced in  Qt 4.7.</p>
+<p>这个函数是在Qt 4.7版本中新增引入的。</p>
 <p><b>See also </b><a href="qimage.html#scanLine">scanLine</a>() and <a href="qimage.html#constBits">constBits</a>().</p>
 <!-- @@@constScanLine -->
 <!-- $$$convertToFormat$$$convertToFormatQImage::FormatconstQVector<QRgb>&Qt::ImageConversionFlags -->
@@ -629,13 +629,13 @@
 <p>Fills the entire image with the given <i>color</i>.</p>
 <p>If the depth of the image is 1, the image will be filled with 1 if <i>color</i> equals <a href="../qtcore/qt.html#GlobalColor-enum">Qt::color1</a>; it will otherwise be filled with 0.</p>
 <p>If the depth of the image is 8, the image will be filled with the index corresponding the <i>color</i> in the color table if present; it will otherwise be filled with 0.</p>
-<p>This function was introduced in  Qt 4.8.</p>
+<p>这个函数是在Qt 4.8版本中新增引入的。</p>
 <!-- @@@fill -->
 <!-- $$$fill$$$fillQt::GlobalColor -->
 <h3 class="fn" id="fill-2"><a name="fill-2"></a><span class="type">void</span> QImage::<span class="name">fill</span>(<span class="type">Qt::GlobalColor</span> <i>color</i>)</h3>
 <p>This is an overloaded function.</p>
 <p>Fills the image with the given <i>color</i>, described as a standard global color.</p>
-<p>This function was introduced in  Qt 4.8.</p>
+<p>这个函数是在Qt 4.8版本中新增引入的。</p>
 <!-- @@@fill -->
 <!-- $$$format[overload1]$$$format -->
 <h3 class="fn" id="format"><a name="format"></a><span class="type"><a href="qimage.html#Format-enum">QImage::Format</a></span> QImage::<span class="name">format</span>() const</h3>
@@ -728,14 +728,14 @@
 <p>Returns the color of the pixel at the given <i>position</i> as a <a href="qcolor.html">QColor</a>.</p>
 <p>If the <i>position</i> is not valid, an invalid <a href="qcolor.html">QColor</a> is returned.</p>
 <p><b>Warning:</b> This function is expensive when used for massive pixel manipulations. Use <a href="qimage.html#constBits">constBits</a>() or <a href="qimage.html#constScanLine">constScanLine</a>() when many pixels needs to be read.</p>
-<p>This function was introduced in  Qt 5.6.</p>
+<p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qimage.html#setPixelColor">setPixelColor</a>(), <a href="qimage.html#setPixel">setPixel</a>(), <a href="qimage.html#valid">valid</a>(), <a href="qimage.html#constBits">constBits</a>(), <a href="qimage.html#constScanLine">constScanLine</a>(), and <a href="qimage.html#pixel-manipulation">Pixel Manipulation</a>.</p>
 <!-- @@@pixelColor -->
 <!-- $$$pixelColor$$$pixelColorintint -->
 <h3 class="fn" id="pixelColor-1"><a name="pixelColor-1"></a><span class="type"><a href="qcolor.html">QColor</a></span> QImage::<span class="name">pixelColor</span>(<span class="type">int</span> <i>x</i>, <span class="type">int</span> <i>y</i>) const</h3>
 <p>This is an overloaded function.</p>
 <p>Returns the color of the pixel at coordinates (<i>x</i>, <i>y</i>) as a <a href="qcolor.html">QColor</a>.</p>
-<p>This function was introduced in  Qt 5.6.</p>
+<p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <!-- @@@pixelColor -->
 <!-- $$$pixelFormat[overload1]$$$pixelFormat -->
 <h3 class="fn" id="pixelFormat"><a name="pixelFormat"></a><span class="type"><a href="qpixelformat.html">QPixelFormat</a></span> QImage::<span class="name">pixelFormat</span>() const</h3>
@@ -764,7 +764,7 @@
 <p>This function can be used to change images with alpha-channels to their corresponding opaque formats if the data is known to be opaque-only, or to change the format of a given image buffer before overwriting it with new data.</p>
 <p><b>Warning:</b> The function does not check if the image data is valid in the new format and will still return <code>true</code> if the depths are compatible. Operations on an image with invalid data are undefined.</p>
 <p><b>Warning:</b> If the image is not detached, this will cause the data to be copied.</p>
-<p>This function was introduced in  Qt 5.9.</p>
+<p>这个函数是在Qt 5.9版本中新增引入的。</p>
 <p><b>See also </b><a href="qimage.html#hasAlphaChannel">hasAlphaChannel</a>() and <a href="qimage.html#convertToFormat">convertToFormat</a>().</p>
 <!-- @@@reinterpretAsFormat -->
 <!-- $$$save[overload1]$$$saveconstQString&constchar*int -->
@@ -842,7 +842,7 @@
 <p>Resizes the color table to contain <i>colorCount</i> entries.</p>
 <p>If the color table is expanded, all the extra colors will be set to transparent (i.e <a href="qcolor.html#qRgba">qRgba</a>(0, 0, 0, 0)).</p>
 <p>When the image is used, the color table must be large enough to have entries for all the pixel/index values present in the image, otherwise the results are undefined.</p>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qimage.html#colorCount">colorCount</a>(), <a href="qimage.html#colorTable">colorTable</a>(), <a href="qimage.html#setColor">setColor</a>(), and <a href="qimage.html#image-transformations">Image Transformations</a>.</p>
 <!-- @@@setColorCount -->
 <!-- $$$setColorTable[overload1]$$$setColorTableconstQVector<QRgb> -->
@@ -894,14 +894,14 @@
 <p>Sets the color at the given <i>position</i> to <i>color</i>.</p>
 <p>If <i>position</i> is not a valid coordinate pair in the image, or the image's format is either monochrome or paletted, the result is undefined.</p>
 <p><b>Warning:</b> This function is expensive due to the call of the internal <code>detach()</code> function called within; if performance is a concern, we recommend the use of <a href="qimage.html#scanLine">scanLine</a>() or <a href="qimage.html#bits">bits</a>() to access pixel data directly.</p>
-<p>This function was introduced in  Qt 5.6.</p>
+<p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qimage.html#pixelColor">pixelColor</a>(), <a href="qimage.html#pixel">pixel</a>(), <a href="qimage.html#bits">bits</a>(), <a href="qimage.html#scanLine">scanLine</a>(), and <a href="qimage.html#pixel-manipulation">Pixel Manipulation</a>.</p>
 <!-- @@@setPixelColor -->
 <!-- $$$setPixelColor$$$setPixelColorintintconstQColor& -->
 <h3 class="fn" id="setPixelColor-1"><a name="setPixelColor-1"></a><span class="type">void</span> QImage::<span class="name">setPixelColor</span>(<span class="type">int</span> <i>x</i>, <span class="type">int</span> <i>y</i>, const <span class="type"><a href="qcolor.html">QColor</a></span> &amp;<i>color</i>)</h3>
 <p>This is an overloaded function.</p>
 <p>Sets the pixel color at (<i>x</i>, <i>y</i>) to <i>color</i>.</p>
-<p>This function was introduced in  Qt 5.6.</p>
+<p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <!-- @@@setPixelColor -->
 <!-- $$$setText[overload1]$$$setTextconstQString&constQString& -->
 <h3 class="fn" id="setText"><a name="setText"></a><span class="type">void</span> QImage::<span class="name">setText</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>text</i>)</h3>
@@ -928,7 +928,7 @@
 <!-- $$$sizeInBytes[overload1]$$$sizeInBytes -->
 <h3 class="fn" id="sizeInBytes"><a name="sizeInBytes"></a><span class="type">qsizetype</span> QImage::<span class="name">sizeInBytes</span>() const</h3>
 <p>Returns the image data size in bytes.</p>
-<p>This function was introduced in  Qt 5.10.</p>
+<p>这个函数是在Qt 5.10版本中新增引入的。</p>
 <p><b>See also </b><a href="qimage-obsolete.html#byteCount">byteCount</a>(), <a href="qimage.html#bytesPerLine">bytesPerLine</a>(), <a href="qimage.html#bits">bits</a>(), and <a href="qimage.html#image-information">Image Information</a>.</p>
 <!-- @@@sizeInBytes -->
 <!-- $$$smoothScaled[overload1]$$$smoothScaledintint -->
@@ -938,7 +938,7 @@
 <!-- $$$swap[overload1]$$$swapQImage& -->
 <h3 class="fn" id="swap"><a name="swap"></a><span class="type">void</span> QImage::<span class="name">swap</span>(<span class="type"><a href="qimage.html#QImage">QImage</a></span> &amp;<i>other</i>)</h3>
 <p>Swaps image <i>other</i> with this image. This operation is very fast and never fails.</p>
-<p>This function was introduced in  Qt 4.8.</p>
+<p>这个函数是在Qt 4.8版本中新增引入的。</p>
 <!-- @@@swap -->
 <!-- $$$text[overload1]$$$textconstQString& -->
 <h3 class="fn" id="text"><a name="text"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QImage::<span class="name">text</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i> = QString()) const</h3>
@@ -1040,7 +1040,7 @@
 <!-- $$$operator=$$$operator=QImage&& -->
 <h3 class="fn" id="operator-eq-1"><a name="operator-eq-1"></a><span class="type"><a href="qimage.html#QImage">QImage</a></span> &amp;QImage::<span class="name">operator=</span>(<span class="type"><a href="qimage.html#QImage">QImage</a></span> &amp;&amp;<i>other</i>)</h3>
 <p>Move-assigns <i>other</i> to this <a href="qimage.html">QImage</a> instance.</p>
-<p>This function was introduced in  Qt 5.2.</p>
+<p>这个函数是在Qt 5.2版本中新增引入的。</p>
 <!-- @@@operator= -->
 <!-- $$$operator==[overload1]$$$operator==constQImage& -->
 <h3 class="fn" id="operator-eq-eq"><a name="operator-eq-eq"></a><span class="type">bool</span> QImage::<span class="name">operator==</span>(const <span class="type"><a href="qimage.html#QImage">QImage</a></span> &amp;<i>image</i>) const</h3>

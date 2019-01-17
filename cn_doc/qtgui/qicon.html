@@ -261,7 +261,7 @@
 <h3 class="fn" id="actualSize-1"><a name="actualSize-1"></a><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QIcon::<span class="name">actualSize</span>(<span class="type"><a href="qwindow.html">QWindow</a></span> *<i>window</i>, const <span class="type"><a href="../qtcore/qsize.html">QSize</a></span> &amp;<i>size</i>, <span class="type"><a href="qicon.html#Mode-enum">QIcon::Mode</a></span> <i>mode</i> = Normal, <span class="type"><a href="qicon.html#State-enum">QIcon::State</a></span> <i>state</i> = Off) const</h3>
 <p>Returns the actual size of the icon for the requested <i>window</i> <i>size</i>, <i>mode</i>, and <i>state</i>.</p>
 <p>The pixmap can be smaller than the requested size. The returned size is in device-independent pixels (This is relevant for high-dpi pixmaps.)</p>
-<p>This function was introduced in  Qt 5.1.</p>
+<p>这个函数是在Qt 5.1版本中新增引入的。</p>
 <p><b>See also </b><a href="qicon.html#actualSize">actualSize</a>(), <a href="qicon.html#pixmap">pixmap</a>(), and <a href="qicon.html#paint">paint</a>().</p>
 <!-- @@@actualSize -->
 <!-- $$$addFile[overload1]$$$addFileconstQString&constQSize&QIcon::ModeQIcon::State -->
@@ -282,28 +282,28 @@
 <!-- $$$availableSizes[overload1]$$$availableSizesQIcon::ModeQIcon::State -->
 <h3 class="fn" id="availableSizes"><a name="availableSizes"></a><span class="type">QList</span>&lt;<span class="type"><a href="../qtcore/qsize.html">QSize</a></span>&gt; QIcon::<span class="name">availableSizes</span>(<span class="type"><a href="qicon.html#Mode-enum">QIcon::Mode</a></span> <i>mode</i> = Normal, <span class="type"><a href="qicon.html#State-enum">QIcon::State</a></span> <i>state</i> = Off) const</h3>
 <p>Returns a list of available icon sizes for the specified <i>mode</i> and <i>state</i>.</p>
-<p>This function was introduced in  Qt 4.5.</p>
+<p>这个函数是在Qt 4.5版本中新增引入的。</p>
 <!-- @@@availableSizes -->
 <!-- $$$cacheKey[overload1]$$$cacheKey -->
 <h3 class="fn" id="cacheKey"><a name="cacheKey"></a><span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> QIcon::<span class="name">cacheKey</span>() const</h3>
 <p>Returns a number that identifies the contents of this <a href="qicon.html">QIcon</a> object. Distinct <a href="qicon.html">QIcon</a> objects can have the same key if they refer to the same contents.</p>
 <p>The cacheKey() will change when the icon is altered via <a href="qicon.html#addPixmap">addPixmap</a>() or <a href="qicon.html#addFile">addFile</a>().</p>
 <p>Cache keys are mostly useful in conjunction with caching.</p>
-<p>This function was introduced in  Qt 4.3.</p>
+<p>这个函数是在Qt 4.3版本中新增引入的。</p>
 <p><b>See also </b><a href="qpixmap.html#cacheKey">QPixmap::cacheKey</a>().</p>
 <!-- @@@cacheKey -->
 <!-- $$$fallbackSearchPaths[overload1]$$$fallbackSearchPaths -->
 <h3 class="fn" id="fallbackSearchPaths"><a name="fallbackSearchPaths"></a><code>[static] </code><span class="type"><a href="../qtcore/qstringlist.html">QStringList</a></span> QIcon::<span class="name">fallbackSearchPaths</span>()</h3>
 <p>Returns the fallback search paths for icons.</p>
 <p>The default value will depend on the platform.</p>
-<p>This function was introduced in  Qt 5.11.</p>
+<p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <p><b>See also </b><a href="qicon.html#setFallbackSearchPaths">setFallbackSearchPaths</a>() and <a href="qicon.html#themeSearchPaths">themeSearchPaths</a>().</p>
 <!-- @@@fallbackSearchPaths -->
 <!-- $$$fallbackThemeName[overload1]$$$fallbackThemeName -->
 <h3 class="fn" id="fallbackThemeName"><a name="fallbackThemeName"></a><code>[static] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QIcon::<span class="name">fallbackThemeName</span>()</h3>
 <p>Returns the name of the fallback icon theme.</p>
 <p>On X11, if not set, the fallback icon theme depends on your desktop settings. On other platforms it is not set by default.</p>
-<p>This function was introduced in  Qt 5.12.</p>
+<p>这个函数是在Qt 5.12版本中新增引入的。</p>
 <p><b>See also </b><a href="qicon.html#setFallbackThemeName">setFallbackThemeName</a>() and <a href="qicon.html#themeName">themeName</a>().</p>
 <!-- @@@fallbackThemeName -->
 <!-- $$$fromTheme[overload1]$$$fromThemeconstQString& -->
@@ -320,7 +320,7 @@
       <span class="type"><a href="qicon.html#QIcon">QIcon</a></span> undoicon <span class="operator">=</span> <span class="type"><a href="qicon.html#QIcon">QIcon</a></span><span class="operator">::</span>fromTheme(<span class="string">&quot;edit-undo&quot;</span>);
 
 </pre>
-<p><b>Note: </b>By default, only X11 will support themed icons. In order to use themed icons on Mac and Windows, you will have to bundle a compliant theme in one of your <a href="qicon.html#themeSearchPaths">themeSearchPaths</a>() and set the appropriate <a href="qicon.html#themeName">themeName</a>().</p><p><b>Note: </b>Qt will make use of GTK's icon-theme.cache if present to speed up the lookup. These caches can be generated using gtk-update-icon-cache: <a href="https://developer.gnome.org/gtk3/stable/gtk-update-icon-cache.html">https://developer.gnome.org/gtk3/stable/gtk-update-icon-cache.html</a>.</p><p><b>Note: </b>If an icon can't be found in the current theme, then it will be searched in <a href="qicon.html#fallbackSearchPaths">fallbackSearchPaths</a>() as an unthemed icon.</p><p>This function was introduced in  Qt 4.6.</p>
+<p><b>Note: </b>By default, only X11 will support themed icons. In order to use themed icons on Mac and Windows, you will have to bundle a compliant theme in one of your <a href="qicon.html#themeSearchPaths">themeSearchPaths</a>() and set the appropriate <a href="qicon.html#themeName">themeName</a>().</p><p><b>Note: </b>Qt will make use of GTK's icon-theme.cache if present to speed up the lookup. These caches can be generated using gtk-update-icon-cache: <a href="https://developer.gnome.org/gtk3/stable/gtk-update-icon-cache.html">https://developer.gnome.org/gtk3/stable/gtk-update-icon-cache.html</a>.</p><p><b>Note: </b>If an icon can't be found in the current theme, then it will be searched in <a href="qicon.html#fallbackSearchPaths">fallbackSearchPaths</a>() as an unthemed icon.</p><p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qicon.html#themeName">themeName</a>(), <a href="qicon.html#setThemeName">setThemeName</a>(), <a href="qicon.html#themeSearchPaths">themeSearchPaths</a>(), and <a href="qicon.html#fallbackSearchPaths">fallbackSearchPaths</a>().</p>
 <!-- @@@fromTheme -->
 <!-- $$$fromTheme$$$fromThemeconstQString&constQIcon& -->
@@ -337,13 +337,13 @@
 <!-- $$$hasThemeIcon[overload1]$$$hasThemeIconconstQString& -->
 <h3 class="fn" id="hasThemeIcon"><a name="hasThemeIcon"></a><code>[static] </code><span class="type">bool</span> QIcon::<span class="name">hasThemeIcon</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>name</i>)</h3>
 <p>Returns <code>true</code> if there is an icon available for <i>name</i> in the current icon theme, otherwise returns <code>false</code>.</p>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qicon.html#themeSearchPaths">themeSearchPaths</a>(), <a href="qicon.html#fromTheme">fromTheme</a>(), and <a href="qicon.html#setThemeName">setThemeName</a>().</p>
 <!-- @@@hasThemeIcon -->
 <!-- $$$isMask[overload1]$$$isMask -->
 <h3 class="fn" id="isMask"><a name="isMask"></a><span class="type">bool</span> QIcon::<span class="name">isMask</span>() const</h3>
 <p>Returns <code>true</code> if this icon has been marked as a mask image. Certain platforms render mask icons differently (for example, menu icons on <a href="../qtdoc/internationalization.html#macos">macOS</a>).</p>
-<p>This function was introduced in  Qt 5.6.</p>
+<p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qicon.html#setIsMask">setIsMask</a>().</p>
 <!-- @@@isMask -->
 <!-- $$$isNull[overload1]$$$isNull -->
@@ -356,7 +356,7 @@
 <h3 class="fn" id="name"><a name="name"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QIcon::<span class="name">name</span>() const</h3>
 <p>Returns the name used to create the icon, if available.</p>
 <p>Depending on the way the icon was created, it may have an associated name. This is the case for icons created with <a href="qicon.html#fromTheme">fromTheme</a>() or icons using a <a href="qiconengine.html">QIconEngine</a> which supports the <a href="qiconengine.html#IconEngineHook-enum">QIconEngine::IconNameHook</a>.</p>
-<p>This function was introduced in  Qt 4.7.</p>
+<p>这个函数是在Qt 4.7版本中新增引入的。</p>
 <p><b>See also </b><a href="qicon.html#fromTheme">fromTheme</a>() and <a href="qiconengine.html">QIconEngine</a>.</p>
 <!-- @@@name -->
 <!-- $$$paint[overload1]$$$paintQPainter*constQRect&Qt::AlignmentQIcon::ModeQIcon::State -->
@@ -391,7 +391,7 @@
 <h3 class="fn" id="pixmap-3"><a name="pixmap-3"></a><span class="type"><a href="qpixmap.html">QPixmap</a></span> QIcon::<span class="name">pixmap</span>(<span class="type"><a href="qwindow.html">QWindow</a></span> *<i>window</i>, const <span class="type"><a href="../qtcore/qsize.html">QSize</a></span> &amp;<i>size</i>, <span class="type"><a href="qicon.html#Mode-enum">QIcon::Mode</a></span> <i>mode</i> = Normal, <span class="type"><a href="qicon.html#State-enum">QIcon::State</a></span> <i>state</i> = Off) const</h3>
 <p>Returns a pixmap with the requested <i>window</i> <i>size</i>, <i>mode</i>, and <i>state</i>, generating one if necessary.</p>
 <p>The pixmap can be smaller than the requested size. If <i>window</i> is on a high-dpi display the pixmap can be larger. In that case it will have a devicePixelRatio larger than 1.</p>
-<p>This function was introduced in  Qt 5.1.</p>
+<p>这个函数是在Qt 5.1版本中新增引入的。</p>
 <p><b>See also </b><a href="qicon.html#actualSize">actualSize</a>() and <a href="qicon.html#paint">paint</a>().</p>
 <!-- @@@pixmap -->
 <!-- $$$setFallbackSearchPaths[overload1]$$$setFallbackSearchPathsconstQStringList& -->
@@ -402,45 +402,45 @@
       <span class="type"><a href="qicon.html#QIcon">QIcon</a></span><span class="operator">::</span>setFallbackSearchPaths(<span class="type"><a href="qicon.html#QIcon">QIcon</a></span><span class="operator">::</span>fallbackSearchPaths() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;my/search/path&quot;</span>);
 
 </pre>
-<p>This function was introduced in  Qt 5.11.</p>
+<p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <p><b>See also </b><a href="qicon.html#fallbackSearchPaths">fallbackSearchPaths</a>() and <a href="qicon.html#setThemeSearchPaths">setThemeSearchPaths</a>().</p>
 <!-- @@@setFallbackSearchPaths -->
 <!-- $$$setFallbackThemeName[overload1]$$$setFallbackThemeNameconstQString& -->
 <h3 class="fn" id="setFallbackThemeName"><a name="setFallbackThemeName"></a><code>[static] </code><span class="type">void</span> QIcon::<span class="name">setFallbackThemeName</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>name</i>)</h3>
 <p>Sets the fallback icon theme to <i>name</i>.</p>
 <p>The <i>name</i> should correspond to a directory name in the themeSearchPath() containing an index.theme file describing its contents.</p>
-<p>This function was introduced in  Qt 5.12.</p>
+<p>这个函数是在Qt 5.12版本中新增引入的。</p>
 <p><b>See also </b><a href="qicon.html#fallbackThemeName">fallbackThemeName</a>(), <a href="qicon.html#themeSearchPaths">themeSearchPaths</a>(), and <a href="qicon.html#themeName">themeName</a>().</p>
 <!-- @@@setFallbackThemeName -->
 <!-- $$$setIsMask[overload1]$$$setIsMaskbool -->
 <h3 class="fn" id="setIsMask"><a name="setIsMask"></a><span class="type">void</span> QIcon::<span class="name">setIsMask</span>(<span class="type">bool</span> <i>isMask</i>)</h3>
 <p>Indicate that this icon is a mask image(boolean <i>isMask</i>), and hence can potentially be modified based on where it's displayed.</p>
-<p>This function was introduced in  Qt 5.6.</p>
+<p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qicon.html#isMask">isMask</a>().</p>
 <!-- @@@setIsMask -->
 <!-- $$$setThemeName[overload1]$$$setThemeNameconstQString& -->
 <h3 class="fn" id="setThemeName"><a name="setThemeName"></a><code>[static] </code><span class="type">void</span> QIcon::<span class="name">setThemeName</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>name</i>)</h3>
 <p>Sets the current icon theme to <i>name</i>.</p>
 <p>The <i>name</i> should correspond to a directory name in the themeSearchPath() containing an index.theme file describing its contents.</p>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qicon.html#themeSearchPaths">themeSearchPaths</a>() and <a href="qicon.html#themeName">themeName</a>().</p>
 <!-- @@@setThemeName -->
 <!-- $$$setThemeSearchPaths[overload1]$$$setThemeSearchPathsconstQStringList& -->
 <h3 class="fn" id="setThemeSearchPaths"><a name="setThemeSearchPaths"></a><code>[static] </code><span class="type">void</span> QIcon::<span class="name">setThemeSearchPaths</span>(const <span class="type"><a href="../qtcore/qstringlist.html">QStringList</a></span> &amp;<i>paths</i>)</h3>
 <p>Sets the search paths for icon themes to <i>paths</i>.</p>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qicon.html#themeSearchPaths">themeSearchPaths</a>(), <a href="qicon.html#fromTheme">fromTheme</a>(), and <a href="qicon.html#setThemeName">setThemeName</a>().</p>
 <!-- @@@setThemeSearchPaths -->
 <!-- $$$swap[overload1]$$$swapQIcon& -->
 <h3 class="fn" id="swap"><a name="swap"></a><span class="type">void</span> QIcon::<span class="name">swap</span>(<span class="type"><a href="qicon.html#QIcon">QIcon</a></span> &amp;<i>other</i>)</h3>
 <p>Swaps icon <i>other</i> with this icon. This operation is very fast and never fails.</p>
-<p>This function was introduced in  Qt 4.8.</p>
+<p>这个函数是在Qt 4.8版本中新增引入的。</p>
 <!-- @@@swap -->
 <!-- $$$themeName[overload1]$$$themeName -->
 <h3 class="fn" id="themeName"><a name="themeName"></a><code>[static] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QIcon::<span class="name">themeName</span>()</h3>
 <p>Returns the name of the current icon theme.</p>
 <p>On X11, the current icon theme depends on your desktop settings. On other platforms it is not set by default.</p>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qicon.html#setThemeName">setThemeName</a>(), <a href="qicon.html#themeSearchPaths">themeSearchPaths</a>(), <a href="qicon.html#fromTheme">fromTheme</a>(), and <a href="qicon.html#hasThemeIcon">hasThemeIcon</a>().</p>
 <!-- @@@themeName -->
 <!-- $$$themeSearchPaths[overload1]$$$themeSearchPaths -->
@@ -449,7 +449,7 @@
 <p>The default value will depend on the platform:</p>
 <p>On X11, the search path will use the XDG_DATA_DIRS environment variable if available.</p>
 <p>By default all platforms will have the resource directory <code>:\icons</code> as a fallback. You can use &quot;rcc -project&quot; to generate a resource file from your icon theme.</p>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qicon.html#setThemeSearchPaths">setThemeSearchPaths</a>(), <a href="qicon.html#fromTheme">fromTheme</a>(), and <a href="qicon.html#setThemeName">setThemeName</a>().</p>
 <!-- @@@themeSearchPaths -->
 <!-- $$$operator QVariant[overload1]$$$operator QVariant -->
@@ -463,7 +463,7 @@
 <!-- $$$operator=$$$operator=QIcon&& -->
 <h3 class="fn" id="operator-eq-1"><a name="operator-eq-1"></a><span class="type"><a href="qicon.html#QIcon">QIcon</a></span> &amp;QIcon::<span class="name">operator=</span>(<span class="type"><a href="qicon.html#QIcon">QIcon</a></span> &amp;&amp;<i>other</i>)</h3>
 <p>Move-assigns <i>other</i> to this <a href="qicon.html">QIcon</a> instance.</p>
-<p>This function was introduced in  Qt 5.2.</p>
+<p>这个函数是在Qt 5.2版本中新增引入的。</p>
 <!-- @@@operator= -->
 </div>
 <div class="vars">
@@ -474,12 +474,12 @@
 <!-- $$$operator<<[overload1]$$$operator<<QDataStream&constQIcon& -->
 <h3 class="fn" id="operator-lt-lt"><a name="operator-lt-lt"></a><span class="type"><a href="../qtcore/qdatastream.html">QDataStream</a></span> &amp;<span class="name">operator&lt;&lt;</span>(<span class="type"><a href="../qtcore/qdatastream.html">QDataStream</a></span> &amp;<i>stream</i>, const <span class="type"><a href="qicon.html#QIcon">QIcon</a></span> &amp;<i>icon</i>)</h3>
 <p>Writes the given <i>icon</i> to the given <i>stream</i> as a PNG image. If the icon contains more than one image, all images will be written to the stream. Note that writing the stream to a file will not produce a valid image file.</p>
-<p>This function was introduced in  Qt 4.2.</p>
+<p>这个函数是在Qt 4.2版本中新增引入的。</p>
 <!-- @@@operator<< -->
 <!-- $$$operator>>[overload1]$$$operator>>QDataStream&QIcon& -->
 <h3 class="fn" id="operator-gt-gt"><a name="operator-gt-gt"></a><span class="type"><a href="../qtcore/qdatastream.html">QDataStream</a></span> &amp;<span class="name">operator&gt;&gt;</span>(<span class="type"><a href="../qtcore/qdatastream.html">QDataStream</a></span> &amp;<i>stream</i>, <span class="type"><a href="qicon.html#QIcon">QIcon</a></span> &amp;<i>icon</i>)</h3>
 <p>Reads an image, or a set of images, from the given <i>stream</i> into the given <i>icon</i>.</p>
-<p>This function was introduced in  Qt 4.2.</p>
+<p>这个函数是在Qt 4.2版本中新增引入的。</p>
 <!-- @@@operator>> -->
 </div>
 <div class="macros">
