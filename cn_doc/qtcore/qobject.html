@@ -392,7 +392,7 @@
 <p>Creates a connection of the given <i>type</i> from the <i>signal</i> in the <i>sender</i> object to the <i>method</i> in the <i>receiver</i> object. Returns a handle to the connection that can be used to disconnect it later.</p>
 <p>The Connection handle will be invalid if it cannot create the connection, for example, the parameters were invalid. You can check if the <a href="qmetaobject-connection.html">QMetaObject::Connection</a> is valid by casting it to a bool.</p>
 <p>This function works in the same way as <code>connect(const QObject *sender, const char *signal, const QObject *receiver, const char *method, Qt::ConnectionType type)</code> but it uses <a href="qmetamethod.html">QMetaMethod</a> to specify signal and method.</p>
-<p>This function was introduced in  Qt 4.8.</p>
+<p>这个函数是在Qt 4.8版本中新增引入的。</p>
 <p><b>See also </b><a href="qobject.html#connect">connect</a>(const QObject *sender, const char *signal, const QObject *receiver, const char *method, Qt::ConnectionType type).</p>
 <!-- @@@connect -->
 <!-- $$$connect$$$connectconstQObject*constchar*constchar*Qt::ConnectionType -->
@@ -490,7 +490,7 @@
 <p>The connection will automatically disconnect if the sender or the context is destroyed. However, you should take care that any objects used within the functor are still alive when the signal is emitted.</p>
 <p>Overloaded functions can be resolved with help of <a href="qtglobal.html#qOverload">qOverload</a>.</p>
 <p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
-<p>This function was introduced in  Qt 5.2.</p>
+<p>这个函数是在Qt 5.2版本中新增引入的。</p>
 <!-- @@@connect -->
 <!-- $$$connectNotify[overload1]$$$connectNotifyconstQMetaMethod& -->
 <h3 class="fn" id="connectNotify"><a name="connectNotify"></a><code>[virtual protected] </code><span class="type">void</span> QObject::<span class="name">connectNotify</span>(const <span class="type"><a href="qmetamethod.html">QMetaMethod</a></span> &amp;<i>signal</i>)</h3>
@@ -505,7 +505,7 @@
 </pre>
 <p><b>Warning:</b> This function violates the object-oriented principle of modularity. However, it might be useful when you need to perform expensive initialization only if something is connected to a signal.</p>
 <p><b>Warning:</b> This function is called from the thread which performs the connection, which may be a different thread from the thread in which this object lives.</p>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b>See also </b><a href="qobject.html#connect">connect</a>() and <a href="qobject.html#disconnectNotify">disconnectNotify</a>().</p>
 <!-- @@@connectNotify -->
 <!-- $$$customEvent[overload1]$$$customEventQEvent* -->
@@ -587,7 +587,7 @@
 <li><i>signal</i> instance represents not a signal.</li>
 </ol>
 <p>QMetaMethod() may be used as wildcard in the meaning &quot;any signal&quot; or &quot;any slot in receiving object&quot;. In the same way 0 can be used for <i>receiver</i> in the meaning &quot;any receiving object&quot;. In this case method should also be QMetaMethod(). <i>sender</i> parameter should be never 0.</p>
-<p>This function was introduced in  Qt 4.8.</p>
+<p>这个函数是在Qt 4.8版本中新增引入的。</p>
 <p><b>See also </b><a href="qobject.html#disconnect">disconnect</a>(const QObject *sender, const char *signal, const QObject *receiver, const char *method).</p>
 <!-- @@@disconnect -->
 <!-- $$$disconnect$$$disconnectconstchar*constQObject*constchar* -->
@@ -656,7 +656,7 @@
 <p>If all signals were disconnected from this object (e.g&#x2e;, the signal argument to <a href="qobject.html#disconnect">disconnect</a>() was 0), disconnectNotify() is only called once, and the <i>signal</i> will be an invalid <a href="qmetamethod.html">QMetaMethod</a> (<a href="qmetamethod.html#isValid">QMetaMethod::isValid</a>() returns <code>false</code>).</p>
 <p><b>Warning:</b> This function violates the object-oriented principle of modularity. However, it might be useful for optimizing access to expensive resources.</p>
 <p><b>Warning:</b> This function is called from the thread which performs the disconnection, which may be a different thread from the thread in which this object lives. This function may also be called with a <a href="qobject.html">QObject</a> internal mutex locked. It is therefore not allowed to re-enter any of any <a href="qobject.html">QObject</a> functions from your reimplementation and if you lock a mutex in your reimplementation, make sure that you don't call <a href="qobject.html">QObject</a> functions with that mutex held in other places or it will result in a deadlock.</p>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b>See also </b><a href="qobject.html#disconnect">disconnect</a>() and <a href="qobject.html#connectNotify">connectNotify</a>().</p>
 <!-- @@@disconnectNotify -->
 <!-- $$$dumpObjectInfo[overload1]$$$dumpObjectInfo -->
@@ -672,7 +672,7 @@
 <!-- $$$dynamicPropertyNames[overload1]$$$dynamicPropertyNames -->
 <h3 class="fn" id="dynamicPropertyNames"><a name="dynamicPropertyNames"></a><span class="type"><a href="qlist.html">QList</a></span>&lt;<span class="type"><a href="qbytearray.html">QByteArray</a></span>&gt; QObject::<span class="name">dynamicPropertyNames</span>() const</h3>
 <p>Returns the names of all properties that were dynamically added to the object using <a href="qobject.html#setProperty">setProperty</a>().</p>
-<p>This function was introduced in  Qt 4.2.</p>
+<p>这个函数是在Qt 4.2版本中新增引入的。</p>
 <!-- @@@dynamicPropertyNames -->
 <!-- $$$event[overload1]$$$eventQEvent* -->
 <h3 class="fn" id="event"><a name="event"></a><code>[virtual] </code><span class="type">bool</span> QObject::<span class="name">event</span>(<span class="type"><a href="qevent.html">QEvent</a></span> *<i>e</i>)</h3>
@@ -820,7 +820,7 @@
 <h3 class="fn" id="findChildren-2"><a name="findChildren-2"></a><span class="type"><a href="qlist.html">QList</a></span>&lt;<span class="type">T</span>&gt; QObject::<span class="name">findChildren</span>(const <span class="type"><a href="qregularexpression.html">QRegularExpression</a></span> &amp;<i>re</i>, <span class="type">Qt::FindChildOptions</span> <i>options</i> = Qt::FindChildrenRecursively) const</h3>
 <p>This function overloads <a href="qobject.html#findChildren">findChildren</a>().</p>
 <p>Returns the children of this object that can be cast to type T and that have names matching the regular expression <i>re</i>, or an empty list if there are no such objects. The search is performed recursively, unless <i>options</i> specifies the option FindDirectChildrenOnly.</p>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <!-- @@@findChildren -->
 <!-- $$$inherits[overload1]$$$inheritsconstchar* -->
 <h3 class="fn" id="inherits"><a name="inherits"></a><span class="type">bool</span> QObject::<span class="name">inherits</span>(const <span class="type">char</span> *<i>className</i>) const</h3>
@@ -910,7 +910,7 @@
 </pre>
 <p>As the code snippet above illustrates, you can use this function to avoid emitting a signal that nobody listens to.</p>
 <p><b>Warning:</b> This function violates the object-oriented principle of modularity. However, it might be useful when you need to perform expensive initialization only if something is connected to a signal.</p>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <!-- @@@isSignalConnected -->
 <!-- $$$isWidgetType[overload1]$$$isWidgetType -->
 <h3 class="fn" id="isWidgetType"><a name="isWidgetType"></a><span class="type">bool</span> QObject::<span class="name">isWidgetType</span>() const</h3>
@@ -1016,7 +1016,7 @@
 <p>For signals with default parameters, this function will always return the index with all parameters, regardless of which was used with <a href="qobject.html#connect">connect</a>(). For example, the signal <code>destroyed(QObject *obj = 0)</code> will have two different indexes (with and without the parameter), but this function will always return the index with a parameter. This does not apply when overloading signals with different parameters.</p>
 <p><b>Warning:</b> This function violates the object-oriented principle of modularity. However, getting access to the signal index might be useful when many signals are connected to a single slot.</p>
 <p><b>Warning:</b> The return value of this function is not valid when the slot is called via a <a href="qt.html#ConnectionType-enum">Qt::DirectConnection</a> from a thread different from this object's thread. Do not use this function in this type of scenario.</p>
-<p>This function was introduced in  Qt 4.8.</p>
+<p>这个函数是在Qt 4.8版本中新增引入的。</p>
 <p><b>See also </b><a href="qobject.html#sender">sender</a>(), <a href="qmetaobject.html#indexOfSignal">QMetaObject::indexOfSignal</a>(), and <a href="qmetaobject.html#method">QMetaObject::method</a>().</p>
 <!-- @@@senderSignalIndex -->
 <!-- $$$setParent[overload1]$$$setParentQObject* -->
@@ -1136,7 +1136,7 @@
 </pre>
 <p>Note that <a href="qtimer.html">QTimer</a>'s accuracy depends on the underlying operating system and hardware. The <i>timerType</i> argument allows you to customize the accuracy of the timer. See <a href="qt.html#TimerType-enum">Qt::TimerType</a> for information on the different timer types. Most platforms support an accuracy of 20 milliseconds; some provide more. If Qt is unable to deliver the requested number of timer events, it will silently discard some.</p>
 <p>The <a href="qtimer.html">QTimer</a> class provides a high-level programming interface with single-shot timers and timer signals instead of events. There is also a <a href="qbasictimer.html">QBasicTimer</a> class that is more lightweight than <a href="qtimer.html">QTimer</a> and less clumsy than using timer IDs directly.</p>
-<p>This function was introduced in  Qt 5.9.</p>
+<p>这个函数是在Qt 5.9版本中新增引入的。</p>
 <p><b>See also </b><a href="qobject.html#timerEvent">timerEvent</a>(), <a href="qobject.html#killTimer">killTimer</a>(), and <a href="qtimer.html#singleShot">QTimer::singleShot</a>().</p>
 <!-- @@@startTimer -->
 <!-- $$$thread[overload1]$$$thread -->
@@ -1245,7 +1245,7 @@
 <!-- $$$QT_NO_NARROWING_CONVERSIONS_IN_CONNECT[overload1]$$$QT_NO_NARROWING_CONVERSIONS_IN_CONNECT -->
 <h3 class="fn" id="QT_NO_NARROWING_CONVERSIONS_IN_CONNECT"><a name="QT_NO_NARROWING_CONVERSIONS_IN_CONNECT"></a><span class="name">QT_NO_NARROWING_CONVERSIONS_IN_CONNECT</span></h3>
 <p>Defining this macro will disable narrowing and floating-point-to-integral conversions between the arguments carried by a signal and the arguments accepted by a slot, when the signal and the slot are connected using the PMF-based syntax.</p>
-<p>This function was introduced in  Qt 5.8.</p>
+<p>这个函数是在Qt 5.8版本中新增引入的。</p>
 <p><b>See also </b><a href="qobject.html#connect">QObject::connect</a>.</p>
 <!-- @@@QT_NO_NARROWING_CONVERSIONS_IN_CONNECT -->
 <!-- $$$Q_CLASSINFO[overload1]$$$Q_CLASSINFO -->
@@ -1331,7 +1331,7 @@
 </pre>
 <p>Enumerations that are declared with Q_ENUM have their <a href="qmetaenum.html">QMetaEnum</a> registered in the enclosing <a href="qmetaobject.html">QMetaObject</a>. You can also use <a href="qmetaenum.html#fromType">QMetaEnum::fromType</a>() to get the <a href="qmetaenum.html">QMetaEnum</a>.</p>
 <p>Registered enumerations are automatically registered also to the Qt meta type system, making them known to <a href="qmetatype.html">QMetaType</a> without the need to use <a href="qmetatype.html#Q_DECLARE_METATYPE">Q_DECLARE_METATYPE</a>(). This will enable useful features; for example, if used in a <a href="qvariant.html">QVariant</a>, you can convert them to strings. Likewise, passing them to <a href="qdebug.html">QDebug</a> will print out their names.</p>
-<p>This function was introduced in  Qt 5.5.</p>
+<p>这个函数是在Qt 5.5版本中新增引入的。</p>
 <p><b>See also </b><a href="properties.html">Qt's Property System</a>.</p>
 <!-- @@@Q_ENUM -->
 <!-- $$$Q_ENUM_NS[overload1]$$$Q_ENUM_NS... -->
@@ -1339,7 +1339,7 @@
 <p>This macro registers an enum type with the meta-object system. It must be placed after the enum declaration in a namespace that has the <a href="qobject.html#Q_NAMESPACE">Q_NAMESPACE</a> macro. It is the same as <a href="qobject.html#Q_ENUM">Q_ENUM</a> but in a namespace.</p>
 <p>Enumerations that are declared with Q_ENUM_NS have their <a href="qmetaenum.html">QMetaEnum</a> registered in the enclosing <a href="qmetaobject.html">QMetaObject</a>. You can also use <a href="qmetaenum.html#fromType">QMetaEnum::fromType</a>() to get the <a href="qmetaenum.html">QMetaEnum</a>.</p>
 <p>Registered enumerations are automatically registered also to the Qt meta type system, making them known to <a href="qmetatype.html">QMetaType</a> without the need to use <a href="qmetatype.html#Q_DECLARE_METATYPE">Q_DECLARE_METATYPE</a>(). This will enable useful features; for example, if used in a <a href="qvariant.html">QVariant</a>, you can convert them to strings. Likewise, passing them to <a href="qdebug.html">QDebug</a> will print out their names.</p>
-<p>This function was introduced in  Qt 5.8.</p>
+<p>这个函数是在Qt 5.8版本中新增引入的。</p>
 <p><b>See also </b><a href="properties.html">Qt's Property System</a>.</p>
 <!-- @@@Q_ENUM_NS -->
 <!-- $$$Q_FLAG[overload1]$$$Q_FLAG... -->
@@ -1368,14 +1368,14 @@
 
 </pre>
 <p>The declaration of the flags themselves is performed in the public section of the <a href="qlibrary.html">QLibrary</a> class itself, using the <a href="qflags.html#Q_DECLARE_FLAGS">Q_DECLARE_FLAGS</a>() macro.</p>
-<p><b>Note: </b>The Q_FLAG macro takes care of registering individual flag values with the meta-object system, so it is unnecessary to use <a href="qobject.html#Q_ENUM">Q_ENUM</a>() in addition to this macro.</p><p>This function was introduced in  Qt 5.5.</p>
+<p><b>Note: </b>The Q_FLAG macro takes care of registering individual flag values with the meta-object system, so it is unnecessary to use <a href="qobject.html#Q_ENUM">Q_ENUM</a>() in addition to this macro.</p><p>这个函数是在Qt 5.5版本中新增引入的。</p>
 <p><b>See also </b><a href="properties.html">Qt's Property System</a>.</p>
 <!-- @@@Q_FLAG -->
 <!-- $$$Q_FLAG_NS[overload1]$$$Q_FLAG_NS... -->
 <h3 class="fn" id="Q_FLAG_NS"><a name="Q_FLAG_NS"></a><span class="name">Q_FLAG_NS</span>(<i> ...</i>)</h3>
 <p>This macro registers a single <a href="qflags.html">flags type</a> with the meta-object system. It is used in a namespace that has the <a href="qobject.html#Q_NAMESPACE">Q_NAMESPACE</a> macro, to declare that values of a given enum can be used as flags and combined using the bitwise OR operator. It is the same as <a href="qobject.html#Q_FLAG">Q_FLAG</a> but in a namespace.</p>
 <p>The macro must be placed after the enum declaration.</p>
-<p><b>Note: </b>The Q_FLAG_NS macro takes care of registering individual flag values with the meta-object system, so it is unnecessary to use <a href="qobject.html#Q_ENUM_NS">Q_ENUM_NS</a>() in addition to this macro.</p><p>This function was introduced in  Qt 5.8.</p>
+<p><b>Note: </b>The Q_FLAG_NS macro takes care of registering individual flag values with the meta-object system, so it is unnecessary to use <a href="qobject.html#Q_ENUM_NS">Q_ENUM_NS</a>() in addition to this macro.</p><p>这个函数是在Qt 5.8版本中新增引入的。</p>
 <p><b>See also </b><a href="properties.html">Qt's Property System</a>.</p>
 <!-- @@@Q_FLAG_NS -->
 <!-- $$$Q_GADGET[overload1]$$$Q_GADGET -->
@@ -1431,7 +1431,7 @@
 <p>The Q_NAMESPACE macro can be used to add <a href="qmetaobject.html">QMetaObject</a> capabilities to a namespace.</p>
 <p>Q_NAMESPACEs can have <a href="qobject.html#Q_CLASSINFO">Q_CLASSINFO</a>, <a href="qobject.html#Q_ENUM_NS">Q_ENUM_NS</a>, <a href="qobject.html#Q_FLAG_NS">Q_FLAG_NS</a>, but they cannot have <a href="qobject.html#Q_ENUM">Q_ENUM</a>, <a href="qobject.html#Q_FLAG">Q_FLAG</a>, <a href="qobject.html#Q_PROPERTY">Q_PROPERTY</a>, <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>, signals nor slots.</p>
 <p>Q_NAMESPACE makes an external variable, <code>staticMetaObject</code>, available. <code>staticMetaObject</code> is of type <a href="qmetaobject.html">QMetaObject</a> and provides access to the enums declared with <a href="qobject.html#Q_ENUM_NS">Q_ENUM_NS</a>/<a href="qobject.html#Q_FLAG_NS">Q_FLAG_NS</a>.</p>
-<p>This function was introduced in  Qt 5.8.</p>
+<p>这个函数是在Qt 5.8版本中新增引入的。</p>
 <!-- @@@Q_NAMESPACE -->
 <!-- $$$Q_OBJECT[overload1]$$$Q_OBJECT -->
 <h3 class="fn" id="Q_OBJECT"><a name="Q_OBJECT"></a><span class="name">Q_OBJECT</span></h3>
@@ -1537,7 +1537,7 @@
 <h3 class="fn" id="Q_SET_OBJECT_NAME"><a name="Q_SET_OBJECT_NAME"></a><span class="name">Q_SET_OBJECT_NAME</span>(<i>Object</i>)</h3>
 <p>This macro assigns <i>Object</i> the objectName &quot;Object&quot;.</p>
 <p>It doesn't matter whether <i>Object</i> is a pointer or not, the macro figures that out by itself.</p>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b>See also </b><a href="qobject.html#objectName-prop">QObject::objectName</a>().</p>
 <!-- @@@Q_SET_OBJECT_NAME -->
 <!-- $$$Q_SIGNAL[overload1]$$$Q_SIGNAL -->

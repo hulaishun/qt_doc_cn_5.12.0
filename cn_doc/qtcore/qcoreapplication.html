@@ -239,7 +239,7 @@
 <tr valign="top" class="even"><td >Android</td><td >android:versionName property of the AndroidManifest.xml manifest element</td></tr>
 </table></div>
 <p>On other platforms, the default is the empty string.</p>
-<p>This property was introduced in  Qt 4.4.</p>
+<p>这个属性是在Qt 4.4版本中新增引入的。</p>
 <p><b>Access functions:</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><span class="name"><b>applicationVersion</b></span>()</td></tr>
@@ -327,7 +327,7 @@
 <!-- $$$applicationPid[overload1]$$$applicationPid -->
 <h3 class="fn" id="applicationPid"><a name="applicationPid"></a><code>[static] </code><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> QCoreApplication::<span class="name">applicationPid</span>()</h3>
 <p>Returns the current process ID for the application.</p>
-<p>This function was introduced in  Qt 4.4.</p>
+<p>这个函数是在Qt 4.4版本中新增引入的。</p>
 <!-- @@@applicationPid -->
 <!-- $$$arguments[overload1]$$$arguments -->
 <h3 class="fn" id="arguments"><a name="arguments"></a><code>[static] </code><span class="type"><a href="qstringlist.html">QStringList</a></span> QCoreApplication::<span class="name">arguments</span>()</h3>
@@ -337,7 +337,7 @@
 <p><b>Warning:</b> On Unix, this list is built from the argc and argv parameters passed to the constructor in the main() function. The string-data in argv is interpreted using <a href="qstring.html#fromLocal8Bit">QString::fromLocal8Bit</a>(); hence it is not possible to pass, for example, Japanese command line arguments on a system that runs in a Latin1 locale. Most modern Unix systems do not have this limitation, as they are Unicode-based.</p>
 <p>On Windows, the list is built from the argc and argv parameters only if modified argv/argc parameters are passed to the constructor. In that case, encoding problems might occur.</p>
 <p>Otherwise, the arguments() are constructed from the return value of <a href="http://msdn2.microsoft.com/en-us/library/ms683156(VS.85).aspx">GetCommandLine()</a>. As a result of this, the string given by arguments().at(0) might not be the program name on Windows, depending on how the application was started.</p>
-<p>This function was introduced in  Qt 4.1.</p>
+<p>这个函数是在Qt 4.1版本中新增引入的。</p>
 <p><b>See also </b><a href="qcoreapplication.html#applicationFilePath">applicationFilePath</a>() and <a href="qcommandlineparser.html">QCommandLineParser</a>.</p>
 <!-- @@@arguments -->
 <!-- $$$closingDown[overload1]$$$closingDown -->
@@ -378,7 +378,7 @@
 <p>The <a href="qabstractnativeeventfilter.html#nativeEventFilter">QAbstractNativeEventFilter::nativeEventFilter</a>() function should return true if the event should be filtered, i.e&#x2e; stopped. It should return false to allow normal Qt processing to continue: the native event can then be translated into a <a href="qevent.html">QEvent</a> and handled by the standard Qt <a href="qevent.html">event</a> filtering, e.g&#x2e; <a href="qobject.html#installEventFilter">QObject::installEventFilter</a>().</p>
 <p>If multiple event filters are installed, the filter that was installed last is activated first.</p>
 <p><b>Note: </b>The filter function set here receives native messages, i.e&#x2e; MSG or XCB event structs.</p><p><b>Note: </b>Native event filters will be disabled in the application when the <a href="qt.html#ApplicationAttribute-enum">Qt::AA_PluginApplication</a> attribute is set.</p><p>For maximum portability, you should always try to use <a href="qevent.html">QEvent</a> and <a href="qobject.html#installEventFilter">QObject::installEventFilter</a>() whenever possible.</p>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b>See also </b><a href="qobject.html#installEventFilter">QObject::installEventFilter</a>().</p>
 <!-- @@@installNativeEventFilter -->
 <!-- $$$installTranslator[overload1]$$$installTranslatorQTranslator* -->
@@ -397,7 +397,7 @@
 <!-- $$$isSetuidAllowed[overload1]$$$isSetuidAllowed -->
 <h3 class="fn" id="isSetuidAllowed"><a name="isSetuidAllowed"></a><code>[static] </code><span class="type">bool</span> QCoreApplication::<span class="name">isSetuidAllowed</span>()</h3>
 <p>Returns true if the application is allowed to run setuid on UNIX platforms.</p>
-<p>This function was introduced in  Qt 5.3.</p>
+<p>这个函数是在Qt 5.3版本中新增引入的。</p>
 <p><b>See also </b><a href="qcoreapplication.html#setSetuidAllowed">QCoreApplication::setSetuidAllowed</a>().</p>
 <!-- @@@isSetuidAllowed -->
 <!-- $$$libraryPaths[overload1]$$$libraryPaths -->
@@ -437,7 +437,7 @@
 <p>When control returns to the main event loop, all events that are stored in the queue will be sent using the <a href="qcoreapplication.html#notify">notify</a>() function.</p>
 <p>Events are sorted in descending <i>priority</i> order, i.e&#x2e; events with a high <i>priority</i> are queued before events with a lower <i>priority</i>. The <i>priority</i> can be any integer value, i.e&#x2e; between INT_MAX and INT_MIN, inclusive; see <a href="qt.html#EventPriority-enum">Qt::EventPriority</a> for more details. Events with equal <i>priority</i> will be processed in the order posted.</p>
 <p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
-<p>This function was introduced in  Qt 4.3.</p>
+<p>这个函数是在Qt 4.3版本中新增引入的。</p>
 <p><b>See also </b><a href="qcoreapplication.html#sendEvent">sendEvent</a>(), <a href="qcoreapplication.html#notify">notify</a>(), <a href="qcoreapplication.html#sendPostedEvents">sendPostedEvents</a>(), and <a href="qt.html#EventPriority-enum">Qt::EventPriority</a>.</p>
 <!-- @@@postEvent -->
 <!-- $$$processEvents[overload1]$$$processEventsQEventLoop::ProcessEventsFlags -->
@@ -483,7 +483,7 @@
 <p>Removes an event <i>filterObject</i> from this object. The request is ignored if such an event filter has not been installed.</p>
 <p>All event filters for this object are automatically removed when this object is destroyed.</p>
 <p>It is always safe to remove an event filter, even during event filter activation (i.e&#x2e; from the nativeEventFilter() function).</p>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b>See also </b><a href="qcoreapplication.html#installNativeEventFilter">installNativeEventFilter</a>().</p>
 <!-- @@@removeNativeEventFilter -->
 <!-- $$$removePostedEvents[overload1]$$$removePostedEventsQObject*int -->
@@ -492,7 +492,7 @@
 <p>The events are <i>not</i> dispatched, instead they are removed from the queue. You should never need to call this function. If you do call it, be aware that killing events may cause <i>receiver</i> to break one or more invariants.</p>
 <p>If <i>receiver</i> is null, the events of <i>eventType</i> are removed for all objects. If <i>eventType</i> is 0, all the events are removed for <i>receiver</i>. You should never call this function with <i>eventType</i> of 0.</p>
 <p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
-<p>This function was introduced in  Qt 4.3.</p>
+<p>这个函数是在Qt 4.3版本中新增引入的。</p>
 <!-- @@@removePostedEvents -->
 <!-- $$$removeTranslator[overload1]$$$removeTranslatorQTranslator* -->
 <h3 class="fn" id="removeTranslator"><a name="removeTranslator"></a><code>[static] </code><span class="type">bool</span> QCoreApplication::<span class="name">removeTranslator</span>(<span class="type"><a href="qtranslator.html">QTranslator</a></span> *<i>translationFile</i>)</h3>
@@ -540,7 +540,7 @@
 <p>Allows the application to run setuid on UNIX platforms if <i>allow</i> is true.</p>
 <p>If <i>allow</i> is false (the default) and Qt detects the application is running with an effective user id different than the real user id, the application will be aborted when a <a href="qcoreapplication.html">QCoreApplication</a> instance is created.</p>
 <p>Qt is not an appropriate solution for setuid programs due to its large attack surface. However some applications may be required to run in this manner for historical reasons. This flag will prevent Qt from aborting the application when this is detected, and must be set before a <a href="qcoreapplication.html">QCoreApplication</a> instance is created.</p>
-<p><b>Note: </b>It is strongly recommended not to enable this option since it introduces security risks.</p><p>This function was introduced in  Qt 5.3.</p>
+<p><b>Note: </b>It is strongly recommended not to enable this option since it introduces security risks.</p><p>这个函数是在Qt 5.3版本中新增引入的。</p>
 <p><b>See also </b><a href="qcoreapplication.html#isSetuidAllowed">isSetuidAllowed</a>().</p>
 <!-- @@@setSetuidAllowed -->
 <!-- $$$startingUp[overload1]$$$startingUp -->
@@ -632,7 +632,7 @@
 <h3 class="fn" id="qRemovePostRoutine"><a name="qRemovePostRoutine"></a><span class="type">void</span> <span class="name">qRemovePostRoutine</span>(<span class="type">QtCleanUpFunction</span> <i>ptr</i>)</h3>
 <p>Removes the cleanup routine specified by <i>ptr</i> from the list of routines called by the <a href="qcoreapplication.html">QCoreApplication</a> destructor. The routine must have been previously added to the list by a call to <a href="qcoreapplication.html#qAddPostRoutine">qAddPostRoutine</a>(), otherwise this function has no effect.</p>
 <p><b>Note: </b>This function has been thread-safe since Qt 5.10.</p><p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
-<p>This function was introduced in  Qt 5.3.</p>
+<p>这个函数是在Qt 5.3版本中新增引入的。</p>
 <p><b>See also </b><a href="qcoreapplication.html#qAddPostRoutine">qAddPostRoutine</a>().</p>
 <!-- @@@qRemovePostRoutine -->
 </div>
@@ -657,7 +657,7 @@
 <p>Note that the startup function will run at the end of the <a href="qcoreapplication.html">QCoreApplication</a> constructor, before any GUI initialization. If GUI code is required in the function, use a timer (or a queued invocation) to perform the initialization later on, from the event loop.</p>
 <p>If <a href="qcoreapplication.html">QCoreApplication</a> is deleted and another <a href="qcoreapplication.html">QCoreApplication</a> is created, the startup function will be invoked again.</p>
 <p><b>Note: </b>This macro is not suitable for use in library code that is then statically linked into an application since the function may not be called at all due to being eliminated by the linker.</p><p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
-<p>This function was introduced in  Qt 5.1.</p>
+<p>这个函数是在Qt 5.1版本中新增引入的。</p>
 <!-- @@@Q_COREAPP_STARTUP_FUNCTION -->
 <!-- $$$Q_DECLARE_TR_FUNCTIONS[overload1]$$$Q_DECLARE_TR_FUNCTIONS -->
 <h3 class="fn" id="Q_DECLARE_TR_FUNCTIONS"><a name="Q_DECLARE_TR_FUNCTIONS"></a><span class="name">Q_DECLARE_TR_FUNCTIONS</span>(<i>context</i>)</h3>

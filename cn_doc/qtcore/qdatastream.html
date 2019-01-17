@@ -369,7 +369,7 @@
 <div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tbldscr">Description</th></tr>
 <tr><td class="topAlign"><code>ReadCorruptData</code></td><td class="topAlign">.</td></tr>
 </table></div>
-<p>This function was introduced in  Qt 5.7.</p>
+<p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b>See also </b><a href="qdatastream.html#startTransaction">startTransaction</a>(), <a href="qdatastream.html#commitTransaction">commitTransaction</a>(), and <a href="qdatastream.html#rollbackTransaction">rollbackTransaction</a>().</p>
 <!-- @@@abortTransaction -->
 <!-- $$$atEnd[overload1]$$$atEnd -->
@@ -387,7 +387,7 @@
 <p>Completes a read transaction. Returns <code>true</code> if no read errors have occurred during the transaction; otherwise returns <code>false</code>.</p>
 <p>If called on an inner transaction, committing will be postponed until the outermost commitTransaction(), <a href="qdatastream.html#rollbackTransaction">rollbackTransaction</a>(), or <a href="qdatastream.html#abortTransaction">abortTransaction</a>() call occurs.</p>
 <p>Otherwise, if the stream status indicates reading past the end of the data, this function restores the stream data to the point of the <a href="qdatastream.html#startTransaction">startTransaction</a>() call. When this situation occurs, you need to wait for more data to arrive, after which you start a new transaction. If the data stream has read corrupt data or any of the inner transactions was aborted, this function aborts the transaction.</p>
-<p>This function was introduced in  Qt 5.7.</p>
+<p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b>See also </b><a href="qdatastream.html#startTransaction">startTransaction</a>(), <a href="qdatastream.html#rollbackTransaction">rollbackTransaction</a>(), and <a href="qdatastream.html#abortTransaction">abortTransaction</a>().</p>
 <!-- @@@commitTransaction -->
 <!-- $$$device[overload1]$$$device -->
@@ -398,7 +398,7 @@
 <!-- $$$floatingPointPrecision[overload1]$$$floatingPointPrecision -->
 <h3 class="fn" id="floatingPointPrecision"><a name="floatingPointPrecision"></a><span class="type"><a href="qdatastream.html#FloatingPointPrecision-enum">QDataStream::FloatingPointPrecision</a></span> QDataStream::<span class="name">floatingPointPrecision</span>() const</h3>
 <p>Returns the floating point precision of the data stream.</p>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qdatastream.html#FloatingPointPrecision-enum">FloatingPointPrecision</a> and <a href="qdatastream.html#setFloatingPointPrecision">setFloatingPointPrecision</a>().</p>
 <!-- @@@floatingPointPrecision -->
 <!-- $$$readBytes[overload1]$$$readByteschar*&uint& -->
@@ -430,7 +430,7 @@
 <div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tbldscr">Description</th></tr>
 <tr><td class="topAlign"><code>ReadPastEnd</code></td><td class="topAlign">.</td></tr>
 </table></div>
-<p>This function was introduced in  Qt 5.7.</p>
+<p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b>See also </b><a href="qdatastream.html#startTransaction">startTransaction</a>(), <a href="qdatastream.html#commitTransaction">commitTransaction</a>(), and <a href="qdatastream.html#abortTransaction">abortTransaction</a>().</p>
 <!-- @@@rollbackTransaction -->
 <!-- $$$setByteOrder[overload1]$$$setByteOrderQDataStream::ByteOrder -->
@@ -453,7 +453,7 @@
 <p>The default is <a href="qdatastream.html#FloatingPointPrecision-enum">DoublePrecision</a>.</p>
 <p>Note that this property does not affect the serialization or deserialization of <code>qfloat16</code> instances.</p>
 <p><b>Warning:</b> This property must be set to the same value on the object that writes and the object that reads the data stream.</p>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qdatastream.html#floatingPointPrecision">floatingPointPrecision</a>().</p>
 <!-- @@@setFloatingPointPrecision -->
 <!-- $$$setStatus[overload1]$$$setStatusQDataStream::Status -->
@@ -480,7 +480,7 @@
 <h3 class="fn" id="skipRawData"><a name="skipRawData"></a><span class="type">int</span> QDataStream::<span class="name">skipRawData</span>(<span class="type">int</span> <i>len</i>)</h3>
 <p>Skips <i>len</i> bytes from the device. Returns the number of bytes actually skipped, or -1 on error.</p>
 <p>This is equivalent to calling <a href="qdatastream.html#readRawData">readRawData</a>() on a buffer of length <i>len</i> and ignoring the buffer.</p>
-<p>This function was introduced in  Qt 4.1.</p>
+<p>这个函数是在Qt 4.1版本中新增引入的。</p>
 <p><b>See also </b><a href="qiodevice.html#seek">QIODevice::seek</a>().</p>
 <!-- @@@skipRawData -->
 <!-- $$$startTransaction[overload1]$$$startTransaction -->
@@ -489,7 +489,7 @@
 <p>Defines a restorable point within the sequence of read operations. For sequential devices, read data will be duplicated internally to allow recovery in case of incomplete reads. For random-access devices, this function saves the current position of the stream. Call <a href="qdatastream.html#commitTransaction">commitTransaction</a>(), <a href="qdatastream.html#rollbackTransaction">rollbackTransaction</a>(), or <a href="qdatastream.html#abortTransaction">abortTransaction</a>() to finish the current transaction.</p>
 <p>Once a transaction is started, subsequent calls to this function will make the transaction recursive. Inner transactions act as agents of the outermost transaction (i.e&#x2e;, report the status of read operations to the outermost transaction, which can restore the position of the stream).</p>
 <p><b>Note: </b>Restoring to the point of the nested startTransaction() call is not supported.</p><p>When an error occurs during a transaction (including an inner transaction failing), reading from the data stream is suspended (all subsequent read operations return empty/zero values) and subsequent inner transactions are forced to fail. Starting a new outermost transaction recovers from this state. This behavior makes it unnecessary to error-check every read operation separately.</p>
-<p>This function was introduced in  Qt 5.7.</p>
+<p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b>See also </b><a href="qdatastream.html#commitTransaction">commitTransaction</a>(), <a href="qdatastream.html#rollbackTransaction">rollbackTransaction</a>(), and <a href="qdatastream.html#abortTransaction">abortTransaction</a>().</p>
 <!-- @@@startTransaction -->
 <!-- $$$status[overload1]$$$status -->
@@ -556,7 +556,7 @@
 <h3 class="fn" id="operator-lt-lt-8"><a name="operator-lt-lt-8"></a><span class="type"><a href="qdatastream.html#QDataStream">QDataStream</a></span> &amp;QDataStream::<span class="name">operator&lt;&lt;</span>(<span class="type">std::nullptr_t</span> <i>ptr</i>)</h3>
 <p>This is an overloaded function.</p>
 <p>Simulates writing a <code>std::nullptr_t</code>, <i>ptr</i>, to the stream and returns a reference to the stream. This function does not actually write anything to the stream, as <code>std::nullptr_t</code> values are stored as 0 bytes.</p>
-<p>This function was introduced in  Qt 5.9.</p>
+<p>这个函数是在Qt 5.9版本中新增引入的。</p>
 <!-- @@@operator<< -->
 <!-- $$$operator<<$$$operator<<bool -->
 <h3 class="fn" id="operator-lt-lt-9"><a name="operator-lt-lt-9"></a><span class="type"><a href="qdatastream.html#QDataStream">QDataStream</a></span> &amp;QDataStream::<span class="name">operator&lt;&lt;</span>(<span class="type">bool</span> <i>i</i>)</h3>
@@ -566,7 +566,7 @@
 <h3 class="fn" id="operator-lt-lt-10"><a name="operator-lt-lt-10"></a><span class="type"><a href="qdatastream.html#QDataStream">QDataStream</a></span> &amp;QDataStream::<span class="name">operator&lt;&lt;</span>(<span class="type">qfloat16</span> <i>f</i>)</h3>
 <p>This is an overloaded function.</p>
 <p>Writes a floating point number, <i>f</i>, to the stream using the standard IEEE 754 format. Returns a reference to the stream.</p>
-<p>This function was introduced in  Qt 5.9.</p>
+<p>这个函数是在Qt 5.9版本中新增引入的。</p>
 <!-- @@@operator<< -->
 <!-- $$$operator<<$$$operator<<float -->
 <h3 class="fn" id="operator-lt-lt-11"><a name="operator-lt-lt-11"></a><span class="type"><a href="qdatastream.html#QDataStream">QDataStream</a></span> &amp;QDataStream::<span class="name">operator&lt;&lt;</span>(<span class="type">float</span> <i>f</i>)</h3>
@@ -630,7 +630,7 @@
 <h3 class="fn" id="operator-gt-gt-8"><a name="operator-gt-gt-8"></a><span class="type"><a href="qdatastream.html#QDataStream">QDataStream</a></span> &amp;QDataStream::<span class="name">operator&gt;&gt;</span>(<span class="type">std::nullptr_t</span> &amp;<i>ptr</i>)</h3>
 <p>This is an overloaded function.</p>
 <p>Simulates reading a <code>std::nullptr_t</code> from the stream into <i>ptr</i> and returns a reference to the stream. This function does not actually read anything from the stream, as <code>std::nullptr_t</code> values are stored as 0 bytes.</p>
-<p>This function was introduced in  Qt 5.9.</p>
+<p>这个函数是在Qt 5.9版本中新增引入的。</p>
 <!-- @@@operator>> -->
 <!-- $$$operator>>$$$operator>>bool& -->
 <h3 class="fn" id="operator-gt-gt-9"><a name="operator-gt-gt-9"></a><span class="type"><a href="qdatastream.html#QDataStream">QDataStream</a></span> &amp;QDataStream::<span class="name">operator&gt;&gt;</span>(<span class="type">bool</span> &amp;<i>i</i>)</h3>
@@ -640,7 +640,7 @@
 <h3 class="fn" id="operator-gt-gt-10"><a name="operator-gt-gt-10"></a><span class="type"><a href="qdatastream.html#QDataStream">QDataStream</a></span> &amp;QDataStream::<span class="name">operator&gt;&gt;</span>(<span class="type">qfloat16</span> &amp;<i>f</i>)</h3>
 <p>This is an overloaded function.</p>
 <p>Reads a floating point number from the stream into <i>f</i>, using the standard IEEE 754 format. Returns a reference to the stream.</p>
-<p>This function was introduced in  Qt 5.9.</p>
+<p>这个函数是在Qt 5.9版本中新增引入的。</p>
 <!-- @@@operator>> -->
 <!-- $$$operator>>$$$operator>>float& -->
 <h3 class="fn" id="operator-gt-gt-11"><a name="operator-gt-gt-11"></a><span class="type"><a href="qdatastream.html#QDataStream">QDataStream</a></span> &amp;QDataStream::<span class="name">operator&gt;&gt;</span>(<span class="type">float</span> &amp;<i>f</i>)</h3>

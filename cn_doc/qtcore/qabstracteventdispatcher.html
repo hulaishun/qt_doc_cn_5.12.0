@@ -157,7 +157,7 @@
 <p>Sends <i>message</i> through the event filters that were set by <a href="qabstracteventdispatcher.html#installNativeEventFilter">installNativeEventFilter</a>(). This function returns <code>true</code> as soon as an event filter returns <code>true</code>, and false otherwise to indicate that the processing of the event should continue.</p>
 <p>Subclasses of <a href="qabstracteventdispatcher.html">QAbstractEventDispatcher</a> <i>must</i> call this function for <i>all</i> messages received from the system to ensure compatibility with any extensions that may be used in the application. The type of event <i>eventType</i> is specific to the platform plugin chosen at run-time, and can be used to cast message to the right type. The <i>result</i> pointer is only used on Windows, and corresponds to the LRESULT pointer.</p>
 <p>Note that the type of <i>message</i> is platform dependent. See <a href="qabstractnativeeventfilter.html">QAbstractNativeEventFilter</a> for details.</p>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstracteventdispatcher.html#installNativeEventFilter">installNativeEventFilter</a>() and <a href="qabstractnativeeventfilter.html#nativeEventFilter">QAbstractNativeEventFilter::nativeEventFilter</a>().</p>
 <!-- @@@filterNativeEvent -->
 <!-- $$$installNativeEventFilter[overload1]$$$installNativeEventFilterQAbstractNativeEventFilter* -->
@@ -167,7 +167,7 @@
 <p>The <a href="qabstractnativeeventfilter.html#nativeEventFilter">nativeEventFilter()</a> function should return true if the event should be filtered, (in this case, stopped). It should return false to allow normal Qt processing to continue: the native event can then be translated into a <a href="qevent.html">QEvent</a> and handled by the standard Qt <a href="qevent.html">event</a> filtering, e.g&#x2e; <a href="qobject.html#installEventFilter">QObject::installEventFilter</a>().</p>
 <p>If multiple event filters are installed, the filter that was installed last is activated first.</p>
 <p><b>Note: </b>The filter function set here receives native messages, that is, MSG or XEvent structs.</p><p>For maximum portability, you should always try to use <a href="qevent.html">QEvent</a> objects and <a href="qobject.html#installEventFilter">QObject::installEventFilter</a>() whenever possible.</p>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b>See also </b><a href="qobject.html#installEventFilter">QObject::installEventFilter</a>().</p>
 <!-- @@@installNativeEventFilter -->
 <!-- $$$instance[overload1]$$$instanceQThread* -->
@@ -226,7 +226,7 @@
 <p>Removes the event filter <i>filter</i> from this object. The request is ignored if such an event filter has not been installed.</p>
 <p>All event filters for this object are automatically removed when this object is destroyed.</p>
 <p>It is always safe to remove an event filter, even during event filter filter activation (that is, even from within the <a href="qabstractnativeeventfilter.html#nativeEventFilter">nativeEventFilter()</a> function).</p>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstracteventdispatcher.html#installNativeEventFilter">installNativeEventFilter</a>() and <a href="qabstractnativeeventfilter.html">QAbstractNativeEventFilter</a>.</p>
 <!-- @@@removeNativeEventFilter -->
 <!-- $$$unregisterEventNotifier[overload1]$$$unregisterEventNotifierQWinEventNotifier* -->

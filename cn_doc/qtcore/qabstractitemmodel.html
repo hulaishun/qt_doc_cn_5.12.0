@@ -329,7 +329,7 @@
 <p>The <i>sourceParent</i> index corresponds to the parent from which the columns are moved; <i>sourceFirst</i> and <i>sourceLast</i> are the first and last column numbers of the columns to be moved. The <i>destinationParent</i> index corresponds to the parent into which those columns are moved. The <i>destinationChild</i> is the column to which the columns will be moved. That is, the index at column <i>sourceFirst</i> in <i>sourceParent</i> will become column <i>destinationChild</i> in <i>destinationParent</i>, followed by all other columns up to <i>sourceLast</i>.</p>
 <p>However, when moving columns down in the same parent (<i>sourceParent</i> and <i>destinationParent</i> are equal), the columns will be placed before the <i>destinationChild</i> index. That is, if you wish to move columns 0 and 1 so they will become columns 1 and 2, <i>destinationChild</i> should be 3. In this case, the new index for the source column <code>i</code> (which is between <i>sourceFirst</i> and <i>sourceLast</i>) is equal to <code>(destinationChild-sourceLast-1+i)</code>.</p>
 <p>Note that if <i>sourceParent</i> and <i>destinationParent</i> are the same, you must ensure that the <i>destinationChild</i> is not within the range of <i>sourceFirst</i> and <i>sourceLast</i> + 1. You must also ensure that you do not attempt to move a column to one of its own children or ancestors. This method returns <code>false</code> if either condition is true, in which case you should abort your move operation.</p>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstractitemmodel.html#endMoveColumns">endMoveColumns</a>().</p>
 <!-- @@@beginMoveColumns -->
 <!-- $$$beginMoveRows[overload1]$$$beginMoveRowsconstQModelIndex&intintconstQModelIndex&int -->
@@ -373,7 +373,7 @@
 <p>Note that other rows may be displaced accordingly.</p>
 </td></tr>
 </table></div>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstractitemmodel.html#endMoveRows">endMoveRows</a>().</p>
 <!-- @@@beginMoveRows -->
 <!-- $$$beginRemoveColumns[overload1]$$$beginRemoveColumnsconstQModelIndex&intint -->
@@ -416,7 +416,7 @@
 <p>When a model radically changes its data it can sometimes be easier to just call this function rather than emit <a href="qabstractitemmodel.html#dataChanged">dataChanged</a>() to inform other components when the underlying data source, or its structure, has changed.</p>
 <p>You must call this function before resetting any internal data structures in your model or proxy model.</p>
 <p>This function emits the signal <a href="qabstractitemmodel.html#modelAboutToBeReset">modelAboutToBeReset</a>().</p>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstractitemmodel.html#modelAboutToBeReset">modelAboutToBeReset</a>(), <a href="qabstractitemmodel.html#modelReset">modelReset</a>(), and <a href="qabstractitemmodel.html#endResetModel">endResetModel</a>().</p>
 <!-- @@@beginResetModel -->
 <!-- $$$buddy[overload1]$$$buddyconstQModelIndex& -->
@@ -448,7 +448,7 @@
 <h3 class="fn" id="changePersistentIndexList"><a name="changePersistentIndexList"></a><code>[protected] </code><span class="type">void</span> QAbstractItemModel::<span class="name">changePersistentIndexList</span>(const <span class="type"><a href="qmodelindex.html#QModelIndexList-typedef">QModelIndexList</a></span> &amp;<i>from</i>, const <span class="type"><a href="qmodelindex.html#QModelIndexList-typedef">QModelIndexList</a></span> &amp;<i>to</i>)</h3>
 <p>Changes the {<a href="qpersistentmodelindex.html">QPersistentModelIndex</a>}es that are equal to the indexes in the given <i>from</i> model index list to the given <i>to</i> model index list.</p>
 <p>If no persistent model indexes equal to the indexes in the given <i>from</i> model index list are found, nothing is changed.</p>
-<p>This function was introduced in  Qt 4.1.</p>
+<p>这个函数是在Qt 4.1版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstractitemmodel.html#persistentIndexList">persistentIndexList</a>() and <a href="qabstractitemmodel.html#changePersistentIndex">changePersistentIndex</a>().</p>
 <!-- @@@changePersistentIndexList -->
 <!-- $$$checkIndex[overload1]$$$checkIndexconstQModelIndex&QAbstractItemModel::CheckIndexOptions -->
@@ -466,7 +466,7 @@
 <p>If <i>options</i> does not contain <code>DoNotUseParent</code>, and it contains <code>ParentIsInvalid</code>, then an additional check is performed: the parent index is checked for not being valid. This is useful when implementing flat models such as lists or tables, where no model index should have a valid parent index.</p>
 <p>This function returns true if all the checks succeeded, and false otherwise. This allows to use the function in <a href="qtglobal.html#Q_ASSERT">Q_ASSERT</a> and similar other debugging mechanisms. If some check failed, a warning message will be printed in the <code>qt.core.qabstractitemmodel.checkindex</code> logging category, containing some information that may be useful for debugging the failure.</p>
 <p><b>Note: </b>This function is a debugging helper for implementing your own item models. When developing complex models, as well as when building complicated model hierarchies (e.g&#x2e; using proxy models), it is useful to call this function in order to catch bugs relative to illegal model indices (as defined above) accidentally passed to some <a href="qabstractitemmodel.html">QAbstractItemModel</a> API.</p><p><b>Warning:</b> Note that it's undefined behavior to pass illegal indices to item models, so applications must refrain from doing so, and not rely on any &quot;defensive&quot; programming that item models could employ to handle illegal indexes gracefully.</p>
-<p>This function was introduced in  Qt 5.11.</p>
+<p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <p><b>See also </b><a href="qmodelindex.html">QModelIndex</a>.</p>
 <!-- @@@checkIndex -->
 <!-- $$$columnCount[overload1]$$$columnCountconstQModelIndex& -->
@@ -495,7 +495,7 @@
 <h3 class="fn" id="columnsAboutToBeMoved"><a name="columnsAboutToBeMoved"></a><code>[signal] </code><span class="type">void</span> QAbstractItemModel::<span class="name">columnsAboutToBeMoved</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>sourceParent</i>, <span class="type">int</span> <i>sourceStart</i>, <span class="type">int</span> <i>sourceEnd</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>destinationParent</i>, <span class="type">int</span> <i>destinationColumn</i>)</h3>
 <p>This signal is emitted just before columns are moved within the model. The items that will be moved are those between <i>sourceStart</i> and <i>sourceEnd</i> inclusive, under the given <i>sourceParent</i> item. They will be moved to <i>destinationParent</i> starting at the column <i>destinationColumn</i>.</p>
 <p><b>Note:</b> Components connected to this signal use it to adapt to changes in the model's dimensions. It can only be emitted by the <a href="qabstractitemmodel.html">QAbstractItemModel</a> implementation, and cannot be explicitly emitted in subclass code.</p>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>Note: </b>This is a private signal. It can be used in signal connections but cannot be emitted by the user.</p>
 <p><b>See also </b><a href="qabstractitemmodel.html#beginMoveRows">beginMoveRows</a>().</p>
 <!-- @@@columnsAboutToBeMoved -->
@@ -515,7 +515,7 @@
 <h3 class="fn" id="columnsMoved"><a name="columnsMoved"></a><code>[signal] </code><span class="type">void</span> QAbstractItemModel::<span class="name">columnsMoved</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i>, <span class="type">int</span> <i>start</i>, <span class="type">int</span> <i>end</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>destination</i>, <span class="type">int</span> <i>column</i>)</h3>
 <p>This signal is emitted after columns have been moved within the model. The items between <i>start</i> and <i>end</i> inclusive, under the given <i>parent</i> item have been moved to <i>destination</i> starting at the column <i>column</i>.</p>
 <p><b>Note:</b> Components connected to this signal use it to adapt to changes in the model's dimensions. It can only be emitted by the <a href="qabstractitemmodel.html">QAbstractItemModel</a> implementation, and cannot be explicitly emitted in subclass code.</p>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>Note: </b>This is a private signal. It can be used in signal connections but cannot be emitted by the user.</p>
 <p><b>See also </b><a href="qabstractitemmodel.html#beginMoveRows">beginMoveRows</a>().</p>
 <!-- @@@columnsMoved -->
@@ -577,14 +577,14 @@
 <h3 class="fn" id="endMoveColumns"><a name="endMoveColumns"></a><code>[protected] </code><span class="type">void</span> QAbstractItemModel::<span class="name">endMoveColumns</span>()</h3>
 <p>Ends a column move operation.</p>
 <p>When implementing a subclass, you must call this function <i>after</i> moving data within the model's underlying data store.</p>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstractitemmodel.html#beginMoveColumns">beginMoveColumns</a>().</p>
 <!-- @@@endMoveColumns -->
 <!-- $$$endMoveRows[overload1]$$$endMoveRows -->
 <h3 class="fn" id="endMoveRows"><a name="endMoveRows"></a><code>[protected] </code><span class="type">void</span> QAbstractItemModel::<span class="name">endMoveRows</span>()</h3>
 <p>Ends a row move operation.</p>
 <p>When implementing a subclass, you must call this function <i>after</i> moving data within the model's underlying data store.</p>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstractitemmodel.html#beginMoveRows">beginMoveRows</a>().</p>
 <!-- @@@endMoveRows -->
 <!-- $$$endRemoveColumns[overload1]$$$endRemoveColumns -->
@@ -604,7 +604,7 @@
 <p>Completes a model reset operation.</p>
 <p>You must call this function after resetting any internal data structure in your model or proxy model.</p>
 <p>This function emits the signal <a href="qabstractitemmodel.html#modelReset">modelReset</a>().</p>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstractitemmodel.html#beginResetModel">beginResetModel</a>().</p>
 <!-- @@@endResetModel -->
 <!-- $$$fetchMore[overload1]$$$fetchMoreconstQModelIndex& -->
@@ -700,7 +700,7 @@
 <p>This signal is emitted just before the layout of a model is changed. Components connected to this signal use it to adapt to changes in the model's layout.</p>
 <p>Subclasses should update any persistent model indexes after emitting layoutAboutToBeChanged().</p>
 <p>The optional <i>parents</i> parameter is used to give a more specific notification about what parts of the layout of the model are changing. An empty list indicates a change to the layout of the entire model. The order of elements in the <i>parents</i> list is not significant. The optional <i>hint</i> parameter is used to give a hint about what is happening while the model is relayouting.</p>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstractitemmodel.html#layoutChanged">layoutChanged</a>() and <a href="qabstractitemmodel.html#changePersistentIndex">changePersistentIndex</a>().</p>
 <!-- @@@layoutAboutToBeChanged -->
 <!-- $$$layoutChanged[overload1]$$$layoutChangedconstQList<QPersistentModelIndex>&QAbstractItemModel::LayoutChangeHint -->
@@ -716,7 +716,7 @@
 <li>Call <a href="qabstractitemmodel.html#changePersistentIndex">changePersistentIndex</a>()</li>
 <li>emit layoutChanged</li>
 </ul>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstractitemmodel.html#layoutAboutToBeChanged">layoutAboutToBeChanged</a>(), <a href="qabstractitemmodel.html#dataChanged">dataChanged</a>(), <a href="qabstractitemmodel.html#headerDataChanged">headerDataChanged</a>(), <a href="qabstractitemmodel.html#modelReset">modelReset</a>(), and <a href="qabstractitemmodel.html#changePersistentIndex">changePersistentIndex</a>().</p>
 <!-- @@@layoutChanged -->
 <!-- $$$match[overload1]$$$matchconstQModelIndex&intconstQVariant&intQt::MatchFlags -->
@@ -742,7 +742,7 @@
 <!-- $$$modelAboutToBeReset[overload1]$$$modelAboutToBeReset -->
 <h3 class="fn" id="modelAboutToBeReset"><a name="modelAboutToBeReset"></a><code>[signal] </code><span class="type">void</span> QAbstractItemModel::<span class="name">modelAboutToBeReset</span>()</h3>
 <p>This signal is emitted when <a href="qabstractitemmodel.html#beginResetModel">beginResetModel</a>() is called, before the model's internal state (e.g&#x2e; persistent model indexes) has been invalidated.</p>
-<p>This function was introduced in  Qt 4.2.</p>
+<p>这个函数是在Qt 4.2版本中新增引入的。</p>
 <p><b>Note: </b>This is a private signal. It can be used in signal connections but cannot be emitted by the user.</p>
 <p><b>See also </b><a href="qabstractitemmodel.html#beginResetModel">beginResetModel</a>() and <a href="qabstractitemmodel.html#modelReset">modelReset</a>().</p>
 <!-- @@@modelAboutToBeReset -->
@@ -750,7 +750,7 @@
 <h3 class="fn" id="modelReset"><a name="modelReset"></a><code>[signal] </code><span class="type">void</span> QAbstractItemModel::<span class="name">modelReset</span>()</h3>
 <p>This signal is emitted when <a href="qabstractitemmodel.html#endResetModel">endResetModel</a>() is called, after the model's internal state (e.g&#x2e; persistent model indexes) has been invalidated.</p>
 <p>Note that if a model is reset it should be considered that all information previously retrieved from it is invalid. This includes but is not limited to the <a href="qabstractitemmodel.html#rowCount">rowCount</a>() and <a href="qabstractitemmodel.html#columnCount">columnCount</a>(), <a href="qabstractitemmodel.html#flags">flags</a>(), data retrieved through <a href="qabstractitemmodel.html#data">data</a>(), and <a href="qabstractitemmodel.html#roleNames">roleNames</a>().</p>
-<p>This function was introduced in  Qt 4.1.</p>
+<p>这个函数是在Qt 4.1版本中新增引入的。</p>
 <p><b>Note: </b>This is a private signal. It can be used in signal connections but cannot be emitted by the user.</p>
 <p><b>See also </b><a href="qabstractitemmodel.html#endResetModel">endResetModel</a>() and <a href="qabstractitemmodel.html#modelAboutToBeReset">modelAboutToBeReset</a>().</p>
 <!-- @@@modelReset -->
@@ -793,7 +793,7 @@
 <!-- $$$persistentIndexList[overload1]$$$persistentIndexList -->
 <h3 class="fn" id="persistentIndexList"><a name="persistentIndexList"></a><code>[protected] </code><span class="type"><a href="qmodelindex.html#QModelIndexList-typedef">QModelIndexList</a></span> QAbstractItemModel::<span class="name">persistentIndexList</span>() const</h3>
 <p>Returns the list of indexes stored as persistent indexes in the model.</p>
-<p>This function was introduced in  Qt 4.2.</p>
+<p>这个函数是在Qt 4.2版本中新增引入的。</p>
 <!-- @@@persistentIndexList -->
 <!-- $$$removeColumn[overload1]$$$removeColumnintconstQModelIndex& -->
 <h3 class="fn" id="removeColumn"><a name="removeColumn"></a><span class="type">bool</span> QAbstractItemModel::<span class="name">removeColumn</span>(<span class="type">int</span> <i>column</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i> = QModelIndex())</h3>
@@ -862,7 +862,7 @@
   };
 
 </pre>
-<p><b>Note: </b>Due to a mistake, this slot is missing in Qt 5.0&#x2e;</p><p>This function was introduced in  Qt 4.8.</p>
+<p><b>Note: </b>Due to a mistake, this slot is missing in Qt 5.0&#x2e;</p><p>这个函数是在Qt 4.8版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstractitemmodel.html#modelAboutToBeReset">modelAboutToBeReset</a>() and <a href="qabstractitemmodel.html#modelReset">modelReset</a>().</p>
 <!-- @@@resetInternalData -->
 <!-- $$$revert[overload1]$$$revert -->
@@ -883,7 +883,7 @@
 <tr valign="top" class="odd"><td ><a href="qt.html#ItemDataRole-enum">Qt::StatusTipRole</a></td><td >statusTip</td></tr>
 <tr valign="top" class="even"><td ><a href="qt.html#ItemDataRole-enum">Qt::WhatsThisRole</a></td><td >whatsThis</td></tr>
 </table></div>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstractitemmodel-obsolete.html#setRoleNames">setRoleNames</a>().</p>
 <!-- @@@roleNames -->
 <!-- $$$rowCount[overload1]$$$rowCountconstQModelIndex& -->
@@ -902,7 +902,7 @@
 <h3 class="fn" id="rowsAboutToBeMoved"><a name="rowsAboutToBeMoved"></a><code>[signal] </code><span class="type">void</span> QAbstractItemModel::<span class="name">rowsAboutToBeMoved</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>sourceParent</i>, <span class="type">int</span> <i>sourceStart</i>, <span class="type">int</span> <i>sourceEnd</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>destinationParent</i>, <span class="type">int</span> <i>destinationRow</i>)</h3>
 <p>This signal is emitted just before rows are moved within the model. The items that will be moved are those between <i>sourceStart</i> and <i>sourceEnd</i> inclusive, under the given <i>sourceParent</i> item. They will be moved to <i>destinationParent</i> starting at the row <i>destinationRow</i>.</p>
 <p><b>Note:</b> Components connected to this signal use it to adapt to changes in the model's dimensions. It can only be emitted by the <a href="qabstractitemmodel.html">QAbstractItemModel</a> implementation, and cannot be explicitly emitted in subclass code.</p>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>Note: </b>This is a private signal. It can be used in signal connections but cannot be emitted by the user.</p>
 <p><b>See also </b><a href="qabstractitemmodel.html#beginMoveRows">beginMoveRows</a>().</p>
 <!-- @@@rowsAboutToBeMoved -->
@@ -922,7 +922,7 @@
 <h3 class="fn" id="rowsMoved"><a name="rowsMoved"></a><code>[signal] </code><span class="type">void</span> QAbstractItemModel::<span class="name">rowsMoved</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i>, <span class="type">int</span> <i>start</i>, <span class="type">int</span> <i>end</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>destination</i>, <span class="type">int</span> <i>row</i>)</h3>
 <p>This signal is emitted after rows have been moved within the model. The items between <i>start</i> and <i>end</i> inclusive, under the given <i>parent</i> item have been moved to <i>destination</i> starting at the row <i>row</i>.</p>
 <p><b>Note:</b> Components connected to this signal use it to adapt to changes in the model's dimensions. It can only be emitted by the <a href="qabstractitemmodel.html">QAbstractItemModel</a> implementation, and cannot be explicitly emitted in subclass code.</p>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>Note: </b>This is a private signal. It can be used in signal connections but cannot be emitted by the user.</p>
 <p><b>See also </b><a href="qabstractitemmodel.html#beginMoveRows">beginMoveRows</a>().</p>
 <!-- @@@rowsMoved -->
@@ -989,7 +989,7 @@
 <h3 class="fn" id="supportedDropActions"><a name="supportedDropActions"></a><code>[virtual] </code><span class="type">Qt::DropActions</span> QAbstractItemModel::<span class="name">supportedDropActions</span>() const</h3>
 <p>Returns the drop actions supported by this model.</p>
 <p>The default implementation returns <a href="qt.html#DropAction-enum">Qt::CopyAction</a>. Reimplement this function if you wish to support additional actions. You must also reimplement the <a href="qabstractitemmodel.html#dropMimeData">dropMimeData</a>() function to handle the additional operations.</p>
-<p>This function was introduced in  Qt 4.2.</p>
+<p>这个函数是在Qt 4.2版本中新增引入的。</p>
 <p><b>See also </b><a href="qabstractitemmodel.html#dropMimeData">dropMimeData</a>(), <a href="qt.html#DropAction-enum">Qt::DropActions</a>, and <a href="../qtwidgets/model-view-programming.html#using-drag-and-drop-with-item-views">Using drag and drop with item views</a>.</p>
 <!-- @@@supportedDropActions -->
 </div>

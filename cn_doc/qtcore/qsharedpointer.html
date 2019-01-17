@@ -194,13 +194,13 @@
 <!-- $$$QSharedPointer$$$QSharedPointerstd::nullptr_t -->
 <h3 class="fn" id="QSharedPointer-3"><a name="QSharedPointer-3"></a>QSharedPointer::<span class="name">QSharedPointer</span>(<i>std::nullptr_t</i>)</h3>
 <p>Creates a <a href="qsharedpointer.html">QSharedPointer</a> that is null. This is equivalent to the <a href="qsharedpointer.html">QSharedPointer</a> default constructor.</p>
-<p>This function was introduced in  Qt 5.8.</p>
+<p>这个函数是在Qt 5.8版本中新增引入的。</p>
 <!-- @@@QSharedPointer -->
 <!-- $$$QSharedPointer$$$QSharedPointerstd::nullptr_tDeleter -->
 <h3 class="fn" id="QSharedPointer-4"><a name="QSharedPointer-4"></a>QSharedPointer::<span class="name">QSharedPointer</span>(<i>std::nullptr_t</i>, <span class="type">Deleter</span> <i>d</i>)</h3>
 <p>Creates a <a href="qsharedpointer.html">QSharedPointer</a> that is null. This is equivalent to the <a href="qsharedpointer.html">QSharedPointer</a> default constructor.</p>
 <p>The deleter parameter <i>d</i> specifies the custom deleter for this object. The custom deleter is called, instead of the operator delete(), when the strong reference count drops to 0.</p>
-<p>This function was introduced in  Qt 5.8.</p>
+<p>这个函数是在Qt 5.8版本中新增引入的。</p>
 <!-- @@@QSharedPointer -->
 <!-- $$$QSharedPointer$$$QSharedPointerconstQSharedPointer<T>& -->
 <h3 class="fn" id="QSharedPointer-5"><a name="QSharedPointer-5"></a>QSharedPointer::<span class="name">QSharedPointer</span>(const <span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>)</h3>
@@ -230,7 +230,7 @@
 <h3 class="fn" id="create"><a name="create"></a><code>[static] </code><span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; QSharedPointer::<span class="name">create</span>()</h3>
 <p>Creates a <a href="qsharedpointer.html">QSharedPointer</a> object and allocates a new item of type <code>T</code>. The <a href="qsharedpointer.html">QSharedPointer</a> internals and the object are allocated in one single memory allocation, which could help reduce memory fragmentation in a long-running application.</p>
 <p>This function calls the default constructor for type <code>T</code>.</p>
-<p>This function was introduced in  Qt 5.1.</p>
+<p>这个函数是在Qt 5.1版本中新增引入的。</p>
 <!-- @@@create -->
 <!-- $$$create$$$create... -->
 <h3 class="fn" id="create-1"><a name="create-1"></a><code>[static] </code><span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; QSharedPointer::<span class="name">create</span>(<i>...</i>)</h3>
@@ -239,7 +239,7 @@
 <p>This function will attempt to call a constructor for type <code>T</code> that can accept all the arguments passed. Arguments will be perfectly-forwarded.</p>
 <p><b>Note: </b>This function is only fully available with a C++11 compiler that supports perfect forwarding of an arbitrary number of arguments.</p><p>If the compiler does not support the necessary C++11 features, then a restricted version is available since Qt 5.4: you may pass one (but just one) argument, and it will always be passed by const reference.</p>
 <p>If you target Qt before version 5.4, you must use the overload that calls the default constructor.</p>
-<p>This function was introduced in  Qt 5.1.</p>
+<p>这个函数是在Qt 5.1版本中新增引入的。</p>
 <!-- @@@create -->
 <!-- $$$data[overload1]$$$data -->
 <h3 class="fn" id="data"><a name="data"></a><span class="type">T</span> *QSharedPointer::<span class="name">data</span>() const</h3>
@@ -256,7 +256,7 @@
 <h3 class="fn" id="get"><a name="get"></a><span class="type">T</span> *QSharedPointer::<span class="name">get</span>() const</h3>
 <p>Same as <a href="qsharedpointer.html#data">data</a>().</p>
 <p>This function is provided for API compatibility with <code>std::shared_ptr</code>.</p>
-<p>This function was introduced in  Qt 5.11.</p>
+<p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <!-- @@@get -->
 <!-- $$$isNull[overload1]$$$isNull -->
 <h3 class="fn" id="isNull"><a name="isNull"></a><span class="type">bool</span> QSharedPointer::<span class="name">isNull</span>() const</h3>
@@ -266,13 +266,13 @@
 <h3 class="fn" id="objectCast"><a name="objectCast"></a><span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">X</span>&gt; QSharedPointer::<span class="name">objectCast</span>() const</h3>
 <p>Performs a <a href="qobject.html#qobject_cast">qobject_cast</a>() from this pointer's type to <code>X</code> and returns a <a href="qsharedpointer.html">QSharedPointer</a> that shares the reference. If this function is used to up-cast, then <a href="qsharedpointer.html">QSharedPointer</a> will perform a <code>qobject_cast</code>, which means that if the object being pointed by this <a href="qsharedpointer.html">QSharedPointer</a> is not of type <code>X</code>, the returned object will be null.</p>
 <p>Note: the template type <code>X</code> must have the same const and volatile qualifiers as the template of this object, or the cast will fail. Use <a href="qsharedpointer.html#constCast">constCast</a>() if you need to drop those qualifiers.</p>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qsharedpointer.html#qSharedPointerObjectCast">qSharedPointerObjectCast</a>().</p>
 <!-- @@@objectCast -->
 <!-- $$$reset[overload1]$$$reset -->
 <h3 class="fn" id="reset"><a name="reset"></a><span class="type">void</span> QSharedPointer::<span class="name">reset</span>()</h3>
 <p>Same as <a href="qsharedpointer.html#clear">clear</a>(). For std::shared_ptr compatibility.</p>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <!-- @@@reset -->
 <!-- $$$reset$$$resetT* -->
 <h3 class="fn" id="reset-1"><a name="reset-1"></a><span class="type">void</span> QSharedPointer::<span class="name">reset</span>(<span class="type">T</span> *<i>t</i>)</h3>
@@ -282,7 +282,7 @@
       <span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span><span class="operator">&lt;</span>T<span class="operator">&gt;</span> other(t); <span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>swap(other);
 
 </pre>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <!-- @@@reset -->
 <!-- $$$reset$$$resetT*Deleter -->
 <h3 class="fn" id="reset-2"><a name="reset-2"></a><span class="type">void</span> QSharedPointer::<span class="name">reset</span>(<span class="type">T</span> *<i>t</i>, <span class="type">Deleter</span> <i>deleter</i>)</h3>
@@ -292,7 +292,7 @@
       <span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span><span class="operator">&lt;</span>T<span class="operator">&gt;</span> other(t<span class="operator">,</span> deleter); <span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>swap(other);
 
 </pre>
-<p>This function was introduced in  Qt 5.0.</p>
+<p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <!-- @@@reset -->
 <!-- $$$staticCast[overload1]$$$staticCast -->
 <h3 class="fn" id="staticCast"><a name="staticCast"></a><span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">X</span>&gt; QSharedPointer::<span class="name">staticCast</span>() const</h3>
@@ -303,7 +303,7 @@
 <!-- $$$swap[overload1]$$$swapQSharedPointer<T>& -->
 <h3 class="fn" id="swap"><a name="swap"></a><span class="type">void</span> QSharedPointer::<span class="name">swap</span>(<span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>)</h3>
 <p>Swaps this shared pointer instance with <i>other</i>. This function is very fast and never fails.</p>
-<p>This function was introduced in  Qt 5.3.</p>
+<p>这个函数是在Qt 5.3版本中新增引入的。</p>
 <!-- @@@swap -->
 <!-- $$$toWeakRef[overload1]$$$toWeakRef -->
 <h3 class="fn" id="toWeakRef"><a name="toWeakRef"></a><span class="type"><a href="qweakpointer.html">QWeakPointer</a></span>&lt;<span class="type">T</span>&gt; QSharedPointer::<span class="name">toWeakRef</span>() const</h3>
@@ -378,7 +378,7 @@
 <p>The qSharedPointerObjectCast function is for casting a shared pointer.</p>
 <p>Returns a shared pointer to the pointer held by <i>src</i>, using a <a href="qobject.html#qobject_cast">qobject_cast</a>() to type <code>X</code> to obtain an internal pointer of the appropriate type. If the <code>qobject_cast</code> fails, the object returned will be null.</p>
 <p>Note that <code>X</code> must have the same cv-qualifiers (<code>const</code> and <code>volatile</code>) that <code>T</code> has, or the code will fail to compile. Use <a href="qsharedpointer.html#qSharedPointerConstCast">qSharedPointerConstCast</a> to cast away the constness.</p>
-<p>This function was introduced in  Qt 4.6.</p>
+<p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b>See also </b><a href="qsharedpointer.html#objectCast">QSharedPointer::objectCast</a>(), <a href="qsharedpointer.html#qSharedPointerCast">qSharedPointerCast</a>(), and <a href="qsharedpointer.html#qSharedPointerConstCast">qSharedPointerConstCast</a>().</p>
 <!-- @@@qSharedPointerObjectCast -->
 <!-- $$$operator!=[overload1]$$$operator!=constQSharedPointer<T>&constQSharedPointer<X>& -->
@@ -399,19 +399,19 @@
 <!-- $$$operator!=$$$operator!=constQSharedPointer<T>&std::nullptr_t -->
 <h3 class="fn" id="operator-not-eq-3"><a name="operator-not-eq-3"></a><span class="type">bool</span> <span class="name">operator!=</span>(const <span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>lhs</i>, <i>std::nullptr_t</i>)</h3>
 <p>Returns <code>true</code> if the pointer referenced by <i>lhs</i> is a valid (i.e&#x2e; non-null) pointer.</p>
-<p>This function was introduced in  Qt 5.8.</p>
+<p>这个函数是在Qt 5.8版本中新增引入的。</p>
 <p><b>See also </b><a href="qsharedpointer.html#isNull">QSharedPointer::isNull</a>().</p>
 <!-- @@@operator!= -->
 <!-- $$$operator!=$$$operator!=std::nullptr_tconstQSharedPointer<T>& -->
 <h3 class="fn" id="operator-not-eq-4"><a name="operator-not-eq-4"></a><span class="type">bool</span> <span class="name">operator!=</span>(<i>std::nullptr_t</i>, const <span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>rhs</i>)</h3>
 <p>Returns <code>true</code> if the pointer referenced by <i>rhs</i> is a valid (i.e&#x2e; non-null) pointer.</p>
-<p>This function was introduced in  Qt 5.8.</p>
+<p>这个函数是在Qt 5.8版本中新增引入的。</p>
 <p><b>See also </b><a href="qsharedpointer.html#isNull">QSharedPointer::isNull</a>().</p>
 <!-- @@@operator!= -->
 <!-- $$$operator<<[overload1]$$$operator<<QDebugconstQSharedPointer<T>& -->
 <h3 class="fn" id="operator-lt-lt"><a name="operator-lt-lt"></a><span class="type"><a href="qdebug.html">QDebug</a></span> <span class="name">operator&lt;&lt;</span>(<span class="type"><a href="qdebug.html">QDebug</a></span> <i>debug</i>, const <span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>ptr</i>)</h3>
 <p>Writes the pointer tracked by <i>ptr</i> into the debug object <i>debug</i> for debugging purposes.</p>
-<p>This function was introduced in  Qt 5.7.</p>
+<p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b>See also </b><a href="../qtdoc/testing-and-debugging.html#debugging-techniques">Debugging Techniques</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator==[overload1]$$$operator==constQSharedPointer<T>&constQSharedPointer<X>& -->
@@ -432,13 +432,13 @@
 <!-- $$$operator==$$$operator==constQSharedPointer<T>&std::nullptr_t -->
 <h3 class="fn" id="operator-eq-eq-3"><a name="operator-eq-eq-3"></a><span class="type">bool</span> <span class="name">operator==</span>(const <span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>lhs</i>, <i>std::nullptr_t</i>)</h3>
 <p>Returns <code>true</code> if the pointer referenced by <i>lhs</i> is a null pointer.</p>
-<p>This function was introduced in  Qt 5.8.</p>
+<p>这个函数是在Qt 5.8版本中新增引入的。</p>
 <p><b>See also </b><a href="qsharedpointer.html#isNull">QSharedPointer::isNull</a>().</p>
 <!-- @@@operator== -->
 <!-- $$$operator==$$$operator==std::nullptr_tconstQSharedPointer<T>& -->
 <h3 class="fn" id="operator-eq-eq-4"><a name="operator-eq-eq-4"></a><span class="type">bool</span> <span class="name">operator==</span>(<i>std::nullptr_t</i>, const <span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>rhs</i>)</h3>
 <p>Returns <code>true</code> if the pointer referenced by <i>rhs</i> is a null pointer.</p>
-<p>This function was introduced in  Qt 5.8.</p>
+<p>这个函数是在Qt 5.8版本中新增引入的。</p>
 <p><b>See also </b><a href="qsharedpointer.html#isNull">QSharedPointer::isNull</a>().</p>
 <!-- @@@operator== -->
 </div>
