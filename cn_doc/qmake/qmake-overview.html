@@ -45,10 +45,10 @@
 <div class="toc">
 <h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#describing-a-project">Describing a Project</a></li>
-<li class="level1"><a href="#building-a-project">Building a Project</a></li>
-<li class="level1"><a href="#using-third-party-libraries">Using Third Party Libraries</a></li>
-<li class="level1"><a href="#precompiling-headers">Precompiling Headers</a></li>
+<li class="level1"><a href="#describing-a-project">描述一个工程</a></li>
+<li class="level1"><a href="#building-a-project">构建一个工程</a></li>
+<li class="level1"><a href="#using-third-party-libraries">使用第三方库</a></li>
+<li class="level1"><a href="#precompiling-headers">预编译头文件</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
@@ -56,26 +56,28 @@
 <span class="subtitle"></span>
 <!-- $$$qmake-overview.html-description -->
 <div class="descr"> <a name="details"></a>
-<p>The qmake tool provides you with a project-oriented system for managing the build process for applications, libraries, and other components. This approach gives you control over the source files used, and allows each of the steps in the process to be described concisely, typically within a single file. qmake expands the information in each project file to a Makefile that executes the necessary commands for compiling and linking.</p>
+<p>qmake工具提供了工程相关的系统，可用于管理应用程序、库和其他组件的构建过程。此方法给你提供了源文件的控制和使用与许可，简单描述了构建过程的每个步骤，尤其在单个工程文件中。qmake扩展了每个工程文件的Makefile文件信息，为编译和链接的执行提供了必须的命令。</p>
 <a name="describing-a-project"></a>
-<h2 id="describing-a-project">Describing a Project</h2>
-<p>Projects are described by the contents of project (<code>.pro</code>) files. qmake uses the information within the files to generate Makefiles that contain all the commands that are needed to build each project. Project files typically contain a list of source and header files, general configuration information, and any application-specific details, such as a list of extra libraries to link against, or a list of extra include paths to use.</p>
-<p>Project files can contain a number of different elements, including comments, variable declarations, built-in functions, and some simple control structures. In most simple projects, it is only necessary to declare the source and header files that are used to build the project with some basic configuration options. For more information about how to create a simple project file, see <a href="qmake-tutorial.html">快速向导</a>.</p>
-<p>You can create more sophisticated project files for complex projects. For an overview of project files, see <a href="qmake-project-files.html">创建工程文件</a>. For detailed information about the variables and functions that you can use in project files, see <a href="qmake-reference.html">Reference</a>.</p>
-<p>You can use application or library project templates to specify specialized configuration options to fine tune the build process. For more information, see <a href="qmake-common-projects.html">构建通用工程类型</a>.</p>
-<p>You can use the <a href="http://doc.qt.io/qtcreator/creator-project-creating.html">Qt Creator new project wizard</a> to create the project file. You choose the project template, and Qt Creator creates a project file with default values that enable you to build and run the project. You can modify the project file to suit your purposes.</p>
-<p>You can also use qmake to generate project files. For a full description of qmake command line options, see <a href="qmake-running.html">运行qmake</a>.</p>
-<p>The basic configuration features of qmake can handle most cross-platform projects. However, it might be useful, or even necessary, to use some platform-specific variables. For more information, see <a href="qmake-platform-notes.html">平台注意事项</a>.</p>
+<h2 id="describing-a-project">描述一个工程</h2>
+<p>工程项目一般由(<code>.pro</code>)后缀的工程文件的内容来形容描述。qmake使用工程文件中的信息来生成一个Makefile文件，此文件包含所有构建每个工程必须的所有命令选项。
+典型的工程文件包含了源文件和头文件的列表、通用配置信息和任何应用程序特定的详细元素，如依赖的扩展库的链接列表、使用到的扩展包含路径的列表.</p>
+<p>工程文件一般包含一系列的不同元素，其中有注释、变量声明、内置函数，还有一些简单的控制结构。在大多数的简单工程中，一般只需要声明源文件和头文件，这样就可以基于基本配置选项就可以构建此工程了。关于如何创建简单工程文件的详细信息，可见于<a href="qmake-tutorial.html">快速向导</a>。</p>
+<p>对于大型复杂的项目，你也可以创建复杂的工程。关于工程文件的预览，可见于<a href="qmake-project-files.html">创建工程文件</a>。
+关于工程文件中使用到的变量和函数的详细信息，可见于<a href="qmake-reference.html">参考</a>.</p>
+<p>你也可以使用应用程序或者库工程模板来指定特有配置选择，这样可更好优化构建过程。更多详细信息，可见于<a href="qmake-common-projects.html">构建通用工程类型</a>.</p>
+<p>你可以使用<a href="http://doc.qt.io/qtcreator/creator-project-creating.html">Qt Creator的新工程向导</a>来创建工程文件。你先选择工程模板，Qt Creator将使用默认值来创建一个工程文件，这样你就可以构建运行此工程。你可以直接修改工程文件来满足您的要求和目的。</p>
+<p>你也可以直接使用qmake命令来生成工程文件。有关于qmake命令行选项的全部详细描述，可见于<a href="qmake-running.html">运行qmake</a>.</p>
+<p>qmake的基础配置特性能处理大多数的通用跨平台的工程项目。当然，使用平台特有的变量，也是可以的，有些还是必须的。更多详细信息，可见于<a href="qmake-platform-notes.html">平台注意事项</a>.</p>
 <a name="building-a-project"></a>
-<h2 id="building-a-project">Building a Project</h2>
-<p>For simple projects, you only need to run qmake in the top level directory of your project to generate a Makefile. You can then run your platform's <code>make</code> tool to build the project according to the Makefile.</p>
-<p>For more information about the environment variables that qmake uses when configuring the build process, see <a href="qmake-environment-reference.html">配置qmake</a>.</p>
+<h2 id="building-a-project">构建一个工程</h2>
+<p>对于简单工程，你仅需要在你工程的顶层目录下，运行qmake命令来生成一个Makefile文件。你可以继续运行平台<code>make</code>工具更加生成的Makefile来构建工程。</p>
+<p>关于qmake使用的配置构建过程的环境变量的更多详细信息，可见于<a href="qmake-environment-reference.html">配置qmake</a>.</p>
 <a name="using-third-party-libraries"></a>
-<h2 id="using-third-party-libraries">Using Third Party Libraries</h2>
-<p>The guide to <a href="../qtdoc/qnx.html#third-party-libraries">Third Party Libraries</a> shows you how to use simple third party libraries in your Qt project.</p>
+<h2 id="using-third-party-libraries">使用第三方库</h2>
+<p><a href="../qtdoc/qnx.html#third-party-libraries">第三方库的向导</a> 给你展示了，如何在你的Qt工程中简单使用第三方库。</p>
 <a name="precompiling-headers"></a>
-<h2 id="precompiling-headers">Precompiling Headers</h2>
-<p>In large projects, it is possible to take advantage of precompiled header files to speed up the build process. For more information, see <a href="qmake-precompiledheaders.html">使用预编译头文件</a>.</p>
+<h2 id="precompiling-headers">预编译头文件</h2>
+<p>在大型工程中，使用预编译头文件，将大大提速工程的构建过程。更多详细信息，可见于<a href="qmake-precompiledheaders.html">使用预编译头文件</a>.</p>
 </div>
 <!-- @@@qmake-overview.html -->
 <p class="naviNextPrevious footerNavi">
