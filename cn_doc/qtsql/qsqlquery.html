@@ -36,11 +36,11 @@
 <div class="content mainContent">
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3><a name="toc">目录</a></h3>
 <ul>
 <li class="level1"><a href="#public-types">Public Types</a></li>
 <li class="level1"><a href="#public-functions">Public Functions</a></li>
-<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level1"><a href="#details">详细描述</a></li>
 <li class="level2"><a href="#approaches-to-binding-values">Approaches to Binding Values</a></li>
 </ul>
 </div>
@@ -111,7 +111,7 @@
 <a name="details"></a>
 <!-- $$$QSqlQuery-description -->
 <div class="descr">
-<h2 id="details">Detailed Description</h2>
+<h2 id="details">详细描述</h2>
 <p>The <a href="qsqlquery.html">QSqlQuery</a> class provides a means of executing and manipulating SQL statements.</p>
 <p><a href="qsqlquery.html">QSqlQuery</a> encapsulates the functionality involved in creating, navigating and retrieving data from SQL queries which are executed on a <a href="qsqldatabase.html">QSqlDatabase</a>. It can be used to execute DML (data manipulation language) statements, such as <code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code> and <code>DELETE</code>, as well as DDL (data definition language) statements, such as <code>CREATE</code> <code>TABLE</code>. It can also be used to execute database-specific commands which are not standard SQL (e.g&#x2e; <code>SET DATESTYLE=ISO</code> for PostgreSQL).</p>
 <p>Successfully executed SQL statements set the query's state to active so that <a href="qsqlquery.html#isActive">isActive</a>() returns <code>true</code>. Otherwise the query's state is set to inactive. In either case, when executing a new SQL statement, the query is positioned on an invalid record. An active query must be navigated to a valid record (so that <a href="qsqlquery.html#isValid">isValid</a>() returns <code>true</code>) before values can be retrieved.</p>
@@ -479,7 +479,7 @@
 <!-- $$$prepare[overload1]$$$prepareconstQString& -->
 <h3 class="fn" id="prepare"><a name="prepare"></a><span class="type">bool</span> QSqlQuery::<span class="name">prepare</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>query</i>)</h3>
 <p>Prepares the SQL query <i>query</i> for execution. Returns <code>true</code> if the query is prepared successfully; otherwise returns <code>false</code>.</p>
-<p>The query may contain placeholders for binding values. Both Oracle style colon-name (e.g&#x2e;, <code>:surname</code>), and ODBC style (<code>?</code>) placeholders are supported; but they cannot be mixed in the same query. See the <a href="qsqlquery.html#qsqlquery-examples">Detailed Description</a> for examples.</p>
+<p>The query may contain placeholders for binding values. Both Oracle style colon-name (e.g&#x2e;, <code>:surname</code>), and ODBC style (<code>?</code>) placeholders are supported; but they cannot be mixed in the same query. See the <a href="qsqlquery.html#qsqlquery-examples">详细描述</a> for examples.</p>
 <p>Portability notes: Some databases choose to delay preparing a query until it is executed the first time. In this case, preparing a syntactically wrong query succeeds, but every consecutive <a href="qsqlquery.html#exec-1">exec</a>() will fail. When the database does not support named placeholders directly, the placeholder can only contain characters in the range [a-zA-Z0-9_].</p>
 <p>For <a href="qtsql-attribution-sqlite.html">SQLite</a>, the query string can contain only one statement at a time. If more than one statement is given, the function returns <code>false</code>.</p>
 <p>Example:</p>
