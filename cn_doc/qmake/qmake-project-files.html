@@ -45,15 +45,15 @@
 <div class="toc">
 <h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#project-file-elements">Project File Elements</a></li>
+<li class="level1"><a href="#project-file-elements">工程文件元素</a></li>
 <li class="level2"><a href="#variables">变量</a></li>
-<li class="level2"><a href="#comments">Comments</a></li>
-<li class="level2"><a href="#built-in-functions-and-control-flow">Built-in Functions and Control Flow</a></li>
-<li class="level1"><a href="#project-templates">Project Templates</a></li>
-<li class="level1"><a href="#general-configuration">General Configuration</a></li>
-<li class="level1"><a href="#declaring-qt-libraries">Declaring Qt Libraries</a></li>
-<li class="level1"><a href="#configuration-features">Configuration Features</a></li>
-<li class="level1"><a href="#declaring-other-libraries">Declaring Other Libraries</a></li>
+<li class="level2"><a href="#comments">注释</a></li>
+<li class="level2"><a href="#built-in-functions-and-control-flow">内置函数和控制流</a></li>
+<li class="level1"><a href="#project-templates">工程模板</a></li>
+<li class="level1"><a href="#general-configuration">通用配置</a></li>
+<li class="level1"><a href="#declaring-qt-libraries">声明Qt动态库</a></li>
+<li class="level1"><a href="#configuration-features">配置特性</a></li>
+<li class="level1"><a href="#declaring-other-libraries">声明其他动态库</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
@@ -63,7 +63,7 @@
 <div class="descr"> <a name="details"></a>
 <p>Project files contain all the information required by qmake to build your application, library, or plugin. Generally, you use a series of declarations to specify the resources in the project, but support for simple programming constructs enables you to describe different build processes for different platforms and environments.</p>
 <a name="project-file-elements"></a>
-<h2 id="project-file-elements">Project File Elements</h2>
+<h2 id="project-file-elements">工程文件元素</h2>
 <p>The project file format used by qmake can be used to support both simple and fairly complex build systems. Simple project files use a straightforward declarative style, defining standard variables to indicate the source and header files that are used in the project. Complex projects may use control flow structures to fine-tune the build process.</p>
 <p>The following sections describe the different types of elements used in project files.</p>
 <a name="projectfileelementsvariables"></a><a name="variables"></a>
@@ -85,7 +85,7 @@
   CONFIG += console
 
 </pre>
-<p><b>Note: </b>The first assignment only includes values that are specified on the same line as the <code>HEADERS</code> variable. The second assignment splits the values in the <code>SOURCES</code> variable across lines by using a backslash (\).</p><p>The <a href="qmake-variable-reference.html#config">CONFIG</a> variable is another special variable that qmake uses when generating a Makefile. It is discussed in <a href="qmake-project-files.html#general-configuration">General Configuration</a>. In the snippet above, <code>console</code> is added to the list of existing values contained in <code>CONFIG</code>.</p>
+<p><b>注意：</b>The first assignment only includes values that are specified on the same line as the <code>HEADERS</code> variable. The second assignment splits the values in the <code>SOURCES</code> variable across lines by using a backslash (\).</p><p>The <a href="qmake-variable-reference.html#config">CONFIG</a> variable is another special variable that qmake uses when generating a Makefile. It is discussed in <a href="qmake-project-files.html#general-configuration">通用配置</a>. In the snippet above, <code>console</code> is added to the list of existing values contained in <code>CONFIG</code>.</p>
 <p>The following table lists some frequently used variables and describes their contents. For a full list of variables and their descriptions, see <a href="qmake-variable-reference.html">变量</a>.</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th >变量</th><th >目录</th></tr></thead>
@@ -121,8 +121,8 @@
 
 </pre>
 <a name="comments"></a>
-<h3 >Comments</h3>
-<p>You can add comments to project files. Comments begin with the <code>#</code> character and continue to the end of the same line. For example:</p>
+<h3 >注释</h3>
+<p>你可以增加注释到工程文件中。注释开始于<code>#</code>字符，一直持续，直到结束于当前行末尾。如下所示：</p>
 <pre class="cpp">
 
   # Comments usually start at the beginning of a line, but they
@@ -131,7 +131,7 @@
 </pre>
 <p>To include the <code>#</code> character in variable assignments, it is necessary to use the contents of the built-in <a href="qmake-variable-reference.html#literal-hash">LITERAL_HASH</a> variable.</p>
 <a name="built-in-functions-and-control-flow"></a>
-<h3 >Built-in Functions and Control Flow</h3>
+<h3 >内置函数和控制流</h3>
 <p>qmake provides a number of built-in functions to enable the contents of variables to be processed. The most commonly used function in simple project files is the <a href="qmake-test-function-reference.html#include-filename">include()</a> function which takes a filename as an argument. The contents of the given file are included in the project file at the place where the <code>include</code> function is used. The <code>include</code> function is most commonly used to include other project files:</p>
 <pre class="cpp">
 
@@ -149,14 +149,14 @@
 <p>The assignments inside the braces are only made if the condition is true. In this case, the <code>win32</code> <a href="qmake-variable-reference.html#config">CONFIG</a> option must be set. This happens automatically on Windows. The opening brace must stand on the same line as the condition.</p>
 <p>More complex operations on variables that would usually require loops are provided by built-in functions such as <a href="qmake-function-reference.html#findfunction">find()</a>, <a href="qmake-function-reference.html#unique">unique()</a>, and <a href="qmake-test-function-reference.html#countfunction">count()</a>. These functions, and many others are provided to manipulate strings and paths, support user input, and call external tools. For more information about using the functions, see <a href="qmake-language.html">qmake语言</a>. For lists of all functions and their descriptions, see <a href="qmake-function-reference.html">替换函数</a> and <a href="qmake-test-function-reference.html">测试函数</a>.</p>
 <a name="project-templates"></a>
-<h2 id="project-templates">Project Templates</h2>
+<h2 id="project-templates">工程模板</h2>
 <p>The <a href="qmake-variable-reference.html#template">TEMPLATE</a> variable is used to define the type of project that will be built. If this is not declared in the project file, qmake assumes that an application should be built, and will generate an appropriate Makefile (or equivalent file) for the purpose.</p>
 <p>The following table summarizes the types of projects available and describes the files that qmake will generate for each of them:</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th >Template</th><th >qmake Output</th></tr></thead>
 <tr valign="top" class="odd"><td >app (default)</td><td >Makefile to build an application.</td></tr>
 <tr valign="top" class="even"><td >lib</td><td >Makefile to build a library.</td></tr>
-<tr valign="top" class="odd"><td >aux</td><td >Makefile to build nothing. Use this if no compiler needs to be invoked to create the target, for instance because your project is written in an interpreted language.<p><b>Note: </b>This template type is only available for Makefile-based generators. In particular, it will not work with the vcxproj and Xcode generators.</p></td></tr>
+<tr valign="top" class="odd"><td >aux</td><td >Makefile to build nothing. Use this if no compiler needs to be invoked to create the target, for instance because your project is written in an interpreted language.<p><b>注意：</b>This template type is only available for Makefile-based generators. In particular, it will not work with the vcxproj and Xcode generators.</p></td></tr>
 <tr valign="top" class="even"><td >subdirs</td><td >Makefile containing rules for the subdirectories specified using the <a href="qmake-variable-reference.html#subdirs">SUBDIRS</a> variable. Each subdirectory must contain its own project file.</td></tr>
 <tr valign="top" class="odd"><td >vcapp</td><td >Visual Studio Project file to build an application.</td></tr>
 <tr valign="top" class="even"><td >vclib</td><td >Visual Studio Project file to build a library.</td></tr>
@@ -165,7 +165,7 @@
 <p>See <a href="qmake-common-projects.html">构建通用工程类型</a> for advice on writing project files for projects that use the <code>app</code> and <code>lib</code> templates.</p>
 <p>When the <code>subdirs</code> template is used, qmake generates a Makefile to examine each specified subdirectory, process any project file it finds there, and run the platform's <code>make</code> tool on the newly-created Makefile. The <code>SUBDIRS</code> variable is used to contain a list of all the subdirectories to be processed.</p>
 <a name="generalconfiguration"></a><a name="general-configuration"></a>
-<h2 id="general-configuration">General Configuration</h2>
+<h2 id="general-configuration">通用配置</h2>
 <p>The <a href="qmake-variable-reference.html#config">CONFIG</a> variable specifies the options and features that the project should be configured with.</p>
 <p>The project can be built in <i>release</i> mode or <i>debug</i> mode, or both. If debug and release are both specified, the last one takes effect. If you specify the <code>debug_and_release</code> option to build both the debug and release versions of a project, the Makefile that qmake generates includes a rule that builds both versions. This can be invoked in the following way:</p>
 <pre class="cpp">
@@ -174,7 +174,7 @@
 
 </pre>
 <p>Adding the <code>build_all</code> option to the <code>CONFIG</code> variable makes this rule the default when building the project.</p>
-<p><b>Note: </b>Each of the options specified in the <code>CONFIG</code> variable can also be used as a scope condition. You can test for the presence of certain configuration options by using the built-in <a href="qmake-test-function-reference.html#config-config">CONFIG()</a> function. For example, the following lines show the function as the condition in a scope to test whether only the <code>opengl</code> option is in use:</p><pre class="cpp">
+<p><b>注意：</b>Each of the options specified in the <code>CONFIG</code> variable can also be used as a scope condition. You can test for the presence of certain configuration options by using the built-in <a href="qmake-test-function-reference.html#config-config">CONFIG()</a> function. For example, the following lines show the function as the condition in a scope to test whether only the <code>opengl</code> option is in use:</p><pre class="cpp">
 
   CONFIG(opengl) {
       message(Building with OpenGL support.)
@@ -183,9 +183,9 @@
   }
 
 </pre>
-<p>This enables different configurations to be defined for <code>release</code> and <code>debug</code> builds. For more information, see <a href="qmake-language.html#scopes">Using Scopes</a>.</p>
+<p>This enables different configurations to be defined for <code>release</code> and <code>debug</code> builds. 有关更多详细信息，可见于<a href="qmake-language.html#scopes">使用范围</a>。</p>
 <p>The following options define the type of project to be built.</p>
-<p><b>Note: </b>Some of these options only take effect when used on the relevant platform.</p><div class="table"><table class="generic">
+<p><b>注意：</b>Some of these options only take effect when used on the relevant platform.</p><div class="table"><table class="generic">
  <thead><tr class="qt-style"><th >Option</th><th >Description</th></tr></thead>
 <tr valign="top" class="odd"><td >qt</td><td >The project is a Qt application and should link against the Qt library. You can use the <code>QT</code> variable to control any additional Qt modules that are required by your application. This value is added by default, but you can remove it to use qmake for a non-Qt project.</td></tr>
 <tr valign="top" class="even"><td >x11</td><td >The project is an X11 application or library. This value is not needed if the target uses Qt.</td></tr>
@@ -197,15 +197,15 @@
   CONFIG += qt debug
 
 </pre>
-<p><b>Note: </b>You must use &quot;+=&quot;, not &quot;=&quot;, or qmake will not be able to use Qt's configuration to determine the settings needed for your project.</p><a name="declaring-qt-libraries"></a>
-<h2 id="declaring-qt-libraries">Declaring Qt Libraries</h2>
+<p><b>注意：</b>You must use &quot;+=&quot;, not &quot;=&quot;, or qmake will not be able to use Qt's configuration to determine the settings needed for your project.</p><a name="declaring-qt-libraries"></a>
+<h2 id="declaring-qt-libraries">声明Qt动态库</h2>
 <p>If the <a href="qmake-variable-reference.html#config">CONFIG</a> variable contains the <code>qt</code> value, qmake's support for Qt applications is enabled. This makes it possible to fine-tune which of the Qt modules are used by your application. This is achieved with the <a href="qmake-variable-reference.html#qt">QT</a> variable which can be used to declare the required extension modules. For example, we can enable the XML and network modules in the following way:</p>
 <pre class="cpp">
 
   QT += network xml
 
 </pre>
-<p><b>Note: </b><code>QT</code> includes the <code>core</code> and <code>gui</code> modules by default, so the above declaration <i>adds</i> the network and XML modules to this default list. The following assignment <i>omits</i> the default modules, and will lead to errors when the application's source code is being compiled:</p><pre class="cpp">
+<p><b>注意：</b><code>QT</code> 默认已包含<code>core</code>和<code>gui</code> 这两个模块，因此如上声明将<i>增加</i> 网络和XML这两个模块到默认清单中。 The following assignment <i>omits</i> the default modules, and will lead to errors when the application's source code is being compiled:</p><pre class="cpp">
 
   QT = network xml # This will omit the core and gui modules.
 
@@ -218,7 +218,7 @@
 </pre>
 <p>For a list of Qt modules that you can add to the <code>QT</code> variable, see <a href="qmake-variable-reference.html#qt">QT</a>.</p>
 <a name="configuration-features"></a>
-<h2 id="configuration-features">Configuration Features</h2>
+<h2 id="configuration-features">配置特性</h2>
 <p>qmake can be set up with extra configuration features that are specified in feature (.prf) files. These extra features often provide support for custom tools that are used during the build process. To add a feature to the build process, append the feature name (the stem of the feature filename) to the <code>CONFIG</code> variable.</p>
 <p>For example, qmake can configure the build process to take advantage of external libraries that are supported by <a href="http://www.freedesktop.org/wiki/Software/pkg-config">pkg-config</a>, such as the D-Bus and ogg libraries, with the following lines:</p>
 <pre class="cpp">
@@ -227,9 +227,9 @@
   PKGCONFIG += ogg dbus-1
 
 </pre>
-<p>For more information about adding features, see <a href="qmake-advanced-usage.html#adding-new-configuration-features">Adding New Configuration Features</a>.</p>
+<p>有关增加特性的更多详细信息，可见于<a href="qmake-advanced-usage.html#adding-new-configuration-features">增加新的配置特性</a>.</p>
 <a name="declaring-other-libraries"></a>
-<h2 id="declaring-other-libraries">Declaring Other Libraries</h2>
+<h2 id="declaring-other-libraries">声明其他动态库</h2>
 <p>If you are using other libraries in your project in addition to those supplied with Qt, you need to specify them in your project file.</p>
 <p>The paths that qmake searches for libraries and the specific libraries to link against can be added to the list of values in the <a href="qmake-variable-reference.html#libs">LIBS</a> variable. You can specify the paths to the libraries or use the Unix-style notation for specifying libraries and paths.</p>
 <p>For example, the following lines show how a library can be specified:</p>

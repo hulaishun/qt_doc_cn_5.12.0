@@ -45,14 +45,14 @@
 <div class="toc">
 <h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#building-an-application">Building an Application</a></li>
-<li class="level1"><a href="#building-a-testcase">Building a Testcase</a></li>
-<li class="level1"><a href="#building-a-library">Building a Library</a></li>
-<li class="level1"><a href="#building-a-plugin">Building a Plugin</a></li>
-<li class="level2"><a href="#building-a-qt-designer-plugin">Building a Qt Designer Plugin</a></li>
-<li class="level1"><a href="#building-and-installing-in-debug-and-release-modes">Building and Installing in Debug and Release Modes</a></li>
-<li class="level2"><a href="#building-in-both-modes">Building in Both Modes</a></li>
-<li class="level2"><a href="#installing-in-both-modes">Installing in Both Modes</a></li>
+<li class="level1"><a href="#building-an-application">构建一个应用程序</a></li>
+<li class="level1"><a href="#building-a-testcase">构建一个测试用例</a></li>
+<li class="level1"><a href="#building-a-library">构建一个动态库</a></li>
+<li class="level1"><a href="#building-a-plugin">构建一个插件</a></li>
+<li class="level2"><a href="#building-a-qt-designer-plugin">构建一个Qt设计器插件</a></li>
+<li class="level1"><a href="#building-and-installing-in-debug-and-release-modes">在调试和发行模式下的构建和安装</a></li>
+<li class="level2"><a href="#building-in-both-modes">两种模式下的构建</a></li>
+<li class="level2"><a href="#installing-in-both-modes">两种模式下的安装</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
@@ -63,7 +63,7 @@
 <p>This chapter describes how to set up qmake project files for three common project types that are based on Qt: application, library, and plugin. Although all project types use many of the same variables, each of them uses project-specific variables to customize output files.</p>
 <p>Platform-specific variables are not described here. For more information, see <a href="../qtdoc/windows-deployment.html">Qt for Windows - Deployment</a> and <a href="../qtdoc/macos.html">Qt for macOS</a>.</p>
 <a name="application"></a><a name="building-an-application"></a>
-<h2 id="building-an-application">Building an Application</h2>
+<h2 id="building-an-application">构建一个应用程序</h2>
 <p>The <code>app</code> template tells qmake to generate a Makefile that will build an application. With this template, the type of application can be specified by adding one of the following options to the <a href="qmake-variable-reference.html#config">CONFIG</a> variable definition:</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th >Option</th><th >Description</th></tr></thead>
@@ -100,7 +100,7 @@
 </pre>
 <p>For items that are single valued, such as the template or the destination directory, we use &quot;=&quot;; but for multi-valued items we use &quot;+=&quot; to <i>add</i> to the existing items of that type. Using &quot;=&quot; replaces the variable value with the new value. For example, if we write <code>DEFINES=USE_MY_STUFF</code>, all other definitions are deleted.</p>
 <a name="building-a-testcase"></a>
-<h2 id="building-a-testcase">Building a Testcase</h2>
+<h2 id="building-a-testcase">构建一个测试用例</h2>
 <p>A testcase project is an <code>app</code> project intended to be run as an automated test. Any <code>app</code> may be marked as a testcase by adding the value <code>testcase</code> to the <code>CONFIG</code> variable.</p>
 <p>For testcase projects, qmake will insert a <code>check</code> target into the generated Makefile. This target will run the application. The test is considered to pass if it terminates with an exit code equal to zero.</p>
 <p>The <code>check</code> target automatically recurses through <a href="qmake-variable-reference.html#subdirs">SUBDIRS</a> projects. This means it is possible to issue a <code>make check</code> command from within a SUBDIRS project to run an entire test suite.</p>
@@ -110,7 +110,7 @@
 <tr valign="top" class="odd"><td >TESTRUNNER</td><td >A command or shell fragment prepended to each test command. An example use-case is a &quot;timeout&quot; script which will terminate a test if it does not complete within a specified time.</td></tr>
 <tr valign="top" class="even"><td >TESTARGS</td><td >Additional arguments appended to each test command. For example, it may be useful to pass additional arguments to set the output file and format from the test (such as the <code>-o filename,format</code> option supported by <a href="../qttestlib/qtest-overview.html">QTestLib</a>).</td></tr>
 </table></div>
-<p><b>Note: </b>The variables must be set while invoking the <code>make</code> tool, not in the .pro file. Most <code>make</code> tools support the setting of Makefile variables directly on the command-line:</p><pre class="cpp">
+<p><b>注意：</b>The variables must be set while invoking the <code>make</code> tool, not in the .pro file. Most <code>make</code> tools support the setting of Makefile variables directly on the command-line:</p><pre class="cpp">
 
   <span class="preprocessor"># Run tests through test-wrapper and use xunitxml output format.</span>
   <span class="preprocessor"># In this example, test-wrapper is a fictional wrapper script which terminates</span>
@@ -126,7 +126,7 @@
 </table></div>
 <p>Testcases will often be written with <a href="../qttestlib/qtest.html">QTest</a> or <a href="../qtquick/qml-qttest-testcase.html">TestCase</a>, but that is not a requirement to make use of <code>CONFIG+=testcase</code> and <code>make check</code>. The only primary requirement is that the test program exit with a zero exit code on success, and a non-zero exit code on failure.</p>
 <a name="library"></a><a name="building-a-library"></a>
-<h2 id="building-a-library">Building a Library</h2>
+<h2 id="building-a-library">构建一个动态库</h2>
 <p>The <code>lib</code> template tells qmake to generate a Makefile that will build a library. When using this template, the <a href="qmake-variable-reference.html#version">VERSION</a> variable is supported, in addition to the system variables that the <code>app</code> template supports. Use the variables in your .pro file to specify information about the library.</p>
 <p>When using the <code>lib</code> template, the following options can be added to the <a href="qmake-variable-reference.html#config">CONFIG</a> variable to determine the type of library that is built:</p>
 <div class="table"><table class="generic">
@@ -141,13 +141,13 @@
 </ul>
 <p>The target file name for the library is platform-dependent. For example, on X11, <a href="../qtdoc/internationalization.html#macos">macOS</a>, and iOS, the library name will be prefixed by <code>lib</code>. On Windows, no prefix is added to the file name.</p>
 <a name="plugin"></a><a name="building-a-plugin"></a>
-<h2 id="building-a-plugin">Building a Plugin</h2>
+<h2 id="building-a-plugin">构建一个插件</h2>
 <p>Plugins are built using the <code>lib</code> template, as described in the previous section. This tells qmake to generate a Makefile for the project that will build a plugin in a suitable form for each platform, usually in the form of a library. As with ordinary libraries, the <a href="qmake-variable-reference.html#version">VERSION</a> variable is used to specify information about the plugin.</p>
 <ul>
 <li>VERSION - The version number of the target library. For example, 2.3&#x2e;1&#x2e;</li>
 </ul>
 <a name="building-a-qt-designer-plugin"></a>
-<h3 >Building a Qt Designer Plugin</h3>
+<h3 >构建一个Qt设计器插件</h3>
 <p><i>Qt Designer</i> plugins are built using a specific set of configuration settings that depend on the way Qt was configured for your system. For convenience, these settings can be enabled by adding <code>designer</code> to the <a href="qmake-variable-reference.html#qt">QT</a> variable. For example:</p>
 <pre class="cpp">
 
@@ -156,10 +156,10 @@
 </pre>
 <p>See the <a href="../qtdesigner/examples-designer.html">Qt Designer Examples</a> for more examples of plugin-based projects.</p>
 <a name="building-and-installing-in-debug-and-release-modes"></a>
-<h2 id="building-and-installing-in-debug-and-release-modes">Building and Installing in Debug and Release Modes</h2>
+<h2 id="building-and-installing-in-debug-and-release-modes">在调试和发行模式下的构建和安装</h2>
 <p>Sometimes, it is necessary to build a project in both debug and release modes. Although the <a href="qmake-variable-reference.html#config">CONFIG</a> variable can hold both <code>debug</code> and <code>release</code> options, only the option that is specified last is applied.</p>
 <a name="building-in-both-modes"></a>
-<h3 >Building in Both Modes</h3>
+<h3 >两种模式下的构建</h3>
 <p>To enable a project to be built in both modes, you must add the <code>debug_and_release</code> option to the <code>CONFIG</code> variable:</p>
 <pre class="cpp">
 
@@ -192,7 +192,7 @@
 
 </pre>
 <a name="installing-in-both-modes"></a>
-<h3 >Installing in Both Modes</h3>
+<h3 >两种模式下的安装</h3>
 <p>The <code>build_all</code> option also ensures that both versions of the target will be installed when the installation rule is invoked:</p>
 <pre class="cpp">
 

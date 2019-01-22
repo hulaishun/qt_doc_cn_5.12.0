@@ -45,19 +45,19 @@
 <div class="toc">
 <h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#operators">Operators</a></li>
-<li class="level2"><a href="#assigning-values">Assigning Values</a></li>
-<li class="level2"><a href="#appending-values">Appending Values</a></li>
-<li class="level2"><a href="#removing-values">Removing Values</a></li>
-<li class="level2"><a href="#adding-unique-values">Adding Unique Values</a></li>
-<li class="level2"><a href="#replacing-values">Replacing Values</a></li>
-<li class="level2"><a href="#variable-expansion">Variable Expansion</a></li>
-<li class="level2"><a href="#accessing-qmake-properties">Accessing qmake Properties</a></li>
-<li class="level1"><a href="#scopes">Scopes</a></li>
-<li class="level2"><a href="#scope-syntax">Scope Syntax</a></li>
-<li class="level2"><a href="#scopes-and-conditions">Scopes and Conditions</a></li>
-<li class="level2"><a href="#configuration-and-scopes">Configuration and Scopes</a></li>
-<li class="level2"><a href="#platform-scope-values">Platform Scope Values</a></li>
+<li class="level1"><a href="#operators">操作符</a></li>
+<li class="level2"><a href="#assigning-values">赋值</a></li>
+<li class="level2"><a href="#appending-values">增加值</a></li>
+<li class="level2"><a href="#removing-values">删除值</a></li>
+<li class="level2"><a href="#adding-unique-values">增加唯一值</a></li>
+<li class="level2"><a href="#replacing-values">替换值</a></li>
+<li class="level2"><a href="#variable-expansion">变量扩展</a></li>
+<li class="level2"><a href="#accessing-qmake-properties">访问qmake属性</a></li>
+<li class="level1"><a href="#scopes">范围</a></li>
+<li class="level2"><a href="#scope-syntax">范围语法</a></li>
+<li class="level2"><a href="#scopes-and-conditions">范围和条件</a></li>
+<li class="level2"><a href="#configuration-and-scopes">设置和范围</a></li>
+<li class="level2"><a href="#platform-scope-values">平台范围值</a></li>
 <li class="level1"><a href="#variables">变量</a></li>
 <li class="level1"><a href="#replace-functions">替换函数</a></li>
 <li class="level1"><a href="#test-functions">测试函数</a></li>
@@ -70,10 +70,10 @@
 <div class="descr"> <a name="details"></a>
 <p>Many qmake project files simply describe the sources and header files used by the project, using a list of <code>name = value</code> and <code>name += value</code> definitions. qmake also provides other operators, functions, and scopes that can be used to process the information supplied in variable declarations. These advanced features allow Makefiles to be generated for multiple platforms from a single project file.</p>
 <a name="operators"></a>
-<h2 id="operators">Operators</h2>
+<h2 id="operators">操作符</h2>
 <p>In many project files, the assignment (<code>=</code>) and append (<code>+=</code>) operators can be used to include all the information about a project. The typical pattern of use is to assign a list of values to a variable, and append more values depending on the result of various tests. Since qmake defines certain variables using default values, it is sometimes necessary to use the removal (<code>-=</code>) operator to filter out values that are not required. The following sections describe how to use operators to manipulate the contents of variables.</p>
 <a name="assigning-values"></a>
-<h3 >Assigning Values</h3>
+<h3 >赋值</h3>
 <p>The <code>=</code> operator assigns a value to a variable:</p>
 <pre class="cpp">
 
@@ -82,7 +82,7 @@
 </pre>
 <p>The above line sets the <a href="qmake-variable-reference.html#target">TARGET</a> variable to <code>myapp</code>. This will overwrite any values previously set for <code>TARGET</code> with <code>myapp</code>.</p>
 <a name="appending-values"></a>
-<h3 >Appending Values</h3>
+<h3 >增加值</h3>
 <p>The <code>+=</code> operator appends a new value to the list of values in a variable:</p>
 <pre class="cpp">
 
@@ -91,7 +91,7 @@
 </pre>
 <p>The above line appends <code>USE_MY_STUFF</code> to the list of pre-processor defines to be put in the generated Makefile.</p>
 <a name="removing-values"></a>
-<h3 >Removing Values</h3>
+<h3 >删除值</h3>
 <p>The <code>-=</code> operator removes a value from the list of values in a variable:</p>
 <pre class="cpp">
 
@@ -100,7 +100,7 @@
 </pre>
 <p>The above line removes <code>USE_MY_STUFF</code> from the list of pre-processor defines to be put in the generated Makefile.</p>
 <a name="adding-unique-values"></a>
-<h3 >Adding Unique Values</h3>
+<h3 >增加唯一值</h3>
 <p>The <code>*=</code> operator adds a value to the list of values in a variable, but only if it is not already present. This prevents values from being included many times in a variable. For example:</p>
 <pre class="cpp">
 
@@ -109,7 +109,7 @@
 </pre>
 <p>In the above line, <code>USE_MY_STUFF</code> will only be added to the list of pre-processor defines if it is not already defined. Note that the <a href="qmake-function-reference.html#unique">unique()</a> function can also be used to ensure that a variable only contains one instance of each value.</p>
 <a name="replacing-values"></a>
-<h3 >Replacing Values</h3>
+<h3 >替换值</h3>
 <p>The <code>~=</code> operator replaces any values that match a regular expression with the specified value:</p>
 <pre class="cpp">
 
@@ -118,7 +118,7 @@
 </pre>
 <p>In the above line, any values in the list that start with <code>QT_D</code> or <code>QT_T</code> are replaced with <code>QT</code>.</p>
 <a name="variable-expansion"></a>
-<h3 >Variable Expansion</h3>
+<h3 >变量扩展</h3>
 <p>The <code>$$</code> operator is used to extract the contents of a variable, and can be used to pass values between variables or supply them to functions:</p>
 <pre class="cpp">
 
@@ -149,7 +149,7 @@
 </pre>
 <p>In the above assignment, the value of <code>PWD</code> is read immediately when the project file is processed, but <code>$(PWD)</code> is assigned to <code>DESTDIR</code> in the generated Makefile. This makes the build process more flexible as long as the environment variable is set correctly when the Makefile is processed.</p>
 <a name="accessing-qmake-properties"></a>
-<h3 >Accessing qmake Properties</h3>
+<h3 >访问qmake属性</h3>
 <p>The special <code>$$[..&#x2e;]</code> operator can be used to access qmake properties:</p>
 <pre class="cpp">
 
@@ -176,10 +176,10 @@
 
 </pre>
 <a name="scopes"></a><a name="scopes"></a>
-<h2 id="scopes">Scopes</h2>
+<h2 id="scopes">范围</h2>
 <p>Scopes are similar to <code>if</code> statements in procedural programming languages. If a certain condition is true, the declarations inside the scope are processed.</p>
 <a name="scope-syntax"></a>
-<h3 >Scope Syntax</h3>
+<h3 >范围语法</h3>
 <p>Scopes consist of a condition followed by an opening brace on the same line, a sequence of commands and definitions, and a closing brace on a new line:</p>
 <pre class="cpp">
 
@@ -191,7 +191,7 @@
 </pre>
 <p>The opening brace <i>must be written on the same line as the condition</i>. Scopes may be concatenated to include more than one condition, as described in the following sections.</p>
 <a name="scopes-and-conditions"></a>
-<h3 >Scopes and Conditions</h3>
+<h3 >范围和条件</h3>
 <p>A scope is written as a condition followed by a series of declarations contained within a pair of braces. For example:</p>
 <pre class="cpp">
 
@@ -256,7 +256,7 @@
 
 </pre>
 <a name="configuration-and-scopes"></a>
-<h3 >Configuration and Scopes</h3>
+<h3 >设置和范围</h3>
 <p>The values stored in the <a href="qmake-variable-reference.html#config">CONFIG</a> variable are treated specially by qmake. Each of the possible values can be used as the condition for a scope. For example, the list of values held by <code>CONFIG</code> can be extended with the <code>opengl</code> value:</p>
 <pre class="cpp">
 
@@ -276,7 +276,7 @@
 <p>This feature makes it easy to change the configuration for a project without losing all the custom settings that might be needed for a specific configuration. In the above code, the declarations in the first scope are processed, and the final executable will be called <code>application-gl</code>. However, if <code>opengl</code> is not specified, the declarations in the second scope are processed instead, and the final executable will be called <code>application</code>.</p>
 <p>Since it is possible to put your own values on the <code>CONFIG</code> line, this provides you with a convenient way to customize project files and fine-tune the generated Makefiles.</p>
 <a name="platform-scope-values"></a>
-<h3 >Platform Scope Values</h3>
+<h3 >平台范围值</h3>
 <p>In addition to the <code>win32</code>, <code>macx</code>, and <code>unix</code> values used in many scope conditions, various other built-in platform and compiler-specific values can be tested with scopes. These are based on platform specifications provided in Qt's <code>mkspecs</code> directory. For example, the following lines from a project file show the current specification in use and test for the <code>linux-g++</code> specification:</p>
 <pre class="cpp">
 
