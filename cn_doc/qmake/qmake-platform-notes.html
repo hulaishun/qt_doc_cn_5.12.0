@@ -46,15 +46,15 @@
 <h3><a name="toc">目录</a></h3>
 <ul>
 <li class="level1"><a href="#macos-ios-tvos-and-watchos">macOS, iOS, tvOS, and watchOS</a></li>
-<li class="level2"><a href="#source-and-binary-packages">Source and Binary Packages</a></li>
-<li class="level2"><a href="#using-frameworks">Using Frameworks</a></li>
-<li class="level2"><a href="#creating-frameworks">Creating Frameworks</a></li>
-<li class="level2"><a href="#creating-and-moving-xcode-projects">Creating and Moving Xcode Projects</a></li>
-<li class="level2"><a href="#supporting-two-build-targets-simultaneously">Supporting Two Build Targets Simultaneously</a></li>
-<li class="level1"><a href="#windows">Windows</a></li>
-<li class="level2"><a href="#adding-windows-resource-files">Adding Windows Resource Files</a></li>
-<li class="level2"><a href="#creating-visual-studio-project-files">Creating Visual Studio Project Files</a></li>
-<li class="level2"><a href="#visual-studio-manifest-files">Visual Studio Manifest Files</a></li>
+<li class="level2"><a href="#source-and-binary-packages">源代码和二进制包</a></li>
+<li class="level2"><a href="#using-frameworks">使用框架</a></li>
+<li class="level2"><a href="#creating-frameworks">创建框架</a></li>
+<li class="level2"><a href="#creating-and-moving-xcode-projects">创建并移动Xcode工程</a></li>
+<li class="level2"><a href="#supporting-two-build-targets-simultaneously">同时支持两种构建目标</a></li>
+<li class="level1"><a href="#windows">窗口</a></li>
+<li class="level2"><a href="#adding-windows-resource-files">增加Windows资源文件</a></li>
+<li class="level2"><a href="#creating-visual-studio-project-files">创建Visual Studio工程文件</a></li>
+<li class="level2"><a href="#visual-studio-manifest-files">Visual Studio清单文件</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
@@ -67,7 +67,7 @@
 <h2 id="macos-ios-tvos-and-watchos">macOS, iOS, tvOS, and watchOS</h2>
 <p>Features specific to these platforms include support for creating universal binaries, frameworks and bundles.</p>
 <a name="source-and-binary-packages"></a>
-<h3 >Source and Binary Packages</h3>
+<h3 >源代码和二进制包</h3>
 <p>The version of qmake supplied in source packages is configured slightly differently to that supplied in binary packages in that it uses a different feature specification. Where the source package typically uses the <code>macx-g++</code> specification, the binary package is typically configured to use the <code>macx-xcode</code> specification.</p>
 <p>Users of each package can override this configuration by invoking qmake with the <code>-spec</code> option (see <a href="qmake-running.html">运行qmake</a> for more information). For example, to use qmake from a binary package to create a Makefile in a project directory, invoke the following command:</p>
 <pre class="cpp">
@@ -76,7 +76,7 @@
 
 </pre>
 <a name="using-frameworks"></a>
-<h3 >Using Frameworks</h3>
+<h3 >使用框架</h3>
 <p>qmake is able to automatically generate build rules for linking against frameworks in the standard framework directory on <a href="../qtdoc/internationalization.html#macos">macOS</a>, located at <code>/Library/Frameworks/</code>.</p>
 <p>Directories other than the standard framework directory need to be specified to the build system, and this is achieved by appending linker options to the <a href="qmake-variable-reference.html#libs">LIBS</a> variable, as shown in the following example:</p>
 <pre class="cpp">
@@ -91,7 +91,7 @@
 
 </pre>
 <a name="creating-frameworks"></a>
-<h3 >Creating Frameworks</h3>
+<h3 >创建框架</h3>
 <p>Any given library project can be configured so that the resulting library file is placed in a <a href="http://developer.apple.com/documentation/MacOSX/Conceptual/BPFrameworks/Concepts/WhatAreFrameworks.html">framework</a>, ready for deployment. To do this, set up the project to use the <a href="qmake-variable-reference.html#template"><code>lib</code> template</a> and add the <code>lib_bundle</code> option to the <a href="qmake-variable-reference.html#config">CONFIG</a> variable:</p>
 <pre class="cpp">
 
@@ -111,47 +111,48 @@
 <p>You use the <code>FRAMEWORK_HEADERS</code> variable to specify the headers required by a particular framework. Appending it to the <code>QMAKE_BUNDLE_DATA</code> variable ensures that information about these headers is added to the collection of resources that will be installed with the library bundle. Also, the framework name and version are specified by the <a href="qmake-variable-reference.html#qmake-framework-bundle-name">QMAKE_FRAMEWORK_BUNDLE_NAME</a> and <a href="qmake-variable-reference.html#qmake-framework-version">QMAKE_FRAMEWORK_VERSION</a> variables. By default, the values used for these variables are obtained from the <a href="qmake-variable-reference.html#target">TARGET</a> and <a href="qmake-variable-reference.html#version">VERSION</a> variables.</p>
 <p>See <a href="../qtdoc/macos-deployment.html">Qt for macOS - Deployment</a> for more information about deploying applications and libraries.</p>
 <a name="creating-and-moving-xcode-projects"></a>
-<h3 >Creating and Moving Xcode Projects</h3>
+<h3 >创建并移动Xcode工程</h3>
 <p>Developers on <a href="../qtdoc/internationalization.html#macos">macOS</a> can take advantage of the qmake support for Xcode project files, as described in <a href="../qtdoc/macos.html#additional-command-line-options">Qt for macOS</a> documentation. by running qmake to generate an Xcode project from an existing qmake project file. For example:</p>
 <pre class="cpp">
 
   qmake -spec macx-xcode project.pro
 
 </pre>
-<p><b>Note: </b>If a project is later moved on the disk, qmake must be run again to process the project file and create a new Xcode project file.</p><a name="supporting-two-build-targets-simultaneously"></a>
-<h3 >Supporting Two Build Targets Simultaneously</h3>
+<p><b>注意：</b>If a project is later moved on the disk, qmake must be run again to process the project file and create a new Xcode project file.</p><a name="supporting-two-build-targets-simultaneously"></a>
+<h3 >同时支持两种构建目标</h3>
 <p>Implementing this is currently not feasible, because the Xcode concept of Active Build Configurations is conceptually different from the qmake idea of build targets.</p>
 <p>The Xcode Active Build Configurations settings are for modifying Xcode configurations, compiler flags and similar build options. Unlike Visual Studio, Xcode does not allow for the selection of specific library files based on whether debug or release build configurations are selected. The qmake debug and release settings control which library files are linked to the executable.</p>
 <p>It is currently not possible to set files in Xcode configuration settings from the qmake generated Xcode project file. The way the libraries are linked in the <i>Frameworks &amp; Libraries</i> phase in the Xcode build system.</p>
 <p>Furthermore, the selected <i>Active Build Configuration</i> is stored in a .pbxuser file, which is generated by Xcode on first load, not created by qmake.</p>
 <a name="windows"></a>
-<h2 id="windows">Windows</h2>
+<h2 id="windows">Windows系统</h2>
 <p>Features specific to this platform include support for Windows resource files (provided or auto-generated), creating Visual Studio project files, and handling manifest files when deploying Qt applications developed using Visual Studio 2005, or later.</p>
 <a name="adding-windows-resource-files"></a>
-<h3 >Adding Windows Resource Files</h3>
-<p>This section describes how to handle a Windows resource file with qmake to have it linked to an application executable (EXE) or dynamic link library (DLL). qmake can optionally auto-generate a suitably filled Windows resource file.</p>
+<h3 >增加Windows资源文件</h3>
+<p>此部分描述了如何使用qmake来处理一个Windows资源文件，可将其链接到一个EXE可执行程序或者一个DLL动态链接库。qmake可以有选择的自动生成一个大小合适的被填充的Windows资源文件。</p>
 <p>A linked Windows resource file may contain many elements that can be accessed by its EXE or DLL. However, the <a href="../qtcore/resources.html">Qt resource system</a> should be used for accessing linked-in resources in a platform-independent way. But some standard elements of the linked Windows resource file are accessed by Windows itself. For example, in Windows explorer the version tab of the file properties is filled by resource elements. In addition, the program icon of the EXE is read from these elements. So it is good practice for a Qt created Windows EXE or DLL to use both techniques at the same time: link platform-independent resources via the <a href="../qtcore/resources.html">Qt resource system</a> and add Windows specific resources via a Windows resource file.</p>
 <p>Typically, a resource-definition script (.rc file) is compiled to a Windows resource file. Within the Microsoft toolchain, the RC tool generates a .res file, which can be linked with the Microsoft linker to an EXE or DLL. The <a href="https://mingw-w64.org/">MinGW</a> toolchain uses the windres tool to generate an .o file that can be linked with the <a href="https://mingw-w64.org/">MinGW</a> linker to an EXE or DLL.</p>
 <p>The optional auto-generation of a suitably filled .rc file by qmake is triggered by setting at least one of the system variables <a href="qmake-variable-reference.html#version">VERSION</a> and <a href="qmake-variable-reference.html#rc-icons">RC_ICONS</a>. The generated .rc file is automatically compiled and linked. Elements that are added to the .rc file are defined by the system variables <a href="qmake-variable-reference.html#qmake-target-company">QMAKE_TARGET_COMPANY</a>, <a href="qmake-variable-reference.html#qmake-target-description">QMAKE_TARGET_DESCRIPTION</a>, <a href="qmake-variable-reference.html#qmake-target-copyright">QMAKE_TARGET_COPYRIGHT</a>, <a href="qmake-variable-reference.html#qmake-target-product">QMAKE_TARGET_PRODUCT</a>, <a href="qmake-variable-reference.html#rc-codepage">RC_CODEPAGE</a>, <a href="qmake-variable-reference.html#rc-icons">RC_ICONS</a>, <a href="qmake-variable-reference.html#rc-lang">RC_LANG</a>,and <a href="qmake-variable-reference.html#version">VERSION</a>.</p>
 <p>If these elements are not sufficient, qmake has the two system variables <a href="qmake-variable-reference.html#rc-file">RC_FILE</a> and <a href="qmake-variable-reference.html#res-file">RES_FILE</a> that point directly to an externally created .rc or .res file. By setting one of these variables, the specified file is linked to the EXE or DLL.</p>
-<p><b>Note: </b>The generation of the .rc file by qmake is blocked, if <a href="qmake-variable-reference.html#rc-file">RC_FILE</a> or <a href="qmake-variable-reference.html#res-file">RES_FILE</a> is set. In this case, no further changes are made to the given .rc file or the .res or .o file by qmake; the variables pertaining to .rc file generation have no effect.</p><a name="creating-visual-studio-project-files"></a>
-<h3 >Creating Visual Studio Project Files</h3>
-<p>This section describes how to import an existing qmake project into Visual Studio. qmake is able to take a project file and create a Visual Studio project that contains all the necessary information required by the development environment. This is achieved by setting the qmake <a href="qmake-variable-reference.html#template">project template</a> to either <code>vcapp</code> (for application projects) or <code>vclib</code> (for library projects).</p>
-<p>This can also be set using a command line option, for example:</p>
+<p><b>注意： </b>通过qmake来生成.rc资源文件将会被阻塞，若<a href="qmake-variable-reference.html#rc-file">RC_FILE</a>或者<a href="qmake-variable-reference.html#res-file">RES_FILE</a> 变量已设置。. In this case, no further changes are made to the given .rc file or the .res or .o file by qmake; the variables pertaining to .rc file generation have no effect.</p><a name="creating-visual-studio-project-files"></a>
+<h3 >创建Visual Studio工程文件</h3>
+<p>此部分描述了如何导入一个已存在的qmake工程到Visual Studio中。qmake可以通过工程文件来创建Visual Studio工程，VS工程包含了与开发环境相关的必须信息。
+ 这是归档压缩包，通过设置qmake的<a href="qmake-variable-reference.html#template">工程模板</a> 为 <code>vcapp</code> (用于生成应用程序工程) 或者为<code>vclib</code> (用于生产动态库工程).</p>
+<p>也可以使用命令行选择来设置，如下例所示：</p>
 <pre class="cpp">
 
   qmake -tp vc
 
 </pre>
-<p>It is possible to recursively generate <code>.vcproj</code> files in subdirectories and a <code>.sln</code> file in the main directory, by typing:</p>
+<p>qmake可以在子目录下递归依次生成多个<code>.vcproj</code> 工程文件，在主目录下生成一个<code>.sln</code> 解决方案文件，如下所示命令输入：</p>
 <pre class="cpp">
 
   qmake -tp vc -r
 
 </pre>
-<p>Each time you update the project file, you need to run qmake to generate an updated Visual Studio project.</p>
-<p><b>Note: </b>If you are using the Visual Studio Add-in, select <b>Qt</b> &gt; <b>Import from .pro file</b> to import <code>.pro</code> files.</p><a name="visual-studio-manifest-files"></a>
-<h3 >Visual Studio Manifest Files</h3>
+<p>每次当你更新工程文件时，你必须运行qmake来重新生成一个已升级的Visual Studio工程项目。</p>
+<p><b>注意：</b>若你正在使用Visual Studio附加插件，选择<b>Qt</b> &gt; <b>从.pro工程文件中导入</b> 来导入一个<code>.pro</code> 工程文件。</p><a name="visual-studio-manifest-files"></a>
+<h3 >Visual Studio清单文件</h3>
 <p>When deploying Qt applications built using Visual Studio 2005, or later, make sure that the manifest file that was created when the application was linked is handled correctly. This is handled automatically for projects that generate DLLs.</p>
 <p>Removing manifest embedding for application executables can be done with the following assignment to the <a href="qmake-variable-reference.html#config">CONFIG</a> variable:</p>
 <pre class="cpp">
@@ -159,13 +160,13 @@
   CONFIG -= embed_manifest_exe
 
 </pre>
-<p>Also, the manifest embedding for DLLs can be removed with the following assignment to the <code>CONFIG</code> variable:</p>
+<p>同时，关于动态库的内嵌清单文件，可以通过<code>CONFIG</code> 变量的如下赋值来删除：</p>
 <pre class="cpp">
 
   CONFIG -= embed_manifest_dll
 
 </pre>
-<p>This is discussed in more detail in the <a href="../qtdoc/windows-deployment.html#manifest-files">deployment guide for Windows</a>.</p>
+<p>将有更多详细的讨论和描述，位于<a href="../qtdoc/windows-deployment.html#manifest-files">Windows平台部署向导下。</a></p>
 </div>
 <!-- @@@qmake-platform-notes.html -->
 <p class="naviNextPrevious footerNavi">
