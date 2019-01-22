@@ -45,10 +45,10 @@
 <div class="toc">
 <h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#adding-precompiled-headers-to-your-project">Adding Precompiled Headers to Your Project</a></li>
-<li class="level2"><a href="#project-options">Project Options</a></li>
-<li class="level1"><a href="#notes-on-possible-issues">Notes on Possible Issues</a></li>
-<li class="level1"><a href="#example-project">Example Project</a></li>
+<li class="level1"><a href="#adding-precompiled-headers-to-your-project">增加预编译头文件到你的工程</a></li>
+<li class="level2"><a href="#project-options">工程选项</a></li>
+<li class="level1"><a href="#notes-on-possible-issues">可能问题的有关说明</a></li>
+<li class="level1"><a href="#example-project">样例工程</a></li>
 <li class="level2"><a href="#mydialog-op-op-ui"><code>mydialog.ui</code></a></li>
 <li class="level2"><a href="#stable-op-op-h"><code>stable.h</code></a></li>
 <li class="level2"><a href="#myobject-op-op-h"><code>myobject.h</code></a></li>
@@ -64,9 +64,9 @@
 <!-- $$$qmake-precompiledheaders.html-description -->
 <div class="descr"> <a name="details"></a>
 <a name="introduction"></a><p>Precompiled headers (PCH) are a performance feature supported by some compilers to compile a stable body of code, and store the compiled state of the code in a binary file. During subsequent compilations, the compiler will load the stored state, and continue compiling the specified file. Each subsequent compilation is faster because the stable code does not need to be recompiled.</p>
-<p>qmake supports the use of precompiled headers on some platforms and build environments, including:</p>
+<p>qmake支持预编译头文件的使用于一些平台和构建环境变量，包括：</p>
 <ul>
-<li>Windows<ul>
+<li>Windows平台<ul>
 <li>nmake</li>
 <li>Visual Studio projects (VS 2008 and later)</li>
 </ul>
@@ -76,14 +76,14 @@
 <li>Xcode</li>
 </ul>
 </li>
-<li>Unix<ul>
-<li>GCC 3.4 and above</li>
+<li>Unix平台ul>
+<li>GCC 3.4以上版本</li>
 </ul>
 </li>
 </ul>
 <a name="add-pch"></a><a name="adding-precompiled-headers-to-your-project"></a>
-<h2 id="adding-precompiled-headers-to-your-project">Adding Precompiled Headers to Your Project</h2>
-<p>The precompiled header must contain code which is <i>stable</i> and <i>static</i> throughout your project. A typical precompiled header might look like this:</p>
+<h2 id="adding-precompiled-headers-to-your-project">增加预编译头文件到你的工程</h2>
+<p>The precompiled header must contain code which is <i>stable</i> and <i>static</i> throughout your project. 一个典型的预编译头文件看上去应该如下所示：</p>
 <pre class="cpp">
 
   <span class="comment">// Add C includes here</span>
@@ -102,9 +102,9 @@
   <span class="preprocessor">#endif</span>
 
 </pre>
-<p><b>Note: </b>A precompiled header file needs to separate C includes from C++ includes, since the precompiled header file for C files may not contain C++ code.</p><a name="project-options"></a><a name="project-options"></a>
-<h3 >Project Options</h3>
-<p>To make your project use precompiled headers, you only need to define the <a href="qmake-variable-reference.html#precompiled-header">PRECOMPILED_HEADER</a> variable in your project file:</p>
+<p><b>注意： </b>预编译头文件必须区分c包含和c++包含，因为c文件的预编译头文件不能包含C++代码。</p><a name="project-options"></a><a name="project-options"></a>
+<h3 >工程选项</h3>
+<p>为了确保你的工程中正确使用预编译头文件，你只需定义<a href="qmake-variable-reference.html#precompiled-header">PRECOMPILED_HEADER</a>变量位于你的工程文件中：</p>
 <pre class="cpp">
 
   PRECOMPILED_HEADER = stable.h
@@ -122,7 +122,7 @@
 </pre>
 <p>To use the precompiled header also for C files on MSVC nmake target, add <code>precompile_header_c</code> to the <a href="qmake-variable-reference.html#config">CONFIG</a> variable. If the header is used also for C++ and it contains C++ keywords/includes, enclose them with <code>#ifdef __cplusplus</code>).</p>
 <a name="notes-on-possible-issues"></a>
-<h2 id="notes-on-possible-issues">Notes on Possible Issues</h2>
+<h2 id="notes-on-possible-issues">可能问题的有关说明</h2>
 <p>On some platforms, the file name suffix for precompiled header files is the same as that for other object files. For example, the following declarations may cause two different object files with the same name to be generated:</p>
 <pre class="cpp">
 
@@ -130,13 +130,13 @@
   SOURCES            = window.cpp
 
 </pre>
-<p>To avoid potential conflicts like these, give distinctive names to header files that will be precompiled.</p>
+<p>为了避免这样的潜在冲突，命名为不同文件名称的头文件将会被预编译。</p>
 <a name="example-project"></a><a name="example-project"></a>
-<h2 id="example-project">Example Project</h2>
-<p>You can find the following source code in the <code>examples/qmake/precompile</code> directory in the Qt distribution:</p>
+<h2 id="example-project">样例工程</h2>
+<p>你可以找到如下的源代码，其位于Qt分发安装包的<code>examples/qmake/precompile</code>目录下：</p>
 <a name="mydialog-op-op-ui"></a>
 <h3 ><code>mydialog.ui</code></h3>
-<p>The following image displays the mydialog.ui file in Qt Creator Design mode. You can view the code in the Edit mode.</p>
+<p>如下图片显示了处于Qt Creator设计模式下的mydialog.ui界面文件。你也可以在编辑模式下查看ui界面文件的代码。</p>
 <p class="centerAlign"><img src="images/qmake-precompile-ui.png" alt="" /></p><a name="stable-op-op-h"></a>
 <h3 ><code>stable.h</code></h3>
 <pre class="cpp">
@@ -228,7 +228,7 @@
   CONFIG   <span class="operator">+</span><span class="operator">=</span> console precompile_header
   CONFIG   <span class="operator">-</span><span class="operator">=</span> app_bundle
 
-  <span class="preprocessor"># Use Precompiled headers (PCH)</span>
+  <span class="preprocessor">#使用预编译头文件(PCH)</span>
   PRECOMPILED_HEADER  <span class="operator">=</span> stable<span class="operator">.</span>h
 
   HEADERS   <span class="operator">=</span> stable<span class="operator">.</span>h \
