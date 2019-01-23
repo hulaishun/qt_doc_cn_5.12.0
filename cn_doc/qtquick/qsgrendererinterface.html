@@ -36,11 +36,11 @@
 <div class="content mainContent">
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#public-types">Public Types</a></li>
-<li class="level1"><a href="#public-functions">Public Functions</a></li>
-<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level1"><a href="#public-types">公共类型</a></li>
+<li class="level1"><a href="#public-functions">公共函数</a></li>
+<li class="level1"><a href="#details">详细描述</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
@@ -49,12 +49,12 @@
 <p>An interface providing access to some of the graphics API specific internals of the scenegraph. <a href="#details">More...</a></p>
 <!-- @@@QSGRendererInterface -->
 <div class="table"><table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QSGRendererInterface&gt;</span>
+<tr><td class="memItemLeft rightAlign topAlign">头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QSGRendererInterface&gt;</span>
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += quick</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.8</td></tr></table></div><ul>
 <li><a href="qsgrendererinterface-members.html">List of all members, including inherited members</a></li>
 </ul>
 <a name="public-types"></a>
-<h2 id="public-types">Public Types</h2>
+<h2 id="public-types">公共类型</h2>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qsgrendererinterface.html#GraphicsApi-enum">GraphicsApi</a></b> { Unknown, Software, OpenGL, Direct3D12, OpenVG }</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qsgrendererinterface.html#Resource-enum">Resource</a></b> { DeviceResource, CommandQueueResource, CommandListResource, PainterResource }</td></tr>
@@ -65,7 +65,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qsgrendererinterface.html#ShaderType-enum">ShaderType</a></b> { UnknownShadingLanguage, GLSL, HLSL }</td></tr>
 </table></div>
 <a name="public-functions"></a>
-<h2 id="public-functions">Public Functions</h2>
+<h2 id="public-functions">公共函数</h2>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qsgrendererinterface.html#dtor.QSGRendererInterface">~QSGRendererInterface</a></b>()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual void *</td><td class="memItemRight bottomAlign"><b><a href="qsgrendererinterface.html#getResource">getResource</a></b>(QQuickWindow *<i>window</i>, QSGRendererInterface::Resource <i>resource</i>) const</td></tr>
@@ -78,7 +78,7 @@
 <a name="details"></a>
 <!-- $$$QSGRendererInterface-description -->
 <div class="descr">
-<h2 id="details">Detailed Description</h2>
+<h2 id="details">详细描述</h2>
 <p>An interface providing access to some of the graphics API specific internals of the scenegraph.</p>
 <p>Renderer interfaces allow accessing graphics API specific functionality in the scenegraph. Such internals are not typically exposed. However, when integrating custom rendering via <a href="qsgrendernode.html">QSGRenderNode</a> for example, it may become necessary to query certain values, for instance the graphics device (e.g&#x2e; the Direct3D or Vulkan device) that is used by the scenegraph.</p>
 <p><a href="qsgrendererinterface.html">QSGRendererInterface</a>'s functions have varying availability. API and language queries, like <a href="qsgrendererinterface.html#graphicsApi">graphicsApi</a>() or <a href="qsgrendererinterface.html#shaderType">shaderType</a>() are always available, meaning it is sufficient to construct a <a href="qquickwindow.html">QQuickWindow</a> or <a href="qquickview.html">QQuickView</a>, and the graphics API or shading language in use can be queried right after via <a href="qquickwindow.html#rendererInterface">QQuickWindow::rendererInterface</a>(). This guarantees that utilities like the <a href="qml-qtquick-graphicsinfo.html">GraphicsInfo</a> QML type are able to report the correct values as early as possible, without having conditional property values - depending on for instance <a href="qsgrendererinterface.html#shaderType">shaderType</a>() - evaluate to unexpected values.</p>
@@ -86,7 +86,7 @@
 </div>
 <!-- @@@QSGRendererInterface -->
 <div class="types">
-<h2>Member Type Documentation</h2>
+<h2>成员类型文档</h2>
 <!-- $$$GraphicsApi$$$Unknown$$$Software$$$OpenGL$$$Direct3D12$$$OpenVG -->
 <h3 class="fn" id="GraphicsApi-enum"><a name="GraphicsApi-enum"></a>enum QSGRendererInterface::<span class="name">GraphicsApi</span></h3>
 <div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
@@ -133,10 +133,10 @@
 <!-- @@@ShaderType -->
 </div>
 <div class="prop">
-<h2>Property Documentation</h2>
+<h2>属性文档</h2>
 </div>
 <div class="func">
-<h2>Member Function Documentation</h2>
+<h2>成员函数文档</h2>
 <!-- $$$~QSGRendererInterface[overload1]$$$~QSGRendererInterface -->
 <h3 class="fn" id="dtor.QSGRendererInterface"><a name="dtor.QSGRendererInterface"></a><code>[virtual] </code>QSGRendererInterface::<span class="name">~QSGRendererInterface</span>()</h3>
 <p>Destroys the instance of QSGRendererInterface. The destructor is virtual.</p><!-- @@@~QSGRendererInterface -->
@@ -170,13 +170,13 @@
 <!-- @@@shaderType -->
 </div>
 <div class="vars">
-<h2>Member Variable Documentation</h2>
+<h2>成员变量文档</h2>
 </div>
 <div class="relnonmem">
-<h2>Related Non-Members</h2>
+<h2>相关的非成员</h2>
 </div>
 <div class="macros">
-<h2>Macro Documentation</h2>
+<h2>宏定义文档</h2>
 </div>
         </div>
        </div>

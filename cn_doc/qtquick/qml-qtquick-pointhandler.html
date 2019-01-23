@@ -36,11 +36,11 @@
 <div class="content mainContent">
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#properties">属性</a></li>
 <li class="level1"><a href="#signals">Signals</a></li>
-<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level1"><a href="#details">详细描述</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
@@ -55,7 +55,7 @@
 <li><a href="qml-qtquick-pointhandler-members.html">List of all members, including inherited members</a></li>
 </ul>
 <a name="properties"></a>
-<h2 id="properties">Properties</h2>
+<h2 id="properties">属性</h2>
 <ul>
 <li class="fn"><b><b><a href="qml-qtquick-pointhandler.html#acceptedButtons-prop">acceptedButtons</a></b></b> : flags</li>
 <li class="fn"><b><b><a href="qml-qtquick-pointhandler.html#acceptedDevices-prop">acceptedDevices</a></b></b> : flags</li>
@@ -77,7 +77,7 @@
 </ul>
 <!-- $$$PointHandler-description -->
 <a name="details"></a>
-<h2 id="details">Detailed Description</h2>
+<h2 id="details">详细描述</h2>
 <p><a href="qml-qtquick-pointhandler.html">PointHandler</a> can be used to show feedback about a touchpoint or the mouse position, or to otherwise react to pointer events.</p>
 <p>When a press event occurs, each instance of <a href="qml-qtquick-pointhandler.html">PointHandler</a> chooses a single point which is not yet &quot;taken&quot; at that moment: if the press occurs within the bounds of the <a href="qml-qtquick-pointhandler.html#parent-prop">PointerHandler::parent</a>, and no sibling <a href="qml-qtquick-pointhandler.html">PointHandler</a> within the same <a href="qml-qtquick-pointhandler.html#parent-prop">PointerHandler::parent</a> has yet acquired a passive grab on that point, and if the other constraints such as SinglePointHandler::acceptedButtons, <a href="qml-qtquick-pointhandler.html#acceptedDevices-prop">PointerDeviceHandler::acceptedDevices</a> etc. are satisfied, it's eligible, and the <a href="qml-qtquick-pointhandler.html">PointHandler</a> then acquires a passive grab. In this way, the <a href="qml-qtquick-pointhandler.html#parent-prop">PointerHandler::parent</a> acts like an exclusive group: there can be multiple instances of <a href="qml-qtquick-pointhandler.html">PointHandler</a>, and the set of pressed touchpoints will be distributed among them. Each <a href="qml-qtquick-pointhandler.html">PointHandler</a> which has chosen a point to track has its <a href="../qtwidgets/stylesheet-reference.html#active">active</a> property <code>true</code>. It then continues to track its chosen point until release: the properties of the <a href="../qtqml/qml-point.html">point</a> will be kept up-to-date. Any Item can bind to these properties, and thereby follow the point's movements.</p>
 <p>By being only a passive grabber, it has the ability to keep independent oversight of all movements. The passive grab cannot be stolen or overridden even when other gestures are detected and exclusive grabs occur.</p>
@@ -117,7 +117,7 @@
 <p>Like all input handlers, a <a href="qml-qtquick-pointhandler.html">PointHandler</a> has a <a href="../qmake/qmake-variable-reference.html#target">target</a> property, which may be used as a convenient place to put a point-tracking Item; but <a href="qml-qtquick-pointhandler.html">PointHandler</a> will not automatically manipulate the <code>target</code> item in any way. You need to use bindings to make it react to the <a href="../qtqml/qml-point.html">point</a>.</p>
 <p><b>Note: </b>On <a href="../qtdoc/internationalization.html#macos">macOS</a>, <a href="qml-qtquick-pointhandler.html">PointHandler</a> does not react to the trackpad by default. That is because <a href="../qtdoc/internationalization.html#macos">macOS</a> can provide either native gesture recognition, or raw touchpoints, but not both. We prefer to use the native gesture event in <a href="qml-qtquick-pinchhandler.html">PinchHandler</a>, so we do not want to disable it by enabling touch. However <a href="qml-qtquick-multipointtoucharea.html">MultiPointTouchArea</a> does enable touch, thus disabling native gesture recognition within the entire window; so it's an alternative if you only want to react to all the touchpoints but do not require the smooth native-gesture experience.</p><p><b>See also </b><a href="qml-qtquick-multipointtoucharea.html">MultiPointTouchArea</a>.</p>
 <!-- @@@PointHandler -->
-<h2>Property Documentation</h2>
+<h2>属性文档</h2>
 <!-- $$$acceptedButtons -->
 <div class="qmlitem"><div class="qmlproto">
 <div class="table"><table class="qmlname">

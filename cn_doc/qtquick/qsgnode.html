@@ -36,12 +36,12 @@
 <div class="content mainContent">
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#public-types">Public Types</a></li>
-<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#public-types">公共类型</a></li>
+<li class="level1"><a href="#public-functions">公共函数</a></li>
 <li class="level1"><a href="#protected-variables">Protected Variables</a></li>
-<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level1"><a href="#details">详细描述</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
@@ -50,13 +50,13 @@
 <p>The <a href="qsgnode.html">QSGNode</a> class is the base class for all nodes in the scene graph. <a href="#details">More...</a></p>
 <!-- @@@QSGNode -->
 <div class="table"><table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QSGNode&gt;</span>
+<tr><td class="memItemLeft rightAlign topAlign">头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QSGNode&gt;</span>
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += quick</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherited By:</td><td class="memItemRight bottomAlign"> <p><a href="qsgbasicgeometrynode.html">QSGBasicGeometryNode</a>, <a href="qsgopacitynode.html">QSGOpacityNode</a>, <a href="qsgrendernode.html">QSGRenderNode</a>, and <a href="qsgtransformnode.html">QSGTransformNode</a></p>
 </td></tr></table></div><ul>
 <li><a href="qsgnode-members.html">List of all members, including inherited members</a></li>
 </ul>
 <a name="public-types"></a>
-<h2 id="public-types">Public Types</h2>
+<h2 id="public-types">公共类型</h2>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> flags </td><td class="memItemRight bottomAlign"><b><a href="qsgnode.html#DirtyStateBit-enum">DirtyState</a></b></td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qsgnode.html#DirtyStateBit-enum">DirtyStateBit</a></b> { DirtyMatrix, DirtyNodeAdded, DirtyNodeRemoved, DirtyGeometry, ..., DirtySubtreeBlocked }</td></tr>
@@ -65,7 +65,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qsgnode.html#NodeType-enum">NodeType</a></b> { BasicNodeType, GeometryNodeType, TransformNodeType, ClipNodeType, OpacityNodeType, RenderNodeType }</td></tr>
 </table></div>
 <a name="public-functions"></a>
-<h2 id="public-functions">Public Functions</h2>
+<h2 id="public-functions">公共函数</h2>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qsgnode.html#QSGNode">QSGNode</a></b>()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qsgnode.html#dtor.QSGNode">~QSGNode</a></b>()</td></tr>
@@ -98,7 +98,7 @@
 <a name="details"></a>
 <!-- $$$QSGNode-description -->
 <div class="descr">
-<h2 id="details">Detailed Description</h2>
+<h2 id="details">详细描述</h2>
 <p>The <a href="qsgnode.html">QSGNode</a> class is the base class for all nodes in the scene graph.</p>
 <p>The <a href="qsgnode.html">QSGNode</a> class can be used as a child container. Children are added with the <a href="qsgnode.html#appendChildNode">appendChildNode</a>(), <a href="qsgnode.html#prependChildNode">prependChildNode</a>(), <a href="qsgnode.html#insertChildNodeBefore">insertChildNodeBefore</a>() and <a href="qsgnode.html#insertChildNodeAfter">insertChildNodeAfter</a>(). The order of nodes is important as geometry nodes are rendered according to their ordering in the scene graph.</p>
 <p>The scene graph nodes contains a mechanism to describe which parts of the scene has changed. This includes the combined matrices, accumulated opacity, changes to the node hierarchy, and so on. This information can be used for optimizations inside the scene graph renderer. For the renderer to properly render the nodes, it is important that users call <a href="qsgnode.html#markDirty">QSGNode::markDirty</a>() with the correct flags when nodes are changed. Most of the functions on the node classes will implicitly call <a href="qsgnode.html#markDirty">markDirty</a>(). For example, <a href="qsgnode.html#appendChildNode">QSGNode::appendChildNode</a>() will call <a href="qsgnode.html#markDirty">markDirty</a>() passing in <a href="qsgnode.html#DirtyStateBit-enum">QSGNode::DirtyNodeAdded</a>.</p>
@@ -107,7 +107,7 @@
 <p><b>Note: </b>All classes with QSG prefix should be used solely on the scene graph's rendering thread. See <a href="qtquick-visualcanvas-scenegraph.html#scene-graph-and-rendering">Scene Graph and Rendering</a> for more information.</p></div>
 <!-- @@@QSGNode -->
 <div class="types">
-<h2>Member Type Documentation</h2>
+<h2>成员类型文档</h2>
 <!-- $$$DirtyStateBit$$$DirtySubtreeBlocked$$$DirtyMatrix$$$DirtyNodeAdded$$$DirtyNodeRemoved$$$DirtyGeometry$$$DirtyMaterial$$$DirtyOpacity$$$DirtyForceUpdate$$$DirtyUsePreprocess$$$DirtyPropagationMask -->
 <h3 class="flags" id="DirtyStateBit-enum"><a name="DirtyStateBit-enum"></a>enum QSGNode::<span class="name">DirtyStateBit</span><br/>flags QSGNode::<span class="name">DirtyState</span></h3>
 <p>Used in <a href="qsgnode.html#markDirty">QSGNode::markDirty</a>() to indicate how the scene graph has changed.</p>
@@ -151,10 +151,10 @@
 <!-- @@@NodeType -->
 </div>
 <div class="prop">
-<h2>Property Documentation</h2>
+<h2>属性文档</h2>
 </div>
 <div class="func">
-<h2>Member Function Documentation</h2>
+<h2>成员函数文档</h2>
 <!-- $$$QSGNode[overload1]$$$QSGNode -->
 <h3 class="fn" id="QSGNode"><a name="QSGNode"></a>QSGNode::<span class="name">QSGNode</span>()</h3>
 <p>Constructs a new node</p>
@@ -262,13 +262,13 @@
 <!-- @@@type -->
 </div>
 <div class="vars">
-<h2>Member Variable Documentation</h2>
+<h2>成员变量文档</h2>
 </div>
 <div class="relnonmem">
-<h2>Related Non-Members</h2>
+<h2>相关的非成员</h2>
 </div>
 <div class="macros">
-<h2>Macro Documentation</h2>
+<h2>宏定义文档</h2>
 </div>
         </div>
        </div>
