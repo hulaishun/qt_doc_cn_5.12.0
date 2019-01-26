@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtgui-index.html">Qt GUI</a></td><td ><a href="qtgui-module.html">C++ Classes</a></td><td >QPaintEngine</td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtgui-index.html">Qt GUI</a></td><td ><a href="qtgui-module.html">C++类</a></td><td >QPaintEngine</td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -36,12 +36,12 @@
 <div class="content mainContent">
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#public-types">Public Types</a></li>
-<li class="level1"><a href="#public-functions">Public Functions</a></li>
-<li class="level1"><a href="#protected-variables">Protected Variables</a></li>
-<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level1"><a href="#public-types">公共类型</a></li>
+<li class="level1"><a href="#public-functions">公共函数</a></li>
+<li class="level1"><a href="#protected-variables">保护变量</a></li>
+<li class="level1"><a href="#details">详细描述</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
@@ -50,12 +50,12 @@
 <p>The <a href="qpaintengine.html">QPaintEngine</a> class provides an abstract definition of how <a href="qpainter.html">QPainter</a> draws to a given device on a given platform. <a href="#details">More...</a></p>
 <!-- @@@QPaintEngine -->
 <div class="table"><table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QPaintEngine&gt;</span>
+<tr><td class="memItemLeft rightAlign topAlign">头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QPaintEngine&gt;</span>
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += gui</td></tr></table></div><ul>
-<li><a href="qpaintengine-members.html">List of all members, including inherited members</a></li>
+<li><a href="qpaintengine-members.html">所有成员清单，包括继承而来的成员</a></li>
 </ul>
 <a name="public-types"></a>
-<h2 id="public-types">Public Types</h2>
+<h2 id="public-types">公共类型</h2>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qpaintengine.html#DirtyFlag-enum">DirtyFlag</a></b> { DirtyPen, DirtyBrush, DirtyBrushOrigin, DirtyFont, ..., AllDirty }</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> flags </td><td class="memItemRight bottomAlign"><b><a href="qpaintengine.html#DirtyFlag-enum">DirtyFlags</a></b></td></tr>
@@ -65,7 +65,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qpaintengine.html#Type-enum">Type</a></b> { X11, Windows, MacPrinter, CoreGraphics, ..., Direct2D }</td></tr>
 </table></div>
 <a name="public-functions"></a>
-<h2 id="public-functions">Public Functions</h2>
+<h2 id="public-functions">公共函数</h2>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qpaintengine.html#QPaintEngine">QPaintEngine</a></b>(QPaintEngine::PaintEngineFeatures <i>caps</i> = ...)</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qpaintengine.html#dtor.QPaintEngine">~QPaintEngine</a></b>()</td></tr>
@@ -95,7 +95,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qpaintengine.html#updateState">updateState</a></b>(const QPaintEngineState &amp;<i>state</i>) = 0</td></tr>
 </table></div>
 <a name="protected-variables"></a>
-<h2 id="protected-variables">Protected Variables</h2>
+<h2 id="protected-variables">保护变量</h2>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> uint </td><td class="memItemRight bottomAlign"><b><a href="qpaintengine.html#active-var">active</a></b></td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qpaintengine.html#d_ptr-var">d_ptr</a></b></td></tr>
@@ -107,7 +107,7 @@
 <a name="details"></a>
 <!-- $$$QPaintEngine-description -->
 <div class="descr">
-<h2 id="details">Detailed Description</h2>
+<h2 id="details">详细描述</h2>
 <p>The <a href="qpaintengine.html">QPaintEngine</a> class provides an abstract definition of how <a href="qpainter.html">QPainter</a> draws to a given device on a given platform.</p>
 <p>Qt provides several premade implementations of <a href="qpaintengine.html">QPaintEngine</a> for the different painter backends we support. The primary paint engine provided is the raster paint engine, which contains a software rasterizer which supports the full feature set on all supported platforms. This is the default for painting on <a href="../qtwidgets/qwidget.html">QWidget</a>-based classes in e.g&#x2e; on Windows, X11 and <a href="../qtdoc/internationalization.html#macos">macOS</a>, it is the backend for painting on <a href="qimage.html">QImage</a> and it is used as a fallback for paint engines that do not support a certain capability. In addition we provide <a href="qpaintengine.html">QPaintEngine</a> implementations for <a href="qpaintengine.html#Type-enum">OpenGL</a> (accessible through QGLWidget) and printing (which allows using <a href="qpainter.html">QPainter</a> to draw on a QPrinter object).</p>
 <p>If one wants to use <a href="qpainter.html">QPainter</a> to draw to a different backend, one must subclass <a href="qpaintengine.html">QPaintEngine</a> and reimplement all its virtual functions. The <a href="qpaintengine.html">QPaintEngine</a> implementation is then made available by subclassing <a href="qpaintdevice.html">QPaintDevice</a> and reimplementing the virtual function <a href="qpaintdevice.html#paintEngine">QPaintDevice::paintEngine</a>().</p>
@@ -116,7 +116,7 @@
 <p><b>See also </b><a href="qpainter.html">QPainter</a>, <a href="qpaintdevice.html#paintEngine">QPaintDevice::paintEngine</a>(), and <a href="paintsystem.html">Paint System</a>.</p>
 <!-- @@@QPaintEngine -->
 <div class="types">
-<h2>Member Type Documentation</h2>
+<h2>成员类型文档</h2>
 <!-- $$$DirtyFlag$$$DirtyPen$$$DirtyBrush$$$DirtyBrushOrigin$$$DirtyFont$$$DirtyBackground$$$DirtyBackgroundMode$$$DirtyTransform$$$DirtyClipRegion$$$DirtyClipPath$$$DirtyHints$$$DirtyCompositionMode$$$DirtyClipEnabled$$$DirtyOpacity$$$AllDirty -->
 <h3 class="flags" id="DirtyFlag-enum"><a name="DirtyFlag-enum"></a>enum QPaintEngine::<span class="name">DirtyFlag</span><br/>flags QPaintEngine::<span class="name">DirtyFlags</span></h3>
 <div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
@@ -202,10 +202,10 @@
 <!-- @@@Type -->
 </div>
 <div class="prop">
-<h2>Property Documentation</h2>
+<h2>属性文档</h2>
 </div>
 <div class="func">
-<h2>Member Function Documentation</h2>
+<h2>成员函数文档</h2>
 <!-- $$$QPaintEngine[overload1]$$$QPaintEngineQPaintEngine::PaintEngineFeatures -->
 <h3 class="fn" id="QPaintEngine"><a name="QPaintEngine"></a>QPaintEngine::<span class="name">QPaintEngine</span>(<span class="type"><a href="qpaintengine.html#PaintEngineFeature-enum">QPaintEngine::PaintEngineFeatures</a></span> <i>caps</i> = ...)</h3>
 <p>Creates a paint engine with the featureset specified by <i>caps</i>.</p>
@@ -323,13 +323,13 @@
 <!-- @@@updateState -->
 </div>
 <div class="vars">
-<h2>Member Variable Documentation</h2>
+<h2>成员变量文档</h2>
 </div>
 <div class="relnonmem">
-<h2>Related Non-Members</h2>
+<h2>相关的非成员</h2>
 </div>
 <div class="macros">
-<h2>Macro Documentation</h2>
+<h2>宏定义文档</h2>
 </div>
         </div>
        </div>

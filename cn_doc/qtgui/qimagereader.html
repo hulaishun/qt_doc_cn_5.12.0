@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtgui-index.html">Qt GUI</a></td><td ><a href="qtgui-module.html">C++ Classes</a></td><td >QImageReader</td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtgui-index.html">Qt GUI</a></td><td ><a href="qtgui-module.html">C++类</a></td><td >QImageReader</td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -36,12 +36,12 @@
 <div class="content mainContent">
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#public-types">Public Types</a></li>
-<li class="level1"><a href="#public-functions">Public Functions</a></li>
-<li class="level1"><a href="#static-public-members">Static Public Members</a></li>
-<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level1"><a href="#public-types">公共类型</a></li>
+<li class="level1"><a href="#public-functions">公共函数</a></li>
+<li class="level1"><a href="#static-public-members">静态公共成员</a></li>
+<li class="level1"><a href="#details">详细描述</a></li>
 <li class="level2"><a href="#formats">Formats</a></li>
 <li class="level2"><a href="#high-resolution-versions-of-images">High Resolution Versions of Images</a></li>
 </ul>
@@ -52,18 +52,18 @@
 <p>The <a href="qimagereader.html">QImageReader</a> class provides a format independent interface for reading images from files or other devices. <a href="#details">More...</a></p>
 <!-- @@@QImageReader -->
 <div class="table"><table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QImageReader&gt;</span>
+<tr><td class="memItemLeft rightAlign topAlign">头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QImageReader&gt;</span>
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += gui</td></tr></table></div><ul>
-<li><a href="qimagereader-members.html">List of all members, including inherited members</a></li>
+<li><a href="qimagereader-members.html">所有成员清单，包括继承而来的成员</a></li>
 </ul>
 <p><b>Note:</b> All functions in this class are <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
 <a name="public-types"></a>
-<h2 id="public-types">Public Types</h2>
+<h2 id="public-types">公共类型</h2>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qimagereader.html#ImageReaderError-enum">ImageReaderError</a></b> { FileNotFoundError, DeviceError, UnsupportedFormatError, InvalidDataError, UnknownError }</td></tr>
 </table></div>
 <a name="public-functions"></a>
-<h2 id="public-functions">Public Functions</h2>
+<h2 id="public-functions">公共函数</h2>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qimagereader.html#QImageReader">QImageReader</a></b>()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qimagereader.html#QImageReader-1">QImageReader</a></b>(QIODevice *<i>device</i>, const QByteArray &amp;<i>format</i> = QByteArray())</td></tr>
@@ -116,7 +116,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> QImageIOHandler::Transformations </td><td class="memItemRight bottomAlign"><b><a href="qimagereader.html#transformation">transformation</a></b>() const</td></tr>
 </table></div>
 <a name="static-public-members"></a>
-<h2 id="static-public-members">Static Public Members</h2>
+<h2 id="static-public-members">静态公共成员</h2>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> QByteArray </td><td class="memItemRight bottomAlign"><b><a href="qimagereader.html#imageFormat-1">imageFormat</a></b>(const QString &amp;<i>fileName</i>)</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> QByteArray </td><td class="memItemRight bottomAlign"><b><a href="qimagereader.html#imageFormat-2">imageFormat</a></b>(QIODevice *<i>device</i>)</td></tr>
@@ -127,7 +127,7 @@
 <a name="details"></a>
 <!-- $$$QImageReader-description -->
 <div class="descr">
-<h2 id="details">Detailed Description</h2>
+<h2 id="details">详细描述</h2>
 <p>The <a href="qimagereader.html">QImageReader</a> class provides a format independent interface for reading images from files or other devices.</p>
 <p>The most common way to read images is through <a href="qimage.html">QImage</a> and <a href="qpixmap.html">QPixmap</a>'s constructors, or by calling <a href="qimage.html#load">QImage::load</a>() and <a href="qpixmap.html#load">QPixmap::load</a>(). <a href="qimagereader.html">QImageReader</a> is a specialized class which gives you more control when reading images. For example, you can read an image into a specific size by calling <a href="qimagereader.html#setScaledSize">setScaledSize</a>(), and you can select a clip rect, effectively loading only parts of an image, by calling <a href="qimagereader.html#setClipRect">setClipRect</a>(). Depending on the underlying support in the image format, this can save memory and speed up loading of images.</p>
 <p>To read an image, you start by constructing a <a href="qimagereader.html">QImageReader</a> object. Pass either a file name or a device pointer, and the image format to <a href="qimagereader.html">QImageReader</a>'s constructor. You can then set several options, such as the clip rect (by calling <a href="qimagereader.html#setClipRect">setClipRect</a>()) and scaled size (by calling <a href="qimagereader.html#setScaledSize">setScaledSize</a>()). <a href="qimagereader.html#canRead">canRead</a>() returns the image if the <a href="qimagereader.html">QImageReader</a> can read the image (i.e&#x2e;, the image format is supported and the device is open for reading). Call <a href="qimagereader.html#read">read</a>() to read the image.</p>
@@ -145,7 +145,7 @@
 <p><b>See also </b><a href="qimagewriter.html">QImageWriter</a>, <a href="qimageiohandler.html">QImageIOHandler</a>, <a href="qimageioplugin.html">QImageIOPlugin</a>, <a href="../qtcore/qmimedatabase.html">QMimeDatabase</a>, <a href="qimage.html#devicePixelRatio">QImage::devicePixelRatio</a>(), <a href="qpixmap.html#devicePixelRatio">QPixmap::devicePixelRatio</a>(), <a href="qicon.html">QIcon</a>, <a href="qpainter.html#drawPixmap">QPainter::drawPixmap</a>(), <a href="qpainter.html#drawImage">QPainter::drawImage</a>(), and <a href="../qtcore/qt.html#ApplicationAttribute-enum">Qt::AA_UseHighDpiPixmaps</a>.</p>
 <!-- @@@QImageReader -->
 <div class="types">
-<h2>Member Type Documentation</h2>
+<h2>成员类型文档</h2>
 <!-- $$$ImageReaderError$$$UnknownError$$$FileNotFoundError$$$DeviceError$$$UnsupportedFormatError$$$InvalidDataError -->
 <h3 class="fn" id="ImageReaderError-enum"><a name="ImageReaderError-enum"></a>enum QImageReader::<span class="name">ImageReaderError</span></h3>
 <p>This enum describes the different types of errors that can occur when reading images with <a href="qimagereader.html">QImageReader</a>.</p>
@@ -159,10 +159,10 @@
 <!-- @@@ImageReaderError -->
 </div>
 <div class="prop">
-<h2>Property Documentation</h2>
+<h2>属性文档</h2>
 </div>
 <div class="func">
-<h2>Member Function Documentation</h2>
+<h2>成员函数文档</h2>
 <!-- $$$QImageReader[overload1]$$$QImageReader -->
 <h3 class="fn" id="QImageReader"><a name="QImageReader"></a>QImageReader::<span class="name">QImageReader</span>()</h3>
 <p>Constructs an empty <a href="qimagereader.html">QImageReader</a> object. Before reading an image, call <a href="qimagereader.html#setDevice">setDevice</a>() or <a href="qimagereader.html#setFileName">setFileName</a>().</p>
@@ -528,13 +528,13 @@
 <!-- @@@transformation -->
 </div>
 <div class="vars">
-<h2>Member Variable Documentation</h2>
+<h2>成员变量文档</h2>
 </div>
 <div class="relnonmem">
-<h2>Related Non-Members</h2>
+<h2>相关的非成员</h2>
 </div>
 <div class="macros">
-<h2>Macro Documentation</h2>
+<h2>宏定义文档</h2>
 </div>
         </div>
        </div>

@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtgui-index.html">Qt GUI</a></td><td ><a href="qtgui-module.html">C++ Classes</a></td><td >QGlyphRun</td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtgui-index.html">Qt GUI</a></td><td ><a href="qtgui-module.html">C++类</a></td><td >QGlyphRun</td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -36,11 +36,11 @@
 <div class="content mainContent">
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#public-types">Public Types</a></li>
-<li class="level1"><a href="#public-functions">Public Functions</a></li>
-<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level1"><a href="#public-types">公共类型</a></li>
+<li class="level1"><a href="#public-functions">公共函数</a></li>
+<li class="level1"><a href="#details">详细描述</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
@@ -49,18 +49,18 @@
 <p>The <a href="qglyphrun.html">QGlyphRun</a> class provides direct access to the internal glyphs in a font. <a href="#details">More...</a></p>
 <!-- @@@QGlyphRun -->
 <div class="table"><table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QGlyphRun&gt;</span>
+<tr><td class="memItemLeft rightAlign topAlign">头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QGlyphRun&gt;</span>
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += gui</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 4.8</td></tr></table></div><ul>
-<li><a href="qglyphrun-members.html">List of all members, including inherited members</a></li>
+<li><a href="qglyphrun-members.html">所有成员清单，包括继承而来的成员</a></li>
 </ul>
 <a name="public-types"></a>
-<h2 id="public-types">Public Types</h2>
+<h2 id="public-types">公共类型</h2>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qglyphrun.html#GlyphRunFlag-enum">GlyphRunFlag</a></b> { Overline, Underline, StrikeOut, RightToLeft, SplitLigature }</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> flags </td><td class="memItemRight bottomAlign"><b><a href="qglyphrun.html#GlyphRunFlag-enum">GlyphRunFlags</a></b></td></tr>
 </table></div>
 <a name="public-functions"></a>
-<h2 id="public-functions">Public Functions</h2>
+<h2 id="public-functions">公共函数</h2>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qglyphrun.html#QGlyphRun">QGlyphRun</a></b>()</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qglyphrun.html#QGlyphRun-1">QGlyphRun</a></b>(const QGlyphRun &amp;<i>other</i>)</td></tr>
@@ -96,7 +96,7 @@
 <a name="details"></a>
 <!-- $$$QGlyphRun-description -->
 <div class="descr">
-<h2 id="details">Detailed Description</h2>
+<h2 id="details">详细描述</h2>
 <p>The <a href="qglyphrun.html">QGlyphRun</a> class provides direct access to the internal glyphs in a font.</p>
 <p>When Qt displays a string of text encoded in Unicode, it will first convert the Unicode points into a list of glyph indexes and a list of positions based on one or more fonts. The Unicode representation of the text and the <a href="qfont.html">QFont</a> object will in this case serve as a convenient abstraction that hides the details of what actually takes place when displaying the text on-screen. For instance, by the time the text actually reaches the screen, it may be represented by a set of fonts in addition to the one specified by the user, e.g&#x2e; in case the originally selected font did not support all the writing systems contained in the text.</p>
 <p>Under certain circumstances, it can be useful as an application developer to have more low-level control over which glyphs in a specific font are drawn to the screen. This could for instance be the case in applications that use an external font engine and text shaper together with Qt. <a href="qglyphrun.html">QGlyphRun</a> provides an interface to the raw data needed to get text on the screen. It contains a list of glyph indexes, a position for each glyph and a font.</p>
@@ -105,7 +105,7 @@
 <p><b>Note: </b>Please note that <a href="qrawfont.html">QRawFont</a> is considered local to the thread in which it is constructed. This in turn means that a new <a href="qrawfont.html">QRawFont</a> will have to be created and set on the <a href="qglyphrun.html">QGlyphRun</a> if it is moved to a different thread. If the <a href="qglyphrun.html">QGlyphRun</a> contains a reference to a <a href="qrawfont.html">QRawFont</a> from a different thread than the current, it will not be possible to draw the glyphs using a <a href="qpainter.html">QPainter</a>, as the <a href="qrawfont.html">QRawFont</a> is considered invalid and inaccessible in this case.</p></div>
 <!-- @@@QGlyphRun -->
 <div class="types">
-<h2>Member Type Documentation</h2>
+<h2>成员类型文档</h2>
 <!-- $$$GlyphRunFlag$$$Overline$$$Underline$$$StrikeOut$$$RightToLeft$$$SplitLigature -->
 <h3 class="flags" id="GlyphRunFlag-enum"><a name="GlyphRunFlag-enum"></a>enum QGlyphRun::<span class="name">GlyphRunFlag</span><br/>flags QGlyphRun::<span class="name">GlyphRunFlags</span></h3>
 <p>This enum describes flags that alter the way the run of glyphs might be presented or behave in a visual layout. The layout which generates the glyph runs can set these flags based on relevant internal data, to retain information needed to present the text as intended by the user of the layout.</p>
@@ -121,10 +121,10 @@
 <!-- @@@GlyphRunFlag -->
 </div>
 <div class="prop">
-<h2>Property Documentation</h2>
+<h2>属性文档</h2>
 </div>
 <div class="func">
-<h2>Member Function Documentation</h2>
+<h2>成员函数文档</h2>
 <!-- $$$QGlyphRun[overload1]$$$QGlyphRun -->
 <h3 class="fn" id="QGlyphRun"><a name="QGlyphRun"></a>QGlyphRun::<span class="name">QGlyphRun</span>()</h3>
 <p>Constructs an empty <a href="qglyphrun.html">QGlyphRun</a> object.</p>
@@ -276,13 +276,13 @@
 <!-- @@@operator== -->
 </div>
 <div class="vars">
-<h2>Member Variable Documentation</h2>
+<h2>成员变量文档</h2>
 </div>
 <div class="relnonmem">
-<h2>Related Non-Members</h2>
+<h2>相关的非成员</h2>
 </div>
 <div class="macros">
-<h2>Macro Documentation</h2>
+<h2>宏定义文档</h2>
 </div>
         </div>
        </div>
