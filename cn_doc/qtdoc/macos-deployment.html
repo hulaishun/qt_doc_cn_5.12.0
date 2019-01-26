@@ -27,7 +27,7 @@
       <div class="navigationbar">
         <table><tr>
 <td ><a href="index.html">Qt 5.12</a></td><td >Qt for macOS - Deployment</td></tr></table><table class="buildversion"><tr>
-<td id="buildversion" width="100%" align="right">Qt 5.12.0 Reference Documentation</td>
+<td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
     </div>
@@ -36,7 +36,7 @@
 <div class="content mainContent">
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3><a name="toc">目录</a></h3>
 <ul>
 <li class="level1"><a href="#the-bundle">The Bundle</a></li>
 <li class="level1"><a href="#static-linking">Static Linking</a></li>
@@ -110,13 +110,13 @@
 <p>You can check what other libraries your application links to using the <code>otool</code>:</p>
 <pre class="cpp">
 
-  otool <span class="operator">-</span>L plugandpaint<span class="operator">.</span>app<span class="operator">/</span>Contents<span class="operator">/</span>MacOs<span class="operator">/</span>plugandpaint
+  otool <span class="operator">-</span>L plugandpaint<span class="operator">.</span>app<span class="operator">/</span>目录<span class="operator">/</span>MacOs<span class="operator">/</span>plugandpaint
 
 </pre>
 <p>Here is what the output looks like for the statically linked <a href="../qtwidgets/qtwidgets-tools-plugandpaint-app-example.html">Plug &amp; Paint</a>:</p>
 <pre class="cpp">
 
-  plugandpaint<span class="operator">.</span>app<span class="operator">/</span>Contents<span class="operator">/</span>MacOS<span class="operator">/</span>plugandpaint:
+  plugandpaint<span class="operator">.</span>app<span class="operator">/</span>目录<span class="operator">/</span>MacOS<span class="operator">/</span>plugandpaint:
   <span class="operator">/</span>System<span class="operator">/</span>Library<span class="operator">/</span>Frameworks<span class="operator">/</span>Carbon<span class="operator">.</span>framework<span class="operator">/</span>Versions<span class="operator">/</span>A<span class="operator">/</span>Carbon
           (compatibility version <span class="number">2.0.0</span><span class="operator">,</span> current version <span class="number">128.0.0</span>)
   <span class="operator">/</span>System<span class="operator">/</span>Library<span class="operator">/</span>Frameworks<span class="operator">/</span>QuickTime<span class="operator">.</span>framework<span class="operator">/</span>Versions<span class="operator">/</span>A<span class="operator">/</span>QuickTime
@@ -230,20 +230,20 @@
 <p>Let's test this out by copying the Qt frameworks into the Plug &amp; Paint bundle. Looking at <code>otool</code>'s output for the bundle, we can see that we must copy both the <a href="../qtcore/qtcore-module.html">QtCore</a> and <a href="../qtgui/qtgui-module.html">QtGui</a> frameworks into the bundle. We will assume that we are in the directory where we built the bundle.</p>
 <pre class="cpp">
 
-  mkdir plugandpaint<span class="operator">.</span>app<span class="operator">/</span>Contents<span class="operator">/</span>Frameworks
+  mkdir plugandpaint<span class="operator">.</span>app<span class="operator">/</span>目录<span class="operator">/</span>Frameworks
   cp <span class="operator">-</span>R <span class="operator">/</span>path<span class="operator">/</span>to<span class="operator">/</span><span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">/</span>lib<span class="operator">/</span><span class="type"><a href="../qtcore/qtcore-module.html">QtCore</a></span><span class="operator">.</span>framework
-          plugandpaint<span class="operator">.</span>app<span class="operator">/</span>Contents<span class="operator">/</span>Frameworks
+          plugandpaint<span class="operator">.</span>app<span class="operator">/</span>目录<span class="operator">/</span>Frameworks
   cp <span class="operator">-</span>R <span class="operator">/</span>path<span class="operator">/</span>to<span class="operator">/</span><span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">/</span>lib<span class="operator">/</span><span class="type"><a href="../qtgui/qtgui-module.html">QtGui</a></span><span class="operator">.</span>framework
-         plugandpaint<span class="operator">.</span>app<span class="operator">/</span>Contents<span class="operator">/</span>Frameworks
+         plugandpaint<span class="operator">.</span>app<span class="operator">/</span>目录<span class="operator">/</span>Frameworks
 
 </pre>
 <p>First we create a <code>Frameworks</code> directory inside the bundle. This follows the macOS application convention. We then copy the frameworks into the new directory. As frameworks contain symbolic links, we use the <code>-R</code> option.</p>
 <pre class="cpp">
 
   install_name_tool <span class="operator">-</span>id @executable_path<span class="operator">/</span><span class="operator">.</span><span class="operator">.</span><span class="operator">/</span>Frameworks<span class="operator">/</span><span class="type"><a href="../qtcore/qtcore-module.html">QtCore</a></span><span class="operator">.</span>framework<span class="operator">/</span>Versions<span class="operator">/</span><span class="number">4.0</span><span class="operator">/</span><span class="type"><a href="../qtcore/qtcore-module.html">QtCore</a></span>
-         plugandpaint<span class="operator">.</span>app<span class="operator">/</span>Contents<span class="operator">/</span>Frameworks<span class="operator">/</span><span class="type"><a href="../qtcore/qtcore-module.html">QtCore</a></span><span class="operator">.</span>framework<span class="operator">/</span>Versions<span class="operator">/</span><span class="number">4.0</span><span class="operator">/</span><span class="type"><a href="../qtcore/qtcore-module.html">QtCore</a></span>
+         plugandpaint<span class="operator">.</span>app<span class="operator">/</span>目录<span class="operator">/</span>Frameworks<span class="operator">/</span><span class="type"><a href="../qtcore/qtcore-module.html">QtCore</a></span><span class="operator">.</span>framework<span class="operator">/</span>Versions<span class="operator">/</span><span class="number">4.0</span><span class="operator">/</span><span class="type"><a href="../qtcore/qtcore-module.html">QtCore</a></span>
   install_name_tool <span class="operator">-</span>id @executable_path<span class="operator">/</span><span class="operator">.</span><span class="operator">.</span><span class="operator">/</span>Frameworks<span class="operator">/</span><span class="type"><a href="../qtgui/qtgui-module.html">QtGui</a></span><span class="operator">.</span>framework<span class="operator">/</span>Versions<span class="operator">/</span><span class="number">4.0</span><span class="operator">/</span><span class="type"><a href="../qtgui/qtgui-module.html">QtGui</a></span>
-         plugandpaint<span class="operator">.</span>app<span class="operator">/</span>Contents<span class="operator">/</span>Frameworks<span class="operator">/</span><span class="type"><a href="../qtgui/qtgui-module.html">QtGui</a></span><span class="operator">.</span>framework<span class="operator">/</span>Versions<span class="operator">/</span><span class="number">4.0</span><span class="operator">/</span><span class="type"><a href="../qtgui/qtgui-module.html">QtGui</a></span>
+         plugandpaint<span class="operator">.</span>app<span class="operator">/</span>目录<span class="operator">/</span>Frameworks<span class="operator">/</span><span class="type"><a href="../qtgui/qtgui-module.html">QtGui</a></span><span class="operator">.</span>framework<span class="operator">/</span>Versions<span class="operator">/</span><span class="number">4.0</span><span class="operator">/</span><span class="type"><a href="../qtgui/qtgui-module.html">QtGui</a></span>
 
 </pre>
 <p>Then we run <code>install_name_tool</code> to set the identification names for the frameworks. The first argument after <code>-id</code> is the new name, and the second argument is the framework that we want to rename. The text <code>@executable_path</code> is a special <code>dyld</code> variable telling <code>dyld</code> to start looking where the executable is located. The new names specifies that these frameworks are located in the directory directly under the <code>Frameworks</code> directory.</p>
@@ -251,10 +251,10 @@
 
   install_name_tool <span class="operator">-</span>change path<span class="operator">/</span>to<span class="operator">/</span><span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">/</span>lib<span class="operator">/</span><span class="type"><a href="../qtcore/qtcore-module.html">QtCore</a></span><span class="operator">.</span>framework<span class="operator">/</span>Versions<span class="operator">/</span><span class="number">4.0</span><span class="operator">/</span><span class="type"><a href="../qtcore/qtcore-module.html">QtCore</a></span>
           @executable_path<span class="operator">/</span><span class="operator">.</span><span class="operator">.</span><span class="operator">/</span>Frameworks<span class="operator">/</span><span class="type"><a href="../qtcore/qtcore-module.html">QtCore</a></span><span class="operator">.</span>framework<span class="operator">/</span>Versions<span class="operator">/</span><span class="number">4.0</span><span class="operator">/</span><span class="type"><a href="../qtcore/qtcore-module.html">QtCore</a></span>
-          plugandpaint<span class="operator">.</span>app<span class="operator">/</span>Contents<span class="operator">/</span>MacOs<span class="operator">/</span>plugandpaint
+          plugandpaint<span class="operator">.</span>app<span class="operator">/</span>目录<span class="operator">/</span>MacOs<span class="operator">/</span>plugandpaint
   install_name_tool <span class="operator">-</span>change path<span class="operator">/</span>to<span class="operator">/</span>qt<span class="operator">/</span>lib<span class="operator">/</span><span class="type"><a href="../qtgui/qtgui-module.html">QtGui</a></span><span class="operator">.</span>framework<span class="operator">/</span>Versions<span class="operator">/</span><span class="number">4.0</span><span class="operator">/</span><span class="type"><a href="../qtgui/qtgui-module.html">QtGui</a></span>
           @executable_path<span class="operator">/</span><span class="operator">.</span><span class="operator">.</span><span class="operator">/</span>Frameworks<span class="operator">/</span><span class="type"><a href="../qtgui/qtgui-module.html">QtGui</a></span><span class="operator">.</span>framework<span class="operator">/</span>Versions<span class="operator">/</span><span class="number">4.0</span><span class="operator">/</span><span class="type"><a href="../qtgui/qtgui-module.html">QtGui</a></span>
-          plugandpaint<span class="operator">.</span>app<span class="operator">/</span>Contents<span class="operator">/</span>MacOs<span class="operator">/</span>plugandpaint
+          plugandpaint<span class="operator">.</span>app<span class="operator">/</span>目录<span class="operator">/</span>MacOs<span class="operator">/</span>plugandpaint
 
 </pre>
 <p>Now, the dynamic linker knows where to look for <a href="../qtcore/qtcore-module.html">QtCore</a> and <a href="../qtgui/qtgui-module.html">QtGui</a>. We must ensure that the application also knows where to find the library, using <code>install_name_tool</code>'s <code>-change</code> mode. This basically comes down to string replacement, to match the identification names that we set earlier to the frameworks.</p>
@@ -263,7 +263,7 @@
 
   install_name_tool <span class="operator">-</span>change path<span class="operator">/</span>to<span class="operator">/</span><span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">/</span>lib<span class="operator">/</span><span class="type"><a href="../qtcore/qtcore-module.html">QtCore</a></span><span class="operator">.</span>framework<span class="operator">/</span>Versions<span class="operator">/</span><span class="number">4.0</span><span class="operator">/</span><span class="type"><a href="../qtcore/qtcore-module.html">QtCore</a></span>
           @executable_path<span class="operator">/</span><span class="operator">.</span><span class="operator">.</span><span class="operator">/</span>Frameworks<span class="operator">/</span><span class="type"><a href="../qtcore/qtcore-module.html">QtCore</a></span><span class="operator">.</span>framework<span class="operator">/</span>Versions<span class="operator">/</span><span class="number">4.0</span><span class="operator">/</span><span class="type"><a href="../qtcore/qtcore-module.html">QtCore</a></span>
-          plugandpaint<span class="operator">.</span>app<span class="operator">/</span>Contents<span class="operator">/</span>Frameworks<span class="operator">/</span><span class="type"><a href="../qtgui/qtgui-module.html">QtGui</a></span><span class="operator">.</span>framework<span class="operator">/</span>Versions<span class="operator">/</span><span class="number">4.0</span><span class="operator">/</span><span class="type"><a href="../qtgui/qtgui-module.html">QtGui</a></span>
+          plugandpaint<span class="operator">.</span>app<span class="operator">/</span>目录<span class="operator">/</span>Frameworks<span class="operator">/</span><span class="type"><a href="../qtgui/qtgui-module.html">QtGui</a></span><span class="operator">.</span>framework<span class="operator">/</span>Versions<span class="operator">/</span><span class="number">4.0</span><span class="operator">/</span><span class="type"><a href="../qtgui/qtgui-module.html">QtGui</a></span>
 
 </pre>
 <p>After this, we run <code>otool</code> again and see that the application can find the libraries.</p>
@@ -312,10 +312,10 @@
 
   install_name_tool <span class="operator">-</span>change <span class="operator">/</span>path<span class="operator">/</span>to<span class="operator">/</span><span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">/</span>lib<span class="operator">/</span><span class="type"><a href="../qtcore/qtcore-module.html">QtCore</a></span><span class="operator">.</span>framework<span class="operator">/</span>Versions<span class="operator">/</span><span class="number">4.0</span><span class="operator">/</span><span class="type"><a href="../qtcore/qtcore-module.html">QtCore</a></span>
           @executable_path<span class="operator">/</span><span class="operator">.</span><span class="operator">.</span><span class="operator">/</span>Frameworks<span class="operator">/</span><span class="type"><a href="../qtcore/qtcore-module.html">QtCore</a></span><span class="operator">.</span>framework<span class="operator">/</span>Versions<span class="operator">/</span><span class="number">4.0</span><span class="operator">/</span><span class="type"><a href="../qtcore/qtcore-module.html">QtCore</a></span>
-          plugandpaint<span class="operator">.</span>app<span class="operator">/</span>Contents<span class="operator">/</span>plugins<span class="operator">/</span>libpnp_basictools<span class="operator">.</span>dylib
+          plugandpaint<span class="operator">.</span>app<span class="operator">/</span>目录<span class="operator">/</span>plugins<span class="operator">/</span>libpnp_basictools<span class="operator">.</span>dylib
   install_name_tool <span class="operator">-</span>change <span class="operator">/</span>path<span class="operator">/</span>to<span class="operator">/</span><span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">/</span>lib<span class="operator">/</span><span class="type"><a href="../qtgui/qtgui-module.html">QtGui</a></span><span class="operator">.</span>framework<span class="operator">/</span>Versions<span class="operator">/</span><span class="number">4.0</span><span class="operator">/</span><span class="type"><a href="../qtgui/qtgui-module.html">QtGui</a></span>
           @executable_path<span class="operator">/</span><span class="operator">.</span><span class="operator">.</span><span class="operator">/</span>Frameworks<span class="operator">/</span><span class="type"><a href="../qtgui/qtgui-module.html">QtGui</a></span><span class="operator">.</span>framework<span class="operator">/</span>Versions<span class="operator">/</span><span class="number">4.0</span><span class="operator">/</span><span class="type"><a href="../qtgui/qtgui-module.html">QtGui</a></span>
-          plugandpaint<span class="operator">.</span>app<span class="operator">/</span>Contents<span class="operator">/</span>plugins<span class="operator">/</span>libpnp_basictools<span class="operator">.</span>dylib
+          plugandpaint<span class="operator">.</span>app<span class="operator">/</span>目录<span class="operator">/</span>plugins<span class="operator">/</span>libpnp_basictools<span class="operator">.</span>dylib
 
 </pre>
 <p>We must also modify the code in <code>tools/plugandpaint/mainwindow.cpp</code> to <a href="../qtcore/qdir.html#cdUp">cdUp()</a> to ensure that the application finds the plugins. Add the following code to the <code>mainwindow.cpp</code> file:</p>
@@ -334,7 +334,7 @@
 <pre class="cpp">
 
   cp <span class="operator">-</span>R <span class="operator">/</span>path<span class="operator">/</span>to<span class="operator">/</span><span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">/</span>plugins<span class="operator">/</span>imageformats
-          pluginandpaint<span class="operator">.</span>app<span class="operator">/</span>Contents<span class="operator">/</span>plugins
+          pluginandpaint<span class="operator">.</span>app<span class="operator">/</span>目录<span class="operator">/</span>plugins
 
 </pre>
 <p>Use <code>install_name_tool</code> to link the plugins to the frameworks in the bundle:</p>
@@ -342,10 +342,10 @@
 
   install_name_tool <span class="operator">-</span>change <span class="operator">/</span>path<span class="operator">/</span>to<span class="operator">/</span><span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">/</span>lib<span class="operator">/</span><span class="type"><a href="../qtgui/qtgui-module.html">QtGui</a></span><span class="operator">.</span>framework<span class="operator">/</span>Versions<span class="operator">/</span><span class="number">4.0</span><span class="operator">/</span><span class="type"><a href="../qtgui/qtgui-module.html">QtGui</a></span>
           @executable_path<span class="operator">/</span><span class="operator">.</span><span class="operator">.</span><span class="operator">/</span>Frameworks<span class="operator">/</span><span class="type"><a href="../qtgui/qtgui-module.html">QtGui</a></span><span class="operator">.</span>framework<span class="operator">/</span>Versions<span class="operator">/</span><span class="number">4.0</span><span class="operator">/</span><span class="type"><a href="../qtgui/qtgui-module.html">QtGui</a></span>
-          plugandpaint<span class="operator">.</span>app<span class="operator">/</span>Contents<span class="operator">/</span>plugins<span class="operator">/</span>imageformats<span class="operator">/</span>libqjpeg<span class="operator">.</span>dylib
+          plugandpaint<span class="operator">.</span>app<span class="operator">/</span>目录<span class="operator">/</span>plugins<span class="operator">/</span>imageformats<span class="operator">/</span>libqjpeg<span class="operator">.</span>dylib
   install_name_tool <span class="operator">-</span>change <span class="operator">/</span>path<span class="operator">/</span>to<span class="operator">/</span><span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">/</span>lib<span class="operator">/</span><span class="type"><a href="../qtcore/qtcore-module.html">QtCore</a></span><span class="operator">.</span>framework<span class="operator">/</span>Versions<span class="operator">/</span><span class="number">4.0</span><span class="operator">/</span><span class="type"><a href="../qtcore/qtcore-module.html">QtCore</a></span>
           @executable_path<span class="operator">/</span><span class="operator">.</span><span class="operator">.</span><span class="operator">/</span>Frameworks<span class="operator">/</span><span class="type"><a href="../qtcore/qtcore-module.html">QtCore</a></span><span class="operator">.</span>framework<span class="operator">/</span>Versions<span class="operator">/</span><span class="number">4.0</span><span class="operator">/</span><span class="type"><a href="../qtcore/qtcore-module.html">QtCore</a></span>
-          plugandpaint<span class="operator">.</span>app<span class="operator">/</span>Contents<span class="operator">/</span>plugins<span class="operator">/</span>imageformats<span class="operator">/</span>libqjpeg<span class="operator">.</span>dylib
+          plugandpaint<span class="operator">.</span>app<span class="operator">/</span>目录<span class="operator">/</span>plugins<span class="operator">/</span>imageformats<span class="operator">/</span>libqjpeg<span class="operator">.</span>dylib
 
 </pre>
 <p>Update the source code in <code>tools/plugandpaint/main.cpp</code> to look for the new plugins. After constructing the <a href="../qtwidgets/qapplication.html">QApplication</a>, we add the following code:</p>
@@ -385,7 +385,7 @@
 <p>You can check which libraries your application is linking against by using <code>otool</code>. Run this with the application path as an argument:</p>
 <pre class="cpp">
 
-  otool <span class="operator">-</span>L MyApp<span class="operator">.</span>app<span class="operator">/</span>Contents<span class="operator">/</span>MacOS<span class="operator">/</span>MyApp
+  otool <span class="operator">-</span>L MyApp<span class="operator">.</span>app<span class="operator">/</span>目录<span class="operator">/</span>MacOS<span class="operator">/</span>MyApp
 
 </pre>
 <p>Compiler-specific libraries rarely have to be redistributed with your application. But there are several ways to deploy applications, as Qt can be configured, built, and installed in several ways on macOS. Typically your goals help determine how you are going to deploy the application. The last sections describe a few things that you must be aware of while deploying your application.</p>
