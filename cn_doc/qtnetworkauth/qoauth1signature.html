@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtnetworkauth-index.html">Qt Network Authorization</a></td><td ><a href="qtnetworkauth-module.html">C++ Classes</a></td><td >QOAuth1Signature</td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtnetworkauth-index.html">Qt网络认证</a></td><td ><a href="qtnetworkauth-module.html">C++类</a></td><td >QOAuth1Signature</td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -36,12 +36,12 @@
 <div class="content mainContent">
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#public-types">Public Types</a></li>
-<li class="level1"><a href="#public-functions">Public Functions</a></li>
-<li class="level1"><a href="#static-public-members">Static Public Members</a></li>
-<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level1"><a href="#public-types">公共类型</a></li>
+<li class="level1"><a href="#public-functions">公共函数</a></li>
+<li class="level1"><a href="#static-public-members">静态公共成员</a></li>
+<li class="level1"><a href="#details">详细描述</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
@@ -50,17 +50,17 @@
 <p>Implements OAuth 1 signature methods. <a href="#details">More...</a></p>
 <!-- @@@QOAuth1Signature -->
 <div class="table"><table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QOAuth1Signature&gt;</span>
+<tr><td class="memItemLeft rightAlign topAlign">头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QOAuth1Signature&gt;</span>
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += networkauth</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.8</td></tr></table></div><ul>
 <li><a href="qoauth1signature-members.html">List of all members, including inherited members</a></li>
 </ul>
 <a name="public-types"></a>
-<h2 id="public-types">Public Types</h2>
+<h2 id="public-types">公共类型</h2>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qoauth1signature.html#HttpRequestMethod-enum">HttpRequestMethod</a></b> { Head, Get, Put, Post, ..., Unknown }</td></tr>
 </table></div>
 <a name="public-functions"></a>
-<h2 id="public-functions">Public Functions</h2>
+<h2 id="public-functions">公共函数</h2>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qoauth1signature.html#QOAuth1Signature">QOAuth1Signature</a></b>(const QUrl &amp;<i>url</i> = QUrl(), QOAuth1Signature::HttpRequestMethod <i>method</i> = HttpRequestMethod::Post, const QVariantMap &amp;<i>parameters</i> = ...)</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qoauth1signature.html#QOAuth1Signature-1">QOAuth1Signature</a></b>(const QUrl &amp;<i>url</i>, const QString &amp;<i>clientSharedKey</i>, const QString &amp;<i>tokenSecret</i>, QOAuth1Signature::HttpRequestMethod <i>method</i> = HttpRequestMethod::Post, const QVariantMap &amp;<i>parameters</i> = ...)</td></tr>
@@ -90,21 +90,21 @@
 <tr><td class="memItemLeft rightAlign topAlign"> QOAuth1Signature &amp;</td><td class="memItemRight bottomAlign"><b><a href="qoauth1signature.html#operator-eq-1">operator=</a></b>(QOAuth1Signature &amp;&amp;<i>other</i>)</td></tr>
 </table></div>
 <a name="static-public-members"></a>
-<h2 id="static-public-members">Static Public Members</h2>
+<h2 id="static-public-members">静态公共成员</h2>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> QByteArray </td><td class="memItemRight bottomAlign"><b><a href="qoauth1signature.html#plainText-1">plainText</a></b>(const QString &amp;<i>clientSharedKey</i>, const QString &amp;<i>tokenSecret</i>)</td></tr>
 </table></div>
 <a name="details"></a>
 <!-- $$$QOAuth1Signature-description -->
 <div class="descr">
-<h2 id="details">Detailed Description</h2>
+<h2 id="details">详细描述</h2>
 <p>Implements OAuth 1 signature methods.</p>
 <p>OAuth-authenticated requests can have two sets of credentials: those passed via the &quot;oauth_consumer_key&quot; parameter and those in the &quot;oauth_token&quot; parameter. In order for the server to verify the authenticity of the request and prevent unauthorized access, the client needs to prove that it is the rightful owner of the credentials. This is accomplished using the shared-secret (or RSA key) part of each set of credentials.</p>
 <p>OAuth specifies three methods for the client to establish its rightful ownership of the credentials: &quot;HMAC-SHA1&quot;, &quot;RSA-SHA1&quot;, and &quot;PLAINTEXT&quot;. Each generates a &quot;signature&quot; with which the request is &quot;signed&quot;; the first two use a digest of the data signed in generating this, though the last does not. The &quot;RSA-SHA1&quot; method is not supported here; it would use an RSA key rather than the shared-secret associated with the client credentials.</p>
 </div>
 <!-- @@@QOAuth1Signature -->
 <div class="types">
-<h2>Member Type Documentation</h2>
+<h2>成员类型文档</h2>
 <!-- $$$HttpRequestMethod$$$Head$$$Get$$$Put$$$Post$$$Delete$$$Custom$$$Unknown -->
 <h3 class="fn" id="HttpRequestMethod-enum"><a name="HttpRequestMethod-enum"></a>enum QOAuth1Signature::<span class="name">HttpRequestMethod</span></h3>
 <p>Indicates the HTTP request method.</p>
@@ -120,10 +120,10 @@
 <!-- @@@HttpRequestMethod -->
 </div>
 <div class="prop">
-<h2>Property Documentation</h2>
+<h2>属性文档</h2>
 </div>
 <div class="func">
-<h2>Member Function Documentation</h2>
+<h2>成员函数文档</h2>
 <!-- $$$QOAuth1Signature[overload1]$$$QOAuth1SignatureconstQUrl&QOAuth1Signature::HttpRequestMethodconstQVariantMap& -->
 <h3 class="fn" id="QOAuth1Signature"><a name="QOAuth1Signature"></a>QOAuth1Signature::<span class="name">QOAuth1Signature</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i> = QUrl(), <span class="type"><a href="qoauth1signature.html#HttpRequestMethod-enum">QOAuth1Signature::HttpRequestMethod</a></span> <i>method</i> = HttpRequestMethod::Post, const <span class="type"><a href="../qtcore/qvariant.html#QVariantMap-typedef">QVariantMap</a></span> &amp;<i>parameters</i> = ...)</h3>
 <p>Creates a <a href="qoauth1signature.html">QOAuth1Signature</a> using</p>
@@ -255,13 +255,13 @@
 <!-- @@@operator= -->
 </div>
 <div class="vars">
-<h2>Member Variable Documentation</h2>
+<h2>成员变量文档</h2>
 </div>
 <div class="relnonmem">
-<h2>Related Non-Members</h2>
+<h2>相关的非成员</h2>
 </div>
 <div class="macros">
-<h2>Macro Documentation</h2>
+<h2>宏定义文档</h2>
 </div>
         </div>
        </div>
