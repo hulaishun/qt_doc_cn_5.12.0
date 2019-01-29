@@ -36,7 +36,7 @@
 <div class="content mainContent">
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3><a name="toc">目录</a></h3>
 <ul>
 <li class="level1"><a href="#data-type-handling-and-ownership">Data Type Handling and Ownership</a></li>
 <li class="level1"><a href="#exposing-properties">Exposing Properties</a></li>
@@ -55,9 +55,9 @@
 <p>QML can easily be extended with functionality defined in C++ code. Due to the tight integration of the QML engine with the <a href="../qtcore/metaobjects.html">Qt meta-object system</a>, any functionality that is appropriately exposed by a <a href="../qtcore/qobject.html">QObject</a>-derived class is accessible from QML code. This enables C++ data and functions to be accessible directly from QML, often with little or no modification.</p>
 <p>The QML engine has the ability to introspect <a href="../qtcore/qobject.html">QObject</a> instances through the meta-object system. This means any QML code can access the following members of an instance of a <a href="../qtcore/qobject.html">QObject</a>-derived class:</p>
 <ul>
-<li>Properties</li>
+<li>属性</li>
 <li>Methods (providing they are public slots or flagged with <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>)</li>
-<li>Signals</li>
+<li>信号</li>
 </ul>
 <p>(Additionally, enums are available if they have been declared with Q_ENUMS. See <a href="qtqml-cppintegration-data.html">Data Type Conversion Between QML and C++</a> for more details.)</p>
 <p>In general, these are accessible from QML regardless of whether a <a href="../qtcore/qobject.html">QObject</a>-derived class has been <a href="qtqml-cppintegration-definetypes.html#registering-c-types-with-the-qml-type-system">registered with the QML type system</a>. However, if a class is to be used in a way that requires the engine to access additional type information — for example, if the class itself is to be used as a method parameter or property, or if one of its enum types is to be used in this way — then the class may need to be registered.</p>

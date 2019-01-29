@@ -36,7 +36,7 @@
 <div class="content mainContent">
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3><a name="toc">目录</a></h3>
 <ul>
 <li class="level1"><a href="#running-the-tutorial-examples">Running the Tutorial Examples</a></li>
 <li class="level1"><a href="#chapter-1-creating-a-new-type">Chapter 1: Creating a New Type</a></li>
@@ -61,7 +61,7 @@
 <p>Many of the topics covered in this tutorial are documented in further detail in <a href="qtqml-cppintegration-topic.html">Integrating QML and C++</a> and its documentation sub-topics. In particular, you may be interested in the sub-topics <a href="qtqml-cppintegration-exposecppattributes.html">Exposing Attributes of C++ Classes to QML</a> and <a href="qtqml-cppintegration-definetypes.html">Defining QML Types from C++</a>.</p>
 <a name="running-the-tutorial-examples"></a>
 <h2 id="running-the-tutorial-examples">Running the Tutorial Examples</h2>
-<p>The code in this tutorial is available as an example project with subprojects associated with each tutorial chapter. In <a href="http://doc.qt.io/qtcreator/index.html">Qt Creator</a>, open the <b>Welcome</b> mode and select the tutorial from <b>Examples</b>. In <b>Edit</b> mode, expand the <i>extending-qml</i> project, right-click on the subproject (chapter) you want to run and select <b>Run</b>.</p>
+<p>The code in this tutorial is available as an example project with subprojects associated with each tutorial chapter. In <a href="http://doc.qt.io/qtcreator/index.html">Qt Creator</a>, open the <b>Welcome</b> mode and select the tutorial from <b>样例</b>. In <b>Edit</b> mode, expand the <i>extending-qml</i> project, right-click on the subproject (chapter) you want to run and select <b>Run</b>.</p>
 <a name="chapter-1-creating-a-new-type"></a>
 <h2 id="chapter-1-creating-a-new-type">Chapter 1: Creating a New Type</h2>
 <p><code>extending-qml/chapter1-basics</code></p>
@@ -201,7 +201,7 @@
 
 </pre>
 <p>Now we can build and run the application:</p>
-<p class="centerAlign"><img src="images/extending-tutorial-chapter1.png" alt="" /></p><p><b>Note: </b>You may see a warning <i>Expression ..&#x2e; depends on non-NOTIFYable properties: PieChart::name</i>. This happens because we add a binding to the writable <code>name</code> property, but haven't yet defined a notify signal for it. The QML engine therefore cannot update the binding if the <code>name</code> value changes. This is addressed in the following chapters.</p><p>The source code from the following files are referred to in this chapter: <p>Files:</p>
+<p class="centerAlign"><img src="images/extending-tutorial-chapter1.png" alt="" /></p><p><b>Note: </b>You may see a warning <i>Expression ..&#x2e; depends on non-NOTIFYable properties: PieChart::name</i>. This happens because we add a binding to the writable <code>name</code> property, but haven't yet defined a notify signal for it. The QML engine therefore cannot update the binding if the <code>name</code> value changes. This is addressed in the following chapters.</p><p>The source code from the following files are referred to in this chapter: <p>文件：</p>
 <ul>
 <li><a href="qtqml-tutorials-extending-qml-chapter1-basics-app-qml.html">tutorials/extending-qml/chapter1-basics/app.qml</a></li>
 <li><a href="qtqml-tutorials-extending-qml-chapter1-basics-chapter1-basics-pro.html">tutorials/extending-qml/chapter1-basics/chapter1-basics.pro</a></li>
@@ -278,7 +278,7 @@
   qml: The chart has been cleared
 
 </pre>
-<p>The source code from the following files are referred to in this chapter: <p>Files:</p>
+<p>The source code from the following files are referred to in this chapter: <p>文件：</p>
 <ul>
 <li><a href="qtqml-tutorials-extending-qml-chapter2-methods-app-qml.html">tutorials/extending-qml/chapter2-methods/app.qml</a></li>
 <li><a href="qtqml-tutorials-extending-qml-chapter2-methods-chapter2-methods-pro.html">tutorials/extending-qml/chapter2-methods/chapter2-methods.pro</a></li>
@@ -359,7 +359,7 @@
 </pre>
 <p>It's important for <code>setColor()</code> to check that the color value has actually changed before emitting <code>colorChanged()</code>. This ensures the signal is not emitted unnecessarily and also prevents loops when other types respond to the value change.</p>
 <p>The use of bindings is essential to QML. You should always add NOTIFY signals for properties if they are able to be implemented, so that your properties can be used in bindings. Properties that cannot be bound cannot be automatically updated and cannot be used as flexibly in QML. Also, since bindings are invoked so often and relied upon in QML usage, users of your custom QML types may see unexpected behavior if bindings are not implemented.</p>
-<p>The source code from the following files are referred to in this chapter: <p>Files:</p>
+<p>The source code from the following files are referred to in this chapter: <p>文件：</p>
 <ul>
 <li><a href="qtqml-tutorials-extending-qml-chapter3-bindings-app-qml.html">tutorials/extending-qml/chapter3-bindings/app.qml</a></li>
 <li><a href="qtqml-tutorials-extending-qml-chapter3-bindings-chapter3-bindings-pro.html">tutorials/extending-qml/chapter3-bindings/chapter3-bindings.pro</a></li>
@@ -479,7 +479,7 @@
   }
 
 </pre>
-<p>The source code from the following files are referred to in this chapter: <p>Files:</p>
+<p>The source code from the following files are referred to in this chapter: <p>文件：</p>
 <ul>
 <li><a href="qtqml-tutorials-extending-qml-chapter4-custompropertytypes-app-qml.html">tutorials/extending-qml/chapter4-customPropertyTypes/app.qml</a></li>
 <li><a href="qtqml-tutorials-extending-qml-chapter4-custompropertytypes-chapter4-custompropertytypes-pro.html">tutorials/extending-qml/chapter4-customPropertyTypes/chapter4-customPropertyTypes.pro</a></li>
@@ -566,7 +566,7 @@
 </pre>
 <p>The <code>append_slice()</code> function simply sets the parent item as before, and adds the new item to the <code>m_slices</code> list. As you can see, the append function for a <a href="qqmllistproperty.html">QQmlListProperty</a> is called with two arguments: the list property, and the item that is to be appended.</p>
 <p>The <code>PieSlice</code> class has also been modified to include <code>fromAngle</code> and <code>angleSpan</code> properties and to draw the slice according to these values. This is a straightforward modification if you have read the previous pages in this tutorial, so the code is not shown here.</p>
-<p>The source code from the following files are referred to in this chapter: <p>Files:</p>
+<p>The source code from the following files are referred to in this chapter: <p>文件：</p>
 <ul>
 <li><a href="qtqml-tutorials-extending-qml-chapter5-listproperties-app-qml.html">tutorials/extending-qml/chapter5-listproperties/app.qml</a></li>
 <li><a href="qtqml-tutorials-extending-qml-chapter5-listproperties-chapter5-listproperties-pro.html">tutorials/extending-qml/chapter5-listproperties/chapter5-listproperties.pro</a></li>
@@ -681,7 +681,7 @@
 
 </pre>
 <p>The module &quot;Charts&quot; will be loaded by the QML engine, and the types provided by that module will be available for use in any QML document which imports it.</p>
-<p>The source code from the following files are referred to in this chapter: <p>Files:</p>
+<p>The source code from the following files are referred to in this chapter: <p>文件：</p>
 <ul>
 <li><a href="qtqml-tutorials-extending-qml-chapter6-plugins-app-pro.html">tutorials/extending-qml/chapter6-plugins/app.pro</a></li>
 <li><a href="qtqml-tutorials-extending-qml-chapter6-plugins-app-qml.html">tutorials/extending-qml/chapter6-plugins/app.qml</a></li>

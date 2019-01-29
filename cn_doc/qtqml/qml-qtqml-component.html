@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtqml-index.html">Qt QML</a></td><td ><a href="qtqml-qmlmodule.html">QML Types</a></td><td >Component QML Type</td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtqml-index.html">Qt QML</a></td><td ><a href="qtqml-qmlmodule.html">QML类型</a></td><td >Component QML Type</td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -36,13 +36,13 @@
 <div class="content mainContent">
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#properties">Properties</a></li>
-<li class="level1"><a href="#attached-signals">Attached Signals</a></li>
-<li class="level1"><a href="#methods">Methods</a></li>
-<li class="level1"><a href="#details">Detailed Description</a></li>
-<li class="level2"><a href="#creation-context">Creation Context</a></li>
+<li class="level1"><a href="#properties">属性</a></li>
+<li class="level1"><a href="#attached-signals">附着信号</a></li>
+<li class="level1"><a href="#methods">方法</a></li>
+<li class="level1"><a href="#details">详细描述</a></li>
+<li class="level2"><a href="#creation-context">创建上下文</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
@@ -56,20 +56,20 @@
 <li><a href="qml-qtqml-component-members.html">List of all members, including inherited members</a></li>
 </ul>
 <a name="properties"></a>
-<h2 id="properties">Properties</h2>
+<h2 id="properties">属性</h2>
 <ul>
 <li class="fn"><b><b><a href="qml-qtqml-component.html#progress-prop">progress</a></b></b> : real</li>
 <li class="fn"><b><b><a href="qml-qtqml-component.html#status-prop">status</a></b></b> : enumeration</li>
 <li class="fn"><b><b><a href="qml-qtqml-component.html#url-prop">url</a></b></b> : url</li>
 </ul>
 <a name="attached-signals"></a>
-<h2 id="attached-signals">Attached Signals</h2>
+<h2 id="attached-signals">附着信号</h2>
 <ul>
 <li class="fn"><b><b><a href="qml-qtqml-component.html#completed-signal">completed</a></b></b>()</li>
 <li class="fn"><b><b><a href="qml-qtqml-component.html#destruction-signal">destruction</a></b></b>()</li>
 </ul>
 <a name="methods"></a>
-<h2 id="methods">Methods</h2>
+<h2 id="methods">方法</h2>
 <ul>
 <li class="fn">object <b><b><a href="qml-qtqml-component.html#createObject-method">createObject</a></b></b>(QtObject <i>parent</i>,  object <i>properties</i>)</li>
 <li class="fn">string <b><b><a href="qml-qtqml-component.html#errorString-method">errorString</a></b></b>()</li>
@@ -77,7 +77,7 @@
 </ul>
 <!-- $$$Component-description -->
 <a name="details"></a>
-<h2 id="details">Detailed Description</h2>
+<h2 id="details">详细描述</h2>
 <p>Components are reusable, encapsulated QML types with well-defined interfaces.</p>
 <p>Components are often defined by <a href="qtqml-documents-topic.html">component files</a> - that is, <code>.qml</code> files. The <i>Component</i> type essentially allows QML components to be defined inline, within a <a href="qtqml-documents-topic.html">QML document</a>, rather than as a separate QML file. This may be useful for reusing a small component within a QML file, or for defining a component that logically belongs with other QML components within a file.</p>
 <p>For example, here is a component that is used by multiple <a href="../qtquick/qml-qtquick-loader.html">Loader</a> objects. It contains a single item, a <a href="../qtquick/qml-qtquick-rectangle.html">Rectangle</a>:</p>
@@ -108,7 +108,7 @@
 <p>The <code>Component</code> type is commonly used to provide graphical components for views. For example, the <a href="../qtquick/qml-qtquick-listview.html#delegate-prop">ListView::delegate</a> property requires a <code>Component</code> to specify how each list item is to be displayed.</p>
 <p><code>Component</code> objects can also be created dynamically using <a href="qml-qtqml-qt.html#createComponent-method">Qt.createComponent()</a>.</p>
 <a name="creation-context"></a>
-<h3 >Creation Context</h3>
+<h3 >创建上下文</h3>
 <p>The creation context of a Component corresponds to the context where the Component was declared. This context is used as the parent context (creating a <a href="qtqml-documents-scope.html#component-instance-hierarchy">context hierarchy</a>) when the component is instantiated by an object such as a <a href="../qtquick/qml-qtquick-listview.html">ListView</a> or a Loader.</p>
 <p>In the following example, <code>comp1</code> is created within the root context of MyItem.qml, and any objects instantiated from this component will have access to the ids and properties within that context, such as <code>internalSettings.color</code>. When <code>comp1</code> is used as a <a href="../qtquick/qml-qtquick-listview.html">ListView</a> delegate in another context (as in main.qml below), it will continue to have access to the properties of its creation context (which would otherwise be private to external users).</p>
 <div class="table"><table class="generic">
@@ -145,7 +145,7 @@
 </table></div>
 <p>It is important that the lifetime of the creation context outlive any created objects. See <a href="qtqml-javascript-dynamicobjectcreation.html#maintaining-dynamically-created-objects">Maintaining Dynamically Created Objects</a> for more details.</p>
 <!-- @@@Component -->
-<h2>Property Documentation</h2>
+<h2>属性文档</h2>
 <!-- $$$progress -->
 <div class="qmlitem"><div class="qmlproto">
 <div class="table"><table class="qmlname">
@@ -182,7 +182,7 @@
 </div><div class="qmldoc"><p>The component URL. This is the URL that was used to construct the component.</p>
 </div></div><!-- @@@url -->
 <br/>
-<h2>Attached Signal Documentation</h2>
+<h2>附着信号文档</h2>
 <!-- $$$completed -->
 <div class="qmlitem"><div class="qmlproto">
 <div class="table"><table class="qmlname">
@@ -226,7 +226,7 @@
 <p><b>See also </b><a href="qtqml-index.html">Qt QML</a>.</p>
 </div></div><!-- @@@destruction -->
 <br/>
-<h2>Method Documentation</h2>
+<h2>方法文档</h2>
 <!-- $$$createObject -->
 <div class="qmlitem"><div class="qmlproto">
 <div class="table"><table class="qmlname">
