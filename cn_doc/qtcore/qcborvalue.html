@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcore-index.html">Qt Core</a></td><td ><a href="qtcore-module.html">C++ Classes</a></td><td >QCborValue</td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcore-index.html">Qt核心</a></td><td ><a href="qtcore-module.html">C++类</a></td><td >QCborValue</td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -55,9 +55,9 @@
 <p>The <a href="qcborvalue.html">QCborValue</a> class encapsulates a value in CBOR. <a href="#details">More...</a></p>
 <!-- @@@QCborValue -->
 <div class="table"><table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QCborValue&gt;</span>
+<tr><td class="memItemLeft rightAlign topAlign"> 头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QCborValue&gt;</span>
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += core</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.12</td></tr></table></div><ul>
-<li><a href="qcborvalue-members.html">List of all members, including inherited members</a></li>
+<li><a href="qcborvalue-members.html">所有成员清单，包括继承而来的成员</a></li>
 </ul>
 <p><b>Note:</b> All functions in this class are <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
 <a name="public-types"></a>
@@ -203,7 +203,7 @@
 <p><a href="qcborvalue.html">QCborValue</a> supports all CBOR features required to create canonical and strict streams. It implements almost all of the features specified in <a href="https://tools.ietf.org/html/rfc7049">RFC 7049</a>.</p>
 <p>The following table lists the CBOR features that <a href="qcborvalue.html">QCborValue</a> supports.</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Feature</th><th >Support</th></tr></thead>
+ <thead><tr class="qt-style"><th >特性</th><th >Support</th></tr></thead>
 <tr valign="top" class="odd"><td >Unsigned numbers</td><td >Yes (<a href="qtglobal.html#qint64-typedef">qint64</a> range)</td></tr>
 <tr valign="top" class="even"><td >Negative numbers</td><td >Yes (<a href="qtglobal.html#qint64-typedef">qint64</a> range)</td></tr>
 <tr valign="top" class="odd"><td >Byte strings</td><td >Yes</td></tr>
@@ -237,7 +237,7 @@
 <!-- $$$DiagnosticNotationOption$$$Compact$$$LineWrapped$$$ExtendedFormat -->
 <h3 class="flags" id="DiagnosticNotationOption-enum"><a name="DiagnosticNotationOption-enum"></a>enum QCborValue::<span class="name">DiagnosticNotationOption</span><br/>flags QCborValue::<span class="name">DiagnosticNotationOptions</span></h3>
 <p>This enum is used in the option argument to <a href="qcborvalue.html#toDiagnosticNotation">toDiagnosticNotation</a>(), to modify the output format.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QCborValue::Compact</code></td><td class="topAlign tblval"><code>0x00</code></td><td class="topAlign">Does not use any line-breaks, producing a compact representation.</td></tr>
 <tr><td class="topAlign"><code>QCborValue::LineWrapped</code></td><td class="topAlign tblval"><code>0x01</code></td><td class="topAlign">Uses line-breaks, one <a href="qcborvalue.html">QCborValue</a> per line.</td></tr>
 <tr><td class="topAlign"><code>QCborValue::ExtendedFormat</code></td><td class="topAlign tblval"><code>0x02</code></td><td class="topAlign">Uses some different options to represent values, not found in RFC 7049. Those options are subject to change.</td></tr>
@@ -249,7 +249,7 @@
 <!-- $$$EncodingOption$$$SortKeysInMaps$$$UseFloat$$$UseFloat16$$$UseIntegers$$$NoTransformation -->
 <h3 class="flags" id="EncodingOption-enum"><a name="EncodingOption-enum"></a>enum QCborValue::<span class="name">EncodingOption</span><br/>flags QCborValue::<span class="name">EncodingOptions</span></h3>
 <p>This enum is used in the options argument to <a href="qcborvalue.html#toCbor">toCbor</a>(), modifying the behavior of the encoder.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QCborValue::NoTransformation</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">(Default) Performs no transformations.</td></tr>
 <tr><td class="topAlign"><code>QCborValue::UseFloat</code></td><td class="topAlign tblval"><code>0x02</code></td><td class="topAlign">Tells the encoder to use IEEE 754 single-precision floating point (that is, <code>float</code>) whenever possible.</td></tr>
 <tr><td class="topAlign"><code>QCborValue::UseFloat16</code></td><td class="topAlign tblval"><code>UseFloat | 0x04</code></td><td class="topAlign">Tells the encoder to use IEEE 754 half-precision floating point (that is, <code>qfloat16</code>), whenever possible. Implies <code>UseFloat</code>.</td></tr>
@@ -263,7 +263,7 @@
 <h3 class="fn" id="Type-enum"><a name="Type-enum"></a>enum QCborValue::<span class="name">Type</span></h3>
 <p>This enum represents the <a href="qcborvalue.html">QCborValue</a> type. It is returned by the <a href="qcborvalue.html#type">type</a>() function.</p>
 <p>The CBOR built-in types are:</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QCborValue::Integer</code></td><td class="topAlign tblval"><code>0x00</code></td><td class="topAlign"><code>qint64</code>: An integer value</td></tr>
 <tr><td class="topAlign"><code>QCborValue::ByteArray</code></td><td class="topAlign tblval"><code>0x40</code></td><td class="topAlign"><a href="qbytearray.html">QByteArray</a>: a byte array (&quot;byte string&quot;)</td></tr>
 <tr><td class="topAlign"><code>QCborValue::String</code></td><td class="topAlign tblval"><code>0x60</code></td><td class="topAlign"><a href="qstring.html">QString</a>: a Unicode string (&quot;text string&quot;)</td></tr>
@@ -278,7 +278,7 @@
 <tr><td class="topAlign"><code>QCborValue::Invalid</code></td><td class="topAlign tblval"><code>-1</code></td><td class="topAlign">Not a valid value, this usually indicates a CBOR decoding error</td></tr>
 </table></div>
 <p>Additionally, <a href="qcborvalue.html">QCborValue</a> can represent extended types:</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="even"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="even"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QCborValue::Tag</code></td><td class="topAlign tblval"><code>0xc0</code></td><td class="topAlign">An unknown or unrecognized extended type, represented by its tag (a <a href="qtcborcommon.html#QCborTag-enum">QCborTag</a>) and the tagged value (a <a href="qcborvalue.html">QCborValue</a>)</td></tr>
 <tr><td class="topAlign"><code>QCborValue::DateTime</code></td><td class="topAlign tblval"><code>0x10000</code></td><td class="topAlign"><a href="qdatetime.html">QDateTime</a>: a date and time stamp</td></tr>
 <tr><td class="topAlign"><code>QCborValue::Url</code></td><td class="topAlign tblval"><code>0x10020</code></td><td class="topAlign"><a href="qurl.html">QUrl</a>: a URL or URI</td></tr>

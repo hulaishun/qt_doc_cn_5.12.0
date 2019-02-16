@@ -185,7 +185,7 @@
 <p>Now, TCP is based on sending a stream of data, so we cannot expect to get the entire fortune in one go. Especially on a slow network, the data can be received in several small fragments. <a href="qtcpsocket.html">QTcpSocket</a> buffers up all incoming data and emits <a href="../qtcore/qiodevice.html#readyRead">readyRead()</a> for every new block that arrives, and it is our job to ensure that we have received all the data we need before we start parsing.</p>
 <p>For this purpose we use a <a href="../qtcore/qdatastream.html">QDataStream</a> read transaction. It keeps reading stream data into an internal buffer and rolls it back in case of an incomplete read. We start by calling startTransaction() which also resets the stream status to indicate that new data was received on the socket. We proceed by using <a href="../qtcore/qdatastream.html">QDataStream</a>'s streaming operator to read the fortune from the socket into a <a href="../qtcore/qstring.html">QString</a>. Once read, we complete the transaction by calling <a href="../qtcore/qdatastream.html#commitTransaction">QDataStream::commitTransaction</a>(). If we did not receive a full packet, this function restores the stream data to the initial position, after which we can wait for a new readyRead() signal.</p>
 <p>After a successful read transaction, we call QLabel::setText() to display the fortune.</p>
-<p>Files:</p>
+<p>文件：</p>
 <ul>
 <li><a href="qtnetwork-fortuneclient-client-cpp.html">fortuneclient/client.cpp</a></li>
 <li><a href="qtnetwork-fortuneclient-client-h.html">fortuneclient/client.h</a></li>

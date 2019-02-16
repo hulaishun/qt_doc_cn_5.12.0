@@ -40,7 +40,7 @@
 <ul>
 <li class="level1"><a href="#supported-versions">Supported Versions</a></li>
 <li class="level2"><a href="#build-environment">Build Environment</a></li>
-<li class="level2"><a href="#target-platforms">Target Platforms</a></li>
+<li class="level2"><a href="#target-platforms">目标平台</a></li>
 <li class="level2"><a href="#architectures">Architectures</a></li>
 <li class="level1"><a href="#additional-command-line-options">Additional Command-Line Options</a></li>
 <li class="level1"><a href="#deploying-applications-on-macos">Deploying Applications on macOS</a></li>
@@ -95,7 +95,7 @@
 
 </pre>
 <a name="target-platforms"></a>
-<h3 >Target Platforms</h3>
+<h3 >目标平台</h3>
 <p>Building for macOS utilizes a technique called <i>weak linking</i> that allows you to build your application against the headers and libraries of the latest platform SDK, while still allowing your application to be deployed to macOS versions lower than the SDK version. When the binary is run on a macOS version lower than the SDK it was built with, Qt will check at runtime whether or not a platform feature is available before utilizing it.</p>
 <p>In theory this would allow running your application on every single macOS version released, but for practical (and technical) reasons there is a lower limit to this range, known as the <i>deployment target</i> of your application. If the binary is launched on a macOS version below the deployment target macOS or Qt will give an error message and the application will not run.</p>
 <p>Qt expresses the deployment target via the <code>QMAKE_MACOSX_DEPLOYMENT_TARGET</code> qmake variable, which has a default value set via the makespec for macOS. You should not need to change this default, but if needed you can increase it in your project file:</p>

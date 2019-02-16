@@ -56,7 +56,7 @@
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign">头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QLowEnergyService&gt;</span>
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += bluetooth</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.4</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <a href="../qtcore/qobject.html">QObject</a></td></tr></table></div><ul>
-<li><a href="qlowenergyservice-members.html">List of all members, including inherited members</a></li>
+<li><a href="qlowenergyservice-members.html">所有成员清单，包括继承而来的成员</a></li>
 <li><a href="qlowenergyservice-obsolete.html">过时的成员</a></li>
 </ul>
 <a name="public-types"></a>
@@ -198,7 +198,7 @@
 <!-- $$$ServiceError$$$NoError$$$OperationError$$$CharacteristicWriteError$$$DescriptorWriteError$$$UnknownError$$$CharacteristicReadError$$$DescriptorReadError -->
 <h3 class="fn" id="ServiceError-enum"><a name="ServiceError-enum"></a>enum QLowEnergyService::<span class="name">ServiceError</span></h3>
 <p>This enum describes all possible error conditions during the service's existence. The <a href="qlowenergyservice.html#error">error</a>() function returns the last occurred error.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QLowEnergyService::NoError</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">No error has occurred.</td></tr>
 <tr><td class="topAlign"><code>QLowEnergyService::OperationError</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">An operation was attempted while the service was not ready. An example might be the attempt to write to the service while it was not yet in the <a href="qlowenergyservice.html#ServiceState-enum">ServiceDiscovered</a> <a href="qlowenergyservice.html#state">state</a>() or the service is invalid due to a loss of connection to the peripheral device.</td></tr>
 <tr><td class="topAlign"><code>QLowEnergyService::CharacteristicReadError</code></td><td class="topAlign tblval"><code>5</code></td><td class="topAlign">An attempt to read a characteristic value failed. For example, it might be triggered in response to a call to <a href="qlowenergyservice.html#readCharacteristic">readCharacteristic</a>(). This value was introduced by Qt 5.5&#x2e;</td></tr>
@@ -211,7 +211,7 @@
 <!-- $$$ServiceState$$$InvalidService$$$DiscoveryRequired$$$DiscoveringServices$$$ServiceDiscovered$$$LocalService -->
 <h3 class="fn" id="ServiceState-enum"><a name="ServiceState-enum"></a>enum QLowEnergyService::<span class="name">ServiceState</span></h3>
 <p>This enum describes the <a href="qlowenergyservice.html#state">state</a>() of the service object.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QLowEnergyService::InvalidService</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">A service can become invalid when it looses the connection to the underlying device. Even though the connection may be lost it retains its last information. An invalid service cannot become valid anymore even if the connection to the device is re-established.</td></tr>
 <tr><td class="topAlign"><code>QLowEnergyService::DiscoveryRequired</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">The service details are yet to be discovered by calling <a href="qlowenergyservice.html#discoverDetails">discoverDetails</a>(). The only reliable pieces of information are its <a href="qlowenergyservice.html#serviceUuid">serviceUuid</a>() and <a href="qlowenergyservice.html#serviceName">serviceName</a>().</td></tr>
 <tr><td class="topAlign"><code>QLowEnergyService::DiscoveringServices</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">The service details are being discovered.</td></tr>
@@ -222,7 +222,7 @@
 <!-- $$$ServiceType$$$PrimaryService$$$IncludedService -->
 <h3 class="flags" id="ServiceType-enum"><a name="ServiceType-enum"></a>enum QLowEnergyService::<span class="name">ServiceType</span><br/>flags QLowEnergyService::<span class="name">ServiceTypes</span></h3>
 <p>This enum describes the type of the service.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QLowEnergyService::PrimaryService</code></td><td class="topAlign tblval"><code>0x0001</code></td><td class="topAlign">The service is a top-level/primary service. If this type flag is not set, the service is considered to be a secondary service. Each service may be included by another service which is indicated by IncludedService.</td></tr>
 <tr><td class="topAlign"><code>QLowEnergyService::IncludedService</code></td><td class="topAlign tblval"><code>0x0002</code></td><td class="topAlign">The service is included by another service. On some platforms, this flag cannot be determined until the service that includes the current service was discovered.</td></tr>
 </table></div>
@@ -231,7 +231,7 @@
 <!-- $$$WriteMode$$$WriteWithResponse$$$WriteWithoutResponse$$$WriteSigned -->
 <h3 class="fn" id="WriteMode-enum"><a name="WriteMode-enum"></a>enum QLowEnergyService::<span class="name">WriteMode</span></h3>
 <p>This enum describes the mode to be used when writing a characteristic value. The characteristic advertises its supported write modes via its <a href="qlowenergycharacteristic.html#properties">properties</a>.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QLowEnergyService::WriteWithResponse</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">If a characteristic is written using this mode, the peripheral shall send a write confirmation. If the operation is successful, the confirmation is emitted via the <a href="qlowenergyservice.html#characteristicWritten">characteristicWritten</a>() signal. Otherwise the <a href="qlowenergyservice.html#ServiceError-enum">CharacteristicWriteError</a> is emitted. A characteristic must have set the <a href="qlowenergycharacteristic.html#PropertyType-enum">QLowEnergyCharacteristic::Write</a> property to support this write mode.</td></tr>
 <tr><td class="topAlign"><code>QLowEnergyService::WriteWithoutResponse</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">If a characteristic is written using this mode, the remote peripheral shall not send a write confirmation. The operation's success cannot be determined and the payload must not be longer than 20 bytes. A characteristic must have set the <a href="qlowenergycharacteristic.html#PropertyType-enum">QLowEnergyCharacteristic::WriteNoResponse</a> property to support this write mode. Its adavantage is a quicker write operation as it may happen in between other device interactions.</td></tr>
 <tr><td class="topAlign"><code>QLowEnergyService::WriteSigned</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">If a characteristic is written using this mode, the remote peripheral shall not send a write confirmation. The operation's success cannot be determined and the payload must not be longer than 8 bytes. A bond must exist between the two devices and the link must not be encrypted. A characteristic must have set the <a href="qlowenergycharacteristic.html#PropertyType-enum">QLowEnergyCharacteristic::WriteSigned</a> property to support this write mode. This value was introduced in Qt 5.7 and is currently only supported on Android and on Linux with <a href="qtbluetooth-attribution-bluez.html">BlueZ</a> 5 and a kernel version 3.7 or newer.</td></tr>

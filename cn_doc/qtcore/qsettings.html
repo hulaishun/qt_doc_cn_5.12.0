@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcore-index.html">Qt Core</a></td><td ><a href="qtcore-module.html">C++ Classes</a></td><td >QSettings</td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcore-index.html">Qt核心</a></td><td ><a href="qtcore-module.html">C++类</a></td><td >QSettings</td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -58,10 +58,10 @@
 <p>The <a href="qsettings.html">QSettings</a> class provides persistent platform-independent application settings. <a href="#details">More...</a></p>
 <!-- @@@QSettings -->
 <div class="table"><table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QSettings&gt;</span>
+<tr><td class="memItemLeft rightAlign topAlign"> 头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QSettings&gt;</span>
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += core</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <a href="qobject.html">QObject</a></td></tr></table></div><ul>
-<li><a href="qsettings-members.html">List of all members, including inherited members</a></li>
-<li><a href="qsettings-obsolete.html">Obsolete members</a></li>
+<li><a href="qsettings-members.html">所有成员清单，包括继承而来的成员</a></li>
+<li><a href="qsettings-obsolete.html">过时的成员</a></li>
 </ul>
 <p><b>Note:</b> All functions in this class are <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
 <p><b>Note:</b> These functions are also <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>:</p>
@@ -71,7 +71,7 @@
 <a name="public-types"></a>
 <h2 id="public-types">公共类型</h2>
 <div class="table"><table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qsettings.html#Format-enum">Format</a></b> { NativeFormat, Registry32Format, Registry64Format, IniFormat, InvalidFormat }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qsettings.html#Format-enum">格式</a></b> { NativeFormat, Registry32Format, Registry64Format, IniFormat, InvalidFormat }</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> typedef </td><td class="memItemRight bottomAlign"><b><a href="qsettings.html#ReadFunc-typedef">ReadFunc</a></b></td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qsettings.html#Scope-enum">Scope</a></b> { UserScope, SystemScope }</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> typedef </td><td class="memItemRight bottomAlign"><b><a href="qsettings.html#SettingsMap-typedef">SettingsMap</a></b></td></tr>
@@ -449,9 +449,9 @@
 <div class="types">
 <h2>成员类型文档</h2>
 <!-- $$$Format$$$NativeFormat$$$IniFormat$$$Registry32Format$$$Registry64Format$$$InvalidFormat$$$CustomFormat1$$$CustomFormat2$$$CustomFormat3$$$CustomFormat4$$$CustomFormat5$$$CustomFormat6$$$CustomFormat7$$$CustomFormat8$$$CustomFormat9$$$CustomFormat10$$$CustomFormat11$$$CustomFormat12$$$CustomFormat13$$$CustomFormat14$$$CustomFormat15$$$CustomFormat16 -->
-<h3 class="fn" id="Format-enum"><a name="Format-enum"></a>enum QSettings::<span class="name">Format</span></h3>
+<h3 class="fn" id="Format-enum"><a name="Format-enum"></a>enum QSettings::<span class="name">格式</span></h3>
 <p>This enum type specifies the storage format used by <a href="qsettings.html">QSettings</a>.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QSettings::NativeFormat</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">Store the settings using the most appropriate storage format for the platform. On Windows, this means the system registry; on <a href="../qtdoc/internationalization.html#macos">macOS</a> and iOS, this means the CFPreferences API; on Unix, this means textual configuration files in INI format.</td></tr>
 <tr><td class="topAlign"><code>QSettings::Registry32Format</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">Windows only: Explicitly access the 32-bit system registry from a 64-bit application running on 64-bit Windows. On 32-bit Windows or from a 32-bit application on 64-bit Windows, this works the same as specifying NativeFormat. This enum value was added in Qt 5.7&#x2e;</td></tr>
 <tr><td class="topAlign"><code>QSettings::Registry64Format</code></td><td class="topAlign tblval"><code>3</code></td><td class="topAlign">Windows only: Explicitly access the 64-bit system registry from a 32-bit application running on 64-bit Windows. On 32-bit Windows or from a 64-bit application on 64-bit Windows, this works the same as specifying NativeFormat. This enum value was added in Qt 5.7&#x2e;</td></tr>
@@ -494,7 +494,7 @@
 <!-- $$$Scope$$$UserScope$$$SystemScope -->
 <h3 class="fn" id="Scope-enum"><a name="Scope-enum"></a>enum QSettings::<span class="name">Scope</span></h3>
 <p>This enum specifies whether settings are user-specific or shared by all users of the same system.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QSettings::UserScope</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">Store settings in a location specific to the current user (e.g&#x2e;, in the user's home directory).</td></tr>
 <tr><td class="topAlign"><code>QSettings::SystemScope</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">Store settings in a global location, so that all users on the same machine access the same set of settings.</td></tr>
 </table></div>
@@ -508,7 +508,7 @@
 <!-- $$$Status$$$NoError$$$AccessError$$$FormatError -->
 <h3 class="fn" id="Status-enum"><a name="Status-enum"></a>enum QSettings::<span class="name">Status</span></h3>
 <p>The following status values are possible:</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QSettings::NoError</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">No error occurred.</td></tr>
 <tr><td class="topAlign"><code>QSettings::AccessError</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">An access error occurred (e.g&#x2e; trying to write to a read-only file).</td></tr>
 <tr><td class="topAlign"><code>QSettings::FormatError</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">A format error occurred (e.g&#x2e; loading a malformed INI file).</td></tr>
@@ -993,7 +993,7 @@
 <p>Sets the path used for storing settings for the given <i>format</i> and <i>scope</i>, to <i>path</i>. The <i>format</i> can be a custom format.</p>
 <p>The table below summarizes the default values:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Platform</th><th >Format</th><th >Scope</th><th >Path</th></tr></thead>
+ <thead><tr class="qt-style"><th >Platform</th><th >格式</th><th >Scope</th><th >Path</th></tr></thead>
 <tr valign="top" class="odd"><td  rowspan="2">Windows</td><td  rowspan="2"><a href="qsettings.html#Format-enum">IniFormat</a></td><td ><a href="qsettings.html#Scope-enum">UserScope</a></td><td ><code>FOLDERID_RoamingAppData</code></td></tr>
 <tr valign="top" class="even"><td ><a href="qsettings.html#Scope-enum">SystemScope</a></td><td ><code>FOLDERID_ProgramData</code></td></tr>
 <tr valign="top" class="odd"><td  rowspan="2">Unix</td><td  rowspan="2"><a href="qsettings.html#Format-enum">NativeFormat</a>, <a href="qsettings.html#Format-enum">IniFormat</a></td><td ><a href="qsettings.html#Scope-enum">UserScope</a></td><td ><code>$HOME/.config</code></td></tr>

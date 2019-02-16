@@ -36,7 +36,7 @@
 <div class="content mainContent">
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3><a name="toc">目录</a></h3>
 <ul>
 <li class="level1"><a href="#socketcan-usage">SocketCAN usage</a></li>
 <li class="level2"><a href="#setting-up-real-can-hardware">Setting up real CAN hardware</a></li>
@@ -146,7 +146,7 @@
 </pre>
 <p>SocketCAN supports the following configurations that can be controlled through <a href="qcanbusdevice.html#setConfigurationParameter">setConfigurationParameter()</a>:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Configuration parameter key</th><th >Description</th></tr></thead>
+ <thead><tr class="qt-style"><th >Configuration parameter key</th><th >描述</th></tr></thead>
 <tr valign="top" class="odd"><td ><a href="qcanbusdevice.html#ConfigurationKey-enum">QCanBusDevice::LoopbackKey</a></td><td >To meet the multiple-user needs, the local loopback is enabled by default. This means, whenever a CAN frame is transmitted on the CAN bus, a local echo of this frame is sent to all applications connected to this CAN device. If this option is enabled, the therefore received frames are marked with <a href="qcanbusframe.html#hasLocalEcho">QCanBusFrame::hasLocalEcho</a>()</td></tr>
 <tr valign="top" class="even"><td ><a href="qcanbusdevice.html#ConfigurationKey-enum">QCanBusDevice::ReceiveOwnKey</a></td><td >The reception of the CAN frames on the same socket that was sending the CAN frame is disabled by default. When enabling this option, all CAN frames sent to the CAN bus immediately appear in the receive buffer. This can be used to check if sending was successful. If this option is enabled, the therefore received frames are marked with <a href="qcanbusframe.html#hasLocalEcho">QCanBusFrame::hasLocalEcho</a>()</td></tr>
 <tr valign="top" class="odd"><td ><a href="qcanbusdevice.html#ConfigurationKey-enum">QCanBusDevice::ErrorFilterKey</a></td><td >A CAN interface driver can generate so called <i>Error Message Frames</i> that can optionally be passed to the user application in the same way as other CAN frames. The possible errors are divided into different error classes that may be filtered using the appropriate error mask. The values for the error mask are defined in <code>linux/can/error.h</code>.</td></tr>

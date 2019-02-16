@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcore-index.html">Qt Core</a></td><td ><a href="qtcore-module.html">C++ Classes</a></td><td >QCommandLineParser</td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcore-index.html">Qt核心</a></td><td ><a href="qtcore-module.html">C++类</a></td><td >QCommandLineParser</td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -50,9 +50,9 @@
 <p>The <a href="qcommandlineparser.html">QCommandLineParser</a> class provides a means for handling the command line options. <a href="#details">More...</a></p>
 <!-- @@@QCommandLineParser -->
 <div class="table"><table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QCommandLineParser&gt;</span>
+<tr><td class="memItemLeft rightAlign topAlign"> 头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QCommandLineParser&gt;</span>
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += core</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.2</td></tr></table></div><ul>
-<li><a href="qcommandlineparser-members.html">List of all members, including inherited members</a></li>
+<li><a href="qcommandlineparser-members.html">所有成员清单，包括继承而来的成员</a></li>
 </ul>
 <a name="public-types"></a>
 <h2 id="public-types">公共类型</h2>
@@ -310,7 +310,7 @@
 <!-- $$$OptionsAfterPositionalArgumentsMode$$$ParseAsOptions$$$ParseAsPositionalArguments -->
 <h3 class="fn" id="OptionsAfterPositionalArgumentsMode-enum"><a name="OptionsAfterPositionalArgumentsMode-enum"></a>enum QCommandLineParser::<span class="name">OptionsAfterPositionalArgumentsMode</span></h3>
 <p>This enum describes the way the parser interprets options that occur after positional arguments.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QCommandLineParser::ParseAsOptions</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign"><code>application argument --opt -t</code> is interpreted as setting the options <code>opt</code> and <code>t</code>, just like <code>application --opt -t argument</code> would do. This is the default parsing mode. In order to specify that <code>--opt</code> and <code>-t</code> are positional arguments instead, the user can use <code>--</code>, as in <code>application argument -- --opt -t</code>.</td></tr>
 <tr><td class="topAlign"><code>QCommandLineParser::ParseAsPositionalArguments</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign"><code>application argument --opt</code> is interpreted as having two positional arguments, <code>argument</code> and <code>--opt</code>. This mode is useful for executables that aim to launch other executables (e.g&#x2e; wrappers, debugging tools, etc.) or that support internal commands followed by options for the command. <code>argument</code> is the name of the command, and all options occurring after it can be collected and parsed by another command line parser, possibly in another executable.</td></tr>
 </table></div>
@@ -320,7 +320,7 @@
 <!-- $$$SingleDashWordOptionMode$$$ParseAsCompactedShortOptions$$$ParseAsLongOptions -->
 <h3 class="fn" id="SingleDashWordOptionMode-enum"><a name="SingleDashWordOptionMode-enum"></a>enum QCommandLineParser::<span class="name">SingleDashWordOptionMode</span></h3>
 <p>This enum describes the way the parser interprets command-line options that use a single dash followed by multiple letters, as as <code>-abc</code>.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QCommandLineParser::ParseAsCompactedShortOptions</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign"><code>-abc</code> is interpreted as <code>-a -b -c</code>, i.e&#x2e; as three short options that have been compacted on the command-line, if none of the options take a value. If <code>a</code> takes a value, then it is interpreted as <code>-a bc</code>, i.e&#x2e; the short option <code>a</code> followed by the value <code>bc</code>. This is typically used in tools that behave like compilers, in order to handle options such as <code>-DDEFINE=VALUE</code> or <code>-I/include/path</code>. This is the default parsing mode. New applications are recommended to use this mode.</td></tr>
 <tr><td class="topAlign"><code>QCommandLineParser::ParseAsLongOptions</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign"><code>-abc</code> is interpreted as <code>--abc</code>, i.e&#x2e; as the long option named <code>abc</code>. This is how Qt's own tools (uic, rcc..&#x2e;) have always been parsing arguments. This mode should be used for preserving compatibility in applications that were parsing arguments in such a way. There is an exception if the <code>a</code> option has the <a href="qcommandlineoption.html#Flag-enum">QCommandLineOption::ShortOptionStyle</a> flag set, in which case it is still interpreted as <code>-a bc</code>.</td></tr>
 </table></div>

@@ -69,7 +69,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b></b></td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b></b></td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b></b></td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#Format-enum">Format</a></b> { Format_Invalid, Format_Mono, Format_MonoLSB, Format_Indexed8, ..., Format_RGBA64_Premultiplied }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#Format-enum">格式</a></b> { Format_Invalid, Format_Mono, Format_MonoLSB, Format_Indexed8, ..., Format_RGBA64_Premultiplied }</td></tr>
 <tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#InvertMode-enum">InvertMode</a></b> { InvertRgb, InvertRgba }</td></tr>
 </table></div>
 <a name="public-functions"></a>
@@ -214,7 +214,7 @@
 <p>The <a href="qimage.html">QImage</a> class provides a hardware-independent image representation that allows direct access to the pixel data, and can be used as a paint device.</p>
 <p>Qt provides four classes for handling image data: <a href="qimage.html">QImage</a>, <a href="qpixmap.html">QPixmap</a>, <a href="qbitmap.html">QBitmap</a> and <a href="qpicture.html">QPicture</a>. <a href="qimage.html">QImage</a> is designed and optimized for I/O, and for direct pixel access and manipulation, while <a href="qpixmap.html">QPixmap</a> is designed and optimized for showing images on screen. <a href="qbitmap.html">QBitmap</a> is only a convenience class that inherits <a href="qpixmap.html">QPixmap</a>, ensuring a depth of 1. Finally, the <a href="qpicture.html">QPicture</a> class is a paint device that records and replays <a href="qpainter.html">QPainter</a> commands.</p>
 <p>Because <a href="qimage.html">QImage</a> is a <a href="qpaintdevice.html">QPaintDevice</a> subclass, <a href="qpainter.html">QPainter</a> can be used to draw directly onto images. When using <a href="qpainter.html">QPainter</a> on a <a href="qimage.html">QImage</a>, the painting can be performed in another thread than the current GUI thread.</p>
-<p>The <a href="qimage.html">QImage</a> class supports several image formats described by the <a href="qimage.html#Format-enum">Format</a> enum. These include monochrome, 8-bit, 32-bit and alpha-blended images which are available in all versions of Qt 4.x&#x2e;</p>
+<p>The <a href="qimage.html">QImage</a> class supports several image formats described by the <a href="qimage.html#Format-enum">格式</a> enum. These include monochrome, 8-bit, 32-bit and alpha-blended images which are available in all versions of Qt 4.x&#x2e;</p>
 <p><a href="qimage.html">QImage</a> provides a collection of functions that can be used to obtain a variety of information about the image. There are also several functions that enables transformation of the image.</p>
 <p><a href="qimage.html">QImage</a> objects can be passed around by value since the <a href="qimage.html">QImage</a> class uses <a href="../qtcore/implicit-sharing.html">implicit data sharing</a>. <a href="qimage.html">QImage</a> objects can also be streamed and compared.</p>
 <p><b>Note: </b>If you would like to load <a href="qimage.html">QImage</a> objects in a static build of Qt, refer to the <a href="../qtdoc/plugins-howto.html">Plugin HowTo</a>.</p><p><b>Warning:</b> Painting on a <a href="qimage.html">QImage</a> with the format <a href="qimage.html#Format-enum">QImage::Format_Indexed8</a> is not supported.</p>
@@ -224,7 +224,7 @@
 <p>Simply call the <a href="qimage.html#save">save</a>() function to save a <a href="qimage.html">QImage</a> object.</p>
 <p>The complete list of supported file formats are available through the <a href="qimagereader.html#supportedImageFormats">QImageReader::supportedImageFormats</a>() and <a href="qimagewriter.html#supportedImageFormats">QImageWriter::supportedImageFormats</a>() functions. New file formats can be added as plugins. By default, Qt supports the following formats:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Format</th><th >Description</th><th >Qt's support</th></tr></thead>
+ <thead><tr class="qt-style"><th >格式</th><th >描述</th><th >Qt's support</th></tr></thead>
 <tr valign="top" class="odd"><td >BMP</td><td >Windows Bitmap</td><td >Read/write</td></tr>
 <tr valign="top" class="even"><td >GIF</td><td >Graphic Interchange Format (optional)</td><td >Read</td></tr>
 <tr valign="top" class="odd"><td >JPG</td><td >Joint Photographic Experts Group</td><td >Read/write</td></tr>
@@ -306,7 +306,7 @@
 <p><a href="qimage.html">QImage</a> also provide the <a href="qimage.html#scanLine">scanLine</a>() function which returns a pointer to the pixel data at the scanline with the given index, and the <a href="qimage.html#bits">bits</a>() function which returns a pointer to the first pixel data (this is equivalent to <code>scanLine(0)</code>).</p>
 <a name="image-formats"></a>
 <h3 >Image Formats</h3>
-<p>Each pixel stored in a <a href="qimage.html">QImage</a> is represented by an integer. The size of the integer varies depending on the format. <a href="qimage.html">QImage</a> supports several image formats described by the <a href="qimage.html#Format-enum">Format</a> enum.</p>
+<p>Each pixel stored in a <a href="qimage.html">QImage</a> is represented by an integer. The size of the integer varies depending on the format. <a href="qimage.html">QImage</a> supports several image formats described by the <a href="qimage.html#Format-enum">格式</a> enum.</p>
 <p>Monochrome images are stored using 1-bit indexes into a color table with at most two colors. There are two different types of monochrome images: big endian (MSB first) or little endian (LSB first) bit order.</p>
 <p>8-bit images are stored using 8-bit indexes into a color table, i.e&#x2e; they have a single byte per pixel. The color table is a <a href="../qtcore/qvector.html">QVector</a>&lt;<a href="qcolor.html#QRgb-typedef">QRgb</a>&gt;, and the <a href="qcolor.html#QRgb-typedef">QRgb</a> typedef is equivalent to an unsigned int containing an ARGB quadruplet on the format 0xAARRGGBB.</p>
 <p>32-bit images have no color table; instead, each pixel contains an <a href="qcolor.html#QRgb-typedef">QRgb</a> value. There are three different types of 32-bit images storing RGB (i.e&#x2e; 0xffRRGGBB), ARGB and premultiplied ARGB values respectively. In the premultiplied format the red, green, and blue channels are multiplied by the alpha component divided by 255.</p>
@@ -319,7 +319,7 @@
 <p>The <a href="qimage.html#transformed">transformed</a>() function returns a copy of the image that is transformed with the given transformation matrix and transformation mode: Internally, the transformation matrix is adjusted to compensate for unwanted translation, i.e&#x2e; <a href="qimage.html#transformed">transformed</a>() returns the smallest image containing all transformed points of the original image. The static <a href="qimage.html#trueMatrix">trueMatrix</a>() function returns the actual matrix used for transforming the image.</p>
 <p>There are also functions for changing attributes of an image in-place:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Function</th><th >Description</th></tr></thead>
+ <thead><tr class="qt-style"><th >函数</th><th >描述</th></tr></thead>
 <tr valign="top" class="odd"><td ><a href="qimage.html#setDotsPerMeterX">setDotsPerMeterX</a>()</td><td >Defines the aspect ratio by setting the number of pixels that fit horizontally in a physical meter.</td></tr>
 <tr valign="top" class="even"><td ><a href="qimage.html#setDotsPerMeterY">setDotsPerMeterY</a>()</td><td >Defines the aspect ratio by setting the number of pixels that fit vertically in a physical meter.</td></tr>
 <tr valign="top" class="odd"><td ><a href="qimage.html#fill">fill</a>()</td><td >Fills the entire image with the given pixel value.</td></tr>
@@ -333,9 +333,9 @@
 <div class="types">
 <h2>成员类型文档</h2>
 <!-- $$$Format$$$Format_Invalid$$$Format_Mono$$$Format_MonoLSB$$$Format_Indexed8$$$Format_RGB32$$$Format_ARGB32$$$Format_ARGB32_Premultiplied$$$Format_RGB16$$$Format_ARGB8565_Premultiplied$$$Format_RGB666$$$Format_ARGB6666_Premultiplied$$$Format_RGB555$$$Format_ARGB8555_Premultiplied$$$Format_RGB888$$$Format_RGB444$$$Format_ARGB4444_Premultiplied$$$Format_RGBX8888$$$Format_RGBA8888$$$Format_RGBA8888_Premultiplied$$$Format_BGR30$$$Format_A2BGR30_Premultiplied$$$Format_RGB30$$$Format_A2RGB30_Premultiplied$$$Format_Alpha8$$$Format_Grayscale8$$$Format_RGBX64$$$Format_RGBA64$$$Format_RGBA64_Premultiplied -->
-<h3 class="fn" id="Format-enum"><a name="Format-enum"></a>enum QImage::<span class="name">Format</span></h3>
+<h3 class="fn" id="Format-enum"><a name="Format-enum"></a>enum QImage::<span class="name">格式</span></h3>
 <p>The following image formats are available in Qt. See the notes after the table.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QImage::Format_Invalid</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">The image is invalid.</td></tr>
 <tr><td class="topAlign"><code>QImage::Format_Mono</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">The image is stored using 1-bit per pixel. Bytes are packed with the most significant bit (MSB) first.</td></tr>
 <tr><td class="topAlign"><code>QImage::Format_MonoLSB</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">The image is stored using 1-bit per pixel. Bytes are packed with the less significant bit (LSB) first.</td></tr>
@@ -370,7 +370,7 @@
 <!-- $$$InvertMode$$$InvertRgb$$$InvertRgba -->
 <h3 class="fn" id="InvertMode-enum"><a name="InvertMode-enum"></a>enum QImage::<span class="name">InvertMode</span></h3>
 <p>This enum type is used to describe how pixel values should be inverted in the <a href="qimage.html#invertPixels">invertPixels</a>() function.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QImage::InvertRgb</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">Invert only the RGB values and leave the alpha channel unchanged.</td></tr>
 <tr><td class="topAlign"><code>QImage::InvertRgba</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">Invert all channels, including the alpha channel.</td></tr>
 </table></div>

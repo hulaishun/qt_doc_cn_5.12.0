@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcore-index.html">Qt Core</a></td><td ><a href="qtcore-module.html">C++ Classes</a></td><td >QSystemSemaphore</td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcore-index.html">Qt核心</a></td><td ><a href="qtcore-module.html">C++类</a></td><td >QSystemSemaphore</td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -50,9 +50,9 @@
 <p>The <a href="qsystemsemaphore.html">QSystemSemaphore</a> class provides a general counting system semaphore. <a href="#details">More...</a></p>
 <!-- @@@QSystemSemaphore -->
 <div class="table"><table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QSystemSemaphore&gt;</span>
+<tr><td class="memItemLeft rightAlign topAlign"> 头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QSystemSemaphore&gt;</span>
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += core</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 4.4</td></tr></table></div><ul>
-<li><a href="qsystemsemaphore-members.html">List of all members, including inherited members</a></li>
+<li><a href="qsystemsemaphore-members.html">所有成员清单，包括继承而来的成员</a></li>
 </ul>
 <a name="public-types"></a>
 <h2 id="public-types">公共类型</h2>
@@ -113,14 +113,14 @@
 <!-- $$$AccessMode$$$Open$$$Create -->
 <h3 class="fn" id="AccessMode-enum"><a name="AccessMode-enum"></a>enum QSystemSemaphore::<span class="name">AccessMode</span></h3>
 <p>This enum is used by the constructor and <a href="qsystemsemaphore.html#setKey">setKey</a>(). Its purpose is to enable handling the problem in Unix implementations of semaphores that survive a crash. In Unix, when a semaphore survives a crash, we need a way to force it to reset its resource count, when the system reuses the semaphore. In Windows, where semaphores can't survive a crash, this enum has no effect.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QSystemSemaphore::Open</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">If the semaphore already exists, its initial resource count is not reset. If the semaphore does not already exist, it is created and its initial resource count set.</td></tr>
 <tr><td class="topAlign"><code>QSystemSemaphore::Create</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign"><a href="qsystemsemaphore.html">QSystemSemaphore</a> takes ownership of the semaphore and sets its resource count to the requested value, regardless of whether the semaphore already exists by having survived a crash. This value should be passed to the constructor, when the first semaphore for a particular key is constructed and you know that if the semaphore already exists it could only be because of a crash. In Windows, where a semaphore can't survive a crash, Create and Open have the same behavior.</td></tr>
 </table></div>
 <!-- @@@AccessMode -->
 <!-- $$$SystemSemaphoreError$$$NoError$$$PermissionDenied$$$KeyError$$$AlreadyExists$$$NotFound$$$OutOfResources$$$UnknownError -->
 <h3 class="fn" id="SystemSemaphoreError-enum"><a name="SystemSemaphoreError-enum"></a>enum QSystemSemaphore::<span class="name">SystemSemaphoreError</span></h3>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QSystemSemaphore::NoError</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">No error occurred.</td></tr>
 <tr><td class="topAlign"><code>QSystemSemaphore::PermissionDenied</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">The operation failed because the caller didn't have the required permissions.</td></tr>
 <tr><td class="topAlign"><code>QSystemSemaphore::KeyError</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">The operation failed because of an invalid key.</td></tr>

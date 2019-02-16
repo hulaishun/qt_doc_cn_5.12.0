@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcore-index.html">Qt Core</a></td><td ><a href="qtcore-module.html">C++ Classes</a></td><td >QThread</td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcore-index.html">Qt核心</a></td><td ><a href="qtcore-module.html">C++类</a></td><td >QThread</td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -56,10 +56,10 @@
 <p>The <a href="qthread.html">QThread</a> class provides a platform-independent way to manage threads. <a href="#details">More...</a></p>
 <!-- @@@QThread -->
 <div class="table"><table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QThread&gt;</span>
+<tr><td class="memItemLeft rightAlign topAlign"> 头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QThread&gt;</span>
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += core</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <a href="qobject.html">QObject</a></td></tr></table></div><ul>
-<li><a href="qthread-members.html">List of all members, including inherited members</a></li>
-<li><a href="qthread-obsolete.html">Obsolete members</a></li>
+<li><a href="qthread-members.html">所有成员清单，包括继承而来的成员</a></li>
+<li><a href="qthread-obsolete.html">过时的成员</a></li>
 </ul>
 <a name="public-types"></a>
 <h2 id="public-types">公共类型</h2>
@@ -244,7 +244,7 @@
 <!-- $$$Priority$$$IdlePriority$$$LowestPriority$$$LowPriority$$$NormalPriority$$$HighPriority$$$HighestPriority$$$TimeCriticalPriority$$$InheritPriority -->
 <h3 class="fn" id="Priority-enum"><a name="Priority-enum"></a>enum QThread::<span class="name">Priority</span></h3>
 <p>This enum type indicates how the operating system should schedule newly created threads.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QThread::IdlePriority</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">scheduled only when no other threads are running.</td></tr>
 <tr><td class="topAlign"><code>QThread::LowestPriority</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">scheduled less often than LowPriority.</td></tr>
 <tr><td class="topAlign"><code>QThread::LowPriority</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">scheduled less often than NormalPriority.</td></tr>
@@ -272,7 +272,7 @@
 <p>Note that deleting a <a href="qthread.html">QThread</a> object will not stop the execution of the thread it manages. Deleting a running <a href="qthread.html">QThread</a> (i.e&#x2e; <a href="qthread.html#isFinished">isFinished</a>() returns <code>false</code>) will result in a program crash. Wait for the <a href="qthread.html#finished">finished</a>() signal before deleting the <a href="qthread.html">QThread</a>.</p>
 <!-- @@@~QThread -->
 <!-- $$$create[overload1]$$$createFunction&&Args&&... -->
-<h3 class="fn" id="create"><a name="create"></a><code>[static] </code><span class="type"><a href="qthread.html#QThread">QThread</a></span> *QThread::<span class="name">create</span>(<span class="type">Function</span> &amp;&amp;<i>f</i>, <span class="type">Args</span> &amp;&amp;... <i>args</i>)</h3>
+<h3 class="fn" id="create"><a name="create"></a><code>[static] </code><span class="type"><a href="qthread.html#QThread">QThread</a></span> *QThread::<span class="name">create</span>(<span class="type">函数</span> &amp;&amp;<i>f</i>, <span class="type">Args</span> &amp;&amp;... <i>args</i>)</h3>
 <p>Creates a new <a href="qthread.html">QThread</a> object that will execute the function <i>f</i> with the arguments <i>args</i>.</p>
 <p>The new thread is not started -- it must be started by an explicit call to <a href="qthread.html#start">start</a>(). This allows you to connect to its signals, move QObjects to the thread, choose the new thread's priority and so on. The function <i>f</i> will be called in the new thread.</p>
 <p>Returns the newly created <a href="qthread.html">QThread</a> instance.</p>
@@ -281,7 +281,7 @@
 <p><b>See also </b><a href="qthread.html#start">start</a>().</p>
 <!-- @@@create -->
 <!-- $$$create$$$createFunction&& -->
-<h3 class="fn" id="create-1"><a name="create-1"></a><code>[static] </code><span class="type"><a href="qthread.html#QThread">QThread</a></span> *QThread::<span class="name">create</span>(<span class="type">Function</span> &amp;&amp;<i>f</i>)</h3>
+<h3 class="fn" id="create-1"><a name="create-1"></a><code>[static] </code><span class="type"><a href="qthread.html#QThread">QThread</a></span> *QThread::<span class="name">create</span>(<span class="type">函数</span> &amp;&amp;<i>f</i>)</h3>
 <p>Creates a new <a href="qthread.html">QThread</a> object that will execute the function <i>f</i>.</p>
 <p>The new thread is not started -- it must be started by an explicit call to <a href="qthread.html#start">start</a>(). This allows you to connect to its signals, move QObjects to the thread, choose the new thread's priority and so on. The function <i>f</i> will be called in the new thread.</p>
 <p>Returns the newly created <a href="qthread.html">QThread</a> instance.</p>

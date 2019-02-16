@@ -112,7 +112,7 @@
 <!-- $$$ReduceOption$$$UnorderedReduce$$$OrderedReduce$$$SequentialReduce -->
 <h3 class="flags" id="ReduceOption-enum"><a name="ReduceOption-enum"></a>enum QtConcurrent::<span class="name">ReduceOption</span><br/>flags QtConcurrent::<span class="name">ReduceOptions</span></h3>
 <p>This enum specifies the order of which results from the map or filter function are passed to the reduce function.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QtConcurrent::UnorderedReduce</code></td><td class="topAlign tblval"><code>0x1</code></td><td class="topAlign">Reduction is done in an arbitrary order.</td></tr>
 <tr><td class="topAlign"><code>QtConcurrent::OrderedReduce</code></td><td class="topAlign tblval"><code>0x2</code></td><td class="topAlign">Reduction is done in the order of the original sequence.</td></tr>
 <tr><td class="topAlign"><code>QtConcurrent::SequentialReduce</code></td><td class="topAlign tblval"><code>0x4</code></td><td class="topAlign">Reduction is done sequentially: only one thread will enter the reduce function at a time. (Parallel reduction might be supported in a future version of Qt Concurrent.)</td></tr>
@@ -250,7 +250,7 @@
 <p><b>Note: </b><a href="qtconcurrent.html#ReduceOption-enum">QtConcurrent::OrderedReduce</a> results in the ordered reduction.</p><p><b>See also </b><a href="qtconcurrentmap.html">Concurrent Map and Map-Reduce</a>.</p>
 <!-- @@@mappedReduced -->
 <!-- $$$run[overload1]$$$runFunction... -->
-<h3 class="fn" id="run"><a name="run"></a><span class="type"><a href="../qtcore/qfuture.html">QFuture</a></span>&lt;<span class="type">T</span>&gt; QtConcurrent::<span class="name">run</span>(<span class="type">Function</span> <i>function</i>, <i>...</i>)</h3>
+<h3 class="fn" id="run"><a name="run"></a><span class="type"><a href="../qtcore/qfuture.html">QFuture</a></span>&lt;<span class="type">T</span>&gt; QtConcurrent::<span class="name">run</span>(<span class="type">函数</span> <i>function</i>, <i>...</i>)</h3>
 <p>Equivalent to</p>
 <pre class="cpp">
 
@@ -263,7 +263,7 @@
 <p><b>See also </b><a href="qtconcurrentrun.html">Concurrent Run</a>.</p>
 <!-- @@@run -->
 <!-- $$$run$$$runQThreadPool*Function... -->
-<h3 class="fn" id="run-1"><a name="run-1"></a><span class="type"><a href="../qtcore/qfuture.html">QFuture</a></span>&lt;<span class="type">T</span>&gt; QtConcurrent::<span class="name">run</span>(<span class="type"><a href="../qtcore/qthreadpool.html">QThreadPool</a></span> *<i>pool</i>, <span class="type">Function</span> <i>function</i>, <i>...</i>)</h3>
+<h3 class="fn" id="run-1"><a name="run-1"></a><span class="type"><a href="../qtcore/qfuture.html">QFuture</a></span>&lt;<span class="type">T</span>&gt; QtConcurrent::<span class="name">run</span>(<span class="type"><a href="../qtcore/qthreadpool.html">QThreadPool</a></span> *<i>pool</i>, <span class="type">函数</span> <i>function</i>, <i>...</i>)</h3>
 <p>Runs <i>function</i> in a separate thread. The thread is taken from the <a href="../qtcore/qthreadpool.html">QThreadPool</a> <i>pool</i>. Note that <i>function</i> may not run immediately; <i>function</i> will only be run once a thread becomes available.</p>
 <p>T is the same type as the return value of <i>function</i>. Non-void return values can be accessed via the <a href="../qtcore/qfuture.html#result">QFuture::result</a>() function.</p>
 <p>Note that the <a href="../qtcore/qfuture.html">QFuture</a> returned by QtConcurrent::run() does not support canceling, pausing, or progress reporting. The <a href="../qtcore/qfuture.html">QFuture</a> returned can only be used to query for the running/finished status and the return value of the function.</p>

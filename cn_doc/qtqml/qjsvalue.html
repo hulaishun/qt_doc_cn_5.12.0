@@ -53,7 +53,7 @@
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign">头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QJSValue&gt;</span>
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += qml</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.0</td></tr></table></div><ul>
-<li><a href="qjsvalue-members.html">List of all members, including inherited members</a></li>
+<li><a href="qjsvalue-members.html">所有成员清单，包括继承而来的成员</a></li>
 <li><a href="qjsvalue-obsolete.html">过时的成员</a></li>
 </ul>
 <a name="public-types"></a>
@@ -181,7 +181,7 @@
 <h3 class="fn" id="ErrorType-enum"><a name="ErrorType-enum"></a>enum QJSValue::<span class="name">ErrorType</span></h3>
 <p>Use this enum for JavaScript language-specific types of Error objects.</p>
 <p>They may be useful when emulating language features in C++ requires the use of specialized exception types. In addition, they may help to more clearly communicate certain typical conditions, instead of throwing a generic JavaScript exception. For example, code that deals with networking and resource locators may find it useful to propagate errors related to malformed locators using the URIError type.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QJSValue::GenericError</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">A generic Error object, but not of a specific sub-type.</td></tr>
 <tr><td class="topAlign"><code>QJSValue::RangeError</code></td><td class="topAlign tblval"><code>3</code></td><td class="topAlign">A value did not match the expected set or range.</td></tr>
 <tr><td class="topAlign"><code>QJSValue::ReferenceError</code></td><td class="topAlign tblval"><code>4</code></td><td class="topAlign">A non-existing variable referenced.</td></tr>
@@ -194,7 +194,7 @@
 <!-- $$$SpecialValue$$$NullValue$$$UndefinedValue -->
 <h3 class="fn" id="SpecialValue-enum"><a name="SpecialValue-enum"></a>enum QJSValue::<span class="name">SpecialValue</span></h3>
 <p>This enum is used to specify a single-valued type.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QJSValue::UndefinedValue</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">An undefined value.</td></tr>
 <tr><td class="topAlign"><code>QJSValue::NullValue</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">A null value.</td></tr>
 </table></div>
@@ -453,7 +453,7 @@
 <p>Returns true if this <a href="qjsvalue.html">QJSValue</a> is equal to <i>other</i> using strict comparison (no conversion), otherwise returns false. The comparison follows the behavior described in <a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a> section 11.9&#x2e;6, &quot;The Strict Equality Comparison Algorithm&quot;.</p>
 <p>If the type of this <a href="qjsvalue.html">QJSValue</a> is different from the type of the <i>other</i> value, this function returns false. If the types are equal, the result depends on the type, as shown in the following table:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Type</th><th >Result</th></tr></thead>
+ <thead><tr class="qt-style"><th >Type</th><th >结果</th></tr></thead>
 <tr valign="top" class="odd"><td >Undefined</td><td >true</td></tr>
 <tr valign="top" class="even"><td >Null</td><td >true</td></tr>
 <tr valign="top" class="odd"><td >Boolean</td><td >true if both values are true, false otherwise</td></tr>
@@ -514,7 +514,7 @@
 <h3 class="fn" id="toVariant"><a name="toVariant"></a><span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> QJSValue::<span class="name">toVariant</span>() const</h3>
 <p>Returns the <a href="../qtcore/qvariant.html">QVariant</a> value of this <a href="qjsvalue.html">QJSValue</a>, if it can be converted to a <a href="../qtcore/qvariant.html">QVariant</a>; otherwise returns an invalid <a href="../qtcore/qvariant.html">QVariant</a>. The conversion is performed according to the following table:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Input Type</th><th >Result</th></tr></thead>
+ <thead><tr class="qt-style"><th >Input Type</th><th >结果</th></tr></thead>
 <tr valign="top" class="odd"><td >Undefined</td><td >An invalid <a href="../qtcore/qvariant.html">QVariant</a>.</td></tr>
 <tr valign="top" class="even"><td >Null</td><td >A <a href="../qtcore/qvariant.html">QVariant</a> containing a null pointer (<a href="../qtcore/qmetatype.html#Type-enum">QMetaType::Nullptr</a>).</td></tr>
 <tr valign="top" class="odd"><td >Boolean</td><td >A <a href="../qtcore/qvariant.html">QVariant</a> containing the value of the boolean.</td></tr>

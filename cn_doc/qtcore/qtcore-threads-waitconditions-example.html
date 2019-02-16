@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcore-index.html">Qt Core</a></td><td >Wait Conditions Example</td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcore-index.html">Qt核心</a></td><td >Wait Conditions Example</td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -167,7 +167,7 @@
 <p>So what happens when we run the program? Initially, the producer thread is the only one that can do anything; the consumer is blocked waiting for the <code>bufferNotEmpty</code> condition to be signalled (<code>numUsedBytes</code> is 0). Once the producer has put one byte in the buffer, <code>numUsedBytes</code> is <code>BufferSize</code> - 1 and the <code>bufferNotEmpty</code> condition is signalled. At that point, two things can happen: Either the consumer thread takes over and reads that byte, or the producer gets to produce a second byte.</p>
 <p>The producer-consumer model presented in this example makes it possible to write highly concurrent multithreaded applications. On a multiprocessor machine, the program is potentially up to twice as fast as the equivalent mutex-based program, since the two threads can be active at the same time on different parts of the buffer.</p>
 <p>Be aware though that these benefits aren't always realized. Locking and unlocking a <a href="qmutex.html">QMutex</a> has a cost. In practice, it would probably be worthwhile to divide the buffer into chunks and to operate on chunks instead of individual bytes. The buffer size is also a parameter that must be selected carefully, based on experimentation.</p>
-<p>Files:</p>
+<p>文件：</p>
 <ul>
 <li><a href="qtcore-threads-waitconditions-waitconditions-cpp.html">threads/waitconditions/waitconditions.cpp</a></li>
 <li><a href="qtcore-threads-waitconditions-waitconditions-pro.html">threads/waitconditions/waitconditions.pro</a></li>

@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcore-index.html">Qt Core</a></td><td ><a href="qtcore-module.html">C++ Classes</a></td><td >QList</td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcore-index.html">Qt核心</a></td><td ><a href="qtcore-module.html">C++类</a></td><td >QList</td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -53,10 +53,10 @@
 <p>The <a href="qlist.html">QList</a> class is a template class that provides lists. <a href="#details">More...</a></p>
 <!-- @@@QList -->
 <div class="table"><table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QList&gt;</span>
+<tr><td class="memItemLeft rightAlign topAlign"> 头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QList&gt;</span>
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += core</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherited By:</td><td class="memItemRight bottomAlign"> <p><a href="qbytearraylist.html">QByteArrayList</a>, <a href="qitemselection.html">QItemSelection</a>, <a href="qqueue.html">QQueue</a>, and <a href="qstringlist.html">QStringList</a></p>
 </td></tr></table></div><ul>
-<li><a href="qlist-members.html">List of all members, including inherited members</a></li>
+<li><a href="qlist-members.html">所有成员清单，包括继承而来的成员</a></li>
 </ul>
 <p><b>Note:</b> All functions in this class are <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
 <a name="public-types"></a>
@@ -195,7 +195,7 @@
 <li>If you need a real linked list, which guarantees <a href="containers.html#algorithmic-complexity">constant time</a> insertions mid-list and uses iterators to items rather than indexes, use <a href="qlinkedlist.html">QLinkedList</a>.</li>
 </ul>
 <p><b>Note: </b><a href="qvector.html">QVector</a> and <a href="qvarlengtharray.html">QVarLengthArray</a> both guarantee C-compatible array layout. <a href="qlist.html">QList</a> does not. This might be important if your application must interface with a C API.</p><p><b>Note: </b>Iterators into a <a href="qlinkedlist.html">QLinkedList</a> and references into heap-allocating QLists remain valid as long as the referenced items remain in the container. This is not true for iterators and references into a <a href="qvector.html">QVector</a> and non-heap-allocating QLists.</p><p>Internally, <a href="qlist.html">QList</a>&lt;T&gt; is represented as an array of T if <code>sizeof(T) &lt;= sizeof(void*)</code> and T has been declared to be either a <code>Q_MOVABLE_TYPE</code> or a <code>Q_PRIMITIVE_TYPE</code> using <a href="qtglobal.html#Q_DECLARE_TYPEINFO">Q_DECLARE_TYPEINFO</a>. Otherwise, <a href="qlist.html">QList</a>&lt;T&gt; is represented as an array of T* and the items are allocated on the heap.</p>
-<p>The array representation allows very fast insertions and index-based access. The <a href="qlist.html#prepend">prepend</a>() and <a href="qlist.html#append">append</a>() operations are also very fast because <a href="qlist.html">QList</a> preallocates memory at both ends of its internal array. (See <a href="containers.html#algorithmic-complexity">Algorithmic Complexity</a> for details.</p>
+<p>The array representation allows very fast insertions and index-based access. The <a href="qlist.html#prepend">prepend</a>() and <a href="qlist.html#append">append</a>() operations are also very fast because <a href="qlist.html">QList</a> preallocates memory at both ends of its internal array. (See <a href="containers.html#algorithmic-complexity">算法复杂度</a> for details.</p>
 <p>Note, however, that when the conditions specified above are not met, each append or insert of a new item requires allocating the new item on the heap, and this per item allocation will make <a href="qvector.html">QVector</a> a better choice for use cases that do a lot of appending or inserting, because <a href="qvector.html">QVector</a> can allocate memory for many items in a single heap allocation.</p>
 <p>Note that the internal array only ever gets bigger over the life of the list. It never shrinks. The internal array is deallocated by the destructor and by the assignment operator, when one list is assigned to another.</p>
 <p>Here's an example of a <a href="qlist.html">QList</a> that stores integers and a <a href="qlist.html">QList</a> that stores <a href="qdate.html">QDate</a> values:</p>

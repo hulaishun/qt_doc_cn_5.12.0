@@ -100,7 +100,7 @@
 <p>The <i>order is important</i>. If the <a href="qml-qt3d-render-clearbuffers.html">ClearBuffers</a> node were to be the last instead of the first, this would result in a black screen for the simple reason that everything would be cleared right after having been so carefully rendered. For a similar reason, it could not be used as the root of the FrameGraph as that would result in a call to clear the whole screen for each of our viewports.</p>
 <p>Although the declaration order of the FrameGraph is important, Qt 3D is able to process each RenderView in parallel as each RenderView is independent of the others for the purposes of generating a set of RenderCommands to be submitted whilst the RenderView's state is in effect.</p>
 <p>Qt 3D uses a task-based approach to parallelism which naturally scales up with the number of available cores. The RenderCommands for the RenderViews can be generated in parallel across many cores, and as long as we take care to submit the RenderViews in the correct order on the dedicated OpenGL submission thread, the resulting scene will be rendered correctly.</p>
-<p>Files:</p>
+<p>文件：</p>
 <ul>
 <li><a href="qt3d-multiviewport-quadviewportframegraph-qml.html">multiviewport/QuadViewportFrameGraph.qml</a></li>
 <li><a href="qt3d-multiviewport-simplecamera-qml.html">multiviewport/SimpleCamera.qml</a></li>

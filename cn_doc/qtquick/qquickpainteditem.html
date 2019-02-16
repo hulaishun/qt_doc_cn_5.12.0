@@ -56,7 +56,7 @@
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign">头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QQuickPaintedItem&gt;</span>
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += quick</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <a href="qquickitem.html">QQuickItem</a></td></tr></table></div><ul>
-<li><a href="qquickpainteditem-members.html">List of all members, including inherited members</a></li>
+<li><a href="qquickpainteditem-members.html">所有成员清单，包括继承而来的成员</a></li>
 <li><a href="qquickpainteditem-obsolete.html">过时的成员</a></li>
 </ul>
 <a name="public-types"></a>
@@ -169,7 +169,7 @@
 <!-- $$$PerformanceHint$$$FastFBOResizing -->
 <h3 class="flags" id="PerformanceHint-enum"><a name="PerformanceHint-enum"></a>enum QQuickPaintedItem::<span class="name">PerformanceHint</span><br/>flags QQuickPaintedItem::<span class="name">PerformanceHints</span></h3>
 <p>This enum describes flags that you can enable to improve rendering performance in <a href="qquickpainteditem.html">QQuickPaintedItem</a>. By default, none of these flags are set.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QQuickPaintedItem::FastFBOResizing</code></td><td class="topAlign tblval"><code>0x1</code></td><td class="topAlign">Resizing an FBO can be a costly operation on a few OpenGL driver implementations. To work around this, one can set this flag to let the <a href="qquickpainteditem.html">QQuickPaintedItem</a> allocate one large framebuffer object and instead draw into a subregion of it. This saves the resize at the cost of using more memory. Please note that this is not a common problem.</td></tr>
 </table></div>
 <p>The PerformanceHints type is a typedef for <a href="../qtcore/qflags.html">QFlags</a>&lt;PerformanceHint&gt;. It stores an OR combination of PerformanceHint values.</p>
@@ -177,7 +177,7 @@
 <!-- $$$RenderTarget$$$Image$$$FramebufferObject$$$InvertedYFramebufferObject -->
 <h3 class="fn" id="RenderTarget-enum"><a name="RenderTarget-enum"></a>enum QQuickPaintedItem::<span class="name">RenderTarget</span></h3>
 <p>This enum describes <a href="qquickpainteditem.html">QQuickPaintedItem</a>'s render targets. The render target is the surface <a href="../qtgui/qpainter.html">QPainter</a> paints onto before the item is rendered on screen.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QQuickPaintedItem::Image</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">The default; <a href="../qtgui/qpainter.html">QPainter</a> paints into a <a href="../qtgui/qimage.html">QImage</a> using the raster paint engine. The image's content needs to be uploaded to graphics memory afterward, this operation can potentially be slow if the item is large. This render target allows high quality anti-aliasing and fast item resizing.</td></tr>
 <tr><td class="topAlign"><code>QQuickPaintedItem::FramebufferObject</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign"><a href="../qtgui/qpainter.html">QPainter</a> paints into a <a href="../qtgui/qopenglframebufferobject.html">QOpenGLFramebufferObject</a> using the GL paint engine. Painting can be faster as no texture upload is required, but anti-aliasing quality is not as good as if using an image. This render target allows faster rendering in some cases, but you should avoid using it if the item is resized often.</td></tr>
 <tr><td class="topAlign"><code>QQuickPaintedItem::InvertedYFramebufferObject</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">Exactly as for FramebufferObject above, except once the painting is done, prior to rendering the painted image is flipped about the x-axis so that the top-most pixels are now at the bottom. Since this is done with the OpenGL texture coordinates it is a much faster way to achieve this effect than using a painter transform.</td></tr>

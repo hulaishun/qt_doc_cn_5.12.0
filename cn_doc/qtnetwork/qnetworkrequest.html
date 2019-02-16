@@ -51,7 +51,7 @@
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign">头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QNetworkRequest&gt;</span>
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += network</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 4.4</td></tr></table></div><ul>
-<li><a href="qnetworkrequest-members.html">List of all members, including inherited members</a></li>
+<li><a href="qnetworkrequest-members.html">所有成员清单，包括继承而来的成员</a></li>
 </ul>
 <a name="public-types"></a>
 <h2 id="public-types">公共类型</h2>
@@ -109,7 +109,7 @@
 <p>Attribute codes for the <a href="qnetworkrequest.html">QNetworkRequest</a> and <a href="qnetworkreply.html">QNetworkReply</a>.</p>
 <p>Attributes are extra meta-data that are used to control the behavior of the request and to pass further information from the reply back to the application. Attributes are also extensible, allowing custom implementations to pass custom values.</p>
 <p>The following table explains what the default attribute codes are, the <a href="../qtcore/qvariant.html">QVariant</a> types associated, the default value if said attribute is missing and whether it's used in requests or replies.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QNetworkRequest::HttpStatusCodeAttribute</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">Replies only, type: <a href="../qtcore/qmetatype.html#Type-enum">QMetaType::Int</a> (no default) Indicates the HTTP status code received from the HTTP server (like 200, 304, 404, 401, etc.)&#x2e; If the connection was not HTTP-based, this attribute will not be present.</td></tr>
 <tr><td class="topAlign"><code>QNetworkRequest::HttpReasonPhraseAttribute</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">Replies only, type: <a href="../qtcore/qmetatype.html#Type-enum">QMetaType::QByteArray</a> (no default) Indicates the HTTP reason phrase as received from the HTTP server (like &quot;Ok&quot;, &quot;Found&quot;, &quot;Not Found&quot;, &quot;Access Denied&quot;, etc.) This is the human-readable representation of the status code (see above). If the connection was not HTTP-based, this attribute will not be present.</td></tr>
 <tr><td class="topAlign"><code>QNetworkRequest::RedirectionTargetAttribute</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">Replies only, type: <a href="../qtcore/qmetatype.html#Type-enum">QMetaType::QUrl</a> (no default) If present, it indicates that the server is redirecting the request to a different URL. The Network Access API does not by default follow redirections: the application can determine if the requested redirection should be allowed, according to its security policies, or it can set QNetworkRequest::FollowRedirectsAttribute to true (in which case the redirection will be followed and this attribute will not be present in the reply). The returned URL might be relative. Use <a href="../qtcore/qurl.html#resolved">QUrl::resolved</a>() to create an absolute URL out of it.</td></tr>
@@ -142,7 +142,7 @@
 <!-- $$$CacheLoadControl$$$AlwaysNetwork$$$PreferNetwork$$$PreferCache$$$AlwaysCache -->
 <h3 class="fn" id="CacheLoadControl-enum"><a name="CacheLoadControl-enum"></a>enum QNetworkRequest::<span class="name">CacheLoadControl</span></h3>
 <p>Controls the caching mechanism of <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QNetworkRequest::AlwaysNetwork</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">always load from network and do not check if the cache has a valid entry (similar to the &quot;Reload&quot; feature in browsers); in addition, force intermediate caches to re-validate.</td></tr>
 <tr><td class="topAlign"><code>QNetworkRequest::PreferNetwork</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">default value; load from the network if the cached entry is older than the network entry. This will never return stale data from the cache, but revalidate resources that have become stale.</td></tr>
 <tr><td class="topAlign"><code>QNetworkRequest::PreferCache</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">load from cache if available, otherwise load from network. Note that this can return possibly stale (but not expired) items from cache.</td></tr>
@@ -152,7 +152,7 @@
 <!-- $$$KnownHeaders$$$ContentTypeHeader$$$ContentLengthHeader$$$LocationHeader$$$LastModifiedHeader$$$CookieHeader$$$SetCookieHeader$$$ContentDispositionHeader$$$UserAgentHeader$$$ServerHeader$$$IfModifiedSinceHeader$$$ETagHeader$$$IfMatchHeader$$$IfNoneMatchHeader -->
 <h3 class="fn" id="KnownHeaders-enum"><a name="KnownHeaders-enum"></a>enum QNetworkRequest::<span class="name">KnownHeaders</span></h3>
 <p>List of known header types that <a href="qnetworkrequest.html">QNetworkRequest</a> parses. Each known header is also represented in raw form with its full HTTP name.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QNetworkRequest::ContentDispositionHeader</code></td><td class="topAlign tblval"><code>6</code></td><td class="topAlign">Corresponds to the HTTP Content-Disposition header and contains a string containing the disposition type (for instance, attachment) and a parameter (for instance, filename).</td></tr>
 <tr><td class="topAlign"><code>QNetworkRequest::ContentTypeHeader</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">Corresponds to the HTTP Content-Type header and contains a string containing the media (MIME) type and any auxiliary data (for instance, charset).</td></tr>
 <tr><td class="topAlign"><code>QNetworkRequest::ContentLengthHeader</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">Corresponds to the HTTP Content-Length header and contains the length in bytes of the data transmitted.</td></tr>
@@ -172,7 +172,7 @@
 <!-- $$$LoadControl$$$Automatic$$$Manual -->
 <h3 class="fn" id="LoadControl-enum"><a name="LoadControl-enum"></a>enum QNetworkRequest::<span class="name">LoadControl</span></h3>
 <p>Indicates if an aspect of the request's loading mechanism has been manually overridden, e.g&#x2e; by Qt WebKit.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QNetworkRequest::Automatic</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">default value: indicates default behaviour.</td></tr>
 <tr><td class="topAlign"><code>QNetworkRequest::Manual</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">indicates behaviour has been manually overridden.</td></tr>
 </table></div>
@@ -181,7 +181,7 @@
 <!-- $$$Priority$$$HighPriority$$$NormalPriority$$$LowPriority -->
 <h3 class="fn" id="Priority-enum"><a name="Priority-enum"></a>enum QNetworkRequest::<span class="name">Priority</span></h3>
 <p>This enum lists the possible network request priorities.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QNetworkRequest::HighPriority</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">High priority</td></tr>
 <tr><td class="topAlign"><code>QNetworkRequest::NormalPriority</code></td><td class="topAlign tblval"><code>3</code></td><td class="topAlign">Normal priority</td></tr>
 <tr><td class="topAlign"><code>QNetworkRequest::LowPriority</code></td><td class="topAlign tblval"><code>5</code></td><td class="topAlign">Low priority</td></tr>
@@ -191,7 +191,7 @@
 <!-- $$$RedirectPolicy$$$ManualRedirectPolicy$$$NoLessSafeRedirectPolicy$$$SameOriginRedirectPolicy$$$UserVerifiedRedirectPolicy -->
 <h3 class="fn" id="RedirectPolicy-enum"><a name="RedirectPolicy-enum"></a>enum QNetworkRequest::<span class="name">RedirectPolicy</span></h3>
 <p>Indicates whether the Network Access API should automatically follow a HTTP redirect response or not.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QNetworkRequest::ManualRedirectPolicy</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">Default value: not following any redirects.</td></tr>
 <tr><td class="topAlign"><code>QNetworkRequest::NoLessSafeRedirectPolicy</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">Only &quot;http&quot;-&gt;&quot;http&quot;, &quot;http&quot; -&gt; &quot;https&quot; or &quot;https&quot; -&gt; &quot;https&quot; redirects are allowed. Equivalent to setting the old <a href="qnetworkrequest.html#Attribute-enum">FollowRedirectsAttribute</a> to true</td></tr>
 <tr><td class="topAlign"><code>QNetworkRequest::SameOriginRedirectPolicy</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">Require the same protocol, host and port. Note, http://example.com and http://example.com:80 will fail with this policy (implicit/explicit ports are considered to be a mismatch).</td></tr>

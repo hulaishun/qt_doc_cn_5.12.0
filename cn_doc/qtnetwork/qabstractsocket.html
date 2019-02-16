@@ -57,7 +57,7 @@
 <tr><td class="memItemLeft rightAlign topAlign">头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QAbstractSocket&gt;</span>
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += network</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <a href="../qtcore/qiodevice.html">QIODevice</a></td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherited By:</td><td class="memItemRight bottomAlign"> <p><a href="qtcpsocket.html">QTcpSocket</a> and <a href="qudpsocket.html">QUdpSocket</a></p>
 </td></tr></table></div><ul>
-<li><a href="qabstractsocket-members.html">List of all members, including inherited members</a></li>
+<li><a href="qabstractsocket-members.html">所有成员清单，包括继承而来的成员</a></li>
 <li><a href="qabstractsocket-obsolete.html">过时的成员</a></li>
 </ul>
 <p><b>Note:</b> All functions in this class are <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
@@ -229,7 +229,7 @@
 <!-- $$$BindFlag$$$DefaultForPlatform$$$ShareAddress$$$DontShareAddress$$$ReuseAddressHint -->
 <h3 class="flags" id="BindFlag-enum"><a name="BindFlag-enum"></a>enum QAbstractSocket::<span class="name">BindFlag</span><br/>flags QAbstractSocket::<span class="name">BindMode</span></h3>
 <p>This enum describes the different flags you can pass to modify the behavior of <a href="qabstractsocket.html#bind">QAbstractSocket::bind</a>().</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QAbstractSocket::ShareAddress</code></td><td class="topAlign tblval"><code>0x1</code></td><td class="topAlign">Allow other services to bind to the same address and port. This is useful when multiple processes share the load of a single service by listening to the same address and port (e.g&#x2e;, a web server with several pre-forked listeners can greatly improve response time). However, because any service is allowed to rebind, this option is subject to certain security considerations. Note that by combining this option with ReuseAddressHint, you will also allow your service to rebind an existing shared address. On Unix, this is equivalent to the SO_REUSEADDR socket option. On Windows, this option is ignored.</td></tr>
 <tr><td class="topAlign"><code>QAbstractSocket::DontShareAddress</code></td><td class="topAlign tblval"><code>0x2</code></td><td class="topAlign">Bind the address and port exclusively, so that no other services are allowed to rebind. By passing this option to <a href="qabstractsocket.html#bind">QAbstractSocket::bind</a>(), you are guaranteed that on successs, your service is the only one that listens to the address and port. No services are allowed to rebind, even if they pass ReuseAddressHint. This option provides more security than ShareAddress, but on certain operating systems, it requires you to run the server with administrator privileges. On Unix and <a href="../qtdoc/internationalization.html#macos">macOS</a>, not sharing is the default behavior for binding an address and port, so this option is ignored. On Windows, this option uses the SO_EXCLUSIVEADDRUSE socket option.</td></tr>
 <tr><td class="topAlign"><code>QAbstractSocket::ReuseAddressHint</code></td><td class="topAlign tblval"><code>0x4</code></td><td class="topAlign">Provides a hint to <a href="qabstractsocket.html">QAbstractSocket</a> that it should try to rebind the service even if the address and port are already bound by another socket. On Windows and Unix, this is equivalent to the SO_REUSEADDR socket option.</td></tr>
@@ -241,7 +241,7 @@
 <!-- $$$NetworkLayerProtocol$$$IPv4Protocol$$$IPv6Protocol$$$AnyIPProtocol$$$UnknownNetworkLayerProtocol -->
 <h3 class="fn" id="NetworkLayerProtocol-enum"><a name="NetworkLayerProtocol-enum"></a>enum QAbstractSocket::<span class="name">NetworkLayerProtocol</span></h3>
 <p>This enum describes the network layer protocol values used in Qt.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QAbstractSocket::IPv4Protocol</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">IPv4</td></tr>
 <tr><td class="topAlign"><code>QAbstractSocket::IPv6Protocol</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">IPv6</td></tr>
 <tr><td class="topAlign"><code>QAbstractSocket::AnyIPProtocol</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">Either IPv4 or IPv6</td></tr>
@@ -252,7 +252,7 @@
 <!-- $$$PauseMode$$$PauseNever$$$PauseOnSslErrors -->
 <h3 class="flags" id="PauseMode-enum"><a name="PauseMode-enum"></a>enum QAbstractSocket::<span class="name">PauseMode</span><br/>flags QAbstractSocket::<span class="name">PauseModes</span></h3>
 <p>This enum describes the behavior of when the socket should hold back with continuing data transfer. The only notification currently supported is <a href="qsslsocket.html#sslErrors">QSslSocket::sslErrors</a>().</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QAbstractSocket::PauseNever</code></td><td class="topAlign tblval"><code>0x0</code></td><td class="topAlign">Do not pause data transfer on the socket. This is the default and matches the behaviour of Qt 4.</td></tr>
 <tr><td class="topAlign"><code>QAbstractSocket::PauseOnSslErrors</code></td><td class="topAlign tblval"><code>0x1</code></td><td class="topAlign">Pause data transfer on the socket upon receiving an SSL error notification. I.E&#x2e; <a href="qsslsocket.html#sslErrors">QSslSocket::sslErrors</a>().</td></tr>
 </table></div>
@@ -262,7 +262,7 @@
 <!-- $$$SocketError$$$ConnectionRefusedError$$$RemoteHostClosedError$$$HostNotFoundError$$$SocketAccessError$$$SocketResourceError$$$SocketTimeoutError$$$DatagramTooLargeError$$$NetworkError$$$AddressInUseError$$$SocketAddressNotAvailableError$$$UnsupportedSocketOperationError$$$UnfinishedSocketOperationError$$$ProxyAuthenticationRequiredError$$$SslHandshakeFailedError$$$ProxyConnectionRefusedError$$$ProxyConnectionClosedError$$$ProxyConnectionTimeoutError$$$ProxyNotFoundError$$$ProxyProtocolError$$$OperationError$$$SslInternalError$$$SslInvalidUserDataError$$$TemporaryError$$$UnknownSocketError -->
 <h3 class="fn" id="SocketError-enum"><a name="SocketError-enum"></a>enum QAbstractSocket::<span class="name">SocketError</span></h3>
 <p>This enum describes the socket errors that can occur.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QAbstractSocket::ConnectionRefusedError</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">The connection was refused by the peer (or timed out).</td></tr>
 <tr><td class="topAlign"><code>QAbstractSocket::RemoteHostClosedError</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">The remote host closed the connection. Note that the client socket (i.e&#x2e;, this socket) will be closed after the remote close notification has been sent.</td></tr>
 <tr><td class="topAlign"><code>QAbstractSocket::HostNotFoundError</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">The host address was not found.</td></tr>
@@ -293,7 +293,7 @@
 <!-- $$$SocketOption$$$LowDelayOption$$$KeepAliveOption$$$MulticastTtlOption$$$MulticastLoopbackOption$$$TypeOfServiceOption$$$SendBufferSizeSocketOption$$$ReceiveBufferSizeSocketOption$$$PathMtuSocketOption -->
 <h3 class="fn" id="SocketOption-enum"><a name="SocketOption-enum"></a>enum QAbstractSocket::<span class="name">SocketOption</span></h3>
 <p>This enum represents the options that can be set on a socket. If desired, they can be set after having received the <a href="qabstractsocket.html#connected">connected</a>() signal from the socket or after having received a new socket from a <a href="qtcpserver.html">QTcpServer</a>.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QAbstractSocket::LowDelayOption</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">Try to optimize the socket for low latency. For a <a href="qtcpsocket.html">QTcpSocket</a> this would set the TCP_NODELAY option and disable Nagle's algorithm. Set this to 1 to enable.</td></tr>
 <tr><td class="topAlign"><code>QAbstractSocket::KeepAliveOption</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">Set this to 1 to enable the SO_KEEPALIVE socket option</td></tr>
 <tr><td class="topAlign"><code>QAbstractSocket::MulticastTtlOption</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">Set this to an integer value to set IP_MULTICAST_TTL (TTL for multicast datagrams) socket option.</td></tr>
@@ -305,7 +305,7 @@
 </table></div>
 <p>Possible values for <i>TypeOfServiceOption</i> are:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Value</th><th >Description</th></tr></thead>
+ <thead><tr class="qt-style"><th >值</th><th >描述</th></tr></thead>
 <tr valign="top" class="odd"><td >224</td><td >Network control</td></tr>
 <tr valign="top" class="even"><td >192</td><td >Internetwork control</td></tr>
 <tr valign="top" class="odd"><td >160</td><td >CRITIC/ECP</td></tr>
@@ -321,7 +321,7 @@
 <!-- $$$SocketState$$$UnconnectedState$$$HostLookupState$$$ConnectingState$$$ConnectedState$$$BoundState$$$ListeningState$$$ClosingState -->
 <h3 class="fn" id="SocketState-enum"><a name="SocketState-enum"></a>enum QAbstractSocket::<span class="name">SocketState</span></h3>
 <p>This enum describes the different states in which a socket can be.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QAbstractSocket::UnconnectedState</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">The socket is not connected.</td></tr>
 <tr><td class="topAlign"><code>QAbstractSocket::HostLookupState</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">The socket is performing a host name lookup.</td></tr>
 <tr><td class="topAlign"><code>QAbstractSocket::ConnectingState</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">The socket has started establishing a connection.</td></tr>
@@ -335,7 +335,7 @@
 <!-- $$$SocketType$$$TcpSocket$$$UdpSocket$$$SctpSocket$$$UnknownSocketType -->
 <h3 class="fn" id="SocketType-enum"><a name="SocketType-enum"></a>enum QAbstractSocket::<span class="name">SocketType</span></h3>
 <p>This enum describes the transport layer protocol.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QAbstractSocket::TcpSocket</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">TCP</td></tr>
 <tr><td class="topAlign"><code>QAbstractSocket::UdpSocket</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">UDP</td></tr>
 <tr><td class="topAlign"><code>QAbstractSocket::SctpSocket</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">SCTP</td></tr>

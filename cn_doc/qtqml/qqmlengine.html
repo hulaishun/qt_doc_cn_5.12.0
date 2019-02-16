@@ -59,7 +59,7 @@
 <tr><td class="memItemLeft rightAlign topAlign">头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QQmlEngine&gt;</span>
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += qml</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.0</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <a href="qjsengine.html">QJSEngine</a></td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherited By:</td><td class="memItemRight bottomAlign"> <p><a href="qqmlapplicationengine.html">QQmlApplicationEngine</a></p>
 </td></tr></table></div><ul>
-<li><a href="qqmlengine-members.html">List of all members, including inherited members</a></li>
+<li><a href="qqmlengine-members.html">所有成员清单，包括继承而来的成员</a></li>
 <li><a href="qqmlengine-obsolete.html">过时的成员</a></li>
 </ul>
 <a name="public-types"></a>
@@ -216,7 +216,7 @@
 <!-- $$$ObjectOwnership$$$CppOwnership$$$JavaScriptOwnership -->
 <h3 class="fn" id="ObjectOwnership-enum"><a name="ObjectOwnership-enum"></a>enum QQmlEngine::<span class="name">ObjectOwnership</span></h3>
 <p>ObjectOwnership controls whether or not QML automatically destroys the <a href="../qtcore/qobject.html">QObject</a> when the corresponding JavaScript object is garbage collected by the engine. The two ownership options are:</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QQmlEngine::CppOwnership</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">The object is owned by C++ code and QML will never delete it. The JavaScript destroy() method cannot be used on these objects. This option is similar to <a href="../qtscript/qscriptengine.html#ValueOwnership-enum">QScriptEngine::QtOwnership</a>.</td></tr>
 <tr><td class="topAlign"><code>QQmlEngine::JavaScriptOwnership</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">The object is owned by JavaScript. When the object is returned to QML as the return value of a method call, QML will track it and delete it if there are no remaining JavaScript references to it and it has no <a href="../qtcore/qobject.html#parent">QObject::parent</a>(). An object tracked by one <a href="qqmlengine.html">QQmlEngine</a> will be deleted during that <a href="qqmlengine.html">QQmlEngine</a>'s destructor. Thus, JavaScript references between objects with JavaScriptOwnership from two different engines will not be valid if one of these engines is deleted. This option is similar to <a href="../qtscript/qscriptengine.html#ValueOwnership-enum">QScriptEngine::ScriptOwnership</a>.</td></tr>
 </table></div>

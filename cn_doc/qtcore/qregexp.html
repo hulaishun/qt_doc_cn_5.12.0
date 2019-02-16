@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcore-index.html">Qt Core</a></td><td ><a href="qtcore-module.html">C++ Classes</a></td><td >QRegExp</td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcore-index.html">Qt核心</a></td><td ><a href="qtcore-module.html">C++类</a></td><td >QRegExp</td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -43,7 +43,7 @@
 <li class="level1"><a href="#static-public-members">静态公共成员</a></li>
 <li class="level1"><a href="#related-non-members">相关非成员</a></li>
 <li class="level1"><a href="#details">详细描述</a></li>
-<li class="level2"><a href="#introduction">Introduction</a></li>
+<li class="level2"><a href="#introduction">介绍</a></li>
 <li class="level2"><a href="#characters-and-abbreviations-for-sets-of-characters">Characters and Abbreviations for Sets of Characters</a></li>
 <li class="level2"><a href="#sets-of-characters">Sets of Characters</a></li>
 <li class="level2"><a href="#quantifiers">Quantifiers</a></li>
@@ -60,9 +60,9 @@
 <p>The <a href="qregexp.html">QRegExp</a> class provides pattern matching using regular expressions. <a href="#details">More...</a></p>
 <!-- @@@QRegExp -->
 <div class="table"><table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QRegExp&gt;</span>
+<tr><td class="memItemLeft rightAlign topAlign"> 头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QRegExp&gt;</span>
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += core</td></tr></table></div><ul>
-<li><a href="qregexp-members.html">List of all members, including inherited members</a></li>
+<li><a href="qregexp-members.html">所有成员清单，包括继承而来的成员</a></li>
 </ul>
 <p><b>Note:</b> All functions in this class are <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
 <a name="public-types"></a>
@@ -130,7 +130,7 @@
 <p>A brief introduction to regexps is presented, a description of Qt's regexp language, some examples, and the function documentation itself. <a href="qregexp.html">QRegExp</a> is modeled on Perl's regexp language. It fully supports Unicode. <a href="qregexp.html">QRegExp</a> can also be used in a simpler, <i>wildcard mode</i> that is similar to the functionality found in command shells. The syntax rules used by <a href="qregexp.html">QRegExp</a> can be changed with <a href="qregexp.html#setPatternSyntax">setPatternSyntax</a>(). In particular, the pattern syntax can be set to <a href="qregexp.html#PatternSyntax-enum">QRegExp::FixedString</a>, which means the pattern to be matched is interpreted as a plain string, i.e&#x2e;, special characters (e.g&#x2e;, backslash) are not escaped.</p>
 <p>A good text on regexps is <i>Mastering Regular Expressions</i> (Third Edition) by Jeffrey E. F. Friedl, ISBN 0-596-52812-4.</p>
 <p><b>Note: </b>In Qt 5, the new <a href="qregularexpression.html">QRegularExpression</a> class provides a Perl compatible implementation of regular expressions and is recommended in place of <a href="qregexp.html">QRegExp</a>.</p><a name="introduction"></a>
-<h3 >Introduction</h3>
+<h3 >介绍</h3>
 <p>Regexps are built up from expressions, quantifiers, and assertions. The simplest expression is a character, e.g&#x2e; <b>x</b> or <b>5</b>. An expression can also be a set of characters enclosed in square brackets. <b>[ABCD]</b> will match an <b>A</b> or a <b>B</b> or a <b>C</b> or a <b>D</b>. We can write this same expression as <b>[A-D]</b>, and an expression to match any capital letter in the English alphabet is written as <b>[A-Z]</b>.</p>
 <p>A quantifier specifies the number of occurrences of an expression that must be matched. <b>x{1,1}</b> means match one and only one <b>x</b>. <b>x{1,5}</b> means match a sequence of <b>x</b> characters that contains at least one <b>x</b> but no more than five.</p>
 <p>Note that in general regexps cannot be used to check for balanced brackets or tags. For example, a regexp can be written to match an opening html <code>&lt;b&gt;</code> and its closing <code>&lt;/b&gt;</code>, if the <code>&lt;b&gt;</code> tags are not nested, but if the <code>&lt;b&gt;</code> tags are nested, that same regexp will match an opening <code>&lt;b&gt;</code> tag with the wrong closing <code>&lt;/b&gt;</code>. For the fragment <code>&lt;b&gt;bold &lt;b&gt;bolder&lt;/b&gt;&lt;/b&gt;</code>, the first <code>&lt;b&gt;</code> would be matched with the first <code>&lt;/b&gt;</code>, which is not correct. However, it is possible to write a regexp that will match nested brackets or tags correctly, but only if the number of nesting levels is fixed and known. If the number of nesting levels is not fixed and known, it is impossible to write a regexp that will not fail.</p>
@@ -372,7 +372,7 @@
 <!-- $$$CaretMode$$$CaretAtZero$$$CaretAtOffset$$$CaretWontMatch -->
 <h3 class="fn" id="CaretMode-enum"><a name="CaretMode-enum"></a>enum QRegExp::<span class="name">CaretMode</span></h3>
 <p>The CaretMode enum defines the different meanings of the caret (<b>^</b>) in a regular expression. The possible values are:</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QRegExp::CaretAtZero</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">The caret corresponds to index 0 in the searched string.</td></tr>
 <tr><td class="topAlign"><code>QRegExp::CaretAtOffset</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">The caret corresponds to the start offset of the search.</td></tr>
 <tr><td class="topAlign"><code>QRegExp::CaretWontMatch</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">The caret never matches.</td></tr>
@@ -381,7 +381,7 @@
 <!-- $$$PatternSyntax$$$RegExp$$$Wildcard$$$FixedString$$$RegExp2$$$WildcardUnix$$$W3CXmlSchema11 -->
 <h3 class="fn" id="PatternSyntax-enum"><a name="PatternSyntax-enum"></a>enum QRegExp::<span class="name">PatternSyntax</span></h3>
 <p>The syntax used to interpret the meaning of the pattern.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QRegExp::RegExp</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">A rich Perl-like pattern matching syntax. This is the default.</td></tr>
 <tr><td class="topAlign"><code>QRegExp::RegExp2</code></td><td class="topAlign tblval"><code>3</code></td><td class="topAlign">Like RegExp, but with <a href="qregexp.html#greedy-quantifiers">greedy quantifiers</a>. (Introduced in Qt 4.2&#x2e;)</td></tr>
 <tr><td class="topAlign"><code>QRegExp::Wildcard</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">This provides a simple pattern matching syntax similar to that used by shells (command interpreters) for &quot;file globbing&quot;. See <a href="qregexp.html#qregexp-wildcard-matching">QRegExp wildcard matching</a>.</td></tr>

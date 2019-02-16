@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcore-index.html">Qt Core</a></td><td >Container Classes</td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcore-index.html">Qt核心</a></td><td >容器类</td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -38,36 +38,36 @@
 <div class="toc">
 <h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#introduction">Introduction</a></li>
-<li class="level1"><a href="#the-container-classes">The Container Classes</a></li>
-<li class="level1"><a href="#the-iterator-classes">The Iterator Classes</a></li>
-<li class="level2"><a href="#java-style-iterators">Java-Style Iterators</a></li>
-<li class="level2"><a href="#stl-style-iterators">STL-Style Iterators</a></li>
+<li class="level1"><a href="#introduction">介绍</a></li>
+<li class="level1"><a href="#the-container-classes">容器类</a></li>
+<li class="level1"><a href="#the-iterator-classes">迭代器类</a></li>
+<li class="level2"><a href="#java-style-iterators">Java样式的迭代器</a></li>
+<li class="level2"><a href="#stl-style-iterators">STL样式的迭代器</a></li>
 <li class="level1"><a href="#the-foreach-keyword">The foreach Keyword</a></li>
 <li class="level1"><a href="#other-container-like-classes">Other Container-Like Classes</a></li>
-<li class="level1"><a href="#algorithmic-complexity">Algorithmic Complexity</a></li>
-<li class="level1"><a href="#growth-strategies">Growth Strategies</a></li>
+<li class="level1"><a href="#algorithmic-complexity">算法复杂度</a></li>
+<li class="level1"><a href="#growth-strategies">增长策略</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title">Container Classes</h1>
+<h1 class="title">容器类</h1>
 <span class="subtitle"></span>
 <!-- $$$containers.html-description -->
 <div class="descr"> <a name="details"></a>
 <a name="introduction"></a>
-<h2 id="introduction">Introduction</h2>
+<h2 id="introduction">介绍</h2>
 <p>The Qt library provides a set of general purpose template-based container classes. These classes can be used to store items of a specified type. For example, if you need a resizable array of <a href="qstring.html">QString</a>s, use <a href="qvector.html">QVector</a>&lt;<a href="qstring.html">QString</a>&gt;.</p>
 <p>These container classes are designed to be lighter, safer, and easier to use than the STL containers. If you are unfamiliar with the STL, or prefer to do things the &quot;Qt way&quot;, you can use these classes instead of the STL classes.</p>
 <p>The container classes are <a href="implicit-sharing.html">implicitly shared</a>, they are <a href="../qtdoc/threads-reentrancy.html">reentrant</a>, and they are optimized for speed, low memory consumption, and minimal inline code expansion, resulting in smaller executables. In addition, they are <a href="../qtdoc/threads-reentrancy.html">thread-safe</a> in situations where they are used as read-only containers by all threads used to access them.</p>
 <p>For traversing the items stored in a container, you can use one of two types of iterators: <a href="containers.html#java-style-iterators">Java-style iterators</a> and <a href="containers.html#stl-style-iterators">STL-style iterators</a>. The Java-style iterators are easier to use and provide high-level functionality, whereas the STL-style iterators are slightly more efficient and can be used together with Qt's and STL's <a href="qtalgorithms.html">generic algorithms</a>.</p>
 <p>Qt also offers a <a href="containers.html#foreach">foreach</a> keyword that make it very easy to iterate over all the items stored in a container.</p>
 <a name="the-container-classes"></a>
-<h2 id="the-container-classes">The Container Classes</h2>
+<h2 id="the-container-classes">容器类</h2>
 <p>Qt provides the following sequential containers: <a href="qlist.html">QList</a>, <a href="qlinkedlist.html">QLinkedList</a>, <a href="qvector.html">QVector</a>, <a href="qstack.html">QStack</a>, and <a href="qqueue.html">QQueue</a>. For most applications, <a href="qlist.html">QList</a> is the best type to use. Although it is implemented as an array-list, it provides very fast prepends and appends. If you really need a linked-list, use <a href="qlinkedlist.html">QLinkedList</a>; if you want your items to occupy consecutive memory locations, use <a href="qvector.html">QVector</a>. <a href="qstack.html">QStack</a> and <a href="qqueue.html">QQueue</a> are convenience classes that provide LIFO and FIFO semantics.</p>
 <p>Qt also provides these associative containers: <a href="qmap.html">QMap</a>, <a href="qmultimap.html">QMultiMap</a>, <a href="qhash.html#qhash">QHash</a>, <a href="qmultihash.html">QMultiHash</a>, and <a href="qset.html">QSet</a>. The &quot;Multi&quot; containers conveniently support multiple values associated with a single key. The &quot;Hash&quot; containers provide faster lookup by using a hash function instead of a binary search on a sorted set.</p>
 <p>As special cases, the <a href="qcache.html">QCache</a> and <a href="qcontiguouscache.html">QContiguousCache</a> classes provide efficient hash-lookup of objects in a limited cache storage.</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Class</th><th >Summary</th></tr></thead>
+ <thead><tr class="qt-style"><th >类</th><th >总述</th></tr></thead>
 <tr valign="top" class="odd"><td ><a href="qlist.html">QList</a>&lt;T&gt;</td><td >This is by far the most commonly used container class. It stores a list of values of a given type (T) that can be accessed by index. Internally, the <a href="qlist.html">QList</a> is implemented using an array, ensuring that index-based access is very fast.<p>Items can be added at either end of the list using <a href="qlist.html#append">QList::append</a>() and <a href="qlist.html#prepend">QList::prepend</a>(), or they can be inserted in the middle using <a href="qlist.html#insert">QList::insert</a>(). More than any other container class, <a href="qlist.html">QList</a> is highly optimized to expand to as little code as possible in the executable. <a href="qstringlist.html">QStringList</a> inherits from <a href="qlist.html">QList</a>&lt;<a href="qstring.html">QString</a>&gt;.</p>
 </td></tr>
 <tr valign="top" class="even"><td ><a href="qlinkedlist.html">QLinkedList</a>&lt;T&gt;</td><td >This is similar to <a href="qlist.html">QList</a>, except that it uses iterators rather than integer indexes to access items. It also provides better performance than <a href="qlist.html">QList</a> when inserting in the middle of a huge list, and it has nicer iterator semantics. (Iterators pointing to an item in a <a href="qlinkedlist.html">QLinkedList</a> remain valid as long as the item exists, whereas iterators to a <a href="qlist.html">QList</a> can become invalid after any insertion or removal.)</td></tr>
@@ -136,10 +136,10 @@
 </pre>
 <a name="default-constructed-value"></a><p>The documentation of certain container class functions refer to <i>default-constructed values</i>; for example, <a href="qvector.html">QVector</a> automatically initializes its items with default-constructed values, and <a href="qmap.html#value">QMap::value</a>() returns a default-constructed value if the specified key isn't in the map. For most value types, this simply means that a value is created using the default constructor (e.g&#x2e; an empty string for <a href="qstring.html">QString</a>). But for primitive types like <code>int</code> and <code>double</code>, as well as for pointer types, the C++ language doesn't specify any initialization; in those cases, Qt's containers automatically initialize the value to 0.</p>
 <a name="the-iterator-classes"></a>
-<h2 id="the-iterator-classes">The Iterator Classes</h2>
+<h2 id="the-iterator-classes">迭代器类</h2>
 <p>Iterators provide a uniform means to access items in a container. Qt's container classes provide two types of iterators: Java-style iterators and STL-style iterators. Iterators of both types are invalidated when the data in the container is modified or detached from <a href="implicit-sharing.html">implicitly shared copies</a> due to a call to a non-const member function.</p>
 <a name="java-style-iterators"></a>
-<h3 >Java-Style Iterators</h3>
+<h3 >Java样式的迭代器</h3>
 <p>The Java-style iterators are new in Qt 4 and are the standard ones used in Qt applications. They are more convenient to use than the STL-style iterators, at the price of being slightly less efficient. Their API is modelled on Java's iterator classes.</p>
 <p>For each container class, there are two Java-style iterator data types: one that provides read-only access and one that provides read-write access.</p>
 <div class="table"><table class="generic">
@@ -178,7 +178,7 @@
 <p>The diagram below illustrates the effect of calling <a href="qlistiterator.html#next">next()</a> and <a href="qlistiterator.html#previous">previous()</a> on an iterator:</p>
 <p class="centerAlign"><img src="images/javaiterators2.png" alt="" /></p><p>The following table summarizes the <a href="qlistiterator.html">QListIterator</a> API:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Function</th><th >Behavior</th></tr></thead>
+ <thead><tr class="qt-style"><th >函数</th><th >Behavior</th></tr></thead>
 <tr valign="top" class="odd"><td ><a href="qlistiterator.html#toFront">toFront()</a></td><td >Moves the iterator to the front of the list (before the first item)</td></tr>
 <tr valign="top" class="even"><td ><a href="qlistiterator.html#toBack">toBack()</a></td><td >Moves the iterator to the back of the list (after the last item)</td></tr>
 <tr valign="top" class="odd"><td ><a href="qlistiterator.html#hasNext">hasNext()</a></td><td >Returns <code>true</code> if the iterator isn't at the back of the list</td></tr>
@@ -269,7 +269,7 @@
 
 </pre>
 <a name="stl-style-iterators"></a>
-<h3 >STL-Style Iterators</h3>
+<h3 >STL样式的迭代器</h3>
 <p>STL-style iterators have been available since the release of Qt 2.0&#x2e; They are compatible with Qt's and STL's <a href="qtalgorithms.html">generic algorithms</a> and are optimized for speed.</p>
 <p>For each container class, there are two STL-style iterator types: one that provides read-only access and one that provides read-write access. Read-only iterators should be used wherever possible because they are faster than read-write iterators.</p>
 <div class="table"><table class="generic">
@@ -319,7 +319,7 @@
 </pre>
 <p>The following table summarizes the STL-style iterators' API:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Expression</th><th >Behavior</th></tr></thead>
+ <thead><tr class="qt-style"><th >表达式</th><th >Behavior</th></tr></thead>
 <tr valign="top" class="odd"><td ><code>*i</code></td><td >Returns the current item</td></tr>
 <tr valign="top" class="even"><td ><code>++i</code></td><td >Advances the iterator to the next item</td></tr>
 <tr valign="top" class="odd"><td ><code>i += n</code></td><td >Advances the iterator by <code>n</code> items</td></tr>
@@ -483,7 +483,7 @@
 </ul>
 <p>Additional non-template types that compete with Qt's template containers are <a href="qbitarray.html">QBitArray</a>, <a href="qbytearray.html">QByteArray</a>, <a href="qstring.html">QString</a>, and <a href="qstringlist.html">QStringList</a>.</p>
 <a name="algorithmic-complexity"></a>
-<h2 id="algorithmic-complexity">Algorithmic Complexity</h2>
+<h2 id="algorithmic-complexity">算法复杂度</h2>
 <p>Algorithmic complexity is concerned about how fast (or slow) each function is as the number of items in the container grow. For example, inserting an item in the middle of a <a href="qlinkedlist.html">QLinkedList</a> is an extremely fast operation, irrespective of the number of items stored in the <a href="qlinkedlist.html">QLinkedList</a>. On the other hand, inserting an item in the middle of a <a href="qvector.html">QVector</a> is potentially very expensive if the <a href="qvector.html">QVector</a> contains many items, since half of the items must be moved one position in memory.</p>
 <p>To describe algorithmic complexity, we use the following terminology, based on the &quot;big Oh&quot; notation:</p>
 <a name="constant-time"></a><a name="logarithmic-time"></a><a name="linear-time"></a><a name="linear-logarithmic-time"></a><a name="quadratic-time"></a><ul>
@@ -512,7 +512,7 @@
 </table></div>
 <p>With <a href="qvector.html">QVector</a>, <a href="qhash.html#qhash">QHash</a>, and <a href="qset.html">QSet</a>, the performance of appending items is amortized O(log <i>n</i>). It can be brought down to O(1) by calling <a href="qvector.html#reserve">QVector::reserve</a>(), <a href="qhash.html#reserve">QHash::reserve</a>(), or <a href="qset.html#reserve">QSet::reserve</a>() with the expected number of items before you insert the items. The next section discusses this topic in more depth.</p>
 <a name="growth-strategies"></a>
-<h2 id="growth-strategies">Growth Strategies</h2>
+<h2 id="growth-strategies">增长策略</h2>
 <p><a href="qvector.html">QVector</a>&lt;T&gt;, <a href="qstring.html">QString</a>, and <a href="qbytearray.html">QByteArray</a> store their items contiguously in memory; <a href="qlist.html">QList</a>&lt;T&gt; maintains an array of pointers to the items it stores to provide fast index-based access (unless T is a pointer type or a basic type of the size of a pointer, in which case the value itself is stored in the array); <a href="qhash.html#qhash">QHash</a>&lt;Key, T&gt; keeps a hash table whose size is proportional to the number of items in the hash. To avoid reallocating the data every single time an item is added at the end of the container, these classes typically allocate more memory than necessary.</p>
 <p>Consider the following code, which builds a <a href="qstring.html">QString</a> from another <a href="qstring.html">QString</a>:</p>
 <pre class="cpp">

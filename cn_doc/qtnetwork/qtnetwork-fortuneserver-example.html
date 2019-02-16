@@ -141,7 +141,7 @@
 
 </pre>
 <p>The encoded fortune is written using <a href="../qtcore/qiodevice.html#write-2">QTcpSocket::write</a>(), and we finally call <a href="qabstractsocket.html#disconnectFromHost">QTcpSocket::disconnectFromHost</a>(), which will close the connection after <a href="qtcpsocket.html">QTcpSocket</a> has finished writing the fortune to the network. Because <a href="qtcpsocket.html">QTcpSocket</a> works asynchronously, the data will be written after this function returns, and control goes back to Qt's event loop. The socket will then close, which in turn will cause <a href="../qtcore/qobject.html#deleteLater">QObject::deleteLater</a>() to delete it.</p>
-<p>Files:</p>
+<p>文件：</p>
 <ul>
 <li><a href="qtnetwork-fortuneserver-fortuneserver-pro.html">fortuneserver/fortuneserver.pro</a></li>
 <li><a href="qtnetwork-fortuneserver-main-cpp.html">fortuneserver/main.cpp</a></li>

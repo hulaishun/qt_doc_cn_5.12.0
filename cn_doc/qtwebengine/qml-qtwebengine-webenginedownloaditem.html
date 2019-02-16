@@ -36,11 +36,11 @@
 <div class="content mainContent">
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#properties">属性</a></li>
 <li class="level1"><a href="#methods">Methods</a></li>
-<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level1"><a href="#details">详细描述</a></li>
 <li class="level2"><a href="#object-life-cycle">Object Life Cycle</a></li>
 <li class="level2"><a href="#web-page-downloads">Web Page Downloads</a></li>
 </ul>
@@ -53,11 +53,11 @@
 <!-- @@@WebEngineDownloadItem -->
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtWebEngine 1.8</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  QtWebEngine 1.1</td></tr></table></div><ul>
-<li><a href="qml-qtwebengine-webenginedownloaditem-members.html">List of all members, including inherited members</a></li>
-<li><a href="qml-qtwebengine-webenginedownloaditem-obsolete.html">Obsolete members</a></li>
+<li><a href="qml-qtwebengine-webenginedownloaditem-members.html">所有成员清单，包括继承而来的成员</a></li>
+<li><a href="qml-qtwebengine-webenginedownloaditem-obsolete.html">过时的成员</a></li>
 </ul>
 <a name="properties"></a>
-<h2 id="properties">Properties</h2>
+<h2 id="properties">属性</h2>
 <ul>
 <li class="fn"><b><b><a href="qml-qtwebengine-webenginedownloaditem.html#id-prop">id</a></b></b> : int</li>
 <li class="fn"><b><b><a href="qml-qtwebengine-webenginedownloaditem.html#interruptReason-prop">interruptReason</a></b></b> : enumeration</li>
@@ -83,7 +83,7 @@
 </ul>
 <!-- $$$WebEngineDownloadItem-description -->
 <a name="details"></a>
-<h2 id="details">Detailed Description</h2>
+<h2 id="details">详细描述</h2>
 <p><a href="qml-qtwebengine-webenginedownloaditem.html">WebEngineDownloadItem</a> models a download throughout its life cycle, starting with a pending download request and finishing with a completed download. It can be used, for example, to get information about new downloads, to monitor progress, and to pause, resume, and cancel downloads.</p>
 <p>Downloads are usually triggered by user interaction on a web page. It is the <a href="qml-qtwebengine-webengineprofile.html">WebEngineProfile</a>'s responsibility to notify the application of new download requests, which it does by emitting the <a href="qml-qtwebengine-webengineprofile.html#downloadRequested-signal">downloadRequested</a> signal together with a newly created <a href="qml-qtwebengine-webenginedownloaditem.html">WebEngineDownloadItem</a>. The application can then examine this item and decide whether to accept it or not. A signal handler must explicitly call <a href="qml-qtwebengine-webenginedownloaditem.html#accept-method">accept()</a> on the item for Qt WebEngine to actually start downloading and writing data to disk. If no signal handler calls <a href="qml-qtwebengine-webenginedownloaditem.html#accept-method">accept()</a>, then the download request will be automatically rejected and nothing will be written to disk.</p>
 <p><b>Note: </b>Some properties, like the <a href="qml-qtwebengine-webenginedownloaditem.html#path-prop">path</a> under which the file will be saved, can only be changed before calling <a href="qml-qtwebengine-webenginedownloaditem.html#accept-method">accept()</a>.</p><a name="object-life-cycle"></a>
@@ -94,7 +94,7 @@
 <p>In addition to normal file downloads, which consist simply of retrieving some raw bytes from the network and writing them to disk, Qt WebEngine also supports saving complete web pages, which involves parsing the page's HTML, downloading any dependent resources, and potentially packaging everything into a special file format (<a href="qml-qtwebengine-webenginedownloaditem.html#savePageFormat-prop">savePageFormat</a>). To check if a download is for a file or a web page, use <a href="qml-qtwebengine-webenginedownloaditem.html#isSavePageDownload-prop">isSavePageDownload</a>.</p>
 <p><b>See also </b><a href="qml-qtwebengine-webengineprofile.html">WebEngineProfile</a>, <a href="qml-qtwebengine-webengineprofile.html#downloadRequested-signal">WebEngineProfile::downloadRequested</a>, and <a href="qml-qtwebengine-webengineprofile.html#downloadFinished-signal">WebEngineProfile::downloadFinished</a>.</p>
 <!-- @@@WebEngineDownloadItem -->
-<h2>Property Documentation</h2>
+<h2>属性文档</h2>
 <!-- $$$id -->
 <div class="qmlitem"><div class="qmlproto">
 <div class="table"><table class="qmlname">
@@ -113,7 +113,7 @@
 <a name="interruptReason-prop"></a><span class="qmlreadonly">[read-only] </span><span class="name">interruptReason</span> : <span class="type"><a href="../qtqml/qml-enumeration.html">enumeration</a></span></p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>Returns the reason why the download was interrupted:</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>WebEngineDownloadItem.NoReason</code></td><td class="topAlign">Unknown reason or not interrupted.</td></tr>
 <tr><td class="topAlign"><code>WebEngineDownloadItem.FileFailed</code></td><td class="topAlign">General file operation failure.</td></tr>
 <tr><td class="topAlign"><code>WebEngineDownloadItem.FileAccessDenied</code></td><td class="topAlign">The file cannot be written locally, due to access restrictions.</td></tr>
@@ -232,7 +232,7 @@
 <a name="savePageFormat-prop"></a><span class="name">savePageFormat</span> : <span class="type"><a href="../qtqml/qml-enumeration.html">enumeration</a></span></p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>Describes the format that is used to save a web page.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>WebEngineDownloadItem.UnknownSaveFormat</code></td><td class="topAlign">This is not a request for downloading a complete web page.</td></tr>
 <tr><td class="topAlign"><code>WebEngineDownloadItem.SingleHtmlSaveFormat</code></td><td class="topAlign">The page is saved as a single HTML page. Resources such as images are not saved.</td></tr>
 <tr><td class="topAlign"><code>WebEngineDownloadItem.CompleteHtmlSaveFormat</code></td><td class="topAlign">The page is saved as a complete HTML page, for example a directory containing the single HTML page and the resources.</td></tr>
@@ -249,7 +249,7 @@
 <a name="state-prop"></a><span class="name">state</span> : <span class="type"><a href="../qtqml/qml-enumeration.html">enumeration</a></span></p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>Describes the state of the download:</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>WebEngineDownloadItem.DownloadRequested</code></td><td class="topAlign">Download has been requested, but it has not been accepted yet.</td></tr>
 <tr><td class="topAlign"><code>WebEngineDownloadItem.DownloadInProgress</code></td><td class="topAlign">Download is in progress.</td></tr>
 <tr><td class="topAlign"><code>WebEngineDownloadItem.DownloadCompleted</code></td><td class="topAlign">Download completed successfully.</td></tr>

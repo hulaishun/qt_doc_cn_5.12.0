@@ -56,7 +56,7 @@
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign">头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QSslSocket&gt;</span>
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += network</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 4.3</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <a href="qtcpsocket.html">QTcpSocket</a></td></tr></table></div><ul>
-<li><a href="qsslsocket-members.html">List of all members, including inherited members</a></li>
+<li><a href="qsslsocket-members.html">所有成员清单，包括继承而来的成员</a></li>
 <li><a href="qsslsocket-obsolete.html">过时的成员</a></li>
 </ul>
 <p><b>Note:</b> All functions in this class are <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
@@ -263,7 +263,7 @@
 <!-- $$$PeerVerifyMode$$$VerifyNone$$$QueryPeer$$$VerifyPeer$$$AutoVerifyPeer -->
 <h3 class="fn" id="PeerVerifyMode-enum"><a name="PeerVerifyMode-enum"></a>enum QSslSocket::<span class="name">PeerVerifyMode</span></h3>
 <p>Describes the peer verification modes for <a href="qsslsocket.html">QSslSocket</a>. The default mode is AutoVerifyPeer, which selects an appropriate mode depending on the socket's QSocket::SslMode.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QSslSocket::VerifyNone</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign"><a href="qsslsocket.html">QSslSocket</a> will not request a certificate from the peer. You can set this mode if you are not interested in the identity of the other side of the connection. The connection will still be encrypted, and your socket will still send its local certificate to the peer if it's requested.</td></tr>
 <tr><td class="topAlign"><code>QSslSocket::QueryPeer</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign"><a href="qsslsocket.html">QSslSocket</a> will request a certificate from the peer, but does not require this certificate to be valid. This is useful when you want to display peer certificate details to the user without affecting the actual SSL handshake. This mode is the default for servers.</td></tr>
 <tr><td class="topAlign"><code>QSslSocket::VerifyPeer</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign"><a href="qsslsocket.html">QSslSocket</a> will request a certificate from the peer during the SSL handshake phase, and requires that this certificate is valid. On failure, <a href="qsslsocket.html">QSslSocket</a> will emit the <a href="qsslsocket.html#sslErrors">QSslSocket::sslErrors</a>() signal. This mode is the default for clients.</td></tr>
@@ -275,7 +275,7 @@
 <!-- $$$SslMode$$$UnencryptedMode$$$SslClientMode$$$SslServerMode -->
 <h3 class="fn" id="SslMode-enum"><a name="SslMode-enum"></a>enum QSslSocket::<span class="name">SslMode</span></h3>
 <p>Describes the connection modes available for <a href="qsslsocket.html">QSslSocket</a>.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QSslSocket::UnencryptedMode</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">The socket is unencrypted. Its behavior is identical to <a href="qtcpsocket.html">QTcpSocket</a>.</td></tr>
 <tr><td class="topAlign"><code>QSslSocket::SslClientMode</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">The socket is a client-side SSL socket. It is either alreayd encrypted, or it is in the SSL handshake phase (see <a href="qsslsocket.html#isEncrypted">QSslSocket::isEncrypted</a>()).</td></tr>
 <tr><td class="topAlign"><code>QSslSocket::SslServerMode</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">The socket is a server-side SSL socket. It is either already encrypted, or it is in the SSL handshake phase (see <a href="qsslsocket.html#isEncrypted">QSslSocket::isEncrypted</a>()).</td></tr>

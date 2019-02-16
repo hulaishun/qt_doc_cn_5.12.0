@@ -45,7 +45,7 @@
 <li class="level2"><a href="#composing-a-qpainterpath">Composing a QPainterPath</a></li>
 <li class="level2"><a href="#qpainterpath-information">QPainterPath Information</a></li>
 <li class="level2"><a href="#qpainterpath-conversion">QPainterPath Conversion</a></li>
-<li class="level2"><a href="#examples">Examples</a></li>
+<li class="level2"><a href="#examples">样例</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
@@ -206,7 +206,7 @@
 <p>The <a href="qpainterpath.html#toFillPolygons">toFillPolygons</a>() and <a href="qpainterpath.html#toSubpathPolygons">toSubpathPolygons</a>() functions are provided because it is usually faster to draw several small polygons than to draw one large polygon, even though the total number of points drawn is the same. The difference between the two is the <i>number</i> of polygons they return: The <a href="qpainterpath.html#toSubpathPolygons">toSubpathPolygons</a>() creates one polygon for each subpath regardless of intersecting subpaths (i.e&#x2e; overlapping bounding rectangles), while the <a href="qpainterpath.html#toFillPolygons">toFillPolygons</a>() functions creates only one polygon for overlapping subpaths.</p>
 <p>The <a href="qpainterpath.html#toFillPolygon">toFillPolygon</a>() and <a href="qpainterpath.html#toFillPolygons">toFillPolygons</a>() functions first convert all the subpaths to polygons, then uses a rewinding technique to make sure that overlapping subpaths can be filled using the correct fill rule. Note that rewinding inserts additional lines in the polygon so the outline of the fill polygon does not match the outline of the path.</p>
 <a name="examples"></a>
-<h3 >Examples</h3>
+<h3 >样例</h3>
 <p>Qt provides the <a href="../qtwidgets/qtwidgets-painting-painterpaths-example.html">Painter Paths Example</a> and the <a href="../qtwidgets/qtwidgets-painting-deform-example.html">Vector Deformation example</a> which are located in Qt's example directory.</p>
 <p>The <a href="../qtwidgets/qtwidgets-painting-painterpaths-example.html">Painter Paths Example</a> shows how painter paths can be used to build complex shapes for rendering and lets the user experiment with the filling and stroking. The <a href="../qtwidgets/qtwidgets-painting-deform-example.html">Vector Deformation Example</a> shows how to use <a href="qpainterpath.html">QPainterPath</a> to draw text.</p>
 <div class="table"><table class="generic">
@@ -222,7 +222,7 @@
 <h3 class="fn" id="ElementType-enum"><a name="ElementType-enum"></a>enum QPainterPath::<span class="name">ElementType</span></h3>
 <p>This enum describes the types of elements used to connect vertices in subpaths.</p>
 <p>Note that elements added as closed subpaths using the <a href="qpainterpath.html#addEllipse">addEllipse</a>(), <a href="qpainterpath.html#addPath">addPath</a>(), <a href="qpainterpath.html#addPolygon">addPolygon</a>(), <a href="qpainterpath.html#addRect">addRect</a>(), <a href="qpainterpath.html#addRegion">addRegion</a>() and <a href="qpainterpath.html#addText">addText</a>() convenience functions, is actually added to the path as a collection of separate elements using the <a href="qpainterpath.html#moveTo">moveTo</a>(), <a href="qpainterpath.html#lineTo">lineTo</a>() and <a href="qpainterpath.html#cubicTo">cubicTo</a>() functions.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QPainterPath::MoveToElement</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">A new subpath. See also <a href="qpainterpath.html#moveTo">moveTo</a>().</td></tr>
 <tr><td class="topAlign"><code>QPainterPath::LineToElement</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">A line. See also <a href="qpainterpath.html#lineTo">lineTo</a>().</td></tr>
 <tr><td class="topAlign"><code>QPainterPath::CurveToElement</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">A curve. See also <a href="qpainterpath.html#cubicTo">cubicTo</a>() and <a href="qpainterpath.html#quadTo">quadTo</a>().</td></tr>

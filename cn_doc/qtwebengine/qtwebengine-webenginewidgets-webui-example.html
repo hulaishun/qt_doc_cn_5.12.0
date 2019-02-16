@@ -36,7 +36,7 @@
 <div class="content mainContent">
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3><a name="toc">目录</a></h3>
 <ul>
 <li class="level1"><a href="#running-the-example">Running the Example</a></li>
 <li class="level1"><a href="#overview">Overview</a></li>
@@ -61,7 +61,7 @@
 </ul>
 <a name="running-the-example"></a>
 <h2 id="running-the-example">Running the Example</h2>
-<p>To run the example from <a href="http://doc.qt.io/qtcreator/index.html">Qt Creator</a>, open the <b>Welcome</b> mode and select the example from <b>Examples</b>. For more information, visit <a href="http://doc.qt.io/qtcreator/creator-build-example-application.html">Building and Running an Example</a>.</p>
+<p>To run the example from <a href="http://doc.qt.io/qtcreator/index.html">Qt Creator</a>, open the <b>Welcome</b> mode and select the example from <b>样例</b>. For more information, visit <a href="http://doc.qt.io/qtcreator/creator-build-example-application.html">Building and Running an Example</a>.</p>
 <a name="overview"></a>
 <h2 id="overview">Overview</h2>
 <p>The example program consists of a single <a href="qwebengineview.html">QWebEngineView</a> showing a simple HTML page loaded from the URL <code>webui:about</code>, over our custom scheme. Pressing the button at the bottom of the page will trigger an HTML form submission via POST to the same URL, at which point our custom scheme handler will cause the application to exit.</p>
@@ -164,7 +164,7 @@
 <p><b>Warning:</b> The <code>requestStarted()</code> method is not called from the main thread, but from the web engine's IO thread. Care must be taken to synchronize access to any resources on the main thread.</p>
 <p>Aside from the usual fare of <a href="qwebengineurlrequestjob.html#requestMethod">requestMethod</a> and <a href="qwebengineurlrequestjob.html#requestUrl">requestUrl</a>, there is also the <a href="qwebengineurlrequestjob.html#initiator">initiator</a>, holding the origin of the content which initiated the request. An empty <code>initiator</code> means the request was initiated directly by the application (via <a href="qwebenginepage.html#url-prop">QWebEnginePage::setUrl</a>(), for example). The special value <code>&quot;null&quot;</code> corresponds to an opaque origin (a sandboxed <code>&lt;iframe&gt;</code> element, for example). Otherwise, the <code>initiator</code> will contain the URL scheme, hostname, and port of the content which initiated the request.</p>
 <p>In this example, the <code>initiator</code> is used to ensure that <code>POST</code> requests to <code>webui:about</code> will only trigger the application's exit if they originate from the <code>webui</code> scheme. This prevents content loaded over other schemes from triggering the application's exit.</p>
-<p>Files:</p>
+<p>文件：</p>
 <ul>
 <li><a href="qtwebengine-webenginewidgets-webui-about-html.html">webenginewidgets/webui/about.html</a></li>
 <li><a href="qtwebengine-webenginewidgets-webui-main-cpp.html">webenginewidgets/webui/main.cpp</a></li>

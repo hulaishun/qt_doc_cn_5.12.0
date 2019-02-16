@@ -36,9 +36,9 @@
 <div class="content mainContent">
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#introduction">Introduction</a></li>
+<li class="level1"><a href="#introduction">介绍</a></li>
 <li class="level1"><a href="#implementation">Implementation</a></li>
 <li class="level1"><a href="#example-1-direct-connection-using-a-static-source">Example 1: Direct Connection Using a Static Source</a></li>
 <li class="level2"><a href="#replica-code">Replica Code</a></li>
@@ -54,7 +54,7 @@
 <!-- $$$qtremoteobjects-gettingstarted.html-description -->
 <div class="descr"> <a name="details"></a>
 <a name="introduction"></a>
-<h2 id="introduction">Introduction</h2>
+<h2 id="introduction">介绍</h2>
 <p>The <i>Qt Remote Objects</i> (QtRO) module provides an easy way to share Qt APIs between processes and devices. A data channel between processes and devices is required for this to work. Therefore, the first thing you need in QtRO is a <a href="qremoteobjectnode.html">QRemoteObjectNode</a>. In QtRO, a node is an endpoint for communication. Each participant in a remote objects network, be it a process or a device, needs its own node. QtRO is a peer-to-peer network, with connected nodes being the links in the network.</p>
 <p>Nodes, by themselves, don’t provide much use. The value comes from adding <a href="../qtcore/qobject.html">QObject</a> classes to a node for sharing. Any peer node can then request a copy/instance of the shared object from the node that shares it (called the <i>host node</i>). Unlike when using normal class instances (with independent properties and signal emissions), the idea in QtRO is to synchronize the changes of the shared object to all of the copies. With a few exceptions, the copies have the exact same Qt API as the original object, and are intended to be used exactly as if the original object were available. In QtRO, the original object is called the <a href="qtremoteobjects-source.html#source">Source</a>. It is a fully implemented C++ class, with whatever business logic is needed to provide the desired functionality. Copies of this object are called <a href="qtremoteobjects-replica.html#replica">Replica</a>s. You don’t need to write any C++ code for a replica; instead, you simply request an instance from a node. You still need some code to use it, such as connecting signals to your own slots, but you don’t need to implement the internal behavior – that was already done in the source object.</p>
 <p>Because the source can be in a different process or even on a different device, there are concerns in QtRO that you won’t run into when developing without Inter-Process Communication (IPC). Specifically, what happens if the process or device isn’t there? This is where the additions to the <a href="qtremoteobjects-replica.html#replica">Replica</a> API come in. There is an <a href="qremoteobjectreplica.html#initialized">initialized()</a> signal that is emitted once the replica has received the <a href="qtremoteobjects-source.html#source">source</a> state from the QtRO network. There is also an <a href="qremoteobjectreplica.html#isReplicaValid">isReplicaValid</a> property and a <a href="qremoteobjectreplica.html#stateChanged">stateChanged()</a> signal to alert you if the connection is lost.</p>

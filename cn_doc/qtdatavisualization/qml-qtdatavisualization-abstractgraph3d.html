@@ -36,11 +36,11 @@
 <div class="content mainContent">
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#properties">属性</a></li>
 <li class="level1"><a href="#methods">Methods</a></li>
-<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level1"><a href="#details">详细描述</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
@@ -52,10 +52,10 @@
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtDataVisualization 1.2</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  QtDataVisualization 1.0</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherited By:</td><td class="memItemRight bottomAlign"> <p><a href="qml-qtdatavisualization-bars3d.html">Bars3D</a>, <a href="qml-qtdatavisualization-scatter3d.html">Scatter3D</a>, and <a href="qml-qtdatavisualization-surface3d.html">Surface3D</a></p>
 </td></tr></table></div><ul>
-<li><a href="qml-qtdatavisualization-abstractgraph3d-members.html">List of all members, including inherited members</a></li>
+<li><a href="qml-qtdatavisualization-abstractgraph3d-members.html">所有成员清单，包括继承而来的成员</a></li>
 </ul>
 <a name="properties"></a>
-<h2 id="properties">Properties</h2>
+<h2 id="properties">属性</h2>
 <ul>
 <li class="fn"><b><b><a href="qml-qtdatavisualization-abstractgraph3d.html#aspectRatio-prop">aspectRatio</a></b></b> : real</li>
 <li class="fn"><b><b><a href="qml-qtdatavisualization-abstractgraph3d.html#currentFps-prop">currentFps</a></b></b> : int</li>
@@ -97,12 +97,12 @@
 </ul>
 <!-- $$$AbstractGraph3D-description -->
 <a name="details"></a>
-<h2 id="details">Detailed Description</h2>
+<h2 id="details">详细描述</h2>
 <p>The base type for all 3D visualizations in <a href="qtdatavisualization-qmlmodule.html">QtDataVisualization</a>.</p>
 <p>This type is uncreatable, but it contains properties that are shared between the 3D visualizations.</p>
 <p><b>See also </b><a href="qml-qtdatavisualization-bars3d.html">Bars3D</a>, <a href="qml-qtdatavisualization-scatter3d.html">Scatter3D</a>, <a href="qml-qtdatavisualization-surface3d.html">Surface3D</a>, and <a href="qtdatavisualization-module.html">Qt Data Visualization C++ Classes</a>.</p>
 <!-- @@@AbstractGraph3D -->
-<h2>Property Documentation</h2>
+<h2>属性文档</h2>
 <!-- $$$aspectRatio -->
 <div class="qmlitem"><div class="qmlproto">
 <div class="table"><table class="qmlname">
@@ -301,7 +301,7 @@
 <a name="renderingMode-prop"></a><span class="name">renderingMode</span> : <span class="type"><a href="qml-qtdatavisualization-abstractgraph3d.html">AbstractGraph3D</a></span>.<span class="type">RenderingMode</span></p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>How the graph will be rendered. Defaults to <code>RenderIndirect</code>.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>RenderDirectToBackground</code></td><td class="topAlign">Indicates that the graph will be rendered directly on the window background. Clears the whole window before rendering the graph, including the areas outside the graph. Since the graphs in this rendering mode are drawn on the window background under other QML items, the regular QML window clearing before rendering is suppressed. The graphs handle the clearing themselves instead. If the surface format of the window supports antialiasing, it will be used (see <code>QtDataVisualization::qDefaultSurfaceFormat()</code>). This rendering mode offers the best performance at the expense of non-standard QML behavior. For example, the graphs do not obey the z ordering of QML items and the opacity value has no effect on them.</td></tr>
 <tr><td class="topAlign"><code>RenderDirectToBackground_NoClear</code></td><td class="topAlign">Similar to <code>RenderDirectToBackground</code> mode, except that the graph will not clear the whole window before rendering the graph. This mode is better for windows where you have other custom items besides the graphs that also draw on the window background. In that case you need to either take care of the window clearing yourself or ensure that all areas of the window are fully covered with opaque items. If one graph in the window uses either of the direct rendering modes, then all other graphs in the same window also drawn in direct modes should use the exact same direct rendering mode. Otherwise some graphs may not show up, depending on the drawing order of the graphs.</td></tr>
 <tr><td class="topAlign"><code>RenderIndirect</code></td><td class="topAlign">Indicates the graph will be first rendered to an offscreen surface that is then drawn during normal QML item rendering. The rendered image is antialiased using the multisampling method if it is supported in the current environment and the <a href="qml-qtdatavisualization-abstractgraph3d.html#msaaSamples-prop">msaaSamples</a> property value is greater than zero. This rendering mode offers good quality and normal QML item behavior at the expense of performance.</td></tr>

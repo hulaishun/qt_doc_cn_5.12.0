@@ -53,7 +53,7 @@
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign">头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QNetworkProxy&gt;</span>
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += network</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 4.1</td></tr></table></div><ul>
-<li><a href="qnetworkproxy-members.html">List of all members, including inherited members</a></li>
+<li><a href="qnetworkproxy-members.html">所有成员清单，包括继承而来的成员</a></li>
 </ul>
 <p><b>Note:</b> All functions in this class are <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
 <a name="public-types"></a>
@@ -142,7 +142,7 @@
 <p>These flags indicate the capabilities that a given proxy server supports.</p>
 <p><a href="qnetworkproxy.html">QNetworkProxy</a> sets different capabilities by default when the object is created (see <a href="qnetworkproxy.html#ProxyType-enum">QNetworkProxy::ProxyType</a> for a list of the defaults). However, it is possible to change the capabitilies after the object has been created with <a href="qnetworkproxy.html#setCapabilities">setCapabilities</a>().</p>
 <p>The capabilities that <a href="qnetworkproxy.html">QNetworkProxy</a> supports are:</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QNetworkProxy::TunnelingCapability</code></td><td class="topAlign tblval"><code>0x0001</code></td><td class="topAlign">Ability to open transparent, tunneled TCP connections to a remote host. The proxy server relays the transmission verbatim from one side to the other and does no caching.</td></tr>
 <tr><td class="topAlign"><code>QNetworkProxy::ListeningCapability</code></td><td class="topAlign tblval"><code>0x0002</code></td><td class="topAlign">Ability to create a listening socket and wait for an incoming TCP connection from a remote host.</td></tr>
 <tr><td class="topAlign"><code>QNetworkProxy::UdpTunnelingCapability</code></td><td class="topAlign tblval"><code>0x0004</code></td><td class="topAlign">Ability to relay UDP datagrams via the proxy server to and from a remote host.</td></tr>
@@ -158,7 +158,7 @@
 <h3 class="fn" id="ProxyType-enum"><a name="ProxyType-enum"></a>enum QNetworkProxy::<span class="name">ProxyType</span></h3>
 <p>This enum describes the types of network proxying provided in Qt.</p>
 <p>There are two types of proxies that Qt understands: transparent proxies and caching proxies. The first group consists of proxies that can handle any arbitrary data transfer, while the second can only handle specific requests. The caching proxies only make sense for the specific classes where they can be used.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QNetworkProxy::NoProxy</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">No proxying is used</td></tr>
 <tr><td class="topAlign"><code>QNetworkProxy::DefaultProxy</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">Proxy is determined based on the application proxy set using <a href="qnetworkproxy.html#setApplicationProxy">setApplicationProxy</a>()</td></tr>
 <tr><td class="topAlign"><code>QNetworkProxy::Socks5Proxy</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign"><a href="qnetworkproxy.html#socks5">Socks5</a> proxying is used</td></tr>
@@ -168,7 +168,7 @@
 </table></div>
 <p>The table below lists different proxy types and their capabilities. Since each proxy type has different capabilities, it is important to understand them before choosing a proxy type.</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Proxy type</th><th >Description</th><th >Default capabilities</th></tr></thead>
+ <thead><tr class="qt-style"><th >Proxy type</th><th >描述</th><th >Default capabilities</th></tr></thead>
 <tr valign="top" class="odd"><td >SOCKS 5</td><td >Generic proxy for any kind of connection. Supports TCP, UDP, binding to a port (incoming connections) and authentication.</td><td ><a href="qnetworkproxy.html#Capability-enum">TunnelingCapability</a>, <a href="qnetworkproxy.html#Capability-enum">ListeningCapability</a>, <a href="qnetworkproxy.html#Capability-enum">UdpTunnelingCapability</a>, <a href="qnetworkproxy.html#Capability-enum">HostNameLookupCapability</a></td></tr>
 <tr valign="top" class="even"><td >HTTP</td><td >Implemented using the &quot;CONNECT&quot; command, supports only outgoing TCP connections; supports authentication.</td><td ><a href="qnetworkproxy.html#Capability-enum">TunnelingCapability</a>, <a href="qnetworkproxy.html#Capability-enum">CachingCapability</a>, <a href="qnetworkproxy.html#Capability-enum">HostNameLookupCapability</a></td></tr>
 <tr valign="top" class="odd"><td >Caching-only HTTP</td><td >Implemented using normal HTTP commands, it is useful only in the context of HTTP requests (see <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>)</td><td ><a href="qnetworkproxy.html#Capability-enum">CachingCapability</a>, <a href="qnetworkproxy.html#Capability-enum">HostNameLookupCapability</a></td></tr>

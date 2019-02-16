@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcore-index.html">Qt Core</a></td><td ><a href="qtcore-module.html">C++ Classes</a></td><td >QUrl</td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcore-index.html">Qt核心</a></td><td ><a href="qtcore-module.html">C++类</a></td><td >QUrl</td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -55,10 +55,10 @@
 <p>The <a href="qurl.html">QUrl</a> class provides a convenient interface for working with URLs. <a href="#details">More...</a></p>
 <!-- @@@QUrl -->
 <div class="table"><table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QUrl&gt;</span>
+<tr><td class="memItemLeft rightAlign topAlign"> 头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QUrl&gt;</span>
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += core</td></tr></table></div><ul>
-<li><a href="qurl-members.html">List of all members, including inherited members</a></li>
-<li><a href="qurl-obsolete.html">Obsolete members</a></li>
+<li><a href="qurl-members.html">所有成员清单，包括继承而来的成员</a></li>
+<li><a href="qurl-obsolete.html">过时的成员</a></li>
 </ul>
 <p><b>Note:</b> All functions in this class are <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
 <a name="public-types"></a>
@@ -224,7 +224,7 @@
 <!-- $$$ComponentFormattingOption$$$PrettyDecoded$$$EncodeSpaces$$$EncodeUnicode$$$EncodeDelimiters$$$EncodeReserved$$$DecodeReserved$$$FullyEncoded$$$FullyDecoded -->
 <h3 class="flags" id="ComponentFormattingOption-enum"><a name="ComponentFormattingOption-enum"></a>enum QUrl::<span class="name">ComponentFormattingOption</span><br/>flags QUrl::<span class="name">ComponentFormattingOptions</span></h3>
 <p>The component formatting options define how the components of an URL will be formatted when written out as text. They can be combined with the options from <a href="qurl.html#UrlFormattingOption-enum">QUrl::FormattingOptions</a> when used in <a href="qurl.html#toString">toString</a>() and <a href="qurl.html#toEncoded">toEncoded</a>().</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QUrl::PrettyDecoded</code></td><td class="topAlign tblval"><code>0x000000</code></td><td class="topAlign">The component is returned in a &quot;pretty form&quot;, with most percent-encoded characters decoded. The exact behavior of PrettyDecoded varies from component to component and may also change from Qt release to Qt release. This is the default.</td></tr>
 <tr><td class="topAlign"><code>QUrl::EncodeSpaces</code></td><td class="topAlign tblval"><code>0x100000</code></td><td class="topAlign">Leave space characters in their encoded form (&quot;%20&quot;).</td></tr>
 <tr><td class="topAlign"><code>QUrl::EncodeUnicode</code></td><td class="topAlign tblval"><code>0x200000</code></td><td class="topAlign">Leave non-US-ASCII characters encoded in their UTF-8 percent-encoded form (e.g&#x2e;, &quot;%C3%A9&quot; for the U+00E9 codepoint, LATIN SMALL LETTER E WITH ACUTE).</td></tr>
@@ -264,7 +264,7 @@
 <!-- $$$ParsingMode$$$TolerantMode$$$StrictMode$$$DecodedMode -->
 <h3 class="fn" id="ParsingMode-enum"><a name="ParsingMode-enum"></a>enum QUrl::<span class="name">ParsingMode</span></h3>
 <p>The parsing mode controls the way <a href="qurl.html">QUrl</a> parses strings.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QUrl::TolerantMode</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign"><a href="qurl.html">QUrl</a> will try to correct some common errors in URLs. This mode is useful for parsing URLs coming from sources not known to be strictly standards-conforming.</td></tr>
 <tr><td class="topAlign"><code>QUrl::StrictMode</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">Only valid URLs are accepted. This mode is useful for general URL validation.</td></tr>
 <tr><td class="topAlign"><code>QUrl::DecodedMode</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign"><a href="qurl.html">QUrl</a> will interpret the URL component in the fully-decoded form, where percent characters stand for themselves, not as the beginning of a percent-encoded sequence. This mode is only valid for the setters setting components of a URL; it is not permitted in the <a href="qurl.html">QUrl</a> constructor, in <a href="qurl.html#fromEncoded">fromEncoded</a>() or in <a href="qurl.html#setUrl">setUrl</a>(). For more information on this mode, see the documentation for <a href="qurl.html#ComponentFormattingOption-enum">QUrl::FullyDecoded</a>.</td></tr>
@@ -282,7 +282,7 @@
 <!-- $$$UrlFormattingOption$$$None$$$RemoveScheme$$$RemovePassword$$$RemoveUserInfo$$$RemovePort$$$RemoveAuthority$$$RemovePath$$$RemoveQuery$$$RemoveFragment$$$PreferLocalFile$$$StripTrailingSlash$$$RemoveFilename$$$NormalizePathSegments -->
 <h3 class="flags" id="UrlFormattingOption-enum"><a name="UrlFormattingOption-enum"></a>enum QUrl::<span class="name">UrlFormattingOption</span><br/>flags QUrl::<span class="name">FormattingOptions</span></h3>
 <p>The formatting options define how the URL is formatted when written out as text.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QUrl::None</code></td><td class="topAlign tblval"><code>0x0</code></td><td class="topAlign">The format of the URL is unchanged.</td></tr>
 <tr><td class="topAlign"><code>QUrl::RemoveScheme</code></td><td class="topAlign tblval"><code>0x1</code></td><td class="topAlign">The scheme is removed from the URL.</td></tr>
 <tr><td class="topAlign"><code>QUrl::RemovePassword</code></td><td class="topAlign tblval"><code>0x2</code></td><td class="topAlign">Any password in the URL is removed.</td></tr>
@@ -305,7 +305,7 @@
 <!-- $$$UserInputResolutionOption$$$DefaultResolution$$$AssumeLocalFile -->
 <h3 class="flags" id="UserInputResolutionOption-enum"><a name="UserInputResolutionOption-enum"></a>enum QUrl::<span class="name">UserInputResolutionOption</span><br/>flags QUrl::<span class="name">UserInputResolutionOptions</span></h3>
 <p>The user input resolution options define how <a href="qurl.html#fromUserInput">fromUserInput</a>() should interpret strings that could either be a relative path or the short form of a HTTP URL. For instance <code>file.pl</code> can be either a local file or the URL <code>http://file.pl</code>.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QUrl::DefaultResolution</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">The default resolution mechanism is to check whether a local file exists, in the working directory given to <a href="qurl.html#fromUserInput">fromUserInput</a>, and only return a local path in that case. Otherwise a URL is assumed.</td></tr>
 <tr><td class="topAlign"><code>QUrl::AssumeLocalFile</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">This option makes <a href="qurl.html#fromUserInput">fromUserInput</a>() always return a local path unless the input contains a scheme, such as <code>http://file.pl</code>. This is useful for applications such as text editors, which are able to create the file if it doesn't exist.</td></tr>
 </table></div>

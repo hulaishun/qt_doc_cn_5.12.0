@@ -40,7 +40,7 @@
 <ul>
 <li class="level1"><a href="#public-types">公共类型</a></li>
 <li class="level1"><a href="#public-functions">公共函数</a></li>
-<li class="level1"><a href="#protected-variables">Protected Variables</a></li>
+<li class="level1"><a href="#protected-variables">保护变量</a></li>
 <li class="level1"><a href="#details">详细描述</a></li>
 </ul>
 </div>
@@ -53,7 +53,7 @@
 <tr><td class="memItemLeft rightAlign topAlign">头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QSGNode&gt;</span>
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += quick</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherited By:</td><td class="memItemRight bottomAlign"> <p><a href="qsgbasicgeometrynode.html">QSGBasicGeometryNode</a>, <a href="qsgopacitynode.html">QSGOpacityNode</a>, <a href="qsgrendernode.html">QSGRenderNode</a>, and <a href="qsgtransformnode.html">QSGTransformNode</a></p>
 </td></tr></table></div><ul>
-<li><a href="qsgnode-members.html">List of all members, including inherited members</a></li>
+<li><a href="qsgnode-members.html">所有成员清单，包括继承而来的成员</a></li>
 </ul>
 <a name="public-types"></a>
 <h2 id="public-types">公共类型</h2>
@@ -91,7 +91,7 @@
 <tr><td class="memItemLeft rightAlign topAlign"> QSGNode::NodeType </td><td class="memItemRight bottomAlign"><b><a href="qsgnode.html#type">type</a></b>() const</td></tr>
 </table></div>
 <a name="protected-variables"></a>
-<h2 id="protected-variables">Protected Variables</h2>
+<h2 id="protected-variables">保护变量</h2>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qsgnode.html#d_ptr-var">d_ptr</a></b></td></tr>
 </table></div>
@@ -111,7 +111,7 @@
 <!-- $$$DirtyStateBit$$$DirtySubtreeBlocked$$$DirtyMatrix$$$DirtyNodeAdded$$$DirtyNodeRemoved$$$DirtyGeometry$$$DirtyMaterial$$$DirtyOpacity$$$DirtyForceUpdate$$$DirtyUsePreprocess$$$DirtyPropagationMask -->
 <h3 class="flags" id="DirtyStateBit-enum"><a name="DirtyStateBit-enum"></a>enum QSGNode::<span class="name">DirtyStateBit</span><br/>flags QSGNode::<span class="name">DirtyState</span></h3>
 <p>Used in <a href="qsgnode.html#markDirty">QSGNode::markDirty</a>() to indicate how the scene graph has changed.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QSGNode::DirtyMatrix</code></td><td class="topAlign tblval"><code>0x0100</code></td><td class="topAlign">The matrix in a <a href="qsgtransformnode.html">QSGTransformNode</a> has changed.</td></tr>
 <tr><td class="topAlign"><code>QSGNode::DirtyNodeAdded</code></td><td class="topAlign tblval"><code>0x0400</code></td><td class="topAlign">A node was added.</td></tr>
 <tr><td class="topAlign"><code>QSGNode::DirtyNodeRemoved</code></td><td class="topAlign tblval"><code>0x0800</code></td><td class="topAlign">A node was removed.</td></tr>
@@ -126,7 +126,7 @@
 <!-- $$$Flag$$$OwnedByParent$$$UsePreprocess$$$OwnsGeometry$$$OwnsMaterial$$$OwnsOpaqueMaterial$$$IsVisitableNode$$$InternalReserved -->
 <h3 class="flags" id="Flag-enum"><a name="Flag-enum"></a>enum QSGNode::<span class="name">Flag</span><br/>flags QSGNode::<span class="name">Flags</span></h3>
 <p>The QSGNode::Flag enum describes flags on the <a href="qsgnode.html">QSGNode</a></p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QSGNode::OwnedByParent</code></td><td class="topAlign tblval"><code>0x0001</code></td><td class="topAlign">The node is owned by its parent and will be deleted when the parent is deleted.</td></tr>
 <tr><td class="topAlign"><code>QSGNode::UsePreprocess</code></td><td class="topAlign tblval"><code>0x0002</code></td><td class="topAlign">The node's virtual <a href="qsgnode.html#preprocess">preprocess</a>() function will be called before rendering starts.</td></tr>
 <tr><td class="topAlign"><code>QSGNode::OwnsGeometry</code></td><td class="topAlign tblval"><code>0x00010000</code></td><td class="topAlign">Only valid for <a href="qsggeometrynode.html">QSGGeometryNode</a> and <a href="qsgclipnode.html">QSGClipNode</a>. The node has ownership over the <a href="qsggeometry.html">QSGGeometry</a> instance and will delete it when the node is destroyed or a geometry is assigned.</td></tr>
@@ -139,7 +139,7 @@
 <!-- $$$NodeType$$$BasicNodeType$$$GeometryNodeType$$$TransformNodeType$$$ClipNodeType$$$OpacityNodeType$$$RootNodeType$$$RenderNodeType -->
 <h3 class="fn" id="NodeType-enum"><a name="NodeType-enum"></a>enum QSGNode::<span class="name">NodeType</span></h3>
 <p>Can be used to figure out the type of node.</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QSGNode::BasicNodeType</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">The type of <a href="qsgnode.html">QSGNode</a></td></tr>
 <tr><td class="topAlign"><code>QSGNode::GeometryNodeType</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">The type of <a href="qsggeometrynode.html">QSGGeometryNode</a></td></tr>
 <tr><td class="topAlign"><code>QSGNode::TransformNodeType</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">The type of <a href="qsgtransformnode.html">QSGTransformNode</a></td></tr>

@@ -267,7 +267,7 @@
 </ul>
 <a name="changes-to-qt-concurrent"></a>
 <h2 id="changes-to-qt-concurrent">Changes to Qt Concurrent</h2>
-<p><a href="../qtconcurrent/qtconcurrent-index.html">Qt Concurrent</a> has been moved from <a href="../qtcore/qtcore-index.html">Qt Core</a> to its own module. To link against the Qt Core module, add this line to the project file:</p>
+<p><a href="../qtconcurrent/qtconcurrent-index.html">Qt Concurrent</a> has been moved from <a href="../qtcore/qtcore-index.html">Qt核心</a> to its own module. To link against the Qt Core module, add this line to the project file:</p>
 <pre class="cpp">
 
   QT <span class="operator">+</span><span class="operator">=</span> concurrent
@@ -282,7 +282,7 @@
 <li>The constructor of <a href="../qtgui/qtabletevent.html">QTabletEvent</a> does not need the <code>hiResGlobalPos</code> argument anymore, as all coordinates are floating point-based now.</li>
 <li><code>QIconEngineV2</code> is now merged into <a href="../qtgui/qiconengine.html">QIconEngine</a>. Update your sources to use <code>QIconEngine</code> instead of <code>QIconEngineV2</code>.</li>
 <li><a href="../qtmultimedia/qsound.html">QSound</a> is moved to Qt Multimedia from Qt GUI.</li>
-<li><code>QDesktopServices::storageLocation()</code> and <code>QDesktopServices::displayName()</code> are replaced by <a href="../qtcore/qstandardpaths.html#writableLocation">QStandardPaths::writableLocation</a>() and <a href="../qtcore/qstandardpaths.html#displayName">QStandardPaths::displayName</a>() respectively. They are now in the <a href="../qtcore/qtcore-index.html">Qt Core</a> module. Make sure to read the <a href="../qtgui/qdesktopservices-obsolete.html#storageLocation">QDesktopServices::storageLocation</a>() documentation when porting from <a href="../qtgui/qdesktopservices-obsolete.html#StandardLocation-enum">QDesktopServices::DataLocation</a>.</li>
+<li><code>QDesktopServices::storageLocation()</code> and <code>QDesktopServices::displayName()</code> are replaced by <a href="../qtcore/qstandardpaths.html#writableLocation">QStandardPaths::writableLocation</a>() and <a href="../qtcore/qstandardpaths.html#displayName">QStandardPaths::displayName</a>() respectively. They are now in the <a href="../qtcore/qtcore-index.html">Qt核心</a> module. Make sure to read the <a href="../qtgui/qdesktopservices-obsolete.html#storageLocation">QDesktopServices::storageLocation</a>() documentation when porting from <a href="../qtgui/qdesktopservices-obsolete.html#StandardLocation-enum">QDesktopServices::DataLocation</a>.</li>
 <li><code>QPixmap::grabWindow()</code> and <code>QPixmap::grabWidget()</code> are removed. Use <a href="../qtgui/qscreen.html#grabWindow">QScreen::grabWindow</a>() instead.</li>
 <li>The session management API has been simplified. The <code>commitData()</code> function is removed and replaced by the signal <a href="../qtgui/qguiapplication.html#commitDataRequest">QGuiApplication::commitDataRequest</a>(). <a href="../qtwidgets/qapplication.html">QApplication</a> and <a href="../qtgui/qguiapplication.html">QGuiApplication</a> will emit this signal from 5.2 onward on supported platforms (Linux and Windows).</li>
 <li><code>QWidget *widget()</code> is replaced with <code>QObject *target()</code> to avoid <a href="../qtwidgets/qwidget.html">QWidget</a> dependencies.</li>

@@ -36,7 +36,7 @@
 <div class="content mainContent">
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3><a name="toc">目录</a></h3>
 <ul>
 <li class="level1"><a href="#running-the-example">Running the Example</a></li>
 <li class="level1"><a href="#visualizing-audio-levels">Visualizing Audio Levels</a></li>
@@ -55,7 +55,7 @@
 <p class="centerAlign"><img src="images/audiolevels-example.png" alt="" /></p><p>The interesting stuff happens in <code>AudioLevels</code> and <code>AudioLevelsIODevice</code> classes, so we concentrate on those and skip explaining the basic <a href="q3dbars.html">Q3DBars</a> functionality - for that see <a href="qtdatavisualization-bars-example.html">Bars Example</a>.</p>
 <a name="running-the-example"></a>
 <h2 id="running-the-example">Running the Example</h2>
-<p>To run the example from <a href="http://doc.qt.io/qtcreator/index.html">Qt Creator</a>, open the <b>Welcome</b> mode and select the example from <b>Examples</b>. For more information, visit <a href="http://doc.qt.io/qtcreator/creator-build-example-application.html">Building and Running an Example</a>.</p>
+<p>To run the example from <a href="http://doc.qt.io/qtcreator/index.html">Qt Creator</a>, open the <b>Welcome</b> mode and select the example from <b>样例</b>. For more information, visit <a href="http://doc.qt.io/qtcreator/creator-build-example-application.html">Building and Running an Example</a>.</p>
 <a name="visualizing-audio-levels"></a>
 <h2 id="visualizing-audio-levels">Visualizing Audio Levels</h2>
 <p><code>AudioLevelsIODevice</code> subclasses <a href="../qtcore/qiodevice.html">QIODevice</a> and is given as input device for <a href="../qtmultimedia/qaudioinput.html">QAudioInput</a> class, so it receives microphone data.</p>
@@ -186,7 +186,7 @@
 
 </pre>
 <p>We use a couple of techniques here to improve performance. First, we reuse the existing data array, as this allows us to avoid any extra memory allocations in our application code. This also means the data array dimensions do not change, which further improves efficiency in the bar graph renderer. Secondly, since each row is a <a href="../qtcore/qvector.html">QVector</a> of bar data items, which do not allocate any data that needs deletion, we can utilize <code>memmove</code> and <code>memcpy</code> functions to quickly move and copy data around.</p>
-<p><b>Note: </b>In the future versions of Qt Data Visualization, <a href="qbardataitem.html">QBarDataItem</a> might get extended so that it does allocate some memory to store other optional bar properties besides the value. In use cases where those optional properties are used, using <code>memmove</code> and <code>memcpy</code> could lead to memory leaks, so use them with care.</p><p>Files:</p>
+<p><b>Note: </b>In the future versions of Qt Data Visualization, <a href="qbardataitem.html">QBarDataItem</a> might get extended so that it does allocate some memory to store other optional bar properties besides the value. In use cases where those optional properties are used, using <code>memmove</code> and <code>memcpy</code> could lead to memory leaks, so use them with care.</p><p>文件：</p>
 <ul>
 <li><a href="qtdatavisualization-audiolevels-audiolevels-cpp.html">audiolevels/audiolevels.cpp</a></li>
 <li><a href="qtdatavisualization-audiolevels-audiolevels-h.html">audiolevels/audiolevels.h</a></li>

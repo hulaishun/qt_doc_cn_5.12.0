@@ -36,12 +36,12 @@
 <div class="content mainContent">
 <div class="sidebar">
 <div class="toc">
-<h3><a name="toc">Contents</a></h3>
+<h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#properties">Properties</a></li>
-<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#properties">属性</a></li>
+<li class="level1"><a href="#signals">信号</a></li>
 <li class="level1"><a href="#methods">Methods</a></li>
-<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level1"><a href="#details">详细描述</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
@@ -52,10 +52,10 @@
 <!-- @@@WebEngineProfile -->
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtWebEngine 1.8</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  QtWebEngine 1.1</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Instantiates:</td><td class="memItemRight bottomAlign"> <a href="qml-qtwebengine-webengineprofile.html"><a href="qquickwebengineprofile.html">QQuickWebEngineProfile</a></td></tr></table></div><ul>
-<li><a href="qml-qtwebengine-webengineprofile-members.html">List of all members, including inherited members</a></li>
+<li><a href="qml-qtwebengine-webengineprofile-members.html">所有成员清单，包括继承而来的成员</a></li>
 </ul>
 <a name="properties"></a>
-<h2 id="properties">Properties</h2>
+<h2 id="properties">属性</h2>
 <ul>
 <li class="fn"><b><b><a href="qml-qtwebengine-webengineprofile.html#cachePath-prop">cachePath</a></b></b> : string</li>
 <li class="fn"><b><b><a href="qml-qtwebengine-webengineprofile.html#httpAcceptLanguage-prop">httpAcceptLanguage</a></b></b> : string</li>
@@ -71,7 +71,7 @@
 <li class="fn"><b><b><a href="qml-qtwebengine-webengineprofile.html#userScripts-prop">userScripts</a></b></b> : list&lt;WebEngineScript&gt;</li>
 </ul>
 <a name="signals"></a>
-<h2 id="signals">Signals</h2>
+<h2 id="signals">信号</h2>
 <ul>
 <li class="fn"><b><b><a href="qml-qtwebengine-webengineprofile.html#downloadFinished-signal">downloadFinished</a></b></b>(WebEngineDownloadItem <i>download</i>)</li>
 <li class="fn"><b><b><a href="qml-qtwebengine-webengineprofile.html#downloadRequested-signal">downloadRequested</a></b></b>(WebEngineDownloadItem <i>download</i>)</li>
@@ -83,13 +83,13 @@
 </ul>
 <!-- $$$WebEngineProfile-description -->
 <a name="details"></a>
-<h2 id="details">Detailed Description</h2>
+<h2 id="details">详细描述</h2>
 <p><a href="qml-qtwebengine-webengineprofile.html">WebEngineProfile</a> contains settings, scripts, and the list of visited links shared by all views that belong to the profile.</p>
 <p>Information about visited links is stored together with persistent cookies and other persistent data in a storage determined by the <a href="qml-qtwebengine-webengineprofile.html#storageName-prop">storageName</a> property. Persistent data is stored in a subdirectory determined by the <a href="qml-qtwebengine-webengineprofile.html#persistentStoragePath-prop">persistentStoragePath</a> property and the cache in a subdirectory determined by the <a href="qml-qtwebengine-webengineprofile.html#cachePath-prop">cachePath</a> property. The <a href="qml-qtwebengine-webengineprofile.html#httpCacheType-prop">httpCacheType</a> property describes the type of the cache: <i>in-memory</i> or <i>on-disk</i>. If only the <a href="qml-qtwebengine-webengineprofile.html#storageName-prop">storageName</a> property is set, the other values are generated automatically based on it. If you specify any of the values manually, you should do it before creating any pages that belong to the profile.</p>
 <p>Profiles can be used to isolate pages from each other. A typical use case is a dedicated <i>off-the-record profile</i> for a <i>private browsing</i> mode. An off-the-record profile forces cookies, the HTTP cache, and other normally persistent data to be stored only in memory. The <a href="qml-qtwebengine-webengineprofile.html#offTheRecord-prop">offTheRecord</a> property holds whether a profile is off-the-record.</p>
 <p>Each web engine view has an associated profile. Views that do not have a specific profile set share a common default one.</p>
 <!-- @@@WebEngineProfile -->
-<h2>Property Documentation</h2>
+<h2>属性文档</h2>
 <!-- $$$cachePath -->
 <div class="qmlitem"><div class="qmlproto">
 <div class="table"><table class="qmlname">
@@ -131,7 +131,7 @@
 <a name="httpCacheType-prop"></a><span class="name">httpCacheType</span> : <span class="type"><a href="../qtqml/qml-enumeration.html">enumeration</a></span></p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>This enumeration describes the type of the HTTP cache:</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>WebEngineProfile.MemoryHttpCache</code></td><td class="topAlign">Uses an in-memory cache. This is the only setting possible if <a href="qml-qtwebengine-webengineprofile.html#offTheRecord-prop">offTheRecord</a> is set or no <a href="qml-qtwebengine-webengineprofile.html#persistentStoragePath-prop">persistentStoragePath</a> is available.</td></tr>
 <tr><td class="topAlign"><code>WebEngineProfile.DiskHttpCache</code></td><td class="topAlign">Uses a disk cache. This is the default value.</td></tr>
 <tr><td class="topAlign"><code>WebEngineProfile.NoCache</code></td><td class="topAlign">Disables caching. (Added in 5.7)</td></tr>
@@ -166,7 +166,7 @@
 <a name="persistentCookiesPolicy-prop"></a><span class="name">persistentCookiesPolicy</span> : <span class="type"><a href="../qtqml/qml-enumeration.html">enumeration</a></span></p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>This enumeration describes the policy of cookie persistency:</p>
-<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tbldscr">Description</th></tr>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>WebEngineProfile.NoPersistentCookies</code></td><td class="topAlign">Both session and persistent cookies are stored in memory. This is the only setting possible if <a href="qml-qtwebengine-webengineprofile.html#offTheRecord-prop">offTheRecord</a> is set or no <a href="qml-qtwebengine-webengineprofile.html#persistentStoragePath-prop">persistentStoragePath</a> is available.</td></tr>
 <tr><td class="topAlign"><code>WebEngineProfile.AllowPersistentCookies</code></td><td class="topAlign">Cookies marked persistent are saved to and restored from disk, whereas session cookies are only stored to disk for crash recovery. This is the default setting.</td></tr>
 <tr><td class="topAlign"><code>WebEngineProfile.ForcePersistentCookies</code></td><td class="topAlign">Both session and persistent cookies are saved to and restored from disk.</td></tr>
