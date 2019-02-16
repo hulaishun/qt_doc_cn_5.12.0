@@ -61,7 +61,7 @@
 <a name="public-types"></a>
 <h2 id="public-types">公共类型</h2>
 <div class="table"><table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qsocketnotifier.html#Type-enum">Type</a></b> { Read, Write, Exception }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qsocketnotifier.html#Type-enum">类型</a></b> { Read, Write, Exception }</td></tr>
 </table></div>
 <a name="public-functions"></a>
 <h2 id="public-functions">公共函数</h2>
@@ -121,7 +121,7 @@
 <p>The <a href="qsocketnotifier.html">QSocketNotifier</a> class provides support for monitoring activity on a file descriptor.</p>
 <p>The <a href="qsocketnotifier.html">QSocketNotifier</a> makes it possible to integrate Qt's event loop with other event loops based on file descriptors. File descriptor action is detected in Qt's main event loop (<a href="qcoreapplication.html#exec">QCoreApplication::exec</a>()).</p>
 <a name="write-notifiers"></a><p>Once you have opened a device using a low-level (usually platform-specific) API, you can create a socket notifier to monitor the file descriptor. The socket notifier is enabled by default, i.e&#x2e; it emits the <a href="qsocketnotifier.html#activated">activated</a>() signal whenever a socket event corresponding to its type occurs. Connect the <a href="qsocketnotifier.html#activated">activated</a>() signal to the slot you want to be called when an event corresponding to your socket notifier's type occurs.</p>
-<p>There are three types of socket notifiers: read, write, and exception. The type is described by the <a href="qsocketnotifier.html#Type-enum">Type</a> enum, and must be specified when constructing the socket notifier. After construction it can be determined using the <a href="qsocketnotifier.html#type">type</a>() function. Note that if you need to monitor both reads and writes for the same file descriptor, you must create two socket notifiers. Note also that it is not possible to install two socket notifiers of the same type (<a href="qsocketnotifier.html#Type-enum">Read</a>, <a href="qsocketnotifier.html#Type-enum">Write</a>, <a href="qsocketnotifier.html#Type-enum">Exception</a>) on the same socket.</p>
+<p>There are three types of socket notifiers: read, write, and exception. The type is described by the <a href="qsocketnotifier.html#Type-enum">类型</a> enum, and must be specified when constructing the socket notifier. After construction it can be determined using the <a href="qsocketnotifier.html#type">type</a>() function. Note that if you need to monitor both reads and writes for the same file descriptor, you must create two socket notifiers. Note also that it is not possible to install two socket notifiers of the same type (<a href="qsocketnotifier.html#Type-enum">Read</a>, <a href="qsocketnotifier.html#Type-enum">Write</a>, <a href="qsocketnotifier.html#Type-enum">Exception</a>) on the same socket.</p>
 <p>The <a href="qsocketnotifier.html#setEnabled">setEnabled</a>() function allows you to disable as well as enable the socket notifier. It is generally advisable to explicitly enable or disable the socket notifier, especially for write notifiers. A disabled notifier ignores socket events (the same effect as not creating the socket notifier). Use the <a href="qsocketnotifier.html#isEnabled">isEnabled</a>() function to determine the notifier's current status.</p>
 <p>Finally, you can use the <a href="qsocketnotifier.html#socket">socket</a>() function to retrieve the socket identifier. Although the class is called <a href="qsocketnotifier.html">QSocketNotifier</a>, it is normally used for other types of devices than sockets. <a href="../qtnetwork/qtcpsocket.html">QTcpSocket</a> and <a href="../qtnetwork/qudpsocket.html">QUdpSocket</a> provide notification through signals, so there is normally no need to use a <a href="qsocketnotifier.html">QSocketNotifier</a> on them.</p>
 </div>
@@ -130,7 +130,7 @@
 <div class="types">
 <h2>成员类型文档</h2>
 <!-- $$$Type$$$Read$$$Write$$$Exception -->
-<h3 class="fn" id="Type-enum"><a name="Type-enum"></a>enum QSocketNotifier::<span class="name">Type</span></h3>
+<h3 class="fn" id="Type-enum"><a name="Type-enum"></a>enum QSocketNotifier::<span class="name">类型</span></h3>
 <p>This enum describes the various types of events that a socket notifier can recognize. The type must be specified when constructing the socket notifier.</p>
 <p>Note that if you need to monitor both reads and writes for the same file descriptor, you must create two socket notifiers. Note also that it is not possible to install two socket notifiers of the same type (Read, Write, Exception) on the same socket.</p>
 <div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>

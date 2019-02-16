@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtwidgets-index.html">Qt Widgets</a></td><td ><a href="examples-itemviews.html">Item Views Examples</a></td><td >Address Book Example</td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtwidgets-index.html">Qt部件</a></td><td ><a href="examples-itemviews.html">Item Views Examples</a></td><td >Address Book Example</td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -38,7 +38,7 @@
 <div class="toc">
 <h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#overview">Overview</a></li>
+<li class="level1"><a href="#overview">总览</a></li>
 <li class="level1"><a href="#tablemodel-class-definition">TableModel Class Definition</a></li>
 <li class="level1"><a href="#tablemodel-class-implementation">TableModel Class Implementation</a></li>
 <li class="level1"><a href="#addresswidget-class-definition">AddressWidget Class Definition</a></li>
@@ -62,7 +62,7 @@
 <div class="descr"> <a name="details"></a>
 <p class="centerAlign"><img src="images/addressbook-example.png" alt="Screenshot of the Address Book example" /></p><p>This example provides an address book that allows contacts to be grouped alphabetically into 9 groups: ABC, DEF, GHI, ..&#x2e; , VW, ..&#x2e;, XYZ. This is achieved by using multiple views on the same model, each of which is filtered using an instance of the <a href="../qtcore/qsortfilterproxymodel.html">QSortFilterProxyModel</a> class.</p>
 <a name="overview"></a>
-<h2 id="overview">Overview</h2>
+<h2 id="overview">总览</h2>
 <p>The address book contains 5 classes: <code>MainWindow</code>, <code>AddressWidget</code>, <code>TableModel</code>, <code>NewAddressTab</code> and <code>AddDialog</code>. The <code>MainWindow</code> class uses <code>AddressWidget</code> as its central widget and provides <b>File</b> and <b>Tools</b> menus.</p>
 <p class="centerAlign"><img src="images/addressbook-classes.png" alt="Diagram for Address Book Example" /></p><p>The <code>AddressWidget</code> class is a <a href="qtabwidget.html">QTabWidget</a> subclass that is used to manipulate the 10 tabs displayed in the example: the 9 alphabet group tabs and an instance of <code>NewAddressTab</code>. The <code>NewAddressTab</code> class is a subclass of <a href="qwidget.html">QWidget</a> that is only used whenever the address book is empty, prompting the user to add some contacts. <code>AddressWidget</code> also interacts with an instance of <code>TableModel</code> to add, edit and remove entries to the address book.</p>
 <p><code>TableModel</code> is a subclass of <a href="../qtcore/qabstracttablemodel.html">QAbstractTableModel</a> that provides the standard model/view API to access data. It holds a list of added contacts. However, this data is not all visible in a single tab. Instead, <a href="qtableview.html">QTableView</a> is used to provide 9 different views of the same data, according to the alphabet groups.</p>
@@ -135,7 +135,7 @@
   }
 
 </pre>
-<p>The <code>rowCount()</code> and <code>columnCount()</code> functions return the dimensions of the model. Whereas, <code>rowCount()</code>'s value will vary depending on the number of contacts added to the address book, <code>columnCount()</code>'s value is always 2 because we only need space for the <b>Name</b> and <b>Address</b> columns.</p>
+<p>The <code>rowCount()</code> and <code>columnCount()</code> functions return the dimensions of the model. Whereas, <code>rowCount()</code>'s value will vary depending on the number of contacts added to the address book, <code>columnCount()</code>'s value is always 2 because we only need space for the <b>名称</b> and <b>Address</b> columns.</p>
 <p><b>Note: </b>The <code>Q_UNUSED()</code> macro prevents the compiler from generating warnings regarding unused parameters.</p><pre class="cpp">
 
   <span class="type">int</span> TableModel<span class="operator">::</span>rowCount(<span class="keyword">const</span> <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>parent) <span class="keyword">const</span>
@@ -151,7 +151,7 @@
   }
 
 </pre>
-<p>The <code>data()</code> function returns either a <b>Name</b> or <b>Address</b>, based on the contents of the model index supplied. The row number stored in the model index is used to reference an item in the list of contacts. Selection is handled by the <a href="../qtcore/qitemselectionmodel.html">QItemSelectionModel</a>, which will be explained with <code>AddressWidget</code>.</p>
+<p>The <code>data()</code> function returns either a <b>名称</b> or <b>Address</b>, based on the contents of the model index supplied. The row number stored in the model index is used to reference an item in the list of contacts. Selection is handled by the <a href="../qtcore/qitemselectionmodel.html">QItemSelectionModel</a>, which will be explained with <code>AddressWidget</code>.</p>
 <pre class="cpp">
 
   <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> TableModel<span class="operator">::</span>data(<span class="keyword">const</span> <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index<span class="operator">,</span> <span class="type">int</span> role) <span class="keyword">const</span>
@@ -174,7 +174,7 @@
   }
 
 </pre>
-<p>The <code>headerData()</code> function displays the table's header, <b>Name</b> and <b>Address</b>. If you require numbered entries for your address book, you can use a vertical header which we have hidden in this example (see the <code>AddressWidget</code> implementation).</p>
+<p>The <code>headerData()</code> function displays the table's header, <b>名称</b> and <b>Address</b>. If you require numbered entries for your address book, you can use a vertical header which we have hidden in this example (see the <code>AddressWidget</code> implementation).</p>
 <pre class="cpp">
 
   <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> TableModel<span class="operator">::</span>headerData(<span class="type">int</span> section<span class="operator">,</span> <span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>Orientation orientation<span class="operator">,</span> <span class="type">int</span> role) <span class="keyword">const</span>

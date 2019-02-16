@@ -42,7 +42,7 @@
 <li class="level1"><a href="#methods">方法</a></li>
 <li class="level1"><a href="#details">详细描述</a></li>
 <li class="level2"><a href="#detection-of-updated-and-removed-places">Detection of Updated and Removed Places</a></li>
-<li class="level2"><a href="#example">Example</a></li>
+<li class="level2"><a href="#example">样例</a></li>
 <li class="level2"><a href="#paging">Paging</a></li>
 </ul>
 </div>
@@ -94,7 +94,7 @@
 <p>The <a href="qml-qtlocation-placesearchmodel.html">PlaceSearchModel</a> returns both sponsored and <a href="http://en.wikipedia.org/wiki/Organic_search">organic search results</a>. Sponsored search results will have the <code>sponsored</code> role set to true.</p>
 <a name="placesearchmodel-roles"></a><p>The model returns data for the following roles:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Role</th><th >Type</th><th >描述</th></tr></thead>
+ <thead><tr class="qt-style"><th >Role</th><th >类型</th><th >描述</th></tr></thead>
 <tr valign="top" class="odd"><td >type</td><td >enum</td><td >The type of search result.</td></tr>
 <tr valign="top" class="even"><td >title</td><td >string</td><td >A string describing the search result.</td></tr>
 <tr valign="top" class="odd"><td >icon</td><td >PlaceIcon</td><td >Icon representing the search result.</td></tr>
@@ -140,7 +140,7 @@
 <h2 id="detection-of-updated-and-removed-places">Detection of Updated and Removed Places</h2>
 <p>The <a href="qml-qtlocation-placesearchmodel.html">PlaceSearchModel</a> listens for places that have been updated or removed from its plugin's backend. If it detects that a place has been updated and that place is currently present in the model, then it will call <a href="qml-qtlocation-place.html#getDetails-method">Place::getDetails</a> to refresh the details. If it detects that a place has been removed, then correspondingly the place will be removed from the model if it is currently present.</p>
 <a name="example"></a>
-<h2 id="example">Example</h2>
+<h2 id="example">样例</h2>
 <p>The following example shows how to use the <a href="qml-qtlocation-placesearchmodel.html">PlaceSearchModel</a> to search for Pizza restaurants in close proximity of a given position. A <a href="qml-qtlocation-placesearchmodel.html#searchTerm-prop">searchTerm</a> and <a href="qml-qtlocation-placesearchmodel.html#searchArea-prop">searchArea</a> are provided to the model and <a href="qml-qtlocation-placesearchmodel.html#update-method">update()</a> is used to perform a lookup query. Note that the model does not incrementally fetch search results, but rather performs a single fetch when <a href="qml-qtlocation-placesearchmodel.html#update-method">update()</a> is run. The <a href="qml-qtlocation-placesearchmodel.html#count-prop">count</a> is set to the number of search results returned during the fetch.</p>
 <pre class="qml">
 

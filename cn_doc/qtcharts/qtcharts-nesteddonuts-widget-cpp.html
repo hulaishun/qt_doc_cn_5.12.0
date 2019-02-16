@@ -105,7 +105,7 @@
               slice<span class="operator">-</span><span class="operator">&gt;</span>setLabelVisible(<span class="keyword">true</span>);
               slice<span class="operator">-</span><span class="operator">&gt;</span>setLabelColor(<span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>white);
               slice<span class="operator">-</span><span class="operator">&gt;</span>setLabelPosition(<span class="type"><a href="qpieslice.html">QPieSlice</a></span><span class="operator">::</span>LabelInsideTangential);
-              connect(slice<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="qpieslice.html">QPieSlice</a></span><span class="operator">::</span>hovered<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> <span class="operator">&amp;</span>Widget<span class="operator">::</span>explodeSlice);
+              connect(slice<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="qpieslice.html">QPieSlice</a></span><span class="operator">::</span>hovered<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> <span class="operator">&amp;</span>部件<span class="operator">::</span>explodeSlice);
               donut<span class="operator">-</span><span class="operator">&gt;</span>append(slice);
               donut<span class="operator">-</span><span class="operator">&gt;</span>setHoleSize(minSize <span class="operator">+</span> i <span class="operator">*</span> (maxSize <span class="operator">-</span> minSize) <span class="operator">/</span> donutCount);
               donut<span class="operator">-</span><span class="operator">&gt;</span>setPieSize(minSize <span class="operator">+</span> (i <span class="operator">+</span> <span class="number">1</span>) <span class="operator">*</span> (maxSize <span class="operator">-</span> minSize) <span class="operator">/</span> donutCount);
@@ -120,7 +120,7 @@
       setLayout(mainLayout);
 
       updateTimer <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="../qtcore/qtimer.html">QTimer</a></span>(<span class="keyword">this</span>);
-      connect(updateTimer<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="../qtcore/qtimer.html">QTimer</a></span><span class="operator">::</span>timeout<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> <span class="operator">&amp;</span>Widget<span class="operator">::</span>updateRotation);
+      connect(updateTimer<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="../qtcore/qtimer.html">QTimer</a></span><span class="operator">::</span>timeout<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> <span class="operator">&amp;</span>部件<span class="operator">::</span>updateRotation);
       updateTimer<span class="operator">-</span><span class="operator">&gt;</span>start(<span class="number">1250</span>);
   }
 

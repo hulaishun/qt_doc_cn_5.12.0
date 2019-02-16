@@ -59,7 +59,7 @@
 <a name="public-types"></a>
 <h2 id="public-types">公共类型</h2>
 <div class="table"><table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> typedef </td><td class="memItemRight bottomAlign"><b><a href="qglobalstatic.html#Type-typedef">Type</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> typedef </td><td class="memItemRight bottomAlign"><b><a href="qglobalstatic.html#Type-typedef">类型</a></b></td></tr>
 </table></div>
 <a name="public-functions"></a>
 <h2 id="public-functions">公共函数</h2>
@@ -73,8 +73,8 @@
 <a name="macros"></a>
 <h2 id="macros">宏定义</h2>
 <div class="table"><table class="alignedsummary">
-<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qglobalstatic.html#Q_GLOBAL_STATIC">Q_GLOBAL_STATIC</a></b>(<i>Type</i>, <i>VariableName</i>)</td></tr>
-<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qglobalstatic.html#Q_GLOBAL_STATIC_WITH_ARGS">Q_GLOBAL_STATIC_WITH_ARGS</a></b>(<i>Type</i>, <i>VariableName</i>, <i>Arguments</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qglobalstatic.html#Q_GLOBAL_STATIC">Q_GLOBAL_STATIC</a></b>(<i>类型</i>, <i>VariableName</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qglobalstatic.html#Q_GLOBAL_STATIC_WITH_ARGS">Q_GLOBAL_STATIC_WITH_ARGS</a></b>(<i>类型</i>, <i>VariableName</i>, <i>Arguments</i>)</td></tr>
 </table></div>
 <a name="details"></a>
 <!-- $$$QGlobalStatic-description -->
@@ -95,8 +95,8 @@
 <div class="types">
 <h2>成员类型文档</h2>
 <!-- $$$Type -->
-<h3 class="fn" id="Type-typedef"><a name="Type-typedef"></a>typedef QGlobalStatic::<span class="name">Type</span></h3>
-<p>This type is equivalent to the <code>Type</code> parameter passed to the <a href="qglobalstatic.html#Q_GLOBAL_STATIC">Q_GLOBAL_STATIC</a>() or <a href="qglobalstatic.html#Q_GLOBAL_STATIC_WITH_ARGS">Q_GLOBAL_STATIC_WITH_ARGS</a>() macros. It is used in the return types of some functions.</p>
+<h3 class="fn" id="Type-typedef"><a name="Type-typedef"></a>typedef QGlobalStatic::<span class="name">类型</span></h3>
+<p>This type is equivalent to the <code>类型</code> parameter passed to the <a href="qglobalstatic.html#Q_GLOBAL_STATIC">Q_GLOBAL_STATIC</a>() or <a href="qglobalstatic.html#Q_GLOBAL_STATIC_WITH_ARGS">Q_GLOBAL_STATIC_WITH_ARGS</a>() macros. It is used in the return types of some functions.</p>
 <!-- @@@Type -->
 </div>
 <div class="prop">
@@ -177,8 +177,8 @@
 <div class="macros">
 <h2>宏定义文档</h2>
 <!-- $$$Q_GLOBAL_STATIC[overload1]$$$Q_GLOBAL_STATIC -->
-<h3 class="fn" id="Q_GLOBAL_STATIC"><a name="Q_GLOBAL_STATIC"></a><span class="name">Q_GLOBAL_STATIC</span>(<i>Type</i>, <i>VariableName</i>)</h3>
-<p>Creates a global and static object of type <a href="qglobalstatic.html">QGlobalStatic</a>, of name <i>VariableName</i> and that behaves as a pointer to <i>Type</i>. The object created by Q_GLOBAL_STATIC initializes itself on the first use, which means that it will not increase the application or the library's load time. Additionally, the object is initialized in a thread-safe manner on all platforms.</p>
+<h3 class="fn" id="Q_GLOBAL_STATIC"><a name="Q_GLOBAL_STATIC"></a><span class="name">Q_GLOBAL_STATIC</span>(<i>类型</i>, <i>VariableName</i>)</h3>
+<p>Creates a global and static object of type <a href="qglobalstatic.html">QGlobalStatic</a>, of name <i>VariableName</i> and that behaves as a pointer to <i>类型</i>. The object created by Q_GLOBAL_STATIC initializes itself on the first use, which means that it will not increase the application or the library's load time. Additionally, the object is initialized in a thread-safe manner on all platforms.</p>
 <p>The typical use of this macro is as follows, in a global context (that is, outside of any function bodies):</p>
 <pre class="cpp">
 
@@ -201,7 +201,7 @@
 <p>The Q_GLOBAL_STATIC macro solves all of the above problems by guaranteeing thread-safe initialization on first use and allowing the user to query for whether the type has already been destroyed, to avoid the use-after-destruction problem (see <a href="qglobalstatic.html#isDestroyed">QGlobalStatic::isDestroyed</a>()).</p>
 <a name="constructor-and-destructor"></a>
 <h4 >Constructor and Destructor</h4>
-<p>For Q_GLOBAL_STATIC, the type <code>Type</code> must be publicly default-constructible and publicly destructible. For <a href="qglobalstatic.html#Q_GLOBAL_STATIC_WITH_ARGS">Q_GLOBAL_STATIC_WITH_ARGS</a>(), there must be a public constructor that matches the arguments passed.</p>
+<p>For Q_GLOBAL_STATIC, the type <code>类型</code> must be publicly default-constructible and publicly destructible. For <a href="qglobalstatic.html#Q_GLOBAL_STATIC_WITH_ARGS">Q_GLOBAL_STATIC_WITH_ARGS</a>(), there must be a public constructor that matches the arguments passed.</p>
 <p>It is not possible to use Q_GLOBAL_STATIC with types that have protected or private default constructors or destructors (for <a href="qglobalstatic.html#Q_GLOBAL_STATIC_WITH_ARGS">Q_GLOBAL_STATIC_WITH_ARGS</a>(), a protected or private constructor matching the arguments). If the type in question has those members as protected, it is possible to overcome the issue by deriving from the type and creating public a constructor and destructor. If the type has them as private, a friend declaration is necessary before deriving.</p>
 <p>For example, the following is enough to create <code>MyType</code> based on a previously-defined <code>MyOtherType</code> which has a protected default constructor and/or a protected destructor (or has them as private, but that defines <code>MyType</code> as a friend).</p>
 <pre class="cpp">
@@ -248,7 +248,7 @@
 <p>In addition, if two Q_GLOBAL_STATIC objects are being initialized on two different threads and each one's initialization sequence accesses the other, a deadlock might happen. For that reason, it is recommended to keep global static constructors simple or, failing that, to ensure that there's no cross-dependency of uses of global static during construction.</p>
 <a name="destruction"></a>
 <h4 >Destruction</h4>
-<p>If the object is never used during the lifetime of the program, aside from the <a href="qglobalstatic.html#exists">QGlobalStatic::exists</a>() and <a href="qglobalstatic.html#isDestroyed">QGlobalStatic::isDestroyed</a>() functions, the contents of type <i>Type</i> will not be created and there will not be any exit-time operation.</p>
+<p>If the object is never used during the lifetime of the program, aside from the <a href="qglobalstatic.html#exists">QGlobalStatic::exists</a>() and <a href="qglobalstatic.html#isDestroyed">QGlobalStatic::isDestroyed</a>() functions, the contents of type <i>类型</i> will not be created and there will not be any exit-time operation.</p>
 <p>If the object is created, it will be destroyed at exit-time, similar to the C <code>atexit</code> function. On most systems, in fact, the destructor will also be called if the library or plugin is unloaded from memory before exit.</p>
 <p>Since the destruction is meant to happen at program exit, no thread-safety is provided. This includes the case of plugin or library unload. In addition, since destructors are not supposed to throw exceptions, no exception safety is provided either.</p>
 <p>However, reentrancy is permitted: during destruction, it is possible to access the global static object and the pointer returned will be the same as it was before destruction began. After the destruction has completed, accessing the global static object is not permitted, except as noted in the <a href="qglobalstatic.html">QGlobalStatic</a> API.</p>
@@ -256,8 +256,8 @@
 <p><b>See also </b><a href="qglobalstatic.html#Q_GLOBAL_STATIC_WITH_ARGS">Q_GLOBAL_STATIC_WITH_ARGS</a>() and <a href="qglobalstatic.html">QGlobalStatic</a>.</p>
 <!-- @@@Q_GLOBAL_STATIC -->
 <!-- $$$Q_GLOBAL_STATIC_WITH_ARGS[overload1]$$$Q_GLOBAL_STATIC_WITH_ARGS -->
-<h3 class="fn" id="Q_GLOBAL_STATIC_WITH_ARGS"><a name="Q_GLOBAL_STATIC_WITH_ARGS"></a><span class="name">Q_GLOBAL_STATIC_WITH_ARGS</span>(<i>Type</i>, <i>VariableName</i>, <i>Arguments</i>)</h3>
-<p>Creates a global and static object of type <a href="qglobalstatic.html">QGlobalStatic</a>, of name <i>VariableName</i>, initialized by the arguments <i>Arguments</i> and that behaves as a pointer to <i>Type</i>. The object created by Q_GLOBAL_STATIC_WITH_ARGS initializes itself on the first use, which means that it will not increase the application or the library's load time. Additionally, the object is initialized in a thread-safe manner on all platforms.</p>
+<h3 class="fn" id="Q_GLOBAL_STATIC_WITH_ARGS"><a name="Q_GLOBAL_STATIC_WITH_ARGS"></a><span class="name">Q_GLOBAL_STATIC_WITH_ARGS</span>(<i>类型</i>, <i>VariableName</i>, <i>Arguments</i>)</h3>
+<p>Creates a global and static object of type <a href="qglobalstatic.html">QGlobalStatic</a>, of name <i>VariableName</i>, initialized by the arguments <i>Arguments</i> and that behaves as a pointer to <i>类型</i>. The object created by Q_GLOBAL_STATIC_WITH_ARGS initializes itself on the first use, which means that it will not increase the application or the library's load time. Additionally, the object is initialized in a thread-safe manner on all platforms.</p>
 <p>The typical use of this macro is as follows, in a global context (that is, outside of any function bodies):</p>
 <pre class="cpp">
 

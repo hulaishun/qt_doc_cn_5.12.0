@@ -168,7 +168,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#Q_CC_USLC">Q_CC_USLC</a></b></td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#Q_CC_WAT">Q_CC_WAT</a></b></td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#Q_CHECK_PTRx">Q_CHECK_PTR</a></b>(void *<i>pointer</i>)</td></tr>
-<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#Q_DECLARE_TYPEINFO">Q_DECLARE_TYPEINFO</a></b>(<i>Type</i>, <i>Flags</i>)</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#Q_DECLARE_TYPEINFO">Q_DECLARE_TYPEINFO</a></b>(<i>类型</i>, <i>Flags</i>)</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#Q_DECL_CONSTEXPR">Q_DECL_CONSTEXPR</a></b></td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#Q_DECL_EXPORT">Q_DECL_EXPORT</a></b></td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#Q_DECL_FINAL">Q_DECL_FINAL</a></b></td></tr>
@@ -1423,13 +1423,13 @@
 <p><b>See also </b><a href="qtglobal.html#qWarning">qWarning</a>() and <a href="../qtdoc/testing-and-debugging.html#debugging-techniques">Debugging Techniques</a>.</p>
 <!-- @@@Q_CHECK_PTR -->
 <!-- $$$Q_DECLARE_TYPEINFO[overload1]$$$Q_DECLARE_TYPEINFO -->
-<h3 class="fn" id="Q_DECLARE_TYPEINFO"><a name="Q_DECLARE_TYPEINFO"></a><span class="name">Q_DECLARE_TYPEINFO</span>(<i>Type</i>, <i>Flags</i>)</h3>
-<p>You can use this macro to specify information about a custom type <i>Type</i>. With accurate type information, Qt's <a href="containers.html">generic containers</a> can choose appropriate storage methods and algorithms.</p>
+<h3 class="fn" id="Q_DECLARE_TYPEINFO"><a name="Q_DECLARE_TYPEINFO"></a><span class="name">Q_DECLARE_TYPEINFO</span>(<i>类型</i>, <i>Flags</i>)</h3>
+<p>You can use this macro to specify information about a custom type <i>类型</i>. With accurate type information, Qt's <a href="containers.html">generic containers</a> can choose appropriate storage methods and algorithms.</p>
 <p><i>Flags</i> can be one of the following:</p>
 <ul>
-<li><code>Q_PRIMITIVE_TYPE</code> specifies that <i>Type</i> is a POD (plain old data) type with no constructor or destructor, or else a type where every bit pattern is a valid object and memcpy() creates a valid independent copy of the object.</li>
-<li><code>Q_MOVABLE_TYPE</code> specifies that <i>Type</i> has a constructor and/or a destructor but can be moved in memory using <code>memcpy()</code>. Note: despite the name, this has nothing to do with move constructors or C++ move semantics.</li>
-<li><code>Q_COMPLEX_TYPE</code> (the default) specifies that <i>Type</i> has constructors and/or a destructor and that it may not be moved in memory.</li>
+<li><code>Q_PRIMITIVE_TYPE</code> specifies that <i>类型</i> is a POD (plain old data) type with no constructor or destructor, or else a type where every bit pattern is a valid object and memcpy() creates a valid independent copy of the object.</li>
+<li><code>Q_MOVABLE_TYPE</code> specifies that <i>类型</i> has a constructor and/or a destructor but can be moved in memory using <code>memcpy()</code>. Note: despite the name, this has nothing to do with move constructors or C++ move semantics.</li>
+<li><code>Q_COMPLEX_TYPE</code> (the default) specifies that <i>类型</i> has constructors and/or a destructor and that it may not be moved in memory.</li>
 </ul>
 <p>Example of a &quot;primitive&quot; type:</p>
 <pre class="cpp">

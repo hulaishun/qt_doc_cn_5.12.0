@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtwidgets-index.html">Qt Widgets</a></td><td ><a href="qtwidgets-module.html">C++类</a></td><td >QWidget</td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtwidgets-index.html">Qt部件</a></td><td ><a href="qtwidgets-module.html">C++类</a></td><td >QWidget</td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -574,7 +574,7 @@
 <a name="widget-style-sheets"></a>
 <h3 >Widget Style Sheets</h3>
 <p>In addition to the standard widget styles for each platform, widgets can also be styled according to rules specified in a <a href="stylesheet.html">style sheet</a>. This feature enables you to customize the appearance of specific widgets to provide visual cues to users about their purpose. For example, a button could be styled in a particular way to indicate that it performs a destructive action.</p>
-<p>The use of widget style sheets is described in more detail in the <a href="stylesheet.html">Qt Style Sheets</a> document.</p>
+<p>The use of widget style sheets is described in more detail in the <a href="stylesheet.html">Qt样式表</a> document.</p>
 <a name="transparency-and-double-buffering"></a>
 <h3 >Transparency and Double Buffering</h3>
 <p>Since Qt 4.0, <a href="qwidget.html">QWidget</a> automatically double-buffers its painting, so there is no need to write double-buffering code in <a href="qwidget.html#paintEvent">paintEvent</a>() to avoid flicker.</p>
@@ -675,7 +675,7 @@
 <p>If enabled, this property will cause Qt to fill the background of the widget before invoking the paint event. The color used is defined by the <a href="../qtgui/qpalette.html#ColorRole-enum">QPalette::Window</a> color role from the widget's <a href="../qtgui/qpalette.html">palette</a>.</p>
 <p>In addition, Windows are always filled with <a href="../qtgui/qpalette.html#ColorRole-enum">QPalette::Window</a>, unless the WA_OpaquePaintEvent or WA_NoSystemBackground attributes are set.</p>
 <p>This property cannot be turned off (i.e&#x2e;, set to false) if a widget's parent has a static gradient for its background.</p>
-<p><b>Warning:</b> Use this property with caution in conjunction with <a href="stylesheet.html">Qt Style Sheets</a>. When a widget has a style sheet with a valid background or a border-image, this property is automatically disabled.</p>
+<p><b>Warning:</b> Use this property with caution in conjunction with <a href="stylesheet.html">Qt样式表</a>. When a widget has a style sheet with a valid background or a border-image, this property is automatically disabled.</p>
 <p>By default, this property is <code>false</code>.</p>
 <p>This property was introduced in  Qt 4.1.</p>
 <p><b>Access functions:</b></p>
@@ -798,7 +798,7 @@
 <p><a href="qwidget.html">QWidget</a> propagates explicit font properties from parent to child. If you change a specific property on a font and assign that font to a widget, that property will propagate to all the widget's children, overriding any system defaults for that property. Note that fonts by default don't propagate to windows (see <a href="qwidget.html#isWindow">isWindow</a>()) unless the <a href="../qtcore/qt.html#WidgetAttribute-enum">Qt::WA_WindowPropagation</a> attribute is enabled.</p>
 <p><a href="qwidget.html">QWidget</a>'s font propagation is similar to its palette propagation.</p>
 <p>The current style, which is used to render the content of all standard Qt widgets, is free to choose to use the widget font, or in some cases, to ignore it (partially, or completely). In particular, certain styles like GTK style, Mac style, and Windows Vista style, apply special modifications to the widget font to match the platform's native look and feel. Because of this, assigning properties to a widget's font is not guaranteed to change the appearance of the widget. Instead, you may choose to apply a <a href="stylesheet.html">styleSheet</a>.</p>
-<p><b>Note: </b>If <a href="stylesheet.html">Qt Style Sheets</a> are used on the same widget as setFont(), style sheets will take precedence if the settings conflict.</p><p><b>Access functions:</b></p>
+<p><b>Note: </b>If <a href="stylesheet.html">Qt样式表</a> are used on the same widget as setFont(), style sheets will take precedence if the settings conflict.</p><p><b>Access functions:</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> const QFont &amp;</td><td class="memItemRight bottomAlign"><span class="name"><b>font</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setFont</b></span>(<i>const QFont &amp;</i>)</td></tr>
@@ -1069,13 +1069,13 @@
 <p><a href="qwidget.html">QWidget</a> propagates explicit palette roles from parent to child. If you assign a brush or color to a specific role on a palette and assign that palette to a widget, that role will propagate to all the widget's children, overriding any system defaults for that role. Note that palettes by default don't propagate to windows (see <a href="qwidget.html#isWindow">isWindow</a>()) unless the <a href="../qtcore/qt.html#WidgetAttribute-enum">Qt::WA_WindowPropagation</a> attribute is enabled.</p>
 <p><a href="qwidget.html">QWidget</a>'s palette propagation is similar to its font propagation.</p>
 <p>The current style, which is used to render the content of all standard Qt widgets, is free to choose colors and brushes from the widget palette, or in some cases, to ignore the palette (partially, or completely). In particular, certain styles like GTK style, Mac style, and Windows Vista style, depend on third party APIs to render the content of widgets, and these styles typically do not follow the palette. Because of this, assigning roles to a widget's palette is not guaranteed to change the appearance of the widget. Instead, you may choose to apply a <a href="stylesheet.html">styleSheet</a>.</p>
-<p><b>Warning:</b> Do not use this function in conjunction with <a href="stylesheet.html">Qt Style Sheets</a>. When using style sheets, the palette of a widget can be customized using the &quot;color&quot;, &quot;background-color&quot;, &quot;selection-color&quot;, &quot;selection-background-color&quot; and &quot;alternate-background-color&quot;.</p>
+<p><b>Warning:</b> Do not use this function in conjunction with <a href="stylesheet.html">Qt样式表</a>. When using style sheets, the palette of a widget can be customized using the &quot;color&quot;, &quot;background-color&quot;, &quot;selection-color&quot;, &quot;selection-background-color&quot; and &quot;alternate-background-color&quot;.</p>
 <p><b>Access functions:</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> const QPalette &amp;</td><td class="memItemRight bottomAlign"><span class="name"><b>palette</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setPalette</b></span>(<i>const QPalette &amp;</i>)</td></tr>
 </table></div>
-<p><b>See also </b><a href="qapplication.html#palette">QApplication::palette</a>(), <a href="qwidget.html#font-prop">QWidget::font</a>(), l, and <a href="stylesheet.html">Qt Style Sheets</a>.</p>
+<p><b>See also </b><a href="qapplication.html#palette">QApplication::palette</a>(), <a href="qwidget.html#font-prop">QWidget::font</a>(), l, and <a href="stylesheet.html">Qt样式表</a>.</p>
 <!-- @@@palette -->
 <!-- $$$pos-prop$$$pos$$$moveintint$$$moveconstQPoint& -->
 <h3 class="fn" id="pos-prop"><a name="pos-prop"></a><span class="name">pos</span> : <span class="type"><a href="../qtcore/qpoint.html">QPoint</a></span></h3>
@@ -1179,7 +1179,7 @@
 <!-- $$$styleSheet-prop$$$styleSheet$$$setStyleSheetconstQString& -->
 <h3 class="fn" id="styleSheet-prop"><a name="styleSheet-prop"></a><span class="name">styleSheet</span> : <span class="type"><a href="../qtcore/qstring.html">QString</a></span></h3>
 <p>This property holds the widget's style sheet</p>
-<p>The style sheet contains a textual description of customizations to the widget's style, as described in the <a href="stylesheet.html">Qt Style Sheets</a> document.</p>
+<p>The style sheet contains a textual description of customizations to the widget's style, as described in the <a href="stylesheet.html">Qt样式表</a> document.</p>
 <p>Since Qt 4.5, Qt style sheets fully supports <a href="../qtdoc/internationalization.html#macos">macOS</a>.</p>
 <p><b>Warning:</b> Qt style sheets are currently not supported for custom <a href="qstyle.html">QStyle</a> subclasses. We plan to address this in some future release.</p>
 <p>This property was introduced in  Qt 4.2.</p>
@@ -1188,7 +1188,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><span class="name"><b>styleSheet</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setStyleSheet</b></span>(const QString &amp;<i>styleSheet</i>)</td></tr>
 </table></div>
-<p><b>See also </b><a href="qwidget.html#setStyle">setStyle</a>(), <a href="qapplication.html#styleSheet-prop">QApplication::styleSheet</a>, and <a href="stylesheet.html">Qt Style Sheets</a>.</p>
+<p><b>See also </b><a href="qwidget.html#setStyle">setStyle</a>(), <a href="qapplication.html#styleSheet-prop">QApplication::styleSheet</a>, and <a href="stylesheet.html">Qt样式表</a>.</p>
 <!-- @@@styleSheet -->
 <!-- $$$tabletTracking-prop$$$hasTabletTracking$$$setTabletTrackingbool -->
 <h3 class="fn" id="tabletTracking-prop"><a name="tabletTracking-prop"></a><span class="name">tabletTracking</span> : <span class="type">bool</span></h3>

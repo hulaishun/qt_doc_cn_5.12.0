@@ -38,7 +38,7 @@
 <div class="toc">
 <h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#overview">Overview</a></li>
+<li class="level1"><a href="#overview">总览</a></li>
 <li class="level1"><a href="#construction-destruction-order-of-qobjects">Construction/Destruction Order of QObjects</a></li>
 </ul>
 </div>
@@ -48,7 +48,7 @@
 <!-- $$$objecttrees.html-description -->
 <div class="descr"> <a name="details"></a>
 <a name="overview"></a>
-<h2 id="overview">Overview</h2>
+<h2 id="overview">总览</h2>
 <p><a href="qobject.html">QObjects</a> organize themselves in object trees. When you create a <a href="qobject.html">QObject</a> with another object as parent, it's added to the parent's <a href="qobject.html#children">children()</a> list, and is deleted when the parent is. It turns out that this approach fits the needs of GUI objects very well. For example, a <a href="../qtwidgets/qshortcut.html">QShortcut</a> (keyboard shortcut) is a child of the relevant window, so when the user closes that window, the shortcut is deleted too.</p>
 <p><a href="../qtquick/qquickitem.html">QQuickItem</a>, the basic visual element of the Qt Quick module, inherits from <a href="qobject.html">QObject</a>, but has a concept of the <i>visual parent</i> which differs from that of the <i><a href="qobject.html">QObject</a> parent</i>. An item's visual parent may not necessarily be the same as its object parent. See <a href="../qtquick/qtquick-visualcanvas-visualparent.html">Concepts - Visual Parent in Qt Quick</a> for more details.</p>
 <p><a href="../qtwidgets/qwidget.html">QWidget</a>, the fundamental class of the Qt Widgets module, extends the parent-child relationship. A child normally also becomes a child widget, i.e&#x2e; it is displayed in its parent's coordinate system and is graphically clipped by its parent's boundaries. For example, when the application deletes a message box after it has been closed, the message box's buttons and label are also deleted, just as we'd want, because the buttons and label are children of the message box.</p>

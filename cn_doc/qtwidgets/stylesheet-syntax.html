@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtwidgets-index.html">Qt Widgets</a></td><td >The Style Sheet Syntax</td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtwidgets-index.html">Qt部件</a></td><td >样式表语法</td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -37,33 +37,33 @@
   <link rel="prev" href="stylesheet.html" />
   <link rel="next" href="stylesheet-designer.html" />
 <p class="naviNextPrevious headerNavi">
-<a class="prevPage" href="stylesheet.html">Qt Style Sheets</a>
+<a class="prevPage" href="stylesheet.html">Qt样式表</a>
 <span class="naviSeparator">  &#9702;  </span>
-<a class="nextPage" href="stylesheet-designer.html">Qt Designer Integration</a>
+<a class="nextPage" href="stylesheet-designer.html">Qt设计器内置集成</a>
 </p><p/>
 <div class="sidebar">
 <div class="toc">
 <h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#style-rules">Style Rules</a></li>
-<li class="level1"><a href="#selector-types">Selector Types</a></li>
-<li class="level1"><a href="#sub-controls">Sub-Controls</a></li>
-<li class="level1"><a href="#pseudo-states">Pseudo-States</a></li>
-<li class="level1"><a href="#conflict-resolution">Conflict Resolution</a></li>
-<li class="level1"><a href="#cascading">Cascading</a></li>
-<li class="level1"><a href="#inheritance">Inheritance</a></li>
-<li class="level1"><a href="#widgets-inside-c-namespaces">Widgets Inside C++ Namespaces</a></li>
-<li class="level1"><a href="#setting-qobject-properties">Setting QObject Properties</a></li>
+<li class="level1"><a href="#style-rules">样式规则</a></li>
+<li class="level1"><a href="#selector-types">选择器类型</a></li>
+<li class="level1"><a href="#sub-controls">子控件</a></li>
+<li class="level1"><a href="#pseudo-states">伪状态</a></li>
+<li class="level1"><a href="#conflict-resolution">冲突解决</a></li>
+<li class="level1"><a href="#cascading">层叠</a></li>
+<li class="level1"><a href="#inheritance">继承</a></li>
+<li class="level1"><a href="#widgets-inside-c-namespaces">部件内置C++命名空间</a></li>
+<li class="level1"><a href="#setting-qobject-properties">设置对象属性</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title">The Style Sheet Syntax</h1>
+<h1 class="title">样式表语法</h1>
 <span class="subtitle"></span>
 <!-- $$$stylesheet-syntax.html-description -->
 <div class="descr"> <a name="details"></a>
 <p>Qt Style Sheet terminology and syntactic rules are almost identical to those of HTML CSS. If you already know CSS, you can probably skim quickly through this section.</p>
 <a name="style-rules"></a>
-<h2 id="style-rules">Style Rules</h2>
+<h2 id="style-rules">样式规则</h2>
 <p>Style sheets consist of a sequence of style rules. A <i>style rule</i> is made up of a selector and a declaration. The <i>selector</i> specifies which widgets are affected by the rule; the <i>declaration</i> specifies which properties should be set on the widget. For example:</p>
 <pre class="cpp">
 
@@ -92,12 +92,12 @@
   <span class="type"><a href="qpushbutton.html">QPushButton</a></span> { color: red; background<span class="operator">-</span>color: white }
 
 </pre>
-<p>See the <a href="stylesheet-reference.html#list-of-properties">List of Properties</a> section below for the list of properties provided by Qt widgets.</p>
+<p>See the <a href="stylesheet-reference.html#list-of-properties">属性列表</a> section below for the list of properties provided by Qt widgets.</p>
 <a name="selector-types"></a>
-<h2 id="selector-types">Selector Types</h2>
+<h2 id="selector-types">选择器类型</h2>
 <p>All the examples so far used the simplest type of selector, the Type Selector. Qt Style Sheets support all the <a href="http://www.w3.org/TR/REC-CSS2/selector.html#q1">selectors defined in CSS2</a>. The table below summarizes the most useful types of selectors.</p>
 <div class="table"><table class="generic" width="100%">
- <thead><tr class="qt-style"><th >Selector</th><th >Example</th><th >Explanation</th></tr></thead>
+ <thead><tr class="qt-style"><th >选择器</th><th >样例</th><th >解释说明</th></tr></thead>
 <tr valign="top" class="odd"><td >Universal Selector</td><td ><code>*</code></td><td >Matches all widgets.</td></tr>
 <tr valign="top" class="even"><td >Type Selector</td><td ><code>QPushButton</code></td><td >Matches instances of <a href="qpushbutton.html">QPushButton</a> and of its subclasses.</td></tr>
 <tr valign="top" class="odd"><td >Property Selector</td><td ><code>QPushButton[flat=&quot;false&quot;]</code></td><td >Matches instances of <a href="qpushbutton.html">QPushButton</a> that are not <a href="qpushbutton.html#flat-prop">flat</a>. You may use this selector to test for any Qt <a href="../qtcore/properties.html">property</a> that supports <a href="../qtcore/qvariant.html#toString">QVariant::toString</a>() (see the <a href="../qtcore/qvariant.html#toString">toString()</a> function documentation for details). In addition, the special <code>class</code> property is supported, for the name of the class.<p>This selector may also be used to test dynamic properties. For more information on customization using dynamic properties, refer to <a href="stylesheet-examples.html#customizing-using-dynamic-properties">Customizing Using Dynamic Properties</a>.</p>
@@ -111,7 +111,7 @@
 <tr valign="top" class="odd"><td >Child Selector</td><td ><code>QDialog &gt; QPushButton</code></td><td >Matches all instances of <a href="qpushbutton.html">QPushButton</a> that are direct children of a <a href="qdialog.html">QDialog</a>.</td></tr>
 </table></div>
 <a name="sub-controls"></a>
-<h2 id="sub-controls">Sub-Controls</h2>
+<h2 id="sub-controls">子控件</h2>
 <p>For styling complex widgets, it is necessary to access subcontrols of the widget, such as the drop-down button of a <a href="qcombobox.html">QComboBox</a> or the up and down arrows of a <a href="qspinbox.html">QSpinBox</a>. Selectors may contain <i>subcontrols</i> that make it possible to restrict the application of a rule to specific widget subcontrols. For example:</p>
 <pre class="cpp">
 
@@ -147,9 +147,9 @@
 </pre>
 <p>The absolute positioning scheme (<a href="stylesheet-reference.html#position-prop">position</a> : absolute), allows the position and size of the Sub-control to be changed with respect to the reference element.</p>
 <p>Once positioned, they are treated the same as widgets and can be styled using the <a href="stylesheet-customizing.html#box-model">box model</a>.</p>
-<p>See the <a href="stylesheet-reference.html#list-of-sub-controls">List of Sub-Controls</a> below for a list of supported sub-controls, and <a href="stylesheet-examples.html#customizing-the-qpushbutton-s-menu-indicator-sub-control">Customizing the QPushButton's Menu Indicator Sub-Control</a> for a realistic example.</p>
+<p>See the <a href="stylesheet-reference.html#list-of-sub-controls">子控件列表</a> below for a list of supported sub-controls, and <a href="stylesheet-examples.html#customizing-the-qpushbutton-s-menu-indicator-sub-control">Customizing the QPushButton's Menu Indicator Sub-Control</a> for a realistic example.</p>
 <p><b>Note: </b>With complex widgets such as <a href="qcombobox.html">QComboBox</a> and <a href="qscrollbar.html">QScrollBar</a>, if one property or sub-control is customized, <b>all</b> the other properties or sub-controls must be customized as well.</p><a name="pseudo-states"></a>
-<h2 id="pseudo-states">Pseudo-States</h2>
+<h2 id="pseudo-states">伪状态</h2>
 <p>Selectors may contain <i>pseudo-states</i> that denote that restrict the application of the rule based on the widget's state. Pseudo-states appear at the end of the selector, with a colon (<code>:</code>) in between. For example, the following rule applies when the mouse hovers over a <a href="qpushbutton.html">QPushButton</a>:</p>
 <pre class="cpp">
 
@@ -186,9 +186,9 @@
   <span class="type"><a href="qcombobox.html">QComboBox</a></span><span class="operator">::</span>drop<span class="operator">-</span>down:hover { image: url(dropdown_bright<span class="operator">.</span>png) }
 
 </pre>
-<p>See the <a href="stylesheet-reference.html#list-of-pseudo-states">List of Pseudo-States</a> section below for the list of pseudo-states provided by Qt widgets.</p>
+<p>See the <a href="stylesheet-reference.html#list-of-pseudo-states">伪状态列表</a> section below for the list of pseudo-states provided by Qt widgets.</p>
 <a name="conflict-resolution"></a>
-<h2 id="conflict-resolution">Conflict Resolution</h2>
+<h2 id="conflict-resolution">冲突解决</h2>
 <p>Conflicts arise when several style rules specify the same properties with different values. Consider the following style sheet:</p>
 <pre class="cpp">
 
@@ -257,7 +257,7 @@
 </pre>
 </blockquote>
 <a name="cascading"></a>
-<h2 id="cascading">Cascading</h2>
+<h2 id="cascading">层叠</h2>
 <p>Style sheets can be set on the <a href="qapplication.html">QApplication</a>, on parent widgets, and on child widgets. An arbitrary widget's effective style sheet is obtained by merging the style sheets set on the widget's ancestors (parent, grandparent, etc.), as well as any style sheet set on the <a href="qapplication.html">QApplication</a>.</p>
 <p>When conflicts arise, the widget's own style sheet is always preferred to any inherited style sheet, irrespective of the specificity of the conflicting rules. Likewise, the parent widget's style sheet is preferred to the grandparent's, etc.</p>
 <p>One consequence of this is that setting a style rule on a widget automatically gives it precedence over other rules specified in the ancestor widgets' style sheets or the <a href="qapplication.html">QApplication</a> style sheet. Consider the following example. First, we set a style sheet on the <a href="qapplication.html">QApplication</a>:</p>
@@ -282,7 +282,7 @@
 <p>except that if the <a href="qpushbutton.html">QPushButton</a> had children (which is unlikely), the style sheet would have no impact on them.</p>
 <p>Style sheet cascading is a complex topic. Refer to the <a href="http://www.w3.org/TR/CSS2/cascade.html#cascade">CSS2 Specification</a> for the gory details. Be aware that Qt currently doesn't implement <code>!important</code>.</p>
 <a name="inheritance"></a>
-<h2 id="inheritance">Inheritance</h2>
+<h2 id="inheritance">继承</h2>
 <p>In classic CSS, when font and color of an item is not explicitly set, it gets automatically inherited from the parent. By default, when using Qt Style Sheets, a widget does <b>not</b> automatically inherit its font and color setting from its parent widget.</p>
 <p>For example, consider a <a href="qpushbutton.html">QPushButton</a> inside a <a href="qgroupbox.html">QGroupBox</a>:</p>
 <pre class="cpp">
@@ -306,7 +306,7 @@
 </pre>
 <p>When the widget-style font and palette propagation is enabled, font and palette changes made through Qt Style Sheets will behave as though the user had manually called the corresponding <a href="qwidget.html#palette-prop">QWidget::setPalette</a>() and <a href="qwidget.html#font-prop">QWidget::setFont</a>() methods on all of the QWidgets targeted by the style sheet. If this would have caused propagation in C++, it will cause propagation in style sheets and vice versa.</p>
 <a name="widgets-inside-c-namespaces"></a>
-<h2 id="widgets-inside-c-namespaces">Widgets Inside C++ Namespaces</h2>
+<h2 id="widgets-inside-c-namespaces">部件内置C++命名空间</h2>
 <p>The Type Selector can be used to style widgets of a particular type. For example,</p>
 <pre class="cpp">
 
@@ -318,7 +318,7 @@
   <a href="qapplication.html#qApp">qApp</a><span class="operator">-</span><span class="operator">&gt;</span>setStyleSheet(<span class="string">&quot;MyPushButton { background: yellow; }&quot;</span>);
 
 </pre>
-<p>Qt Style Sheet uses QObject::className() of the widget to determine when to apply the Type Selector. When custom widgets are inside namespaces, the QObject::className() returns &lt;namespace&gt;::&lt;classname&gt;. This conflicts with the syntax for <a href="stylesheet-syntax.html#sub-controls">Sub-Controls</a>. To overcome this problem, when using the Type Selector for widgets inside namespaces, we must replace the &quot;::&quot; with &quot;--&quot;. For example,</p>
+<p>Qt Style Sheet uses QObject::className() of the widget to determine when to apply the Type Selector. When custom widgets are inside namespaces, the QObject::className() returns &lt;namespace&gt;::&lt;classname&gt;. This conflicts with the syntax for <a href="stylesheet-syntax.html#sub-controls">子控件</a>. To overcome this problem, when using the Type Selector for widgets inside namespaces, we must replace the &quot;::&quot; with &quot;--&quot;. For example,</p>
 <pre class="cpp">
 
   <span class="keyword">namespace</span> ns {
@@ -332,7 +332,7 @@
 
 </pre>
 <a name="setting-qobject-properties"></a>
-<h2 id="setting-qobject-properties">Setting QObject Properties</h2>
+<h2 id="setting-qobject-properties">设置对象属性</h2>
 <p>From 4.3 and above, any designable <a href="../qtcore/qobject.html#Q_PROPERTY">Q_PROPERTY</a> can be set using the qproperty-&lt;property name&gt; syntax.</p>
 <p>For example,</p>
 <pre class="cpp">
@@ -346,9 +346,9 @@
 </div>
 <!-- @@@stylesheet-syntax.html -->
 <p class="naviNextPrevious footerNavi">
-<a class="prevPage" href="stylesheet.html">Qt Style Sheets</a>
+<a class="prevPage" href="stylesheet.html">Qt样式表</a>
 <span class="naviSeparator">  &#9702;  </span>
-<a class="nextPage" href="stylesheet-designer.html">Qt Designer Integration</a>
+<a class="nextPage" href="stylesheet-designer.html">Qt设计器内置集成</a>
 </p>
         </div>
        </div>

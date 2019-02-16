@@ -40,7 +40,7 @@
 <div class="toc">
 <h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#overview">Overview</a></li>
+<li class="level1"><a href="#overview">总览</a></li>
 <li class="level1"><a href="#basic-concepts">Basic Concepts</a></li>
 <li class="level1"><a href="#input-context">Input Context</a></li>
 <li class="level2"><a href="#contextual-information">Contextual Information</a></li>
@@ -75,7 +75,7 @@
 <!-- $$$technical-guide.html-description -->
 <div class="descr"> <a name="details"></a>
 <a name="overview"></a>
-<h2 id="overview">Overview</h2>
+<h2 id="overview">总览</h2>
 <p>This document provides a technical overview of the Qt Virtual Keyboard plugin.</p>
 <a name="basic-concepts"></a>
 <h2 id="basic-concepts">Basic Concepts</h2>
@@ -171,7 +171,7 @@
 <h3 >Metadata for the Extension Plugin</h3>
 <p>Metadata allows the virtual keyboard to inspect the plugin before loading the actual library. It also prevents the virtual keyboard from loading conflicting extension plugins, for example, two handwriting extensions.</p>
 <div class="table"><table class="generic">
- <tr valign="top" class="odd"><td ><code>Name</code></td><td ><code>Required</code></td><td >This field defines the plugin name. There are several built-in plugins available by default:<ul>
+ <tr valign="top" class="odd"><td ><code>名称</code></td><td ><code>Required</code></td><td >This field defines the plugin name. There are several built-in plugins available by default:<ul>
 <li><code>hangul</code></li>
 <li><code>default</code> (Hunspell)</li>
 <li><code>handwriting</code> (T9 Write, Lipi-Toolkit)</li>
@@ -181,8 +181,8 @@
 </ul>
 </td></tr>
 <tr valign="top" class="even"><td ><code>Provider</code></td><td ><code>Optional</code></td><td >An informative name of the plugin provider. Used mainly for diagnostics.</td></tr>
-<tr valign="top" class="odd"><td ><code>InputMethod</code></td><td ><code>Optional</code></td><td >This field tells the virtual keyboard the plugin contains an input method. When this field is defined, the virtual keyboard will invoke the <a href="qvirtualkeyboardextensionplugin.html#registerTypes">interface</a> for registering the QML types. Similar to the <code>Name</code>, there can be only one provider for each input method.</td></tr>
-<tr valign="top" class="even"><td ><code>Version</code></td><td ><code>Required</code></td><td >An integer defining the version number of the plugin. If there are two or more plugins available of the same <code>Name</code>, the one with greatest version number is preferred.</td></tr>
+<tr valign="top" class="odd"><td ><code>InputMethod</code></td><td ><code>Optional</code></td><td >This field tells the virtual keyboard the plugin contains an input method. When this field is defined, the virtual keyboard will invoke the <a href="qvirtualkeyboardextensionplugin.html#registerTypes">interface</a> for registering the QML types. Similar to the <code>名称</code>, there can be only one provider for each input method.</td></tr>
+<tr valign="top" class="even"><td ><code>Version</code></td><td ><code>Required</code></td><td >An integer defining the version number of the plugin. If there are two or more plugins available of the same <code>名称</code>, the one with greatest version number is preferred.</td></tr>
 </table></div>
 <p>The following metadata example is from the Lipi-Toolkit extension plugin (lipi.json):</p>
 <pre class="cpp plain">
@@ -278,7 +278,7 @@
 <pre class="cpp">
 
   function selectionLists() {
-      <span class="keyword">return</span> <span class="operator">[</span>SelectionListModel<span class="operator">.</span>Type<span class="operator">.</span>WordCandidateList<span class="operator">]</span>;
+      <span class="keyword">return</span> <span class="operator">[</span>SelectionListModel<span class="operator">.</span>类型<span class="operator">.</span>WordCandidateList<span class="operator">]</span>;
   }
 
 </pre>
@@ -288,8 +288,8 @@
 <p>When the input method requires the UI to update the contents of a selection list, it will emit the <a href="qml-qtquick-virtualkeyboard-inputmethod.html#selectionListChanged-signal">InputMethod::selectionListChanged</a> signal. Likewise, if the input method requires the UI to highlight an item in the list, it will emit the <a href="qml-qtquick-virtualkeyboard-inputmethod.html#selectionListActiveItemChanged-signal">InputMethod::selectionListActiveItemChanged</a> signal.</p>
 <pre class="cpp">
 
-  selectionListChanged(SelectionListModel<span class="operator">.</span>Type<span class="operator">.</span>WordCandidateList)
-  selectionListActiveItemChanged(SelectionListModel<span class="operator">.</span>Type<span class="operator">.</span>WordCandidateList<span class="operator">,</span> wordIndex)
+  selectionListChanged(SelectionListModel<span class="operator">.</span>类型<span class="operator">.</span>WordCandidateList)
+  selectionListActiveItemChanged(SelectionListModel<span class="operator">.</span>类型<span class="operator">.</span>WordCandidateList<span class="operator">,</span> wordIndex)
 
 </pre>
 <a name="populating-items-in-the-selection-lists"></a>
@@ -299,7 +299,7 @@
 <pre class="cpp">
 
   function selectionListItemCount(type) {
-      <span class="keyword">if</span> (type <span class="operator">=</span><span class="operator">=</span> SelectionListModel<span class="operator">.</span>Type<span class="operator">.</span>WordCandidateList) {
+      <span class="keyword">if</span> (type <span class="operator">=</span><span class="operator">=</span> SelectionListModel<span class="operator">.</span>类型<span class="operator">.</span>WordCandidateList) {
           <span class="keyword">return</span> wordList<span class="operator">.</span>length
       }
       <span class="keyword">return</span> <span class="number">0</span>
@@ -311,7 +311,7 @@
 
   function selectionListData(type<span class="operator">,</span> index<span class="operator">,</span> role) {
       var result <span class="operator">=</span> null
-      <span class="keyword">if</span> (type <span class="operator">=</span><span class="operator">=</span> SelectionListModel<span class="operator">.</span>Type<span class="operator">.</span>WordCandidateList) {
+      <span class="keyword">if</span> (type <span class="operator">=</span><span class="operator">=</span> SelectionListModel<span class="operator">.</span>类型<span class="operator">.</span>WordCandidateList) {
           <span class="keyword">switch</span> (role) {
           <span class="keyword">case</span> SelectionListModel<span class="operator">.</span>Role<span class="operator">.</span>Display:
               result <span class="operator">=</span> wordList<span class="operator">[</span>index<span class="operator">]</span>
@@ -331,7 +331,7 @@
 <pre class="cpp">
 
   function selectionListItemSelected(type<span class="operator">,</span> index) {
-      <span class="keyword">if</span> (type <span class="operator">=</span><span class="operator">=</span> SelectionListModel<span class="operator">.</span>Type<span class="operator">.</span>WordCandidateList) {
+      <span class="keyword">if</span> (type <span class="operator">=</span><span class="operator">=</span> SelectionListModel<span class="operator">.</span>类型<span class="operator">.</span>WordCandidateList) {
           inputContext<span class="operator">.</span>commit(wordlist<span class="operator">[</span>index<span class="operator">]</span>)
           update()
       }

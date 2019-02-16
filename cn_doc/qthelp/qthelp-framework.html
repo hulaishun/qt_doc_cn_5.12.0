@@ -38,7 +38,7 @@
 <div class="toc">
 <h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#overview">Overview</a></li>
+<li class="level1"><a href="#overview">总览</a></li>
 <li class="level1"><a href="#generating-qt-help">Generating Qt Help</a></li>
 <li class="level2"><a href="#creating-a-qt-help-collection">Creating a Qt Help Collection</a></li>
 <li class="level1"><a href="#using-qt-help">Using Qt Help</a></li>
@@ -52,14 +52,14 @@
 <!-- $$$qthelp-framework.html-description -->
 <div class="descr"> <a name="details"></a>
 <a name="overview"></a>
-<h2 id="overview">Overview</h2>
+<h2 id="overview">总览</h2>
 <p>The Qt help system includes tools for generating and viewing Qt help files. In addition, it provides classes for accessing help contents programmatically to be able to integrate online help into Qt applications.</p>
 <p>The actual help data, meaning the table of contents, index keywords, or HTML documents, is contained in Qt compressed help files. So, one such a help file represents usually one manual or documentation set. Since most products are more comprehensive and consist of a number of tools, one manual is rarely enough. Instead, more manuals, which should be accessible at the same time, exist. Ideally, it should also be possible to reference certain points of interest of one manual to another. Therefore, the Qt help system operates on help collection files, which include any number of compressed help files.</p>
 <p>However, having collection files to merge many documentation sets may lead to some problems. For example, one index keyword may be defined in different documentation sets. So, when only seeing a keyword in the index and activating it, you cannot be sure that the expected documentation will be shown. Therefore, the Qt help system offers the possibility to filter the help contents after certain attributes. This requires, however, that the attributes have been assigned to the help contents before the generation of the compressed help file.</p>
 <p>As already mentioned, the Qt compressed help file contains all data, so there is no need any longer to ship all the single HTML files. Instead, only the compressed help file and, optionally, the collection file have to be distributed. The collection file is optional since any existing collection file, for example from an older release, could be used.</p>
 <p>So, in general, there are four files interacting with the help system, two used for generating Qt help and two meant for distribution:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Name</th><th >Extension</th><th >Brief Description</th></tr></thead>
+ <thead><tr class="qt-style"><th >名称</th><th >Extension</th><th >Brief Description</th></tr></thead>
 <tr valign="top" class="odd"><td ><a href="qthelpproject.html">Qt Help Project</a></td><td >.qhp</td><td >Contains the table of contents, indices, and references to the actual documentation files (*.html). It also defines a unique namespace for the documentation. This file is passed to the help generator for creating a compressed help file.</td></tr>
 <tr valign="top" class="even"><td >Qt Compressed Help</td><td >.qch</td><td >Contains all the information specified in the help project file along with all the compressed documentation files.</td></tr>
 <tr valign="top" class="odd"><td ><a href="qthelp-framework.html#qt-help-collection-project">Qt Help Collection Project</a></td><td >.qhcp</td><td >An XML file that contains references to the compressed help files that should be included in the help collection. In addition, it may contain information for customizing Qt Assistant. This file can be passed to the help generator for creating a help collection file.</td></tr>
