@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- containers.qdoc -->
-  <title>Container Classes | Qt Core 5.12</title>
+  <title>容器类 | Qt核心 5.12</title>
   <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
   <script type="text/javascript">
     document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
@@ -43,8 +43,8 @@
 <li class="level1"><a href="#the-iterator-classes">迭代器类</a></li>
 <li class="level2"><a href="#java-style-iterators">Java样式的迭代器</a></li>
 <li class="level2"><a href="#stl-style-iterators">STL样式的迭代器</a></li>
-<li class="level1"><a href="#the-foreach-keyword">The foreach Keyword</a></li>
-<li class="level1"><a href="#other-container-like-classes">Other Container-Like Classes</a></li>
+<li class="level1"><a href="#the-foreach-keyword">foreach关键词</a></li>
+<li class="level1"><a href="#other-container-like-classes">其他相似的容器类</a></li>
 <li class="level1"><a href="#algorithmic-complexity">算法复杂度</a></li>
 <li class="level1"><a href="#growth-strategies">增长策略</a></li>
 </ul>
@@ -143,7 +143,7 @@
 <p>The Java-style iterators are new in Qt 4 and are the standard ones used in Qt applications. They are more convenient to use than the STL-style iterators, at the price of being slightly less efficient. Their API is modelled on Java's iterator classes.</p>
 <p>For each container class, there are two Java-style iterator data types: one that provides read-only access and one that provides read-write access.</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Containers</th><th >Read-only iterator</th><th >Read-write iterator</th></tr></thead>
+ <thead><tr class="qt-style"><th >容器</th><th >只读迭代器</th><th >读写迭代器</th></tr></thead>
 <tr valign="top" class="odd"><td ><a href="qlist.html">QList</a>&lt;T&gt;, <a href="qqueue.html">QQueue</a>&lt;T&gt;</td><td ><a href="qlistiterator.html">QListIterator</a>&lt;T&gt;</td><td ><a href="qmutablelistiterator.html">QMutableListIterator</a>&lt;T&gt;</td></tr>
 <tr valign="top" class="even"><td ><a href="qlinkedlist.html">QLinkedList</a>&lt;T&gt;</td><td ><a href="qlinkedlistiterator.html">QLinkedListIterator</a>&lt;T&gt;</td><td ><a href="qmutablelinkedlistiterator.html">QMutableLinkedListIterator</a>&lt;T&gt;</td></tr>
 <tr valign="top" class="odd"><td ><a href="qvector.html">QVector</a>&lt;T&gt;, <a href="qstack.html">QStack</a>&lt;T&gt;</td><td ><a href="qvectoriterator.html">QVectorIterator</a>&lt;T&gt;</td><td ><a href="qmutablevectoriterator.html">QMutableVectorIterator</a>&lt;T&gt;</td></tr>
@@ -178,7 +178,7 @@
 <p>The diagram below illustrates the effect of calling <a href="qlistiterator.html#next">next()</a> and <a href="qlistiterator.html#previous">previous()</a> on an iterator:</p>
 <p class="centerAlign"><img src="images/javaiterators2.png" alt="" /></p><p>The following table summarizes the <a href="qlistiterator.html">QListIterator</a> API:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >函数</th><th >Behavior</th></tr></thead>
+ <thead><tr class="qt-style"><th >函数</th><th >行为</th></tr></thead>
 <tr valign="top" class="odd"><td ><a href="qlistiterator.html#toFront">toFront()</a></td><td >Moves the iterator to the front of the list (before the first item)</td></tr>
 <tr valign="top" class="even"><td ><a href="qlistiterator.html#toBack">toBack()</a></td><td >Moves the iterator to the back of the list (after the last item)</td></tr>
 <tr valign="top" class="odd"><td ><a href="qlistiterator.html#hasNext">hasNext()</a></td><td >Returns <code>true</code> if the iterator isn't at the back of the list</td></tr>
@@ -273,7 +273,7 @@
 <p>STL-style iterators have been available since the release of Qt 2.0&#x2e; They are compatible with Qt's and STL's <a href="qtalgorithms.html">generic algorithms</a> and are optimized for speed.</p>
 <p>For each container class, there are two STL-style iterator types: one that provides read-only access and one that provides read-write access. Read-only iterators should be used wherever possible because they are faster than read-write iterators.</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Containers</th><th >Read-only iterator</th><th >Read-write iterator</th></tr></thead>
+ <thead><tr class="qt-style"><th >容器</th><th >只读迭代器</th><th >读写迭代器</th></tr></thead>
 <tr valign="top" class="odd"><td ><a href="qlist.html">QList</a>&lt;T&gt;, <a href="qqueue.html">QQueue</a>&lt;T&gt;</td><td ><a href="qlist.html">QList</a>&lt;T&gt;::const_iterator</td><td ><a href="qlist.html">QList</a>&lt;T&gt;::iterator</td></tr>
 <tr valign="top" class="even"><td ><a href="qlinkedlist.html">QLinkedList</a>&lt;T&gt;</td><td ><a href="qlinkedlist.html">QLinkedList</a>&lt;T&gt;::const_iterator</td><td ><a href="qlinkedlist.html">QLinkedList</a>&lt;T&gt;::iterator</td></tr>
 <tr valign="top" class="odd"><td ><a href="qvector.html">QVector</a>&lt;T&gt;, <a href="qstack.html">QStack</a>&lt;T&gt;</td><td ><a href="qvector.html">QVector</a>&lt;T&gt;::const_iterator</td><td ><a href="qvector.html">QVector</a>&lt;T&gt;::iterator</td></tr>
@@ -319,7 +319,7 @@
 </pre>
 <p>The following table summarizes the STL-style iterators' API:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >表达式</th><th >Behavior</th></tr></thead>
+ <thead><tr class="qt-style"><th >表达式</th><th >行为</th></tr></thead>
 <tr valign="top" class="odd"><td ><code>*i</code></td><td >Returns the current item</td></tr>
 <tr valign="top" class="even"><td ><code>++i</code></td><td >Advances the iterator to the next item</td></tr>
 <tr valign="top" class="odd"><td ><code>i += n</code></td><td >Advances the iterator by <code>n</code> items</td></tr>
@@ -392,7 +392,7 @@
 </pre>
 <p>The above example only shows a problem with <a href="qvector.html">QVector</a>, but the problem exists for all the implicitly shared Qt containers.</p>
 <a name="foreach"></a><a name="the-foreach-keyword"></a>
-<h2 id="the-foreach-keyword">The foreach Keyword</h2>
+<h2 id="the-foreach-keyword">foreach关键词</h2>
 <p>If you just want to iterate over all the items in a container in order, you can use Qt's <code>foreach</code> keyword. The keyword is a Qt-specific addition to the C++ language, and is implemented using the preprocessor.</p>
 <p>Its syntax is: <code>foreach</code> (<i>variable</i>, <i>container</i>) <i>statement</i>. For example, here's how to use <code>foreach</code> to iterate over a <a href="qlinkedlist.html">QLinkedList</a>&lt;<a href="qstring.html">QString</a>&gt;:</p>
 <pre class="cpp">
@@ -473,7 +473,7 @@
 
 </pre>
 <a name="other-container-like-classes"></a>
-<h2 id="other-container-like-classes">Other Container-Like Classes</h2>
+<h2 id="other-container-like-classes">其他相似的容器类</h2>
 <p>Qt includes three template classes that resemble containers in some respects. These classes don't provide iterators and cannot be used with the <code>foreach</code> keyword.</p>
 <ul>
 <li><a href="qvarlengtharray.html">QVarLengthArray</a>&lt;T, Prealloc&gt; provides a low-level variable-length array. It can be used instead of <a href="qvector.html">QVector</a> in places where speed is particularly important.</li>

@@ -356,7 +356,7 @@
 
 </pre>
 <p>We scale the images from <code>0.0</code> to <code>1.0</code> and use the <code>visible</code> property to hide the images for the previous steps as the countdown progresses. We also raise the opacity of the image that matches the current countdown step, keeping the others nearly transparent.</p>
-<p>By animating the changes in the <code>opacity</code> and <code>scale</code> properties using a <a href="../qtquick/qml-qtquick-behavior.html">Behavior</a> type, we achieve a countdown sequence where numbers zoom in towards the players.</p>
+<p>By animating the changes in the <code>opacity</code> and <code>scale</code> properties using a <a href="../qtquick/qml-qtquick-behavior.html">行为</a> type, we achieve a countdown sequence where numbers zoom in towards the players.</p>
 <a name="constructing-the-game-board"></a>
 <h2 id="constructing-the-game-board">Constructing the Game Board</h2>
 <p>To construct the game board, we use the GameCanvas custom type that is defined in GameCanvas.qml.</p>
@@ -420,7 +420,7 @@
       }
 
 </pre>
-<p>We declare the <code>goAway()</code> private function to disable the mouse area and make the image fully transparent and a <code>comeBack()</code> function to enable the mouse area and make the button fully opaque. We use a <a href="../qtquick/qml-qtquick-behavior.html">Behavior</a> type on the <code>opacity</code> property to apply the default number animation when the value of <code>opacity</code> changes.</p>
+<p>We declare the <code>goAway()</code> private function to disable the mouse area and make the image fully transparent and a <code>comeBack()</code> function to enable the mouse area and make the button fully opaque. We use a <a href="../qtquick/qml-qtquick-behavior.html">行为</a> type on the <code>opacity</code> property to apply the default number animation when the value of <code>opacity</code> changes.</p>
 <p>When the players tap the help button, the <code>onClicked</code> signal handler is called to hide the help button by setting the <code>helpButton.visible</code> property to <code>false</code> and to show the help image by setting the <code>helpImage.visible</code> property to <code>false</code>.</p>
 <p class="centerAlign"><img src="images/qtquick-demo-maroon-med-6.jpg" alt="" /></p><p>We use anchoring to position the help button at the bottom center of the game canvas.</p>
 <p>We use another <a href="../qdoc/09-qdoc-commands-includingimages.html#image">Image</a> type to display the help image:</p>
@@ -577,7 +577,7 @@
           <span class="name">goalSprite</span>: <span class="string">&quot;&quot;</span>
 
 </pre>
-<p>We use a <a href="../qtquick/qml-qtquick-behavior.html">Behavior</a> type to apply a <a href="../qtquick/qml-qtquick-numberanimation.html">NumberAnimation</a> when the value of <code>scale</code> changes. We use the <code>Easing.OutBack</code> easing type for a back (overshooting cubic function: (s+1)*t^3 - s*t^2) easing out curve that decelerates the motion to zero velocity in 150 milliseconds:</p>
+<p>We use a <a href="../qtquick/qml-qtquick-behavior.html">行为</a> type to apply a <a href="../qtquick/qml-qtquick-numberanimation.html">NumberAnimation</a> when the value of <code>scale</code> changes. We use the <code>Easing.OutBack</code> easing type for a back (overshooting cubic function: (s+1)*t^3 - s*t^2) easing out curve that decelerates the motion to zero velocity in 150 milliseconds:</p>
 <pre class="cpp">
 
           Behavior on <span class="name">scale</span> {

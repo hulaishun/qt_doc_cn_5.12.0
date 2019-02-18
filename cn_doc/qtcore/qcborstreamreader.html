@@ -143,10 +143,10 @@
 <p><a href="qcborstreamreader.html">QCborStreamReader</a> provides a StAX-like API, similar to that of <a href="qxmlstreamreader.html">QXmlStreamReader</a>. Using it requires a bit of knowledge of CBOR encoding. For a simpler API, see <a href="qcborvalue.html">QCborValue</a> and especially the decoding function <a href="qcborvalue.html#fromCbor">QCborValue::fromCbor</a>().</p>
 <p>Typically, one creates a <a href="qcborstreamreader.html">QCborStreamReader</a> by passing the source <a href="qbytearray.html">QByteArray</a> or <a href="qiodevice.html">QIODevice</a> as a parameter to the constructor, then pop elements off the stream if there were no errors in decoding. There are three kinds of CBOR types:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Kind</th><th >Types</th><th >Behavior</th></tr></thead>
+ <thead><tr class="qt-style"><th >Kind</th><th >类型</th><th >行为</th></tr></thead>
 <tr valign="top" class="odd"><td >Fixed-width</td><td >Integers, Tags, Simple types, Floating point</td><td >Value is pre-parsed by <a href="qcborstreamreader.html">QCborStreamReader</a>, so accessor functions are <code>const</code>. Must call <a href="qcborstreamreader.html#next">next</a>() to advance.</td></tr>
 <tr valign="top" class="even"><td >Strings</td><td >Byte arrays, Text strings</td><td >Length (if known) is pre-parsed, but the string itself is not. The accessor functions are not const and may allocate memory. Once called, the accessor functions automatically advance to the next element.</td></tr>
-<tr valign="top" class="odd"><td >Containers</td><td >Arrays, Maps</td><td >Length (if known) is pre-parsed. To access the elements, you must call <a href="qcborstreamreader.html#enterContainer">enterContainer</a>(), read all elements, then call <a href="qcborstreamreader.html#leaveContainer">leaveContainer</a>(). That function advances to the next element.</td></tr>
+<tr valign="top" class="odd"><td >容器</td><td >Arrays, Maps</td><td >Length (if known) is pre-parsed. To access the elements, you must call <a href="qcborstreamreader.html#enterContainer">enterContainer</a>(), read all elements, then call <a href="qcborstreamreader.html#leaveContainer">leaveContainer</a>(). That function advances to the next element.</td></tr>
 </table></div>
 <p>So a processor function typically looks like this:</p>
 <pre class="cpp">

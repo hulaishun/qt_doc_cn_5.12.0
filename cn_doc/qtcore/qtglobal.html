@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcore-index.html">Qt核心</a></td><td >&lt;QtGlobal&gt; - Global Qt Declarations</td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtcore-index.html">Qt核心</a></td><td >&lt;QtGlobal&gt; - 全局Qt声明</td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -38,13 +38,13 @@
 <div class="toc">
 <h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#types">Types</a></li>
+<li class="level1"><a href="#types">类型</a></li>
 <li class="level1"><a href="#functions">函数</a></li>
 <li class="level1"><a href="#macros">宏定义</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title">&lt;QtGlobal&gt; - Global Qt Declarations</h1>
+<h1 class="title">&lt;QtGlobal&gt; - 全局Qt声明</h1>
 <span class="subtitle"></span>
 <!-- $$$<QtGlobal>-brief -->
 <p>The &lt;QtGlobal&gt; header file includes the fundamental global declarations. It is included by most other Qt header files. <a href="#details">More...</a></p>
@@ -53,7 +53,7 @@
 <li><a href="qtglobal-obsolete.html">过时的成员</a></li>
 </ul>
 <a name="Types"></a>
-<h2 id="Types">Types</h2>
+<h2 id="Types">类型</h2>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> typedef </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#QFunctionPointer-typedef">QFunctionPointer</a></b></td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> typedef </td><td class="memItemRight bottomAlign"><b><a href="qtglobal.html#QtMessageHandler-typedef">QtMessageHandler</a></b></td></tr>
@@ -262,7 +262,7 @@
 <p>The global declarations include <a href="qtglobal.html#types">types</a>, <a href="qtglobal.html#functions">functions</a> and <a href="qtglobal.html#macros">macros</a>.</p>
 <p>The type definitions are partly convenience definitions for basic types (some of which guarantee certain bit-sizes on all platforms supported by Qt), partly types related to Qt message handling. The functions are related to generating messages, Qt version handling and comparing and adjusting object values. And finally, some of the declared macros enable programmers to add compiler or platform specific code to their applications, while others are convenience macros for larger operations.</p>
 <a name="types"></a>
-<h2 id="types">Types</h2>
+<h2 id="types">类型</h2>
 <p>The header file declares several type definitions that guarantee a specified bit-size on all platforms supported by Qt for various basic types, for example <a href="qtglobal.html#qint8-typedef">qint8</a> which is a signed char guaranteed to be 8-bit on all platforms supported by Qt. The header file also declares the <a href="qtglobal.html#qlonglong-typedef">qlonglong</a> type definition for <code>long long int</code> (<code>__int64</code> on Windows).</p>
 <p>Several convenience type definitions are declared: <a href="qtglobal.html#qreal-typedef">qreal</a> for <code>double</code> or <code>float</code>, <a href="qtglobal.html#uchar-typedef">uchar</a> for <code>unsigned</code> char, <a href="qtglobal.html#uint-typedef">uint</a> for <code>unsigned</code> int, <a href="qtglobal.html#ulong-typedef">ulong</a> for <code>unsigned</code> long and <a href="qtglobal.html#ushort-typedef">ushort</a> for <code>unsigned</code> short.</p>
 <p>Finally, the <a href="qtglobal.html#QtMsgType-enum">QtMsgType</a> definition identifies the various messages that can be generated and sent to a Qt message handler; <a href="qtglobal.html#QtMessageHandler-typedef">QtMessageHandler</a> is a type definition for a pointer to a function with the signature <code>void myMessageHandler(QtMsgType, const QMessageLogContext &amp;, const char *)</code>. <a href="qmessagelogcontext.html">QMessageLogContext</a> class contains the line, file, and function the message was logged at. This information is created by the <a href="qmessagelogger.html">QMessageLogger</a> class.</p>
@@ -302,7 +302,7 @@
 </div>
 <p><b>参见</b><a href="qtalgorithms.html">&lt;QtAlgorithms&gt;</a> and <a href="qsysinfo.html">QSysInfo</a>.</p>
 <!-- @@@<QtGlobal> -->
-<h2>Type Documentation</h2>
+<h2>类型文档</h2>
 <!-- $$$QFunctionPointer -->
 <h3 class="fn" id="QFunctionPointer-typedef"><a name="QFunctionPointer-typedef"></a>typedef <span class="name">QFunctionPointer</span></h3>
 <p>This is a typedef for <code>void (*)()</code>, a pointer to a function that takes no arguments and returns void.</p>
@@ -445,7 +445,7 @@
 <p>The Qt environment manipulation functions are thread-safe, but this requires that the C library equivalent functions like getenv and putenv are not directly called.</p>
 <p>The following table describes how to choose between <a href="qtglobal.html#qgetenv">qgetenv</a>() and <a href="qtglobal.html#qEnvironmentVariable">qEnvironmentVariable</a>():</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Condition</th><th >Recommendation</th></tr></thead>
+ <thead><tr class="qt-style"><th >条件</th><th >建议</th></tr></thead>
 <tr valign="top" class="odd"><td >Variable contains file paths or user text</td><td ><a href="qtglobal.html#qEnvironmentVariable">qEnvironmentVariable</a>()</td></tr>
 <tr valign="top" class="even"><td >Windows-specific code</td><td ><a href="qtglobal.html#qEnvironmentVariable">qEnvironmentVariable</a>()</td></tr>
 <tr valign="top" class="odd"><td >Unix-specific code, destination variable is not <a href="qstring.html">QString</a> and/or is used to interface with non-Qt APIs</td><td ><a href="qtglobal.html#qgetenv">qgetenv</a>()</td></tr>
@@ -894,7 +894,7 @@
 <p>Allows to tweak the output of <a href="qtglobal.html#qDebug">qDebug</a>(), <a href="qtglobal.html#qInfo">qInfo</a>(), <a href="qtglobal.html#qWarning">qWarning</a>(), <a href="qtglobal.html#qCritical">qCritical</a>(), and <a href="qtglobal.html#qFatal">qFatal</a>(). The category logging output of <a href="qloggingcategory.html#qCDebug">qCDebug</a>(), <a href="qloggingcategory.html#qCInfo">qCInfo</a>(), <a href="qloggingcategory.html#qCWarning">qCWarning</a>(), and <a href="qloggingcategory.html#qCCritical">qCCritical</a>() is formatted, too.</p>
 <p>Following placeholders are supported:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Placeholder</th><th >描述</th></tr></thead>
+ <thead><tr class="qt-style"><th >占位符</th><th >描述</th></tr></thead>
 <tr valign="top" class="odd"><td ><code>%{appname}</code></td><td ><a href="qcoreapplication.html#applicationName-prop">QCoreApplication::applicationName</a>()</td></tr>
 <tr valign="top" class="even"><td ><code>%{category}</code></td><td >Logging category</td></tr>
 <tr valign="top" class="odd"><td ><code>%{file}</code></td><td >Path to source file</td></tr>
@@ -1966,7 +1966,7 @@
 <!-- @@@Q_UNUSED -->
 <!-- $$$foreach[overload1]$$$foreach -->
 <h3 class="fn" id="foreach"><a name="foreach"></a><span class="name">foreach</span>(<i>variable</i>, <i>container</i>)</h3>
-<p>This macro is used to implement Qt's <code>foreach</code> loop. The <i>variable</i> parameter is a variable name or variable definition; the <i>container</i> parameter is a Qt container whose value type corresponds to the type of the variable. See <a href="containers.html#the-foreach-keyword">The foreach Keyword</a> for details.</p>
+<p>This macro is used to implement Qt's <code>foreach</code> loop. The <i>variable</i> parameter is a variable name or variable definition; the <i>container</i> parameter is a Qt container whose value type corresponds to the type of the variable. See <a href="containers.html#the-foreach-keyword">foreach关键词</a> for details.</p>
 <p>If you're worried about namespace pollution, you can disable this macro by adding the following line to your <code>.pro</code> file:</p>
 <pre class="cpp">
 
