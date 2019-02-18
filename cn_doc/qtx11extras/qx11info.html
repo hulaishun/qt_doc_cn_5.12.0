@@ -167,32 +167,32 @@
 <h3 class="fn" id="generatePeekerId"><a name="generatePeekerId"></a><code>[静态] </code><span class="type"><a href="../qtcore/qtglobal.html#qint32-typedef">qint32</a></span> QX11Info::<span class="name">generatePeekerId</span>()</h3>
 <p>Returns a new peeker id or -1 if some interal error has occurred. Each peeker id is associated with an index in the buffered native event queue.</p>
 <p>For more details see <a href="qx11info.html#PeekOption-enum">QX11Info::PeekOption</a> and <a href="qx11info.html#peekEventQueue">peekEventQueue</a>().</p>
-<p>This function was introduced in  Qt 5.10.</p>
+<p>这个函数是在Qt 5.10版本中新增引入的。</p>
 <p><b>参见</b><a href="qx11info.html#peekEventQueue">peekEventQueue</a>() and <a href="qx11info.html#removePeekerId">removePeekerId</a>().</p>
 <!-- @@@generatePeekerId -->
 <!-- $$$getTimestamp[overload1]$$$getTimestamp -->
 <h3 class="fn" id="getTimestamp"><a name="getTimestamp"></a><code>[静态] </code><span class="type">unsigned</span> <span class="type">long</span> QX11Info::<span class="name">getTimestamp</span>()</h3>
 <p>Fetches the current X11 time stamp from the X Server.</p>
 <p>This method creates a property notify event and blocks till it is received back from the X Server.</p>
-<p>This function was introduced in  Qt 5.2.</p>
+<p>这个函数是在Qt 5.2版本中新增引入的。</p>
 <!-- @@@getTimestamp -->
 <!-- $$$isCompositingManagerRunning[overload1]$$$isCompositingManagerRunningint -->
 <h3 class="fn" id="isCompositingManagerRunning"><a name="isCompositingManagerRunning"></a><code>[静态] </code><span class="type">bool</span> QX11Info::<span class="name">isCompositingManagerRunning</span>(<span class="type">int</span> <i>screen</i> = -1)</h3>
 <p>Returns true if there is a compositing manager running for the connection attached to <i>screen</i>.</p>
 <p>If <i>screen</i> equals -1, the application's primary screen is used.</p>
-<p>This function was introduced in  Qt 5.7.</p>
+<p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <!-- @@@isCompositingManagerRunning -->
 <!-- $$$isPlatformX11[overload1]$$$isPlatformX11 -->
 <h3 class="fn" id="isPlatformX11"><a name="isPlatformX11"></a><code>[静态] </code><span class="type">bool</span> QX11Info::<span class="name">isPlatformX11</span>()</h3>
 <p>Returns true if the application is currently running on X11.</p>
-<p>This function was introduced in  Qt 5.2.</p>
+<p>这个函数是在Qt 5.2版本中新增引入的。</p>
 <!-- @@@isPlatformX11 -->
 <!-- $$$nextStartupId[overload1]$$$nextStartupId -->
 <h3 class="fn" id="nextStartupId"><a name="nextStartupId"></a><code>[静态] </code><span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> QX11Info::<span class="name">nextStartupId</span>()</h3>
 <p>Returns the startup ID that will be used for the next window to be shown by this process.</p>
 <p>After the next window is shown, the next startup ID will be empty.</p>
 <p>http://standards.freedesktop.org/startup-notification-spec/startup-notification-latest.txt</p>
-<p>This function was introduced in  Qt 5.4.</p>
+<p>这个函数是在Qt 5.4版本中新增引入的。</p>
 <p><b>参见</b><a href="qx11info.html#setNextStartupId">setNextStartupId</a>().</p>
 <!-- @@@nextStartupId -->
 <!-- $$$peekEventQueue[overload1]$$$peekEventQueueQX11Info::PeekerCallbackvoid*QX11Info::PeekOptionsqint32 -->
@@ -202,14 +202,14 @@
 <p><b>Note: </b>It is usually better to run CPU-intensive operations in a non-GUI thread, instead of blocking the main event loop.</p><p>The buffered XCB event queue is populated from a non-GUI thread and therefore might be ahead of the current GUI state. To handle native events as they are processed by the GUI thread, see <a href="../qtcore/qabstractnativeeventfilter.html#nativeEventFilter">QAbstractNativeEventFilter::nativeEventFilter</a>().</p>
 <p>The <i>peeker</i> is a callback function as documented in <a href="qx11info.html#PeekerCallback-typedef">PeekerCallback</a>. The <i>peekerData</i> can be used to pass in arbitrary data to the <i>peeker</i> callback. The <i>option</i> is an enum that tunes the behavior of peekEventQueue(). The <i>peekerId</i> is used to track an index in the queue, for more details see <a href="qx11info.html#PeekOption-enum">QX11Info::PeekOption</a>. There can be several indices, each tracked individually by a peeker id obtained via <a href="qx11info.html#generatePeekerId">generatePeekerId</a>().</p>
 <p>This function returns <code>true</code> when the peeker has stopped the event proccesing by returning <code>true</code> from the callback. If there were no events in the buffered native event queue to peek at or all the events have been processed by the peeker, this function returns <code>false</code>.</p>
-<p>This function was introduced in  Qt 5.10.</p>
+<p>这个函数是在Qt 5.10版本中新增引入的。</p>
 <p><b>参见</b><a href="qx11info.html#generatePeekerId">generatePeekerId</a>() and <a href="../qtcore/qabstractnativeeventfilter.html#nativeEventFilter">QAbstractNativeEventFilter::nativeEventFilter</a>().</p>
 <!-- @@@peekEventQueue -->
 <!-- $$$removePeekerId[overload1]$$$removePeekerIdqint32 -->
 <h3 class="fn" id="removePeekerId"><a name="removePeekerId"></a><code>[静态] </code><span class="type">bool</span> QX11Info::<span class="name">removePeekerId</span>(<span class="type"><a href="../qtcore/qtglobal.html#qint32-typedef">qint32</a></span> <i>peekerId</i>)</h3>
 <p>Removes <i>peekerId</i>, which was earlier obtained via <a href="qx11info.html#generatePeekerId">generatePeekerId</a>().</p>
 <p>Returns <code>true</code> on success or <code>false</code> if unknown peeker id was provided or some interal error has occurred.</p>
-<p>This function was introduced in  Qt 5.10.</p>
+<p>这个函数是在Qt 5.10版本中新增引入的。</p>
 <p><b>参见</b><a href="qx11info.html#generatePeekerId">generatePeekerId</a>().</p>
 <!-- @@@removePeekerId -->
 <!-- $$$setAppTime[overload1]$$$setAppTimeunsignedlong -->
@@ -227,7 +227,7 @@
 <p>Sets the next startup ID to <i>id</i>.</p>
 <p>This is the startup ID that will be used for the next window to be shown by this process.</p>
 <p>The startup ID of the first window comes from the environment variable DESKTOP_STARTUP_ID. This method is useful for subsequent windows, when the request comes from another process (e.g&#x2e; via DBus).</p>
-<p>This function was introduced in  Qt 5.4.</p>
+<p>这个函数是在Qt 5.4版本中新增引入的。</p>
 <p><b>参见</b><a href="qx11info.html#nextStartupId">nextStartupId</a>().</p>
 <!-- @@@setNextStartupId -->
 </div>

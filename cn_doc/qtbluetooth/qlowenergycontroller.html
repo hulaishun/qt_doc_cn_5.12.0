@@ -200,7 +200,7 @@
 <!-- $$$addService[overload1]$$$addServiceconstQLowEnergyServiceData&QObject* -->
 <h3 class="fn" id="addService"><a name="addService"></a><span class="type"><a href="qlowenergyservice.html">QLowEnergyService</a></span> *QLowEnergyController::<span class="name">addService</span>(const <span class="type"><a href="qlowenergyservicedata.html">QLowEnergyServiceData</a></span> &amp;<i>service</i>, <span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
 <p>Constructs and returns a <a href="qlowenergyservice.html">QLowEnergyService</a> object with <i>parent</i> from <i>service</i>. The controller must be in the <a href="qlowenergycontroller.html#Role-enum">PeripheralRole</a> and in the <a href="qlowenergycontroller.html#ControllerState-enum">UnconnectedState</a>. The <i>service</i> object must be valid.</p>
-<p><b>Note: </b>Once the peripheral instance is disconnected from the remote central device or if <a href="qlowenergycontroller.html#disconnectFromDevice">disconnectFromDevice</a>() is manually called, every service definition that was previously added via this function is removed from the peripheral. Therefore this function must be called again before re-advertising this peripheral controller instance. The described behavior is connection specific and therefore not dependent on whether <a href="qlowenergycontroller.html#stopAdvertising">stopAdvertising</a>() was called.</p><p>This function was introduced in  Qt 5.7.</p>
+<p><b>Note: </b>Once the peripheral instance is disconnected from the remote central device or if <a href="qlowenergycontroller.html#disconnectFromDevice">disconnectFromDevice</a>() is manually called, every service definition that was previously added via this function is removed from the peripheral. Therefore this function must be called again before re-advertising this peripheral controller instance. The described behavior is connection specific and therefore not dependent on whether <a href="qlowenergycontroller.html#stopAdvertising">stopAdvertising</a>() was called.</p><p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b>参见</b><a href="qlowenergycontroller.html#stopAdvertising">stopAdvertising</a>(), <a href="qlowenergycontroller.html#disconnectFromDevice">disconnectFromDevice</a>(), and <a href="qlowenergyservicedata.html#addIncludedService">QLowEnergyServiceData::addIncludedService</a>.</p>
 <!-- @@@addService -->
 <!-- $$$connectToDevice[overload1]$$$connectToDevice -->
@@ -217,21 +217,21 @@
 <!-- $$$connectionUpdated[overload1]$$$connectionUpdatedconstQLowEnergyConnectionParameters& -->
 <h3 class="fn" id="connectionUpdated"><a name="connectionUpdated"></a><code>[signal] </code><span class="type">void</span> QLowEnergyController::<span class="name">connectionUpdated</span>(const <span class="type"><a href="qlowenergyconnectionparameters.html">QLowEnergyConnectionParameters</a></span> &amp;<i>newParameters</i>)</h3>
 <p>This signal is emitted when the connection parameters change. This can happen as a result of calling <a href="qlowenergycontroller.html#requestConnectionUpdate">requestConnectionUpdate</a>() or due to other reasons, for instance because the other side of the connection requested new parameters. The new values can be retrieved from <i>newParameters</i>.</p>
-<p>This function was introduced in  Qt 5.7.</p>
+<p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b>参见</b><a href="qlowenergycontroller.html#requestConnectionUpdate">requestConnectionUpdate</a>().</p>
 <!-- @@@connectionUpdated -->
 <!-- $$$createCentral[overload1]$$$createCentralconstQBluetoothDeviceInfo&QObject* -->
 <h3 class="fn" id="createCentral"><a name="createCentral"></a><code>[static] </code><span class="type"><a href="qlowenergycontroller-obsolete.html#QLowEnergyController">QLowEnergyController</a></span> *QLowEnergyController::<span class="name">createCentral</span>(const <span class="type"><a href="qbluetoothdeviceinfo.html">QBluetoothDeviceInfo</a></span> &amp;<i>remoteDevice</i>, <span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
 <p>Returns a new object of this class that is in the <a href="qlowenergycontroller.html#Role-enum">CentralRole</a> and has the parent object <i>parent</i>. The <i>remoteDevice</i> refers to the device that a connection will be established to later.</p>
 <p>The controller uses the local default Bluetooth adapter for the connection management.</p>
-<p>This function was introduced in  Qt 5.7.</p>
+<p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b>参见</b><a href="qlowenergycontroller.html#Role-enum">QLowEnergyController::CentralRole</a>.</p>
 <!-- @@@createCentral -->
 <!-- $$$createPeripheral[overload1]$$$createPeripheralQObject* -->
 <h3 class="fn" id="createPeripheral"><a name="createPeripheral"></a><code>[static] </code><span class="type"><a href="qlowenergycontroller-obsolete.html#QLowEnergyController">QLowEnergyController</a></span> *QLowEnergyController::<span class="name">createPeripheral</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
 <p>Returns a new object of this class that is in the <a href="qlowenergycontroller.html#Role-enum">PeripheralRole</a> and has the parent object <i>parent</i>. Typically, the next step is to call <a href="qlowenergycontroller.html#startAdvertising">startAdvertising</a>() on the returned object.</p>
 <p>The controller uses the local default Bluetooth adapter for the connection management.</p>
-<p>This function was introduced in  Qt 5.7.</p>
+<p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b>参见</b><a href="qlowenergycontroller.html#Role-enum">QLowEnergyController::PeripheralRole</a>.</p>
 <!-- @@@createPeripheral -->
 <!-- $$$createServiceObject[overload1]$$$createServiceObjectconstQBluetoothUuid&QObject* -->
@@ -306,25 +306,25 @@
 <h3 class="fn" id="remoteDeviceUuid"><a name="remoteDeviceUuid"></a><span class="type"><a href="qbluetoothuuid.html">QBluetoothUuid</a></span> QLowEnergyController::<span class="name">remoteDeviceUuid</span>() const</h3>
 <p>Returns the unique identifier of the remote Bluetooth Low Energy device.</p>
 <p>On <a href="../qtdoc/internationalization.html#macos">macOS</a>/iOS/tvOS CoreBluetooth does not expose/accept hardware addresses for LE devices; instead developers are supposed to use unique 128-bit UUIDs, generated by CoreBluetooth. These UUIDS will stay constant for the same central &lt;-&gt; peripheral pair and we use them when connecting to a remote device. For a controller in the <a href="qlowenergycontroller.html#Role-enum">CentralRole</a>, this value will always be the one passed in when the controller object was created. For a controller in the <a href="qlowenergycontroller.html#Role-enum">PeripheralRole</a>, this value is invalid.</p>
-<p>This function was introduced in  Qt 5.8.</p>
+<p>这个函数是在Qt 5.8版本中新增引入的。</p>
 <!-- @@@remoteDeviceUuid -->
 <!-- $$$remoteName[overload1]$$$remoteName -->
 <h3 class="fn" id="remoteName"><a name="remoteName"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QLowEnergyController::<span class="name">remoteName</span>() const</h3>
 <p>Returns the name of the remote Bluetooth Low Energy device, if the controller is in the <a href="qlowenergycontroller.html#Role-enum">CentralRole</a>. Otherwise the result is unspecified.</p>
-<p>This function was introduced in  Qt 5.5.</p>
+<p>这个函数是在Qt 5.5版本中新增引入的。</p>
 <!-- @@@remoteName -->
 <!-- $$$requestConnectionUpdate[overload1]$$$requestConnectionUpdateconstQLowEnergyConnectionParameters& -->
 <h3 class="fn" id="requestConnectionUpdate"><a name="requestConnectionUpdate"></a><span class="type">void</span> QLowEnergyController::<span class="name">requestConnectionUpdate</span>(const <span class="type"><a href="qlowenergyconnectionparameters.html">QLowEnergyConnectionParameters</a></span> &amp;<i>parameters</i>)</h3>
 <p>Requests the controller to update the connection according to <i>parameters</i>. If the request is successful, the <a href="qlowenergycontroller.html#connectionUpdated">connectionUpdated</a>() signal will be emitted with the actual new parameters. See the <a href="qlowenergyconnectionparameters.html">QLowEnergyConnectionParameters</a> class for more information on connection parameters.</p>
 <p>Android only indirectly permits the adjustment of this parameter set. The connection parameters are separated into three categories (high, low &amp; balanced priority). Each category implies a pre-configured set of values for <a href="qlowenergyconnectionparameters.html#minimumInterval">QLowEnergyConnectionParameters::minimumInterval</a>(), <a href="qlowenergyconnectionparameters.html#maximumInterval">QLowEnergyConnectionParameters::maximumInterval</a>() and <a href="qlowenergyconnectionparameters.html#latency">QLowEnergyConnectionParameters::latency</a>(). Although the connection request is an asynchronous operation, Android does not provide a callback stating the result of the request. This is an acknowledged Android bug. Due to this bug Android does not emit the <a href="qlowenergycontroller.html#connectionUpdated">connectionUpdated</a>() signal.</p>
-<p><b>Note: </b>Currently, this functionality is only implemented on Linux and Android.</p><p>This function was introduced in  Qt 5.7.</p>
+<p><b>Note: </b>Currently, this functionality is only implemented on Linux and Android.</p><p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b>参见</b><a href="qlowenergycontroller.html#connectionUpdated">connectionUpdated</a>().</p>
 <!-- @@@requestConnectionUpdate -->
 <!-- $$$role[overload1]$$$role -->
 <h3 class="fn" id="role"><a name="role"></a><span class="type"><a href="qlowenergycontroller.html#Role-enum">QLowEnergyController::Role</a></span> QLowEnergyController::<span class="name">role</span>() const</h3>
 <p>Returns the role that this controller object is in.</p>
 <p>The role is determined when constructing a <a href="qlowenergycontroller.html">QLowEnergyController</a> instance using <a href="qlowenergycontroller.html#createCentral">createCentral</a>() or <a href="qlowenergycontroller.html#createPeripheral">createPeripheral</a>().</p>
-<p>This function was introduced in  Qt 5.7.</p>
+<p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <!-- @@@role -->
 <!-- $$$serviceDiscovered[overload1]$$$serviceDiscoveredconstQBluetoothUuid& -->
 <h3 class="fn" id="serviceDiscovered"><a name="serviceDiscovered"></a><code>[signal] </code><span class="type">void</span> QLowEnergyController::<span class="name">serviceDiscovered</span>(const <span class="type"><a href="qbluetoothuuid.html">QBluetoothUuid</a></span> &amp;<i>newService</i>)</h3>
@@ -349,7 +349,7 @@
 <p>Starts advertising the data given in <i>advertisingData</i> and <i>scanResponseData</i>, using the parameters set in <i>parameters</i>. The controller has to be in the <a href="qlowenergycontroller.html#Role-enum">PeripheralRole</a>. If <i>parameters</i> indicates that the advertisement should be connectable, then this function also starts listening for incoming client connections.</p>
 <p>Providing <i>scanResponseData</i> is not required, as it is not applicable for certain configurations of <code>parameters</code>. <i>advertisingData</i> and <i>scanResponseData</i> are limited to 31 byte user data. If, for example, several 128bit uuids are added to <i>advertisingData</i>, the advertised packets may not contain all uuids. The existing limit may have caused the truncation of uuids. In such cases <i>scanResponseData</i> may be used for additional information.</p>
 <p>If this object is currently not in the <a href="qlowenergycontroller.html#ControllerState-enum">UnconnectedState</a>, nothing happens.</p>
-<p><b>Note: </b>Advertising will stop automatically once a client connects to the local device.</p><p>This function was introduced in  Qt 5.7.</p>
+<p><b>Note: </b>Advertising will stop automatically once a client connects to the local device.</p><p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b>参见</b><a href="qlowenergycontroller.html#stopAdvertising">stopAdvertising</a>().</p>
 <!-- @@@startAdvertising -->
 <!-- $$$state[overload1]$$$state -->
@@ -366,7 +366,7 @@
 <h3 class="fn" id="stopAdvertising"><a name="stopAdvertising"></a><span class="type">void</span> QLowEnergyController::<span class="name">stopAdvertising</span>()</h3>
 <p>Stops advertising, if this object is currently in the advertising state.</p>
 <p>The controller has to be in the <a href="qlowenergycontroller.html#Role-enum">PeripheralRole</a> for this function to work. It does not invalidate services which have previously been added via <a href="qlowenergycontroller.html#addService">addService</a>().</p>
-<p>This function was introduced in  Qt 5.7.</p>
+<p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b>参见</b><a href="qlowenergycontroller.html#startAdvertising">startAdvertising</a>().</p>
 <!-- @@@stopAdvertising -->
 </div>

@@ -139,7 +139,7 @@
 <!-- $$$addHostSideConnection[overload1]$$$addHostSideConnectionQIODevice* -->
 <h3 class="fn" id="addHostSideConnection"><a name="addHostSideConnection"></a><span class="type">void</span> QRemoteObjectHostBase::<span class="name">addHostSideConnection</span>(<span class="type"><a href="../qtcore/qiodevice.html">QIODevice</a></span> *<i>ioDevice</i>)</h3>
 <p>In order to <a href="qremoteobjecthostbase.html#enableRemoting">QRemoteObjectHost::enableRemoting</a>() <a href="qtremoteobjects-source.html#source">Source</a> objects over <a href="qtremoteobjects-external-schemas.html#external-qiodevices">External QIODevices</a>, Qt Remote Objects needs access to the communications channel (a QIODEvice) between the respective nodes. It is the addHostSideConnection() call that enables this on the <a href="qtremoteobjects-source.html#source">Source</a> side, taking the <i>ioDevice</i> as input. Any <a href="qremoteobjecthostbase.html#enableRemoting">enableRemoting</a>() call will still work without calling addHostSideConnection, but the Node will not be able to share the <a href="qtremoteobjects-source.html#source">Source</a> objects without being provided the connection to the Replica node. Before calling this function you must call setHostUrl with a unique URL and <a href="qremoteobjecthostbase.html#AllowedSchemas-enum">QRemoteObjectHost::AllowExternalRegistration</a>.</p>
-<p>This function was introduced in  Qt 5.12.</p>
+<p>这个函数是在Qt 5.12版本中新增引入的。</p>
 <p><b>参见</b><a href="qremoteobjectnode.html#addClientSideConnection">addClientSideConnection</a>.</p>
 <!-- @@@addHostSideConnection -->
 <!-- $$$disableRemoting[overload1]$$$disableRemotingQObject* -->
@@ -214,7 +214,7 @@
 </pre>
 <p>This would (internally) create a node in proxyNode, which (again internally/automatically) connects to the provided registry (given by the <i>registryUrl</i> parameter, &quot;local:registry&quot; in this example). Whenever local:registry emits the <a href="qremoteobjectnode.html#remoteObjectAdded">remoteObjectAdded</a> signal, the QRemoteObjectSourceLocation is passed to the <i>filter</i> given to the proxy call. If this method returns true (the default filter simply returns true without any filtering), the object is acquired() from the internal node and <a href="qremoteobjecthostbase.html#enableRemoting">enableRemoting</a>() (once the replica is initialized) is called on proxyNode.</p>
 <p>If a <i>hostUrl</i> is provided (which is required to enable <a href="qremoteobjecthostbase.html#reverseProxy">reverseProxy</a>, but not needed otherwise), the internal node will be a QRemoteObjectHostNode configured with the provided address. If no <i>hostUrl</i> is provided, the internal node will be a <a href="qremoteobjectnode.html">QRemoteObjectNode</a> (not HostNode).</p>
-<p>This function was introduced in  Qt 5.11.</p>
+<p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <p><b>参见</b><a href="qremoteobjecthostbase.html#reverseProxy">reverseProxy</a>().</p>
 <!-- @@@proxy -->
 <!-- $$$reverseProxy[overload1]$$$reverseProxyQRemoteObjectHostBase::RemoteObjectNameFilter -->
@@ -259,7 +259,7 @@
 </pre>
 <p>While the <a href="qremoteobjecthostbase.html#proxy">proxy</a>() functionality allows <a href="qtremoteobjects-source.html#source">Source</a> objects on another network to be acquired(), reverseProxy() allows <a href="qtremoteobjects-source.html#source">Source</a> objects to be &quot;pushed&quot; to an otherwise inaccessible network.</p>
 <p>Note: <a href="qremoteobjecthostbase.html#proxy">proxy</a>() needs to be called before reverseProxy(), and a <i>hostUrl</i> needs to be provided to <a href="qremoteobjecthostbase.html#proxy">proxy</a> for reverseProxy() to work. The reverseProxy() method allows a separate <i>filter</i> to be applied. This reverseProxy specific filter will receive notifications of new <a href="qtremoteobjects-source.html#source">Source</a> objects on proxyNode and acquire them on the internal node if they pass the reverseFilter.</p>
-<p>This function was introduced in  Qt 5.11.</p>
+<p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <p><b>参见</b><a href="qremoteobjecthostbase.html#proxy">proxy</a>().</p>
 <!-- @@@reverseProxy -->
 <!-- $$$setName[overload1]$$$setNameconstQString& -->

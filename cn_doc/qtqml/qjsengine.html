@@ -378,7 +378,7 @@
 <p>If this is the first time the module is imported in the engine, the file is loaded from the specified location in either the local file system or the Qt resource system and evaluated as an ECMAScript module. The file is expected to be encoded in UTF-8 text.</p>
 <p>Subsequent imports of the same module will return the previously imported instance. Modules are singletons and remain around until the engine is destroyed.</p>
 <p>The specified <i>fileName</i> will internally be normalized using <a href="../qtcore/qfileinfo.html#canonicalFilePath">QFileInfo::canonicalFilePath</a>(). That means that multiple imports of the same file on disk using different relative paths will load the file only once.</p>
-<p><b>Note: </b>If an exception is thrown during the loading of the module, the return value will be the exception (typically an <code>Error</code> object; see <a href="qjsvalue.html#isError">QJSValue::isError</a>()).</p><p>This function was introduced in  Qt 5.12.</p>
+<p><b>Note: </b>If an exception is thrown during the loading of the module, the return value will be the exception (typically an <code>Error</code> object; see <a href="qjsvalue.html#isError">QJSValue::isError</a>()).</p><p>这个函数是在Qt 5.12版本中新增引入的。</p>
 <!-- @@@importModule -->
 <!-- $$$installExtensions[overload1]$$$installExtensionsQJSEngine::ExtensionsconstQJSValue& -->
 <h3 class="fn" id="installExtensions"><a name="installExtensions"></a><span class="type">void</span> QJSEngine::<span class="name">installExtensions</span>(<span class="type"><a href="qjsengine.html#Extension-enum">QJSEngine::Extensions</a></span> <i>extensions</i>, const <span class="type"><a href="qjsvalue.html">QJSValue</a></span> &amp;<i>object</i> = QJSValue())</h3>
@@ -390,7 +390,7 @@
   installExtensions(<span class="type"><a href="qjsengine.html#QJSEngine">QJSEngine</a></span><span class="operator">::</span>TranslationExtension <span class="operator">|</span> <span class="type"><a href="qjsengine.html#QJSEngine">QJSEngine</a></span><span class="operator">::</span>ConsoleExtension);
 
 </pre>
-<p>This function was introduced in  Qt 5.6.</p>
+<p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <p><b>参见</b><a href="qjsengine.html#Extension-enum">Extension</a>.</p>
 <!-- @@@installExtensions -->
 <!-- $$$newArray[overload1]$$$newArrayuint -->
@@ -402,7 +402,7 @@
 <h3 class="fn" id="newErrorObject"><a name="newErrorObject"></a><span class="type"><a href="qjsvalue.html">QJSValue</a></span> QJSEngine::<span class="name">newErrorObject</span>(<span class="type"><a href="qjsvalue.html#ErrorType-enum">QJSValue::ErrorType</a></span> <i>errorType</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>message</i> = QString())</h3>
 <p>Creates a JavaScript object of class Error.</p>
 <p>The prototype of the created object will be <i>errorType</i>.</p>
-<p>This function was introduced in  Qt 5.12.</p>
+<p>这个函数是在Qt 5.12版本中新增引入的。</p>
 <p><b>参见</b><a href="qjsengine.html#newObject">newObject</a>(), <a href="qjsengine.html#throwError">throwError</a>(), and <a href="qjsvalue.html#isError">QJSValue::isError</a>().</p>
 <!-- @@@newErrorObject -->
 <!-- $$$newObject[overload1]$$$newObject -->
@@ -415,13 +415,13 @@
 <h3 class="fn" id="newQMetaObject"><a name="newQMetaObject"></a><span class="type"><a href="qjsvalue.html">QJSValue</a></span> QJSEngine::<span class="name">newQMetaObject</span>(const <span class="type"><a href="../qtcore/qmetaobject.html">QMetaObject</a></span> *<i>metaObject</i>)</h3>
 <p>Creates a JavaScript object that wraps the given <a href="../qtcore/qmetaobject.html">QMetaObject</a> The <i>metaObject</i> must outlive the script engine. It is recommended to only use this method with static metaobjects.</p>
 <p>When called as a constructor, a new instance of the class will be created. Only constructors exposed by <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a> will be visible from the script engine.</p>
-<p>This function was introduced in  Qt 5.8.</p>
+<p>这个函数是在Qt 5.8版本中新增引入的。</p>
 <p><b>参见</b><a href="qjsengine.html#newQObject">newQObject</a>() and <a href="qjsengine.html#qobject-integration">QObject Integration</a>.</p>
 <!-- @@@newQMetaObject -->
 <!-- $$$newQMetaObject$$$newQMetaObject -->
 <h3 class="fn" id="newQMetaObject-1"><a name="newQMetaObject-1"></a><span class="type"><a href="qjsvalue.html">QJSValue</a></span> QJSEngine::<span class="name">newQMetaObject</span>()</h3>
 <p>Creates a JavaScript object that wraps the static <a href="../qtcore/qmetaobject.html">QMetaObject</a> associated with class <code>T</code>.</p>
-<p>This function was introduced in  Qt 5.8.</p>
+<p>这个函数是在Qt 5.8版本中新增引入的。</p>
 <p><b>参见</b><a href="qjsengine.html#newQObject">newQObject</a>() and <a href="qjsengine.html#qobject-integration">QObject Integration</a>.</p>
 <!-- @@@newQMetaObject -->
 <!-- $$$newQObject[overload1]$$$newQObjectQObject* -->
@@ -485,7 +485,7 @@
 
 </pre>
 <p>If you need a more specific run-time error to describe an exception, you can use the <a href="qjsengine.html#throwError-1">throwError(QJSValue::ErrorType errorType, const QString &amp;message)</a> overload.</p>
-<p>This function was introduced in  Qt 5.12.</p>
+<p>这个函数是在Qt 5.12版本中新增引入的。</p>
 <p><b>参见</b><a href="qjsengine.html#script-exceptions">Script Exceptions</a>.</p>
 <!-- @@@throwError -->
 <!-- $$$throwError$$$throwErrorQJSValue::ErrorTypeconstQString& -->
@@ -507,7 +507,7 @@
   }
 
 </pre>
-<p>This function was introduced in  Qt 5.12.</p>
+<p>这个函数是在Qt 5.12版本中新增引入的。</p>
 <p><b>参见</b><a href="qjsengine.html#script-exceptions">Script Exceptions</a> and <a href="qjsengine.html#newErrorObject">newErrorObject</a>().</p>
 <!-- @@@throwError -->
 <!-- $$$toScriptValue[overload1]$$$toScriptValueconstT& -->
@@ -525,7 +525,7 @@
 <h3 class="fn" id="qjsEnginex"><a name="qjsEnginex"></a><span class="type"><a href="qjsengine.html#QJSEngine">QJSEngine</a></span> *<span class="name">qjsEngine</span>(const <span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>object</i>)</h3>
 <p>Returns the <a href="qjsengine.html">QJSEngine</a> associated with <i>object</i>, if any.</p>
 <p>This function is useful if you have exposed a <a href="../qtcore/qobject.html">QObject</a> to the JavaScript environment and later in your program would like to regain access. It does not require you to keep the wrapper around that was returned from <a href="qjsengine.html#newQObject">QJSEngine::newQObject</a>().</p>
-<p>This function was introduced in  Qt 5.5.</p>
+<p>这个函数是在Qt 5.5版本中新增引入的。</p>
 <!-- @@@qjsEngine -->
 </div>
 <div class="macros">
