@@ -213,7 +213,7 @@
 <p>File permissions are handled differently on Unix-like systems and Windows. In a non <a href="qiodevice.html#isWritable">writable</a> directory on Unix-like systems, files cannot be created. This is not always the case on Windows, where, for instance, the 'My Documents' directory usually is not writable, but it is still possible to create files in it.</p>
 <p>Qt's understanding of file permissions is limited, which affects especially the <a href="qfile.html#setPermissions">QFile::setPermissions</a>() function. On Windows, Qt will set only the legacy read-only flag, and that only when none of the Write* flags are passed. Qt does not manipulate access control lists (ACLs), which makes this function mostly useless for NTFS volumes. It may still be of use for USB sticks that use VFAT file systems. POSIX ACLs are not manipulated, either.</p>
 </div>
-<p><b>参见</b><a href="qtextstream.html">QTextStream</a>, <a href="qdatastream.html">QDataStream</a>, <a href="qfileinfo.html">QFileInfo</a>, <a href="qdir.html">QDir</a>, and <a href="resources.html">The Qt Resource System</a>.</p>
+<p><b>参见</b><a href="qtextstream.html">QTextStream</a>, <a href="qdatastream.html">QDataStream</a>, <a href="qfileinfo.html">QFileInfo</a>, <a href="qdir.html">QDir</a>, and <a href="resources.html">Qt资源系统</a>.</p>
 <!-- @@@QFile -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -321,7 +321,7 @@
 <h3 class="fn" id="open-1"><a name="open-1"></a><span class="type">bool</span> QFile::<span class="name">open</span>(<span class="type">FILE</span> *<i>fh</i>, <span class="type"><a href="qiodevice.html#OpenModeFlag-enum">QIODevice::OpenMode</a></span> <i>mode</i>, <span class="type"><a href="qfiledevice.html#FileHandleFlag-enum">QFileDevice::FileHandleFlags</a></span> <i>handleFlags</i> = DontCloseHandle)</h3>
 <p>This is an overloaded function.</p>
 <p>Opens the existing file handle <i>fh</i> in the given <i>mode</i>. <i>handleFlags</i> may be used to specify additional options. Returns <code>true</code> if successful; otherwise returns <code>false</code>.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="preprocessor">#include &lt;stdio.h&gt;</span>
@@ -414,7 +414,7 @@
 <p>Sets the <i>name</i> of the file. The name can have no path, a relative path, or an absolute path.</p>
 <p>Do not call this function if the file has already been opened.</p>
 <p>If the file name has no path or a relative path, the path used will be the application's current directory path <i>at the time of the <a href="qfile.html#open">open</a>()</i> call.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="type"><a href="qfile.html#QFile">QFile</a></span> file;

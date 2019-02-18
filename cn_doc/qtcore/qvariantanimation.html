@@ -164,7 +164,7 @@
 <div class="descr">
 <h2 id="details">详细描述</h2>
 <p>The <a href="qvariantanimation.html">QVariantAnimation</a> class provides a base class for animations.</p>
-<p>This class is part of <a href="animation-overview.html">The Animation Framework</a>. It serves as a base class for property and item animations, with functions for shared functionality.</p>
+<p>This class is part of <a href="animation-overview.html">动画框架</a>. It serves as a base class for property and item animations, with functions for shared functionality.</p>
 <p>The class performs interpolation over <a href="qvariant.html">QVariant</a>s, but leaves using the interpolated values to its subclasses. Currently, Qt provides <a href="qpropertyanimation.html">QPropertyAnimation</a>, which animates Qt <a href="properties.html">properties</a>. See the <a href="qpropertyanimation.html">QPropertyAnimation</a> class description if you wish to animate such properties.</p>
 <p>You can then set start and end values for the property by calling <a href="qvariantanimation.html#startValue-prop">setStartValue</a>() and <a href="qvariantanimation.html#endValue-prop">setEndValue</a>(), and finally call <a href="qabstractanimation.html#start">start</a>() to start the animation. <a href="qvariantanimation.html">QVariantAnimation</a> will interpolate the property of the target object and emit <a href="qvariantanimation.html#valueChanged">valueChanged</a>(). To react to a change in the current value you have to reimplement the <a href="qvariantanimation.html#updateCurrentValue">updateCurrentValue</a>() virtual function or connect to said signal.</p>
 <p>It is also possible to set values at specified steps situated between the start and end value. The interpolation will then touch these points at the specified steps. Note that the start and end values are defined as the key values at 0.0 and 1.0&#x2e;</p>
@@ -187,7 +187,7 @@
 <li><a href="qmetatype.html#Type-enum">QColor</a></li>
 </ul>
 <p>If you need to interpolate other variant types, including custom types, you have to implement interpolation for these yourself. To do this, you can register an interpolator function for a given type. This function takes 3 parameters: the start value, the end value, and the current progress.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
       <span class="type"><a href="qvariant.html">QVariant</a></span> myColorInterpolator(<span class="keyword">const</span> <span class="type"><a href="../qtgui/qcolor.html">QColor</a></span> <span class="operator">&amp;</span>start<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="../qtgui/qcolor.html">QColor</a></span> <span class="operator">&amp;</span>end<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> progress)
@@ -201,7 +201,7 @@
 </pre>
 <p>Another option is to reimplement <a href="qvariantanimation.html#interpolated">interpolated</a>(), which returns interpolation values for the value being interpolated.</p>
 </div>
-<p><b>参见</b><a href="qpropertyanimation.html">QPropertyAnimation</a>, <a href="qabstractanimation.html">QAbstractAnimation</a>, and <a href="animation-overview.html">The Animation Framework</a>.</p>
+<p><b>参见</b><a href="qpropertyanimation.html">QPropertyAnimation</a>, <a href="qabstractanimation.html">QAbstractAnimation</a>, and <a href="animation-overview.html">动画框架</a>.</p>
 <!-- @@@QVariantAnimation -->
 <div class="types">
 <h2>成员类型文档</h2>

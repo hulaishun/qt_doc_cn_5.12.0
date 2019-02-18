@@ -570,7 +570,7 @@
 <p>If you want to change the item's bounding rectangle, you must first call <a href="qgraphicsitem.html#prepareGeometryChange">prepareGeometryChange</a>(). This notifies the scene of the imminent change, so that it can update its item geometry index; otherwise, the scene will be unaware of the item's new geometry, and the results are undefined (typically, rendering artifacts are left within the view).</p>
 <p>Reimplement this function to let <a href="qgraphicsview.html">QGraphicsView</a> determine what parts of the widget, if any, need to be redrawn.</p>
 <p>Note: For shapes that paint an outline / stroke, it is important to include half the pen width in the bounding rect. It is not necessary to compensate for antialiasing, though.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> CircleItem<span class="operator">::</span>boundingRect() <span class="keyword">const</span>
@@ -717,7 +717,7 @@
 <!-- $$$deviceTransform[overload1]$$$deviceTransformconstQTransform& -->
 <h3 class="fn" id="deviceTransform"><a name="deviceTransform"></a><span class="type"><a href="../qtgui/qtransform.html">QTransform</a></span> QGraphicsItem::<span class="name">deviceTransform</span>(const <span class="type"><a href="../qtgui/qtransform.html">QTransform</a></span> &amp;<i>viewportTransform</i>) const</h3>
 <p>Returns this item's device transformation matrix, using <i>viewportTransform</i> to map from scene to device coordinates. This matrix can be used to map coordinates and geometrical shapes from this item's local coordinate system to the viewport's (or any device's) coordinate system. To map coordinates from the viewport, you must first invert the returned matrix.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="type"><a href="qgraphicsrectitem.html">QGraphicsRectItem</a></span> rect;
@@ -1053,7 +1053,7 @@
 <h3 class="fn" id="itemChange"><a name="itemChange"></a><code>[virtual protected] </code><span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> QGraphicsItem::<span class="name">itemChange</span>(<span class="type"><a href="qgraphicsitem.html#GraphicsItemChange-enum">QGraphicsItem::GraphicsItemChange</a></span> <i>change</i>, const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>value</i>)</h3>
 <p>This virtual function is called by <a href="qgraphicsitem.html">QGraphicsItem</a> to notify custom items that some part of the item's state changes. By reimplementing this function, you can react to a change, and in some cases (depending on <i>change</i>), adjustments can be made.</p>
 <p><i>change</i> is the parameter of the item that is changing. <i>value</i> is the new value; the type of the value depends on <i>change</i>.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> Component<span class="operator">::</span>itemChange(GraphicsItemChange change<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> <span class="operator">&amp;</span>value)
@@ -1464,7 +1464,7 @@
 <h3 class="fn" id="prepareGeometryChange"><a name="prepareGeometryChange"></a><code>[protected] </code><span class="type">void</span> QGraphicsItem::<span class="name">prepareGeometryChange</span>()</h3>
 <p>Prepares the item for a geometry change. Call this function before changing the bounding rect of an item to keep <a href="qgraphicsscene.html">QGraphicsScene</a>'s index up to date.</p>
 <p>prepareGeometryChange() will call <a href="qgraphicsitem.html#update">update</a>() if this is necessary.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="type">void</span> CircleItem<span class="operator">::</span>setRadius(<span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> newRadius)
@@ -1534,7 +1534,7 @@
 <!-- $$$sceneTransform[overload1]$$$sceneTransform -->
 <h3 class="fn" id="sceneTransform"><a name="sceneTransform"></a><span class="type"><a href="../qtgui/qtransform.html">QTransform</a></span> QGraphicsItem::<span class="name">sceneTransform</span>() const</h3>
 <p>Returns this item's scene transformation matrix. This matrix can be used to map coordinates and geometrical shapes from this item's local coordinate system to the scene's coordinate system. To map coordinates from the scene, you must first invert the returned matrix.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="type"><a href="qgraphicsrectitem.html">QGraphicsRectItem</a></span> rect;

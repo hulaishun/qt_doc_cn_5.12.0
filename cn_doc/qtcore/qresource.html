@@ -104,12 +104,12 @@
 <p>A <a href="qresource.html">QResource</a> that is representing a file will have data backing it, this data can possibly be compressed, in which case <a href="qbytearray.html#qUncompress">qUncompress</a>() must be used to access the real data; this happens implicitly when accessed through a <a href="qfile.html">QFile</a>. A <a href="qresource.html">QResource</a> that is representing a directory will have only children and no data.</p>
 <a name="dynamic-resource-loading"></a>
 <h3 >Dynamic Resource Loading</h3>
-<p>A resource can be left out of an application's binary and loaded when it is needed at run-time by using the <a href="qresource.html#registerResource">registerResource</a>() function. The resource file passed into <a href="qresource.html#registerResource">registerResource</a>() must be a binary resource as created by rcc. Further information about binary resources can be found in <a href="resources.html">The Qt Resource System</a> documentation.</p>
+<p>A resource can be left out of an application's binary and loaded when it is needed at run-time by using the <a href="qresource.html#registerResource">registerResource</a>() function. The resource file passed into <a href="qresource.html#registerResource">registerResource</a>() must be a binary resource as created by rcc. Further information about binary resources can be found in <a href="resources.html">Qt资源系统</a> documentation.</p>
 <p>This can often be useful when loading a large set of application icons that may change based on a setting, or that can be edited by a user and later recreated. The resource is immediately loaded into memory, either as a result of a single file read operation, or as a memory mapped file.</p>
 <p>This approach can prove to be a significant performance gain as only a single file will be loaded, and pieces of data will be given out via the path requested in <a href="qresource.html#setFileName">setFileName</a>().</p>
 <p>The <a href="qresource.html#unregisterResource">unregisterResource</a>() function removes a reference to a particular file. If there are <a href="qresource.html">QResource</a> objects that currently reference resources related to the unregistered file, they will continue to be valid but the resource file itself will be removed from the resource roots, and thus no further <a href="qresource.html">QResource</a> can be created pointing into this resource data. The resource itself will be unmapped from memory when the last <a href="qresource.html">QResource</a> that points to it is destroyed.</p>
 </div>
-<p><b>参见</b><a href="resources.html">The Qt Resource System</a>, <a href="qfile.html">QFile</a>, <a href="qdir.html">QDir</a>, and <a href="qfileinfo.html">QFileInfo</a>.</p>
+<p><b>参见</b><a href="resources.html">Qt资源系统</a>, <a href="qfile.html">QFile</a>, <a href="qdir.html">QDir</a>, and <a href="qfileinfo.html">QFileInfo</a>.</p>
 <!-- @@@QResource -->
 <div class="types">
 <h2>成员类型文档</h2>

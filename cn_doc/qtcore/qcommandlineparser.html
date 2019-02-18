@@ -106,7 +106,7 @@
 <p>Passing values to options can be done using the assignment operator: <code>-v=value</code> <code>--verbose=value</code>, or a space: <code>-v value</code> <code>--verbose value</code>, i.e&#x2e; the next argument is used as value (even if it starts with a <code>-</code>).</p>
 <p>The parser does not support optional values - if an option is set to require a value, one must be present. If such an option is placed last and has no value, the option will be treated as if it had not been specified.</p>
 <p>The parser does not automatically support negating or disabling long options by using the format <code>--disable-option</code> or <code>--no-option</code>. However, it is possible to handle this case explicitly by making an option with <code>no-option</code> as one of its names, and handling the option explicitly.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
@@ -344,7 +344,7 @@
 <h3 class="fn" id="addHelpOption"><a name="addHelpOption"></a><span class="type"><a href="qcommandlineoption.html">QCommandLineOption</a></span> QCommandLineParser::<span class="name">addHelpOption</span>()</h3>
 <p>Adds the help option (<code>-h</code>, <code>--help</code> and <code>-?</code> on Windows) This option is handled automatically by <a href="qcommandlineparser.html">QCommandLineParser</a>.</p>
 <p>Remember to use <a href="qcommandlineparser.html#setApplicationDescription">setApplicationDescription</a> to set the application description, which will be displayed when this option is used.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
@@ -407,7 +407,7 @@
 <h3 class="fn" id="addPositionalArgument"><a name="addPositionalArgument"></a><span class="type">void</span> QCommandLineParser::<span class="name">addPositionalArgument</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>name</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>description</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>syntax</i> = QString())</h3>
 <p>Defines an additional argument to the application, for the benefit of the help text.</p>
 <p>The argument <i>name</i> and <i>description</i> will appear under the <code>Arguments:</code> section of the help. If <i>syntax</i> is specified, it will be appended to the Usage line, otherwise the <i>name</i> will be appended.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="comment">// Usage: image-editor file</span>
@@ -449,7 +449,7 @@
 <h3 class="fn" id="clearPositionalArguments"><a name="clearPositionalArguments"></a><span class="type">void</span> QCommandLineParser::<span class="name">clearPositionalArguments</span>()</h3>
 <p>Clears the definitions of additional arguments from the help text.</p>
 <p>This is only needed for the special case of tools which support multiple commands with different options. Once the actual command has been identified, the options for this command can be defined, and the help text for the command can be adjusted accordingly.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="type"><a href="qcoreapplication.html">QCoreApplication</a></span> app(argc<span class="operator">,</span> argv);
@@ -505,7 +505,7 @@
 <p>Checks whether the option <i>name</i> was passed to the application.</p>
 <p>Returns <code>true</code> if the option <i>name</i> was set, false otherwise.</p>
 <p>The name provided can be any long or short name of any option that was added with <code>addOption()</code>. All the options names are treated as being equivalent. If the name is not recognized or that option was not present, false is returned.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   bool verbose <span class="operator">=</span> parser<span class="operator">.</span>isSet(<span class="string">&quot;verbose&quot;</span>);
@@ -518,7 +518,7 @@
 <p>Checks whether the <i>option</i> was passed to the application.</p>
 <p>Returns <code>true</code> if the <i>option</i> was set, false otherwise.</p>
 <p>This is the recommended way to check for options with no values.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="type"><a href="qcoreapplication.html">QCoreApplication</a></span> app(argc<span class="operator">,</span> argv);

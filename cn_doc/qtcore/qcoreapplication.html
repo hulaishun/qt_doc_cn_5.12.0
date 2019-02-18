@@ -413,7 +413,7 @@
       do_something(path);
 
 </pre>
-<p><b>参见</b><a href="qcoreapplication.html#setLibraryPaths">setLibraryPaths</a>(), <a href="qcoreapplication.html#addLibraryPath">addLibraryPath</a>(), <a href="qcoreapplication.html#removeLibraryPath">removeLibraryPath</a>(), <a href="qlibrary.html">QLibrary</a>, and <a href="../qtdoc/plugins-howto.html">How to Create Qt Plugins</a>.</p>
+<p><b>参见</b><a href="qcoreapplication.html#setLibraryPaths">setLibraryPaths</a>(), <a href="qcoreapplication.html#addLibraryPath">addLibraryPath</a>(), <a href="qcoreapplication.html#removeLibraryPath">removeLibraryPath</a>(), <a href="qlibrary.html">QLibrary</a>, and <a href="../qtdoc/plugins-howto.html">如何创建Qt插件</a>.</p>
 <!-- @@@libraryPaths -->
 <!-- $$$notify[overload1]$$$notifyQObject*QEvent* -->
 <h3 class="fn" id="notify"><a name="notify"></a><code>[virtual] </code><span class="type">bool</span> QCoreApplication::<span class="name">notify</span>(<span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, <span class="type"><a href="qevent.html">QEvent</a></span> *<i>event</i>)</h3>
@@ -463,7 +463,7 @@
 <p>Tells the application to exit with return code 0 (success). Equivalent to calling <a href="qcoreapplication.html#exit">QCoreApplication::exit</a>(0).</p>
 <p>It's common to connect the <a href="../qtgui/qguiapplication.html#lastWindowClosed">QGuiApplication::lastWindowClosed</a>() signal to quit(), and you also often connect e.g&#x2e; <a href="../qtwidgets/qabstractbutton.html#clicked">QAbstractButton::clicked</a>() or signals in <a href="../qtwidgets/qaction.html">QAction</a>, <a href="../qtwidgets/qmenu.html">QMenu</a>, or <a href="../qtwidgets/qmenubar.html">QMenuBar</a> to it.</p>
 <p>It's good practice to always connect signals to this slot using a <a href="qt.html#ConnectionType-enum">QueuedConnection</a>. If a signal connected (non-queued) to this slot is emitted before control enters the main event loop (such as before &quot;int main&quot; calls <a href="qcoreapplication.html#exec">exec()</a>), the slot has no effect and the application never exits. Using a queued connection ensures that the slot will not be invoked until after control enters the main event loop.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="type"><a href="../qtwidgets/qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>quitButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="../qtwidgets/qpushbutton.html">QPushButton</a></span>(<span class="string">&quot;Quit&quot;</span>);

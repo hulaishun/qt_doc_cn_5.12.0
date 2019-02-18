@@ -76,7 +76,7 @@
 <li>release(<i>n</i>) releases <i>n</i> resources.</li>
 </ul>
 <p>There's also a <a href="qsemaphore.html#tryAcquire">tryAcquire</a>() function that returns immediately if it cannot acquire the resources, and an <a href="qsemaphore.html#available">available</a>() function that returns the number of available resources at any time.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="type"><a href="qsemaphore.html#QSemaphore">QSemaphore</a></span> sem(<span class="number">5</span>);      <span class="comment">// sem.available() == 5</span>
@@ -141,7 +141,7 @@
 <!-- $$$tryAcquire[overload1]$$$tryAcquireint -->
 <h3 class="fn" id="tryAcquire"><a name="tryAcquire"></a><span class="type">bool</span> QSemaphore::<span class="name">tryAcquire</span>(<span class="type">int</span> <i>n</i> = 1)</h3>
 <p>Tries to acquire <code>n</code> resources guarded by the semaphore and returns <code>true</code> on success. If <a href="qsemaphore.html#available">available</a>() &lt; <i>n</i>, this call immediately returns <code>false</code> without acquiring any resources.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="type"><a href="qsemaphore.html#QSemaphore">QSemaphore</a></span> sem(<span class="number">5</span>);      <span class="comment">// sem.available() == 5</span>
@@ -155,7 +155,7 @@
 <h3 class="fn" id="tryAcquire-1"><a name="tryAcquire-1"></a><span class="type">bool</span> QSemaphore::<span class="name">tryAcquire</span>(<span class="type">int</span> <i>n</i>, <span class="type">int</span> <i>timeout</i>)</h3>
 <p>Tries to acquire <code>n</code> resources guarded by the semaphore and returns <code>true</code> on success. If <a href="qsemaphore.html#available">available</a>() &lt; <i>n</i>, this call will wait for at most <i>timeout</i> milliseconds for resources to become available.</p>
 <p>Note: Passing a negative number as the <i>timeout</i> is equivalent to calling <a href="qsemaphore.html#acquire">acquire</a>(), i.e&#x2e; this function will wait forever for resources to become available if <i>timeout</i> is negative.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="type"><a href="qsemaphore.html#QSemaphore">QSemaphore</a></span> sem(<span class="number">5</span>);            <span class="comment">// sem.available() == 5</span>

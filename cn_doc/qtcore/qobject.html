@@ -210,7 +210,7 @@
 <div class="descr">
 <h2 id="details">详细描述</h2>
 <p>The <a href="qobject.html">QObject</a> class is the base class of all Qt objects.</p>
-<p><a href="qobject.html">QObject</a> is the heart of the Qt <a href="object.html">Object Model</a>. The central feature in this model is a very powerful mechanism for seamless object communication called <a href="signalsandslots.html">signals and slots</a>. You can connect a signal to a slot with <a href="qobject.html#connect">connect</a>() and destroy the connection with <a href="qobject.html#disconnect">disconnect</a>(). To avoid never ending notification loops you can temporarily block signals with <a href="qobject.html#blockSignals">blockSignals</a>(). The protected functions <a href="qobject.html#connectNotify">connectNotify</a>() and <a href="qobject.html#disconnectNotify">disconnectNotify</a>() make it possible to track connections.</p>
+<p><a href="qobject.html">QObject</a> is the heart of the Qt <a href="object.html">对象模型</a>. The central feature in this model is a very powerful mechanism for seamless object communication called <a href="signalsandslots.html">signals and slots</a>. You can connect a signal to a slot with <a href="qobject.html#connect">connect</a>() and destroy the connection with <a href="qobject.html#disconnect">disconnect</a>(). To avoid never ending notification loops you can temporarily block signals with <a href="qobject.html#blockSignals">blockSignals</a>(). The protected functions <a href="qobject.html#connectNotify">connectNotify</a>() and <a href="qobject.html#disconnectNotify">disconnectNotify</a>() make it possible to track connections.</p>
 <p>QObjects organize themselves in <a href="objecttrees.html">object trees</a>. When you create a <a href="qobject.html">QObject</a> with another object as parent, the object will automatically add itself to the parent's <a href="qobject.html#children">children</a>() list. The parent takes ownership of the object; i.e&#x2e;, it will automatically delete its children in its destructor. You can look for an object by name and optionally type using <a href="qobject.html#findChild">findChild</a>() or <a href="qobject.html#findChildren">findChildren</a>().</p>
 <p>Every object has an <a href="qobject.html#objectName-prop">objectName</a>() and its class name can be found via the corresponding <a href="qobject.html#metaObject">metaObject</a>() (see <a href="qmetaobject.html#className">QMetaObject::className</a>()). You can determine whether the object's class inherits another class in the <a href="qobject.html">QObject</a> inheritance hierarchy by using the <a href="qobject.html#inherits">inherits</a>() function.</p>
 <p>When an object is deleted, it emits a <a href="qobject.html#destroyed">destroyed</a>() signal. You can catch this signal to avoid dangling references to QObjects.</p>
@@ -232,7 +232,7 @@
 </ul>
 <p><b>Note: </b>A <a href="qobject.html">QObject</a>'s member variables <i>do not</i> automatically become its children. The parent-child relationship must be set by either passing a pointer to the child's <a href="qobject.html#QObject">constructor</a>, or by calling <a href="qobject.html#setParent">setParent</a>(). Without this step, the object's member variables will remain in the old thread when <a href="qobject.html#moveToThread">moveToThread</a>() is called.</p><a name="no-copy-constructor"></a><a name="no-copy-constructor-or-assignment-operator"></a>
 <h3 >No Copy Constructor or Assignment Operator</h3>
-<p><a href="qobject.html">QObject</a> has neither a copy constructor nor an assignment operator. This is by design. Actually, they are declared, but in a <code>private</code> section with the macro <a href="qobject.html#Q_DISABLE_COPY">Q_DISABLE_COPY</a>(). In fact, all Qt classes derived from <a href="qobject.html">QObject</a> (direct or indirect) use this macro to declare their copy constructor and assignment operator to be private. The reasoning is found in the discussion on <a href="object.html#identity-vs-value">Identity vs Value</a> on the Qt <a href="object.html">Object Model</a> page.</p>
+<p><a href="qobject.html">QObject</a> has neither a copy constructor nor an assignment operator. This is by design. Actually, they are declared, but in a <code>private</code> section with the macro <a href="qobject.html#Q_DISABLE_COPY">Q_DISABLE_COPY</a>(). In fact, all Qt classes derived from <a href="qobject.html">QObject</a> (direct or indirect) use this macro to declare their copy constructor and assignment operator to be private. The reasoning is found in the discussion on <a href="object.html#identity-vs-value">Identity vs Value</a> on the Qt <a href="object.html">对象模型</a> page.</p>
 <p>The main consequence is that you should use pointers to <a href="qobject.html">QObject</a> (or to your <a href="qobject.html">QObject</a> subclass) where you might otherwise be tempted to use your <a href="qobject.html">QObject</a> subclass as a value. For example, without a copy constructor, you can't use a subclass of <a href="qobject.html">QObject</a> as the value to be stored in one of the container classes. You must store pointers.</p>
 <a name="auto-connection"></a>
 <h3 >Auto-Connection</h3>
@@ -247,7 +247,7 @@
 <p>All <a href="qobject.html">QObject</a> subclasses support Qt's translation features, making it possible to translate an application's user interface into different languages.</p>
 <p>To make user-visible text translatable, it must be wrapped in calls to the <a href="qobject.html#tr">tr</a>() function. This is explained in detail in the <a href="../qtdoc/i18n-source-translation.html">Writing Source Code for Translation</a> document.</p>
 </div>
-<p><b>参见</b><a href="qmetaobject.html">QMetaObject</a>, <a href="qpointer.html">QPointer</a>, <a href="qobjectcleanuphandler.html">QObjectCleanupHandler</a>, <a href="qobject.html#Q_DISABLE_COPY">Q_DISABLE_COPY</a>(), and <a href="objecttrees.html">Object Trees &amp; Ownership</a>.</p>
+<p><b>参见</b><a href="qmetaobject.html">QMetaObject</a>, <a href="qpointer.html">QPointer</a>, <a href="qobjectcleanuphandler.html">QObjectCleanupHandler</a>, <a href="qobject.html#Q_DISABLE_COPY">Q_DISABLE_COPY</a>(), and <a href="objecttrees.html">对象树形关系</a>.</p>
 <!-- @@@QObject -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -409,7 +409,7 @@
 <p>This function overloads <a href="qobject.html#connect">connect</a>().</p>
 <p>Creates a connection of the given <i>type</i> from the <i>signal</i> in the <i>sender</i> object to the <i>method</i> in the <i>receiver</i> object. Returns a handle to the connection that can be used to disconnect it later.</p>
 <p>The signal must be a function declared as a signal in the header. The slot function can be any member function that can be connected to the signal. A slot can be connected to a given signal if the signal has at least as many arguments as the slot, and there is an implicit conversion between the types of the corresponding arguments in the signal and the slot.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="type"><a href="../qtwidgets/qlabel.html">QLabel</a></span> <span class="operator">*</span>label <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="../qtwidgets/qlabel.html">QLabel</a></span>;
@@ -440,7 +440,7 @@
 <p>This function overloads <a href="qobject.html#connect">connect</a>().</p>
 <p>Creates a connection from <i>signal</i> in <i>sender</i> object to <i>functor</i>, and returns a handle to the connection</p>
 <p>The signal must be a function declared as a signal in the header. The slot function can be any function or functor that can be connected to the signal. A function can be connected to a given signal if the signal has at least as many argument as the slot. A functor can be connected to a signal if they have exactly the same number of arguments. There must exist implicit conversion between the types of the corresponding arguments in the signal and the slot.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="type">void</span> someFunction();
@@ -468,7 +468,7 @@
 <p>This function overloads <a href="qobject.html#connect">connect</a>().</p>
 <p>Creates a connection of a given <i>type</i> from <i>signal</i> in <i>sender</i> object to <i>functor</i> to be placed in a specific event loop of <i>context</i>, and returns a handle to the connection.</p>
 <p><b>Note: </b>Qt::UniqueConnections do not work for lambdas, non-member functions and functors; they only apply to connecting to member functions.</p><p>The signal must be a function declared as a signal in the header. The slot function can be any function or functor that can be connected to the signal. A function can be connected to a given signal if the signal has at least as many argument as the slot. A functor can be connected to a signal if they have exactly the same number of arguments. There must exist implicit conversion between the types of the corresponding arguments in the signal and the slot.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="type">void</span> someFunction();
@@ -679,7 +679,7 @@
 <p>This virtual function receives events to an object and should return true if the event <i>e</i> was recognized and processed.</p>
 <p>The event() function can be reimplemented to customize the behavior of an object.</p>
 <p>Make sure you call the parent event class implementation for all the events you did not handle.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="keyword">class</span> MyClass : <span class="keyword">public</span> <span class="type"><a href="../qtwidgets/qwidget.html">QWidget</a></span>
@@ -714,7 +714,7 @@
 <h3 class="fn" id="eventFilter"><a name="eventFilter"></a><code>[virtual] </code><span class="type">bool</span> QObject::<span class="name">eventFilter</span>(<span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>watched</i>, <span class="type"><a href="qevent.html">QEvent</a></span> *<i>event</i>)</h3>
 <p>Filters events if this object has been installed as an event filter for the <i>watched</i> object.</p>
 <p>In your reimplementation of this function, if you want to filter the <i>event</i> out, i.e&#x2e; stop it being handled further, return true; otherwise return false.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="keyword">class</span> MainWindow : <span class="keyword">public</span> <span class="type"><a href="../qtwidgets/qmainwindow.html">QMainWindow</a></span>
@@ -826,7 +826,7 @@
 <h3 class="fn" id="inherits"><a name="inherits"></a><span class="type">bool</span> QObject::<span class="name">inherits</span>(const <span class="type">char</span> *<i>className</i>) const</h3>
 <p>Returns <code>true</code> if this object is an instance of a class that inherits <i>className</i> or a <a href="qobject.html">QObject</a> subclass that inherits <i>className</i>; otherwise returns <code>false</code>.</p>
 <p>A class is considered to inherit itself.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="type"><a href="qtimer.html">QTimer</a></span> <span class="operator">*</span>timer <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtimer.html">QTimer</a></span>;         <span class="comment">// QTimer inherits QObject</span>
@@ -934,7 +934,7 @@
 <p>A meta-object contains information about a class that inherits <a href="qobject.html">QObject</a>, e.g&#x2e; class name, superclass name, properties, signals and slots. Every <a href="qobject.html">QObject</a> subclass that contains the <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro will have a meta-object.</p>
 <p>The meta-object information is required by the signal/slot connection mechanism and the property system. The <a href="qobject.html#inherits">inherits</a>() function also makes use of the meta-object.</p>
 <p>If you have no pointer to an actual object instance but still want to access the meta-object of a class, you can use <a href="qobject.html#staticMetaObject-var">staticMetaObject</a>.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="type"><a href="qobject.html#QObject">QObject</a></span> <span class="operator">*</span>obj <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="../qtwidgets/qpushbutton.html">QPushButton</a></span>;
@@ -1045,7 +1045,7 @@
 <p>A timer event will occur every <i>interval</i> milliseconds until <a href="qobject.html#killTimer">killTimer</a>() is called. If <i>interval</i> is 0, then the timer event occurs once every time there are no more window system events to process.</p>
 <p>The virtual <a href="qobject.html#timerEvent">timerEvent</a>() function is called with the <a href="qtimerevent.html">QTimerEvent</a> event parameter class when a timer event occurs. Reimplement this function to get timer events.</p>
 <p>If multiple timers are running, the <a href="qtimerevent.html#timerId">QTimerEvent::timerId</a>() can be used to find out which timer was activated.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="keyword">class</span> MyObject : <span class="keyword">public</span> <span class="type"><a href="qobject.html#QObject">QObject</a></span>
@@ -1095,7 +1095,7 @@
 <p>A timer event will occur every <i>time</i> interval until <a href="qobject.html#killTimer">killTimer</a>() is called. If <i>time</i> is equal to <code>std::chrono::duration::zero()</code>, then the timer event occurs once every time there are no more window system events to process.</p>
 <p>The virtual <a href="qobject.html#timerEvent">timerEvent</a>() function is called with the <a href="qtimerevent.html">QTimerEvent</a> event parameter class when a timer event occurs. Reimplement this function to get timer events.</p>
 <p>If multiple timers are running, the <a href="qtimerevent.html#timerId">QTimerEvent::timerId</a>() can be used to find out which timer was activated.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="keyword">class</span> MyObject : <span class="keyword">public</span> <span class="type"><a href="qobject.html#QObject">QObject</a></span>
@@ -1153,7 +1153,7 @@
 <!-- $$$tr[overload1]$$$trconstchar*constchar*int -->
 <h3 class="fn" id="tr"><a name="tr"></a><code>[static] </code><span class="type"><a href="qstring.html">QString</a></span> QObject::<span class="name">tr</span>(const <span class="type">char</span> *<i>sourceText</i>, const <span class="type">char</span> *<i>disambiguation</i> = Q_OBJECT, <span class="type">int</span> <i>n</i> = Q_OBJECT)</h3>
 <p>Returns a translated version of <i>sourceText</i>, optionally based on a <i>disambiguation</i> string and value of <i>n</i> for strings containing plurals; otherwise returns <a href="qstring.html#fromUtf8">QString::fromUtf8</a>(<i>sourceText</i>) if no appropriate translated string is available.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="type">void</span> MainWindow<span class="operator">::</span>createActions()
@@ -1163,7 +1163,7 @@
 
 </pre>
 <p>If the same <i>sourceText</i> is used in different roles within the same context, an additional identifying string may be passed in <i>disambiguation</i> (0 by default). In Qt 4.4 and earlier, this was the preferred way to pass comments to translators.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   MyWindow<span class="operator">::</span>MyWindow()
@@ -1186,7 +1186,7 @@
 <p>A meta-object contains information about a class that inherits <a href="qobject.html">QObject</a>, e.g&#x2e; class name, superclass name, properties, signals and slots. Every class that contains the <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro will also have a meta-object.</p>
 <p>The meta-object information is required by the signal/slot connection mechanism and the property system. The <a href="qobject.html#inherits">inherits</a>() function also makes use of the meta-object.</p>
 <p>If you have a pointer to an object, you can use <a href="qobject.html#metaObject">metaObject</a>() to retrieve the meta-object associated with that object.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="type"><a href="../qtwidgets/qpushbutton.html">QPushButton</a></span><span class="operator">::</span>staticMetaObject<span class="operator">.</span>className();  <span class="comment">// returns &quot;QPushButton&quot;</span>
@@ -1206,7 +1206,7 @@
 <p>Returns the given <i>object</i> cast to type T if the object is of type T (or of a subclass); otherwise returns 0. If <i>object</i> is 0 then it will also return 0.</p>
 <p>The class T must inherit (directly or indirectly) <a href="qobject.html">QObject</a> and be declared with the <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro.</p>
 <p>A class is considered to inherit itself.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>obj <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtimer.html">QTimer</a></span>;          <span class="comment">// QTimer inherits QObject</span>
@@ -1252,7 +1252,7 @@
 <h3 class="fn" id="Q_CLASSINFO"><a name="Q_CLASSINFO"></a><span class="name">Q_CLASSINFO</span>(<i>名称</i>, <i>值</i>)</h3>
 <p>This macro associates extra information to the class, which is available using <a href="qobject.html#metaObject">QObject::metaObject</a>(). Qt makes only limited use of this feature, in the <a href="../activeqt/activeqt-index.html">Active Qt</a>, <a href="../qtdbus/qtdbus-index.html">Qt数据总线</a> and <a href="../qtdoc/whatsnew59.html#qt-qml-module">Qt QML</a>.</p>
 <p>The extra information takes the form of a <i>名称</i> string and a <i>值</i> literal string.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="keyword">class</span> MyClass : <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span>
@@ -1387,7 +1387,7 @@
 <!-- $$$Q_INTERFACES[overload1]$$$Q_INTERFACES... -->
 <h3 class="fn" id="Q_INTERFACES"><a name="Q_INTERFACES"></a><span class="name">Q_INTERFACES</span>(<i> ...</i>)</h3>
 <p>This macro tells Qt which interfaces the class implements. This is used when implementing plugins.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="keyword">class</span> BasicToolsPlugin : <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">,</span>
@@ -1405,7 +1405,7 @@
 
 </pre>
 <p>See the <a href="../qtwidgets/qtwidgets-tools-plugandpaint-plugins-basictools-example.html">Plug &amp; Paint Basic Tools</a> example for details.</p>
-<p><b>参见</b><a href="qtplugin.html#Q_DECLARE_INTERFACE">Q_DECLARE_INTERFACE</a>(), <a href="qtplugin.html#Q_PLUGIN_METADATA">Q_PLUGIN_METADATA</a>(), and <a href="../qtdoc/plugins-howto.html">How to Create Qt Plugins</a>.</p>
+<p><b>参见</b><a href="qtplugin.html#Q_DECLARE_INTERFACE">Q_DECLARE_INTERFACE</a>(), <a href="qtplugin.html#Q_PLUGIN_METADATA">Q_PLUGIN_METADATA</a>(), and <a href="../qtdoc/plugins-howto.html">如何创建Qt插件</a>.</p>
 <!-- @@@Q_INTERFACES -->
 <!-- $$$Q_INVOKABLE[overload1]$$$Q_INVOKABLE -->
 <h3 class="fn" id="Q_INVOKABLE"><a name="Q_INVOKABLE"></a><span class="name">Q_INVOKABLE</span></h3>

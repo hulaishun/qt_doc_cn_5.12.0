@@ -323,7 +323,7 @@
 <p>The two-arguments overloads take an unsigned integer that should be used to seed the calculation of the hash function. This seed is provided by <a href="qhash.html#qhash">QHash</a> in order to prevent a family of <a href="qhash.html#algorithmic-complexity-attacks">algorithmic complexity attacks</a>. If both a one-argument and a two-arguments overload are defined for a key type, the latter is used by <a href="qhash.html#qhash">QHash</a> (note that you can simply define a two-arguments version, and use a default value for the seed parameter).</p>
 <p>Here's a partial list of the C++ and Qt types that can serve as keys in a <a href="qhash.html#qhash">QHash</a>: any integer type (char, unsigned long, etc.), any pointer type, <a href="qchar.html">QChar</a>, <a href="qstring.html">QString</a>, and <a href="qbytearray.html">QByteArray</a>. For all of these, the <code>&lt;QHash&gt;</code> header defines a <a href="qhash.html#qHashx">qHash</a>() function that computes an adequate hash value. Many other Qt classes also declare a <a href="qhash.html#qhash">qHash</a> overload for their type; please refer to the documentation of each class.</p>
 <p>If you want to use other types as the key, make sure that you provide operator==() and a <a href="qhash.html#qHashx">qHash</a>() implementation.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   <span class="preprocessor">#ifndef EMPLOYEE_H</span>
@@ -1053,13 +1053,13 @@
 <h3 class="fn" id="operator-lt-lt"><a name="operator-lt-lt"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp;<span class="name">operator&lt;&lt;</span>(<span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp;<i>out</i>, const <span class="type"><a href="qhash.html#QHash">QHash</a></span>&lt;<span class="type">Key</span>, <span class="type">T</span>&gt; &amp;<i>hash</i>)</h3>
 <p>Writes the hash <i>hash</i> to stream <i>out</i>.</p>
 <p>This function requires the key and value types to implement <code>operator&lt;&lt;()</code>.</p>
-<p><b>参见</b><a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
+<p><b>参见</b><a href="datastreamformat.html">序列化Qt数据类型</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator>>[overload1]$$$operator>>QDataStream&QHash<Key,T>& -->
 <h3 class="fn" id="operator-gt-gt"><a name="operator-gt-gt"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp;<span class="name">operator&gt;&gt;</span>(<span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp;<i>in</i>, <span class="type"><a href="qhash.html#QHash">QHash</a></span>&lt;<span class="type">Key</span>, <span class="type">T</span>&gt; &amp;<i>hash</i>)</h3>
 <p>Reads a hash from stream <i>in</i> into <i>hash</i>.</p>
 <p>This function requires the key and value types to implement <code>operator&gt;&gt;()</code>.</p>
-<p><b>参见</b><a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
+<p><b>参见</b><a href="datastreamformat.html">序列化Qt数据类型</a>.</p>
 <!-- @@@operator>> -->
 </div>
 <div class="macros">

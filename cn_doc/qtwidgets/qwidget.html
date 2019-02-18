@@ -553,7 +553,7 @@
 </ul>
 <p>There are also some rather obscure events described in the documentation for <a href="../qtcore/qevent.html#Type-enum">QEvent::Type</a>. To handle these events, you need to reimplement <a href="qwidget.html#event">event</a>() directly.</p>
 <p>The default implementation of <a href="qwidget.html#event">event</a>() handles <b>Tab</b> and <b>Shift+Tab</b> (to move the keyboard focus), and passes on most of the other events to one of the more specialized handlers above.</p>
-<p>Events and the mechanism used to deliver them are covered in <a href="../qtcore/eventsandfilters.html">The Event System</a>.</p>
+<p>Events and the mechanism used to deliver them are covered in <a href="../qtcore/eventsandfilters.html">事件系统</a>.</p>
 <a name="groups-of-functions-and-properties"></a>
 <h3 >Groups of Functions and Properties</h3>
 <div class="table"><table class="generic">
@@ -1234,7 +1234,7 @@
 <p>An updates enabled widget receives paint events and has a system background; a disabled widget does not. This also implies that calling <a href="qwidget.html#update">update</a>() and <a href="qwidget.html#repaint">repaint</a>() has no effect if updates are disabled.</p>
 <p>By default, this property is <code>true</code>.</p>
 <p>setUpdatesEnabled() is normally used to disable updates for a short period of time, for instance to avoid screen flicker during large changes. In Qt, widgets normally do not generate screen flicker, but on X11 the server might erase regions on the screen when widgets get hidden before they can be replaced by other widgets. Disabling updates solves this.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
   setUpdatesEnabled(<span class="keyword">false</span>);
@@ -2314,7 +2314,7 @@
 <p>Sets the layout manager for this widget to <i>layout</i>.</p>
 <p>If there already is a layout manager installed on this widget, <a href="qwidget.html">QWidget</a> won't let you install another. You must first delete the existing layout manager (returned by <a href="qwidget.html#layout">layout</a>()) before you can call setLayout() with the new layout.</p>
 <p>If <i>layout</i> is the layout manager on a different widget, setLayout() will reparent the layout and make it the layout manager for this widget.</p>
-<p>Example:</p>
+<p>样例：</p>
 <pre class="cpp">
 
       <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>;
