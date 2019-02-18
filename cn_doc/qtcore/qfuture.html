@@ -109,7 +109,7 @@
 <div class="descr">
 <h2 id="details">详细描述</h2>
 <p>The <a href="qfuture.html">QFuture</a> class represents the result of an asynchronous computation.</p>
-<p>To start a computation, use one of the APIs in the <a href="../qtconcurrent/qtconcurrent-index.html">Qt Concurrent</a> framework.</p>
+<p>To start a computation, use one of the APIs in the <a href="../qtconcurrent/qtconcurrent-index.html">Qt并发</a> framework.</p>
 <p><a href="qfuture.html">QFuture</a> allows threads to be synchronized against one or more results which will be ready at a later point in time. The result can be of any type that has a default constructor and a copy constructor. If a result is not available at the time of calling the <a href="qfuture.html#result">result</a>(), <a href="qfuture.html#resultAt">resultAt</a>(), or <a href="qfuture.html#results">results</a>() functions, <a href="qfuture.html">QFuture</a> will wait until the result becomes available. You can use the <a href="qfuture.html#isResultReadyAt">isResultReadyAt</a>() function to determine if a result is ready or not. For <a href="qfuture.html">QFuture</a> objects that report more than one result, the <a href="qfuture.html#resultCount">resultCount</a>() function returns the number of continuous results. This means that it is always safe to iterate through the results from 0 to <a href="qfuture.html#resultCount">resultCount</a>().</p>
 <p><a href="qfuture.html">QFuture</a> provides a <a href="containers.html#java-style-iterators">Java-style iterator</a> (<a href="qfutureiterator.html">QFutureIterator</a>) and an <a href="containers.html#stl-style-iterators">STL-style iterator</a> (<a href="qfuture-const-iterator.html">QFuture::const_iterator</a>). Using these iterators is another way to access results in the future.</p>
 <p><a href="qfuture.html">QFuture</a> also offers ways to interact with a runnning computation. For instance, the computation can be canceled with the <a href="qfuture.html#cancel">cancel</a>() function. To pause the computation, use the <a href="qfuture.html#setPaused">setPaused</a>() function or one of the <a href="qfuture.html#pause">pause</a>(), <a href="qfuture.html#resume">resume</a>(), or <a href="qfuture.html#togglePaused">togglePaused</a>() convenience functions. Be aware that not all asynchronous computations can be canceled or paused. For example, the future returned by <a href="../qtconcurrent/qtconcurrent.html#run">QtConcurrent::run</a>() cannot be canceled; but the future returned by <a href="../qtconcurrent/qtconcurrent.html#mappedReduced-1">QtConcurrent::mappedReduced</a>() can.</p>
@@ -119,7 +119,7 @@
 <p><a href="qfuture.html">QFuture</a>&lt;void&gt; is specialized to not contain any of the result fetching functions. Any <a href="qfuture.html">QFuture</a>&lt;T&gt; can be assigned or copied into a <a href="qfuture.html">QFuture</a>&lt;void&gt; as well. This is useful if only status or progress information is needed - not the actual result data.</p>
 <p>To interact with running tasks using signals and slots, use <a href="qfuturewatcher.html">QFutureWatcher</a>.</p>
 </div>
-<p><b>参见</b><a href="qfuturewatcher.html">QFutureWatcher</a> and <a href="../qtconcurrent/qtconcurrent-index.html">Qt Concurrent</a>.</p>
+<p><b>参见</b><a href="qfuturewatcher.html">QFutureWatcher</a> and <a href="../qtconcurrent/qtconcurrent-index.html">Qt并发</a>.</p>
 <!-- @@@QFuture -->
 <div class="types">
 <h2>成员类型文档</h2>
