@@ -208,7 +208,7 @@
 <p><b>Note: </b>The DTLS protocol leaves Path Maximum Transmission Unit (PMTU) discovery to the application. The application may provide <a href="qdtls.html">QDtls</a> with the MTU using <a href="qdtls.html#setMtuHint">setMtuHint</a>(). This hint affects only the handshake phase, since only handshake messages can be fragmented and reassembled by the DTLS. All other messages sent by the application must fit into a single datagram.</p><p><b>Note: </b>DTLS-specific headers add some overhead to application data further reducing the possible message size.</p><p><b>Warning:</b> A server configured to reply with HelloVerifyRequest will drop all fragmented ClientHello messages, never starting a handshake.</p>
 <p>The <a href="qtnetwork-secureudpserver-example.html">DTLS server</a> and <a href="qtnetwork-secureudpclient-example.html">DTLS client</a> examples illustrate how to use <a href="qdtls.html">QDtls</a> in applications.</p>
 </div>
-<p><b>See also </b><a href="qudpsocket.html">QUdpSocket</a>, <a href="qdtlsclientverifier.html">QDtlsClientVerifier</a>, <a href="qdtls.html#HandshakeState-enum">HandshakeState</a>, <a href="qdtls.html#QDtlsError-enum">QDtlsError</a>, and <a href="qsslconfiguration.html">QSslConfiguration</a>.</p>
+<p><b>参见</b><a href="qudpsocket.html">QUdpSocket</a>, <a href="qdtlsclientverifier.html">QDtlsClientVerifier</a>, <a href="qdtls.html#HandshakeState-enum">HandshakeState</a>, <a href="qdtls.html#QDtlsError-enum">QDtlsError</a>, and <a href="qsslconfiguration.html">QSslConfiguration</a>.</p>
 <!-- @@@QDtls -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -227,7 +227,7 @@
 <tr><td class="topAlign"><code>QDtls::HandshakeComplete</code></td><td class="topAlign tblval"><code>3</code></td><td class="topAlign">Handshake completed successfully and encrypted connection was established.</td></tr>
 </table></div>
 <p>This enum was introduced or modified in  Qt 5.12.</p>
-<p><b>See also </b><a href="qdtls.html#doHandshake">QDtls::doHandshake</a>() and <a href="qdtls.html#handshakeState">QDtls::handshakeState</a>().</p>
+<p><b>参见</b><a href="qdtls.html#doHandshake">QDtls::doHandshake</a>() and <a href="qdtls.html#handshakeState">QDtls::handshakeState</a>().</p>
 <!-- @@@HandshakeState -->
 </div>
 <div class="prop">
@@ -238,7 +238,7 @@
 <!-- $$$QDtls[overload1]$$$QDtlsQSslSocket::SslModeQObject* -->
 <h3 class="fn" id="QDtls"><a name="QDtls"></a>QDtls::<span class="name">QDtls</span>(<span class="type"><a href="qsslsocket.html#SslMode-enum">QSslSocket::SslMode</a></span> <i>mode</i>, <span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
 <p>Creates a <a href="qdtls.html">QDtls</a> object, <i>parent</i> is passed to the <a href="../qtcore/qobject.html">QObject</a> constructor. <i>mode</i> is <a href="qsslsocket.html#SslMode-enum">QSslSocket::SslServerMode</a> for a server-side DTLS connection or <a href="qsslsocket.html#SslMode-enum">QSslSocket::SslClientMode</a> for a client.</p>
-<p><b>See also </b><a href="qdtls.html#sslMode">sslMode</a>() and <a href="qsslsocket.html#SslMode-enum">QSslSocket::SslMode</a>.</p>
+<p><b>参见</b><a href="qdtls.html#sslMode">sslMode</a>() and <a href="qsslsocket.html#SslMode-enum">QSslSocket::SslMode</a>.</p>
 <!-- @@@QDtls -->
 <!-- $$$~QDtls[overload1]$$$~QDtls -->
 <h3 class="fn" id="dtor.QDtls"><a name="dtor.QDtls"></a><code>[virtual] </code>QDtls::<span class="name">~QDtls</span>()</h3>
@@ -247,13 +247,13 @@
 <!-- $$$abortHandshake[overload1]$$$abortHandshakeQUdpSocket* -->
 <h3 class="fn" id="abortHandshake"><a name="abortHandshake"></a><span class="type">bool</span> QDtls::<span class="name">abortHandshake</span>(<span class="type"><a href="qudpsocket.html">QUdpSocket</a></span> *<i>socket</i>)</h3>
 <p>Aborts the ongoing handshake. Returns true if one was on-going on <i>socket</i>; otherwise, sets a suitable error and returns false.</p>
-<p><b>See also </b><a href="qdtls.html#doHandshake">doHandshake</a>() and <a href="qdtls.html#resumeHandshake">resumeHandshake</a>().</p>
+<p><b>参见</b><a href="qdtls.html#doHandshake">doHandshake</a>() and <a href="qdtls.html#resumeHandshake">resumeHandshake</a>().</p>
 <!-- @@@abortHandshake -->
 <!-- $$$cookieGeneratorParameters[overload1]$$$cookieGeneratorParameters -->
 <h3 class="fn" id="cookieGeneratorParameters"><a name="cookieGeneratorParameters"></a><span class="type"><a href="qdtls.html#GeneratorParameters-typedef">QDtls::GeneratorParameters</a></span> QDtls::<span class="name">cookieGeneratorParameters</span>() const</h3>
 <p>Returns the current hash algorithm and secret, either default ones or previously set by a call to <a href="qdtls.html#setCookieGeneratorParameters">setCookieGeneratorParameters</a>().</p>
 <p>The default hash algorithm is <a href="../qtcore/qcryptographichash.html#Algorithm-enum">QCryptographicHash::Sha256</a> if Qt was configured to support it, <a href="../qtcore/qcryptographichash.html#Algorithm-enum">QCryptographicHash::Sha1</a> otherwise. The default secret is obtained from the backend-specific cryptographically strong pseudorandom number generator.</p>
-<p><b>See also </b><a href="qdtls.html#setCookieGeneratorParameters">setCookieGeneratorParameters</a>(), <a href="qdtlsclientverifier.html">QDtlsClientVerifier</a>, and cookieGeneratorParameters().</p>
+<p><b>参见</b><a href="qdtls.html#setCookieGeneratorParameters">setCookieGeneratorParameters</a>(), <a href="qdtlsclientverifier.html">QDtlsClientVerifier</a>, and cookieGeneratorParameters().</p>
 <!-- @@@cookieGeneratorParameters -->
 <!-- $$$decryptDatagram[overload1]$$$decryptDatagramQUdpSocket*constQByteArray& -->
 <h3 class="fn" id="decryptDatagram"><a name="decryptDatagram"></a><span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> QDtls::<span class="name">decryptDatagram</span>(<span class="type"><a href="qudpsocket.html">QUdpSocket</a></span> *<i>socket</i>, const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>dgram</i>)</h3>
@@ -270,32 +270,32 @@
   }
 
 </pre>
-<p><b>See also </b><a href="qdtls.html#handshakeState">handshakeState</a>(), <a href="qdtls.html#dtlsError">dtlsError</a>(), <a href="qdtls.html#ignoreVerificationErrors">ignoreVerificationErrors</a>(), <a href="qdtls.html#resumeHandshake">resumeHandshake</a>(), and <a href="qdtls.html#abortHandshake">abortHandshake</a>().</p>
+<p><b>参见</b><a href="qdtls.html#handshakeState">handshakeState</a>(), <a href="qdtls.html#dtlsError">dtlsError</a>(), <a href="qdtls.html#ignoreVerificationErrors">ignoreVerificationErrors</a>(), <a href="qdtls.html#resumeHandshake">resumeHandshake</a>(), and <a href="qdtls.html#abortHandshake">abortHandshake</a>().</p>
 <!-- @@@doHandshake -->
 <!-- $$$dtlsConfiguration[overload1]$$$dtlsConfiguration -->
 <h3 class="fn" id="dtlsConfiguration"><a name="dtlsConfiguration"></a><span class="type"><a href="qsslconfiguration.html">QSslConfiguration</a></span> QDtls::<span class="name">dtlsConfiguration</span>() const</h3>
 <p>Returns either the default DTLS configuration or the configuration set by an earlier call to <a href="qdtls.html#setDtlsConfiguration">setDtlsConfiguration</a>().</p>
-<p><b>See also </b><a href="qdtls.html#setDtlsConfiguration">setDtlsConfiguration</a>() and <a href="qsslconfiguration.html#defaultDtlsConfiguration">QSslConfiguration::defaultDtlsConfiguration</a>().</p>
+<p><b>参见</b><a href="qdtls.html#setDtlsConfiguration">setDtlsConfiguration</a>() and <a href="qsslconfiguration.html#defaultDtlsConfiguration">QSslConfiguration::defaultDtlsConfiguration</a>().</p>
 <!-- @@@dtlsConfiguration -->
 <!-- $$$dtlsError[overload1]$$$dtlsError -->
 <h3 class="fn" id="dtlsError"><a name="dtlsError"></a><span class="type"><a href="qdtls.html#QDtlsError-enum">QDtlsError</a></span> QDtls::<span class="name">dtlsError</span>() const</h3>
 <p>Returns the last error encountered by the connection or QDtlsError::NoError.</p>
-<p><b>See also </b><a href="qdtls.html#dtlsErrorString">dtlsErrorString</a>() and <a href="qdtls.html#QDtlsError-enum">QDtlsError</a>.</p>
+<p><b>参见</b><a href="qdtls.html#dtlsErrorString">dtlsErrorString</a>() and <a href="qdtls.html#QDtlsError-enum">QDtlsError</a>.</p>
 <!-- @@@dtlsError -->
 <!-- $$$dtlsErrorString[overload1]$$$dtlsErrorString -->
 <h3 class="fn" id="dtlsErrorString"><a name="dtlsErrorString"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QDtls::<span class="name">dtlsErrorString</span>() const</h3>
 <p>Returns a textual description for the last error encountered by the connection or empty string.</p>
-<p><b>See also </b><a href="qdtls.html#dtlsError">dtlsError</a>().</p>
+<p><b>参见</b><a href="qdtls.html#dtlsError">dtlsError</a>().</p>
 <!-- @@@dtlsErrorString -->
 <!-- $$$handleTimeout[overload1]$$$handleTimeoutQUdpSocket* -->
 <h3 class="fn" id="handleTimeout"><a name="handleTimeout"></a><span class="type">bool</span> QDtls::<span class="name">handleTimeout</span>(<span class="type"><a href="qudpsocket.html">QUdpSocket</a></span> *<i>socket</i>)</h3>
 <p>If a timeout occures during the handshake, the <a href="qdtls.html#handshakeTimeout">handshakeTimeout</a>() signal is emitted. The application must call handleTimeout() to retransmit handshake messages; handleTimeout() returns <code>true</code> if a timeout has occurred, false otherwise. <i>socket</i> must be a valid pointer.</p>
-<p><b>See also </b><a href="qdtls.html#handshakeTimeout">handshakeTimeout</a>().</p>
+<p><b>参见</b><a href="qdtls.html#handshakeTimeout">handshakeTimeout</a>().</p>
 <!-- @@@handleTimeout -->
 <!-- $$$handshakeState[overload1]$$$handshakeState -->
 <h3 class="fn" id="handshakeState"><a name="handshakeState"></a><span class="type"><a href="qdtls.html#HandshakeState-enum">QDtls::HandshakeState</a></span> QDtls::<span class="name">handshakeState</span>() const</h3>
 <p>Returns the current handshake state for this <a href="qdtls.html">QDtls</a>.</p>
-<p><b>See also </b><a href="qdtls.html#doHandshake">doHandshake</a>() and <a href="qdtls.html#HandshakeState-enum">QDtls::HandshakeState</a>.</p>
+<p><b>参见</b><a href="qdtls.html#doHandshake">doHandshake</a>() and <a href="qdtls.html#HandshakeState-enum">QDtls::HandshakeState</a>.</p>
 <!-- @@@handshakeState -->
 <!-- $$$handshakeTimeout[overload1]$$$handshakeTimeout -->
 <h3 class="fn" id="handshakeTimeout"><a name="handshakeTimeout"></a><code>[signal] </code><span class="type">void</span> QDtls::<span class="name">handshakeTimeout</span>()</h3>
@@ -314,7 +314,7 @@
   }
 
 </pre>
-<p><b>See also </b><a href="qdtls.html#handleTimeout">handleTimeout</a>().</p>
+<p><b>参见</b><a href="qdtls.html#handleTimeout">handleTimeout</a>().</p>
 <!-- @@@handshakeTimeout -->
 <!-- $$$ignoreVerificationErrors[overload1]$$$ignoreVerificationErrorsconstQVector<QSslError>& -->
 <h3 class="fn" id="ignoreVerificationErrors"><a name="ignoreVerificationErrors"></a><span class="type">void</span> QDtls::<span class="name">ignoreVerificationErrors</span>(const <span class="type"><a href="../qtcore/qvector.html">QVector</a></span>&lt;<span class="type"><a href="qsslerror.html">QSslError</a></span>&gt; &amp;<i>errorsToIgnore</i>)</h3>
@@ -334,27 +334,27 @@
 </pre>
 <p>You can also call this function after <a href="qdtls.html#doHandshake">doHandshake</a>() encountered the QDtlsError::PeerVerificationError error, and then resume the handshake by calling <a href="qdtls.html#resumeHandshake">resumeHandshake</a>().</p>
 <p>Later calls to this function will replace the list of errors that were passed in previous calls. You can clear the list of errors you want to ignore by calling this function with an empty list.</p>
-<p><b>See also </b><a href="qdtls.html#doHandshake">doHandshake</a>(), <a href="qdtls.html#resumeHandshake">resumeHandshake</a>(), and <a href="qsslerror.html">QSslError</a>.</p>
+<p><b>参见</b><a href="qdtls.html#doHandshake">doHandshake</a>(), <a href="qdtls.html#resumeHandshake">resumeHandshake</a>(), and <a href="qsslerror.html">QSslError</a>.</p>
 <!-- @@@ignoreVerificationErrors -->
 <!-- $$$isConnectionEncrypted[overload1]$$$isConnectionEncrypted -->
 <h3 class="fn" id="isConnectionEncrypted"><a name="isConnectionEncrypted"></a><span class="type">bool</span> QDtls::<span class="name">isConnectionEncrypted</span>() const</h3>
 <p>Returns <code>true</code> if DTLS handshake completed successfully.</p>
-<p><b>See also </b><a href="qdtls.html#doHandshake">doHandshake</a>() and <a href="qdtls.html#handshakeState">handshakeState</a>().</p>
+<p><b>参见</b><a href="qdtls.html#doHandshake">doHandshake</a>() and <a href="qdtls.html#handshakeState">handshakeState</a>().</p>
 <!-- @@@isConnectionEncrypted -->
 <!-- $$$mtuHint[overload1]$$$mtuHint -->
 <h3 class="fn" id="mtuHint"><a name="mtuHint"></a><span class="type"><a href="../qtcore/qtglobal.html#quint16-typedef">quint16</a></span> QDtls::<span class="name">mtuHint</span>() const</h3>
 <p>Returns the value previously set by <a href="qdtls.html#setMtuHint">setMtuHint</a>(). The default value is 0.</p>
-<p><b>See also </b><a href="qdtls.html#setMtuHint">setMtuHint</a>().</p>
+<p><b>参见</b><a href="qdtls.html#setMtuHint">setMtuHint</a>().</p>
 <!-- @@@mtuHint -->
 <!-- $$$peerAddress[overload1]$$$peerAddress -->
 <h3 class="fn" id="peerAddress"><a name="peerAddress"></a><span class="type"><a href="qhostaddress.html">QHostAddress</a></span> QDtls::<span class="name">peerAddress</span>() const</h3>
 <p>Returns the peer's address, set by <a href="qdtls.html#setPeer">setPeer</a>(), or <a href="qhostaddress.html#SpecialAddress-enum">QHostAddress::Null</a>.</p>
-<p><b>See also </b><a href="qdtls.html#setPeer">setPeer</a>().</p>
+<p><b>参见</b><a href="qdtls.html#setPeer">setPeer</a>().</p>
 <!-- @@@peerAddress -->
 <!-- $$$peerPort[overload1]$$$peerPort -->
 <h3 class="fn" id="peerPort"><a name="peerPort"></a><span class="type"><a href="../qtcore/qtglobal.html#quint16-typedef">quint16</a></span> QDtls::<span class="name">peerPort</span>() const</h3>
 <p>Returns the peer's port number, set by <a href="qdtls.html#setPeer">setPeer</a>(), or 0.</p>
-<p><b>See also </b><a href="qdtls.html#setPeer">setPeer</a>().</p>
+<p><b>参见</b><a href="qdtls.html#setPeer">setPeer</a>().</p>
 <!-- @@@peerPort -->
 <!-- $$$peerVerificationErrors[overload1]$$$peerVerificationErrors -->
 <h3 class="fn" id="peerVerificationErrors"><a name="peerVerificationErrors"></a><span class="type"><a href="../qtcore/qvector.html">QVector</a></span>&lt;<span class="type"><a href="qsslerror.html">QSslError</a></span>&gt; QDtls::<span class="name">peerVerificationErrors</span>() const</h3>
@@ -364,70 +364,70 @@
 <!-- $$$peerVerificationName[overload1]$$$peerVerificationName -->
 <h3 class="fn" id="peerVerificationName"><a name="peerVerificationName"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QDtls::<span class="name">peerVerificationName</span>() const</h3>
 <p>Returns the host name set by <a href="qdtls.html#setPeer">setPeer</a>() or <a href="qdtls.html#setPeerVerificationName">setPeerVerificationName</a>(). The default value is an empty string.</p>
-<p><b>See also </b><a href="qdtls.html#setPeerVerificationName">setPeerVerificationName</a>() and <a href="qdtls.html#setPeer">setPeer</a>().</p>
+<p><b>参见</b><a href="qdtls.html#setPeerVerificationName">setPeerVerificationName</a>() and <a href="qdtls.html#setPeer">setPeer</a>().</p>
 <!-- @@@peerVerificationName -->
 <!-- $$$pskRequired[overload1]$$$pskRequiredQSslPreSharedKeyAuthenticator* -->
 <h3 class="fn" id="pskRequired"><a name="pskRequired"></a><code>[signal] </code><span class="type">void</span> QDtls::<span class="name">pskRequired</span>(<span class="type"><a href="qsslpresharedkeyauthenticator.html">QSslPreSharedKeyAuthenticator</a></span> *<i>authenticator</i>)</h3>
 <p><a href="qdtls.html">QDtls</a> emits this signal when it negotiates a PSK ciphersuite, and therefore a PSK authentication is then required.</p>
 <p>When using PSK, the client must send to the server a valid identity and a valid pre shared key, in order for the TLS handshake to continue. Applications can provide this information in a slot connected to this signal, by filling in the passed <i>authenticator</i> object according to their needs.</p>
-<p><b>Note: </b>Ignoring this signal, or failing to provide the required credentials, will cause the handshake to fail, and therefore the connection to be aborted.</p><p><b>Note: </b>The <i>authenticator</i> object is owned by <a href="qdtls.html">QDtls</a> and must not be deleted by the application.</p><p><b>See also </b><a href="qsslpresharedkeyauthenticator.html">QSslPreSharedKeyAuthenticator</a>.</p>
+<p><b>Note: </b>Ignoring this signal, or failing to provide the required credentials, will cause the handshake to fail, and therefore the connection to be aborted.</p><p><b>Note: </b>The <i>authenticator</i> object is owned by <a href="qdtls.html">QDtls</a> and must not be deleted by the application.</p><p><b>参见</b><a href="qsslpresharedkeyauthenticator.html">QSslPreSharedKeyAuthenticator</a>.</p>
 <!-- @@@pskRequired -->
 <!-- $$$resumeHandshake[overload1]$$$resumeHandshakeQUdpSocket* -->
 <h3 class="fn" id="resumeHandshake"><a name="resumeHandshake"></a><span class="type">bool</span> QDtls::<span class="name">resumeHandshake</span>(<span class="type"><a href="qudpsocket.html">QUdpSocket</a></span> *<i>socket</i>)</h3>
 <p>If peer verification errors were ignored during the handshake, resumeHandshake() resumes and completes the handshake and returns <code>true</code>. <i>socket</i> must be a valid pointer. Returns <code>false</code> if the handshake could not be resumed.</p>
-<p><b>See also </b><a href="qdtls.html#doHandshake">doHandshake</a>(), <a href="qdtls.html#abortHandshake">abortHandshake</a>(), <a href="qdtls.html#peerVerificationErrors">peerVerificationErrors</a>(), and <a href="qdtls.html#ignoreVerificationErrors">ignoreVerificationErrors</a>().</p>
+<p><b>参见</b><a href="qdtls.html#doHandshake">doHandshake</a>(), <a href="qdtls.html#abortHandshake">abortHandshake</a>(), <a href="qdtls.html#peerVerificationErrors">peerVerificationErrors</a>(), and <a href="qdtls.html#ignoreVerificationErrors">ignoreVerificationErrors</a>().</p>
 <!-- @@@resumeHandshake -->
 <!-- $$$sessionCipher[overload1]$$$sessionCipher -->
 <h3 class="fn" id="sessionCipher"><a name="sessionCipher"></a><span class="type"><a href="qsslcipher.html">QSslCipher</a></span> QDtls::<span class="name">sessionCipher</span>() const</h3>
 <p>Returns the cryptographic <a href="qsslcipher.html">cipher</a> used by this connection, or a null cipher if the connection isn't encrypted. The cipher for the session is selected during the handshake phase. The cipher is used to encrypt and decrypt data.</p>
 <p><a href="qsslconfiguration.html">QSslConfiguration</a> provides functions for setting the ordered list of ciphers from which the handshake phase will eventually select the session cipher. This ordered list must be in place before the handshake phase begins.</p>
-<p><b>See also </b><a href="qsslconfiguration.html">QSslConfiguration</a>, <a href="qdtls.html#setDtlsConfiguration">setDtlsConfiguration</a>(), and <a href="qdtls.html#dtlsConfiguration">dtlsConfiguration</a>().</p>
+<p><b>参见</b><a href="qsslconfiguration.html">QSslConfiguration</a>, <a href="qdtls.html#setDtlsConfiguration">setDtlsConfiguration</a>(), and <a href="qdtls.html#dtlsConfiguration">dtlsConfiguration</a>().</p>
 <!-- @@@sessionCipher -->
 <!-- $$$sessionProtocol[overload1]$$$sessionProtocol -->
 <h3 class="fn" id="sessionProtocol"><a name="sessionProtocol"></a><span class="type">QSsl::SslProtocol</span> QDtls::<span class="name">sessionProtocol</span>() const</h3>
 <p>Returns the DTLS protocol version used by this connection, or UnknownProtocol if the connection isn't encrypted yet. The protocol for the connection is selected during the handshake phase.</p>
 <p><a href="qdtls.html#setDtlsConfiguration">setDtlsConfiguration</a>() can set the preferred version before the handshake starts.</p>
-<p><b>See also </b><a href="qdtls.html#setDtlsConfiguration">setDtlsConfiguration</a>(), <a href="qsslconfiguration.html">QSslConfiguration</a>, <a href="qsslconfiguration.html#defaultDtlsConfiguration">QSslConfiguration::defaultDtlsConfiguration</a>(), and <a href="qsslconfiguration.html#setProtocol">QSslConfiguration::setProtocol</a>().</p>
+<p><b>参见</b><a href="qdtls.html#setDtlsConfiguration">setDtlsConfiguration</a>(), <a href="qsslconfiguration.html">QSslConfiguration</a>, <a href="qsslconfiguration.html#defaultDtlsConfiguration">QSslConfiguration::defaultDtlsConfiguration</a>(), and <a href="qsslconfiguration.html#setProtocol">QSslConfiguration::setProtocol</a>().</p>
 <!-- @@@sessionProtocol -->
 <!-- $$$setCookieGeneratorParameters[overload1]$$$setCookieGeneratorParametersconstQDtls::GeneratorParameters& -->
 <h3 class="fn" id="setCookieGeneratorParameters"><a name="setCookieGeneratorParameters"></a><span class="type">bool</span> QDtls::<span class="name">setCookieGeneratorParameters</span>(const <span class="type"><a href="qdtls.html#GeneratorParameters-typedef">QDtls::GeneratorParameters</a></span> &amp;<i>params</i>)</h3>
 <p>Sets the cryptographic hash algorithm and the secret from <i>params</i>. This function is only needed for a server-side <a href="qdtls.html">QDtls</a> connection. Returns <code>true</code> if successful.</p>
-<p><b>Note: </b>This function must be called before the handshake starts.</p><p><b>See also </b><a href="qdtls.html#cookieGeneratorParameters">cookieGeneratorParameters</a>(), <a href="qdtls.html#doHandshake">doHandshake</a>(), <a href="qdtlsclientverifier.html">QDtlsClientVerifier</a>, and <a href="qdtlsclientverifier.html#cookieGeneratorParameters">QDtlsClientVerifier::cookieGeneratorParameters</a>().</p>
+<p><b>Note: </b>This function must be called before the handshake starts.</p><p><b>参见</b><a href="qdtls.html#cookieGeneratorParameters">cookieGeneratorParameters</a>(), <a href="qdtls.html#doHandshake">doHandshake</a>(), <a href="qdtlsclientverifier.html">QDtlsClientVerifier</a>, and <a href="qdtlsclientverifier.html#cookieGeneratorParameters">QDtlsClientVerifier::cookieGeneratorParameters</a>().</p>
 <!-- @@@setCookieGeneratorParameters -->
 <!-- $$$setDtlsConfiguration[overload1]$$$setDtlsConfigurationconstQSslConfiguration& -->
 <h3 class="fn" id="setDtlsConfiguration"><a name="setDtlsConfiguration"></a><span class="type">bool</span> QDtls::<span class="name">setDtlsConfiguration</span>(const <span class="type"><a href="qsslconfiguration.html">QSslConfiguration</a></span> &amp;<i>configuration</i>)</h3>
 <p>Sets the connection's TLS configuration from <i>configuration</i> and returns <code>true</code> if successful.</p>
-<p><b>Note: </b>This function must be called before the handshake starts.</p><p><b>See also </b><a href="qdtls.html#dtlsConfiguration">dtlsConfiguration</a>() and <a href="qdtls.html#doHandshake">doHandshake</a>().</p>
+<p><b>Note: </b>This function must be called before the handshake starts.</p><p><b>参见</b><a href="qdtls.html#dtlsConfiguration">dtlsConfiguration</a>() and <a href="qdtls.html#doHandshake">doHandshake</a>().</p>
 <!-- @@@setDtlsConfiguration -->
 <!-- $$$setMtuHint[overload1]$$$setMtuHintquint16 -->
 <h3 class="fn" id="setMtuHint"><a name="setMtuHint"></a><span class="type">void</span> QDtls::<span class="name">setMtuHint</span>(<span class="type"><a href="../qtcore/qtglobal.html#quint16-typedef">quint16</a></span> <i>mtuHint</i>)</h3>
 <p><i>mtuHint</i> is the maximum transmission unit (MTU), either discovered or guessed by the application. The application is not required to set this value.</p>
-<p><b>See also </b><a href="qdtls.html#mtuHint">mtuHint</a>() and <a href="qabstractsocket.html#SocketOption-enum">QAbstractSocket::PathMtuSocketOption</a>.</p>
+<p><b>参见</b><a href="qdtls.html#mtuHint">mtuHint</a>() and <a href="qabstractsocket.html#SocketOption-enum">QAbstractSocket::PathMtuSocketOption</a>.</p>
 <!-- @@@setMtuHint -->
 <!-- $$$setPeer[overload1]$$$setPeerconstQHostAddress&quint16constQString& -->
 <h3 class="fn" id="setPeer"><a name="setPeer"></a><span class="type">bool</span> QDtls::<span class="name">setPeer</span>(const <span class="type"><a href="qhostaddress.html">QHostAddress</a></span> &amp;<i>address</i>, <span class="type"><a href="../qtcore/qtglobal.html#quint16-typedef">quint16</a></span> <i>port</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>verificationName</i> = {})</h3>
 <p>Sets the peer's address, <i>port</i>, and host name and returns <code>true</code> if successful. <i>address</i> must not be null, multicast, or broadcast. <i>verificationName</i> is the host name used for the certificate validation.</p>
-<p><b>See also </b><a href="qdtls.html#peerAddress">peerAddress</a>(), <a href="qdtls.html#peerPort">peerPort</a>(), and <a href="qdtls.html#peerVerificationName">peerVerificationName</a>().</p>
+<p><b>参见</b><a href="qdtls.html#peerAddress">peerAddress</a>(), <a href="qdtls.html#peerPort">peerPort</a>(), and <a href="qdtls.html#peerVerificationName">peerVerificationName</a>().</p>
 <!-- @@@setPeer -->
 <!-- $$$setPeerVerificationName[overload1]$$$setPeerVerificationNameconstQString& -->
 <h3 class="fn" id="setPeerVerificationName"><a name="setPeerVerificationName"></a><span class="type">bool</span> QDtls::<span class="name">setPeerVerificationName</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>name</i>)</h3>
 <p>Sets the host <i>name</i> that will be used for the certificate validation and returns <code>true</code> if successful.</p>
-<p><b>Note: </b>This function must be called before the handshake starts.</p><p><b>See also </b><a href="qdtls.html#peerVerificationName">peerVerificationName</a>() and <a href="qdtls.html#setPeer">setPeer</a>().</p>
+<p><b>Note: </b>This function must be called before the handshake starts.</p><p><b>参见</b><a href="qdtls.html#peerVerificationName">peerVerificationName</a>() and <a href="qdtls.html#setPeer">setPeer</a>().</p>
 <!-- @@@setPeerVerificationName -->
 <!-- $$$shutdown[overload1]$$$shutdownQUdpSocket* -->
 <h3 class="fn" id="shutdown"><a name="shutdown"></a><span class="type">bool</span> QDtls::<span class="name">shutdown</span>(<span class="type"><a href="qudpsocket.html">QUdpSocket</a></span> *<i>socket</i>)</h3>
 <p>Sends an encrypted shutdown alert message and closes the DTLS connection. Handshake state changes to <a href="qdtls.html#HandshakeState-enum">QDtls::HandshakeNotStarted</a>. <i>socket</i> must be a valid pointer. This function returns <code>true</code> on success.</p>
-<p><b>See also </b><a href="qdtls.html#doHandshake">doHandshake</a>().</p>
+<p><b>参见</b><a href="qdtls.html#doHandshake">doHandshake</a>().</p>
 <!-- @@@shutdown -->
 <!-- $$$sslMode[overload1]$$$sslMode -->
 <h3 class="fn" id="sslMode"><a name="sslMode"></a><span class="type"><a href="qsslsocket.html#SslMode-enum">QSslSocket::SslMode</a></span> QDtls::<span class="name">sslMode</span>() const</h3>
 <p>Returns <a href="qsslsocket.html#SslMode-enum">QSslSocket::SslServerMode</a> for a server-side connection and <a href="qsslsocket.html#SslMode-enum">QSslSocket::SslClientMode</a> for a client.</p>
-<p><b>See also </b><a href="qdtls.html#QDtls">QDtls</a>() and <a href="qsslsocket.html#SslMode-enum">QSslSocket::SslMode</a>.</p>
+<p><b>参见</b><a href="qdtls.html#QDtls">QDtls</a>() and <a href="qsslsocket.html#SslMode-enum">QSslSocket::SslMode</a>.</p>
 <!-- @@@sslMode -->
 <!-- $$$writeDatagramEncrypted[overload1]$$$writeDatagramEncryptedQUdpSocket*constQByteArray& -->
 <h3 class="fn" id="writeDatagramEncrypted"><a name="writeDatagramEncrypted"></a><span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> QDtls::<span class="name">writeDatagramEncrypted</span>(<span class="type"><a href="qudpsocket.html">QUdpSocket</a></span> *<i>socket</i>, const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>dgram</i>)</h3>
 <p>Encrypts <i>dgram</i> and writes the encrypted data into <i>socket</i>. Returns the number of bytes written, or -1 in case of error. The handshake must be completed before writing encrypted data. <i>socket</i> must be a valid pointer.</p>
-<p><b>See also </b><a href="qdtls.html#doHandshake">doHandshake</a>(), <a href="qdtls.html#handshakeState">handshakeState</a>(), <a href="qdtls.html#isConnectionEncrypted">isConnectionEncrypted</a>(), and <a href="qdtls.html#dtlsError">dtlsError</a>().</p>
+<p><b>参见</b><a href="qdtls.html#doHandshake">doHandshake</a>(), <a href="qdtls.html#handshakeState">handshakeState</a>(), <a href="qdtls.html#isConnectionEncrypted">isConnectionEncrypted</a>(), and <a href="qdtls.html#dtlsError">dtlsError</a>().</p>
 <!-- @@@writeDatagramEncrypted -->
 </div>
 <div class="vars">

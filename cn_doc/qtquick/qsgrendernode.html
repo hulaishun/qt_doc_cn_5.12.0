@@ -101,7 +101,7 @@
 <tr><td class="topAlign"><code>QSGRenderNode::OpaqueRendering</code></td><td class="topAlign tblval"><code>0x04</code></td><td class="topAlign">Indicates that the implementation of <a href="qsgrendernode.html#render">render</a>() writes out opaque pixels for the entire area reported from <a href="qsgrendernode.html#rect">rect</a>(). By default the renderers must assume that <a href="qsgrendernode.html#render">render</a>() can also output semi or fully transparent pixels. Setting this flag can improve performance in some cases.</td></tr>
 </table></div>
 <p>The RenderingFlags type is a typedef for <a href="../qtcore/qflags.html">QFlags</a>&lt;RenderingFlag&gt;. It stores an OR combination of RenderingFlag values.</p>
-<p><b>See also </b><a href="qsgrendernode.html#render">render</a>() and <a href="qsgrendernode.html#rect">rect</a>().</p>
+<p><b>参见</b><a href="qsgrendernode.html#render">render</a>() and <a href="qsgrendernode.html#rect">rect</a>().</p>
 <!-- @@@RenderingFlag -->
 <!-- $$$StateFlag$$$DepthState$$$StencilState$$$ScissorState$$$ColorState$$$BlendState$$$CullState$$$ViewportState$$$RenderTargetState -->
 <h3 class="flags" id="StateFlag-enum"><a name="StateFlag-enum"></a>enum QSGRenderNode::<span class="name">StateFlag</span><br/>flags QSGRenderNode::<span class="name">StateFlags</span></h3>
@@ -131,7 +131,7 @@
 <h3 class="fn" id="dtor.QSGRenderNode"><a name="dtor.QSGRenderNode"></a><code>[override virtual] </code>QSGRenderNode::<span class="name">~QSGRenderNode</span>()</h3>
 <p>Destructs the render node. Derived classes are expected to perform cleanup similar to <a href="qsgrendernode.html#releaseResources">releaseResources</a>() in here.</p>
 <p>When a low-level graphics API is in use, the scenegraph will make sure there is a CPU-side wait for the GPU to complete all work submitted to the scenegraph's graphics command queue before the scenegraph's nodes are deleted. Therefore there is no need to issue additional waits here, unless the <a href="qsgrendernode.html#render">render</a>() implementation is using additional command queues.</p>
-<p><b>See also </b><a href="qsgrendernode.html#releaseResources">releaseResources</a>().</p>
+<p><b>参见</b><a href="qsgrendernode.html#releaseResources">releaseResources</a>().</p>
 <!-- @@@~QSGRenderNode -->
 <!-- $$$changedStates[overload1]$$$changedStates -->
 <h3 class="fn" id="changedStates"><a name="changedStates"></a><code>[virtual] </code><span class="type"><a href="qsgrendernode.html#StateFlag-enum">QSGRenderNode::StateFlags</a></span> QSGRenderNode::<span class="name">changedStates</span>() const</h3>
@@ -159,7 +159,7 @@
 <h3 class="fn" id="flags"><a name="flags"></a><code>[virtual] </code><span class="type"><a href="qsgrendernode.html#RenderingFlag-enum">QSGRenderNode::RenderingFlags</a></span> QSGRenderNode::<span class="name">flags</span>() const</h3>
 <p>Returns flags describing the behavior of this render node.</p>
 <p>The default implementation returns 0.</p>
-<p><b>See also </b><a href="qsgrendernode.html#RenderingFlag-enum">RenderingFlag</a> and <a href="qsgrendernode.html#rect">rect</a>().</p>
+<p><b>参见</b><a href="qsgrendernode.html#RenderingFlag-enum">RenderingFlag</a> and <a href="qsgrendernode.html#rect">rect</a>().</p>
 <!-- @@@flags -->
 <!-- $$$inheritedOpacity[overload1]$$$inheritedOpacity -->
 <h3 class="fn" id="inheritedOpacity"><a name="inheritedOpacity"></a><span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> QSGRenderNode::<span class="name">inheritedOpacity</span>() const</h3>
@@ -174,7 +174,7 @@
 <p>Returns the bounding rectangle in item coordinates for the area <a href="qsgrendernode.html#render">render</a>() touches. The value is only in use when <a href="qsgrendernode.html#flags">flags</a>() includes <a href="qsgrendernode.html#RenderingFlag-enum">BoundedRectRendering</a>, ignored otherwise.</p>
 <p>Reporting the rectangle in combination with <a href="qsgrendernode.html#RenderingFlag-enum">BoundedRectRendering</a> is particularly important with the <code>software</code> backend because otherwise having a rendernode in the scene would trigger fullscreen updates, skipping all partial update optimizations.</p>
 <p>For rendernodes covering the entire area of a corresponding <a href="qquickitem.html">QQuickItem</a> the return value will be (0, 0, item-&gt;width(), item-&gt;height()).</p>
-<p><b>Note: </b>Nodes are also free to render outside the boundaries specified by the item's width and height, since the scenegraph nodes are not bounded by the <a href="qquickitem.html">QQuickItem</a> geometry, as long as this is reported correctly from this function.</p><p><b>See also </b><a href="qsgrendernode.html#flags">flags</a>().</p>
+<p><b>Note: </b>Nodes are also free to render outside the boundaries specified by the item's width and height, since the scenegraph nodes are not bounded by the <a href="qquickitem.html">QQuickItem</a> geometry, as long as this is reported correctly from this function.</p><p><b>参见</b><a href="qsgrendernode.html#flags">flags</a>().</p>
 <!-- @@@rect -->
 <!-- $$$releaseResources[overload1]$$$releaseResources -->
 <h3 class="fn" id="releaseResources"><a name="releaseResources"></a><code>[virtual] </code><span class="type">void</span> QSGRenderNode::<span class="name">releaseResources</span>()</h3>
@@ -203,7 +203,7 @@
 <p>States that are not listed above, but are included in <a href="qsgrendernode.html#StateFlag-enum">StateFlags</a>, can have arbitrary values.</p>
 <p><a href="qsgrendernode.html#changedStates">changedStates</a>() should return which states this function changes. If a state is not covered by <a href="qsgrendernode.html#StateFlag-enum">StateFlags</a>, the state should be set to the default value according to the OpenGL specification. For other APIs, see the documentation for <a href="qsgrendernode.html#changedStates">changedStates</a>() for more information.</p>
 <p><b>Note: </b>Depth writes are disabled when this function is called (for example, glDepthMask(false) in case of OpenGL). Enabling depth writes can lead to unexpected results, depending on the scenegraph backend in use, so nodes should avoid this.</p><p>For APIs other than OpenGL, it will likely be necessary to query certain API-specific resources (for example, the graphics device or the command list/buffer to add the commands to). This is done via <a href="qsgrendererinterface.html">QSGRendererInterface</a>.</p>
-<p><b>See also </b><a href="qsgrendererinterface.html">QSGRendererInterface</a> and <a href="qquickwindow.html#rendererInterface">QQuickWindow::rendererInterface</a>().</p>
+<p><b>参见</b><a href="qsgrendererinterface.html">QSGRendererInterface</a> and <a href="qquickwindow.html#rendererInterface">QQuickWindow::rendererInterface</a>().</p>
 <!-- @@@render -->
 </div>
 <div class="vars">

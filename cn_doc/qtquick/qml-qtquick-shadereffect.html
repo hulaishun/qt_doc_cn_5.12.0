@@ -393,7 +393,7 @@
 <h2 id="other-notes">Other Notes</h2>
 <p>By default, the <a href="qml-qtquick-shadereffect.html">ShaderEffect</a> consists of four vertices, one for each corner. For non-linear vertex transformations, like page curl, you can specify a fine grid of vertices by specifying a <a href="qml-qtquick-shadereffect.html#mesh-prop">mesh</a> resolution.</p>
 <p>The <a href="../qtgraphicaleffects/qtgraphicaleffects-index.html">Qt Graphical Effects</a> module contains several ready-made effects for using with Qt Quick applications.</p>
-<p><b>See also </b><a href="qml-qtquick-item.html#item-layers">Item Layers</a>.</p>
+<p><b>参见</b><a href="qml-qtquick-item.html#item-layers">Item Layers</a>.</p>
 <!-- @@@ShaderEffect -->
 <h2>属性文档</h2>
 <!-- $$$blending -->
@@ -431,7 +431,7 @@
 </table></div>
 </div><div class="qmldoc"><p>This property holds the fragment (pixel) shader's source code or a reference to the pre-compiled bytecode. Some APIs, like OpenGL, always support runtime compilation and therefore the traditional Qt Quick way of inlining shader source strings is functional. Qt Quick backends for other APIs may however limit support to pre-compiled bytecode like SPIR-V or D3D shader bytecode. There the string is simply a filename, which may be a file in the filesystem or bundled with the executable via Qt's resource system.</p>
 <p>With GLSL the default shader expects the texture coordinate to be passed from the vertex shader as <code>varying highp vec2 qt_TexCoord0</code>, and it samples from a sampler2D named <code>source</code>. With HLSL the texture is named <code>source</code>, while the vertex shader is expected to provide <code>float2 coord : TEXCOORD0</code> in its output in addition to <code>float4 position : SV_POSITION</code> (names can differ since linking is done based on the semantics).</p>
-<p><b>See also </b><a href="qml-qtquick-shadereffect.html#vertexShader-prop">vertexShader</a> and <a href="qml-qtquick-graphicsinfo.html">GraphicsInfo</a>.</p>
+<p><b>参见</b><a href="qml-qtquick-shadereffect.html#vertexShader-prop">vertexShader</a> and <a href="qml-qtquick-graphicsinfo.html">GraphicsInfo</a>.</p>
 </div></div><!-- @@@fragmentShader -->
 <br/>
 <!-- $$$log -->
@@ -442,7 +442,7 @@
 <a name="log-prop"></a><span class="name">log</span> : <span class="type"><a href="../qtqml/qml-string.html">string</a></span></p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>This property holds a log of warnings and errors from the latest attempt at compiling and linking the OpenGL shader program. It is updated at the same time <a href="qml-qtquick-shadereffect.html#status-prop">status</a> is set to Compiled or Error.</p>
-<p><b>See also </b><a href="qml-qtquick-shadereffect.html#status-prop">status</a>.</p>
+<p><b>参见</b><a href="qml-qtquick-shadereffect.html#status-prop">status</a>.</p>
 </div></div><!-- @@@log -->
 <br/>
 <!-- $$$mesh -->
@@ -453,7 +453,7 @@
 <a name="mesh-prop"></a><span class="name">mesh</span> : <span class="type"><a href="../qtqml/qml-variant.html">variant</a></span></p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>This property defines the mesh used to draw the <a href="qml-qtquick-shadereffect.html">ShaderEffect</a>. It can hold any <a href="qml-qtquick-gridmesh.html">GridMesh</a> object. If a size value is assigned to this property, the <a href="qml-qtquick-shadereffect.html">ShaderEffect</a> implicitly uses a <a href="qml-qtquick-gridmesh.html">GridMesh</a> with the value as <a href="qml-qtquick-gridmesh.html#resolution-prop">mesh resolution</a>. By default, this property is the size 1x1.</p>
-<p><b>See also </b><a href="qml-qtquick-gridmesh.html">GridMesh</a>.</p>
+<p><b>参见</b><a href="qml-qtquick-gridmesh.html">GridMesh</a>.</p>
 </div></div><!-- @@@mesh -->
 <br/>
 <!-- $$$status -->
@@ -471,7 +471,7 @@
 </ul>
 <p>When setting the fragment or vertex shader source code, the status will become Uncompiled. The first time the <a href="qml-qtquick-shadereffect.html">ShaderEffect</a> is rendered with new shader source code, the shaders are compiled and linked, and the status is updated to Compiled or Error.</p>
 <p>When runtime compilation is not in use and the shader properties refer to files with bytecode, the status is always Compiled. The contents of the shader is not examined (apart from basic reflection to discover vertex input elements and constant buffer data) until later in the rendering pipeline so potential errors (like layout or root signature mismatches) will only be detected at a later point.</p>
-<p><b>See also </b><a href="qml-qtquick-shadereffect.html#log-prop">log</a>.</p>
+<p><b>参见</b><a href="qml-qtquick-shadereffect.html#log-prop">log</a>.</p>
 </div></div><!-- @@@status -->
 <br/>
 <!-- $$$supportsAtlasTextures -->
@@ -496,7 +496,7 @@
 </table></div>
 </div><div class="qmldoc"><p>This property holds the vertex shader's source code or a reference to the pre-compiled bytecode. Some APIs, like OpenGL, always support runtime compilation and therefore the traditional Qt Quick way of inlining shader source strings is functional. Qt Quick backends for other APIs may however limit support to pre-compiled bytecode like SPIR-V or D3D shader bytecode. There the string is simply a filename, which may be a file in the filesystem or bundled with the executable via Qt's resource system.</p>
 <p>With GLSL the default shader passes the texture coordinate along to the fragment shader as <code>varying highp vec2 qt_TexCoord0</code>. With HLSL it is enough to use the standard <code>TEXCOORD0</code> semantic, for example <code>float2 coord : TEXCOORD0</code>.</p>
-<p><b>See also </b><a href="qml-qtquick-shadereffect.html#fragmentShader-prop">fragmentShader</a> and <a href="qml-qtquick-graphicsinfo.html">GraphicsInfo</a>.</p>
+<p><b>参见</b><a href="qml-qtquick-shadereffect.html#fragmentShader-prop">fragmentShader</a> and <a href="qml-qtquick-graphicsinfo.html">GraphicsInfo</a>.</p>
 </div></div><!-- @@@vertexShader -->
 <br/>
         </div>

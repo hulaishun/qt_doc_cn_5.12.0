@@ -105,7 +105,7 @@
 <p>To look up objects in the cache, use <a href="qcache.html#object">object</a>() or operator[](). This function looks up an object by its key, and returns either a pointer to the cached object (which is owned by the cache) or 0.</p>
 <p>If you want to remove an object from the cache for a particular key, call <a href="qcache.html#remove">remove</a>(). This will also delete the object. If you want to remove an object from the cache without the <a href="qcache.html">QCache</a> deleting it, use <a href="qcache.html#take">take</a>().</p>
 </div>
-<p><b>See also </b><a href="../qtgui/qpixmapcache.html">QPixmapCache</a>, <a href="qhash.html#qhash">QHash</a>, and <a href="qmap.html">QMap</a>.</p>
+<p><b>参见</b><a href="../qtgui/qpixmapcache.html">QPixmapCache</a>, <a href="qhash.html#qhash">QHash</a>, and <a href="qmap.html">QMap</a>.</p>
 <!-- @@@QCache -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -126,12 +126,12 @@
 <!-- $$$clear[overload1]$$$clear -->
 <h3 class="fn" id="clear"><a name="clear"></a><span class="type">void</span> QCache::<span class="name">clear</span>()</h3>
 <p>Deletes all the objects in the cache.</p>
-<p><b>See also </b><a href="qcache.html#remove">remove</a>() and <a href="qcache.html#take">take</a>().</p>
+<p><b>参见</b><a href="qcache.html#remove">remove</a>() and <a href="qcache.html#take">take</a>().</p>
 <!-- @@@clear -->
 <!-- $$$contains[overload1]$$$containsconstKey& -->
 <h3 class="fn" id="contains"><a name="contains"></a><span class="type">bool</span> QCache::<span class="name">contains</span>(const <span class="type">Key</span> &amp;<i>key</i>) const</h3>
 <p>Returns <code>true</code> if the cache contains an object associated with key <i>key</i>; otherwise returns <code>false</code>.</p>
-<p><b>See also </b><a href="qcache.html#take">take</a>() and <a href="qcache.html#remove">remove</a>().</p>
+<p><b>参见</b><a href="qcache.html#take">take</a>() and <a href="qcache.html#remove">remove</a>().</p>
 <!-- @@@contains -->
 <!-- $$$count[overload1]$$$count -->
 <h3 class="fn" id="count"><a name="count"></a><span class="type">int</span> QCache::<span class="name">count</span>() const</h3>
@@ -142,12 +142,12 @@
 <p>Inserts <i>object</i> into the cache with key <i>key</i> and associated cost <i>cost</i>. Any object with the same key already in the cache will be removed.</p>
 <p>After this call, <i>object</i> is owned by the <a href="qcache.html">QCache</a> and may be deleted at any time. In particular, if <i>cost</i> is greater than <a href="qcache.html#maxCost">maxCost</a>(), the object will be deleted immediately.</p>
 <p>The function returns <code>true</code> if the object was inserted into the cache; otherwise it returns <code>false</code>.</p>
-<p><b>See also </b><a href="qcache.html#take">take</a>() and <a href="qcache.html#remove">remove</a>().</p>
+<p><b>参见</b><a href="qcache.html#take">take</a>() and <a href="qcache.html#remove">remove</a>().</p>
 <!-- @@@insert -->
 <!-- $$$isEmpty[overload1]$$$isEmpty -->
 <h3 class="fn" id="isEmpty"><a name="isEmpty"></a><span class="type">bool</span> QCache::<span class="name">isEmpty</span>() const</h3>
 <p>Returns <code>true</code> if the cache contains no objects; otherwise returns <code>false</code>.</p>
-<p><b>See also </b><a href="qcache.html#size">size</a>().</p>
+<p><b>参见</b><a href="qcache.html#size">size</a>().</p>
 <!-- @@@isEmpty -->
 <!-- $$$keys[overload1]$$$keys -->
 <h3 class="fn" id="keys"><a name="keys"></a><span class="type"><a href="qlist.html">QList</a></span>&lt;<span class="type">Key</span>&gt; QCache::<span class="name">keys</span>() const</h3>
@@ -156,40 +156,40 @@
 <!-- $$$maxCost[overload1]$$$maxCost -->
 <h3 class="fn" id="maxCost"><a name="maxCost"></a><span class="type">int</span> QCache::<span class="name">maxCost</span>() const</h3>
 <p>Returns the maximum allowed total cost of the cache.</p>
-<p><b>See also </b><a href="qcache.html#setMaxCost">setMaxCost</a>() and <a href="qcache.html#totalCost">totalCost</a>().</p>
+<p><b>参见</b><a href="qcache.html#setMaxCost">setMaxCost</a>() and <a href="qcache.html#totalCost">totalCost</a>().</p>
 <!-- @@@maxCost -->
 <!-- $$$object[overload1]$$$objectconstKey& -->
 <h3 class="fn" id="object"><a name="object"></a><span class="type">T</span> *QCache::<span class="name">object</span>(const <span class="type">Key</span> &amp;<i>key</i>) const</h3>
 <p>Returns the object associated with key <i>key</i>, or 0 if the key does not exist in the cache.</p>
 <p><b>Warning:</b> The returned object is owned by <a href="qcache.html">QCache</a> and may be deleted at any time.</p>
-<p><b>See also </b><a href="qcache.html#take">take</a>() and <a href="qcache.html#remove">remove</a>().</p>
+<p><b>参见</b><a href="qcache.html#take">take</a>() and <a href="qcache.html#remove">remove</a>().</p>
 <!-- @@@object -->
 <!-- $$$remove[overload1]$$$removeconstKey& -->
 <h3 class="fn" id="remove"><a name="remove"></a><span class="type">bool</span> QCache::<span class="name">remove</span>(const <span class="type">Key</span> &amp;<i>key</i>)</h3>
 <p>Deletes the object associated with key <i>key</i>. Returns <code>true</code> if the object was found in the cache; otherwise returns <code>false</code>.</p>
-<p><b>See also </b><a href="qcache.html#take">take</a>() and <a href="qcache.html#clear">clear</a>().</p>
+<p><b>参见</b><a href="qcache.html#take">take</a>() and <a href="qcache.html#clear">clear</a>().</p>
 <!-- @@@remove -->
 <!-- $$$setMaxCost[overload1]$$$setMaxCostint -->
 <h3 class="fn" id="setMaxCost"><a name="setMaxCost"></a><span class="type">void</span> QCache::<span class="name">setMaxCost</span>(<span class="type">int</span> <i>cost</i>)</h3>
 <p>Sets the maximum allowed total cost of the cache to <i>cost</i>. If the current total cost is greater than <i>cost</i>, some objects are deleted immediately.</p>
-<p><b>See also </b><a href="qcache.html#maxCost">maxCost</a>() and <a href="qcache.html#totalCost">totalCost</a>().</p>
+<p><b>参见</b><a href="qcache.html#maxCost">maxCost</a>() and <a href="qcache.html#totalCost">totalCost</a>().</p>
 <!-- @@@setMaxCost -->
 <!-- $$$size[overload1]$$$size -->
 <h3 class="fn" id="size"><a name="size"></a><span class="type">int</span> QCache::<span class="name">size</span>() const</h3>
 <p>Returns the number of objects in the cache.</p>
-<p><b>See also </b><a href="qcache.html#isEmpty">isEmpty</a>().</p>
+<p><b>参见</b><a href="qcache.html#isEmpty">isEmpty</a>().</p>
 <!-- @@@size -->
 <!-- $$$take[overload1]$$$takeconstKey& -->
 <h3 class="fn" id="take"><a name="take"></a><span class="type">T</span> *QCache::<span class="name">take</span>(const <span class="type">Key</span> &amp;<i>key</i>)</h3>
 <p>Takes the object associated with key <i>key</i> out of the cache without deleting it. Returns a pointer to the object taken out, or 0 if the key does not exist in the cache.</p>
 <p>The ownership of the returned object is passed to the caller.</p>
-<p><b>See also </b><a href="qcache.html#remove">remove</a>().</p>
+<p><b>参见</b><a href="qcache.html#remove">remove</a>().</p>
 <!-- @@@take -->
 <!-- $$$totalCost[overload1]$$$totalCost -->
 <h3 class="fn" id="totalCost"><a name="totalCost"></a><span class="type">int</span> QCache::<span class="name">totalCost</span>() const</h3>
 <p>Returns the total cost of the objects in the cache.</p>
 <p>This value is normally below <a href="qcache.html#maxCost">maxCost</a>(), but <a href="qcache.html">QCache</a> makes an exception for Qt's <a href="implicit-sharing.html">implicitly shared</a> classes. If a cached object shares its internal data with another instance, <a href="qcache.html">QCache</a> may keep the object lying around, possibly contributing to making totalCost() larger than <a href="qcache.html#maxCost">maxCost</a>().</p>
-<p><b>See also </b><a href="qcache.html#setMaxCost">setMaxCost</a>().</p>
+<p><b>参见</b><a href="qcache.html#setMaxCost">setMaxCost</a>().</p>
 <!-- @@@totalCost -->
 <!-- $$$operator[][overload1]$$$operator[]constKey& -->
 <h3 class="fn" id="operator-5b-5d"><a name="operator-5b-5d"></a><span class="type">T</span> *QCache::<span class="name">operator[]</span>(const <span class="type">Key</span> &amp;<i>key</i>) const</h3>

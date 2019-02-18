@@ -113,7 +113,7 @@
 <!-- $$$QLockFile[overload1]$$$QLockFileconstQString& -->
 <h3 class="fn" id="QLockFile"><a name="QLockFile"></a>QLockFile::<span class="name">QLockFile</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>)</h3>
 <p>Constructs a new lock file object. The object is created in an unlocked state. When calling <a href="qlockfile.html#lock">lock</a>() or <a href="qlockfile.html#tryLock">tryLock</a>(), a lock file named <i>fileName</i> will be created, if it doesn't already exist.</p>
-<p><b>See also </b><a href="qlockfile.html#lock">lock</a>() and <a href="qlockfile.html#unlock">unlock</a>().</p>
+<p><b>参见</b><a href="qlockfile.html#lock">lock</a>() and <a href="qlockfile.html#unlock">unlock</a>().</p>
 <!-- @@@QLockFile -->
 <!-- $$$~QLockFile[overload1]$$$~QLockFile -->
 <h3 class="fn" id="dtor.QLockFile"><a name="dtor.QLockFile"></a>QLockFile::<span class="name">~QLockFile</span>()</h3>
@@ -140,7 +140,7 @@
 <!-- $$$isLocked[overload1]$$$isLocked -->
 <h3 class="fn" id="isLocked"><a name="isLocked"></a><span class="type">bool</span> QLockFile::<span class="name">isLocked</span>() const</h3>
 <p>Returns <code>true</code> if the lock was acquired by this <a href="qlockfile.html">QLockFile</a> instance, otherwise returns <code>false</code>.</p>
-<p><b>See also </b><a href="qlockfile.html#lock">lock</a>(), <a href="qlockfile.html#unlock">unlock</a>(), and <a href="qlockfile.html#tryLock">tryLock</a>().</p>
+<p><b>参见</b><a href="qlockfile.html#lock">lock</a>(), <a href="qlockfile.html#unlock">unlock</a>(), and <a href="qlockfile.html#tryLock">tryLock</a>().</p>
 <!-- @@@isLocked -->
 <!-- $$$lock[overload1]$$$lock -->
 <h3 class="fn" id="lock"><a name="lock"></a><span class="type">bool</span> QLockFile::<span class="name">lock</span>()</h3>
@@ -148,7 +148,7 @@
 <p>If another process (or another thread) has created the lock file already, this function will block until that process (or thread) releases it.</p>
 <p>Calling this function multiple times on the same lock from the same thread without unlocking first is not allowed. This function will <i>dead-lock</i> when the file is locked recursively.</p>
 <p>Returns <code>true</code> if the lock was acquired, false if it could not be acquired due to an unrecoverable error, such as no permissions in the parent directory.</p>
-<p><b>See also </b><a href="qlockfile.html#unlock">unlock</a>() and <a href="qlockfile.html#tryLock">tryLock</a>().</p>
+<p><b>参见</b><a href="qlockfile.html#unlock">unlock</a>() and <a href="qlockfile.html#tryLock">tryLock</a>().</p>
 <!-- @@@lock -->
 <!-- $$$removeStaleLockFile[overload1]$$$removeStaleLockFile -->
 <h3 class="fn" id="removeStaleLockFile"><a name="removeStaleLockFile"></a><span class="type">bool</span> QLockFile::<span class="name">removeStaleLockFile</span>()</h3>
@@ -161,12 +161,12 @@
 <h3 class="fn" id="setStaleLockTime"><a name="setStaleLockTime"></a><span class="type">void</span> QLockFile::<span class="name">setStaleLockTime</span>(<span class="type">int</span> <i>staleLockTime</i>)</h3>
 <p>Sets <i>staleLockTime</i> to be the time in milliseconds after which a lock file is considered stale. The default value is 30000, i.e&#x2e; 30 seconds. If your application typically keeps the file locked for more than 30 seconds (for instance while saving megabytes of data for 2 minutes), you should set a bigger value using setStaleLockTime().</p>
 <p>The value of <i>staleLockTime</i> is used by <a href="qlockfile.html#lock">lock</a>() and <a href="qlockfile.html#tryLock">tryLock</a>() in order to determine when an existing lock file is considered stale, i.e&#x2e; left over by a crashed process. This is useful for the case where the PID got reused meanwhile, so one way to detect a stale lock file is by the fact that it has been around for a long time.</p>
-<p><b>See also </b><a href="qlockfile.html#staleLockTime">staleLockTime</a>().</p>
+<p><b>参见</b><a href="qlockfile.html#staleLockTime">staleLockTime</a>().</p>
 <!-- @@@setStaleLockTime -->
 <!-- $$$staleLockTime[overload1]$$$staleLockTime -->
 <h3 class="fn" id="staleLockTime"><a name="staleLockTime"></a><span class="type">int</span> QLockFile::<span class="name">staleLockTime</span>() const</h3>
 <p>Returns the time in milliseconds after which a lock file is considered stale.</p>
-<p><b>See also </b><a href="qlockfile.html#setStaleLockTime">setStaleLockTime</a>().</p>
+<p><b>参见</b><a href="qlockfile.html#setStaleLockTime">setStaleLockTime</a>().</p>
 <!-- @@@staleLockTime -->
 <!-- $$$tryLock[overload1]$$$tryLockint -->
 <h3 class="fn" id="tryLock"><a name="tryLock"></a><span class="type">bool</span> QLockFile::<span class="name">tryLock</span>(<span class="type">int</span> <i>timeout</i> = 0)</h3>
@@ -174,13 +174,13 @@
 <p>Note: Passing a negative number as the <i>timeout</i> is equivalent to calling <a href="qlockfile.html#lock">lock</a>(), i.e&#x2e; this function will wait forever until the lock file can be locked if <i>timeout</i> is negative.</p>
 <p>If the lock was obtained, it must be released with <a href="qlockfile.html#unlock">unlock</a>() before another process (or thread) can successfully lock it.</p>
 <p>Calling this function multiple times on the same lock from the same thread without unlocking first is not allowed, this function will <i>always</i> return false when attempting to lock the file recursively.</p>
-<p><b>See also </b><a href="qlockfile.html#lock">lock</a>() and <a href="qlockfile.html#unlock">unlock</a>().</p>
+<p><b>参见</b><a href="qlockfile.html#lock">lock</a>() and <a href="qlockfile.html#unlock">unlock</a>().</p>
 <!-- @@@tryLock -->
 <!-- $$$unlock[overload1]$$$unlock -->
 <h3 class="fn" id="unlock"><a name="unlock"></a><span class="type">void</span> QLockFile::<span class="name">unlock</span>()</h3>
 <p>Releases the lock, by deleting the lock file.</p>
 <p>Calling unlock() without locking the file first, does nothing.</p>
-<p><b>See also </b><a href="qlockfile.html#lock">lock</a>() and <a href="qlockfile.html#tryLock">tryLock</a>().</p>
+<p><b>参见</b><a href="qlockfile.html#lock">lock</a>() and <a href="qlockfile.html#tryLock">tryLock</a>().</p>
 <!-- @@@unlock -->
 </div>
 <div class="vars">

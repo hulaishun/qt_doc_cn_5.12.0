@@ -179,7 +179,7 @@
 </table></div>
 <p>This enum was introduced or modified in  Qt 5.8.</p>
 <p>The DiscoveryMethods type is a typedef for <a href="../qtcore/qflags.html">QFlags</a>&lt;DiscoveryMethod&gt;. It stores an OR combination of DiscoveryMethod values.</p>
-<p><b>See also </b><a href="qbluetoothdevicediscoveryagent.html#supportedDiscoveryMethods">supportedDiscoveryMethods</a>().</p>
+<p><b>参见</b><a href="qbluetoothdevicediscoveryagent.html#supportedDiscoveryMethods">supportedDiscoveryMethods</a>().</p>
 <!-- @@@DiscoveryMethod -->
 <!-- $$$Error$$$NoError$$$InputOutputError$$$PoweredOffError$$$InvalidBluetoothAdapterError$$$UnsupportedPlatformError$$$UnsupportedDiscoveryMethod$$$UnknownError -->
 <h3 class="fn" id="Error-enum"><a name="Error-enum"></a>enum QBluetoothDeviceDiscoveryAgent::<span class="name">Error</span></h3>
@@ -217,7 +217,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> QBluetoothDeviceDiscoveryAgent::InquiryType </td><td class="memItemRight bottomAlign"><span class="name"><b>inquiryType</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setInquiryType</b></span>(QBluetoothDeviceDiscoveryAgent::InquiryType <i>type</i>)</td></tr>
 </table></div>
-<p><b>See also </b><a href="qbluetoothdevicediscoveryagent.html#InquiryType-enum">InquiryType</a>.</p>
+<p><b>参见</b><a href="qbluetoothdevicediscoveryagent.html#InquiryType-enum">InquiryType</a>.</p>
 <!-- @@@inquiryType -->
 </div>
 <div class="func">
@@ -231,7 +231,7 @@
 <p>Constructs a new Bluetooth device discovery agent with <i>parent</i>.</p>
 <p>It uses <i>deviceAdapter</i> for the device search. If <i>deviceAdapter</i> is default constructed the resulting <a href="qbluetoothdevicediscoveryagent.html">QBluetoothDeviceDiscoveryAgent</a> object will use the local default Bluetooth adapter.</p>
 <p>If a <i>deviceAdapter</i> is specified that is not a local adapter <a href="qbluetoothdevicediscoveryagent.html#error">error</a>() will be set to <a href="qbluetoothdevicediscoveryagent.html#Error-enum">InvalidBluetoothAdapterError</a>. Therefore it is recommended to test the error flag immediately after using this constructor.</p>
-<p><b>See also </b><a href="qbluetoothdevicediscoveryagent.html#error">error</a>().</p>
+<p><b>参见</b><a href="qbluetoothdevicediscoveryagent.html#error">error</a>().</p>
 <!-- @@@QBluetoothDeviceDiscoveryAgent -->
 <!-- $$$~QBluetoothDeviceDiscoveryAgent[overload1]$$$~QBluetoothDeviceDiscoveryAgent -->
 <h3 class="fn" id="dtor.QBluetoothDeviceDiscoveryAgent"><a name="dtor.QBluetoothDeviceDiscoveryAgent"></a><code>[virtual] </code>QBluetoothDeviceDiscoveryAgent::<span class="name">~QBluetoothDeviceDiscoveryAgent</span>()</h3>
@@ -246,13 +246,13 @@
 <p>This signal is emitted when the Bluetooth device described by <i>info</i> is discovered.</p>
 <p>The signal is emitted as soon as the most important device information has been collected. However, as long as the <a href="qbluetoothdevicediscoveryagent.html#finished">finished</a>() signal has not been emitted the information collection continues even for already discovered devices. This is particularly true for signal strength information (RSSI) and manufacturer data updates. If the use case requires continuous manufacturer data or RSSI updates it is advisable to retrieve the device information via <a href="qbluetoothdevicediscoveryagent.html#discoveredDevices">discoveredDevices</a>() once the discovery has finished or listen to the <a href="qbluetoothdevicediscoveryagent.html#deviceUpdated">deviceUpdated</a>() signal.</p>
 <p>If <a href="qbluetoothdevicediscoveryagent.html#lowEnergyDiscoveryTimeout">lowEnergyDiscoveryTimeout</a>() is larger than 0 the signal is only ever emitted when at least one attribute of <i>info</i> changes. This reflects the desire to receive updates as more precise information becomes available. The exception to this behavior is the case when <a href="qbluetoothdevicediscoveryagent.html#lowEnergyDiscoveryTimeout">lowEnergyDiscoveryTimeout</a> is set to <code>0</code>. A timeout of <code>0</code> expresses the desire to monitor the appearance and disappearance of Low Energy devices over time. Under this condition the deviceDiscovered() signal is emitted even if <i>info</i> has not changed since the last signal emission.</p>
-<p><b>See also </b><a href="qbluetoothdeviceinfo.html#rssi">QBluetoothDeviceInfo::rssi</a>() and <a href="qbluetoothdevicediscoveryagent.html#lowEnergyDiscoveryTimeout">lowEnergyDiscoveryTimeout</a>().</p>
+<p><b>参见</b><a href="qbluetoothdeviceinfo.html#rssi">QBluetoothDeviceInfo::rssi</a>() and <a href="qbluetoothdevicediscoveryagent.html#lowEnergyDiscoveryTimeout">lowEnergyDiscoveryTimeout</a>().</p>
 <!-- @@@deviceDiscovered -->
 <!-- $$$deviceUpdated[overload1]$$$deviceUpdatedconstQBluetoothDeviceInfo&QBluetoothDeviceInfo::Fields -->
 <h3 class="fn" id="deviceUpdated"><a name="deviceUpdated"></a><code>[signal] </code><span class="type">void</span> QBluetoothDeviceDiscoveryAgent::<span class="name">deviceUpdated</span>(const <span class="type"><a href="qbluetoothdeviceinfo.html">QBluetoothDeviceInfo</a></span> &amp;<i>info</i>, <span class="type"><a href="qbluetoothdeviceinfo.html#Field-enum">QBluetoothDeviceInfo::Fields</a></span> <i>updatedFields</i>)</h3>
 <p>This signal is emitted when the agent receives additional information about the Bluetooth device described by <i>info</i>. The <i>updatedFields</i> flags tell which information has been updated.</p>
 <p>During discovery, some information can change dynamically, such as <a href="qbluetoothdeviceinfo.html#rssi">signal strength</a> and <a href="qbluetoothdeviceinfo.html#manufacturerData-1">manufacturerData</a>. This signal informs you that if your application is displaying this data, it can be updated, rather than waiting until the discovery has finished.</p>
-<p><b>Note: </b>This signal is only emitted on Android and <a href="qtbluetooth-attribution-bluez.html">BlueZ</a> 5.x&#x2e;</p><p><b>See also </b><a href="qbluetoothdeviceinfo.html#rssi">QBluetoothDeviceInfo::rssi</a>() and <a href="qbluetoothdevicediscoveryagent.html#lowEnergyDiscoveryTimeout">lowEnergyDiscoveryTimeout</a>().</p>
+<p><b>Note: </b>This signal is only emitted on Android and <a href="qtbluetooth-attribution-bluez.html">BlueZ</a> 5.x&#x2e;</p><p><b>参见</b><a href="qbluetoothdeviceinfo.html#rssi">QBluetoothDeviceInfo::rssi</a>() and <a href="qbluetoothdevicediscoveryagent.html#lowEnergyDiscoveryTimeout">lowEnergyDiscoveryTimeout</a>().</p>
 <!-- @@@deviceUpdated -->
 <!-- $$$discoveredDevices[overload1]$$$discoveredDevices -->
 <h3 class="fn" id="discoveredDevices"><a name="discoveredDevices"></a><span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qbluetoothdeviceinfo.html">QBluetoothDeviceInfo</a></span>&gt; QBluetoothDeviceDiscoveryAgent::<span class="name">discoveredDevices</span>() const</h3>
@@ -271,7 +271,7 @@
       <span class="operator">[</span><span class="operator">=</span><span class="operator">]</span>(<span class="type"><a href="qbluetoothdevicediscoveryagent.html#QBluetoothDeviceDiscoveryAgent">QBluetoothDeviceDiscoveryAgent</a></span><span class="operator">::</span>Error error){ <span class="comment">/* ... */</span> });
 
 </pre>
-<p><b>See also </b><a href="qbluetoothdevicediscoveryagent.html#error">error</a>() and <a href="qbluetoothdevicediscoveryagent.html#errorString">errorString</a>().</p>
+<p><b>参见</b><a href="qbluetoothdevicediscoveryagent.html#error">error</a>() and <a href="qbluetoothdevicediscoveryagent.html#errorString">errorString</a>().</p>
 <!-- @@@error -->
 <!-- $$$errorString[overload1]$$$errorString -->
 <h3 class="fn" id="errorString"><a name="errorString"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QBluetoothDeviceDiscoveryAgent::<span class="name">errorString</span>() const</h3>
@@ -289,7 +289,7 @@
 <h3 class="fn" id="lowEnergyDiscoveryTimeout"><a name="lowEnergyDiscoveryTimeout"></a><span class="type">int</span> QBluetoothDeviceDiscoveryAgent::<span class="name">lowEnergyDiscoveryTimeout</span>() const</h3>
 <p>Returns a timeout in milliseconds that is applied to the Bluetooth Low Energy device search. A value of <code>-1</code> implies that the platform does not support this property and the timeout for the device search cannot be adjusted. A return value of <code>0</code> implies a never-ending search which must be manually stopped via <a href="qbluetoothdevicediscoveryagent.html#stop">stop</a>().</p>
 <p>This function was introduced in  Qt 5.8.</p>
-<p><b>See also </b><a href="qbluetoothdevicediscoveryagent.html#setLowEnergyDiscoveryTimeout">setLowEnergyDiscoveryTimeout</a>().</p>
+<p><b>参见</b><a href="qbluetoothdevicediscoveryagent.html#setLowEnergyDiscoveryTimeout">setLowEnergyDiscoveryTimeout</a>().</p>
 <!-- @@@lowEnergyDiscoveryTimeout -->
 <!-- $$$setLowEnergyDiscoveryTimeout[overload1]$$$setLowEnergyDiscoveryTimeoutint -->
 <h3 class="fn" id="setLowEnergyDiscoveryTimeout"><a name="setLowEnergyDiscoveryTimeout"></a><span class="type">void</span> QBluetoothDeviceDiscoveryAgent::<span class="name">setLowEnergyDiscoveryTimeout</span>(<span class="type">int</span> <i>timeout</i>)</h3>
@@ -297,13 +297,13 @@
 <p>This reflects the fact that the discovery process for Bluetooth Low Energy devices is mostly open ended. The platform continues to look for more devices until the search is manually stopped. The timeout ensures that the search is aborted after <i>timeout</i> milliseconds. Of course, it is still possible to manually abort the discovery by calling <a href="qbluetoothdevicediscoveryagent.html#stop">stop</a>().</p>
 <p>The new timeout value does not take effect until the device search is restarted. In addition the timeout does not affect the classic Bluetooth device search. Depending on the platform the classic search may add more time to the total discovery process beyond <i>timeout</i>.</p>
 <p>This function was introduced in  Qt 5.8.</p>
-<p><b>See also </b><a href="qbluetoothdevicediscoveryagent.html#lowEnergyDiscoveryTimeout">lowEnergyDiscoveryTimeout</a>().</p>
+<p><b>参见</b><a href="qbluetoothdevicediscoveryagent.html#lowEnergyDiscoveryTimeout">lowEnergyDiscoveryTimeout</a>().</p>
 <!-- @@@setLowEnergyDiscoveryTimeout -->
 <!-- $$$start[overload1]$$$start -->
 <h3 class="fn" id="start"><a name="start"></a><code>[slot] </code><span class="type">void</span> QBluetoothDeviceDiscoveryAgent::<span class="name">start</span>()</h3>
 <p>Starts Bluetooth device discovery, if it is not already started.</p>
 <p>The <a href="qbluetoothdevicediscoveryagent.html#deviceDiscovered">deviceDiscovered</a>() signal is emitted as each device is discovered. The <a href="qbluetoothdevicediscoveryagent.html#finished">finished</a>() signal is emitted once device discovery is complete. The discovery utilizes the maximum set of supported discovery methods on the platform.</p>
-<p><b>See also </b><a href="qbluetoothdevicediscoveryagent.html#supportedDiscoveryMethods">supportedDiscoveryMethods</a>().</p>
+<p><b>参见</b><a href="qbluetoothdevicediscoveryagent.html#supportedDiscoveryMethods">supportedDiscoveryMethods</a>().</p>
 <!-- @@@start -->
 <!-- $$$start$$$startQBluetoothDeviceDiscoveryAgent::DiscoveryMethods -->
 <h3 class="fn" id="start-1"><a name="start-1"></a><code>[slot] </code><span class="type">void</span> QBluetoothDeviceDiscoveryAgent::<span class="name">start</span>(<span class="type"><a href="qbluetoothdevicediscoveryagent.html#DiscoveryMethod-enum">QBluetoothDeviceDiscoveryAgent::DiscoveryMethods</a></span> <i>methods</i>)</h3>

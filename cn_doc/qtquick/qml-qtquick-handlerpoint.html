@@ -97,7 +97,7 @@
 
 </pre>
 <p>The point is kept up-to-date when the <a href="qml-qtquick-draghandler.html">DragHandler</a> is actively responding to an <a href="qml-qtquick-eventpoint.html">EventPoint</a>; but when the point is released, or the current point is being handled by a different handler, <code>position.x</code> and <code>position.y</code> are 0.</p>
-<p><b>Note: </b>This is practically identical to <a href="qml-qtquick-eventpoint.html">QtQuick::EventPoint</a>; however an <a href="qml-qtquick-eventpoint.html">EventPoint</a> is a long-lived <a href="../qtcore/qobject.html">QObject</a> which is invalidated between gestures and reused for subsequent event deliveries. Continuous bindings to its properties are not possible, and an individual handler cannot rely on it outside the period when that point is part of an active gesture which that handler is handling. <a href="qml-qtquick-handlerpoint.html">HandlerPoint</a> is a <a href="../qtcore/qobject.html#Q_GADGET">Q_GADGET</a> that the handler owns. This allows you to make lifetime bindings to its properties.</p><p><b>See also </b><a href="qml-qtquick-singlepointhandler.html#point-prop">SinglePointHandler::point</a>.</p>
+<p><b>Note: </b>This is practically identical to <a href="qml-qtquick-eventpoint.html">QtQuick::EventPoint</a>; however an <a href="qml-qtquick-eventpoint.html">EventPoint</a> is a long-lived <a href="../qtcore/qobject.html">QObject</a> which is invalidated between gestures and reused for subsequent event deliveries. Continuous bindings to its properties are not possible, and an individual handler cannot rely on it outside the period when that point is part of an active gesture which that handler is handling. <a href="qml-qtquick-handlerpoint.html">HandlerPoint</a> is a <a href="../qtcore/qobject.html#Q_GADGET">Q_GADGET</a> that the handler owns. This allows you to make lifetime bindings to its properties.</p><p><b>参见</b><a href="qml-qtquick-singlepointhandler.html#point-prop">SinglePointHandler::point</a>.</p>
 <!-- @@@HandlerPoint -->
 <h2>属性文档</h2>
 <!-- $$$ellipseDiameters -->
@@ -110,7 +110,7 @@
 </div><div class="qmldoc"><p>This property holds the diameters of the contact patch, if the event comes from a touchpoint and the device provides this information.</p>
 <p>A touchpoint is modeled as an elliptical area where the finger is pressed against the touchscreen. (In fact, it could also be modeled as a bitmap; but in that case we expect an elliptical bounding estimate to be fitted to the contact patch before the event is sent.) The harder the user presses, the larger the contact patch; so, these diameters provide an alternate way of detecting pressure, in case the device does not include a separate pressure sensor. The ellipse is centered on <a href="qml-qtquick-handlerpoint.html#scenePosition-prop">scenePosition</a> (<a href="qml-qtquick-handlerpoint.html#position-prop">position</a> in the <a href="qml-qtquick-pointerhandler.html">PointerHandler</a>'s Item's local coordinates). The <a href="qml-qtquick-handlerpoint.html#rotation-prop">rotation</a> property provides the rotation of the ellipse, if known. It is expected that if the <a href="qml-qtquick-handlerpoint.html#rotation-prop">rotation</a> is zero, the <a href="../qtcore/qsize.html#height">height</a> is the larger dimension (the major axis), because of the usual hand position, reaching upward or outward across the surface.</p>
 <p>If the contact patch is unknown, or the device is not a touchscreen, these values will be zero.</p>
-<p><b>See also </b><a href="qml-qtquick-eventtouchpoint.html#ellipseDiameters-prop">QtQuick::EventTouchPoint::ellipseDiameters</a>, <a href="qml-qtquick-touchpoint.html#ellipseDiameters-prop">QtQuick::TouchPoint::ellipseDiameters</a>, and <a href="../qtgui/qtouchevent-touchpoint.html#ellipseDiameters">QTouchEvent::TouchPoint::ellipseDiameters</a>.</p>
+<p><b>参见</b><a href="qml-qtquick-eventtouchpoint.html#ellipseDiameters-prop">QtQuick::EventTouchPoint::ellipseDiameters</a>, <a href="qml-qtquick-touchpoint.html#ellipseDiameters-prop">QtQuick::TouchPoint::ellipseDiameters</a>, and <a href="../qtgui/qtouchevent-touchpoint.html#ellipseDiameters">QTouchEvent::TouchPoint::ellipseDiameters</a>.</p>
 </div></div><!-- @@@ellipseDiameters -->
 <br/>
 <!-- $$$id -->
@@ -122,7 +122,7 @@
 </table></div>
 </div><div class="qmldoc"><p>The ID number of the point</p>
 <p>During a touch gesture, from the time that the first finger is pressed until the last finger is released, each touchpoint will have a unique ID number. Likewise, if input from multiple devices occurs (for example simultaneous mouse and touch presses), all the current event points from all the devices will have unique IDs.</p>
-<p><b>Note: </b>Do not assume that id numbers start at zero or that they are sequential. Such an assumption is often false due to the way the underlying drivers work.</p><p><b>See also </b><a href="../qtgui/qtouchevent-touchpoint.html#id">QTouchEvent::TouchPoint::id</a>.</p>
+<p><b>Note: </b>Do not assume that id numbers start at zero or that they are sequential. Such an assumption is often false due to the way the underlying drivers work.</p><p><b>参见</b><a href="../qtgui/qtouchevent-touchpoint.html#id">QTouchEvent::TouchPoint::id</a>.</p>
 </div></div><!-- @@@id -->
 <br/>
 <!-- $$$modifiers -->
@@ -134,7 +134,7 @@
 </table></div>
 </div><div class="qmldoc"><p>Which modifier keys are currently pressed</p>
 <p>This property holds the keyboard modifiers that were pressed at the time the event occurred.</p>
-<p><b>See also </b>MouseArea::modifiers.</p>
+<p><b>参见</b>MouseArea::modifiers.</p>
 </div></div><!-- @@@modifiers -->
 <br/>
 <!-- $$$position -->
@@ -167,7 +167,7 @@
 <a name="pressedButtons-prop"></a><span class="qmlreadonly">[read-only] </span><span class="name">pressedButtons</span> : <span class="type"><a href="../qtqml/qml-enumeration.html">enumeration</a></span></p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>Which mouse or stylus buttons are currently pressed</p>
-<p><b>See also </b><a href="qml-qtquick-mousearea.html#pressedButtons-prop">MouseArea::pressedButtons</a>.</p>
+<p><b>参见</b><a href="qml-qtquick-mousearea.html#pressedButtons-prop">MouseArea::pressedButtons</a>.</p>
 </div></div><!-- @@@pressedButtons -->
 <br/>
 <!-- $$$pressure -->
@@ -237,7 +237,7 @@
 <p>On some types of touchscreens, especially those using TUIO drivers, it's possible to use recognizable physical tokens (fiducial objects) in addition to fingers. So if this point is a touch point, and uniqueId is set, it is the identifier for such an object.</p>
 <p>On a graphics tablet, each type of stylus or other tool often has a unique ID or serial number, which can be useful to respond in different ways to different tools.</p>
 <p>Interpreting the contents of this ID requires knowledge of the hardware and drivers in use.</p>
-<p><b>See also </b><a href="../qtgui/qtabletevent.html#uniqueId">QTabletEvent::uniqueId</a>, <a href="qml-qtquick-touchpoint.html#uniqueId-prop">QtQuick::TouchPoint::uniqueId</a>, and <a href="qml-qtquick-eventtouchpoint.html#uniqueId-prop">QtQuick::EventTouchPoint::uniqueId</a>.</p>
+<p><b>参见</b><a href="../qtgui/qtabletevent.html#uniqueId">QTabletEvent::uniqueId</a>, <a href="qml-qtquick-touchpoint.html#uniqueId-prop">QtQuick::TouchPoint::uniqueId</a>, and <a href="qml-qtquick-eventtouchpoint.html#uniqueId-prop">QtQuick::EventTouchPoint::uniqueId</a>.</p>
 </div></div><!-- @@@uniqueId -->
 <br/>
 <!-- $$$velocity -->
@@ -249,7 +249,7 @@
 </table></div>
 </div><div class="qmldoc"><p>A vector representing the average speed and direction of movement</p>
 <p>This is a velocity vector pointing in the direction of movement, in logical pixels per second. It has x and y components, at least one of which will be nonzero when this point is in motion. It holds the average recent velocity: how fast and in which direction the event point has been moving recently.</p>
-<p><b>See also </b><a href="qml-qtquick-eventpoint.html#velocity-prop">QtQuick::EventPoint::velocity</a>, <a href="qml-qtquick-touchpoint.html#velocity-prop">QtQuick::TouchPoint::velocity</a>, and <a href="../qtgui/qtouchevent-touchpoint.html#velocity">QTouchEvent::TouchPoint::velocity</a>.</p>
+<p><b>参见</b><a href="qml-qtquick-eventpoint.html#velocity-prop">QtQuick::EventPoint::velocity</a>, <a href="qml-qtquick-touchpoint.html#velocity-prop">QtQuick::TouchPoint::velocity</a>, and <a href="../qtgui/qtouchevent-touchpoint.html#velocity">QTouchEvent::TouchPoint::velocity</a>.</p>
 </div></div><!-- @@@velocity -->
 <br/>
         </div>

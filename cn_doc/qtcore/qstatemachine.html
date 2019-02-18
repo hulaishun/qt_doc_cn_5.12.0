@@ -206,7 +206,7 @@
 <p>This code example uses <a href="qstate.html">QState</a>, which inherits <a href="qabstractstate.html">QAbstractState</a>. The <a href="qstate.html">QState</a> class provides a state that you can use to set properties and invoke methods on <a href="qobject.html">QObject</a>s when the state is entered or exited. It also contains convenience functions for adding transitions, e.g&#x2e;, <a href="qsignaltransition.html">QSignalTransition</a>s as in this example. See the <a href="qstate.html">QState</a> class description for further details.</p>
 <p>If an error is encountered, the machine will look for an <a href="qstate.html#errorState-prop">error state</a>, and if one is available, it will enter this state. The types of errors possible are described by the <a href="qstatemachine.html#Error-enum">Error</a> enum. After the error state is entered, the type of the error can be retrieved with <a href="qstatemachine.html#error">error</a>(). The execution of the state graph will not stop when the error state is entered. If no error state applies to the erroneous state, the machine will stop executing and an error message will be printed to the console.</p>
 </div>
-<p><b>See also </b><a href="qabstractstate.html">QAbstractState</a>, <a href="qabstracttransition.html">QAbstractTransition</a>, <a href="qstate.html">QState</a>, and <a href="statemachine-api.html">The State Machine Framework</a>.</p>
+<p><b>参见</b><a href="qabstractstate.html">QAbstractState</a>, <a href="qabstracttransition.html">QAbstractTransition</a>, <a href="qstate.html">QState</a>, and <a href="statemachine-api.html">The State Machine Framework</a>.</p>
 <!-- @@@QStateMachine -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -219,7 +219,7 @@
 <tr><td class="topAlign"><code>QStateMachine::NoDefaultStateInHistoryStateError</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">The machine has entered a <a href="qhistorystate.html">QHistoryState</a> which does not have a default state set. The context of this error is the <a href="qhistorystate.html">QHistoryState</a> which is missing a default state.</td></tr>
 <tr><td class="topAlign"><code>QStateMachine::NoCommonAncestorForTransitionError</code></td><td class="topAlign tblval"><code>3</code></td><td class="topAlign">The machine has selected a transition whose source and targets are not part of the same tree of states, and thus are not part of the same state machine. Commonly, this could mean that one of the states has not been given any parent or added to any machine. The context of this error is the source state of the transition.</td></tr>
 </table></div>
-<p><b>See also </b><a href="qstate.html#setErrorState">setErrorState</a>().</p>
+<p><b>参见</b><a href="qstate.html#setErrorState">setErrorState</a>().</p>
 <!-- @@@Error -->
 <!-- $$$EventPriority$$$NormalPriority$$$HighPriority -->
 <h3 class="fn" id="EventPriority-enum"><a name="EventPriority-enum"></a>enum QStateMachine::<span class="name">EventPriority</span></h3>
@@ -242,7 +242,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qstatemachine.html#isAnimated">isAnimated</a></b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qstatemachine.html#setAnimated">setAnimated</a></b></span>(bool <i>enabled</i>)</td></tr>
 </table></div>
-<p><b>See also </b><a href="qabstracttransition.html#addAnimation">QAbstractTransition::addAnimation</a>().</p>
+<p><b>参见</b><a href="qabstracttransition.html#addAnimation">QAbstractTransition::addAnimation</a>().</p>
 <!-- @@@animated -->
 <!-- $$$errorString-prop$$$errorString -->
 <h3 class="fn" id="errorString-prop"><a name="errorString-prop"></a><span class="name">errorString</span> : const <span class="type"><a href="qstring.html">QString</a></span></h3>
@@ -275,7 +275,7 @@
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qstatemachine.html#runningChanged">runningChanged</a></b></span>(bool <i>running</i>)</td></tr>
 </table></div>
-<p><b>See also </b><a href="qstatemachine.html#start">start</a>(), <a href="qstatemachine.html#stop">stop</a>(), <a href="qstatemachine.html#started">started</a>(), <a href="qstatemachine.html#stopped">stopped</a>(), and <a href="qstatemachine.html#runningChanged">runningChanged</a>().</p>
+<p><b>参见</b><a href="qstatemachine.html#start">start</a>(), <a href="qstatemachine.html#stop">stop</a>(), <a href="qstatemachine.html#started">started</a>(), <a href="qstatemachine.html#stopped">stopped</a>(), and <a href="qstatemachine.html#runningChanged">runningChanged</a>().</p>
 <!-- @@@running -->
 </div>
 <div class="func">
@@ -301,13 +301,13 @@
 <h3 class="fn" id="addState"><a name="addState"></a><span class="type">void</span> QStateMachine::<span class="name">addState</span>(<span class="type"><a href="qabstractstate.html#QAbstractState">QAbstractState</a></span> *<i>state</i>)</h3>
 <p>Adds the given <i>state</i> to this state machine. The state becomes a top-level state.</p>
 <p>If the state is already in a different machine, it will first be removed from its old machine, and then added to this machine.</p>
-<p><b>See also </b><a href="qstatemachine.html#removeState">removeState</a>() and <a href="qstate.html#setInitialState">setInitialState</a>().</p>
+<p><b>参见</b><a href="qstatemachine.html#removeState">removeState</a>() and <a href="qstate.html#setInitialState">setInitialState</a>().</p>
 <!-- @@@addState -->
 <!-- $$$cancelDelayedEvent[overload1]$$$cancelDelayedEventint -->
 <h3 class="fn" id="cancelDelayedEvent"><a name="cancelDelayedEvent"></a><span class="type">bool</span> QStateMachine::<span class="name">cancelDelayedEvent</span>(<span class="type">int</span> <i>id</i>)</h3>
 <p>Cancels the delayed event identified by the given <i>id</i>. The id should be a value returned by a call to <a href="qstatemachine.html#postDelayedEvent">postDelayedEvent</a>(). Returns <code>true</code> if the event was successfully cancelled, otherwise returns <code>false</code>.</p>
 <p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
-<p><b>See also </b><a href="qstatemachine.html#postDelayedEvent">postDelayedEvent</a>().</p>
+<p><b>参见</b><a href="qstatemachine.html#postDelayedEvent">postDelayedEvent</a>().</p>
 <!-- @@@cancelDelayedEvent -->
 <!-- $$$clearError[overload1]$$$clearError -->
 <h3 class="fn" id="clearError"><a name="clearError"></a><span class="type">void</span> QStateMachine::<span class="name">clearError</span>()</h3>
@@ -340,7 +340,7 @@
 <!-- $$$globalRestorePolicy -->
 <h3 class="fn" id="globalRestorePolicy"><a name="globalRestorePolicy"></a><span class="type"><a href="qstate.html#RestorePolicy-enum">QState::RestorePolicy</a></span> QStateMachine::<span class="name">globalRestorePolicy</span>() const</h3>
 <p>Returns the restore policy of the state machine.</p>
-<p><b>Note:</b> Getter function for property <a href="qstatemachine.html#globalRestorePolicy-prop">globalRestorePolicy</a>. </p><p><b>See also </b><a href="qstatemachine.html#setGlobalRestorePolicy">setGlobalRestorePolicy</a>().</p>
+<p><b>Note:</b> Getter function for property <a href="qstatemachine.html#globalRestorePolicy-prop">globalRestorePolicy</a>. </p><p><b>参见</b><a href="qstatemachine.html#setGlobalRestorePolicy">setGlobalRestorePolicy</a>().</p>
 <!-- @@@globalRestorePolicy -->
 <!-- $$$isAnimated -->
 <h3 class="fn" id="isAnimated"><a name="isAnimated"></a><span class="type">bool</span> QStateMachine::<span class="name">isAnimated</span>() const</h3>
@@ -362,7 +362,7 @@
 <p>This function returns immediately. When the delay has expired, the event will be added to the state machine's event queue for processing. The state machine takes ownership of the event and deletes it once it has been processed.</p>
 <p>You can only post events when the state machine is running.</p>
 <p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
-<p><b>See also </b><a href="qstatemachine.html#cancelDelayedEvent">cancelDelayedEvent</a>() and <a href="qstatemachine.html#postEvent">postEvent</a>().</p>
+<p><b>参见</b><a href="qstatemachine.html#cancelDelayedEvent">cancelDelayedEvent</a>() and <a href="qstatemachine.html#postEvent">postEvent</a>().</p>
 <!-- @@@postDelayedEvent -->
 <!-- $$$postEvent[overload1]$$$postEventQEvent*QStateMachine::EventPriority -->
 <h3 class="fn" id="postEvent"><a name="postEvent"></a><span class="type">void</span> QStateMachine::<span class="name">postEvent</span>(<span class="type"><a href="qevent.html">QEvent</a></span> *<i>event</i>, <span class="type"><a href="qstatemachine.html#EventPriority-enum">QStateMachine::EventPriority</a></span> <i>priority</i> = NormalPriority)</h3>
@@ -370,7 +370,7 @@
 <p>This function returns immediately. The event is added to the state machine's event queue. Events are processed in the order posted. The state machine takes ownership of the event and deletes it once it has been processed.</p>
 <p>You can only post events when the state machine is running or when it is starting up.</p>
 <p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
-<p><b>See also </b><a href="qstatemachine.html#postDelayedEvent">postDelayedEvent</a>().</p>
+<p><b>参见</b><a href="qstatemachine.html#postDelayedEvent">postDelayedEvent</a>().</p>
 <!-- @@@postEvent -->
 <!-- $$$removeDefaultAnimation[overload1]$$$removeDefaultAnimationQAbstractAnimation* -->
 <h3 class="fn" id="removeDefaultAnimation"><a name="removeDefaultAnimation"></a><span class="type">void</span> QStateMachine::<span class="name">removeDefaultAnimation</span>(<span class="type"><a href="qabstractanimation.html">QAbstractAnimation</a></span> *<i>animation</i>)</h3>
@@ -379,45 +379,45 @@
 <!-- $$$removeState[overload1]$$$removeStateQAbstractState* -->
 <h3 class="fn" id="removeState"><a name="removeState"></a><span class="type">void</span> QStateMachine::<span class="name">removeState</span>(<span class="type"><a href="qabstractstate.html#QAbstractState">QAbstractState</a></span> *<i>state</i>)</h3>
 <p>Removes the given <i>state</i> from this state machine. The state machine releases ownership of the state.</p>
-<p><b>See also </b><a href="qstatemachine.html#addState">addState</a>().</p>
+<p><b>参见</b><a href="qstatemachine.html#addState">addState</a>().</p>
 <!-- @@@removeState -->
 <!-- $$$runningChanged -->
 <h3 class="fn" id="runningChanged"><a name="runningChanged"></a><code>[signal] </code><span class="type">void</span> QStateMachine::<span class="name">runningChanged</span>(<span class="type">bool</span> <i>running</i>)</h3>
 <p>This signal is emitted when the running property is changed with <i>running</i> as argument.</p>
 <p>这个函数是在Qt 5.4版本中新增引入的。</p>
-<p><b>Note:</b> Notifier signal for property <a href="qstatemachine.html#running-prop">running</a>. </p><p><b>See also </b><a href="qstatemachine.html#running-prop">QStateMachine::running</a>.</p>
+<p><b>Note:</b> Notifier signal for property <a href="qstatemachine.html#running-prop">running</a>. </p><p><b>参见</b><a href="qstatemachine.html#running-prop">QStateMachine::running</a>.</p>
 <!-- @@@runningChanged -->
 <!-- $$$setAnimated -->
 <h3 class="fn" id="setAnimated"><a name="setAnimated"></a><span class="type">void</span> QStateMachine::<span class="name">setAnimated</span>(<span class="type">bool</span> <i>enabled</i>)</h3>
 <p>Sets whether animations are <i>enabled</i> for this state machine.</p>
-<p><b>Note:</b> Setter function for property <a href="qstatemachine.html#animated-prop">animated</a>. </p><p><b>See also </b><a href="qstatemachine.html#isAnimated">isAnimated</a>().</p>
+<p><b>Note:</b> Setter function for property <a href="qstatemachine.html#animated-prop">animated</a>. </p><p><b>参见</b><a href="qstatemachine.html#isAnimated">isAnimated</a>().</p>
 <!-- @@@setAnimated -->
 <!-- $$$setGlobalRestorePolicy -->
 <h3 class="fn" id="setGlobalRestorePolicy"><a name="setGlobalRestorePolicy"></a><span class="type">void</span> QStateMachine::<span class="name">setGlobalRestorePolicy</span>(<span class="type"><a href="qstate.html#RestorePolicy-enum">QState::RestorePolicy</a></span> <i>restorePolicy</i>)</h3>
 <p>Sets the restore policy of the state machine to <i>restorePolicy</i>. The default restore policy is <a href="qstate.html#RestorePolicy-enum">QState::DontRestoreProperties</a>.</p>
-<p><b>Note:</b> Setter function for property <a href="qstatemachine.html#globalRestorePolicy-prop">globalRestorePolicy</a>. </p><p><b>See also </b><a href="qstatemachine.html#globalRestorePolicy">globalRestorePolicy</a>().</p>
+<p><b>Note:</b> Setter function for property <a href="qstatemachine.html#globalRestorePolicy-prop">globalRestorePolicy</a>. </p><p><b>参见</b><a href="qstatemachine.html#globalRestorePolicy">globalRestorePolicy</a>().</p>
 <!-- @@@setGlobalRestorePolicy -->
 <!-- $$$start[overload1]$$$start -->
 <h3 class="fn" id="start"><a name="start"></a><code>[slot] </code><span class="type">void</span> QStateMachine::<span class="name">start</span>()</h3>
 <p>Starts this state machine. The machine will reset its configuration and transition to the initial state. When a final top-level state (<a href="qfinalstate.html">QFinalState</a>) is entered, the machine will emit the <a href="qstate.html#finished">finished</a>() signal.</p>
-<p><b>Note: </b>A state machine will not run without a running event loop, such as the main application event loop started with <a href="qcoreapplication.html#exec">QCoreApplication::exec</a>() or <a href="../qtwidgets/qapplication.html#exec">QApplication::exec</a>().</p><p><b>See also </b><a href="qstatemachine.html#started">started</a>(), <a href="qstate.html#finished">finished</a>(), <a href="qstatemachine.html#stop">stop</a>(), <a href="qstate.html#initialState">initialState</a>(), and <a href="qstatemachine.html#running-prop">setRunning</a>().</p>
+<p><b>Note: </b>A state machine will not run without a running event loop, such as the main application event loop started with <a href="qcoreapplication.html#exec">QCoreApplication::exec</a>() or <a href="../qtwidgets/qapplication.html#exec">QApplication::exec</a>().</p><p><b>参见</b><a href="qstatemachine.html#started">started</a>(), <a href="qstate.html#finished">finished</a>(), <a href="qstatemachine.html#stop">stop</a>(), <a href="qstate.html#initialState">initialState</a>(), and <a href="qstatemachine.html#running-prop">setRunning</a>().</p>
 <!-- @@@start -->
 <!-- $$$started[overload1]$$$started -->
 <h3 class="fn" id="started"><a name="started"></a><code>[signal] </code><span class="type">void</span> QStateMachine::<span class="name">started</span>()</h3>
 <p>This signal is emitted when the state machine has entered its initial state (<a href="qstate.html#initialState-prop">QStateMachine::initialState</a>).</p>
 <p><b>Note: </b>This is a private signal. It can be used in signal connections but cannot be emitted by the user.</p>
-<p><b>See also </b><a href="qstate.html#finished">QStateMachine::finished</a>() and <a href="qstatemachine.html#start">QStateMachine::start</a>().</p>
+<p><b>参见</b><a href="qstate.html#finished">QStateMachine::finished</a>() and <a href="qstatemachine.html#start">QStateMachine::start</a>().</p>
 <!-- @@@started -->
 <!-- $$$stop[overload1]$$$stop -->
 <h3 class="fn" id="stop"><a name="stop"></a><code>[slot] </code><span class="type">void</span> QStateMachine::<span class="name">stop</span>()</h3>
 <p>Stops this state machine. The state machine will stop processing events and then emit the <a href="qstatemachine.html#stopped">stopped</a>() signal.</p>
-<p><b>See also </b><a href="qstatemachine.html#stopped">stopped</a>(), <a href="qstatemachine.html#start">start</a>(), and <a href="qstatemachine.html#running-prop">setRunning</a>().</p>
+<p><b>参见</b><a href="qstatemachine.html#stopped">stopped</a>(), <a href="qstatemachine.html#start">start</a>(), and <a href="qstatemachine.html#running-prop">setRunning</a>().</p>
 <!-- @@@stop -->
 <!-- $$$stopped[overload1]$$$stopped -->
 <h3 class="fn" id="stopped"><a name="stopped"></a><code>[signal] </code><span class="type">void</span> QStateMachine::<span class="name">stopped</span>()</h3>
 <p>This signal is emitted when the state machine has stopped.</p>
 <p><b>Note: </b>This is a private signal. It can be used in signal connections but cannot be emitted by the user.</p>
-<p><b>See also </b><a href="qstatemachine.html#stop">QStateMachine::stop</a>() and <a href="qstate.html#finished">QStateMachine::finished</a>().</p>
+<p><b>参见</b><a href="qstatemachine.html#stop">QStateMachine::stop</a>() and <a href="qstate.html#finished">QStateMachine::finished</a>().</p>
 <!-- @@@stopped -->
 </div>
 <div class="vars">

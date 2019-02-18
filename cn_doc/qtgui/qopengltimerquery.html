@@ -109,7 +109,7 @@
 <p>At the end of a frame we can retrieve the results by calling <a href="qopengltimerquery.html#waitForResult">waitForResult</a>(). As this function's name implies, it blocks CPU execution until OpenGL notifies that the timer query result is available. To avoid blocking, you can check if the query result is available by calling <a href="qopengltimerquery.html#isResultAvailable">isResultAvailable</a>(). Note that modern GPUs are deeply pipelined and query results may not become available for between 1-5 frames after they were issued.</p>
 <p>Note that OpenGL does not permit nesting or interleaving of multiple timer queries using <a href="qopengltimerquery.html#begin">begin</a>() and <a href="qopengltimerquery.html#end">end</a>(). Using multiple timer queries and <a href="qopengltimerquery.html#recordTimestamp">recordTimestamp</a>() avoids this limitation. When using <a href="qopengltimerquery.html#recordTimestamp">recordTimestamp</a>() the result can be obtained at some later time using <a href="qopengltimerquery.html#isResultAvailable">isResultAvailable</a>() and <a href="qopengltimerquery.html#waitForResult">waitForResult</a>(). Qt provides the convenience class <a href="qopengltimemonitor.html">QOpenGLTimeMonitor</a> that helps with using multiple query objects.</p>
 </div>
-<p><b>See also </b><a href="qopengltimemonitor.html">QOpenGLTimeMonitor</a>.</p>
+<p><b>参见</b><a href="qopengltimemonitor.html">QOpenGLTimeMonitor</a>.</p>
 <!-- @@@QOpenGLTimerQuery -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -131,7 +131,7 @@
 <h3 class="fn" id="begin"><a name="begin"></a><span class="type">void</span> QOpenGLTimerQuery::<span class="name">begin</span>()</h3>
 <p>Marks the start point in the OpenGL command queue for a sequence of commands to be timed by this query object.</p>
 <p>This is useful for simple use-cases. Usually it is better to use <a href="qopengltimerquery.html#recordTimestamp">recordTimestamp</a>().</p>
-<p><b>See also </b><a href="qopengltimerquery.html#end">end</a>(), <a href="qopengltimerquery.html#isResultAvailable">isResultAvailable</a>(), <a href="qopengltimerquery.html#waitForResult">waitForResult</a>(), and <a href="qopengltimerquery.html#recordTimestamp">recordTimestamp</a>().</p>
+<p><b>参见</b><a href="qopengltimerquery.html#end">end</a>(), <a href="qopengltimerquery.html#isResultAvailable">isResultAvailable</a>(), <a href="qopengltimerquery.html#waitForResult">waitForResult</a>(), and <a href="qopengltimerquery.html#recordTimestamp">recordTimestamp</a>().</p>
 <!-- @@@begin -->
 <!-- $$$create[overload1]$$$create -->
 <h3 class="fn" id="create"><a name="create"></a><span class="type">bool</span> QOpenGLTimerQuery::<span class="name">create</span>()</h3>
@@ -146,7 +146,7 @@
 <h3 class="fn" id="end"><a name="end"></a><span class="type">void</span> QOpenGLTimerQuery::<span class="name">end</span>()</h3>
 <p>Marks the end point in the OpenGL command queue for a sequence of commands to be timed by this query object.</p>
 <p>This is useful for simple use-cases. Usually it is better to use <a href="qopengltimerquery.html#recordTimestamp">recordTimestamp</a>().</p>
-<p><b>See also </b><a href="qopengltimerquery.html#begin">begin</a>(), <a href="qopengltimerquery.html#isResultAvailable">isResultAvailable</a>(), <a href="qopengltimerquery.html#waitForResult">waitForResult</a>(), and <a href="qopengltimerquery.html#recordTimestamp">recordTimestamp</a>().</p>
+<p><b>参见</b><a href="qopengltimerquery.html#begin">begin</a>(), <a href="qopengltimerquery.html#isResultAvailable">isResultAvailable</a>(), <a href="qopengltimerquery.html#waitForResult">waitForResult</a>(), and <a href="qopengltimerquery.html#recordTimestamp">recordTimestamp</a>().</p>
 <!-- @@@end -->
 <!-- $$$isCreated[overload1]$$$isCreated -->
 <h3 class="fn" id="isCreated"><a name="isCreated"></a><span class="type">bool</span> QOpenGLTimerQuery::<span class="name">isCreated</span>() const</h3>
@@ -156,7 +156,7 @@
 <h3 class="fn" id="isResultAvailable"><a name="isResultAvailable"></a><span class="type">bool</span> QOpenGLTimerQuery::<span class="name">isResultAvailable</span>() const</h3>
 <p>Returns <code>true</code> if the OpenGL timer query result is available.</p>
 <p>This function is non-blocking and ideally should be used to check for the availability of the query result before calling <a href="qopengltimerquery.html#waitForResult">waitForResult</a>().</p>
-<p><b>See also </b><a href="qopengltimerquery.html#waitForResult">waitForResult</a>().</p>
+<p><b>参见</b><a href="qopengltimerquery.html#waitForResult">waitForResult</a>().</p>
 <!-- @@@isResultAvailable -->
 <!-- $$$objectId[overload1]$$$objectId -->
 <h3 class="fn" id="objectId"><a name="objectId"></a><span class="type">GLuint</span> QOpenGLTimerQuery::<span class="name">objectId</span>() const</h3>
@@ -166,19 +166,19 @@
 <h3 class="fn" id="recordTimestamp"><a name="recordTimestamp"></a><span class="type">void</span> QOpenGLTimerQuery::<span class="name">recordTimestamp</span>()</h3>
 <p>Places a marker in the OpenGL command queue for the GPU to record the timestamp when this marker is reached by the GPU. This function is non-blocking and the result will become available at some later time.</p>
 <p>The availability of the result can be checked with <a href="qopengltimerquery.html#isResultAvailable">isResultAvailable</a>(). The result can be fetched with <a href="qopengltimerquery.html#waitForResult">waitForResult</a>() which will block if the result is not yet available.</p>
-<p><b>See also </b><a href="qopengltimerquery.html#waitForResult">waitForResult</a>(), <a href="qopengltimerquery.html#isResultAvailable">isResultAvailable</a>(), <a href="qopengltimerquery.html#begin">begin</a>(), and <a href="qopengltimerquery.html#end">end</a>().</p>
+<p><b>参见</b><a href="qopengltimerquery.html#waitForResult">waitForResult</a>(), <a href="qopengltimerquery.html#isResultAvailable">isResultAvailable</a>(), <a href="qopengltimerquery.html#begin">begin</a>(), and <a href="qopengltimerquery.html#end">end</a>().</p>
 <!-- @@@recordTimestamp -->
 <!-- $$$waitForResult[overload1]$$$waitForResult -->
 <h3 class="fn" id="waitForResult"><a name="waitForResult"></a><span class="type">GLuint64</span> QOpenGLTimerQuery::<span class="name">waitForResult</span>() const</h3>
 <p>Returns the result of the OpenGL timer query.</p>
 <p>This function will block until the result is made available by OpenGL. It is recommended to call <a href="qopengltimerquery.html#isResultAvailable">isResultAvailable</a>() to ensure that the result is available to avoid unnecessary blocking and stalling.</p>
-<p><b>See also </b><a href="qopengltimerquery.html#isResultAvailable">isResultAvailable</a>().</p>
+<p><b>参见</b><a href="qopengltimerquery.html#isResultAvailable">isResultAvailable</a>().</p>
 <!-- @@@waitForResult -->
 <!-- $$$waitForTimestamp[overload1]$$$waitForTimestamp -->
 <h3 class="fn" id="waitForTimestamp"><a name="waitForTimestamp"></a><span class="type">GLuint64</span> QOpenGLTimerQuery::<span class="name">waitForTimestamp</span>() const</h3>
 <p>Returns the current timestamp of the GPU when all previously issued OpenGL commands have been received but not necessarily executed by the GPU.</p>
 <p>This function blocks until the result is returned.</p>
-<p><b>See also </b><a href="qopengltimerquery.html#recordTimestamp">recordTimestamp</a>().</p>
+<p><b>参见</b><a href="qopengltimerquery.html#recordTimestamp">recordTimestamp</a>().</p>
 <!-- @@@waitForTimestamp -->
 </div>
 <div class="vars">

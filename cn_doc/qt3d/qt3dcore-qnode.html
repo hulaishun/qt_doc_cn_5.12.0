@@ -159,7 +159,7 @@
 <p>Each <a href="qt3dcore-qnode.html">QNode</a> instance has a unique id that allows it to be recognizable from other instances.</p>
 <p>When properties are defined on a <a href="qt3dcore-qnode.html">QNode</a> subclass, their NOTIFY signal will automatically generate notifications that the Qt3D backend aspects will receive.</p>
 </div>
-<p><b>See also </b><a href="qt3dcore-qentity.html">QEntity</a> and <a href="qt3dcore-qcomponent.html">QComponent</a>.</p>
+<p><b>参见</b><a href="qt3dcore-qentity.html">QEntity</a> and <a href="qt3dcore-qcomponent.html">QComponent</a>.</p>
 <!-- @@@QNode -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -216,14 +216,14 @@
 <!-- $$$QNode[overload1]$$$QNodeQt3DCore::QNode* -->
 <h3 class="fn" id="QNode"><a name="QNode"></a>QNode::<span class="name">QNode</span>(<span class="type">Qt3DCore::QNode</span> *<i>parent</i> = nullptr)</h3>
 <p>Creates a new <a href="qt3dcore-qnode.html">QNode</a> instance with parent <i>parent</i>.</p>
-<p><b>Note: </b>The backend aspects will be notified that a <a href="qt3dcore-qnode.html">QNode</a> instance is part of the scene only if it has a parent; unless this is the root node of the Qt3D scene.</p><p><b>See also </b><a href="qt3dcore-qnode.html#parent-prop">setParent</a>().</p>
+<p><b>Note: </b>The backend aspects will be notified that a <a href="qt3dcore-qnode.html">QNode</a> instance is part of the scene only if it has a parent; unless this is the root node of the Qt3D scene.</p><p><b>参见</b><a href="qt3dcore-qnode.html#parent-prop">setParent</a>().</p>
 <!-- @@@QNode -->
 <!-- $$$blockNotifications[overload1]$$$blockNotificationsbool -->
 <h3 class="fn" id="blockNotifications"><a name="blockNotifications"></a><span class="type">bool</span> QNode::<span class="name">blockNotifications</span>(<span class="type">bool</span> <i>block</i>)</h3>
 <p>If <i>block</i> is <code>true</code>, property change notifications sent by this object to aspects are blocked. If <i>block</i> is <code>false</code>, no such blocking will occur.</p>
 <p>The return value is the previous value of <a href="qt3dcore-qnode.html#notificationsBlocked">notificationsBlocked</a>().</p>
 <p>Note that the other notification types will be sent even if the notifications for this object have been blocked.</p>
-<p><b>See also </b><a href="qt3dcore-qnode.html#notificationsBlocked">notificationsBlocked</a>().</p>
+<p><b>参见</b><a href="qt3dcore-qnode.html#notificationsBlocked">notificationsBlocked</a>().</p>
 <!-- @@@blockNotifications -->
 <!-- $$$childNodes[overload1]$$$childNodes -->
 <h3 class="fn" id="childNodes"><a name="childNodes"></a><span class="type">Qt3DCore::QNodeVector</span> QNode::<span class="name">childNodes</span>() const</h3>
@@ -246,7 +246,7 @@
 <!-- $$$notificationsBlocked[overload1]$$$notificationsBlocked -->
 <h3 class="fn" id="notificationsBlocked"><a name="notificationsBlocked"></a><span class="type">bool</span> QNode::<span class="name">notificationsBlocked</span>() const</h3>
 <p>Returns <code>true</code> if aspect notifications are blocked; otherwise returns <code>false</code>. By default, notifications are <i>not</i> blocked.</p>
-<p><b>See also </b><a href="qt3dcore-qnode.html#blockNotifications">blockNotifications</a>().</p>
+<p><b>参见</b><a href="qt3dcore-qnode.html#blockNotifications">blockNotifications</a>().</p>
 <!-- @@@notificationsBlocked -->
 <!-- $$$notifyObservers[overload1]$$$notifyObserversconstQt3DCore::QSceneChangePtr& -->
 <h3 class="fn" id="notifyObservers"><a name="notifyObservers"></a><code>[protected] </code><span class="type">void</span> QNode::<span class="name">notifyObservers</span>(const <span class="type">Qt3DCore::QSceneChangePtr</span> &amp;<i>change</i>)</h3>
@@ -255,7 +255,7 @@
 <!-- @@@notifyObservers -->
 <!-- $$$propertyTracking[overload1]$$$propertyTrackingconstQString& -->
 <h3 class="fn" id="propertyTracking"><a name="propertyTracking"></a><span class="type">Qt3DCore::QNode::PropertyTrackingMode</span> QNode::<span class="name">propertyTracking</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>propertyName</i>) const</h3>
-<p><b>See also </b><a href="qt3dcore-qnode.html#setPropertyTracking">setPropertyTracking</a>().</p>
+<p><b>参见</b><a href="qt3dcore-qnode.html#setPropertyTracking">setPropertyTracking</a>().</p>
 <!-- @@@propertyTracking -->
 <!-- $$$sceneChangeEvent[overload1]$$$sceneChangeEventconstQt3DCore::QSceneChangePtr& -->
 <h3 class="fn" id="sceneChangeEvent"><a name="sceneChangeEvent"></a><code>[virtual protected] </code><span class="type">void</span> QNode::<span class="name">sceneChangeEvent</span>(const <span class="type">Qt3DCore::QSceneChangePtr</span> &amp;<i>change</i>)</h3>
@@ -265,17 +265,17 @@
 <h3 class="fn" id="sendCommand"><a name="sendCommand"></a><span class="type"><a href="qt3dcore-qnodecommand.html#CommandId-typedef">QNodeCommand::CommandId</a></span> QNode::<span class="name">sendCommand</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>name</i>, const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>data</i> = QVariant(), <span class="type"><a href="qt3dcore-qnodecommand.html#CommandId-typedef">QNodeCommand::CommandId</a></span> <i>replyTo</i> = QNodeCommand::CommandId())</h3>
 <p>Sends a command messages to the backend node</p>
 <p>Creates a <a href="qt3dcore-qnodecommand.html">QNodeCommand</a> message and dispatches it to the backend node. The command is given and a <i>name</i> and some <i>data</i> which can be used in the backend node to performe various operations. This returns a CommandId which can be used to identify the initial command when receiving a message in reply. If the command message is to be sent in reply to another command, <i>replyTo</i> contains the id of that command.</p>
-<p><b>See also </b><a href="qt3dcore-qnodecommand.html">QNodeCommand</a> and <a href="qt3dcore-qnode.html#sendReply">QNode::sendReply</a>.</p>
+<p><b>参见</b><a href="qt3dcore-qnodecommand.html">QNodeCommand</a> and <a href="qt3dcore-qnode.html#sendReply">QNode::sendReply</a>.</p>
 <!-- @@@sendCommand -->
 <!-- $$$sendReply[overload1]$$$sendReplyconstQt3DCore::QNodeCommandPtr& -->
 <h3 class="fn" id="sendReply"><a name="sendReply"></a><span class="type">void</span> QNode::<span class="name">sendReply</span>(const <span class="type">Qt3DCore::QNodeCommandPtr</span> &amp;<i>command</i>)</h3>
 <p>Send a <i>command</i> back to the backend node.</p>
 <p>Assumes the command is to be to sent back in reply to itself to the backend node.</p>
-<p><b>See also </b><a href="qt3dcore-qnodecommand.html">QNodeCommand</a> and <a href="qt3dcore-qnode.html#sendCommand">QNode::sendCommand</a>.</p>
+<p><b>参见</b><a href="qt3dcore-qnodecommand.html">QNodeCommand</a> and <a href="qt3dcore-qnode.html#sendCommand">QNode::sendCommand</a>.</p>
 <!-- @@@sendReply -->
 <!-- $$$setPropertyTracking[overload1]$$$setPropertyTrackingconstQString&Qt3DCore::QNode::PropertyTrackingMode -->
 <h3 class="fn" id="setPropertyTracking"><a name="setPropertyTracking"></a><span class="type">void</span> QNode::<span class="name">setPropertyTracking</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>propertyName</i>, <span class="type">Qt3DCore::QNode::PropertyTrackingMode</span> <i>trackMode</i>)</h3>
-<p><b>See also </b><a href="qt3dcore-qnode.html#propertyTracking">propertyTracking</a>().</p>
+<p><b>参见</b><a href="qt3dcore-qnode.html#propertyTracking">propertyTracking</a>().</p>
 <!-- @@@setPropertyTracking -->
 </div>
 <div class="vars">

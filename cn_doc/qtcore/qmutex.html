@@ -152,7 +152,7 @@
 <p>When you call <a href="qmutex.html#lock">lock</a>() in a thread, other threads that try to call <a href="qmutex.html#lock">lock</a>() in the same place will block until the thread that got the lock calls <a href="qmutex.html#unlock">unlock</a>(). A non-blocking alternative to <a href="qmutex.html#lock">lock</a>() is <a href="qmutex.html#tryLock">tryLock</a>().</p>
 <p><a href="qmutex.html">QMutex</a> is optimized to be fast in the non-contended case. A non-recursive <a href="qmutex.html">QMutex</a> will not allocate memory if there is no contention on that mutex. It is constructed and destroyed with almost no overhead, which means it is fine to have many mutexes as part of other classes.</p>
 </div>
-<p><b>See also </b><a href="qmutexlocker.html">QMutexLocker</a>, <a href="qreadwritelock.html">QReadWriteLock</a>, <a href="qsemaphore.html">QSemaphore</a>, and <a href="qwaitcondition.html">QWaitCondition</a>.</p>
+<p><b>参见</b><a href="qmutexlocker.html">QMutexLocker</a>, <a href="qreadwritelock.html">QReadWriteLock</a>, <a href="qsemaphore.html">QSemaphore</a>, and <a href="qwaitcondition.html">QWaitCondition</a>.</p>
 <!-- @@@QMutex -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -162,7 +162,7 @@
 <tr><td class="topAlign"><code>QMutex::Recursive</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">In this mode, a thread can lock the same mutex multiple times and the mutex won't be unlocked until a corresponding number of <a href="qmutex.html#unlock">unlock</a>() calls have been made.</td></tr>
 <tr><td class="topAlign"><code>QMutex::NonRecursive</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">In this mode, a thread may only lock a mutex once.</td></tr>
 </table></div>
-<p><b>See also </b><a href="qmutex.html#QMutex">QMutex</a>().</p>
+<p><b>参见</b><a href="qmutex.html#QMutex">QMutex</a>().</p>
 <!-- @@@RecursionMode -->
 </div>
 <div class="prop">
@@ -175,7 +175,7 @@
 <p>Constructs a new mutex. The mutex is created in an unlocked state.</p>
 <p>If <i>mode</i> is <a href="qmutex.html#RecursionMode-enum">QMutex::Recursive</a>, a thread can lock the same mutex multiple times and the mutex won't be unlocked until a corresponding number of <a href="qmutex.html#unlock">unlock</a>() calls have been made. Otherwise a thread may only lock a mutex once. The default is <a href="qmutex.html#RecursionMode-enum">QMutex::NonRecursive</a>.</p>
 <p>Recursive mutexes are slower and take more memory than non-recursive ones.</p>
-<p><b>See also </b><a href="qmutex.html#lock">lock</a>() and <a href="qmutex.html#unlock">unlock</a>().</p>
+<p><b>参见</b><a href="qmutex.html#lock">lock</a>() and <a href="qmutex.html#unlock">unlock</a>().</p>
 <!-- @@@QMutex -->
 <!-- $$$~QMutex[overload1]$$$~QMutex -->
 <h3 class="fn" id="dtor.QMutex"><a name="dtor.QMutex"></a>QMutex::<span class="name">~QMutex</span>()</h3>
@@ -191,7 +191,7 @@
 <h3 class="fn" id="lock"><a name="lock"></a><span class="type">void</span> QMutex::<span class="name">lock</span>()</h3>
 <p>Locks the mutex. If another thread has locked the mutex then this call will block until that thread has unlocked it.</p>
 <p>Calling this function multiple times on the same mutex from the same thread is allowed if this mutex is a <a href="qmutex.html#RecursionMode-enum">recursive mutex</a>. If this mutex is a <a href="qmutex.html#RecursionMode-enum">non-recursive mutex</a>, this function will <i>dead-lock</i> when the mutex is locked recursively.</p>
-<p><b>See also </b><a href="qmutex.html#unlock">unlock</a>().</p>
+<p><b>参见</b><a href="qmutex.html#unlock">unlock</a>().</p>
 <!-- @@@lock -->
 <!-- $$$tryLock[overload1]$$$tryLockint -->
 <h3 class="fn" id="tryLock"><a name="tryLock"></a><span class="type">bool</span> QMutex::<span class="name">tryLock</span>(<span class="type">int</span> <i>timeout</i> = 0)</h3>
@@ -199,7 +199,7 @@
 <p>Note: Passing a negative number as the <i>timeout</i> is equivalent to calling <a href="qmutex.html#lock">lock</a>(), i.e&#x2e; this function will wait forever until mutex can be locked if <i>timeout</i> is negative.</p>
 <p>If the lock was obtained, the mutex must be unlocked with <a href="qmutex.html#unlock">unlock</a>() before another thread can successfully lock it.</p>
 <p>Calling this function multiple times on the same mutex from the same thread is allowed if this mutex is a <a href="qmutex.html#RecursionMode-enum">recursive mutex</a>. If this mutex is a <a href="qmutex.html#RecursionMode-enum">non-recursive mutex</a>, this function will <i>always</i> return false when attempting to lock the mutex recursively.</p>
-<p><b>See also </b><a href="qmutex.html#lock">lock</a>() and <a href="qmutex.html#unlock">unlock</a>().</p>
+<p><b>参见</b><a href="qmutex.html#lock">lock</a>() and <a href="qmutex.html#unlock">unlock</a>().</p>
 <!-- @@@tryLock -->
 <!-- $$$try_lock[overload1]$$$try_lock -->
 <h3 class="fn" id="try_lock"><a name="try_lock"></a><span class="type">bool</span> QMutex::<span class="name">try_lock</span>()</h3>
@@ -215,7 +215,7 @@
 <p>If the lock was obtained, the mutex must be unlocked with <a href="qmutex.html#unlock">unlock</a>() before another thread can successfully lock it.</p>
 <p>Calling this function multiple times on the same mutex from the same thread is allowed if this mutex is a <a href="qmutex.html#RecursionMode-enum">recursive mutex</a>. If this mutex is a <a href="qmutex.html#RecursionMode-enum">non-recursive mutex</a>, this function will <i>always</i> return false when attempting to lock the mutex recursively.</p>
 <p>这个函数是在Qt 5.8版本中新增引入的。</p>
-<p><b>See also </b><a href="qmutex.html#lock">lock</a>() and <a href="qmutex.html#unlock">unlock</a>().</p>
+<p><b>参见</b><a href="qmutex.html#lock">lock</a>() and <a href="qmutex.html#unlock">unlock</a>().</p>
 <!-- @@@try_lock_for -->
 <!-- $$$try_lock_until[overload1]$$$try_lock_untilstd::chrono::time_point<Clock,Duration> -->
 <h3 class="fn" id="try_lock_until"><a name="try_lock_until"></a><span class="type">bool</span> QMutex::<span class="name">try_lock_until</span>(<span class="type">std::chrono::time_point</span>&lt;<span class="type">Clock</span>, <span class="type">Duration</span>&gt; <i>timePoint</i>)</h3>
@@ -224,12 +224,12 @@
 <p>If the lock was obtained, the mutex must be unlocked with <a href="qmutex.html#unlock">unlock</a>() before another thread can successfully lock it.</p>
 <p>Calling this function multiple times on the same mutex from the same thread is allowed if this mutex is a <a href="qmutex.html#RecursionMode-enum">recursive mutex</a>. If this mutex is a <a href="qmutex.html#RecursionMode-enum">non-recursive mutex</a>, this function will <i>always</i> return false when attempting to lock the mutex recursively.</p>
 <p>这个函数是在Qt 5.8版本中新增引入的。</p>
-<p><b>See also </b><a href="qmutex.html#lock">lock</a>() and <a href="qmutex.html#unlock">unlock</a>().</p>
+<p><b>参见</b><a href="qmutex.html#lock">lock</a>() and <a href="qmutex.html#unlock">unlock</a>().</p>
 <!-- @@@try_lock_until -->
 <!-- $$$unlock[overload1]$$$unlock -->
 <h3 class="fn" id="unlock"><a name="unlock"></a><span class="type">void</span> QMutex::<span class="name">unlock</span>()</h3>
 <p>Unlocks the mutex. Attempting to unlock a mutex in a different thread to the one that locked it results in an error. Unlocking a mutex that is not locked results in undefined behavior.</p>
-<p><b>See also </b><a href="qmutex.html#lock">lock</a>().</p>
+<p><b>参见</b><a href="qmutex.html#lock">lock</a>().</p>
 <!-- @@@unlock -->
 </div>
 <div class="vars">

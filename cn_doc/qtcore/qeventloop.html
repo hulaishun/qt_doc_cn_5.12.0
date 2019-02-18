@@ -114,7 +114,7 @@
 <p>The <a href="qeventloop.html">QEventLoop</a> class provides a means of entering and leaving an event loop.</p>
 <p>At any time, you can create a <a href="qeventloop.html">QEventLoop</a> object and call <a href="qeventloop.html#exec">exec</a>() on it to start a local event loop. From within the event loop, calling <a href="qeventloop.html#exit">exit</a>() will force <a href="qeventloop.html#exec">exec</a>() to return.</p>
 </div>
-<p><b>See also </b><a href="qabstracteventdispatcher.html">QAbstractEventDispatcher</a>.</p>
+<p><b>参见</b><a href="qabstracteventdispatcher.html">QAbstractEventDispatcher</a>.</p>
 <!-- @@@QEventLoop -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -128,7 +128,7 @@
 <tr><td class="topAlign"><code>QEventLoop::WaitForMoreEvents</code></td><td class="topAlign tblval"><code>0x04</code></td><td class="topAlign">Wait for events if no pending events are available.</td></tr>
 </table></div>
 <p>The ProcessEventsFlags type is a typedef for <a href="qflags.html">QFlags</a>&lt;ProcessEventsFlag&gt;. It stores an OR combination of ProcessEventsFlag values.</p>
-<p><b>See also </b><a href="qeventloop.html#processEvents">processEvents</a>().</p>
+<p><b>参见</b><a href="qeventloop.html#processEvents">processEvents</a>().</p>
 <!-- @@@ProcessEventsFlag -->
 </div>
 <div class="prop">
@@ -155,7 +155,7 @@
 <p>It is necessary to call this function to start event handling. The main event loop receives events from the window system and dispatches these to the application widgets.</p>
 <p>Generally speaking, no user interaction can take place before calling exec(). As a special case, modal widgets like <a href="../qtwidgets/qmessagebox.html">QMessageBox</a> can be used before calling exec(), because modal widgets use their own local event loop.</p>
 <p>To make your application perform idle processing (i.e&#x2e; executing a special function whenever there are no pending events), use a <a href="qtimer.html">QTimer</a> with 0 timeout. More sophisticated idle processing schemes can be achieved using <a href="qeventloop.html#processEvents">processEvents</a>().</p>
-<p><b>See also </b><a href="qcoreapplication.html#quit">QCoreApplication::quit</a>(), <a href="qeventloop.html#exit">exit</a>(), and <a href="qeventloop.html#processEvents">processEvents</a>().</p>
+<p><b>参见</b><a href="qcoreapplication.html#quit">QCoreApplication::quit</a>(), <a href="qeventloop.html#exit">exit</a>(), and <a href="qeventloop.html#processEvents">processEvents</a>().</p>
 <!-- @@@exec -->
 <!-- $$$exit[overload1]$$$exitint -->
 <h3 class="fn" id="exit"><a name="exit"></a><span class="type">void</span> QEventLoop::<span class="name">exit</span>(<span class="type">int</span> <i>returnCode</i> = 0)</h3>
@@ -163,12 +163,12 @@
 <p>After this function has been called, the event loop returns from the call to <a href="qeventloop.html#exec">exec</a>(). The <a href="qeventloop.html#exec">exec</a>() function returns <i>returnCode</i>.</p>
 <p>By convention, a <i>returnCode</i> of 0 means success, and any non-zero value indicates an error.</p>
 <p>Note that unlike the C library function of the same name, this function <i>does</i> return to the caller -- it is event processing that stops.</p>
-<p><b>See also </b><a href="qcoreapplication.html#quit">QCoreApplication::quit</a>(), <a href="qeventloop.html#quit">quit</a>(), and <a href="qeventloop.html#exec">exec</a>().</p>
+<p><b>参见</b><a href="qcoreapplication.html#quit">QCoreApplication::quit</a>(), <a href="qeventloop.html#quit">quit</a>(), and <a href="qeventloop.html#exec">exec</a>().</p>
 <!-- @@@exit -->
 <!-- $$$isRunning[overload1]$$$isRunning -->
 <h3 class="fn" id="isRunning"><a name="isRunning"></a><span class="type">bool</span> QEventLoop::<span class="name">isRunning</span>() const</h3>
 <p>Returns <code>true</code> if the event loop is running; otherwise returns false. The event loop is considered running from the time when <a href="qeventloop.html#exec">exec</a>() is called until <a href="qeventloop.html#exit">exit</a>() is called.</p>
-<p><b>See also </b><a href="qeventloop.html#exec">exec</a>() and <a href="qeventloop.html#exit">exit</a>().</p>
+<p><b>参见</b><a href="qeventloop.html#exec">exec</a>() and <a href="qeventloop.html#exit">exit</a>().</p>
 <!-- @@@isRunning -->
 <!-- $$$processEvents[overload1]$$$processEventsQEventLoop::ProcessEventsFlags -->
 <h3 class="fn" id="processEvents"><a name="processEvents"></a><span class="type">bool</span> QEventLoop::<span class="name">processEvents</span>(<span class="type"><a href="qeventloop.html#ProcessEventsFlag-enum">QEventLoop::ProcessEventsFlags</a></span> <i>flags</i> = AllEvents)</h3>
@@ -189,12 +189,12 @@
 <h3 class="fn" id="quit"><a name="quit"></a><code>[slot] </code><span class="type">void</span> QEventLoop::<span class="name">quit</span>()</h3>
 <p>Tells the event loop to exit normally.</p>
 <p>Same as exit(0).</p>
-<p><b>See also </b><a href="qcoreapplication.html#quit">QCoreApplication::quit</a>() and <a href="qeventloop.html#exit">exit</a>().</p>
+<p><b>参见</b><a href="qcoreapplication.html#quit">QCoreApplication::quit</a>() and <a href="qeventloop.html#exit">exit</a>().</p>
 <!-- @@@quit -->
 <!-- $$$wakeUp[overload1]$$$wakeUp -->
 <h3 class="fn" id="wakeUp"><a name="wakeUp"></a><span class="type">void</span> QEventLoop::<span class="name">wakeUp</span>()</h3>
 <p>Wakes up the event loop.</p>
-<p><b>See also </b><a href="qabstracteventdispatcher.html#wakeUp">QAbstractEventDispatcher::wakeUp</a>().</p>
+<p><b>参见</b><a href="qabstracteventdispatcher.html#wakeUp">QAbstractEventDispatcher::wakeUp</a>().</p>
 <!-- @@@wakeUp -->
 </div>
 <div class="vars">

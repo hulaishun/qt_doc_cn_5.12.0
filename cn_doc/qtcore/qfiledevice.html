@@ -139,7 +139,7 @@
 <p>The <a href="qfiledevice.html">QFileDevice</a> class provides an interface for reading from and writing to open files.</p>
 <p><a href="qfiledevice.html">QFileDevice</a> is the base class for I/O devices that can read and write text and binary files and <a href="resources.html">resources</a>. <a href="qfile.html">QFile</a> offers the main functionality, <a href="qfiledevice.html">QFileDevice</a> serves as a base class for sharing functionality with other file devices such as <a href="qtemporaryfile.html">QTemporaryFile</a>, by providing all the operations that can be done on files that have been opened by <a href="qfile.html">QFile</a> or <a href="qtemporaryfile.html">QTemporaryFile</a>.</p>
 </div>
-<p><b>See also </b><a href="qfile.html">QFile</a> and <a href="qtemporaryfile.html">QTemporaryFile</a>.</p>
+<p><b>参见</b><a href="qfile.html">QFile</a> and <a href="qtemporaryfile.html">QTemporaryFile</a>.</p>
 <!-- @@@QFileDevice -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -183,7 +183,7 @@
 <tr><td class="topAlign"><code>QFileDevice::FileModificationTime</code></td><td class="topAlign tblval"><code>3</code></td><td class="topAlign">When the file was most recently modified.</td></tr>
 </table></div>
 <p>This enum was introduced or modified in  Qt 5.10.</p>
-<p><b>See also </b><a href="qfiledevice.html#setFileTime">setFileTime</a>(), <a href="qfiledevice.html#fileTime">fileTime</a>(), and <a href="qfileinfo.html#fileTime">QFileInfo::fileTime</a>().</p>
+<p><b>参见</b><a href="qfiledevice.html#setFileTime">setFileTime</a>(), <a href="qfiledevice.html#fileTime">fileTime</a>(), and <a href="qfileinfo.html#fileTime">QFileInfo::fileTime</a>().</p>
 <!-- @@@FileTime -->
 <!-- $$$MemoryMapFlags$$$NoOptions$$$MapPrivateOption -->
 <h3 class="fn" id="MemoryMapFlags-enum"><a name="MemoryMapFlags-enum"></a>enum QFileDevice::<span class="name">MemoryMapFlags</span></h3>
@@ -246,13 +246,13 @@
 <h3 class="fn" id="close"><a name="close"></a><code>[override virtual] </code><span class="type">void</span> QFileDevice::<span class="name">close</span>()</h3>
 <p>Reimplemented from <a href="qiodevice.html#close">QIODevice::close</a>().</p>
 <p>Calls <a href="qfiledevice.html#flush">QFileDevice::flush</a>() and closes the file. Errors from flush are ignored.</p>
-<p><b>See also </b><a href="qiodevice.html#close">QIODevice::close</a>().</p>
+<p><b>参见</b><a href="qiodevice.html#close">QIODevice::close</a>().</p>
 <!-- @@@close -->
 <!-- $$$error[overload1]$$$error -->
 <h3 class="fn" id="error"><a name="error"></a><span class="type"><a href="qfiledevice.html#FileError-enum">QFileDevice::FileError</a></span> QFileDevice::<span class="name">error</span>() const</h3>
 <p>Returns the file error status.</p>
 <p>The I/O device status returns an error code. For example, if <a href="qiodevice.html#open">open</a>() returns <code>false</code>, or a read/write operation returns -1, this function can be called to find out the reason why the operation failed.</p>
-<p><b>See also </b><a href="qfiledevice.html#unsetError">unsetError</a>().</p>
+<p><b>参见</b><a href="qfiledevice.html#unsetError">unsetError</a>().</p>
 <!-- @@@error -->
 <!-- $$$fileName[overload1]$$$fileName -->
 <h3 class="fn" id="fileName"><a name="fileName"></a><code>[virtual] </code><span class="type"><a href="qstring.html">QString</a></span> QFileDevice::<span class="name">fileName</span>() const</h3>
@@ -262,7 +262,7 @@
 <h3 class="fn" id="fileTime"><a name="fileTime"></a><span class="type"><a href="qdatetime.html">QDateTime</a></span> QFileDevice::<span class="name">fileTime</span>(<span class="type"><a href="qfiledevice.html#FileTime-enum">QFileDevice::FileTime</a></span> <i>time</i>) const</h3>
 <p>Returns the file time specified by <i>time</i>. If the time cannot be determined return QDateTime() (an invalid date time).</p>
 <p>这个函数是在Qt 5.10版本中新增引入的。</p>
-<p><b>See also </b><a href="qfiledevice.html#setFileTime">setFileTime</a>(), <a href="qfiledevice.html#FileTime-enum">FileTime</a>, and <a href="qdatetime.html#isValid">QDateTime::isValid</a>().</p>
+<p><b>参见</b><a href="qfiledevice.html#setFileTime">setFileTime</a>(), <a href="qfiledevice.html#FileTime-enum">FileTime</a>, and <a href="qdatetime.html#isValid">QDateTime::isValid</a>().</p>
 <!-- @@@fileTime -->
 <!-- $$$flush[overload1]$$$flush -->
 <h3 class="fn" id="flush"><a name="flush"></a><span class="type">bool</span> QFileDevice::<span class="name">flush</span>()</h3>
@@ -273,14 +273,14 @@
 <p>Returns the file handle of the file.</p>
 <p>This is a small positive integer, suitable for use with C library functions such as <code>fdopen()</code> and <code>fcntl()</code>. On systems that use file descriptors for sockets (i.e&#x2e; Unix systems, but not Windows) the handle can be used with <a href="qsocketnotifier.html">QSocketNotifier</a> as well.</p>
 <p>If the file is not open, or there is an error, handle() returns -1.</p>
-<p><b>See also </b><a href="qsocketnotifier.html">QSocketNotifier</a>.</p>
+<p><b>参见</b><a href="qsocketnotifier.html">QSocketNotifier</a>.</p>
 <!-- @@@handle -->
 <!-- $$$isSequential[overload1]$$$isSequential -->
 <h3 class="fn" id="isSequential"><a name="isSequential"></a><code>[override virtual] </code><span class="type">bool</span> QFileDevice::<span class="name">isSequential</span>() const</h3>
 <p>Reimplemented from <a href="qiodevice.html#isSequential">QIODevice::isSequential</a>().</p>
 <p>Returns <code>true</code> if the file can only be manipulated sequentially; otherwise returns <code>false</code>.</p>
 <p>Most files support random-access, but some special files may not.</p>
-<p><b>See also </b><a href="qiodevice.html#isSequential">QIODevice::isSequential</a>().</p>
+<p><b>参见</b><a href="qiodevice.html#isSequential">QIODevice::isSequential</a>().</p>
 <!-- @@@isSequential -->
 <!-- $$$map[overload1]$$$mapqint64qint64QFileDevice::MemoryMapFlags -->
 <h3 class="fn" id="map"><a name="map"></a><span class="type"><a href="qtglobal.html#uchar-typedef">uchar</a></span> *QFileDevice::<span class="name">map</span>(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> <i>offset</i>, <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> <i>size</i>, <span class="type"><a href="qfiledevice.html#MemoryMapFlags-enum">QFileDevice::MemoryMapFlags</a></span> <i>flags</i> = NoOptions)</h3>
@@ -288,12 +288,12 @@
 <p>The mapping will have the same open mode as the file (read and/or write), except when using <a href="qfiledevice.html#MemoryMapFlags-enum">MapPrivateOption</a>, in which case it is always possible to write to the mapped memory.</p>
 <p>Any mapping options can be passed through <i>flags</i>.</p>
 <p>Returns a pointer to the memory or 0 if there is an error.</p>
-<p><b>See also </b><a href="qfiledevice.html#unmap">unmap</a>().</p>
+<p><b>参见</b><a href="qfiledevice.html#unmap">unmap</a>().</p>
 <!-- @@@map -->
 <!-- $$$permissions[overload1]$$$permissions -->
 <h3 class="fn" id="permissions"><a name="permissions"></a><code>[virtual] </code><span class="type"><a href="qfiledevice.html#Permission-enum">QFileDevice::Permissions</a></span> QFileDevice::<span class="name">permissions</span>() const</h3>
 <p>Returns the complete OR-ed together combination of <a href="qfiledevice.html#Permission-enum">QFile::Permission</a> for the file.</p>
-<p><b>See also </b><a href="qfiledevice.html#setPermissions">setPermissions</a>().</p>
+<p><b>参见</b><a href="qfiledevice.html#setPermissions">setPermissions</a>().</p>
 <!-- @@@permissions -->
 <!-- $$$pos[overload1]$$$pos -->
 <h3 class="fn" id="pos"><a name="pos"></a><code>[override virtual] </code><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> QFileDevice::<span class="name">pos</span>() const</h3>
@@ -311,7 +311,7 @@
 <h3 class="fn" id="resize"><a name="resize"></a><code>[virtual] </code><span class="type">bool</span> QFileDevice::<span class="name">resize</span>(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> <i>sz</i>)</h3>
 <p>Sets the file size (in bytes) <i>sz</i>. Returns <code>true</code> if the resize succeeds; false otherwise. If <i>sz</i> is larger than the file currently is, the new bytes will be set to 0; if <i>sz</i> is smaller, the file is simply truncated.</p>
 <p><b>Warning:</b> This function can fail if the file doesn't exist.</p>
-<p><b>See also </b><a href="qfiledevice.html#size">size</a>().</p>
+<p><b>参见</b><a href="qfiledevice.html#size">size</a>().</p>
 <!-- @@@resize -->
 <!-- $$$seek[overload1]$$$seekqint64 -->
 <h3 class="fn" id="seek"><a name="seek"></a><code>[override virtual] </code><span class="type">bool</span> QFileDevice::<span class="name">seek</span>(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> <i>pos</i>)</h3>
@@ -323,13 +323,13 @@
 <h3 class="fn" id="setFileTime"><a name="setFileTime"></a><span class="type">bool</span> QFileDevice::<span class="name">setFileTime</span>(const <span class="type"><a href="qdatetime.html">QDateTime</a></span> &amp;<i>newDate</i>, <span class="type"><a href="qfiledevice.html#FileTime-enum">QFileDevice::FileTime</a></span> <i>fileTime</i>)</h3>
 <p>Sets the file time specified by <i>fileTime</i> to <i>newDate</i>, returning true if successful; otherwise returns false.</p>
 <p><b>Note: </b>The file must be open to use this function.</p><p>这个函数是在Qt 5.10版本中新增引入的。</p>
-<p><b>See also </b><a href="qfiledevice.html#fileTime">fileTime</a>() and <a href="qfiledevice.html#FileTime-enum">FileTime</a>.</p>
+<p><b>参见</b><a href="qfiledevice.html#fileTime">fileTime</a>() and <a href="qfiledevice.html#FileTime-enum">FileTime</a>.</p>
 <!-- @@@setFileTime -->
 <!-- $$$setPermissions[overload1]$$$setPermissionsQFileDevice::Permissions -->
 <h3 class="fn" id="setPermissions"><a name="setPermissions"></a><code>[virtual] </code><span class="type">bool</span> QFileDevice::<span class="name">setPermissions</span>(<span class="type"><a href="qfiledevice.html#Permission-enum">QFileDevice::Permissions</a></span> <i>permissions</i>)</h3>
 <p>Sets the permissions for the file to the <i>permissions</i> specified. Returns <code>true</code> if successful, or <code>false</code> if the permissions cannot be modified.</p>
 <p><b>Warning:</b> This function does not manipulate ACLs, which may limit its effectiveness.</p>
-<p><b>See also </b><a href="qfiledevice.html#permissions">permissions</a>().</p>
+<p><b>参见</b><a href="qfiledevice.html#permissions">permissions</a>().</p>
 <!-- @@@setPermissions -->
 <!-- $$$size[overload1]$$$size -->
 <h3 class="fn" id="size"><a name="size"></a><code>[override virtual] </code><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> QFileDevice::<span class="name">size</span>() const</h3>
@@ -341,12 +341,12 @@
 <h3 class="fn" id="unmap"><a name="unmap"></a><span class="type">bool</span> QFileDevice::<span class="name">unmap</span>(<span class="type"><a href="qtglobal.html#uchar-typedef">uchar</a></span> *<i>address</i>)</h3>
 <p>Unmaps the memory <i>address</i>.</p>
 <p>Returns <code>true</code> if the unmap succeeds; false otherwise.</p>
-<p><b>See also </b><a href="qfiledevice.html#map">map</a>().</p>
+<p><b>参见</b><a href="qfiledevice.html#map">map</a>().</p>
 <!-- @@@unmap -->
 <!-- $$$unsetError[overload1]$$$unsetError -->
 <h3 class="fn" id="unsetError"><a name="unsetError"></a><span class="type">void</span> QFileDevice::<span class="name">unsetError</span>()</h3>
 <p>Sets the file's error to <a href="qfiledevice.html#FileError-enum">QFileDevice::NoError</a>.</p>
-<p><b>See also </b><a href="qfiledevice.html#error">error</a>().</p>
+<p><b>参见</b><a href="qfiledevice.html#error">error</a>().</p>
 <!-- @@@unsetError -->
 <!-- $$$writeData[overload1]$$$writeDataconstchar*qint64 -->
 <h3 class="fn" id="writeData"><a name="writeData"></a><code>[override virtual protected] </code><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> QFileDevice::<span class="name">writeData</span>(const <span class="type">char</span> *<i>data</i>, <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> <i>len</i>)</h3>

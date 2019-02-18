@@ -189,7 +189,7 @@
 
 </pre>
 </div>
-<p><b>See also </b><a href="qaudiooutput.html">QAudioOutput</a> and <a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a>.</p>
+<p><b>参见</b><a href="qaudiooutput.html">QAudioOutput</a> and <a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a>.</p>
 <!-- @@@QAudioInput -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -215,7 +215,7 @@
 <h3 class="fn" id="bufferSize"><a name="bufferSize"></a><span class="type">int</span> QAudioInput::<span class="name">bufferSize</span>() const</h3>
 <p>Returns the audio buffer size in bytes.</p>
 <p>If called before <a href="qaudioinput.html#start-1">start</a>(), returns platform default value. If called before <a href="qaudioinput.html#start-1">start</a>() but <a href="qaudioinput.html#setBufferSize">setBufferSize</a>() was called prior, returns value set by <a href="qaudioinput.html#setBufferSize">setBufferSize</a>(). If called after <a href="qaudioinput.html#start-1">start</a>(), returns the actual buffer size being used. This may not be what was set previously by <a href="qaudioinput.html#setBufferSize">setBufferSize</a>().</p>
-<p><b>See also </b><a href="qaudioinput.html#setBufferSize">setBufferSize</a>().</p>
+<p><b>参见</b><a href="qaudioinput.html#setBufferSize">setBufferSize</a>().</p>
 <!-- @@@bufferSize -->
 <!-- $$$bytesReady[overload1]$$$bytesReady -->
 <h3 class="fn" id="bytesReady"><a name="bytesReady"></a><span class="type">int</span> QAudioInput::<span class="name">bytesReady</span>() const</h3>
@@ -241,7 +241,7 @@
 <!-- $$$notifyInterval[overload1]$$$notifyInterval -->
 <h3 class="fn" id="notifyInterval"><a name="notifyInterval"></a><span class="type">int</span> QAudioInput::<span class="name">notifyInterval</span>() const</h3>
 <p>Returns the notify interval in milliseconds.</p>
-<p><b>See also </b><a href="qaudioinput.html#setNotifyInterval">setNotifyInterval</a>().</p>
+<p><b>参见</b><a href="qaudioinput.html#setNotifyInterval">setNotifyInterval</a>().</p>
 <!-- @@@notifyInterval -->
 <!-- $$$periodSize[overload1]$$$periodSize -->
 <h3 class="fn" id="periodSize"><a name="periodSize"></a><span class="type">int</span> QAudioInput::<span class="name">periodSize</span>() const</h3>
@@ -265,12 +265,12 @@
 <h3 class="fn" id="setBufferSize"><a name="setBufferSize"></a><span class="type">void</span> QAudioInput::<span class="name">setBufferSize</span>(<span class="type">int</span> <i>value</i>)</h3>
 <p>Sets the audio buffer size to <i>value</i> bytes.</p>
 <p>Note: This function can be called anytime before <a href="qaudioinput.html#start-1">start</a>(), calls to this are ignored after <a href="qaudioinput.html#start-1">start</a>(). It should not be assumed that the buffer size set is the actual buffer size used, calling <a href="qaudioinput.html#bufferSize">bufferSize</a>() anytime after <a href="qaudioinput.html#start-1">start</a>() will return the actual buffer size being used.</p>
-<p><b>See also </b><a href="qaudioinput.html#bufferSize">bufferSize</a>().</p>
+<p><b>参见</b><a href="qaudioinput.html#bufferSize">bufferSize</a>().</p>
 <!-- @@@setBufferSize -->
 <!-- $$$setNotifyInterval[overload1]$$$setNotifyIntervalint -->
 <h3 class="fn" id="setNotifyInterval"><a name="setNotifyInterval"></a><span class="type">void</span> QAudioInput::<span class="name">setNotifyInterval</span>(<span class="type">int</span> <i>ms</i>)</h3>
 <p>Sets the interval for <a href="qaudioinput.html#notify">notify</a>() signal to be emitted. This is based on the <i>ms</i> of audio data processed not on actual real-time. The minimum resolution of the timer is platform specific and values should be checked with <a href="qaudioinput.html#notifyInterval">notifyInterval</a>() to confirm actual value being used.</p>
-<p><b>See also </b><a href="qaudioinput.html#notifyInterval">notifyInterval</a>().</p>
+<p><b>参见</b><a href="qaudioinput.html#notifyInterval">notifyInterval</a>().</p>
 <!-- @@@setNotifyInterval -->
 <!-- $$$setVolume[overload1]$$$setVolumeqreal -->
 <h3 class="fn" id="setVolume"><a name="setVolume"></a><span class="type">void</span> QAudioInput::<span class="name">setVolume</span>(<span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> <i>volume</i>)</h3>
@@ -279,21 +279,21 @@
 <p>If the device does not support adjusting the input volume then <i>volume</i> will be ignored and the input volume will remain at 1.0&#x2e;</p>
 <p>The default volume is <code>1.0</code>.</p>
 <p>Note: Adjustments to the volume will change the volume of this audio stream, not the global volume.</p>
-<p><b>See also </b><a href="qaudioinput.html#volume">volume</a>().</p>
+<p><b>参见</b><a href="qaudioinput.html#volume">volume</a>().</p>
 <!-- @@@setVolume -->
 <!-- $$$start[overload1]$$$startQIODevice* -->
 <h3 class="fn" id="start"><a name="start"></a><span class="type">void</span> QAudioInput::<span class="name">start</span>(<span class="type"><a href="../qtcore/qiodevice.html">QIODevice</a></span> *<i>device</i>)</h3>
 <p>Starts transferring audio data from the system's audio input to the <i>device</i>. The <i>device</i> must have been opened in the <a href="../qtcore/qiodevice.html#OpenModeFlag-enum">WriteOnly</a>, <a href="../qtcore/qiodevice.html#OpenModeFlag-enum">Append</a> or <a href="../qtcore/qiodevice.html#OpenModeFlag-enum">ReadWrite</a> modes.</p>
 <p>If the <a href="qaudioinput.html">QAudioInput</a> is able to successfully get audio data, <a href="qaudioinput.html#state">state</a>() returns either <a href="qaudio.html#State-enum">QAudio::ActiveState</a> or <a href="qaudio.html#State-enum">QAudio::IdleState</a>, <a href="qaudioinput.html#error">error</a>() returns <a href="qaudio.html#Error-enum">QAudio::NoError</a> and the <a href="qaudioinput.html#stateChanged">stateChanged</a>() signal is emitted.</p>
 <p>If a problem occurs during this process, <a href="qaudioinput.html#error">error</a>() returns <a href="qaudio.html#Error-enum">QAudio::OpenError</a>, <a href="qaudioinput.html#state">state</a>() returns <a href="qaudio.html#State-enum">QAudio::StoppedState</a> and the <a href="qaudioinput.html#stateChanged">stateChanged</a>() signal is emitted.</p>
-<p><b>See also </b><a href="../qtcore/qiodevice.html">QIODevice</a>.</p>
+<p><b>参见</b><a href="../qtcore/qiodevice.html">QIODevice</a>.</p>
 <!-- @@@start -->
 <!-- $$$start$$$start -->
 <h3 class="fn" id="start-1"><a name="start-1"></a><span class="type"><a href="../qtcore/qiodevice.html">QIODevice</a></span> *QAudioInput::<span class="name">start</span>()</h3>
 <p>Returns a pointer to the internal <a href="../qtcore/qiodevice.html">QIODevice</a> being used to transfer data from the system's audio input. The device will already be open and <a href="../qtcore/qiodevice.html#read-1">read()</a> can read data directly from it.</p>
 <p><b>Note: </b>The pointer will become invalid after the stream is stopped or if you start another stream.</p><p>If the <a href="qaudioinput.html">QAudioInput</a> is able to access the system's audio device, <a href="qaudioinput.html#state">state</a>() returns <a href="qaudio.html#State-enum">QAudio::IdleState</a>, <a href="qaudioinput.html#error">error</a>() returns <a href="qaudio.html#Error-enum">QAudio::NoError</a> and the <a href="qaudioinput.html#stateChanged">stateChanged</a>() signal is emitted.</p>
 <p>If a problem occurs during this process, <a href="qaudioinput.html#error">error</a>() returns <a href="qaudio.html#Error-enum">QAudio::OpenError</a>, <a href="qaudioinput.html#state">state</a>() returns <a href="qaudio.html#State-enum">QAudio::StoppedState</a> and the <a href="qaudioinput.html#stateChanged">stateChanged</a>() signal is emitted.</p>
-<p><b>See also </b><a href="../qtcore/qiodevice.html">QIODevice</a>.</p>
+<p><b>参见</b><a href="../qtcore/qiodevice.html">QIODevice</a>.</p>
 <!-- @@@start -->
 <!-- $$$state[overload1]$$$state -->
 <h3 class="fn" id="state"><a name="state"></a><span class="type">QAudio::State</span> QAudioInput::<span class="name">state</span>() const</h3>
@@ -317,7 +317,7 @@
 <h3 class="fn" id="volume"><a name="volume"></a><span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> QAudioInput::<span class="name">volume</span>() const</h3>
 <p>Returns the input volume.</p>
 <p>If the device does not support adjusting the input volume the returned value will be 1.0&#x2e;</p>
-<p><b>See also </b><a href="qaudioinput.html#setVolume">setVolume</a>().</p>
+<p><b>参见</b><a href="qaudioinput.html#setVolume">setVolume</a>().</p>
 <!-- @@@volume -->
 </div>
 <div class="vars">

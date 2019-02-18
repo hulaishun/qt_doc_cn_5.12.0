@@ -122,7 +122,7 @@
 <tr><td class="topAlign"><code>QRemoteObjectHostBase::BuiltInSchemasOnly</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">Only allow the hostUrl to be set to a QtRO supported schema. This is the default value, and causes a Node error to be set if an unrecognized schema is provided.</td></tr>
 <tr><td class="topAlign"><code>QRemoteObjectHostBase::AllowExternalRegistration</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">The provided schema is registered as an <a href="qtremoteobjects-external-schemas.html#external-schemas">External Schema</a></td></tr>
 </table></div>
-<p><b>See also </b>QRemoteObjectHost(const QUrl &amp;address, const QUrl &amp;registryAddress = QUrl(), AllowedSchemas allowedSchemas=BuiltInSchemasOnly, QObject *parent = nullptr) and setHostUrl(const QUrl &amp;hostAddress, AllowedSchemas allowedSchemas=BuiltInSchemasOnly).</p>
+<p><b>参见</b>QRemoteObjectHost(const QUrl &amp;address, const QUrl &amp;registryAddress = QUrl(), AllowedSchemas allowedSchemas=BuiltInSchemasOnly, QObject *parent = nullptr) and setHostUrl(const QUrl &amp;hostAddress, AllowedSchemas allowedSchemas=BuiltInSchemasOnly).</p>
 <!-- @@@AllowedSchemas -->
 <!-- $$$RemoteObjectNameFilter -->
 <h3 class="fn" id="RemoteObjectNameFilter-typedef"><a name="RemoteObjectNameFilter-typedef"></a>typedef QRemoteObjectHostBase::<span class="name">RemoteObjectNameFilter</span></h3>
@@ -140,13 +140,13 @@
 <h3 class="fn" id="addHostSideConnection"><a name="addHostSideConnection"></a><span class="type">void</span> QRemoteObjectHostBase::<span class="name">addHostSideConnection</span>(<span class="type"><a href="../qtcore/qiodevice.html">QIODevice</a></span> *<i>ioDevice</i>)</h3>
 <p>In order to <a href="qremoteobjecthostbase.html#enableRemoting">QRemoteObjectHost::enableRemoting</a>() <a href="qtremoteobjects-source.html#source">Source</a> objects over <a href="qtremoteobjects-external-schemas.html#external-qiodevices">External QIODevices</a>, Qt Remote Objects needs access to the communications channel (a QIODEvice) between the respective nodes. It is the addHostSideConnection() call that enables this on the <a href="qtremoteobjects-source.html#source">Source</a> side, taking the <i>ioDevice</i> as input. Any <a href="qremoteobjecthostbase.html#enableRemoting">enableRemoting</a>() call will still work without calling addHostSideConnection, but the Node will not be able to share the <a href="qtremoteobjects-source.html#source">Source</a> objects without being provided the connection to the Replica node. Before calling this function you must call setHostUrl with a unique URL and <a href="qremoteobjecthostbase.html#AllowedSchemas-enum">QRemoteObjectHost::AllowExternalRegistration</a>.</p>
 <p>This function was introduced in  Qt 5.12.</p>
-<p><b>See also </b><a href="qremoteobjectnode.html#addClientSideConnection">addClientSideConnection</a>.</p>
+<p><b>参见</b><a href="qremoteobjectnode.html#addClientSideConnection">addClientSideConnection</a>.</p>
 <!-- @@@addHostSideConnection -->
 <!-- $$$disableRemoting[overload1]$$$disableRemotingQObject* -->
 <h3 class="fn" id="disableRemoting"><a name="disableRemoting"></a><span class="type">bool</span> QRemoteObjectHostBase::<span class="name">disableRemoting</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>remoteObject</i>)</h3>
 <p>Disables remote access for the <a href="../qtcore/qobject.html">QObject</a> <i>remoteObject</i>. Returns <code>false</code> if the current node is a client node or if the <i>remoteObject</i> is not registered, and returns <code>true</code> if remoting is successfully disabled for the Source object.</p>
 <p><b>Warning:</b> Replicas of this object will no longer be valid after calling this method.</p>
-<p><b>See also </b><a href="qremoteobjecthostbase.html#enableRemoting">enableRemoting</a>().</p>
+<p><b>参见</b><a href="qremoteobjecthostbase.html#enableRemoting">enableRemoting</a>().</p>
 <!-- @@@disableRemoting -->
 <!-- $$$enableRemoting[overload1]$$$enableRemotingObjectType* -->
 <h3 class="fn" id="enableRemoting"><a name="enableRemoting"></a><span class="type">bool</span> QRemoteObjectHostBase::<span class="name">enableRemoting</span>(<span class="type">ObjectType</span> *<i>object</i>)</h3>
@@ -161,14 +161,14 @@
 </pre>
 <p>Here the MinuteTimerSourceAPI is the set of Signals/Slots/Properties defined by the TimeModel.rep file. Compile time checks are made to verify the input <a href="../qtcore/qobject.html">QObject</a> can expose the requested API, it will fail to compile otherwise. This allows a subset of <i>object</i> 's interface to be exposed, and allows the types of conversions supported by Signal/Slot connections.</p>
 <p>Returns <code>false</code> if the current node is a client node, or if the <a href="../qtcore/qobject.html">QObject</a> is already registered to be remoted, and <code>true</code> if remoting is successfully enabled for the <a href="../qtcore/qobject.html">QObject</a>.</p>
-<p><b>See also </b><a href="qremoteobjecthostbase.html#disableRemoting">disableRemoting</a>().</p>
+<p><b>参见</b><a href="qremoteobjecthostbase.html#disableRemoting">disableRemoting</a>().</p>
 <!-- @@@enableRemoting -->
 <!-- $$$enableRemoting$$$enableRemotingQObject*constQString& -->
 <h3 class="fn" id="enableRemoting-1"><a name="enableRemoting-1"></a><span class="type">bool</span> QRemoteObjectHostBase::<span class="name">enableRemoting</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>object</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>name</i> = QString())</h3>
 <p>Enables a host node to dynamically provide remote access to the <a href="../qtcore/qobject.html">QObject</a> <i>object</i>. Client nodes connected to the node hosting this object may obtain Replicas of this Source.</p>
 <p>The <i>name</i> defines the lookup-name under which the <a href="../qtcore/qobject.html">QObject</a> can be acquired using <a href="qremoteobjectnode.html#acquire">QRemoteObjectNode::acquire</a>() . If not explicitly set then the name given in the QCLASSINFO_REMOTEOBJECT_TYPE will be used. If no such macro was defined for the <a href="../qtcore/qobject.html">QObject</a> then the <a href="../qtcore/qobject.html#objectName-prop">QObject::objectName</a>() is used.</p>
 <p>Returns <code>false</code> if the current node is a client node, or if the <a href="../qtcore/qobject.html">QObject</a> is already registered to be remoted, and <code>true</code> if remoting is successfully enabled for the dynamic <a href="../qtcore/qobject.html">QObject</a>.</p>
-<p><b>See also </b><a href="qremoteobjecthostbase.html#disableRemoting">disableRemoting</a>().</p>
+<p><b>参见</b><a href="qremoteobjecthostbase.html#disableRemoting">disableRemoting</a>().</p>
 <!-- @@@enableRemoting -->
 <!-- $$$enableRemoting$$$enableRemotingQAbstractItemModel*constQString&constQVector<int>QItemSelectionModel* -->
 <h3 class="fn" id="enableRemoting-2"><a name="enableRemoting-2"></a><span class="type">bool</span> QRemoteObjectHostBase::<span class="name">enableRemoting</span>(<span class="type"><a href="../qtcore/qabstractitemmodel.html">QAbstractItemModel</a></span> *<i>model</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>name</i>, const <span class="type"><a href="../qtcore/qvector.html">QVector</a></span>&lt;<span class="type">int</span>&gt; <i>roles</i>, <span class="type"><a href="../qtcore/qitemselectionmodel.html">QItemSelectionModel</a></span> *<i>selectionModel</i> = nullptr)</h3>
@@ -176,7 +176,7 @@
 <p>The three required parameters are the <i>model</i> itself, the <i>name</i> by which to lookup the model, and the <i>roles</i> that should be exposed on the Replica side. If you want to synchronize selection between <a href="qtremoteobjects-source.html#source">Source</a> and <a href="qtremoteobjects-replica.html#replica">Replica</a>, the optional <i>selectionModel</i> parameter can be used. This is only recommended when using a single Replica.</p>
 <p>Behind the scenes, Qt Remote Objects batches data() lookups and prefetches data when possible to make the model interaction as responsive as possible.</p>
 <p>Returns <code>false</code> if the current node is a client node, or if the <a href="../qtcore/qobject.html">QObject</a> is already registered to be remoted, and <code>true</code> if remoting is successfully enabled for the <a href="../qtcore/qabstractitemmodel.html">QAbstractItemModel</a>.</p>
-<p><b>See also </b><a href="qremoteobjecthostbase.html#disableRemoting">disableRemoting</a>().</p>
+<p><b>参见</b><a href="qremoteobjecthostbase.html#disableRemoting">disableRemoting</a>().</p>
 <!-- @@@enableRemoting -->
 <!-- $$$proxy[overload1]$$$proxyconstQUrl&constQUrl&QRemoteObjectHostBase::RemoteObjectNameFilter -->
 <h3 class="fn" id="proxy"><a name="proxy"></a><span class="type">bool</span> QRemoteObjectHostBase::<span class="name">proxy</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>registryUrl</i>, const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>hostUrl</i>, <span class="type"><a href="qremoteobjecthostbase.html#RemoteObjectNameFilter-typedef">QRemoteObjectHostBase::RemoteObjectNameFilter</a></span> <i>filter</i>)</h3>
@@ -215,7 +215,7 @@
 <p>This would (internally) create a node in proxyNode, which (again internally/automatically) connects to the provided registry (given by the <i>registryUrl</i> parameter, &quot;local:registry&quot; in this example). Whenever local:registry emits the <a href="qremoteobjectnode.html#remoteObjectAdded">remoteObjectAdded</a> signal, the QRemoteObjectSourceLocation is passed to the <i>filter</i> given to the proxy call. If this method returns true (the default filter simply returns true without any filtering), the object is acquired() from the internal node and <a href="qremoteobjecthostbase.html#enableRemoting">enableRemoting</a>() (once the replica is initialized) is called on proxyNode.</p>
 <p>If a <i>hostUrl</i> is provided (which is required to enable <a href="qremoteobjecthostbase.html#reverseProxy">reverseProxy</a>, but not needed otherwise), the internal node will be a QRemoteObjectHostNode configured with the provided address. If no <i>hostUrl</i> is provided, the internal node will be a <a href="qremoteobjectnode.html">QRemoteObjectNode</a> (not HostNode).</p>
 <p>This function was introduced in  Qt 5.11.</p>
-<p><b>See also </b><a href="qremoteobjecthostbase.html#reverseProxy">reverseProxy</a>().</p>
+<p><b>参见</b><a href="qremoteobjecthostbase.html#reverseProxy">reverseProxy</a>().</p>
 <!-- @@@proxy -->
 <!-- $$$reverseProxy[overload1]$$$reverseProxyQRemoteObjectHostBase::RemoteObjectNameFilter -->
 <h3 class="fn" id="reverseProxy"><a name="reverseProxy"></a><span class="type">bool</span> QRemoteObjectHostBase::<span class="name">reverseProxy</span>(<span class="type"><a href="qremoteobjecthostbase.html#RemoteObjectNameFilter-typedef">QRemoteObjectHostBase::RemoteObjectNameFilter</a></span> <i>filter</i>)</h3>
@@ -260,7 +260,7 @@
 <p>While the <a href="qremoteobjecthostbase.html#proxy">proxy</a>() functionality allows <a href="qtremoteobjects-source.html#source">Source</a> objects on another network to be acquired(), reverseProxy() allows <a href="qtremoteobjects-source.html#source">Source</a> objects to be &quot;pushed&quot; to an otherwise inaccessible network.</p>
 <p>Note: <a href="qremoteobjecthostbase.html#proxy">proxy</a>() needs to be called before reverseProxy(), and a <i>hostUrl</i> needs to be provided to <a href="qremoteobjecthostbase.html#proxy">proxy</a> for reverseProxy() to work. The reverseProxy() method allows a separate <i>filter</i> to be applied. This reverseProxy specific filter will receive notifications of new <a href="qtremoteobjects-source.html#source">Source</a> objects on proxyNode and acquire them on the internal node if they pass the reverseFilter.</p>
 <p>This function was introduced in  Qt 5.11.</p>
-<p><b>See also </b><a href="qremoteobjecthostbase.html#proxy">proxy</a>().</p>
+<p><b>参见</b><a href="qremoteobjecthostbase.html#proxy">proxy</a>().</p>
 <!-- @@@reverseProxy -->
 <!-- $$$setName[overload1]$$$setNameconstQString& -->
 <h3 class="fn" id="setName"><a name="setName"></a><code>[override virtual] </code><span class="type">void</span> QRemoteObjectHostBase::<span class="name">setName</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>name</i>)</h3>

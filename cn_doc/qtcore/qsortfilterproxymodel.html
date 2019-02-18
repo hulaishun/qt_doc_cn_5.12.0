@@ -309,7 +309,7 @@
 <p>Since <a href="qabstractproxymodel.html">QAbstractProxyModel</a> and its subclasses are derived from <a href="qabstractitemmodel.html">QAbstractItemModel</a>, much of the same advice about subclassing normal models also applies to proxy models. In addition, it is worth noting that many of the default implementations of functions in this class are written so that they call the equivalent functions in the relevant source model. This simple proxying mechanism may need to be overridden for source models with more complex behavior; for example, if the source model provides a custom <a href="qsortfilterproxymodel.html#hasChildren">hasChildren</a>() implementation, you should also provide one in the proxy model.</p>
 <p><b>Note: </b>Some general guidelines for subclassing models are available in the <a href="../qtwidgets/model-view-programming.html#model-subclassing-reference">Model Subclassing Reference</a>.</p><p><b>Note: </b>With Qt 5, regular expression support has been improved through the <a href="qregularexpression.html">QRegularExpression</a> class. <a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a> dating back prior to that class creation, it originally supported only <a href="qregexp.html">QRegExp</a>. Since Qt 5.12, <a href="qregularexpression.html">QRegularExpression</a> APIs have been added. Therefore, <a href="qregexp.html">QRegExp</a> APIs should be considered deprecated and the <a href="qregularexpression.html">QRegularExpression</a> version should be used in place.</p><p><b>Warning:</b> Don't mix calls to the getters and setters of different regexp types as this will lead to unexpected results. For maximum compatibility, the original implementation has been kept. Therefore, if, for example, a call to <a href="qsortfilterproxymodel.html#setFilterRegularExpression">setFilterRegularExpression</a> is made followed by another one to <a href="qsortfilterproxymodel.html#setFilterFixedString">setFilterFixedString</a>, the first call will setup a <a href="qregularexpression.html">QRegularExpression</a> object to use as filter while the second will setup a <a href="qregexp.html">QRegExp</a> in FixedString mode. However, this is an implementation detail that might change in the future.</p>
 </div>
-<p><b>See also </b><a href="qabstractproxymodel.html">QAbstractProxyModel</a>, <a href="qabstractitemmodel.html">QAbstractItemModel</a>, <a href="../qtwidgets/model-view-programming.html">Model/View Programming</a>, <a href="../qtwidgets/qtwidgets-itemviews-basicsortfiltermodel-example.html">Basic Sort/Filter Model Example</a>, <a href="../qtwidgets/qtwidgets-itemviews-customsortfiltermodel-example.html">Custom Sort/Filter Model Example</a>, and <a href="qidentityproxymodel.html">QIdentityProxyModel</a>.</p>
+<p><b>参见</b><a href="qabstractproxymodel.html">QAbstractProxyModel</a>, <a href="qabstractitemmodel.html">QAbstractItemModel</a>, <a href="../qtwidgets/model-view-programming.html">Model/View Programming</a>, <a href="../qtwidgets/qtwidgets-itemviews-basicsortfiltermodel-example.html">Basic Sort/Filter Model Example</a>, <a href="../qtwidgets/qtwidgets-itemviews-customsortfiltermodel-example.html">Custom Sort/Filter Model Example</a>, and <a href="qidentityproxymodel.html">QIdentityProxyModel</a>.</p>
 <!-- @@@QSortFilterProxyModel -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -337,7 +337,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> Qt::CaseSensitivity </td><td class="memItemRight bottomAlign"><span class="name"><b>filterCaseSensitivity</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setFilterCaseSensitivity</b></span>(Qt::CaseSensitivity <i>cs</i>)</td></tr>
 </table></div>
-<p><b>See also </b><a href="qsortfilterproxymodel.html#filterRegExp-prop">filterRegExp</a> and <a href="qsortfilterproxymodel.html#sortCaseSensitivity-prop">sortCaseSensitivity</a>.</p>
+<p><b>参见</b><a href="qsortfilterproxymodel.html#filterRegExp-prop">filterRegExp</a> and <a href="qsortfilterproxymodel.html#sortCaseSensitivity-prop">sortCaseSensitivity</a>.</p>
 <!-- @@@filterCaseSensitivity -->
 <!-- $$$filterKeyColumn-prop$$$filterKeyColumn$$$setFilterKeyColumnint -->
 <h3 class="fn" id="filterKeyColumn-prop"><a name="filterKeyColumn-prop"></a><span class="name">filterKeyColumn</span> : <span class="type">int</span></h3>
@@ -360,7 +360,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qsortfilterproxymodel.html#setFilterRegExp-1">setFilterRegExp</a></b></span>(const QString &amp;<i>pattern</i>)</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setFilterRegExp</b></span>(const QRegExp &amp;<i>regExp</i>)</td></tr>
 </table></div>
-<p><b>See also </b><a href="qsortfilterproxymodel.html#filterCaseSensitivity-prop">filterCaseSensitivity</a>, <a href="qsortfilterproxymodel.html#setFilterWildcard">setFilterWildcard</a>(), and <a href="qsortfilterproxymodel.html#setFilterFixedString">setFilterFixedString</a>().</p>
+<p><b>参见</b><a href="qsortfilterproxymodel.html#filterCaseSensitivity-prop">filterCaseSensitivity</a>, <a href="qsortfilterproxymodel.html#setFilterWildcard">setFilterWildcard</a>(), and <a href="qsortfilterproxymodel.html#setFilterFixedString">setFilterFixedString</a>().</p>
 <!-- @@@filterRegExp -->
 <!-- $$$filterRegularExpression-prop$$$filterRegularExpression$$$setFilterRegularExpressionconstQString&$$$setFilterRegularExpressionconstQRegularExpression& -->
 <h3 class="fn" id="filterRegularExpression-prop"><a name="filterRegularExpression-prop"></a><span class="name">filterRegularExpression</span> : <span class="type"><a href="qregularexpression.html">QRegularExpression</a></span></h3>
@@ -374,7 +374,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qsortfilterproxymodel.html#setFilterRegularExpression">setFilterRegularExpression</a></b></span>(const QString &amp;<i>pattern</i>)</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setFilterRegularExpression</b></span>(const QRegularExpression &amp;<i>regularExpression</i>)</td></tr>
 </table></div>
-<p><b>See also </b><a href="qsortfilterproxymodel.html#filterCaseSensitivity-prop">filterCaseSensitivity</a>, <a href="qsortfilterproxymodel.html#setFilterWildcard">setFilterWildcard</a>(), and <a href="qsortfilterproxymodel.html#setFilterFixedString">setFilterFixedString</a>().</p>
+<p><b>参见</b><a href="qsortfilterproxymodel.html#filterCaseSensitivity-prop">filterCaseSensitivity</a>, <a href="qsortfilterproxymodel.html#setFilterWildcard">setFilterWildcard</a>(), and <a href="qsortfilterproxymodel.html#setFilterFixedString">setFilterFixedString</a>().</p>
 <!-- @@@filterRegularExpression -->
 <!-- $$$filterRole-prop$$$filterRole$$$setFilterRoleint -->
 <h3 class="fn" id="filterRole-prop"><a name="filterRole-prop"></a><span class="name">filterRole</span> : <span class="type">int</span></h3>
@@ -386,7 +386,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>filterRole</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setFilterRole</b></span>(int <i>role</i>)</td></tr>
 </table></div>
-<p><b>See also </b><a href="qsortfilterproxymodel.html#filterAcceptsRow">filterAcceptsRow</a>().</p>
+<p><b>参见</b><a href="qsortfilterproxymodel.html#filterAcceptsRow">filterAcceptsRow</a>().</p>
 <!-- @@@filterRole -->
 <!-- $$$isSortLocaleAware-prop$$$isSortLocaleAware$$$setSortLocaleAwarebool -->
 <h3 class="fn" id="isSortLocaleAware-prop"><a name="isSortLocaleAware-prop"></a><span class="name">isSortLocaleAware</span> : <span class="type">bool</span></h3>
@@ -398,7 +398,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>isSortLocaleAware</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setSortLocaleAware</b></span>(bool <i>on</i>)</td></tr>
 </table></div>
-<p><b>See also </b><a href="qsortfilterproxymodel.html#sortCaseSensitivity-prop">sortCaseSensitivity</a> and <a href="qsortfilterproxymodel.html#lessThan">lessThan</a>().</p>
+<p><b>参见</b><a href="qsortfilterproxymodel.html#sortCaseSensitivity-prop">sortCaseSensitivity</a> and <a href="qsortfilterproxymodel.html#lessThan">lessThan</a>().</p>
 <!-- @@@isSortLocaleAware -->
 <!-- $$$recursiveFilteringEnabled-prop$$$isRecursiveFilteringEnabled$$$setRecursiveFilteringEnabledbool -->
 <h3 class="fn" id="recursiveFilteringEnabled-prop"><a name="recursiveFilteringEnabled-prop"></a><span class="name">recursiveFilteringEnabled</span> : <span class="type">bool</span></h3>
@@ -410,7 +410,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>isRecursiveFilteringEnabled</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setRecursiveFilteringEnabled</b></span>(bool <i>recursive</i>)</td></tr>
 </table></div>
-<p><b>See also </b><a href="qsortfilterproxymodel.html#filterAcceptsRow">filterAcceptsRow</a>().</p>
+<p><b>参见</b><a href="qsortfilterproxymodel.html#filterAcceptsRow">filterAcceptsRow</a>().</p>
 <!-- @@@recursiveFilteringEnabled -->
 <!-- $$$sortCaseSensitivity-prop$$$sortCaseSensitivity$$$setSortCaseSensitivityQt::CaseSensitivity -->
 <h3 class="fn" id="sortCaseSensitivity-prop"><a name="sortCaseSensitivity-prop"></a><span class="name">sortCaseSensitivity</span> : <span class="type">Qt::CaseSensitivity</span></h3>
@@ -422,7 +422,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> Qt::CaseSensitivity </td><td class="memItemRight bottomAlign"><span class="name"><b>sortCaseSensitivity</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setSortCaseSensitivity</b></span>(Qt::CaseSensitivity <i>cs</i>)</td></tr>
 </table></div>
-<p><b>See also </b><a href="qsortfilterproxymodel.html#filterCaseSensitivity-prop">filterCaseSensitivity</a> and <a href="qsortfilterproxymodel.html#lessThan">lessThan</a>().</p>
+<p><b>参见</b><a href="qsortfilterproxymodel.html#filterCaseSensitivity-prop">filterCaseSensitivity</a> and <a href="qsortfilterproxymodel.html#lessThan">lessThan</a>().</p>
 <!-- @@@sortCaseSensitivity -->
 <!-- $$$sortRole-prop$$$sortRole$$$setSortRoleint -->
 <h3 class="fn" id="sortRole-prop"><a name="sortRole-prop"></a><span class="name">sortRole</span> : <span class="type">int</span></h3>
@@ -434,7 +434,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>sortRole</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setSortRole</b></span>(int <i>role</i>)</td></tr>
 </table></div>
-<p><b>See also </b><a href="qsortfilterproxymodel.html#lessThan">lessThan</a>().</p>
+<p><b>参见</b><a href="qsortfilterproxymodel.html#lessThan">lessThan</a>().</p>
 <!-- @@@sortRole -->
 </div>
 <div class="func">
@@ -462,7 +462,7 @@
 <!-- $$$data[overload1]$$$dataconstQModelIndex&int -->
 <h3 class="fn" id="data"><a name="data"></a><code>[override virtual] </code><span class="type"><a href="qvariant.html">QVariant</a></span> QSortFilterProxyModel::<span class="name">data</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>, <span class="type">int</span> <i>role</i> = Qt::DisplayRole) const</h3>
 <p>Reimplemented from <a href="qabstractproxymodel.html#data">QAbstractProxyModel::data</a>().</p>
-<p><b>See also </b><a href="qsortfilterproxymodel.html#setData">setData</a>().</p>
+<p><b>参见</b><a href="qsortfilterproxymodel.html#setData">setData</a>().</p>
 <!-- @@@data -->
 <!-- $$$dropMimeData[overload1]$$$dropMimeDataconstQMimeData*Qt::DropActionintintconstQModelIndex& -->
 <h3 class="fn" id="dropMimeData"><a name="dropMimeData"></a><code>[override virtual] </code><span class="type">bool</span> QSortFilterProxyModel::<span class="name">dropMimeData</span>(const <span class="type"><a href="qmimedata.html">QMimeData</a></span> *<i>data</i>, <span class="type">Qt::DropAction</span> <i>action</i>, <span class="type">int</span> <i>row</i>, <span class="type">int</span> <i>column</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i>)</h3>
@@ -476,13 +476,13 @@
 <h3 class="fn" id="filterAcceptsColumn"><a name="filterAcceptsColumn"></a><code>[virtual protected] </code><span class="type">bool</span> QSortFilterProxyModel::<span class="name">filterAcceptsColumn</span>(<span class="type">int</span> <i>source_column</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>source_parent</i>) const</h3>
 <p>Returns <code>true</code> if the item in the column indicated by the given <i>source_column</i> and <i>source_parent</i> should be included in the model; otherwise returns <code>false</code>.</p>
 <p>The default implementation returns <code>true</code> if the value held by the relevant item matches the filter string, wildcard string or regular expression.</p>
-<p><b>Note: </b>By default, the <a href="qt.html#ItemDataRole-enum">Qt::DisplayRole</a> is used to determine if the column should be accepted or not. This can be changed by setting the <a href="qsortfilterproxymodel.html#filterRole-prop">filterRole</a> property.</p><p><b>See also </b><a href="qsortfilterproxymodel.html#filterAcceptsRow">filterAcceptsRow</a>(), <a href="qsortfilterproxymodel.html#setFilterFixedString">setFilterFixedString</a>(), <a href="qsortfilterproxymodel.html#filterRegExp-prop">setFilterRegExp</a>(), and <a href="qsortfilterproxymodel.html#setFilterWildcard">setFilterWildcard</a>().</p>
+<p><b>Note: </b>By default, the <a href="qt.html#ItemDataRole-enum">Qt::DisplayRole</a> is used to determine if the column should be accepted or not. This can be changed by setting the <a href="qsortfilterproxymodel.html#filterRole-prop">filterRole</a> property.</p><p><b>参见</b><a href="qsortfilterproxymodel.html#filterAcceptsRow">filterAcceptsRow</a>(), <a href="qsortfilterproxymodel.html#setFilterFixedString">setFilterFixedString</a>(), <a href="qsortfilterproxymodel.html#filterRegExp-prop">setFilterRegExp</a>(), and <a href="qsortfilterproxymodel.html#setFilterWildcard">setFilterWildcard</a>().</p>
 <!-- @@@filterAcceptsColumn -->
 <!-- $$$filterAcceptsRow[overload1]$$$filterAcceptsRowintconstQModelIndex& -->
 <h3 class="fn" id="filterAcceptsRow"><a name="filterAcceptsRow"></a><code>[virtual protected] </code><span class="type">bool</span> QSortFilterProxyModel::<span class="name">filterAcceptsRow</span>(<span class="type">int</span> <i>source_row</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>source_parent</i>) const</h3>
 <p>Returns <code>true</code> if the item in the row indicated by the given <i>source_row</i> and <i>source_parent</i> should be included in the model; otherwise returns false.</p>
 <p>The default implementation returns <code>true</code> if the value held by the relevant item matches the filter string, wildcard string or regular expression.</p>
-<p><b>Note: </b>By default, the <a href="qt.html#ItemDataRole-enum">Qt::DisplayRole</a> is used to determine if the row should be accepted or not. This can be changed by setting the <a href="qsortfilterproxymodel.html#filterRole-prop">filterRole</a> property.</p><p><b>See also </b><a href="qsortfilterproxymodel.html#filterAcceptsColumn">filterAcceptsColumn</a>(), <a href="qsortfilterproxymodel.html#setFilterFixedString">setFilterFixedString</a>(), <a href="qsortfilterproxymodel.html#filterRegExp-prop">setFilterRegExp</a>(), and <a href="qsortfilterproxymodel.html#setFilterWildcard">setFilterWildcard</a>().</p>
+<p><b>Note: </b>By default, the <a href="qt.html#ItemDataRole-enum">Qt::DisplayRole</a> is used to determine if the row should be accepted or not. This can be changed by setting the <a href="qsortfilterproxymodel.html#filterRole-prop">filterRole</a> property.</p><p><b>参见</b><a href="qsortfilterproxymodel.html#filterAcceptsColumn">filterAcceptsColumn</a>(), <a href="qsortfilterproxymodel.html#setFilterFixedString">setFilterFixedString</a>(), <a href="qsortfilterproxymodel.html#filterRegExp-prop">setFilterRegExp</a>(), and <a href="qsortfilterproxymodel.html#setFilterWildcard">setFilterWildcard</a>().</p>
 <!-- @@@filterAcceptsRow -->
 <!-- $$$flags[overload1]$$$flagsconstQModelIndex& -->
 <h3 class="fn" id="flags"><a name="flags"></a><code>[override virtual] </code><span class="type">Qt::ItemFlags</span> QSortFilterProxyModel::<span class="name">flags</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>) const</h3>
@@ -495,7 +495,7 @@
 <!-- $$$headerData[overload1]$$$headerDataintQt::Orientationint -->
 <h3 class="fn" id="headerData"><a name="headerData"></a><code>[override virtual] </code><span class="type"><a href="qvariant.html">QVariant</a></span> QSortFilterProxyModel::<span class="name">headerData</span>(<span class="type">int</span> <i>section</i>, <span class="type">Qt::Orientation</span> <i>orientation</i>, <span class="type">int</span> <i>role</i> = Qt::DisplayRole) const</h3>
 <p>Reimplemented from <a href="qabstractproxymodel.html#headerData">QAbstractProxyModel::headerData</a>().</p>
-<p><b>See also </b><a href="qsortfilterproxymodel.html#setHeaderData">setHeaderData</a>().</p>
+<p><b>参见</b><a href="qsortfilterproxymodel.html#setHeaderData">setHeaderData</a>().</p>
 <!-- @@@headerData -->
 <!-- $$$index[overload1]$$$indexintintconstQModelIndex& -->
 <h3 class="fn" id="index"><a name="index"></a><code>[override virtual] </code><span class="type"><a href="qmodelindex.html">QModelIndex</a></span> QSortFilterProxyModel::<span class="name">index</span>(<span class="type">int</span> <i>row</i>, <span class="type">int</span> <i>column</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i> = QModelIndex()) const</h3>
@@ -513,14 +513,14 @@
 <h3 class="fn" id="invalidate"><a name="invalidate"></a><code>[slot] </code><span class="type">void</span> QSortFilterProxyModel::<span class="name">invalidate</span>()</h3>
 <p>Invalidates the current sorting and filtering.</p>
 <p>这个函数是在Qt 4.3版本中新增引入的。</p>
-<p><b>See also </b><a href="qsortfilterproxymodel.html#invalidateFilter">invalidateFilter</a>().</p>
+<p><b>参见</b><a href="qsortfilterproxymodel.html#invalidateFilter">invalidateFilter</a>().</p>
 <!-- @@@invalidate -->
 <!-- $$$invalidateFilter[overload1]$$$invalidateFilter -->
 <h3 class="fn" id="invalidateFilter"><a name="invalidateFilter"></a><code>[protected] </code><span class="type">void</span> QSortFilterProxyModel::<span class="name">invalidateFilter</span>()</h3>
 <p>Invalidates the current filtering.</p>
 <p>This function should be called if you are implementing custom filtering (e.g&#x2e; <a href="qsortfilterproxymodel.html#filterAcceptsRow">filterAcceptsRow</a>()), and your filter parameters have changed.</p>
 <p>这个函数是在Qt 4.3版本中新增引入的。</p>
-<p><b>See also </b><a href="qsortfilterproxymodel.html#invalidate">invalidate</a>().</p>
+<p><b>参见</b><a href="qsortfilterproxymodel.html#invalidate">invalidate</a>().</p>
 <!-- @@@invalidateFilter -->
 <!-- $$$lessThan[overload1]$$$lessThanconstQModelIndex&constQModelIndex& -->
 <h3 class="fn" id="lessThan"><a name="lessThan"></a><code>[virtual protected] </code><span class="type">bool</span> QSortFilterProxyModel::<span class="name">lessThan</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>source_left</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>source_right</i>) const</h3>
@@ -542,13 +542,13 @@
 <p>Any other type will be converted to a <a href="qstring.html">QString</a> using <a href="qvariant.html#toString">QVariant::toString</a>().</p>
 <p>Comparison of <a href="qstring.html">QString</a>s is case sensitive by default; this can be changed using the <a href="qsortfilterproxymodel.html#sortCaseSensitivity-prop">sortCaseSensitivity</a> property.</p>
 <p>By default, the <a href="qt.html#ItemDataRole-enum">Qt::DisplayRole</a> associated with the <a href="qmodelindex.html">QModelIndex</a>es is used for comparisons. This can be changed by setting the <a href="qsortfilterproxymodel.html#sortRole-prop">sortRole</a> property.</p>
-<p><b>Note: </b>The indices passed in correspond to the source model.</p><p><b>See also </b><a href="qsortfilterproxymodel.html#sortRole-prop">sortRole</a>, <a href="qsortfilterproxymodel.html#sortCaseSensitivity-prop">sortCaseSensitivity</a>, and <a href="qsortfilterproxymodel.html#dynamicSortFilter-prop">dynamicSortFilter</a>.</p>
+<p><b>Note: </b>The indices passed in correspond to the source model.</p><p><b>参见</b><a href="qsortfilterproxymodel.html#sortRole-prop">sortRole</a>, <a href="qsortfilterproxymodel.html#sortCaseSensitivity-prop">sortCaseSensitivity</a>, and <a href="qsortfilterproxymodel.html#dynamicSortFilter-prop">dynamicSortFilter</a>.</p>
 <!-- @@@lessThan -->
 <!-- $$$mapFromSource[overload1]$$$mapFromSourceconstQModelIndex& -->
 <h3 class="fn" id="mapFromSource"><a name="mapFromSource"></a><code>[override virtual] </code><span class="type"><a href="qmodelindex.html">QModelIndex</a></span> QSortFilterProxyModel::<span class="name">mapFromSource</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>sourceIndex</i>) const</h3>
 <p>Reimplemented from <a href="qabstractproxymodel.html#mapFromSource">QAbstractProxyModel::mapFromSource</a>().</p>
 <p>Returns the model index in the <a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a> given the <i>sourceIndex</i> from the source model.</p>
-<p><b>See also </b><a href="qsortfilterproxymodel.html#mapToSource">mapToSource</a>().</p>
+<p><b>参见</b><a href="qsortfilterproxymodel.html#mapToSource">mapToSource</a>().</p>
 <!-- @@@mapFromSource -->
 <!-- $$$mapSelectionFromSource[overload1]$$$mapSelectionFromSourceconstQItemSelection& -->
 <h3 class="fn" id="mapSelectionFromSource"><a name="mapSelectionFromSource"></a><code>[override virtual] </code><span class="type"><a href="qitemselection.html">QItemSelection</a></span> QSortFilterProxyModel::<span class="name">mapSelectionFromSource</span>(const <span class="type"><a href="qitemselection.html">QItemSelection</a></span> &amp;<i>sourceSelection</i>) const</h3>
@@ -562,7 +562,7 @@
 <h3 class="fn" id="mapToSource"><a name="mapToSource"></a><code>[override virtual] </code><span class="type"><a href="qmodelindex.html">QModelIndex</a></span> QSortFilterProxyModel::<span class="name">mapToSource</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>proxyIndex</i>) const</h3>
 <p>Reimplemented from <a href="qabstractproxymodel.html#mapToSource">QAbstractProxyModel::mapToSource</a>().</p>
 <p>Returns the source model index corresponding to the given <i>proxyIndex</i> from the sorting filter model.</p>
-<p><b>See also </b><a href="qsortfilterproxymodel.html#mapFromSource">mapFromSource</a>().</p>
+<p><b>参见</b><a href="qsortfilterproxymodel.html#mapFromSource">mapFromSource</a>().</p>
 <!-- @@@mapToSource -->
 <!-- $$$match[overload1]$$$matchconstQModelIndex&intconstQVariant&intQt::MatchFlags -->
 <h3 class="fn" id="match"><a name="match"></a><code>[override virtual] </code><span class="type"><a href="qmodelindex.html#QModelIndexList-typedef">QModelIndexList</a></span> QSortFilterProxyModel::<span class="name">match</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>start</i>, <span class="type">int</span> <i>role</i>, const <span class="type"><a href="qvariant.html">QVariant</a></span> &amp;<i>value</i>, <span class="type">int</span> <i>hits</i> = 1, <span class="type">Qt::MatchFlags</span> <i>flags</i> = Qt::MatchFlags(Qt::MatchStartsWith|Qt::MatchWrap)) const</h3>
@@ -595,35 +595,35 @@
 <!-- $$$setData[overload1]$$$setDataconstQModelIndex&constQVariant&int -->
 <h3 class="fn" id="setData"><a name="setData"></a><code>[override virtual] </code><span class="type">bool</span> QSortFilterProxyModel::<span class="name">setData</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>, const <span class="type"><a href="qvariant.html">QVariant</a></span> &amp;<i>value</i>, <span class="type">int</span> <i>role</i> = Qt::EditRole)</h3>
 <p>Reimplemented from <a href="qabstractproxymodel.html#setData">QAbstractProxyModel::setData</a>().</p>
-<p><b>See also </b><a href="qsortfilterproxymodel.html#data">data</a>().</p>
+<p><b>参见</b><a href="qsortfilterproxymodel.html#data">data</a>().</p>
 <!-- @@@setData -->
 <!-- $$$setFilterFixedString[overload1]$$$setFilterFixedStringconstQString& -->
 <h3 class="fn" id="setFilterFixedString"><a name="setFilterFixedString"></a><code>[slot] </code><span class="type">void</span> QSortFilterProxyModel::<span class="name">setFilterFixedString</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>pattern</i>)</h3>
 <p>Sets the fixed string used to filter the contents of the source model to the given <i>pattern</i>.</p>
-<p><b>See also </b><a href="qsortfilterproxymodel.html#filterCaseSensitivity-prop">setFilterCaseSensitivity</a>(), <a href="qsortfilterproxymodel.html#filterRegExp-prop">setFilterRegExp</a>(), <a href="qsortfilterproxymodel.html#setFilterWildcard">setFilterWildcard</a>(), and <a href="qsortfilterproxymodel.html#filterRegExp-prop">filterRegExp</a>().</p>
+<p><b>参见</b><a href="qsortfilterproxymodel.html#filterCaseSensitivity-prop">setFilterCaseSensitivity</a>(), <a href="qsortfilterproxymodel.html#filterRegExp-prop">setFilterRegExp</a>(), <a href="qsortfilterproxymodel.html#setFilterWildcard">setFilterWildcard</a>(), and <a href="qsortfilterproxymodel.html#filterRegExp-prop">filterRegExp</a>().</p>
 <!-- @@@setFilterFixedString -->
 <!-- $$$setFilterRegExp -->
 <h3 class="fn" id="setFilterRegExp-1"><a name="setFilterRegExp-1"></a><code>[slot] </code><span class="type">void</span> QSortFilterProxyModel::<span class="name">setFilterRegExp</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>pattern</i>)</h3>
 <p>This is an overloaded function.</p>
 <p>Sets the regular expression used to filter the contents of the source model to <i>pattern</i>.</p>
-<p><b>Note:</b> Setter function for property <a href="qsortfilterproxymodel.html#filterRegExp-prop">filterRegExp</a>. </p><p><b>See also </b><a href="qsortfilterproxymodel.html#filterCaseSensitivity-prop">setFilterCaseSensitivity</a>(), <a href="qsortfilterproxymodel.html#setFilterWildcard">setFilterWildcard</a>(), <a href="qsortfilterproxymodel.html#setFilterFixedString">setFilterFixedString</a>(), and <a href="qsortfilterproxymodel.html#filterRegExp-prop">filterRegExp</a>().</p>
+<p><b>Note:</b> Setter function for property <a href="qsortfilterproxymodel.html#filterRegExp-prop">filterRegExp</a>. </p><p><b>参见</b><a href="qsortfilterproxymodel.html#filterCaseSensitivity-prop">setFilterCaseSensitivity</a>(), <a href="qsortfilterproxymodel.html#setFilterWildcard">setFilterWildcard</a>(), <a href="qsortfilterproxymodel.html#setFilterFixedString">setFilterFixedString</a>(), and <a href="qsortfilterproxymodel.html#filterRegExp-prop">filterRegExp</a>().</p>
 <!-- @@@setFilterRegExp -->
 <!-- $$$setFilterRegularExpression -->
 <h3 class="fn" id="setFilterRegularExpression"><a name="setFilterRegularExpression"></a><code>[slot] </code><span class="type">void</span> QSortFilterProxyModel::<span class="name">setFilterRegularExpression</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>pattern</i>)</h3>
 <p>Sets the regular expression used to filter the contents of the source model to <i>pattern</i>.</p>
 <p>This method should be preferred for new code as it will use <a href="qregularexpression.html">QRegularExpression</a> internally.</p>
 <p>这个函数是在Qt 5.12版本中新增引入的。</p>
-<p><b>Note:</b> Setter function for property <a href="qsortfilterproxymodel.html#filterRegularExpression-prop">filterRegularExpression</a>. </p><p><b>See also </b><a href="qsortfilterproxymodel.html#filterCaseSensitivity-prop">setFilterCaseSensitivity</a>(), <a href="qsortfilterproxymodel.html#setFilterWildcard">setFilterWildcard</a>(), <a href="qsortfilterproxymodel.html#setFilterFixedString">setFilterFixedString</a>(), and <a href="qsortfilterproxymodel.html#filterRegularExpression-prop">filterRegularExpression</a>().</p>
+<p><b>Note:</b> Setter function for property <a href="qsortfilterproxymodel.html#filterRegularExpression-prop">filterRegularExpression</a>. </p><p><b>参见</b><a href="qsortfilterproxymodel.html#filterCaseSensitivity-prop">setFilterCaseSensitivity</a>(), <a href="qsortfilterproxymodel.html#setFilterWildcard">setFilterWildcard</a>(), <a href="qsortfilterproxymodel.html#setFilterFixedString">setFilterFixedString</a>(), and <a href="qsortfilterproxymodel.html#filterRegularExpression-prop">filterRegularExpression</a>().</p>
 <!-- @@@setFilterRegularExpression -->
 <!-- $$$setFilterWildcard[overload1]$$$setFilterWildcardconstQString& -->
 <h3 class="fn" id="setFilterWildcard"><a name="setFilterWildcard"></a><code>[slot] </code><span class="type">void</span> QSortFilterProxyModel::<span class="name">setFilterWildcard</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>pattern</i>)</h3>
 <p>Sets the wildcard expression used to filter the contents of the source model to the given <i>pattern</i>.</p>
-<p><b>See also </b><a href="qsortfilterproxymodel.html#filterCaseSensitivity-prop">setFilterCaseSensitivity</a>(), <a href="qsortfilterproxymodel.html#filterRegExp-prop">setFilterRegExp</a>(), <a href="qsortfilterproxymodel.html#setFilterFixedString">setFilterFixedString</a>(), and <a href="qsortfilterproxymodel.html#filterRegExp-prop">filterRegExp</a>().</p>
+<p><b>参见</b><a href="qsortfilterproxymodel.html#filterCaseSensitivity-prop">setFilterCaseSensitivity</a>(), <a href="qsortfilterproxymodel.html#filterRegExp-prop">setFilterRegExp</a>(), <a href="qsortfilterproxymodel.html#setFilterFixedString">setFilterFixedString</a>(), and <a href="qsortfilterproxymodel.html#filterRegExp-prop">filterRegExp</a>().</p>
 <!-- @@@setFilterWildcard -->
 <!-- $$$setHeaderData[overload1]$$$setHeaderDataintQt::OrientationconstQVariant&int -->
 <h3 class="fn" id="setHeaderData"><a name="setHeaderData"></a><code>[override virtual] </code><span class="type">bool</span> QSortFilterProxyModel::<span class="name">setHeaderData</span>(<span class="type">int</span> <i>section</i>, <span class="type">Qt::Orientation</span> <i>orientation</i>, const <span class="type"><a href="qvariant.html">QVariant</a></span> &amp;<i>value</i>, <span class="type">int</span> <i>role</i> = Qt::EditRole)</h3>
 <p>Reimplemented from <a href="qabstractproxymodel.html#setHeaderData">QAbstractProxyModel::setHeaderData</a>().</p>
-<p><b>See also </b><a href="qsortfilterproxymodel.html#headerData">headerData</a>().</p>
+<p><b>参见</b><a href="qsortfilterproxymodel.html#headerData">headerData</a>().</p>
 <!-- @@@setHeaderData -->
 <!-- $$$setSourceModel[overload1]$$$setSourceModelQAbstractItemModel* -->
 <h3 class="fn" id="setSourceModel"><a name="setSourceModel"></a><code>[override virtual] </code><span class="type">void</span> QSortFilterProxyModel::<span class="name">setSourceModel</span>(<span class="type"><a href="qabstractitemmodel.html#QAbstractItemModel">QAbstractItemModel</a></span> *<i>sourceModel</i>)</h3>

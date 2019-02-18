@@ -128,7 +128,7 @@
 <p>It is important that this is done before <a href="qgeoroutingmanagerengine.html#calculateRoute">calculateRoute</a>(), <a href="qgeoroutingmanagerengine.html#updateRoute">updateRoute</a>() or any of the capability reporting functions are used to prevent incorrect or inconsistent behavior.</p>
 <p>A subclass of QGeoRouteManagerEngine will often make use of a subclass fo <a href="qgeoroutereply.html">QGeoRouteReply</a> internally, in order to add any engine-specific data (such as a <a href="../qtnetwork/qnetworkreply.html">QNetworkReply</a> object for network-based services) to the <a href="qgeoroutereply.html">QGeoRouteReply</a> instances used by the engine.</p>
 </div>
-<p><b>See also </b><a href="qgeoroutingmanager.html">QGeoRoutingManager</a>.</p>
+<p><b>参见</b><a href="qgeoroutingmanager.html">QGeoRoutingManager</a>.</p>
 <!-- @@@QGeoRoutingManagerEngine -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -170,7 +170,7 @@
 <!-- $$$locale[overload1]$$$locale -->
 <h3 class="fn" id="locale"><a name="locale"></a><span class="type"><a href="../qtcore/qlocale.html">QLocale</a></span> QGeoRoutingManagerEngine::<span class="name">locale</span>() const</h3>
 <p>Returns the locale used to hint to this routing manager about what language to use for addresses and instructions.</p>
-<p><b>See also </b><a href="qgeoroutingmanagerengine.html#setLocale">setLocale</a>().</p>
+<p><b>参见</b><a href="qgeoroutingmanagerengine.html#setLocale">setLocale</a>().</p>
 <!-- @@@locale -->
 <!-- $$$managerName[overload1]$$$managerName -->
 <h3 class="fn" id="managerName"><a name="managerName"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QGeoRoutingManagerEngine::<span class="name">managerName</span>() const</h3>
@@ -186,86 +186,86 @@
 <h3 class="fn" id="measurementSystem"><a name="measurementSystem"></a><span class="type"><a href="../qtcore/qlocale.html#MeasurementSystem-enum">QLocale::MeasurementSystem</a></span> QGeoRoutingManagerEngine::<span class="name">measurementSystem</span>() const</h3>
 <p>Returns the measurement system used by this manager.</p>
 <p>If <a href="qgeoroutingmanagerengine.html#setMeasurementSystem">setMeasurementSystem</a>() has been called then the value returned by this function may be different to that returned by <a href="qgeoroutingmanagerengine.html#locale">locale</a>().<a href="../qtcore/qlocale.html#measurementSystem">measurementSystem()</a>. In which case the value returned by this function is what will be used by the manager.</p>
-<p><b>See also </b><a href="qgeoroutingmanagerengine.html#setMeasurementSystem">setMeasurementSystem</a>() and <a href="qgeoroutingmanagerengine.html#setLocale">setLocale</a>().</p>
+<p><b>参见</b><a href="qgeoroutingmanagerengine.html#setMeasurementSystem">setMeasurementSystem</a>() and <a href="qgeoroutingmanagerengine.html#setLocale">setLocale</a>().</p>
 <!-- @@@measurementSystem -->
 <!-- $$$setLocale[overload1]$$$setLocaleconstQLocale& -->
 <h3 class="fn" id="setLocale"><a name="setLocale"></a><span class="type">void</span> QGeoRoutingManagerEngine::<span class="name">setLocale</span>(const <span class="type"><a href="../qtcore/qlocale.html">QLocale</a></span> &amp;<i>locale</i>)</h3>
 <p>Sets the locale to be used by this manager to <i>locale</i>.</p>
 <p>If this routing manager supports returning addresses and instructions in different languages, they will be returned in the language of <i>locale</i>.</p>
 <p>The locale used defaults to the system locale if this is not set.</p>
-<p><b>See also </b><a href="qgeoroutingmanagerengine.html#locale">locale</a>().</p>
+<p><b>参见</b><a href="qgeoroutingmanagerengine.html#locale">locale</a>().</p>
 <!-- @@@setLocale -->
 <!-- $$$setMeasurementSystem[overload1]$$$setMeasurementSystemQLocale::MeasurementSystem -->
 <h3 class="fn" id="setMeasurementSystem"><a name="setMeasurementSystem"></a><span class="type">void</span> QGeoRoutingManagerEngine::<span class="name">setMeasurementSystem</span>(<span class="type"><a href="../qtcore/qlocale.html#MeasurementSystem-enum">QLocale::MeasurementSystem</a></span> <i>system</i>)</h3>
 <p>Sets the measurement system used by this manager to <i>system</i>.</p>
 <p>The measurement system can be set independently of the locale. Both <a href="qgeoroutingmanagerengine.html#setLocale">setLocale</a>() and this function set the measurement system. The value set by the last function called will be used.</p>
-<p><b>See also </b><a href="qgeoroutingmanagerengine.html#measurementSystem">measurementSystem</a>(), <a href="qgeoroutingmanagerengine.html#locale">locale</a>(), and <a href="qgeoroutingmanagerengine.html#setLocale">setLocale</a>().</p>
+<p><b>参见</b><a href="qgeoroutingmanagerengine.html#measurementSystem">measurementSystem</a>(), <a href="qgeoroutingmanagerengine.html#locale">locale</a>(), and <a href="qgeoroutingmanagerengine.html#setLocale">setLocale</a>().</p>
 <!-- @@@setMeasurementSystem -->
 <!-- $$$setSupportedFeatureTypes[overload1]$$$setSupportedFeatureTypesQGeoRouteRequest::FeatureTypes -->
 <h3 class="fn" id="setSupportedFeatureTypes"><a name="setSupportedFeatureTypes"></a><code>[protected] </code><span class="type">void</span> QGeoRoutingManagerEngine::<span class="name">setSupportedFeatureTypes</span>(<span class="type"><a href="qgeorouterequest.html#FeatureType-enum">QGeoRouteRequest::FeatureTypes</a></span> <i>featureTypes</i>)</h3>
 <p>Sets the types of features that this engine can take into account during route planning to <i>featureTypes</i>.</p>
 <p>It is important that subclasses use this method to ensure that the engine reports its capabilities correctly. If this function is not used the engine will report that it supports no feature types at all.</p>
-<p><b>See also </b><a href="qgeoroutingmanagerengine.html#supportedFeatureTypes">supportedFeatureTypes</a>().</p>
+<p><b>参见</b><a href="qgeoroutingmanagerengine.html#supportedFeatureTypes">supportedFeatureTypes</a>().</p>
 <!-- @@@setSupportedFeatureTypes -->
 <!-- $$$setSupportedFeatureWeights[overload1]$$$setSupportedFeatureWeightsQGeoRouteRequest::FeatureWeights -->
 <h3 class="fn" id="setSupportedFeatureWeights"><a name="setSupportedFeatureWeights"></a><code>[protected] </code><span class="type">void</span> QGeoRoutingManagerEngine::<span class="name">setSupportedFeatureWeights</span>(<span class="type"><a href="qgeorouterequest.html#FeatureWeight-enum">QGeoRouteRequest::FeatureWeights</a></span> <i>featureWeights</i>)</h3>
 <p>Sets the weightings which this engine can apply to different features during route planning to <i>featureWeights</i>.</p>
 <p>It is important that subclasses use this method to ensure that the engine reports its capabilities correctly. If this function is not used the engine will report that it supports no feature weights at all.</p>
-<p><b>See also </b><a href="qgeoroutingmanagerengine.html#supportedFeatureWeights">supportedFeatureWeights</a>().</p>
+<p><b>参见</b><a href="qgeoroutingmanagerengine.html#supportedFeatureWeights">supportedFeatureWeights</a>().</p>
 <!-- @@@setSupportedFeatureWeights -->
 <!-- $$$setSupportedManeuverDetails[overload1]$$$setSupportedManeuverDetailsQGeoRouteRequest::ManeuverDetails -->
 <h3 class="fn" id="setSupportedManeuverDetails"><a name="setSupportedManeuverDetails"></a><code>[protected] </code><span class="type">void</span> QGeoRoutingManagerEngine::<span class="name">setSupportedManeuverDetails</span>(<span class="type"><a href="qgeorouterequest.html#ManeuverDetail-enum">QGeoRouteRequest::ManeuverDetails</a></span> <i>maneuverDetails</i>)</h3>
 <p>Sets the levels of detail for navigation maneuvers which can be requested by this engine to <i>maneuverDetails</i>.</p>
 <p>It is important that subclasses use this method to ensure that the engine reports its capabilities correctly. If this function is not used the engine will report that it supports no maneuver details at all.</p>
-<p><b>See also </b><a href="qgeoroutingmanagerengine.html#supportedManeuverDetails">supportedManeuverDetails</a>().</p>
+<p><b>参见</b><a href="qgeoroutingmanagerengine.html#supportedManeuverDetails">supportedManeuverDetails</a>().</p>
 <!-- @@@setSupportedManeuverDetails -->
 <!-- $$$setSupportedRouteOptimizations[overload1]$$$setSupportedRouteOptimizationsQGeoRouteRequest::RouteOptimizations -->
 <h3 class="fn" id="setSupportedRouteOptimizations"><a name="setSupportedRouteOptimizations"></a><code>[protected] </code><span class="type">void</span> QGeoRoutingManagerEngine::<span class="name">setSupportedRouteOptimizations</span>(<span class="type"><a href="qgeorouterequest.html#RouteOptimization-enum">QGeoRouteRequest::RouteOptimizations</a></span> <i>optimizations</i>)</h3>
 <p>Sets the route optimizations supported by this engine to <i>optimizations</i>.</p>
 <p>It is important that subclasses use this method to ensure that the engine reports its capabilities correctly. If this function is not used the engine will report that it supports no route optimizations at all.</p>
-<p><b>See also </b><a href="qgeoroutingmanagerengine.html#supportedRouteOptimizations">supportedRouteOptimizations</a>().</p>
+<p><b>参见</b><a href="qgeoroutingmanagerengine.html#supportedRouteOptimizations">supportedRouteOptimizations</a>().</p>
 <!-- @@@setSupportedRouteOptimizations -->
 <!-- $$$setSupportedSegmentDetails[overload1]$$$setSupportedSegmentDetailsQGeoRouteRequest::SegmentDetails -->
 <h3 class="fn" id="setSupportedSegmentDetails"><a name="setSupportedSegmentDetails"></a><code>[protected] </code><span class="type">void</span> QGeoRoutingManagerEngine::<span class="name">setSupportedSegmentDetails</span>(<span class="type"><a href="qgeorouterequest.html#SegmentDetail-enum">QGeoRouteRequest::SegmentDetails</a></span> <i>segmentDetails</i>)</h3>
 <p>Sets the levels of detail for routing segments which can be requested by this engine to <i>segmentDetails</i>.</p>
 <p>It is important that subclasses use this method to ensure that the engine reports its capabilities correctly. If this function is not used the engine will report that it supports no segment detail at all.</p>
-<p><b>See also </b><a href="qgeoroutingmanagerengine.html#supportedSegmentDetails">supportedSegmentDetails</a>().</p>
+<p><b>参见</b><a href="qgeoroutingmanagerengine.html#supportedSegmentDetails">supportedSegmentDetails</a>().</p>
 <!-- @@@setSupportedSegmentDetails -->
 <!-- $$$setSupportedTravelModes[overload1]$$$setSupportedTravelModesQGeoRouteRequest::TravelModes -->
 <h3 class="fn" id="setSupportedTravelModes"><a name="setSupportedTravelModes"></a><code>[protected] </code><span class="type">void</span> QGeoRoutingManagerEngine::<span class="name">setSupportedTravelModes</span>(<span class="type"><a href="qgeorouterequest.html#TravelMode-enum">QGeoRouteRequest::TravelModes</a></span> <i>travelModes</i>)</h3>
 <p>Sets the travel modes supported by this engine to <i>travelModes</i>.</p>
 <p>It is important that subclasses use this method to ensure that the engine reports its capabilities correctly. If this function is not used the engine will report that it supports no travel modes at all.</p>
-<p><b>See also </b><a href="qgeoroutingmanagerengine.html#supportedTravelModes">supportedTravelModes</a>().</p>
+<p><b>参见</b><a href="qgeoroutingmanagerengine.html#supportedTravelModes">supportedTravelModes</a>().</p>
 <!-- @@@setSupportedTravelModes -->
 <!-- $$$supportedFeatureTypes[overload1]$$$supportedFeatureTypes -->
 <h3 class="fn" id="supportedFeatureTypes"><a name="supportedFeatureTypes"></a><span class="type"><a href="qgeorouterequest.html#FeatureType-enum">QGeoRouteRequest::FeatureTypes</a></span> QGeoRoutingManagerEngine::<span class="name">supportedFeatureTypes</span>() const</h3>
 <p>Returns the types of features that this engine can take into account during route planning.</p>
-<p><b>See also </b><a href="qgeoroutingmanagerengine.html#setSupportedFeatureTypes">setSupportedFeatureTypes</a>().</p>
+<p><b>参见</b><a href="qgeoroutingmanagerengine.html#setSupportedFeatureTypes">setSupportedFeatureTypes</a>().</p>
 <!-- @@@supportedFeatureTypes -->
 <!-- $$$supportedFeatureWeights[overload1]$$$supportedFeatureWeights -->
 <h3 class="fn" id="supportedFeatureWeights"><a name="supportedFeatureWeights"></a><span class="type"><a href="qgeorouterequest.html#FeatureWeight-enum">QGeoRouteRequest::FeatureWeights</a></span> QGeoRoutingManagerEngine::<span class="name">supportedFeatureWeights</span>() const</h3>
 <p>Returns the weightings which this engine can apply to different features during route planning.</p>
-<p><b>See also </b><a href="qgeoroutingmanagerengine.html#setSupportedFeatureWeights">setSupportedFeatureWeights</a>().</p>
+<p><b>参见</b><a href="qgeoroutingmanagerengine.html#setSupportedFeatureWeights">setSupportedFeatureWeights</a>().</p>
 <!-- @@@supportedFeatureWeights -->
 <!-- $$$supportedManeuverDetails[overload1]$$$supportedManeuverDetails -->
 <h3 class="fn" id="supportedManeuverDetails"><a name="supportedManeuverDetails"></a><span class="type"><a href="qgeorouterequest.html#ManeuverDetail-enum">QGeoRouteRequest::ManeuverDetails</a></span> QGeoRoutingManagerEngine::<span class="name">supportedManeuverDetails</span>() const</h3>
 <p>Returns the levels of detail for navigation maneuvers which can be requested by this engine.</p>
-<p><b>See also </b><a href="qgeoroutingmanagerengine.html#setSupportedManeuverDetails">setSupportedManeuverDetails</a>().</p>
+<p><b>参见</b><a href="qgeoroutingmanagerengine.html#setSupportedManeuverDetails">setSupportedManeuverDetails</a>().</p>
 <!-- @@@supportedManeuverDetails -->
 <!-- $$$supportedRouteOptimizations[overload1]$$$supportedRouteOptimizations -->
 <h3 class="fn" id="supportedRouteOptimizations"><a name="supportedRouteOptimizations"></a><span class="type"><a href="qgeorouterequest.html#RouteOptimization-enum">QGeoRouteRequest::RouteOptimizations</a></span> QGeoRoutingManagerEngine::<span class="name">supportedRouteOptimizations</span>() const</h3>
 <p>Returns the route optimizations supported by this engine.</p>
-<p><b>See also </b><a href="qgeoroutingmanagerengine.html#setSupportedRouteOptimizations">setSupportedRouteOptimizations</a>().</p>
+<p><b>参见</b><a href="qgeoroutingmanagerengine.html#setSupportedRouteOptimizations">setSupportedRouteOptimizations</a>().</p>
 <!-- @@@supportedRouteOptimizations -->
 <!-- $$$supportedSegmentDetails[overload1]$$$supportedSegmentDetails -->
 <h3 class="fn" id="supportedSegmentDetails"><a name="supportedSegmentDetails"></a><span class="type"><a href="qgeorouterequest.html#SegmentDetail-enum">QGeoRouteRequest::SegmentDetails</a></span> QGeoRoutingManagerEngine::<span class="name">supportedSegmentDetails</span>() const</h3>
 <p>Returns the levels of detail for routing segments which can be requested by this engine.</p>
-<p><b>See also </b><a href="qgeoroutingmanagerengine.html#setSupportedSegmentDetails">setSupportedSegmentDetails</a>().</p>
+<p><b>参见</b><a href="qgeoroutingmanagerengine.html#setSupportedSegmentDetails">setSupportedSegmentDetails</a>().</p>
 <!-- @@@supportedSegmentDetails -->
 <!-- $$$supportedTravelModes[overload1]$$$supportedTravelModes -->
 <h3 class="fn" id="supportedTravelModes"><a name="supportedTravelModes"></a><span class="type"><a href="qgeorouterequest.html#TravelMode-enum">QGeoRouteRequest::TravelModes</a></span> QGeoRoutingManagerEngine::<span class="name">supportedTravelModes</span>() const</h3>
 <p>Returns the travel modes supported by this engine.</p>
-<p><b>See also </b><a href="qgeoroutingmanagerengine.html#setSupportedTravelModes">setSupportedTravelModes</a>().</p>
+<p><b>参见</b><a href="qgeoroutingmanagerengine.html#setSupportedTravelModes">setSupportedTravelModes</a>().</p>
 <!-- @@@supportedTravelModes -->
 <!-- $$$updateRoute[overload1]$$$updateRouteconstQGeoRoute&constQGeoCoordinate& -->
 <h3 class="fn" id="updateRoute"><a name="updateRoute"></a><code>[virtual] </code><span class="type"><a href="qgeoroutereply.html">QGeoRouteReply</a></span> *QGeoRoutingManagerEngine::<span class="name">updateRoute</span>(const <span class="type"><a href="qgeoroute.html">QGeoRoute</a></span> &amp;<i>route</i>, const <span class="type"><a href="../qtpositioning/qgeocoordinate.html">QGeoCoordinate</a></span> &amp;<i>position</i>)</h3>

@@ -77,7 +77,7 @@
 <p>This interface's design is based on the SAX2 extension LexicalHandler.</p>
 <p>The interface provides the <a href="qxmllexicalhandler.html#startDTD">startDTD</a>(), <a href="qxmllexicalhandler.html#endDTD">endDTD</a>(), <a href="qxmllexicalhandler.html#startEntity">startEntity</a>(), <a href="qxmllexicalhandler.html#endEntity">endEntity</a>(), <a href="qxmllexicalhandler.html#startCDATA">startCDATA</a>(), <a href="qxmllexicalhandler.html#endCDATA">endCDATA</a>() and <a href="qxmllexicalhandler.html#comment">comment</a>() functions.</p>
 </div>
-<p><b>See also </b><a href="qxmldtdhandler.html">QXmlDTDHandler</a>, <a href="qxmldeclhandler.html">QXmlDeclHandler</a>, <a href="qxmlcontenthandler.html">QXmlContentHandler</a>, <a href="qxmlentityresolver.html">QXmlEntityResolver</a>, <a href="qxmlerrorhandler.html">QXmlErrorHandler</a>, and <a href="xml-sax.html#introduction-to-sax2">Introduction to SAX2</a>.</p>
+<p><b>参见</b><a href="qxmldtdhandler.html">QXmlDTDHandler</a>, <a href="qxmldeclhandler.html">QXmlDeclHandler</a>, <a href="qxmlcontenthandler.html">QXmlContentHandler</a>, <a href="qxmlentityresolver.html">QXmlEntityResolver</a>, <a href="qxmlerrorhandler.html">QXmlErrorHandler</a>, and <a href="xml-sax.html#introduction-to-sax2">Introduction to SAX2</a>.</p>
 <!-- @@@QXmlLexicalHandler -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -100,20 +100,20 @@
 <h3 class="fn" id="endCDATA"><a name="endCDATA"></a><code>[pure virtual] </code><span class="type">bool</span> QXmlLexicalHandler::<span class="name">endCDATA</span>()</h3>
 <p>The reader calls this function to report the end of a CDATA section.</p>
 <p>If this function returns <code>false</code> the reader stops parsing and reports an error. The reader uses the function <a href="qxmllexicalhandler.html#errorString">errorString</a>() to get the error message.</p>
-<p><b>See also </b><a href="qxmllexicalhandler.html#startCDATA">startCDATA</a>() and <a href="qxmlcontenthandler.html#characters">QXmlContentHandler::characters</a>().</p>
+<p><b>参见</b><a href="qxmllexicalhandler.html#startCDATA">startCDATA</a>() and <a href="qxmlcontenthandler.html#characters">QXmlContentHandler::characters</a>().</p>
 <!-- @@@endCDATA -->
 <!-- $$$endDTD[overload1]$$$endDTD -->
 <h3 class="fn" id="endDTD"><a name="endDTD"></a><code>[pure virtual] </code><span class="type">bool</span> QXmlLexicalHandler::<span class="name">endDTD</span>()</h3>
 <p>The reader calls this function to report the end of a DTD declaration, if any.</p>
 <p>If this function returns <code>false</code> the reader stops parsing and reports an error. The reader uses the function <a href="qxmllexicalhandler.html#errorString">errorString</a>() to get the error message.</p>
-<p><b>See also </b><a href="qxmllexicalhandler.html#startDTD">startDTD</a>().</p>
+<p><b>参见</b><a href="qxmllexicalhandler.html#startDTD">startDTD</a>().</p>
 <!-- @@@endDTD -->
 <!-- $$$endEntity[overload1]$$$endEntityconstQString& -->
 <h3 class="fn" id="endEntity"><a name="endEntity"></a><code>[pure virtual] </code><span class="type">bool</span> QXmlLexicalHandler::<span class="name">endEntity</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>name</i>)</h3>
 <p>The reader calls this function to report the end of an entity called <i>name</i>.</p>
 <p>For every <a href="qxmllexicalhandler.html#startEntity">startEntity</a>() call, there is a corresponding endEntity() call. The calls to <a href="qxmllexicalhandler.html#startEntity">startEntity</a>() and endEntity() are properly nested.</p>
 <p>If this function returns <code>false</code> the reader stops parsing and reports an error. The reader uses the function <a href="qxmllexicalhandler.html#errorString">errorString</a>() to get the error message.</p>
-<p><b>See also </b><a href="qxmllexicalhandler.html#startEntity">startEntity</a>(), <a href="qxmlcontenthandler.html#skippedEntity">QXmlContentHandler::skippedEntity</a>(), and <a href="qxmlsimplereader.html#setFeature">QXmlSimpleReader::setFeature</a>().</p>
+<p><b>参见</b><a href="qxmllexicalhandler.html#startEntity">startEntity</a>(), <a href="qxmlcontenthandler.html#skippedEntity">QXmlContentHandler::skippedEntity</a>(), and <a href="qxmlsimplereader.html#setFeature">QXmlSimpleReader::setFeature</a>().</p>
 <!-- @@@endEntity -->
 <!-- $$$errorString[overload1]$$$errorString -->
 <h3 class="fn" id="errorString"><a name="errorString"></a><code>[pure virtual] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QXmlLexicalHandler::<span class="name">errorString</span>() const</h3>
@@ -123,7 +123,7 @@
 <h3 class="fn" id="startCDATA"><a name="startCDATA"></a><code>[pure virtual] </code><span class="type">bool</span> QXmlLexicalHandler::<span class="name">startCDATA</span>()</h3>
 <p>The reader calls this function to report the start of a CDATA section. The content of the CDATA section is reported through the <a href="qxmlcontenthandler.html#characters">QXmlContentHandler::characters</a>() function. This function is intended only to report the boundary.</p>
 <p>If this function returns <code>false</code> the reader stops parsing and reports an error. The reader uses the function <a href="qxmllexicalhandler.html#errorString">errorString</a>() to get the error message.</p>
-<p><b>See also </b><a href="qxmllexicalhandler.html#endCDATA">endCDATA</a>().</p>
+<p><b>参见</b><a href="qxmllexicalhandler.html#endCDATA">endCDATA</a>().</p>
 <!-- @@@startCDATA -->
 <!-- $$$startDTD[overload1]$$$startDTDconstQString&constQString&constQString& -->
 <h3 class="fn" id="startDTD"><a name="startDTD"></a><code>[pure virtual] </code><span class="type">bool</span> QXmlLexicalHandler::<span class="name">startDTD</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>name</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>publicId</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>systemId</i>)</h3>
@@ -131,14 +131,14 @@
 <p>If the public identifier is missing, <i>publicId</i> is set to an empty string. If the system identifier is missing, <i>systemId</i> is set to an empty string. Note that it is not valid XML to have a public identifier but no system identifier; in such cases a parse error will occur.</p>
 <p>All declarations reported through <a href="qxmldtdhandler.html">QXmlDTDHandler</a> or <a href="qxmldeclhandler.html">QXmlDeclHandler</a> appear between the startDTD() and <a href="qxmllexicalhandler.html#endDTD">endDTD</a>() calls.</p>
 <p>If this function returns <code>false</code> the reader stops parsing and reports an error. The reader uses the function <a href="qxmllexicalhandler.html#errorString">errorString</a>() to get the error message.</p>
-<p><b>See also </b><a href="qxmllexicalhandler.html#endDTD">endDTD</a>().</p>
+<p><b>参见</b><a href="qxmllexicalhandler.html#endDTD">endDTD</a>().</p>
 <!-- @@@startDTD -->
 <!-- $$$startEntity[overload1]$$$startEntityconstQString& -->
 <h3 class="fn" id="startEntity"><a name="startEntity"></a><code>[pure virtual] </code><span class="type">bool</span> QXmlLexicalHandler::<span class="name">startEntity</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>name</i>)</h3>
 <p>The reader calls this function to report the start of an entity called <i>name</i>.</p>
 <p>Note that if the entity is unknown, the reader reports it through <a href="qxmlcontenthandler.html#skippedEntity">QXmlContentHandler::skippedEntity</a>() and not through this function.</p>
 <p>If this function returns <code>false</code> the reader stops parsing and reports an error. The reader uses the function <a href="qxmllexicalhandler.html#errorString">errorString</a>() to get the error message.</p>
-<p><b>See also </b><a href="qxmllexicalhandler.html#endEntity">endEntity</a>() and <a href="qxmlsimplereader.html#setFeature">QXmlSimpleReader::setFeature</a>().</p>
+<p><b>参见</b><a href="qxmllexicalhandler.html#endEntity">endEntity</a>() and <a href="qxmlsimplereader.html#setFeature">QXmlSimpleReader::setFeature</a>().</p>
 <!-- @@@startEntity -->
 </div>
 <div class="vars">

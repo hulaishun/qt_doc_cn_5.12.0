@@ -76,7 +76,7 @@
 <p>The <a href="qxmlnamespacesupport.html">QXmlNamespaceSupport</a> class is a helper class for XML readers which want to include namespace support.</p>
 <p>You can set the prefix for the current namespace with <a href="qxmlnamespacesupport.html#setPrefix">setPrefix</a>(), and get the list of current prefixes (or those for a given URI) with <a href="qxmlnamespacesupport.html#prefixes">prefixes</a>(). The namespace URI is available from <a href="qxmlnamespacesupport.html#uri">uri</a>(). Use <a href="qxmlnamespacesupport.html#pushContext">pushContext</a>() to start a new namespace context, and <a href="qxmlnamespacesupport.html#popContext">popContext</a>() to return to the previous namespace context. Use <a href="qxmlnamespacesupport.html#splitName">splitName</a>() or <a href="qxmlnamespacesupport.html#processName">processName</a>() to split a name into its prefix and local name.</p>
 </div>
-<p><b>See also </b><a href="xml-sax.html#namespace-support-via-features">Namespace Support via Features</a>.</p>
+<p><b>参见</b><a href="xml-sax.html#namespace-support-via-features">Namespace Support via Features</a>.</p>
 <!-- @@@QXmlNamespaceSupport -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -98,14 +98,14 @@
 <h3 class="fn" id="popContext"><a name="popContext"></a><span class="type">void</span> QXmlNamespaceSupport::<span class="name">popContext</span>()</h3>
 <p>Reverts to the previous namespace context.</p>
 <p>Normally, you should pop the context at the end of each XML element. After popping the context, all namespace prefix mappings that were previously in force are restored.</p>
-<p><b>See also </b><a href="qxmlnamespacesupport.html#pushContext">pushContext</a>().</p>
+<p><b>参见</b><a href="qxmlnamespacesupport.html#pushContext">pushContext</a>().</p>
 <!-- @@@popContext -->
 <!-- $$$prefix[overload1]$$$prefixconstQString& -->
 <h3 class="fn" id="prefix"><a name="prefix"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QXmlNamespaceSupport::<span class="name">prefix</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>uri</i>) const</h3>
 <p>Returns one of the prefixes mapped to the namespace URI <i>uri</i>.</p>
 <p>If more than one prefix is currently mapped to the same URI, this function makes an arbitrary selection; if you want all of the prefixes, use <a href="qxmlnamespacesupport.html#prefixes">prefixes</a>() instead.</p>
 <p>Note: to check for a default prefix, use the <a href="qxmlnamespacesupport.html#uri">uri</a>() function with an argument of &quot;&quot;.</p>
-<p><b>See also </b><a href="qxmlnamespacesupport.html#setPrefix">setPrefix</a>().</p>
+<p><b>参见</b><a href="qxmlnamespacesupport.html#setPrefix">setPrefix</a>().</p>
 <!-- @@@prefix -->
 <!-- $$$prefixes[overload1]$$$prefixes -->
 <h3 class="fn" id="prefixes"><a name="prefixes"></a><span class="type"><a href="../qtcore/qstringlist.html">QStringList</a></span> QXmlNamespaceSupport::<span class="name">prefixes</span>() const</h3>
@@ -130,7 +130,7 @@
 <h3 class="fn" id="pushContext"><a name="pushContext"></a><span class="type">void</span> QXmlNamespaceSupport::<span class="name">pushContext</span>()</h3>
 <p>Starts a new namespace context.</p>
 <p>Normally, you should push a new context at the beginning of each XML element: the new context automatically inherits the declarations of its parent context, and it also keeps track of which declarations were made within this context.</p>
-<p><b>See also </b><a href="qxmlnamespacesupport.html#popContext">popContext</a>().</p>
+<p><b>参见</b><a href="qxmlnamespacesupport.html#popContext">popContext</a>().</p>
 <!-- @@@pushContext -->
 <!-- $$$reset[overload1]$$$reset -->
 <h3 class="fn" id="reset"><a name="reset"></a><span class="type">void</span> QXmlNamespaceSupport::<span class="name">reset</span>()</h3>
@@ -140,12 +140,12 @@
 <h3 class="fn" id="setPrefix"><a name="setPrefix"></a><span class="type">void</span> QXmlNamespaceSupport::<span class="name">setPrefix</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>pre</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>uri</i>)</h3>
 <p>This function declares a prefix <i>pre</i> in the current namespace context to be the namespace URI <i>uri</i>. The prefix remains in force until this context is popped, unless it is shadowed in a descendant context.</p>
 <p>Note that there is an asymmetry in this library. <a href="qxmlnamespacesupport.html#prefix">prefix</a>() does not return the default &quot;&quot; prefix, even if you have declared one; to check for a default prefix, you must look it up explicitly using <a href="qxmlnamespacesupport.html#uri">uri</a>(). This asymmetry exists to make it easier to look up prefixes for attribute names, where the default prefix is not allowed.</p>
-<p><b>See also </b><a href="qxmlnamespacesupport.html#prefix">prefix</a>().</p>
+<p><b>参见</b><a href="qxmlnamespacesupport.html#prefix">prefix</a>().</p>
 <!-- @@@setPrefix -->
 <!-- $$$splitName[overload1]$$$splitNameconstQString&QString&QString& -->
 <h3 class="fn" id="splitName"><a name="splitName"></a><span class="type">void</span> QXmlNamespaceSupport::<span class="name">splitName</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>qname</i>, <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>prefix</i>, <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>localname</i>) const</h3>
 <p>Splits the name <i>qname</i> at the ':' and returns the prefix in <i>prefix</i> and the local name in <i>localname</i>.</p>
-<p><b>See also </b><a href="qxmlnamespacesupport.html#processName">processName</a>().</p>
+<p><b>参见</b><a href="qxmlnamespacesupport.html#processName">processName</a>().</p>
 <!-- @@@splitName -->
 <!-- $$$uri[overload1]$$$uriconstQString& -->
 <h3 class="fn" id="uri"><a name="uri"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QXmlNamespaceSupport::<span class="name">uri</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>prefix</i>) const</h3>

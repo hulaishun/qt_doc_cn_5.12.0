@@ -142,7 +142,7 @@
 <p>To provide custom editing, there are two approaches that can be used. The first approach is to create an editor widget and display it directly on top of the item. To do this you must reimplement <a href="qabstractitemdelegate.html#createEditor">createEditor</a>() to provide an editor widget, <a href="qabstractitemdelegate.html#setEditorData">setEditorData</a>() to populate the editor with the data from the model, and <a href="qabstractitemdelegate.html#setModelData">setModelData</a>() so that the delegate can update the model with data from the editor.</p>
 <p>The second approach is to handle user events directly by reimplementing <a href="qabstractitemdelegate.html#editorEvent">editorEvent</a>().</p>
 </div>
-<p><b>See also </b><a href="model-view-programming.html">Model/View Programming</a>, <a href="qitemdelegate.html">QItemDelegate</a>, <a href="qtwidgets-itemviews-pixelator-example.html">Pixelator Example</a>, <a href="qstyleditemdelegate.html">QStyledItemDelegate</a>, and <a href="qstyle.html">QStyle</a>.</p>
+<p><b>参见</b><a href="model-view-programming.html">Model/View Programming</a>, <a href="qitemdelegate.html">QItemDelegate</a>, <a href="qtwidgets-itemviews-pixelator-example.html">Pixelator Example</a>, <a href="qstyleditemdelegate.html">QStyledItemDelegate</a>, and <a href="qstyle.html">QStyle</a>.</p>
 <!-- @@@QAbstractItemDelegate -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -183,7 +183,7 @@
 <h3 class="fn" id="closeEditor"><a name="closeEditor"></a><code>[signal] </code><span class="type">void</span> QAbstractItemDelegate::<span class="name">closeEditor</span>(<span class="type"><a href="qwidget.html">QWidget</a></span> *<i>editor</i>, <span class="type"><a href="qabstractitemdelegate.html#EndEditHint-enum">QAbstractItemDelegate::EndEditHint</a></span> <i>hint</i> = NoHint)</h3>
 <p>This signal is emitted when the user has finished editing an item using the specified <i>editor</i>.</p>
 <p>The <i>hint</i> provides a way for the delegate to influence how the model and view behave after editing is completed. It indicates to these components what action should be performed next to provide a comfortable editing experience for the user. For example, if <code>EditNextItem</code> is specified, the view should use a delegate to open an editor on the next item in the model.</p>
-<p><b>See also </b><a href="qabstractitemdelegate.html#EndEditHint-enum">EndEditHint</a>.</p>
+<p><b>参见</b><a href="qabstractitemdelegate.html#EndEditHint-enum">EndEditHint</a>.</p>
 <!-- @@@closeEditor -->
 <!-- $$$commitData[overload1]$$$commitDataQWidget* -->
 <h3 class="fn" id="commitData"><a name="commitData"></a><code>[signal] </code><span class="type">void</span> QAbstractItemDelegate::<span class="name">commitData</span>(<span class="type"><a href="qwidget.html">QWidget</a></span> *<i>editor</i>)</h3>
@@ -194,13 +194,13 @@
 <p>Returns the editor to be used for editing the data item with the given <i>index</i>. Note that the index contains information about the model being used. The editor's parent widget is specified by <i>parent</i>, and the item options by <i>option</i>.</p>
 <p>The base implementation returns 0. If you want custom editing you will need to reimplement this function.</p>
 <p>The returned editor widget should have <a href="../qtcore/qt.html#FocusPolicy-enum">Qt::StrongFocus</a>; otherwise, <a href="../qtgui/qmouseevent.html">QMouseEvent</a>s received by the widget will propagate to the view. The view's background will shine through unless the editor paints its own background (e.g&#x2e;, with <a href="qwidget.html#autoFillBackground-prop">setAutoFillBackground()</a>).</p>
-<p><b>See also </b><a href="qabstractitemdelegate.html#destroyEditor">destroyEditor</a>(), <a href="qabstractitemdelegate.html#setModelData">setModelData</a>(), and <a href="qabstractitemdelegate.html#setEditorData">setEditorData</a>().</p>
+<p><b>参见</b><a href="qabstractitemdelegate.html#destroyEditor">destroyEditor</a>(), <a href="qabstractitemdelegate.html#setModelData">setModelData</a>(), and <a href="qabstractitemdelegate.html#setEditorData">setEditorData</a>().</p>
 <!-- @@@createEditor -->
 <!-- $$$destroyEditor[overload1]$$$destroyEditorQWidget*constQModelIndex& -->
 <h3 class="fn" id="destroyEditor"><a name="destroyEditor"></a><code>[virtual] </code><span class="type">void</span> QAbstractItemDelegate::<span class="name">destroyEditor</span>(<span class="type"><a href="qwidget.html">QWidget</a></span> *<i>editor</i>, const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>) const</h3>
 <p>Called when the <i>editor</i> is no longer needed for editing the data item with the given <i>index</i> and should be destroyed. The default behavior is a call to <a href="../qtcore/qobject.html#deleteLater">deleteLater</a> on the editor. It is possible e.g&#x2e; to avoid this delete by reimplementing this function.</p>
 <p>This function was introduced in  Qt 5.0.</p>
-<p><b>See also </b><a href="qabstractitemdelegate.html#createEditor">createEditor</a>().</p>
+<p><b>参见</b><a href="qabstractitemdelegate.html#createEditor">createEditor</a>().</p>
 <!-- @@@destroyEditor -->
 <!-- $$$editorEvent[overload1]$$$editorEventQEvent*QAbstractItemModel*constQStyleOptionViewItem&constQModelIndex& -->
 <h3 class="fn" id="editorEvent"><a name="editorEvent"></a><code>[virtual] </code><span class="type">bool</span> QAbstractItemDelegate::<span class="name">editorEvent</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>event</i>, <span class="type"><a href="../qtcore/qabstractitemmodel.html">QAbstractItemModel</a></span> *<i>model</i>, const <span class="type"><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a></span> &amp;<i>option</i>, const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>)</h3>
@@ -214,7 +214,7 @@
 <p>Returns <code>true</code> if the delegate can handle the event; otherwise returns <code>false</code>. A return value of true indicates that the data obtained using the index had the required role.</p>
 <p>For <a href="../qtcore/qevent.html#Type-enum">QEvent::ToolTip</a> and <a href="../qtcore/qevent.html#Type-enum">QEvent::WhatsThis</a> events that were handled successfully, the relevant popup may be shown depending on the user's system configuration.</p>
 <p>This function was introduced in  Qt 4.3.</p>
-<p><b>See also </b><a href="../qtgui/qhelpevent.html">QHelpEvent</a>.</p>
+<p><b>参见</b><a href="../qtgui/qhelpevent.html">QHelpEvent</a>.</p>
 <!-- @@@helpEvent -->
 <!-- $$$paint[overload1]$$$paintQPainter*constQStyleOptionViewItem&constQModelIndex& -->
 <h3 class="fn" id="paint"><a name="paint"></a><code>[pure virtual] </code><span class="type">void</span> QAbstractItemDelegate::<span class="name">paint</span>(<span class="type"><a href="../qtgui/qpainter.html">QPainter</a></span> *<i>painter</i>, const <span class="type"><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a></span> &amp;<i>option</i>, const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>) const</h3>
@@ -225,13 +225,13 @@
 <h3 class="fn" id="setEditorData"><a name="setEditorData"></a><code>[virtual] </code><span class="type">void</span> QAbstractItemDelegate::<span class="name">setEditorData</span>(<span class="type"><a href="qwidget.html">QWidget</a></span> *<i>editor</i>, const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>) const</h3>
 <p>Sets the contents of the given <i>editor</i> to the data for the item at the given <i>index</i>. Note that the index contains information about the model being used.</p>
 <p>The base implementation does nothing. If you want custom editing you will need to reimplement this function.</p>
-<p><b>See also </b><a href="qabstractitemdelegate.html#setModelData">setModelData</a>().</p>
+<p><b>参见</b><a href="qabstractitemdelegate.html#setModelData">setModelData</a>().</p>
 <!-- @@@setEditorData -->
 <!-- $$$setModelData[overload1]$$$setModelDataQWidget*QAbstractItemModel*constQModelIndex& -->
 <h3 class="fn" id="setModelData"><a name="setModelData"></a><code>[virtual] </code><span class="type">void</span> QAbstractItemDelegate::<span class="name">setModelData</span>(<span class="type"><a href="qwidget.html">QWidget</a></span> *<i>editor</i>, <span class="type"><a href="../qtcore/qabstractitemmodel.html">QAbstractItemModel</a></span> *<i>model</i>, const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>) const</h3>
 <p>Sets the data for the item at the given <i>index</i> in the <i>model</i> to the contents of the given <i>editor</i>.</p>
 <p>The base implementation does nothing. If you want custom editing you will need to reimplement this function.</p>
-<p><b>See also </b><a href="qabstractitemdelegate.html#setEditorData">setEditorData</a>().</p>
+<p><b>参见</b><a href="qabstractitemdelegate.html#setEditorData">setEditorData</a>().</p>
 <!-- @@@setModelData -->
 <!-- $$$sizeHint[overload1]$$$sizeHintconstQStyleOptionViewItem&constQModelIndex& -->
 <h3 class="fn" id="sizeHint"><a name="sizeHint"></a><code>[pure virtual] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QAbstractItemDelegate::<span class="name">sizeHint</span>(const <span class="type"><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a></span> &amp;<i>option</i>, const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>) const</h3>

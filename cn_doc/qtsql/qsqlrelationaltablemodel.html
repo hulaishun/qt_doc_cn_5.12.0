@@ -179,7 +179,7 @@
 <li>When using <a href="qsqlrelationaltablemodel.html#setData">setData</a>() the role should always be <a href="../qtcore/qt.html#ItemDataRole-enum">Qt::EditRole</a>, and when using <a href="qsqlrelationaltablemodel.html#data">data</a>() the role should always be <a href="../qtcore/qt.html#ItemDataRole-enum">Qt::DisplayRole</a>.</li>
 </ul>
 </div>
-<p><b>See also </b><a href="qsqlrelation.html">QSqlRelation</a>, <a href="qsqlrelationaldelegate.html">QSqlRelationalDelegate</a>, and <a href="qtsql-relationaltablemodel-example.html">Relational Table Model Example</a>.</p>
+<p><b>参见</b><a href="qsqlrelation.html">QSqlRelation</a>, <a href="qsqlrelationaldelegate.html">QSqlRelationalDelegate</a>, and <a href="qtsql-relationaltablemodel-example.html">Relational Table Model Example</a>.</p>
 <!-- @@@QSqlRelationalTableModel -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -190,7 +190,7 @@
 <tr><td class="topAlign"><code>QSqlRelationalTableModel::LeftJoin</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">- Left join mode, returns all rows from the left table (table_name1), even if there are no matches in the right table (table_name2).</td></tr>
 </table></div>
 <p>This enum was introduced or modified in  Qt 4.8.</p>
-<p><b>See also </b><a href="qsqlrelationaltablemodel.html#setJoinMode">QSqlRelationalTableModel::setJoinMode</a>().</p>
+<p><b>参见</b><a href="qsqlrelationaltablemodel.html#setJoinMode">QSqlRelationalTableModel::setJoinMode</a>().</p>
 <!-- @@@JoinMode -->
 </div>
 <div class="prop">
@@ -213,7 +213,7 @@
 <!-- $$$data[overload1]$$$dataconstQModelIndex&int -->
 <h3 class="fn" id="data"><a name="data"></a><code>[override virtual] </code><span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> QSqlRelationalTableModel::<span class="name">data</span>(const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>, <span class="type">int</span> <i>role</i> = Qt::DisplayRole) const</h3>
 <p>Reimplemented from <a href="qsqltablemodel.html#data">QSqlTableModel::data</a>().</p>
-<p><b>See also </b><a href="qsqlrelationaltablemodel.html#setData">setData</a>().</p>
+<p><b>参见</b><a href="qsqlrelationaltablemodel.html#setData">setData</a>().</p>
 <!-- @@@data -->
 <!-- $$$insertRowIntoTable[overload1]$$$insertRowIntoTableconstQSqlRecord& -->
 <h3 class="fn" id="insertRowIntoTable"><a name="insertRowIntoTable"></a><code>[override virtual protected] </code><span class="type">bool</span> QSqlRelationalTableModel::<span class="name">insertRowIntoTable</span>(const <span class="type"><a href="qsqlrecord.html">QSqlRecord</a></span> &amp;<i>values</i>)</h3>
@@ -226,13 +226,13 @@
 <!-- $$$relation[overload1]$$$relationint -->
 <h3 class="fn" id="relation"><a name="relation"></a><span class="type"><a href="qsqlrelation.html">QSqlRelation</a></span> QSqlRelationalTableModel::<span class="name">relation</span>(<span class="type">int</span> <i>column</i>) const</h3>
 <p>Returns the relation for the column <i>column</i>, or an invalid relation if no relation is set.</p>
-<p><b>See also </b><a href="qsqlrelationaltablemodel.html#setRelation">setRelation</a>() and <a href="qsqlrelation.html#isValid">QSqlRelation::isValid</a>().</p>
+<p><b>参见</b><a href="qsqlrelationaltablemodel.html#setRelation">setRelation</a>() and <a href="qsqlrelation.html#isValid">QSqlRelation::isValid</a>().</p>
 <!-- @@@relation -->
 <!-- $$$relationModel[overload1]$$$relationModelint -->
 <h3 class="fn" id="relationModel"><a name="relationModel"></a><code>[virtual] </code><span class="type"><a href="qsqltablemodel.html#QSqlTableModel">QSqlTableModel</a></span> *QSqlRelationalTableModel::<span class="name">relationModel</span>(<span class="type">int</span> <i>column</i>) const</h3>
 <p>Returns a <a href="qsqltablemodel.html">QSqlTableModel</a> object for accessing the table for which <i>column</i> is a foreign key, or 0 if there is no relation for the given <i>column</i>.</p>
 <p>The returned object is owned by the <a href="qsqlrelationaltablemodel.html">QSqlRelationalTableModel</a>.</p>
-<p><b>See also </b><a href="qsqlrelationaltablemodel.html#setRelation">setRelation</a>() and <a href="qsqlrelationaltablemodel.html#relation">relation</a>().</p>
+<p><b>参见</b><a href="qsqlrelationaltablemodel.html#setRelation">setRelation</a>() and <a href="qsqlrelationaltablemodel.html#relation">relation</a>().</p>
 <!-- @@@relationModel -->
 <!-- $$$removeColumns[overload1]$$$removeColumnsintintconstQModelIndex& -->
 <h3 class="fn" id="removeColumns"><a name="removeColumns"></a><code>[override virtual] </code><span class="type">bool</span> QSqlRelationalTableModel::<span class="name">removeColumns</span>(<span class="type">int</span> <i>column</i>, <span class="type">int</span> <i>count</i>, const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i> = QModelIndex())</h3>
@@ -256,13 +256,13 @@
 <p>Sets the data for the <i>role</i> in the item with the specified <i>index</i> to the <i>value</i> given. Depending on the edit strategy, the value might be applied to the database at once, or it may be cached in the model.</p>
 <p>Returns <code>true</code> if the value could be set, or false on error (for example, if <i>index</i> is out of bounds).</p>
 <p>For relational columns, <i>value</i> must be the index, not the display value. The index must also exist in the referenced table, otherwise the function returns <code>false</code>.</p>
-<p><b>See also </b><a href="qsqltablemodel.html#editStrategy">editStrategy</a>(), <a href="qsqlrelationaltablemodel.html#data">data</a>(), <a href="qsqltablemodel.html#submit">submit</a>(), and <a href="qsqlrelationaltablemodel.html#revertRow">revertRow</a>().</p>
+<p><b>参见</b><a href="qsqltablemodel.html#editStrategy">editStrategy</a>(), <a href="qsqlrelationaltablemodel.html#data">data</a>(), <a href="qsqltablemodel.html#submit">submit</a>(), and <a href="qsqlrelationaltablemodel.html#revertRow">revertRow</a>().</p>
 <!-- @@@setData -->
 <!-- $$$setJoinMode[overload1]$$$setJoinModeQSqlRelationalTableModel::JoinMode -->
 <h3 class="fn" id="setJoinMode"><a name="setJoinMode"></a><span class="type">void</span> QSqlRelationalTableModel::<span class="name">setJoinMode</span>(<span class="type"><a href="qsqlrelationaltablemodel.html#JoinMode-enum">QSqlRelationalTableModel::JoinMode</a></span> <i>joinMode</i>)</h3>
 <p>Sets the SQL <i>joinMode</i> to show or hide rows with NULL foreign keys. In <a href="qsqlrelationaltablemodel.html#JoinMode-enum">InnerJoin</a> mode (the default) these rows will not be shown: use the <a href="qsqlrelationaltablemodel.html#JoinMode-enum">LeftJoin</a> mode if you want to show them.</p>
 <p>这个函数是在Qt 4.8版本中新增引入的。</p>
-<p><b>See also </b><a href="qsqlrelationaltablemodel.html#JoinMode-enum">QSqlRelationalTableModel::JoinMode</a>.</p>
+<p><b>参见</b><a href="qsqlrelationaltablemodel.html#JoinMode-enum">QSqlRelationalTableModel::JoinMode</a>.</p>
 <!-- @@@setJoinMode -->
 <!-- $$$setRelation[overload1]$$$setRelationintconstQSqlRelation& -->
 <h3 class="fn" id="setRelation"><a name="setRelation"></a><code>[virtual] </code><span class="type">void</span> QSqlRelationalTableModel::<span class="name">setRelation</span>(<span class="type">int</span> <i>column</i>, const <span class="type"><a href="qsqlrelation.html">QSqlRelation</a></span> &amp;<i>relation</i>)</h3>
@@ -277,7 +277,7 @@
 </pre>
 <p>The setRelation() call specifies that column 2 in table <code>employee</code> is a foreign key that maps with field <code>id</code> of table <code>city</code>, and that the view should present the <code>city</code>'s <code>name</code> field to the user.</p>
 <p>Note: The table's primary key may not contain a relation to another table.</p>
-<p><b>See also </b><a href="qsqlrelationaltablemodel.html#relation">relation</a>().</p>
+<p><b>参见</b><a href="qsqlrelationaltablemodel.html#relation">relation</a>().</p>
 <!-- @@@setRelation -->
 <!-- $$$setTable[overload1]$$$setTableconstQString& -->
 <h3 class="fn" id="setTable"><a name="setTable"></a><code>[override virtual] </code><span class="type">void</span> QSqlRelationalTableModel::<span class="name">setTable</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>table</i>)</h3>

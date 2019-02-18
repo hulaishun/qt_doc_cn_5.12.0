@@ -248,7 +248,7 @@
 <li>The headers for the QVulkan classes may include <code>vulkan.h</code> with <code>VK_NO_PROTOTYPES</code> enabled. This can cause issues in C++ wrapper headers that rely on the prototypes. Hence in application code it may be necessary to include <code>vulkan.hpp</code> or similar before any of the QVulkan headers.</li>
 </ul>
 </div>
-<p><b>See also </b>QVulkanFunctions and <a href="qsurface.html#SurfaceType-enum">QSurface::SurfaceType</a>.</p>
+<p><b>参见</b>QVulkanFunctions and <a href="qsurface.html#SurfaceType-enum">QSurface::SurfaceType</a>.</p>
 <!-- @@@QVulkanInstance -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -278,7 +278,7 @@
 <!-- $$$apiVersion[overload1]$$$apiVersion -->
 <h3 class="fn" id="apiVersion"><a name="apiVersion"></a><span class="type"><a href="../qtcore/qversionnumber.html">QVersionNumber</a></span> QVulkanInstance::<span class="name">apiVersion</span>() const</h3>
 <p>Returns the requested Vulkan API version against which the application expects to run, or a null version number if <a href="qvulkaninstance.html#setApiVersion">setApiVersion</a>() was not called before <a href="qvulkaninstance.html#create">create</a>().</p>
-<p><b>See also </b><a href="qvulkaninstance.html#setApiVersion">setApiVersion</a>().</p>
+<p><b>参见</b><a href="qvulkaninstance.html#setApiVersion">setApiVersion</a>().</p>
 <!-- @@@apiVersion -->
 <!-- $$$create[overload1]$$$create -->
 <h3 class="fn" id="create"><a name="create"></a><span class="type">bool</span> QVulkanInstance::<span class="name">create</span>()</h3>
@@ -294,7 +294,7 @@
 <!-- $$$deviceFunctions[overload1]$$$deviceFunctionsint -->
 <h3 class="fn" id="deviceFunctions"><a name="deviceFunctions"></a><span class="type">QVulkanDeviceFunctions</span> *QVulkanInstance::<span class="name">deviceFunctions</span>(<span class="type">int</span> <i>device</i>)</h3>
 <p>Returns the QVulkanDeviceFunctions object that exposes the device level core Vulkan command set and is guaranteed to be functional cross-platform.</p>
-<p><b>Note: </b>The Vulkan functions in the returned object must only be called with <i>device</i> or a child object (VkQueue, VkCommandBuffer) of <i>device</i> as their first parameter. This is because these functions are resolved via <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetDeviceProcAddr.html">vkGetDeviceProcAddr</a> in order to avoid the potential overhead of internal dispatching.</p><p><b>Note: </b>The returned object is owned and managed by the <a href="qvulkaninstance.html">QVulkanInstance</a>. Do not destroy or alter it.</p><p><b>Note: </b>The object is cached so calling this function with the same <i>device</i> again is a cheap operation. However, when the device gets destroyed, it is up to the application to notify the <a href="qvulkaninstance.html">QVulkanInstance</a> by calling <a href="qvulkaninstance.html#resetDeviceFunctions">resetDeviceFunctions</a>().</p><p><b>See also </b><a href="qvulkaninstance.html#functions">functions</a>() and <a href="qvulkaninstance.html#resetDeviceFunctions">resetDeviceFunctions</a>().</p>
+<p><b>Note: </b>The Vulkan functions in the returned object must only be called with <i>device</i> or a child object (VkQueue, VkCommandBuffer) of <i>device</i> as their first parameter. This is because these functions are resolved via <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetDeviceProcAddr.html">vkGetDeviceProcAddr</a> in order to avoid the potential overhead of internal dispatching.</p><p><b>Note: </b>The returned object is owned and managed by the <a href="qvulkaninstance.html">QVulkanInstance</a>. Do not destroy or alter it.</p><p><b>Note: </b>The object is cached so calling this function with the same <i>device</i> again is a cheap operation. However, when the device gets destroyed, it is up to the application to notify the <a href="qvulkaninstance.html">QVulkanInstance</a> by calling <a href="qvulkaninstance.html#resetDeviceFunctions">resetDeviceFunctions</a>().</p><p><b>参见</b><a href="qvulkaninstance.html#functions">functions</a>() and <a href="qvulkaninstance.html#resetDeviceFunctions">resetDeviceFunctions</a>().</p>
 <!-- @@@deviceFunctions -->
 <!-- $$$errorCode[overload1]$$$errorCode -->
 <h3 class="fn" id="errorCode"><a name="errorCode"></a><span class="type">int</span> QVulkanInstance::<span class="name">errorCode</span>() const</h3>
@@ -304,17 +304,17 @@
 <!-- $$$extensions[overload1]$$$extensions -->
 <h3 class="fn" id="extensions"><a name="extensions"></a><span class="type"><a href="../qtcore/qbytearraylist.html">QByteArrayList</a></span> QVulkanInstance::<span class="name">extensions</span>() const</h3>
 <p>Returns the enabled instance extensions, if <a href="qvulkaninstance.html#create">create</a>() was called and was successful. The requested extensions otherwise.</p>
-<p><b>See also </b><a href="qvulkaninstance.html#setExtensions">setExtensions</a>().</p>
+<p><b>参见</b><a href="qvulkaninstance.html#setExtensions">setExtensions</a>().</p>
 <!-- @@@extensions -->
 <!-- $$$flags[overload1]$$$flags -->
 <h3 class="fn" id="flags"><a name="flags"></a><span class="type"><a href="qvulkaninstance.html#Flag-enum">QVulkanInstance::Flags</a></span> QVulkanInstance::<span class="name">flags</span>() const</h3>
 <p>Returns the requested flags.</p>
-<p><b>See also </b><a href="qvulkaninstance.html#setFlags">setFlags</a>().</p>
+<p><b>参见</b><a href="qvulkaninstance.html#setFlags">setFlags</a>().</p>
 <!-- @@@flags -->
 <!-- $$$functions[overload1]$$$functions -->
 <h3 class="fn" id="functions"><a name="functions"></a><span class="type">QVulkanFunctions</span> *QVulkanInstance::<span class="name">functions</span>() const</h3>
 <p>Returns the corresponding QVulkanFunctions object that exposes the core Vulkan command set, excluding device level functions, and is guaranteed to be functional cross-platform.</p>
-<p><b>Note: </b>The returned object is owned and managed by the <a href="qvulkaninstance.html">QVulkanInstance</a>. Do not destroy or alter it.</p><p><b>See also </b><a href="qvulkaninstance.html#deviceFunctions">deviceFunctions</a>().</p>
+<p><b>Note: </b>The returned object is owned and managed by the <a href="qvulkaninstance.html">QVulkanInstance</a>. Do not destroy or alter it.</p><p><b>参见</b><a href="qvulkaninstance.html#deviceFunctions">deviceFunctions</a>().</p>
 <!-- @@@functions -->
 <!-- $$$getInstanceProcAddr[overload1]$$$getInstanceProcAddrconstchar* -->
 <h3 class="fn" id="getInstanceProcAddr"><a name="getInstanceProcAddr"></a><span class="type">PFN_vkVoidFunction</span> QVulkanInstance::<span class="name">getInstanceProcAddr</span>(const <span class="type">char</span> *<i>name</i>)</h3>
@@ -328,7 +328,7 @@
 <!-- $$$layers[overload1]$$$layers -->
 <h3 class="fn" id="layers"><a name="layers"></a><span class="type"><a href="../qtcore/qbytearraylist.html">QByteArrayList</a></span> QVulkanInstance::<span class="name">layers</span>() const</h3>
 <p>Returns the enabled instance layers, if <a href="qvulkaninstance.html#create">create</a>() was called and was successful. The requested layers otherwise.</p>
-<p><b>See also </b><a href="qvulkaninstance.html#setLayers">setLayers</a>().</p>
+<p><b>参见</b><a href="qvulkaninstance.html#setLayers">setLayers</a>().</p>
 <!-- @@@layers -->
 <!-- $$$presentQueued[overload1]$$$presentQueuedQWindow* -->
 <h3 class="fn" id="presentQueued"><a name="presentQueued"></a><span class="type">void</span> QVulkanInstance::<span class="name">presentQueued</span>(<span class="type"><a href="qwindow.html">QWindow</a></span> *<i>window</i>)</h3>
@@ -340,33 +340,33 @@
 <p>Invalidates and destroys the QVulkanDeviceFunctions object for the given <i>device</i>.</p>
 <p>This function must be called when a VkDevice, for which <a href="qvulkaninstance.html#deviceFunctions">deviceFunctions</a>() was called, gets destroyed while the application intends to continue running, possibly creating a new logical Vulkan device later on.</p>
 <p>There is no need to call this before destroying the <a href="qvulkaninstance.html">QVulkanInstance</a> since clean up is then performed automatically.</p>
-<p><b>See also </b><a href="qvulkaninstance.html#deviceFunctions">deviceFunctions</a>().</p>
+<p><b>参见</b><a href="qvulkaninstance.html#deviceFunctions">deviceFunctions</a>().</p>
 <!-- @@@resetDeviceFunctions -->
 <!-- $$$setApiVersion[overload1]$$$setApiVersionconstQVersionNumber& -->
 <h3 class="fn" id="setApiVersion"><a name="setApiVersion"></a><span class="type">void</span> QVulkanInstance::<span class="name">setApiVersion</span>(const <span class="type"><a href="../qtcore/qversionnumber.html">QVersionNumber</a></span> &amp;<i>vulkanVersion</i>)</h3>
 <p>Specifies the Vulkan API against which the application expects to run.</p>
 <p>By default no <i>vulkanVersion</i> is specified, and so no version check is performed during Vulkan instance creation.</p>
-<p><b>Note: </b>This function can only be called before <a href="qvulkaninstance.html#create">create</a>() and has no effect if called afterwards.</p><p><b>See also </b><a href="qvulkaninstance.html#apiVersion">apiVersion</a>().</p>
+<p><b>Note: </b>This function can only be called before <a href="qvulkaninstance.html#create">create</a>() and has no effect if called afterwards.</p><p><b>参见</b><a href="qvulkaninstance.html#apiVersion">apiVersion</a>().</p>
 <!-- @@@setApiVersion -->
 <!-- $$$setExtensions[overload1]$$$setExtensionsconstQByteArrayList& -->
 <h3 class="fn" id="setExtensions"><a name="setExtensions"></a><span class="type">void</span> QVulkanInstance::<span class="name">setExtensions</span>(const <span class="type"><a href="../qtcore/qbytearraylist.html">QByteArrayList</a></span> &amp;<i>extensions</i>)</h3>
 <p>Specifies the list of additional instance <i>extensions</i> to enable. It is safe to specify unsupported extensions as well because these get ignored when not supported at run time. The surface-related extensions required by Qt will always be added automatically, no need to include them in this list.</p>
-<p><b>Note: </b>This function can only be called before <a href="qvulkaninstance.html#create">create</a>() and has no effect if called afterwards.</p><p><b>See also </b><a href="qvulkaninstance.html#extensions">extensions</a>().</p>
+<p><b>Note: </b>This function can only be called before <a href="qvulkaninstance.html#create">create</a>() and has no effect if called afterwards.</p><p><b>参见</b><a href="qvulkaninstance.html#extensions">extensions</a>().</p>
 <!-- @@@setExtensions -->
 <!-- $$$setFlags[overload1]$$$setFlagsQVulkanInstance::Flags -->
 <h3 class="fn" id="setFlags"><a name="setFlags"></a><span class="type">void</span> QVulkanInstance::<span class="name">setFlags</span>(<span class="type"><a href="qvulkaninstance.html#Flag-enum">QVulkanInstance::Flags</a></span> <i>flags</i>)</h3>
 <p>Configures the behavior of <a href="qvulkaninstance.html#create">create</a>() based on the provided <i>flags</i>.</p>
-<p><b>Note: </b>This function can only be called before <a href="qvulkaninstance.html#create">create</a>() and has no effect if called afterwards.</p><p><b>See also </b><a href="qvulkaninstance.html#flags">flags</a>().</p>
+<p><b>Note: </b>This function can only be called before <a href="qvulkaninstance.html#create">create</a>() and has no effect if called afterwards.</p><p><b>参见</b><a href="qvulkaninstance.html#flags">flags</a>().</p>
 <!-- @@@setFlags -->
 <!-- $$$setLayers[overload1]$$$setLayersconstQByteArrayList& -->
 <h3 class="fn" id="setLayers"><a name="setLayers"></a><span class="type">void</span> QVulkanInstance::<span class="name">setLayers</span>(const <span class="type"><a href="../qtcore/qbytearraylist.html">QByteArrayList</a></span> &amp;<i>layers</i>)</h3>
 <p>Specifies the list of instance <i>layers</i> to enable. It is safe to specify unsupported layers as well because these get ignored when not supported at run time.</p>
-<p><b>Note: </b>This function can only be called before <a href="qvulkaninstance.html#create">create</a>() and has no effect if called afterwards.</p><p><b>See also </b><a href="qvulkaninstance.html#layers">layers</a>().</p>
+<p><b>Note: </b>This function can only be called before <a href="qvulkaninstance.html#create">create</a>() and has no effect if called afterwards.</p><p><b>参见</b><a href="qvulkaninstance.html#layers">layers</a>().</p>
 <!-- @@@setLayers -->
 <!-- $$$setVkInstance[overload1]$$$setVkInstanceint -->
 <h3 class="fn" id="setVkInstance"><a name="setVkInstance"></a><span class="type">void</span> QVulkanInstance::<span class="name">setVkInstance</span>(<span class="type">int</span> <i>existingVkInstance</i>)</h3>
 <p>Makes <a href="qvulkaninstance.html">QVulkanInstance</a> adopt an existing VkInstance handle instead of creating a new one.</p>
-<p><b>Note: </b><i>existingVkInstance</i> must have at least <code>VK_KHR_surface</code> and the appropriate WSI-specific <code>VK_KHR_*_surface</code> extensions enabled. To ensure debug output redirection is functional, <code>VK_EXT_debug_report</code> is needed as well.</p><p><b>Note: </b>This function can only be called before <a href="qvulkaninstance.html#create">create</a>() and has no effect if called afterwards.</p><p><b>See also </b><a href="qvulkaninstance.html#vkInstance">vkInstance</a>().</p>
+<p><b>Note: </b><i>existingVkInstance</i> must have at least <code>VK_KHR_surface</code> and the appropriate WSI-specific <code>VK_KHR_*_surface</code> extensions enabled. To ensure debug output redirection is functional, <code>VK_EXT_debug_report</code> is needed as well.</p><p><b>Note: </b>This function can only be called before <a href="qvulkaninstance.html#create">create</a>() and has no effect if called afterwards.</p><p><b>参见</b><a href="qvulkaninstance.html#vkInstance">vkInstance</a>().</p>
 <!-- @@@setVkInstance -->
 <!-- $$$supportedExtensions[overload1]$$$supportedExtensions -->
 <h3 class="fn" id="supportedExtensions"><a name="supportedExtensions"></a><span class="type"><a href="qvulkaninfovector.html">QVulkanInfoVector</a></span>&lt;<span class="type"><a href="qvulkanextension.html">QVulkanExtension</a></span>&gt; QVulkanInstance::<span class="name">supportedExtensions</span>()</h3>
@@ -389,7 +389,7 @@
 <!-- $$$vkInstance[overload1]$$$vkInstance -->
 <h3 class="fn" id="vkInstance"><a name="vkInstance"></a><span class="type">int</span> QVulkanInstance::<span class="name">vkInstance</span>() const</h3>
 <p>Returns the VkInstance handle this <a href="qvulkaninstance.html">QVulkanInstance</a> wraps, or <code>null</code> if <a href="qvulkaninstance.html#create">create</a>() has not yet been successfully called and no existing instance has been provided via <a href="qvulkaninstance.html#setVkInstance">setVkInstance</a>().</p>
-<p><b>See also </b><a href="qvulkaninstance.html#setVkInstance">setVkInstance</a>().</p>
+<p><b>参见</b><a href="qvulkaninstance.html#setVkInstance">setVkInstance</a>().</p>
 <!-- @@@vkInstance -->
 </div>
 <div class="vars">
