@@ -342,7 +342,7 @@
 
 </pre>
 <p>Additionally, the C++ implementation may access the attached object instance that has been attached to any object by calling the <a href="qqmlengine.html#qmlAttachedPropertiesObject">qmlAttachedPropertiesObject</a>() function.</p>
-<p>For example:</p>
+<p>样例如下：</p>
 <pre class="cpp">
 
   Message <span class="operator">*</span>msg <span class="operator">=</span> someMessageInstance();
@@ -494,7 +494,7 @@
 <h2 id="receiving-notifications-for-object-initialization">Receiving Notifications for Object Initialization</h2>
 <p>For some custom QML object types, it may be beneficial to delay the initialization of particular data until the object has been created and all of its properties have been set. For example, this may be the case if the initialization is costly, or if the initialization should not be performed until all property values have been initialized.</p>
 <p>The <a href="qtqml-index.html">Qt QML</a> module provides the <a href="qqmlparserstatus.html">QQmlParserStatus</a> to be subclassed for these purposes. It defines a number of virtual methods that are invoked at various stages during component instantiation. To receive these notifications, a C++ class should inherit <a href="qqmlparserstatus.html">QQmlParserStatus</a> and also notify the Qt meta system using the <a href="../qtcore/qobject.html#Q_INTERFACES">Q_INTERFACES</a>() macro.</p>
-<p>For example:</p>
+<p>样例如下：</p>
 <pre class="cpp">
 
   <span class="keyword">class</span> MyQmlType : <span class="keyword">public</span> <span class="type"><a href="../qtcore/qobject.html">QObject</a></span><span class="operator">,</span> <span class="keyword">public</span> <span class="type"><a href="qqmlparserstatus.html">QQmlParserStatus</a></span>

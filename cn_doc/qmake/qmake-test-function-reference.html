@@ -111,7 +111,7 @@
 <h3 >contains(variablename, value)</h3>
 <p>Succeeds if the variable <code>variablename</code> contains the value <code>value</code>; otherwise fails. It is possible to specify a regular expression for parameter <i>value</i>.</p>
 <p>You can check the return value of this function using a scope.</p>
-<p>For example:</p>
+<p>样例如下：</p>
 <pre class="cpp">
 
   contains( drivers, network ) {
@@ -149,7 +149,7 @@
 <a name="equals-variablename-value"></a>
 <h3 >equals(variablename, value)</h3>
 <p>Tests whether <code>variablename</code> equals the string <code>value</code>.</p>
-<p>For example:</p>
+<p>样例如下：</p>
 <pre class="cpp">
 
   TARGET = helloworld
@@ -161,7 +161,7 @@
 <a name="error-string"></a>
 <h3 >error(string)</h3>
 <p>This function never returns a value. qmake displays <code>string</code> as an error message to the user and exits. This function should only be used for unrecoverable errors.</p>
-<p>For example:</p>
+<p>样例如下：</p>
 <pre class="cpp">
 
   error(An error has occurred in the configuration process.)
@@ -170,7 +170,7 @@
 <a name="eval-string"></a>
 <h3 >eval(string)</h3>
 <p>Evaluates the contents of the string using qmake syntax rules and returns true. Definitions and assignments can be used in the string to modify the values of existing variables or create new definitions.</p>
-<p>For example:</p>
+<p>样例如下：</p>
 <pre class="cpp">
 
   eval(TARGET = myapp) {
@@ -181,7 +181,7 @@
 <p><b>Note: </b>Quotation marks can be used to delimit the string, and the return value can be discarded if it is not needed.</p><a name="exists-filename"></a>
 <h3 >exists(filename)</h3>
 <p>Tests whether a file with the given <code>filename</code> exists. If the file exists, the function succeeds; otherwise it fails. If a regular expression is specified for the filename, this function succeeds if any file matches the regular expression specified.</p>
-<p>For example:</p>
+<p>样例如下：</p>
 <pre class="cpp">
 
   exists( $(QTDIR)/lib/libqt-mt* ) {
@@ -196,7 +196,7 @@
 <a name="forfunction"></a><a name="for-iterate-list"></a>
 <h3 >for(iterate, list)</h3>
 <p>Starts a loop that iterates over all values in <code>list</code>, setting <code>iterate</code> to each value in turn. As a convenience, if <code>list</code> is 1..10 then iterate will iterate over the values 1 through 10.</p>
-<p>For example:</p>
+<p>样例如下：</p>
 <pre class="cpp">
 
   LIST = 1 2 3
@@ -206,7 +206,7 @@
 <a name="greaterthan-variablename-value"></a>
 <h3 >greaterThan(variablename, value)</h3>
 <p>Tests that the value of <code>variablename</code> is greater than <code>value</code>. First, this function attempts a numerical comparison. If at least one of the operands fails to convert, this function does a string comparison.</p>
-<p>For example:</p>
+<p>样例如下：</p>
 <pre class="cpp">
 
   ANSWER = 42
@@ -216,7 +216,7 @@
 
 </pre>
 <p>It is impossible to compare two numbers as strings directly. As a workaround, construct temporary values with a non-numeric prefix and compare these.</p>
-<p>For example:</p>
+<p>样例如下：</p>
 <pre class="cpp">
 
   VALUE = 123
@@ -228,7 +228,7 @@
 <a name="if-condition"></a>
 <h3 >if(condition)</h3>
 <p>Evaluates <code>condition</code>. It is used to group boolean expressions.</p>
-<p>For example:</p>
+<p>样例如下：</p>
 <pre class="cpp">
 
   if(linux-g++*|macx-g++*):CONFIG(debug, debug|release) {
@@ -259,7 +259,7 @@
 <a name="isempty-variablename"></a>
 <h3 >isEmpty(variablename)</h3>
 <p>Succeeds if the variable <code>variablename</code> is empty; otherwise fails. This is the equivalent of <code>count( variablename, 0 )</code>.</p>
-<p>For example:</p>
+<p>样例如下：</p>
 <pre class="cpp">
 
   isEmpty( CONFIG ) {
@@ -273,7 +273,7 @@
 <a name="lessthan-variablename-value"></a>
 <h3 >lessThan(variablename, value)</h3>
 <p>Tests that the value of <code>variablename</code> is less than <code>value</code>. Works as <a href="qmake-test-function-reference.html#greaterthan-variablename-value">greaterThan()</a>.</p>
-<p>For example:</p>
+<p>样例如下：</p>
 <pre class="cpp">
 
   ANSWER = 42
@@ -312,7 +312,7 @@
 <p><b>Note: </b>You can also use the <a href="qmake-variable-reference.html#requires">REQUIRES</a> variable for this purpose. However, we recommend using this function, instead.</p><a name="system-command"></a>
 <h3 >system(command)</h3>
 <p>Executes the given <code>command</code> in a secondary shell. Succeeds if the command returns with a zero exit status; otherwise fails. You can check the return value of this function using a scope.</p>
-<p>For example:</p>
+<p>样例如下：</p>
 <pre class="cpp">
 
   system(&quot;ls /bin&quot;): HAS_BIN = TRUE
@@ -325,7 +325,7 @@
 <a name="unset-variablename"></a>
 <h3 >unset(variablename)</h3>
 <p>Removes <code>variablename</code> from the current context.</p>
-<p>For example:</p>
+<p>样例如下：</p>
 <pre class="cpp">
 
   NARF = zort

@@ -494,7 +494,7 @@
 <tr valign="top" class="odd"><td >Minute</td><td >0</td></tr>
 <tr valign="top" class="even"><td >Second</td><td >0</td></tr>
 </table></div>
-<p>For example:</p>
+<p>样例如下：</p>
 <pre class="cpp">
 
   <span class="type"><a href="qdatetime.html#QDateTime">QDateTime</a></span> dateTime <span class="operator">=</span> <span class="type"><a href="qdatetime.html#QDateTime">QDateTime</a></span><span class="operator">::</span>fromString(<span class="string">&quot;1.30.1&quot;</span><span class="operator">,</span> <span class="string">&quot;M.d.s&quot;</span>);
@@ -704,7 +704,7 @@
 <!-- @@@toSecsSinceEpoch -->
 <!-- $$$toString$$$toStringQt::DateFormat -->
 <h3 class="fn" id="toString-1"><a name="toString-1"></a><span class="type"><a href="qstring.html">QString</a></span> QDateTime::<span class="name">toString</span>(<span class="type">Qt::DateFormat</span> <i>format</i> = Qt::TextDate) const</h3>
-<p>This is an overloaded function.</p>
+<p>这是一个重载函数。</p>
 <p>Returns the datetime as a string in the <i>format</i> given.</p>
 <p>If the <i>format</i> is <a href="qt.html#DateFormat-enum">Qt::TextDate</a>, the string is formatted in the default way. QDate::shortDayName(), QDate::shortMonthName(), and <a href="qtime.html#toString">QTime::toString</a>() are used to generate the string, so the day and month names will be localized names using the system locale, i.e&#x2e; <a href="qlocale.html#system">QLocale::system</a>(). An example of this formatting is &quot;Wed May 20 03:40:13 1998&quot;.</p>
 <p>If the <i>format</i> is <a href="qt.html#DateFormat-enum">Qt::ISODate</a>, the string format corresponds to the ISO 8601 extended specification for representations of dates and times, taking the form yyyy-MM-ddTHH:mm:ss[Z|[+|-]HH:mm], depending on the <a href="qdatetime.html#timeSpec">timeSpec</a>() of the <a href="qdatetime.html">QDateTime</a>. If the <a href="qdatetime.html#timeSpec">timeSpec</a>() is <a href="qt.html#TimeSpec-enum">Qt::UTC</a>, Z will be appended to the string; if the <a href="qdatetime.html#timeSpec">timeSpec</a>() is <a href="qt.html#TimeSpec-enum">Qt::OffsetFromUTC</a>, the offset in hours and minutes from UTC will be appended to the string. To include milliseconds in the ISO 8601 date, use the <i>format</i> <a href="qt.html#DateFormat-enum">Qt::ISODateWithMs</a>, which corresponds to yyyy-MM-ddTHH:mm:ss.zzz[Z|[+|-]HH:mm].</p>

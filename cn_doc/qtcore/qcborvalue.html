@@ -296,7 +296,7 @@
 <!-- $$$ -->
 <div class="fngroup">
 <h3 class="fn fngroupitem" id="fromCbor-2"><a name="fromCbor-2"></a><code>[static] </code><span class="type"><a href="qcborvalue.html#QCborValue">QCborValue</a></span> QCborValue::<span class="name">fromCbor</span>(const <span class="type">char</span> *<i>data</i>, <span class="type">qsizetype</span> <i>len</i>, <span class="type"><a href="qcborparsererror.html">QCborParserError</a></span> *<i>error</i> = nullptr)</h3><h3 class="fn fngroupitem" id="fromCbor-3"><a name="fromCbor-3"></a><code>[static] </code><span class="type"><a href="qcborvalue.html#QCborValue">QCborValue</a></span> QCborValue::<span class="name">fromCbor</span>(const <span class="type"><a href="qtglobal.html#quint8-typedef">quint8</a></span> *<i>data</i>, <span class="type">qsizetype</span> <i>len</i>, <span class="type"><a href="qcborparsererror.html">QCborParserError</a></span> *<i>error</i> = nullptr)</h3></div>
-<p>This is an overloaded function.</p>
+<p>这是一个重载函数。</p>
 <p>Converts <i>len</i> bytes of <i>data</i> to a <a href="qbytearray.html">QByteArray</a> and then calls the overload of this function that accepts a <a href="qbytearray.html">QByteArray</a>, also passing <i>error</i>, if provided.</p>
 <!-- @@@ -->
 <!-- $$$ -->
@@ -381,7 +381,7 @@
 <!-- @@@QCborValue -->
 <!-- $$$QCborValue$$$QCborValueQLatin1String -->
 <h3 class="fn" id="QCborValue-9"><a name="QCborValue-9"></a>QCborValue::<span class="name">QCborValue</span>(<span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>s</i>)</h3>
-<p>This is an overloaded function.</p>
+<p>这是一个重载函数。</p>
 <p>Creates a <a href="qcborvalue.html">QCborValue</a> with string value <i>s</i>. The value can later be retrieved using <a href="qcborvalue.html#toString">toString</a>().</p>
 <p><b> 参见 </b><a href="qcborvalue.html#toString">toString</a>(), <a href="qcborvalue.html#isString">isString</a>(), 和 <a href="qcborvalue.html#isByteArray">isByteArray</a>().</p>
 <!-- @@@QCborValue -->
@@ -421,7 +421,7 @@
 <!-- @@@QCborValue -->
 <!-- $$$QCborValue$$$QCborValueQCborValue&& -->
 <h3 class="fn" id="QCborValue-23"><a name="QCborValue-23"></a>QCborValue::<span class="name">QCborValue</span>(<span class="type"><a href="qcborvalue.html#QCborValue">QCborValue</a></span> &amp;&amp;<i>other</i>)</h3>
-<p>This is an overloaded function.</p>
+<p>这是一个重载函数。</p>
 <p>Moves the contents of the <i>other</i> CBorValue object into this one and frees the resources of this one.</p>
 <!-- @@@QCborValue -->
 <!-- $$$~QCborValue[overload1]$$$~QCborValue -->
@@ -469,7 +469,7 @@
 <!-- @@@fromCbor -->
 <!-- $$$fromCbor$$$fromCborconstQByteArray&QCborParserError* -->
 <h3 class="fn" id="fromCbor-1"><a name="fromCbor-1"></a><code>[static] </code><span class="type"><a href="qcborvalue.html#QCborValue">QCborValue</a></span> QCborValue::<span class="name">fromCbor</span>(const <span class="type"><a href="qbytearray.html">QByteArray</a></span> &amp;<i>ba</i>, <span class="type"><a href="qcborparsererror.html">QCborParserError</a></span> *<i>error</i> = nullptr)</h3>
-<p>This is an overloaded function.</p>
+<p>这是一个重载函数。</p>
 <p>Decodes one item from the CBOR stream found in the byte array <i>ba</i> and returns the equivalent representation. This function is recursive: if the item is a map or array, it will decode all items found in that map or array, until the outermost object is finished.</p>
 <p>This function stores the error state, if any, in the object pointed to by <i>error</i>, along with the offset of where the error occurred. If no error happened, it stores <a href="qtcborcommon.html">NoError</a> in the error state and the number of bytes that it consumed (that is, it stores the offset for the first unused byte). Using that information makes it possible to parse further data that may exist in the same byte array.</p>
 <p>The returned value may be partially complete and indistinguishable from a valid <a href="qcborvalue.html">QCborValue</a> even if the decoding failed. To determine if there was an error, check if there was an error stored in <i>error</i>. This function stops decoding immediately after the first error.</p>
@@ -594,7 +594,7 @@
 <!-- @@@isSimpleType -->
 <!-- $$$isSimpleType$$$isSimpleTypeQCborSimpleType -->
 <h3 class="fn" id="isSimpleType-1"><a name="isSimpleType-1"></a><span class="type">bool</span> QCborValue::<span class="name">isSimpleType</span>(<span class="type"><a href="qtcborcommon.html#QCborSimpleType-enum">QCborSimpleType</a></span> <i>st</i>) const</h3>
-<p>This is an overloaded function.</p>
+<p>这是一个重载函数。</p>
 <p>Returns true if this <a href="qcborvalue.html">QCborValue</a> is of a simple type and <a href="qcborvalue.html#toSimpleType">toSimpleType</a>() would return <i>st</i>, false otherwise. This function can be used to check for any CBOR simple type, even those for which there is no enumeration in the API. For example, for the simple type of value 12, you could write:</p>
 <pre class="cpp">
 
@@ -681,7 +681,7 @@
 <!-- @@@toCbor -->
 <!-- $$$toCbor$$$toCborQCborStreamWriter&QCborValue::EncodingOptions -->
 <h3 class="fn" id="toCbor-1"><a name="toCbor-1"></a><span class="type">void</span> QCborValue::<span class="name">toCbor</span>(<span class="type"><a href="qcborstreamwriter.html">QCborStreamWriter</a></span> &amp;<i>writer</i>, <span class="type"><a href="qcborvalue.html#EncodingOption-enum">QCborValue::EncodingOptions</a></span> <i>opt</i> = NoTransformation)</h3>
-<p>This is an overloaded function.</p>
+<p>这是一个重载函数。</p>
 <p>Encodes this <a href="qcborvalue.html">QCborValue</a> object to its CBOR representation, using the options specified in <i>opt</i>, to the writer specified by <i>writer</i>. The same writer can be used by multiple QCborValues, for example, in order to encode different elements in a larger array.</p>
 <p>This function will not fail, except if this <a href="qcborvalue.html">QCborValue</a> or any of the contained items, if this is a map or array, are invalid. Invalid types are not produced normally by the API, but can result from decoding errors.</p>
 <p>By default, this function performs no transformation on the values in the <a href="qcborvalue.html">QCborValue</a>, writing all floating point directly as double-precision (binary64) types. If the <a href="qcborvalue.html#EncodingOption-enum">UseFloat</a> option is specified, it will use single precision (binary32) for any floating point value for which there's no loss of precision in using that representation. That includes infinities and NaN values.</p>
@@ -836,7 +836,7 @@
 <!-- @@@operator= -->
 <!-- $$$operator=$$$operator=QCborValue&& -->
 <h3 class="fn" id="operator-eq-1"><a name="operator-eq-1"></a><span class="type"><a href="qcborvalue.html#QCborValue">QCborValue</a></span> &amp;QCborValue::<span class="name">operator=</span>(<span class="type"><a href="qcborvalue.html#QCborValue">QCborValue</a></span> &amp;&amp;<i>other</i>)</h3>
-<p>This is an overloaded function.</p>
+<p>这是一个重载函数。</p>
 <p>Moves the contents of the <i>other</i> CBorValue object into this one and frees the resources of this one. Returns a reference to this object.</p>
 <!-- @@@operator= -->
 <!-- $$$operator==[overload1]$$$operator==constQCborValue& -->
@@ -858,7 +858,7 @@
 <!-- @@@operator[] -->
 <!-- $$$operator[]$$$operator[]QLatin1String -->
 <h3 class="fn" id="operator-5b-5d-1"><a name="operator-5b-5d-1"></a>const <span class="type"><a href="qcborvalue.html#QCborValue">QCborValue</a></span> QCborValue::<span class="name">operator[]</span>(<span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>key</i>) const</h3>
-<p>This is an overloaded function.</p>
+<p>这是一个重载函数。</p>
 <p>If this <a href="qcborvalue.html">QCborValue</a> is a <a href="qcbormap.html">QCborMap</a>, searches elements for the value whose key matches <i>key</i>. If there's no key matching <i>key</i> in the map or if this <a href="qcborvalue.html">QCborValue</a> object is not a map, returns the undefined value.</p>
 <p>This function is equivalent to:</p>
 <pre class="cpp">
