@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- remoteobjects-interaction.qdoc -->
-  <title>Qt Remote Objects 5.12</title>
+  <title>Qt 远程对象 5.12</title>
   <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
   <script type="text/javascript">
     document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtremoteobjects-index.html">Qt Remote Objects</a></td><td ></td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtremoteobjects-index.html">Qt远程对象</a></td><td ></td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -38,7 +38,7 @@
 <div class="toc">
 <h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#remote-object-interaction">Remote Object Interaction</a></li>
+<li class="level1"><a href="#remote-object-interaction">Qt远程对象交互</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
@@ -46,7 +46,7 @@
 <!-- $$$qtremoteobjects-interaction.html-description -->
 <div class="descr"> <a name="details"></a>
 <a name="remote-object-interaction"></a>
-<h2 id="remote-object-interaction">Remote Object Interaction</h2>
+<h2 id="remote-object-interaction">Qt远程对象交互</h2>
 <p>Source/replica interaction is directional. Property changes and signal emission happen on the source, and are propagated to all replicas. If a property is writable, you can call the setter function on a replica. This will be forwarded to the source, and if a change is made, it will be made on the source and subsequently forwarded to all replicas. To the replica, it is then an asynchronous call, with latency before the change takes effect.</p>
 <p>While technically you can emit a signal on a replica, this may have unexpected results and is discouraged for that reason. It will only trigger slots connected to the replica itself, not slots connected to the source or other replicas. Like property setters, slot invocations on a replica are forwarded to the Source to run.</p>
 <p>The behavior above is implemented automatically by QtRO, there is no need to write any replica implementation code. It will be handled automatically at runtime for dynamic replicas, or at compile time for repc generated headers.</p>

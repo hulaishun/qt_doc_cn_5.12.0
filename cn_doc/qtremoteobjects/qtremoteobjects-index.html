@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- remoteobjects-index.qdoc -->
-  <title>Qt Remote Objects 5.12</title>
+  <title>Qt 远程对象 5.12</title>
   <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
   <script type="text/javascript">
     document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td >Qt Remote Objects</td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td >Qt远程对象</td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -38,62 +38,62 @@
 <div class="toc">
 <h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#remote-object-concepts">Remote Object Concepts</a></li>
-<li class="level1"><a href="#related-information">Related Information</a></li>
+<li class="level1"><a href="#remote-object-concepts">远程对象概念</a></li>
+<li class="level1"><a href="#related-information">相关信息</a></li>
 <li class="level2"><a href="#getting-started">入门</a></li>
-<li class="level2"><a href="#licenses">Licenses</a></li>
-<li class="level2"><a href="#guides">Guides</a></li>
+<li class="level2"><a href="#licenses">授权</a></li>
+<li class="level2"><a href="#guides">向导</a></li>
 <li class="level2"><a href="#reference">参考</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title">Qt Remote Objects</h1>
+<h1 class="title">Qt远程对象</h1>
 <span class="subtitle"></span>
 <!-- $$$qtremoteobjects-index.html-description -->
 <div class="descr"> <a name="details"></a>
 <a name="qt-remote-objects"></a><a name="remote-object-concepts"></a>
-<h2 id="remote-object-concepts">Remote Object Concepts</h2>
+<h2 id="remote-object-concepts">远程对象概念</h2>
 <p>Qt Remote Objects (QtRO) is an inter-process communication (IPC) module developed for Qt. The idea is to extend Qt's existing functionalities to enable an easy exchange of information between processes or computers.</p>
 <p>One of the key features of Qt to enable this is the distinction between an object's API (defined by its properties, signals and slots) and the implementation of that API. The purpose of QtRO is to meet the expected API, even if the true <a href="../qtcore/qobject.html">QObject</a> is in a different process. A slot called on a copy of an object (called a <a href="qtremoteobjects-replica.html#replica">Replica</a> in QtRO) is forwarded to the true object (called a <a href="qtremoteobjects-source.html#source">Source</a> in QtRO) for handling. Updates to the <a href="qtremoteobjects-source.html#source">Source</a> (either property changes or emitted signals) are forwarded to every <a href="qtremoteobjects-replica.html#replica">Replica</a>.</p>
 <p>A <a href="qtremoteobjects-replica.html#replica">Replica</a> is a light-weight proxy for the <a href="qtremoteobjects-source.html#source">Source</a> object, but one that supports the same connections and behavior of QObjects, which makes it as easy to use as any other <a href="../qtcore/qobject.html">QObject</a> provided by Qt. Everything needed for the <a href="qtremoteobjects-replica.html#replica">Replica</a> to look like the <a href="qtremoteobjects-source.html#source">Source</a> object is handled behind the scenes by QtRO.</p>
 <p>Note that Remote Objects behave differently from traditional remote procedure call (RPC) implementations. In RPC, the client makes a request and waits for the response. In RPC, the server does not push anything to the client unless it is in response to a request. The design of RPC is often such that different clients are independent of each other (for instance, two clients can ask a mapping service for directions and get different results). While it is possible to implement this in QtRO (as <a href="qtremoteobjects-source.html#source">Source</a> without properties, and slots that have return values), it is designed more to hide the fact that the processing is really remote. You let a node give you the <a href="qtremoteobjects-replica.html#replica">Replica</a> instead of creating it yourself, possibly use the status signals (<a href="qremoteobjectreplica.html#isReplicaValid">isReplicaValid()</a>), but then interact with the object like you would with any other <a href="../qtcore/qobject.html">QObject</a>-based type.</p>
 <a name="related-information"></a>
-<h2 id="related-information">Related Information</h2>
+<h2 id="related-information">相关信息</h2>
 <a name="getting-started"></a>
 <h3 >入门</h3>
-<p>To enable <i>Qt Remote Objects</i> in a project, add this directive into the C++ files:</p>
+<p>To enable <i>Qt远程对象</i> in a project, add this directive into the C++ files:</p>
 <pre class="cpp">
 
   <span class="preprocessor">#include &lt;QtRemoteObjects&gt;</span>
 
 </pre>
-<p>To link against the <i>Qt Remote Objects</i> module, add this line to the project file:</p>
+<p>To link against the <i>Qt远程对象</i> module, add this line to the project file:</p>
 <pre class="cpp">
 
   QT <span class="operator">+</span><span class="operator">=</span> remoteobjects
 
 </pre>
 <a name="licenses"></a>
-<h3 >Licenses</h3>
+<h3 >授权</h3>
 <p>Qt Remote Objects is available under commercial licenses from <a href="http://www.qt.io/about-us/">The Qt Company</a>. In addition, it is available under the <a href="http://www.gnu.org/licenses/lgpl-3.0.html">GNU Lesser General Public License, version 3</a>, or the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License, version 2</a>. See <a href="../qtdoc/licensing.html">Qt授权</a> for further details.</p>
 <a name="guides"></a>
-<h3 >Guides</h3>
+<h3 >向导</h3>
 <ul>
-<li><a href="qtremoteobjects-gettingstarted.html">Overview Qt Remote Objects</a></li>
-<li><a href="qtremoteobjects-module.html">Qt Remote Objects C++ Classes</a></li>
-<li><a href="qtremoteobjects-node.html">Qt Remote Objects Nodes</a></li>
-<li><a href="qtremoteobjects-source.html#source-objects">Qt Remote Objects Source Objects</a></li>
-<li><a href="qtremoteobjects-replica.html#replica-objects">Qt Remote Objects Replica Objects</a></li>
-<li><a href="qtremoteobjects-registry.html">Qt Remote Objects Registry</a></li>
-<li><a href="qtremoteobjects-external-schemas.html">Qt Remote Objects - External QIODevices</a></li>
-<li><a href="qtremoteobjects-repc.html">Qt Remote Objects Compiler</a></li>
-<li><a href="qtremoteobjects-interaction.html#remote-object-interaction">Remote Object Interaction</a></li>
-<li><a href="qtremoteobjects-use.html">Using Qt Remote Objects</a></li>
-<li><a href="qtremoteobjects-troubleshooting.html">Troubleshooting Qt Remote Objects</a></li>
+<li><a href="qtremoteobjects-gettingstarted.html">Qt远程对象总览</a></li>
+<li><a href="qtremoteobjects-module.html">Qt远程对象C++类</a></li>
+<li><a href="qtremoteobjects-node.html">Qt远程对象节点</a></li>
+<li><a href="qtremoteobjects-source.html#source-objects">Qt远程对象源对象</a></li>
+<li><a href="qtremoteobjects-replica.html#replica-objects">Qt远程对象副本对象</a></li>
+<li><a href="qtremoteobjects-registry.html">Qt远程对象注册</a></li>
+<li><a href="qtremoteobjects-external-schemas.html">Qt远程对象-扩展IO设备</a></li>
+<li><a href="qtremoteobjects-repc.html">Qt远程对象编译</a></li>
+<li><a href="qtremoteobjects-interaction.html#remote-object-interaction">Qt远程对象交互</a></li>
+<li><a href="qtremoteobjects-use.html">Qt远程对象使用</a></li>
+<li><a href="qtremoteobjects-troubleshooting.html">Qt远程对象故障处理</a></li>
 </ul>
 <a name="reference"></a>
 <h3 >参考</h3>
-<p><a href="qtremoteobjects-module.html">Qt Remote Objects C++ Classes</a></p>
+<p><a href="qtremoteobjects-module.html">Qt远程对象C++类</a></p>
 </div>
 <!-- @@@qtremoteobjects-index.html -->
         </div>
