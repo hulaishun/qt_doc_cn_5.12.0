@@ -232,7 +232,7 @@
 <!-- $$$escapeIdentifier[overload1]$$$escapeIdentifierconstQString&QSqlDriver::IdentifierType -->
 <h3 class="fn" id="escapeIdentifier"><a name="escapeIdentifier"></a><code>[virtual] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QSqlDriver::<span class="name">escapeIdentifier</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>identifier</i>, <span class="type"><a href="qsqldriver.html#IdentifierType-enum">QSqlDriver::IdentifierType</a></span> <i>type</i>) const</h3>
 <p>Returns the <i>identifier</i> escaped according to the database rules. <i>identifier</i> can either be a table name or field name, dependent on <i>type</i>.</p>
-<p>The default implementation does nothing.</p>
+<p>默认的代码实现什么都没有处理。</p>
 <p><b> 参见 </b><a href="qsqldriver.html#isIdentifierEscaped">isIdentifierEscaped</a>().</p>
 <!-- @@@escapeIdentifier -->
 <!-- $$$formatValue[overload1]$$$formatValueconstQSqlField&bool -->
@@ -397,7 +397,7 @@
 <!-- $$$subscribeToNotification[overload1]$$$subscribeToNotificationconstQString& -->
 <h3 class="fn" id="subscribeToNotification"><a name="subscribeToNotification"></a><code>[virtual] </code><span class="type">bool</span> QSqlDriver::<span class="name">subscribeToNotification</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>name</i>)</h3>
 <p>This function is called to subscribe to event notifications from the database. <i>name</i> identifies the event notification.</p>
-<p>If successful, return true, otherwise return false.</p>
+<p>如果成功，则返回true，失败则返回false。</p>
 <p>The database must be open when this function is called. When the database is closed by calling <a href="qsqldriver.html#close">close</a>() all subscribed event notifications are automatically unsubscribed. Note that calling <a href="qsqldriver.html#open">open</a>() on an already open database may implicitly cause <a href="qsqldriver.html#close">close</a>() to be called, which will cause the driver to unsubscribe from all event notifications.</p>
 <p>When an event notification identified by <i>name</i> is posted by the database the <a href="qsqldriver.html#notification">notification</a>() signal is emitted.</p>
 <p>Reimplement this function if you want to provide event notification support in your own <a href="qsqldriver.html">QSqlDriver</a> subclass,</p>
@@ -419,7 +419,7 @@
 <!-- $$$unsubscribeFromNotification[overload1]$$$unsubscribeFromNotificationconstQString& -->
 <h3 class="fn" id="unsubscribeFromNotification"><a name="unsubscribeFromNotification"></a><code>[virtual] </code><span class="type">bool</span> QSqlDriver::<span class="name">unsubscribeFromNotification</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>name</i>)</h3>
 <p>This function is called to unsubscribe from event notifications from the database. <i>name</i> identifies the event notification.</p>
-<p>If successful, return true, otherwise return false.</p>
+<p>如果成功，则返回true，失败则返回false。</p>
 <p>The database must be open when this function is called. All subscribed event notifications are automatically unsubscribed from when the <a href="qsqldriver.html#close">close</a>() function is called.</p>
 <p>After calling <i>this</i> function the <a href="qsqldriver.html#notification">notification</a>() signal will no longer be emitted when an event notification identified by <i>name</i> is posted by the database.</p>
 <p>Reimplement this function if you want to provide event notification support in your own <a href="qsqldriver.html">QSqlDriver</a> subclass,</p>

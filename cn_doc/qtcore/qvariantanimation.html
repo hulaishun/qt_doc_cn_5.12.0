@@ -221,7 +221,7 @@
 <p>This property holds the current value of the animation.</p>
 <p>This property describes the current value; an interpolated value between the <a href="qvariantanimation.html#startValue-prop">start value</a> and the <a href="qvariantanimation.html#endValue-prop">end value</a>, using the current time for progress. The value itself is obtained from <a href="qvariantanimation.html#interpolated">interpolated</a>(), which is called repeatedly as the animation is running.</p>
 <p><a href="qvariantanimation.html">QVariantAnimation</a> calls the virtual <a href="qvariantanimation.html#updateCurrentValue">updateCurrentValue</a>() function when the current value changes. This is particularly useful for subclasses that need to track updates. For example, <a href="qpropertyanimation.html">QPropertyAnimation</a> uses this function to animate Qt <a href="properties.html">properties</a>.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QVariant </td><td class="memItemRight bottomAlign"><span class="name"><b>currentValue</b></span>() const</td></tr>
 </table></div>
@@ -235,7 +235,7 @@
 <h3 class="fn" id="duration-prop"><a name="duration-prop"></a><span class="name">duration</span> : <span class="type">int</span></h3>
 <p>This property holds the duration of the animation</p>
 <p>This property describes the duration in milliseconds of the animation. The default duration is 250 milliseconds.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> virtual int </td><td class="memItemRight bottomAlign"><span class="name"><b>duration</b></span>() const override</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setDuration</b></span>(int <i>msecs</i>)</td></tr>
@@ -248,7 +248,7 @@
 <p>This property defines the easing curve of the animation. By default, a linear easing curve is used, resulting in linear interpolation. Other curves are provided, for instance, <a href="qeasingcurve.html#Type-enum">QEasingCurve::InCirc</a>, which provides a circular entry curve. Another example is <a href="qeasingcurve.html#Type-enum">QEasingCurve::InOutElastic</a>, which provides an elastic effect on the values of the interpolated variant.</p>
 <p><a href="qvariantanimation.html">QVariantAnimation</a> will use the <a href="qeasingcurve.html#valueForProgress">QEasingCurve::valueForProgress</a>() to transform the &quot;normalized progress&quot; (<a href="qabstractanimation.html#currentTime-prop">currentTime</a> / <a href="qabstractanimation.html#totalDuration">totalDuration</a>) of the animation into the effective progress actually used by the animation. It is this effective progress that will be the progress when <a href="qvariantanimation.html#interpolated">interpolated</a>() is called. Also, the steps in the <a href="qvariantanimation.html#keyValues">keyValues</a> are referring to this effective progress.</p>
 <p>The easing curve is used with the interpolator, the <a href="qvariantanimation.html#interpolated">interpolated</a>() virtual function, and the animation's duration to control how the current value changes as the animation progresses.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QEasingCurve </td><td class="memItemRight bottomAlign"><span class="name"><b>easingCurve</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setEasingCurve</b></span>(const QEasingCurve &amp;<i>easing</i>)</td></tr>
@@ -258,7 +258,7 @@
 <h3 class="fn" id="endValue-prop"><a name="endValue-prop"></a><span class="name">endValue</span> : <span class="type"><a href="qvariant.html">QVariant</a></span></h3>
 <p>This property holds the end value of the animation</p>
 <p>This property describes the end value of the animation.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QVariant </td><td class="memItemRight bottomAlign"><span class="name"><b>endValue</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setEndValue</b></span>(const QVariant &amp;<i>value</i>)</td></tr>
@@ -269,7 +269,7 @@
 <h3 class="fn" id="startValue-prop"><a name="startValue-prop"></a><span class="name">startValue</span> : <span class="type"><a href="qvariant.html">QVariant</a></span></h3>
 <p>This property holds the optional start value of the animation</p>
 <p>This property describes the optional start value of the animation. If omitted, or if a null <a href="qvariant.html">QVariant</a> is assigned as the start value, the animation will use the current position of the end when the animation is started.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QVariant </td><td class="memItemRight bottomAlign"><span class="name"><b>startValue</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setStartValue</b></span>(const QVariant &amp;<i>value</i>)</td></tr>

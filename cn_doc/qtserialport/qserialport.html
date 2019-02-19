@@ -358,12 +358,12 @@
 <p><b>Note: </b>If the setting is set before opening the port, the actual serial port setting is done automatically in the <a href="qserialport.html#open">QSerialPort::open</a>() method right after that the opening of the port succeeds.</p><p><b>Warning:</b> Setting the <a href="qserialport.html#Direction-enum">AllDirections</a> flag is supported on all platforms. Windows supports only this mode.</p>
 <p><b>Warning:</b> Returns equal baud rate in any direction on Windows.</p>
 <p>The default value is Baud9600, i.e&#x2e; 9600 bits per second.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> qint32 </td><td class="memItemRight bottomAlign"><span class="name"><b>baudRate</b></span>(QSerialPort::Directions <i>directions</i>) const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>setBaudRate</b></span>(qint32 <i>baudRate</i>, QSerialPort::Directions <i>directions</i>)</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qserialport.html#baudRateChanged">baudRateChanged</a></b></span>(qint32 <i>baudRate</i>, QSerialPort::Directions <i>directions</i>)</td></tr>
 </table></div>
@@ -373,12 +373,12 @@
 <p>This property holds the state of the transmission line in break</p>
 <p>Returns <code>true</code> on success, <code>false</code> otherwise. If the flag is <code>true</code> then the transmission line is in break state; otherwise is in non-break state.</p>
 <p><b>Note: </b>The serial port has to be open before trying to set or get this property; otherwise returns <code>false</code> and sets the <a href="qserialport.html#SerialPortError-enum">NotOpenError</a> error code. This is a bit unusual as opposed to the regular Qt property settings of a class. However, this is a special use case since the property is set through the interaction with the kernel and hardware. Hence, the two scenarios cannot be completely compared to each other.</p><p>This property was introduced in  Qt 5.5.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>isBreakEnabled</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>setBreakEnabled</b></span>(bool <i>set</i> = true)</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>breakEnabledChanged</b></span>(bool <i>set</i>)</td></tr>
 </table></div>
@@ -388,12 +388,12 @@
 <p>This property holds the data bits in a frame</p>
 <p>If the setting is successful or set before opening the port, returns <code>true</code>; otherwise returns <code>false</code> and sets an error code which can be obtained by accessing the value of the <a href="qserialport.html#error-prop">QSerialPort::error</a> property.</p>
 <p><b>Note: </b>If the setting is set before opening the port, the actual serial port setting is done automatically in the <a href="qserialport.html#open">QSerialPort::open</a>() method right after that the opening of the port succeeds.</p><p>The default value is Data8, i.e&#x2e; 8 data bits.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QSerialPort::DataBits </td><td class="memItemRight bottomAlign"><span class="name"><b>dataBits</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>setDataBits</b></span>(QSerialPort::DataBits <i>dataBits</i>)</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qserialport.html#dataBitsChanged">dataBitsChanged</a></b></span>(QSerialPort::DataBits <i>dataBits</i>)</td></tr>
 </table></div>
@@ -402,12 +402,12 @@
 <h3 class="fn" id="dataTerminalReady-prop"><a name="dataTerminalReady-prop"></a><span class="name">dataTerminalReady</span> : <span class="type">bool</span></h3>
 <p>This property holds the state (high or low) of the line signal DTR</p>
 <p>Returns <code>true</code> on success, <code>false</code> otherwise. If the flag is <code>true</code> then the DTR signal is set to high; otherwise low.</p>
-<p><b>Note: </b>The serial port has to be open before trying to set or get this property; otherwise <code>false</code> is returned and the error code is set to <a href="qserialport.html#SerialPortError-enum">NotOpenError</a>.</p><p><b>Access functions:</b></p>
+<p><b>Note: </b>The serial port has to be open before trying to set or get this property; otherwise <code>false</code> is returned and the error code is set to <a href="qserialport.html#SerialPortError-enum">NotOpenError</a>.</p><p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>isDataTerminalReady</b></span>()</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>setDataTerminalReady</b></span>(bool <i>set</i>)</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qserialport.html#dataTerminalReadyChanged">dataTerminalReadyChanged</a></b></span>(bool <i>set</i>)</td></tr>
 </table></div>
@@ -418,7 +418,7 @@
 <p>This property holds the error status of the serial port</p>
 <p>The I/O device status returns an error code. For example, if <a href="qserialport.html#open">open</a>() returns <code>false</code>, or a read/write operation returns <code>-1</code>, this property can be used to figure out the reason why the operation failed.</p>
 <p>The error code is set to the default <a href="qserialport.html#SerialPortError-enum">QSerialPort::NoError</a> after a call to clearError()</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QSerialPort::SerialPortError </td><td class="memItemRight bottomAlign"><span class="name"><b>error</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>clearError</b></span>()</td></tr>
@@ -429,12 +429,12 @@
 <p>This property holds the desired flow control mode</p>
 <p>If the setting is successful or set before opening the port, returns <code>true</code>; otherwise returns <code>false</code> and sets an error code which can be obtained by accessing the value of the <a href="qserialport.html#error-prop">QSerialPort::error</a> property.</p>
 <p><b>Note: </b>If the setting is set before opening the port, the actual serial port setting is done automatically in the <a href="qserialport.html#open">QSerialPort::open</a>() method right after that the opening of the port succeeds.</p><p>The default value is <a href="qserialport.html#FlowControl-enum">NoFlowControl</a>, i.e&#x2e; no flow control.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QSerialPort::FlowControl </td><td class="memItemRight bottomAlign"><span class="name"><b>flowControl</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>setFlowControl</b></span>(QSerialPort::FlowControl <i>flowControl</i>)</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qserialport.html#flowControlChanged">flowControlChanged</a></b></span>(QSerialPort::FlowControl <i>flow</i>)</td></tr>
 </table></div>
@@ -444,12 +444,12 @@
 <p>This property holds the parity checking mode</p>
 <p>If the setting is successful or set before opening the port, returns <code>true</code>; otherwise returns <code>false</code> and sets an error code which can be obtained by accessing the value of the <a href="qserialport.html#error-prop">QSerialPort::error</a> property.</p>
 <p><b>Note: </b>If the setting is set before opening the port, the actual serial port setting is done automatically in the <a href="qserialport.html#open">QSerialPort::open</a>() method right after that the opening of the port succeeds.</p><p>The default value is <a href="qserialport.html#Parity-enum">NoParity</a>, i.e&#x2e; no parity.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QSerialPort::Parity </td><td class="memItemRight bottomAlign"><span class="name"><b>parity</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>setParity</b></span>(QSerialPort::Parity <i>parity</i>)</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qserialport.html#parityChanged">parityChanged</a></b></span>(QSerialPort::Parity <i>parity</i>)</td></tr>
 </table></div>
@@ -458,12 +458,12 @@
 <h3 class="fn" id="requestToSend-prop"><a name="requestToSend-prop"></a><span class="name">requestToSend</span> : <span class="type">bool</span></h3>
 <p>This property holds the state (high or low) of the line signal RTS</p>
 <p>Returns <code>true</code> on success, <code>false</code> otherwise. If the flag is <code>true</code> then the RTS signal is set to high; otherwise low.</p>
-<p><b>Note: </b>The serial port has to be open before trying to set or get this property; otherwise <code>false</code> is returned and the error code is set to <a href="qserialport.html#SerialPortError-enum">NotOpenError</a>.</p><p><b>Note: </b>An attempt to control the RTS signal in the <a href="qserialport.html#FlowControl-enum">HardwareControl</a> mode will fail with error code set to <a href="qserialport.html#SerialPortError-enum">UnsupportedOperationError</a>, because the signal is automatically controlled by the driver.</p><p><b>Access functions:</b></p>
+<p><b>Note: </b>The serial port has to be open before trying to set or get this property; otherwise <code>false</code> is returned and the error code is set to <a href="qserialport.html#SerialPortError-enum">NotOpenError</a>.</p><p><b>Note: </b>An attempt to control the RTS signal in the <a href="qserialport.html#FlowControl-enum">HardwareControl</a> mode will fail with error code set to <a href="qserialport.html#SerialPortError-enum">UnsupportedOperationError</a>, because the signal is automatically controlled by the driver.</p><p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>isRequestToSend</b></span>()</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>setRequestToSend</b></span>(bool <i>set</i>)</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qserialport.html#requestToSendChanged">requestToSendChanged</a></b></span>(bool <i>set</i>)</td></tr>
 </table></div>
@@ -474,12 +474,12 @@
 <p>This property holds the number of stop bits in a frame</p>
 <p>If the setting is successful or set before opening the port, returns <code>true</code>; otherwise returns <code>false</code> and sets an error code which can be obtained by accessing the value of the <a href="qserialport.html#error-prop">QSerialPort::error</a> property.</p>
 <p><b>Note: </b>If the setting is set before opening the port, the actual serial port setting is done automatically in the <a href="qserialport.html#open">QSerialPort::open</a>() method right after that the opening of the port succeeds.</p><p>The default value is <a href="qserialport.html#StopBits-enum">OneStop</a>, i.e&#x2e; 1 stop bit.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QSerialPort::StopBits </td><td class="memItemRight bottomAlign"><span class="name"><b>stopBits</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>setStopBits</b></span>(QSerialPort::StopBits <i>stopBits</i>)</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qserialport.html#stopBitsChanged">stopBitsChanged</a></b></span>(QSerialPort::StopBits <i>stopBits</i>)</td></tr>
 </table></div>

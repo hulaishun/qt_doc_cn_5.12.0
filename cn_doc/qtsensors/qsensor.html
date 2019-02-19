@@ -276,12 +276,12 @@
 <p>This property holds a value to indicate if the sensor is active.</p>
 <p>This is true if the sensor is active (returning values). This is false otherwise.</p>
 <p>Note that setting this value to true will not have an immediate effect. Instead, the sensor will be started once the event loop has been reached.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>isActive</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setActive</b></span>(bool <i>active</i>)</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qsensor.html#activeChanged">activeChanged</a></b></span>()</td></tr>
 </table></div>
@@ -290,12 +290,12 @@
 <h3 class="fn" id="alwaysOn-prop"><a name="alwaysOn-prop"></a><span class="name">alwaysOn</span> : <span class="type">bool</span></h3>
 <p>This property holds a value to indicate if the sensor should remain running when the screen is off.</p>
 <p>Some platforms have a policy of suspending sensors when the screen turns off. Setting this property to true will ensure the sensor continues to run.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>isAlwaysOn</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setAlwaysOn</b></span>(bool <i>alwaysOn</i>)</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qsensor.html#alwaysOnChanged">alwaysOnChanged</a></b></span>()</td></tr>
 </table></div>
@@ -307,7 +307,7 @@
 <p>Entries in the list can represent discrete rates or a continuous range of rates. A discrete rate is noted by having both values the same.</p>
 <p>See the <a href="qtsensors-sensor-explorer-example.html">sensor_explorer</a> example for an example of how to interpret and use this information.</p>
 <p>Note that this information is not mandatory as not all sensors have a rate at which they run. In such cases, the list will be empty.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> qrangelist </td><td class="memItemRight bottomAlign"><span class="name"><b>availableDataRates</b></span>() const</td></tr>
 </table></div>
@@ -324,12 +324,12 @@
 <p>Since the rotation of the reading values is based on the screen orientation, Z values will never change, as the Z axis is perpendicular to the screen. As screen orientation changes in 90 degree steps, rotating the reading values is also done in steps of 90 degrees.</p>
 <p>This property is only used for orientable sensors.</p>
 <p>This property was introduced in  Qt 5.1.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QSensor::AxesOrientationMode </td><td class="memItemRight bottomAlign"><span class="name"><b>axesOrientationMode</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setAxesOrientationMode</b></span>(QSensor::AxesOrientationMode <i>axesOrientationMode</i>)</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>axesOrientationModeChanged</b></span>(QSensor::AxesOrientationMode <i>axesOrientationMode</i>)</td></tr>
 </table></div>
@@ -342,12 +342,12 @@
 <p>If <a href="qsensor.html#stop">stop</a>() is called when buffering is on-going, the partial buffer is not delivered.</p>
 <p>When the sensor is started with buffering option, values are collected from that moment onwards. There is no pre-existing buffer that can be utilized.</p>
 <p>Some backends only support enabling or disabling the buffer and do not give control over the size. In this case, the <a href="qsensor.html#maxBufferSize-prop">maxBufferSize</a> 和 <a href="qsensor.html#efficientBufferSize-prop">efficientBufferSize</a> properties might not be set at all, even though buffering is supported. Setting the bufferSize property to any value greater than 1 will enable buffering. After the sensor has been started, the bufferSize property will be set to the actual value by the backend.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>bufferSize</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setBufferSize</b></span>(int <i>bufferSize</i>)</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>bufferSizeChanged</b></span>(int <i>bufferSize</i>)</td></tr>
 </table></div>
@@ -358,7 +358,7 @@
 <p>This property holds a value to indicate if the sensor is busy.</p>
 <p>Some sensors may be on the system but unavailable for use. This function will return true if the sensor is busy. You will not be able to <a href="qsensor.html#start">start</a>() the sensor.</p>
 <p>Note that this function does not return true if you are using the sensor, only if another process is using the sensor.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>isBusy</b></span>() const</td></tr>
 </table></div>
@@ -369,7 +369,7 @@
 <p>This property holds a value indicating if the sensor has connected to a backend.</p>
 <p>A sensor that has not been connected to a backend cannot do anything useful.</p>
 <p>Call the <a href="qsensor.html#connectToBackend">connectToBackend</a>() method to force the sensor to connect to a backend immediately. This is automatically called if you call <a href="qsensor.html#start">start</a>() so you only need to do this if you need access to sensor properties (ie. to poll the sensor's meta-data before you use it).</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>isConnectedToBackend</b></span>() const</td></tr>
 </table></div>
@@ -382,11 +382,11 @@
 <p>In the <a href="qsensor.html#AxesOrientationMode-enum">AutomaticOrientation</a> mode, the readings are rotated based on the screen orientation, and therefore this property will be equal to the current screen orientation.</p>
 <p>This property is set by the backend and only valid for orientable sensors.</p>
 <p>This property was introduced in  Qt 5.1.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>currentOrientation</b></span>() const</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>currentOrientationChanged</b></span>(int <i>currentOrientation</i>)</td></tr>
 </table></div>
@@ -400,12 +400,12 @@
 <p>The default value (0) means that the app does not care what the data rate is. Applications should consider using a timer-based poll of the current value or ensure that the code that processes values can run very quickly as the platform may provide updates hundreds of times each second.</p>
 <p>This should be set before calling <a href="qsensor.html#start">start</a>() because the sensor may not notice changes to this value while it is running.</p>
 <p>Note that there is no mechanism to determine the current data rate in use by the platform.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>dataRate</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setDataRate</b></span>(int <i>rate</i>)</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>dataRateChanged</b></span>()</td></tr>
 </table></div>
@@ -414,7 +414,7 @@
 <!-- $$$description-prop$$$description -->
 <h3 class="fn" id="description-prop"><a name="description-prop"></a><span class="name">description</span> : const <span class="type"><a href="../qtcore/qstring.html">QString</a></span></h3>
 <p>This property holds a descriptive string for the sensor.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><span class="name"><b>description</b></span>() const</td></tr>
 </table></div>
@@ -422,11 +422,11 @@
 <!-- $$$efficientBufferSize-prop$$$efficientBufferSize$$$efficientBufferSizeChangedint -->
 <h3 class="fn" id="efficientBufferSize-prop"><a name="efficientBufferSize-prop"></a><span class="name">efficientBufferSize</span> : const <span class="type">int</span></h3>
 <p>The property holds the most efficient buffer size. Normally this is 1 (which means no particular size is most efficient). Some sensor drivers have a FIFO buffer which makes it more efficient to deliver the FIFO's size worth of readings at one time.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>efficientBufferSize</b></span>() const</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>efficientBufferSizeChanged</b></span>(int <i>efficientBufferSize</i>)</td></tr>
 </table></div>
@@ -436,11 +436,11 @@
 <h3 class="fn" id="error-prop"><a name="error-prop"></a><span class="name">error</span> : const <span class="type">int</span></h3>
 <p>This property holds the last error code set on the sensor.</p>
 <p>Note that error codes are sensor-specific.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>error</b></span>() const</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qsensor.html#sensorError">sensorError</a></b></span>(int <i>error</i>)</td></tr>
 </table></div>
@@ -449,7 +449,7 @@
 <h3 class="fn" id="identifier-prop"><a name="identifier-prop"></a><span class="name">identifier</span> : <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span></h3>
 <p>This property holds the backend identifier for the sensor.</p>
 <p>Note that the identifier is filled out automatically when the sensor is connected to a backend. If you want to connect a specific backend, you should call setIdentifier() before <a href="qsensor.html#connectToBackend">connectToBackend</a>().</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QByteArray </td><td class="memItemRight bottomAlign"><span class="name"><b>identifier</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setIdentifier</b></span>(const QByteArray &amp;<i>identifier</i>)</td></tr>
@@ -459,11 +459,11 @@
 <h3 class="fn" id="maxBufferSize-prop"><a name="maxBufferSize-prop"></a><span class="name">maxBufferSize</span> : const <span class="type">int</span></h3>
 <p>The property holds the maximum buffer size.</p>
 <p>Note that this may be 1, in which case the sensor does not support any form of buffering. In that case, <a href="qsensor.html#isFeatureSupported">isFeatureSupported</a>(<a href="qsensor.html#Feature-enum">QSensor::Buffering</a>) will also return false.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>maxBufferSize</b></span>() const</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>maxBufferSizeChanged</b></span>(int <i>maxBufferSize</i>)</td></tr>
 </table></div>
@@ -476,7 +476,7 @@
 <p>Setting this property is not portable and can cause conflicts with other applications. Check with the sensor backend and platform documentation for any policy regarding multiple applications requesting an output range.</p>
 <p>The default value (-1) means that the app does not care what the output range is.</p>
 <p>Note that there is no mechanism to determine the current output range in use by the platform.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>outputRange</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setOutputRange</b></span>(int <i>index</i>)</td></tr>
@@ -488,7 +488,7 @@
 <p>This property holds a list of output ranges the sensor supports.</p>
 <p>A sensor may have more than one output range. Typically this is done to give a greater measurement range at the cost of lowering accuracy.</p>
 <p>Note that this information is not mandatory. This information is typically only available for sensors that have selectable output ranges (such as typical accelerometers).</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> qoutputrangelist </td><td class="memItemRight bottomAlign"><span class="name"><b>outputRanges</b></span>() const</td></tr>
 </table></div>
@@ -500,11 +500,11 @@
 <p>The reading class provides access to sensor readings. The reading object is a volatile cache of the most recent sensor reading that has been received so the application should process readings immediately or save the values somewhere for later processing.</p>
 <p>Note that this will return 0 until a sensor backend is connected to a backend.</p>
 <p>Also note that readings are not immediately available after <a href="qsensor.html#start">start</a>() is called. Applications must wait for the <a href="qsensor.html#readingChanged">readingChanged</a>() signal to be emitted.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QSensorReading *</td><td class="memItemRight bottomAlign"><span class="name"><b>reading</b></span>() const</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qsensor.html#readingChanged">readingChanged</a></b></span>()</td></tr>
 </table></div>
@@ -519,12 +519,12 @@
 <p>Duplicate skipping is disabled by default.</p>
 <p>Duplicate skipping takes effect when the sensor is started, changing the property while the sensor is active has no immediate effect.</p>
 <p>This property was introduced in  Qt 5.1.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>skipDuplicates</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qsensor.html#setSkipDuplicates">setSkipDuplicates</a></b></span>(bool <i>skipDuplicates</i>)</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qsensor.html#skipDuplicatesChanged">skipDuplicatesChanged</a></b></span>(bool <i>skipDuplicates</i>)</td></tr>
 </table></div>
@@ -532,7 +532,7 @@
 <!-- $$$type-prop$$$type -->
 <h3 class="fn" id="type-prop"><a name="type-prop"></a><span class="name">type</span> : const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span></h3>
 <p>This property holds the type of the sensor.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QByteArray </td><td class="memItemRight bottomAlign"><span class="name"><b>type</b></span>() const</td></tr>
 </table></div>
@@ -544,12 +544,12 @@
 <p>The default is 0. The only valid values are 0, 90, 180 and 270, as those are the only possible screen orientations.</p>
 <p>This property is only valid for orientable sensors.</p>
 <p>This property was introduced in  Qt 5.1.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>userOrientation</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setUserOrientation</b></span>(int <i>userOrientation</i>)</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>userOrientationChanged</b></span>(int <i>userOrientation</i>)</td></tr>
 </table></div>

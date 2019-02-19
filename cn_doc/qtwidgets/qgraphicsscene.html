@@ -328,7 +328,7 @@
 
 </pre>
 <p><a href="qgraphicsscene.html#render">QGraphicsScene::render</a>() calls <a href="qgraphicsscene.html#drawBackground">drawBackground</a>() to draw the scene background. For more detailed control over how the background is drawn, you can reimplement <a href="qgraphicsscene.html#drawBackground">drawBackground</a>() in a subclass of <a href="qgraphicsscene.html">QGraphicsScene</a>.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QBrush </td><td class="memItemRight bottomAlign"><span class="name"><b>backgroundBrush</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setBackgroundBrush</b></span>(const QBrush &amp;<i>brush</i>)</td></tr>
@@ -348,7 +348,7 @@
 </pre>
 <p>The BSP tree has an optimal size when each segment contains between 0 and 10 items.</p>
 <p>This property was introduced in  Qt 4.3.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>bspTreeDepth</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setBspTreeDepth</b></span>(int <i>depth</i>)</td></tr>
@@ -363,7 +363,7 @@
 <p>With focusOnTouch switched off, <a href="qgraphicsscene.html">QGraphicsScene</a> behaves as one would expect on <a href="../qtdoc/internationalization.html#macos">macOS</a>.</p>
 <p>The default value is <code>true</code>, ensuring that the default behavior is just as in Qt versions prior to 5.12. Set to <code>false</code> to prevent touch events from triggering focus changes.</p>
 <p>This property was introduced in  Qt 5.12.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>focusOnTouch</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setFocusOnTouch</b></span>(bool <i>enabled</i>)</td></tr>
@@ -376,7 +376,7 @@
 <p>If the scene's font changes, either directly through setFont() or indirectly when the application font changes, <a href="qgraphicsscene.html">QGraphicsScene</a> first sends itself a <a href="../qtcore/qevent.html#Type-enum">FontChange</a> event, and it then sends <a href="../qtcore/qevent.html#Type-enum">FontChange</a> events to all top-level widget items in the scene. These items respond by resolving their own fonts to the scene, and they then notify their children, who again notify their children, and so on, until all widget items have updated their fonts.</p>
 <p>Changing the scene font, (directly or indirectly through <a href="qapplication.html#setFont">QApplication::setFont</a>(),) automatically schedules a redraw the entire scene.</p>
 <p>This property was introduced in  Qt 4.4.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QFont </td><td class="memItemRight bottomAlign"><span class="name"><b>font</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setFont</b></span>(const QFont &amp;<i>font</i>)</td></tr>
@@ -403,7 +403,7 @@
 
 </pre>
 <p><a href="qgraphicsscene.html#render">QGraphicsScene::render</a>() calls <a href="qgraphicsscene.html#drawForeground">drawForeground</a>() to draw the scene foreground. For more detailed control over how the foreground is drawn, you can reimplement the <a href="qgraphicsscene.html#drawForeground">drawForeground</a>() function in a <a href="qgraphicsscene.html">QGraphicsScene</a> subclass.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QBrush </td><td class="memItemRight bottomAlign"><span class="name"><b>foregroundBrush</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setForegroundBrush</b></span>(const QBrush &amp;<i>brush</i>)</td></tr>
@@ -414,7 +414,7 @@
 <p>This property holds the item indexing method.</p>
 <p><a href="qgraphicsscene.html">QGraphicsScene</a> applies an indexing algorithm to the scene, to speed up item discovery functions like <a href="qgraphicsscene.html#items">items</a>() 和 <a href="qgraphicsscene.html#itemAt">itemAt</a>(). Indexing is most efficient for static scenes (i.e&#x2e;, where items don't move around). For dynamic scenes, or scenes with many animated items, the index bookkeeping can outweight the fast lookup speeds.</p>
 <p>For the common case, the default index method <a href="qgraphicsscene.html#ItemIndexMethod-enum">BspTreeIndex</a> works fine. If your scene uses many animations and you are experiencing slowness, you can disable indexing by calling <code>setItemIndexMethod(NoIndex)</code>.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QGraphicsScene::ItemIndexMethod </td><td class="memItemRight bottomAlign"><span class="name"><b>itemIndexMethod</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setItemIndexMethod</b></span>(QGraphicsScene::ItemIndexMethod <i>method</i>)</td></tr>
@@ -428,7 +428,7 @@
 <p>The default value is 0. If unset, or if set to 0 or a negative value, all items will always be rendered.</p>
 <p>For example, setting this property can be especially useful if a scene is rendered by multiple views, one of which serves as an overview which always displays all items. In scenes with many items, such a view will use a high scaling factor so that all items can be shown. Due to the scaling, smaller items will only make an insignificant contribution to the final rendered scene. To avoid drawing these items and reduce the time necessary to render the scene, you can call setMinimumRenderSize() with a non-negative value.</p>
 <p><b>Note: </b>Items that are not drawn as a result of being too small, are still returned by methods such as <a href="qgraphicsscene.html#items">items</a>() 和 <a href="qgraphicsscene.html#itemAt">itemAt</a>(), and participate in collision detection and interactions. It is recommended that you set minimumRenderSize() to a value less than or equal to 1 in order to avoid large unrendered items that are interactive.</p><p>This property was introduced in  Qt 5.4.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> qreal </td><td class="memItemRight bottomAlign"><span class="name"><b>minimumRenderSize</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setMinimumRenderSize</b></span>(qreal <i>minSize</i>)</td></tr>
@@ -442,7 +442,7 @@
 <p>If the scene's palette changes, either directly through setPalette() or indirectly when the application palette changes, <a href="qgraphicsscene.html">QGraphicsScene</a> first sends itself a <a href="../qtcore/qevent.html#Type-enum">PaletteChange</a> event, and it then sends <a href="../qtcore/qevent.html#Type-enum">PaletteChange</a> events to all top-level widget items in the scene. These items respond by resolving their own palettes to the scene, and they then notify their children, who again notify their children, and so on, until all widget items have updated their palettes.</p>
 <p>Changing the scene palette, (directly or indirectly through <a href="qapplication.html#setPalette">QApplication::setPalette</a>(),) automatically schedules a redraw the entire scene.</p>
 <p>This property was introduced in  Qt 4.4.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QPalette </td><td class="memItemRight bottomAlign"><span class="name"><b>palette</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setPalette</b></span>(const QPalette &amp;<i>palette</i>)</td></tr>
@@ -454,7 +454,7 @@
 <p>This property holds the scene rectangle; the bounding rectangle of the scene</p>
 <p>The scene rectangle defines the extent of the scene. It is primarily used by <a href="qgraphicsview.html">QGraphicsView</a> to determine the view's default scrollable area, and by <a href="qgraphicsscene.html">QGraphicsScene</a> to manage item indexing.</p>
 <p>If unset, or if set to a null <a href="../qtcore/qrectf.html">QRectF</a>, sceneRect() will return the largest bounding rect of all items on the scene since the scene was created (i.e&#x2e;, a rectangle that grows when items are added to or moved in the scene, but never shrinks).</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QRectF </td><td class="memItemRight bottomAlign"><span class="name"><b>sceneRect</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setSceneRect</b></span>(const QRectF &amp;<i>rect</i>)</td></tr>
@@ -469,7 +469,7 @@
 <p>By default, this property is <code>false</code>.</p>
 <p>Focus changes in response to a mouse press. You can reimplement <a href="qgraphicsscene.html#mousePressEvent">mousePressEvent</a>() in a subclass of <a href="qgraphicsscene.html">QGraphicsScene</a> to toggle this property based on where the user has clicked.</p>
 <p>This property was introduced in  Qt 4.6.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>stickyFocus</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setStickyFocus</b></span>(bool <i>enabled</i>)</td></tr>

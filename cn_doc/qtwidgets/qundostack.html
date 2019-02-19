@@ -186,7 +186,7 @@
 <p>This property holds the active status of this stack.</p>
 <p>An application often has multiple undo stacks, one for each opened document. The active stack is the one associated with the currently active document. If the stack belongs to a <a href="qundogroup.html">QUndoGroup</a>, calls to <a href="qundogroup.html#undo">QUndoGroup::undo</a>() or <a href="qundogroup.html#redo">QUndoGroup::redo</a>() will be forwarded to this stack when it is active. If the <a href="qundogroup.html">QUndoGroup</a> is watched by a <a href="qundoview.html">QUndoView</a>, the view will display the contents of this stack when it is active. If the stack does not belong to a <a href="qundogroup.html">QUndoGroup</a>, making it active has no effect.</p>
 <p>It is the programmer's responsibility to specify which stack is active by calling setActive(), usually when the associated document window receives focus.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>isActive</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setActive</b></span>(bool <i>active</i> = true)</td></tr>
@@ -198,11 +198,11 @@
 <p>This property holds whether this stack can redo.</p>
 <p>This property indicates whether or not there is a command that can be redone.</p>
 <p>This property was introduced in  Qt 5.12.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qundostack.html#canRedo">canRedo</a></b></span>() const</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qundostack.html#canRedoChanged">canRedoChanged</a></b></span>(bool <i>canRedo</i>)</td></tr>
 </table></div>
@@ -213,11 +213,11 @@
 <p>This property holds whether this stack can undo.</p>
 <p>This property indicates whether or not there is a command that can be undone.</p>
 <p>This property was introduced in  Qt 5.12.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qundostack.html#canUndo">canUndo</a></b></span>() const</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qundostack.html#canUndoChanged">canUndoChanged</a></b></span>(bool <i>canUndo</i>)</td></tr>
 </table></div>
@@ -228,11 +228,11 @@
 <p>This property holds the clean status of this stack.</p>
 <p>This property indicates whether or not the stack is clean. For example, a stack is clean when a document has been saved.</p>
 <p>This property was introduced in  Qt 5.12.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qundostack.html#isClean">isClean</a></b></span>() const</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qundostack.html#cleanChanged">cleanChanged</a></b></span>(bool <i>clean</i>)</td></tr>
 </table></div>
@@ -243,11 +243,11 @@
 <p>This property holds the redo text of the next command that is redone.</p>
 <p>This property holds the text of the command which will be redone in the next call to <a href="qundostack.html#redo">redo</a>().</p>
 <p>This property was introduced in  Qt 5.12.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qundostack.html#redoText">redoText</a></b></span>() const</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qundostack.html#redoTextChanged">redoTextChanged</a></b></span>(const QString &amp;<i>redoText</i>)</td></tr>
 </table></div>
@@ -259,7 +259,7 @@
 <p>When the number of commands on a stack exceedes the stack's undoLimit, commands are deleted from the bottom of the stack. Macro commands (commands with child commands) are treated as one command. The default value is 0, which means that there is no limit.</p>
 <p>This property may only be set when the undo stack is empty, since setting it on a non-empty stack might delete the command at the current index. Calling setUndoLimit() on a non-empty stack prints a warning and does nothing.</p>
 <p>This property was introduced in  Qt 4.3.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>undoLimit</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setUndoLimit</b></span>(int <i>limit</i>)</td></tr>
@@ -270,11 +270,11 @@
 <p>This property holds the undo text of the next command that is undone.</p>
 <p>This property holds the text of the command which will be undone in the next call to <a href="qundostack.html#undo">undo</a>().</p>
 <p>This property was introduced in  Qt 5.12.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qundostack.html#undoText">undoText</a></b></span>() const</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qundostack.html#undoTextChanged">undoTextChanged</a></b></span>(const QString &amp;<i>undoText</i>)</td></tr>
 </table></div>

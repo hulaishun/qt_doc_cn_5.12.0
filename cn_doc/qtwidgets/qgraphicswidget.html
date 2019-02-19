@@ -294,7 +294,7 @@
 <p>In addition, Windows are always filled with <a href="../qtgui/qpalette.html#ColorRole-enum">QPalette::Window</a>, unless the WA_OpaquePaintEvent or WA_NoSystemBackground attributes are set.</p>
 <p>By default, this property is <code>false</code>.</p>
 <p>This property was introduced in  Qt 4.7.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>autoFillBackground</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setAutoFillBackground</b></span>(bool <i>enabled</i>)</td></tr>
@@ -307,7 +307,7 @@
 <p>The focus policy is <a href="../qtcore/qt.html#FocusPolicy-enum">Qt::TabFocus</a> if the widget accepts keyboard focus by tabbing, <a href="../qtcore/qt.html#FocusPolicy-enum">Qt::ClickFocus</a> if the widget accepts focus by clicking, <a href="../qtcore/qt.html#FocusPolicy-enum">Qt::StrongFocus</a> if it accepts both, and <a href="../qtcore/qt.html#FocusPolicy-enum">Qt::NoFocus</a> (the default) if it does not accept focus at all.</p>
 <p>You must enable keyboard focus for a widget if it processes keyboard events. This is normally done from the widget's constructor. For instance, the <a href="qlineedit.html">QLineEdit</a> constructor calls setFocusPolicy(<a href="../qtcore/qt.html#FocusPolicy-enum">Qt::StrongFocus</a>).</p>
 <p>If you enable a focus policy (i.e&#x2e;, not <a href="../qtcore/qt.html#FocusPolicy-enum">Qt::NoFocus</a>), <a href="graphicsview.html#qgraphicswidget">QGraphicsWidget</a> will automatically enable the <a href="qgraphicsitem.html#GraphicsItemFlag-enum">ItemIsFocusable</a> flag. Setting <a href="../qtcore/qt.html#FocusPolicy-enum">Qt::NoFocus</a> on a widget will clear the <a href="qgraphicsitem.html#GraphicsItemFlag-enum">ItemIsFocusable</a> flag. If the widget currently has keyboard focus, the widget will automatically lose focus.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> Qt::FocusPolicy </td><td class="memItemRight bottomAlign"><span class="name"><b>focusPolicy</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setFocusPolicy</b></span>(Qt::FocusPolicy <i>policy</i>)</td></tr>
@@ -321,7 +321,7 @@
 <p><a href="../qtgui/qfont.html">QFont</a> consists of font properties that have been explicitly defined and properties implicitly inherited from the widget's parent. Hence, font() can return a different font compared to the one set with setFont(). This scheme allows you to define single entries in a font without affecting the font's inherited entries.</p>
 <p>When a widget's font changes, it resolves its entries against its parent widget. If the widget does not have a parent widget, it resolves its entries against the scene. The widget then sends itself a <a href="../qtcore/qevent.html#Type-enum">FontChange</a> event and notifies all its descendants so that they can resolve their fonts as well.</p>
 <p>By default, this property contains the application's default font.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QFont </td><td class="memItemRight bottomAlign"><span class="name"><b>font</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setFont</b></span>(const QFont &amp;<i>font</i>)</td></tr>
@@ -333,12 +333,12 @@
 <p>This property holds the geometry of the widget</p>
 <p>Sets the item's geometry to <i>rect</i>. The item's position and size are modified as a result of calling this function. The item is first moved, then resized.</p>
 <p>A side effect of calling this function is that the widget will receive a move event and a resize event. Also, if the widget has a layout assigned, the layout will activate.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> virtual void </td><td class="memItemRight bottomAlign"><span class="name"><b>setGeometry</b></span>(const QRectF &amp;<i>rect</i>) override</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qgraphicswidget.html#setGeometry-1">setGeometry</a></b></span>(qreal <i>x</i>, qreal <i>y</i>, qreal <i>w</i>, qreal <i>h</i>)</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qgraphicswidget.html#geometryChanged">geometryChanged</a></b></span>()</td></tr>
 </table></div>
@@ -351,7 +351,7 @@
 <p><a href="graphicsview.html#qgraphicswidget">QGraphicsWidget</a> takes ownership of <i>layout</i>.</p>
 <p>All widgets that are currently managed by <i>layout</i> or all of its sublayouts, are automatically reparented to this item. The layout is then invalidated, and the child widget geometries are adjusted according to this item's <a href="qgraphicslayoutitem.html#geometry">geometry</a>() and contentsMargins(). Children who are not explicitly managed by <i>layout</i> remain unaffected by the layout after it has been assigned to this widget.</p>
 <p>If no layout is currently managing this widget, <a href="qgraphicswidget.html#layout">layout</a>() will return 0.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QGraphicsLayout *</td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qgraphicswidget.html#layout">layout</a></b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qgraphicswidget.html#setLayout">setLayout</a></b></span>(QGraphicsLayout *<i>layout</i>)</td></tr>
@@ -363,7 +363,7 @@
 <p>This property modifies this widget's and all of its descendants' <a href="../qtcore/qt.html#WidgetAttribute-enum">Qt::WA_RightToLeft</a> attribute. It also sets this widget's <a href="../qtcore/qt.html#WidgetAttribute-enum">Qt::WA_SetLayoutDirection</a> attribute.</p>
 <p>The widget's layout direction determines the order in which the layout manager horizontally arranges subwidgets of this widget. The default value depends on the language and locale of the application, and is typically in the same direction as words are read and written. With <a href="../qtcore/qt.html#LayoutDirection-enum">Qt::LeftToRight</a>, the layout starts placing subwidgets from the left side of this widget towards the right. <a href="../qtcore/qt.html#LayoutDirection-enum">Qt::RightToLeft</a> does the opposite - the layout will place widgets starting from the right edge moving towards the left.</p>
 <p>Subwidgets inherit their layout direction from the parent. Top-level widget items inherit their layout direction from QGraphicsScene::layoutDirection. If you change a widget's layout direction by calling setLayoutDirection(), the widget will send itself a <a href="../qtcore/qevent.html#Type-enum">LayoutDirectionChange</a> event, and then propagate the new layout direction to all its descendants.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> Qt::LayoutDirection </td><td class="memItemRight bottomAlign"><span class="name"><b>layoutDirection</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setLayoutDirection</b></span>(Qt::LayoutDirection <i>direction</i>)</td></tr>
@@ -388,7 +388,7 @@
 <p><a href="../qtgui/qpalette.html">QPalette</a> consists of color groups that have been explicitly defined, and groups that are implicitly inherited from the widget's parent. Because of this, palette() can return a different palette than what has been set with setPalette(). This scheme allows you to define single entries in a palette without affecting the palette's inherited entries.</p>
 <p>When a widget's palette changes, it resolves its entries against its parent widget, or if it doesn't have a parent widget, it resolves against the scene. It then sends itself a <a href="../qtcore/qevent.html#Type-enum">PaletteChange</a> event, and notifies all its descendants so they can resolve their palettes as well.</p>
 <p>By default, this property contains the application's default palette.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QPalette </td><td class="memItemRight bottomAlign"><span class="name"><b>palette</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setPalette</b></span>(const QPalette &amp;<i>palette</i>)</td></tr>
@@ -407,13 +407,13 @@
 <p>Resizing a widget triggers the widget to immediately receive a <a href="../qtcore/qevent.html#Type-enum">GraphicsSceneResize</a> event with the widget's old and new size. If the widget has a layout assigned when this event arrives, the layout will be activated and it will automatically update any child widgets's geometry.</p>
 <p>This property does not affect any layout of the parent widget. If the widget itself is managed by a parent layout; e.g&#x2e;, it has a parent widget with a layout assigned, that layout will not activate.</p>
 <p>By default, this property contains a size with zero width and height.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QSizeF </td><td class="memItemRight bottomAlign"><span class="name"><b>size</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>resize</b></span>(const QSizeF &amp;<i>size</i>)</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qgraphicswidget.html#resize-1">resize</a></b></span>(qreal <i>w</i>, qreal <i>h</i>)</td></tr>
 </table></div>
-<p><b>Notifier signal:</b></p>
+<p><b>通知信号：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qgraphicswidget.html#geometryChanged">geometryChanged</a></b></span>()</td></tr>
 </table></div>
@@ -430,7 +430,7 @@
 <p>Window flags are a combination of a window type (e.g&#x2e;, <a href="../qtcore/qt.html#WindowType-enum">Qt::Dialog</a>) and several flags giving hints on the behavior of the window. The behavior is platform-dependent.</p>
 <p>By default, this property contains no window flags.</p>
 <p>Windows are panels. If you set the <a href="../qtcore/qt.html#WindowType-enum">Qt::Window</a> flag, the <a href="qgraphicsitem.html#GraphicsItemFlag-enum">ItemIsPanel</a> flag will be set automatically. If you clear the <a href="../qtcore/qt.html#WindowType-enum">Qt::Window</a> flag, the <a href="qgraphicsitem.html#GraphicsItemFlag-enum">ItemIsPanel</a> flag is also cleared. Note that the <a href="qgraphicsitem.html#GraphicsItemFlag-enum">ItemIsPanel</a> flag can be set independently of <a href="../qtcore/qt.html#WindowType-enum">Qt::Window</a>.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> Qt::WindowFlags </td><td class="memItemRight bottomAlign"><span class="name"><b>windowFlags</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setWindowFlags</b></span>(Qt::WindowFlags <i>wFlags</i>)</td></tr>
@@ -442,7 +442,7 @@
 <p>This property holds the window title (caption).</p>
 <p>This property is only used for windows.</p>
 <p>By default, if no title has been set, this property contains an empty string.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><span class="name"><b>windowTitle</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setWindowTitle</b></span>(const QString &amp;<i>title</i>)</td></tr>

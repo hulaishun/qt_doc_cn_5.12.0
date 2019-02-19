@@ -173,7 +173,7 @@
 <p>We recommend omitting the file's suffix in the file name, since <a href="qlibrary.html">QLibrary</a> will automatically look for the file with the appropriate suffix (see <a href="qlibrary.html#isLibrary">isLibrary</a>()).</p>
 <p>When loading the library, <a href="qlibrary.html">QLibrary</a> searches in all system-specific library locations (for example, <code>LD_LIBRARY_PATH</code> on Unix), unless the file name has an absolute path. After loading the library successfully, fileName() returns the fully-qualified file name of the library, including the full path to the library if one was given in the constructor or passed to setFileName().</p>
 <p>For example, after successfully loading the &quot;GL&quot; library on Unix platforms, fileName() will return &quot;libGL.so&quot;. If the file name was originally passed as &quot;/usr/lib/libGL&quot;, fileName() will return &quot;/usr/lib/libGL.so&quot;.</p>
-<p><b>Access functions:</b></p>
+<p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><span class="name"><b>fileName</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setFileName</b></span>(const QString &amp;<i>fileName</i>)</td></tr>
@@ -187,7 +187,7 @@
 <p>If <a href="qlibrary.html#LoadHint-enum">LoadArchiveMemberHint</a> is set, the file name is composed of two components: A path which is a reference to an archive file followed by the second component which is the reference to the archive member. For instance, the <a href="qlibrary.html#fileName-prop">fileName</a> <code>libGL.a(shr_64.o)</code> will refer to the library <code>shr_64.o</code> in the archive file named <code>libGL.a</code>. This is only supported on the AIX platform.</p>
 <p>The interpretation of the load hints is platform dependent, and if you use it you are probably making some assumptions on which platform you are compiling for, so use them only if you understand the consequences of them.</p>
 <p>By default, none of these flags are set, so libraries will be loaded with lazy symbol resolution, and will not export external symbols for resolution in other dynamically-loaded libraries.</p>
-<p><b>Note: </b>Setting this property after the library has been loaded has no effect and loadHints() will not reflect those changes.</p><p><b>Note: </b>This property is shared among all <a href="qlibrary.html">QLibrary</a> instances that refer to the same library.</p><p><b>Access functions:</b></p>
+<p><b>Note: </b>Setting this property after the library has been loaded has no effect and loadHints() will not reflect those changes.</p><p><b>Note: </b>This property is shared among all <a href="qlibrary.html">QLibrary</a> instances that refer to the same library.</p><p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QLibrary::LoadHints </td><td class="memItemRight bottomAlign"><span class="name"><b>loadHints</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setLoadHints</b></span>(QLibrary::LoadHints <i>hints</i>)</td></tr>
