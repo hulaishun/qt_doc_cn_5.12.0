@@ -123,7 +123,7 @@
 </pre>
 <p>Omitting this import will allow you to have a QML environment without access to window system features.</p>
 <p>A Window can be declared inside an Item or inside another Window; in that case the inner Window will automatically become &quot;transient for&quot; the outer Window: that is, most platforms will show it centered upon the outer window by default, and there may be other platform-dependent behaviors, depending also on the <a href="qml-qtquick-window-window.html#flags-prop">flags</a>. If the nested window is intended to be a dialog in your application, you should also set <a href="qml-qtquick-window-window.html#flags-prop">flags</a> to Qt.Dialog, because some window managers will not provide the centering behavior without that flag. You can also declare multiple windows inside a top-level <a href="../qtqml/qml-qtqml-qtobject.html">QtObject</a>, in which case the windows will have no transient relationship.</p>
-<p>Alternatively you can set or bind <a href="qml-qtquick-window-window.html#x-prop">x</a> and <a href="qml-qtquick-window-window.html#y-prop">y</a> to position the Window explicitly on the screen.</p>
+<p>Alternatively you can set or bind <a href="qml-qtquick-window-window.html#x-prop">x</a> 和 <a href="qml-qtquick-window-window.html#y-prop">y</a> to position the Window explicitly on the screen.</p>
 <p>When the user attempts to close a window, the <a href="qml-qtquick-window-window.html#closing-signal">closing</a> signal will be emitted. You can force the window to stay open (for example to prompt the user to save changes) by writing an <code>onClosing</code> handler and setting <code>close.accepted = false</code>.</p>
 <!-- @@@Window -->
 <h2>属性文档</h2>
@@ -136,7 +136,7 @@
 </table></div>
 </div><div class="qmldoc"><p>The active status of the window.</p>
 <p>This property was introduced in  Qt 5.1.</p>
-<p><b>参见</b><a href="qml-qtquick-window-window.html#requestActivate-method">requestActivate()</a>.</p>
+<p><b> 参见 </b><a href="qml-qtquick-window-window.html#requestActivate-method">requestActivate()</a>.</p>
 </div></div><!-- @@@active -->
 <br/>
 <!-- $$$activeFocusItem -->
@@ -183,7 +183,7 @@
 <p>The difference between the window and the content orientation determines how much to rotate the content by.</p>
 <p>The default value is <a href="../qtcore/qt.html#ScreenOrientation-enum">Qt::PrimaryOrientation</a>.</p>
 <p>This property was introduced in  Qt 5.1.</p>
-<p><b>参见</b><a href="qml-qtquick-window-screen.html">Screen</a>.</p>
+<p><b> 参见 </b><a href="qml-qtquick-window-screen.html">Screen</a>.</p>
 </div></div><!-- @@@contentOrientation -->
 <br/>
 <!-- $$$data -->
@@ -198,7 +198,7 @@
 <p>If you assign an <a href="qml-qtquick-item.html">Item</a> to the data list, it becomes a child of the Window's <a href="qml-qtquick-window-window.html#contentItem-prop">contentItem</a>, so that it appears inside the window. The item's parent will be the window's <a href="qml-qtquick-window-window.html#contentItem-prop">contentItem</a>, which is the root of the Item ownership tree within that Window.</p>
 <p>If you assign any other object type, it is added as a resource.</p>
 <p>It should not generally be necessary to refer to the <code>data</code> property, as it is the default property for Window and thus all child items are automatically assigned to this property.</p>
-<p><b>参见</b><a href="../qtgui/qwindow.html#transientParent">QWindow::transientParent()</a>.</p>
+<p><b> 参见 </b><a href="../qtgui/qwindow.html#transientParent">QWindow::transientParent()</a>.</p>
 </div></div><!-- @@@data -->
 <br/>
 <!-- $$$flags -->
@@ -211,7 +211,7 @@
 </div><div class="qmldoc"><p>The window flags of the window.</p>
 <p>The window flags control the window's appearance in the windowing system, whether it's a dialog, popup, or a regular window, and whether it should have a title bar, etc.</p>
 <p>The flags which you read from this property might differ from the ones that you set if the requested flags could not be fulfilled.</p>
-<p><b>参见</b><a href="../qtcore/qt.html#WindowType-enum">Qt::WindowFlags</a>.</p>
+<p><b> 参见 </b><a href="../qtcore/qt.html#WindowType-enum">Qt::WindowFlags</a>.</p>
 </div></div><!-- @@@flags -->
 <br/>
 <!-- $$$height -->
@@ -313,7 +313,7 @@
 </div><div class="qmldoc"><p>The screen with which the window is associated.</p>
 <p>If specified before showing a window, will result in the window being shown on that screen, unless an explicit window position has been set. The value must be an element from the Qt.application.screens array.</p>
 <p><b>Note: </b>To ensure that the window is associated with the desired screen when the underlying native window is created, make sure this property is set as early as possible and that the setting of its value is not deferred. This can be particularly important on embedded platforms without a windowing system, where only one window per screen is allowed at a time. Setting the screen after a window has been created does not move the window if the new screen is part of the same virtual desktop as the old screen.</p><p>This property was introduced in  Qt 5.9.</p>
-<p><b>参见</b><a href="../qtgui/qwindow.html#setScreen">QWindow::setScreen()</a>, <a href="../qtgui/qwindow.html#screen">QWindow::screen()</a>, <a href="../qtgui/qscreen.html">QScreen</a>, and <a href="../qtqml/qml-qtqml-qt.html#application-prop">Qt.application</a>.</p>
+<p><b> 参见 </b><a href="../qtgui/qwindow.html#setScreen">QWindow::setScreen()</a>, <a href="../qtgui/qwindow.html#screen">QWindow::screen()</a>, <a href="../qtgui/qscreen.html">QScreen</a>, and <a href="../qtqml/qml-qtqml-qt.html#application-prop">Qt.application</a>.</p>
 </div></div><!-- @@@screen -->
 <br/>
 <!-- $$$title -->
@@ -339,7 +339,7 @@
 <p>To set the visibility to <a href="../qtgui/qwindow.html#Visibility-enum">AutomaticVisibility</a> means to give the window a default visible state, which might be <a href="../qtgui/qwindow.html#Visibility-enum">FullScreen</a> or <a href="../qtgui/qwindow.html#Visibility-enum">Windowed</a> depending on the platform. However when reading the visibility property you will always get the actual state, never <code>AutomaticVisibility</code>.</p>
 <p>When a window is not visible its visibility is Hidden, and setting visibility to <a href="../qtgui/qwindow.html#Visibility-enum">Hidden</a> is the same as setting <a href="qml-qtquick-window-window.html#visible-prop">visible</a> to <code>false</code>.</p>
 <p>This property was introduced in  Qt 5.1.</p>
-<p><b>参见</b><a href="qml-qtquick-window-window.html#visible-prop">visible</a>.</p>
+<p><b> 参见 </b><a href="qml-qtquick-window-window.html#visible-prop">visible</a>.</p>
 </div></div><!-- @@@visibility -->
 <br/>
 <!-- $$$visible -->
@@ -351,7 +351,7 @@
 </table></div>
 </div><div class="qmldoc"><p>Whether the window is visible on the screen.</p>
 <p>Setting visible to false is the same as setting <a href="qml-qtquick-window-window.html#visibility-attached-prop">visibility</a> to <a href="../qtgui/qwindow.html#Visibility-enum">Hidden</a>.</p>
-<p><b>参见</b><a href="qml-qtquick-window-window.html#visibility-attached-prop">visibility</a>.</p>
+<p><b> 参见 </b><a href="qml-qtquick-window-window.html#visibility-attached-prop">visibility</a>.</p>
 </div></div><!-- @@@visible -->
 <br/>
 <!-- $$$width -->
@@ -467,7 +467,7 @@
 </table></div>
 </div><div class="qmldoc"><p>This attached property holds whether the window is currently shown in the windowing system as normal, minimized, maximized, fullscreen or hidden. The <code>Window</code> attached property can be attached to any Item. If the item is not shown in any window, the value will be <a href="../qtgui/qwindow.html#Visibility-enum">Hidden</a>.</p>
 <p>This property was introduced in  Qt 5.4.</p>
-<p><b>参见</b><a href="qml-qtquick-window-window.html#visible-prop">visible</a> and visibility.</p>
+<p><b> 参见 </b><a href="qml-qtquick-window-window.html#visible-prop">visible</a> and visibility.</p>
 </div></div><!-- @@@visibility -->
 <br/>
 <!-- $$$width -->
@@ -539,7 +539,7 @@
 </table></div>
 </div><div class="qmldoc"><p>Hides the window.</p>
 <p>Equivalent to setting <a href="qml-qtquick-window-window.html#visible-prop">visible</a> to <code>false</code> or <a href="qml-qtquick-window-window.html#visibility-attached-prop">visibility</a> to <a href="../qtgui/qwindow.html#Visibility-enum">Hidden</a>.</p>
-<p><b>参见</b><a href="qml-qtquick-window-window.html#show-method">show()</a>.</p>
+<p><b> 参见 </b><a href="qml-qtquick-window-window.html#show-method">show()</a>.</p>
 </div></div><!-- @@@hide -->
 <br/>
 <!-- $$$lower -->
@@ -584,7 +584,7 @@
 </table></div>
 </div><div class="qmldoc"><p>Shows the window.</p>
 <p>This is equivalent to calling <a href="qml-qtquick-window-window.html#showFullScreen-method">showFullScreen()</a>, <a href="qml-qtquick-window-window.html#showMaximized-method">showMaximized()</a>, or <a href="qml-qtquick-window-window.html#showNormal-method">showNormal()</a>, depending on the platform's default behavior for the window type and flags.</p>
-<p><b>参见</b><a href="qml-qtquick-window-window.html#showFullScreen-method">showFullScreen()</a>, <a href="qml-qtquick-window-window.html#showMaximized-method">showMaximized()</a>, <a href="qml-qtquick-window-window.html#showNormal-method">showNormal()</a>, <a href="qml-qtquick-window-window.html#hide-method">hide()</a>, and <a href="qquickitem.html#flags">QQuickItem::flags()</a>.</p>
+<p><b> 参见 </b><a href="qml-qtquick-window-window.html#showFullScreen-method">showFullScreen()</a>, <a href="qml-qtquick-window-window.html#showMaximized-method">showMaximized()</a>, <a href="qml-qtquick-window-window.html#showNormal-method">showNormal()</a>, <a href="qml-qtquick-window-window.html#hide-method">hide()</a>, and <a href="qquickitem.html#flags">QQuickItem::flags()</a>.</p>
 </div></div><!-- @@@show -->
 <br/>
 <!-- $$$showFullScreen -->

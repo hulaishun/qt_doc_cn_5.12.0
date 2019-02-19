@@ -214,14 +214,14 @@
 <p>The sensor data is delivered via <a href="qsensorreading.html">QSensorReading</a> and its sub-classes.</p>
 <a name="orientation"></a>
 <h3 >Orientation</h3>
-<p>Some sensors react to screen orientation changes, such as <a href="qaccelerometer.html">QAccelerometer</a>, <a href="qmagnetometer.html">QMagnetometer</a> and <a href="qrotationsensor.html">QRotationSensor</a>. These are so called <i>orientable</i> sensors. For orientable sensors, <a href="qsensor.html">QSensor</a> supports changing the reporting of the reading values based on the orientation of the screen.</p>
+<p>Some sensors react to screen orientation changes, such as <a href="qaccelerometer.html">QAccelerometer</a>, <a href="qmagnetometer.html">QMagnetometer</a> 和 <a href="qrotationsensor.html">QRotationSensor</a>. These are so called <i>orientable</i> sensors. For orientable sensors, <a href="qsensor.html">QSensor</a> supports changing the reporting of the reading values based on the orientation of the screen.</p>
 <p>For orientable sensors, the <a href="qsensor.html#axesOrientationMode-prop">axesOrientationMode</a> property controls how the orientation affects the reading values.</p>
 <p>In the default mode, <a href="qsensor.html#AxesOrientationMode-enum">QSensor::FixedOrientation</a>, the reading values remain unaffected by the orientation. In the <a href="qsensor.html#AxesOrientationMode-enum">QSensor::AutomaticOrientation</a> mode, the reading values are automatically rotated by taking the current screen orientation into account. And finally, in the <a href="qsensor.html#AxesOrientationMode-enum">QSensor::UserOrientation</a> mode, the reading values are rotated according to a user-specified orientation.</p>
 <p>The functionality of this is only available if it is supported by the backend and if the sensor is orientable, which can be checked by calling <a href="qsensor.html#isFeatureSupported">QSensor::isFeatureSupported</a>() with the <a href="qsensor.html#Feature-enum">QSensor::AxesOrientation</a> flag.</p>
 <p>The orientation values here are always of the screen orientation, not the device orientation. The screen orientation is the orientation of the GUI. For example when rotating a device by 90 degrees counter-clockwise, the screen orientation compensates for that by rotating 90 degrees clockwise, to the effect that the GUI is still facing upright after the device has been rotated. Note that applications can lock the screen orientation, for example to force portrait or landscape mode. For locked orientations, orientable sensors will not react with reading changes if the device orientation is changed, as orientable sensors react to screen orientation changes only. This makes sense, as the purpose of orientable sensors is to keep the sensor orientation in sync with the screen orientation.</p>
 <p>The orientation values range from 0 to 270 degrees. The orientation is applied in clockwise direction, e.g&#x2e; an orientation value of 90 degrees means that the screen has been rotated 90 degress to the right from its origin position, to compensate a device rotation of 90 degrees to the left.</p>
 </div>
-<p><b>参见</b><a href="qsensorreading.html">QSensorReading</a>.</p>
+<p><b> 参见 </b><a href="qsensorreading.html">QSensorReading</a>.</p>
 <!-- @@@QSensor -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -234,7 +234,7 @@
 <tr><td class="topAlign"><code>QSensor::UserOrientation</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">The reading values are rotated based on the angle of the <a href="qsensor.html#userOrientation-prop">userOrientation</a> property.</td></tr>
 </table></div>
 <p>This enum was introduced or modified in  Qt 5.1.</p>
-<p><b>参见</b><a href="qsensor.html#axesOrientationMode-prop">QSensor::axesOrientationMode</a>.</p>
+<p><b> 参见 </b><a href="qsensor.html#axesOrientationMode-prop">QSensor::axesOrientationMode</a>.</p>
 <!-- @@@AxesOrientationMode -->
 <!-- $$$Feature$$$Buffering$$$AlwaysOn$$$GeoValues$$$FieldOfView$$$AccelerationMode$$$SkipDuplicates$$$AxesOrientation$$$PressureSensorTemperature$$$Reserved -->
 <h3 class="fn" id="Feature-enum"><a name="Feature-enum"></a>enum QSensor::<span class="name">特性</span></h3>
@@ -266,7 +266,7 @@
 <tr><td class="topAlign"><code>QSensor::AxesOrientation</code></td><td class="topAlign tblval"><code>6</code></td><td class="topAlign">The backend supports changing the axes orientation from the default of <a href="qsensor.html#AxesOrientationMode-enum">QSensor::FixedOrientation</a> to something else.</td></tr>
 </table></div>
 <p>This enum was introduced or modified in  Qt 5.0.</p>
-<p><b>参见</b><a href="qsensor.html#isFeatureSupported">QSensor::isFeatureSupported</a>().</p>
+<p><b> 参见 </b><a href="qsensor.html#isFeatureSupported">QSensor::isFeatureSupported</a>().</p>
 <!-- @@@Feature -->
 </div>
 <div class="prop">
@@ -311,7 +311,7 @@
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> qrangelist </td><td class="memItemRight bottomAlign"><span class="name"><b>availableDataRates</b></span>() const</td></tr>
 </table></div>
-<p><b>参见</b><a href="qsensor.html#dataRate-prop">QSensor::dataRate</a> and <a href="qsensor.html#qrangelist-typedef">qrangelist</a>.</p>
+<p><b> 参见 </b><a href="qsensor.html#dataRate-prop">QSensor::dataRate</a> 和 <a href="qsensor.html#qrangelist-typedef">qrangelist</a>.</p>
 <!-- @@@availableDataRates -->
 <!-- $$$axesOrientationMode-prop$$$axesOrientationMode$$$setAxesOrientationModeQSensor::AxesOrientationMode$$$axesOrientationModeChangedQSensor::AxesOrientationMode -->
 <h3 class="fn" id="axesOrientationMode-prop"><a name="axesOrientationMode-prop"></a><span class="name">axesOrientationMode</span> : <span class="type"><a href="qsensor.html#AxesOrientationMode-enum">AxesOrientationMode</a></span></h3>
@@ -341,7 +341,7 @@
 <p>Buffering is turned on when bufferSize is greater than 1. The sensor will collect the requested number of samples and deliver them all to the application at one time. They will be delivered to the application as a burst of changed readings so it is particularly important that the application processes each reading immediately or saves the values somewhere else.</p>
 <p>If <a href="qsensor.html#stop">stop</a>() is called when buffering is on-going, the partial buffer is not delivered.</p>
 <p>When the sensor is started with buffering option, values are collected from that moment onwards. There is no pre-existing buffer that can be utilized.</p>
-<p>Some backends only support enabling or disabling the buffer and do not give control over the size. In this case, the <a href="qsensor.html#maxBufferSize-prop">maxBufferSize</a> and <a href="qsensor.html#efficientBufferSize-prop">efficientBufferSize</a> properties might not be set at all, even though buffering is supported. Setting the bufferSize property to any value greater than 1 will enable buffering. After the sensor has been started, the bufferSize property will be set to the actual value by the backend.</p>
+<p>Some backends only support enabling or disabling the buffer and do not give control over the size. In this case, the <a href="qsensor.html#maxBufferSize-prop">maxBufferSize</a> 和 <a href="qsensor.html#efficientBufferSize-prop">efficientBufferSize</a> properties might not be set at all, even though buffering is supported. Setting the bufferSize property to any value greater than 1 will enable buffering. After the sensor has been started, the bufferSize property will be set to the actual value by the backend.</p>
 <p><b>Access functions:</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>bufferSize</b></span>() const</td></tr>
@@ -351,7 +351,7 @@
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>bufferSizeChanged</b></span>(int <i>bufferSize</i>)</td></tr>
 </table></div>
-<p><b>参见</b><a href="qsensor.html#maxBufferSize-prop">QSensor::maxBufferSize</a> and <a href="qsensor.html#efficientBufferSize-prop">QSensor::efficientBufferSize</a>.</p>
+<p><b> 参见 </b><a href="qsensor.html#maxBufferSize-prop">QSensor::maxBufferSize</a> 和 <a href="qsensor.html#efficientBufferSize-prop">QSensor::efficientBufferSize</a>.</p>
 <!-- @@@bufferSize -->
 <!-- $$$busy-prop$$$isBusy -->
 <h3 class="fn" id="busy-prop"><a name="busy-prop"></a><span class="name">busy</span> : const <span class="type">bool</span></h3>
@@ -362,7 +362,7 @@
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>isBusy</b></span>() const</td></tr>
 </table></div>
-<p><b>参见</b><a href="qsensor.html#busyChanged">busyChanged</a>().</p>
+<p><b> 参见 </b><a href="qsensor.html#busyChanged">busyChanged</a>().</p>
 <!-- @@@busy -->
 <!-- $$$connectedToBackend-prop$$$isConnectedToBackend -->
 <h3 class="fn" id="connectedToBackend-prop"><a name="connectedToBackend-prop"></a><span class="name">connectedToBackend</span> : const <span class="type">bool</span></h3>
@@ -409,7 +409,7 @@
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>dataRateChanged</b></span>()</td></tr>
 </table></div>
-<p><b>参见</b><a href="qsensor.html#availableDataRates-prop">QSensor::availableDataRates</a>.</p>
+<p><b> 参见 </b><a href="qsensor.html#availableDataRates-prop">QSensor::availableDataRates</a>.</p>
 <!-- @@@dataRate -->
 <!-- $$$description-prop$$$description -->
 <h3 class="fn" id="description-prop"><a name="description-prop"></a><span class="name">description</span> : const <span class="type"><a href="../qtcore/qstring.html">QString</a></span></h3>
@@ -430,7 +430,7 @@
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>efficientBufferSizeChanged</b></span>(int <i>efficientBufferSize</i>)</td></tr>
 </table></div>
-<p><b>参见</b><a href="qsensor.html#bufferSize-prop">QSensor::bufferSize</a> and <a href="qsensor.html#maxBufferSize-prop">QSensor::maxBufferSize</a>.</p>
+<p><b> 参见 </b><a href="qsensor.html#bufferSize-prop">QSensor::bufferSize</a> 和 <a href="qsensor.html#maxBufferSize-prop">QSensor::maxBufferSize</a>.</p>
 <!-- @@@efficientBufferSize -->
 <!-- $$$error-prop$$$error$$$sensorErrorint -->
 <h3 class="fn" id="error-prop"><a name="error-prop"></a><span class="name">error</span> : const <span class="type">int</span></h3>
@@ -467,7 +467,7 @@
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>maxBufferSizeChanged</b></span>(int <i>maxBufferSize</i>)</td></tr>
 </table></div>
-<p><b>参见</b><a href="qsensor.html#bufferSize-prop">QSensor::bufferSize</a> and <a href="qsensor.html#efficientBufferSize-prop">QSensor::efficientBufferSize</a>.</p>
+<p><b> 参见 </b><a href="qsensor.html#bufferSize-prop">QSensor::bufferSize</a> 和 <a href="qsensor.html#efficientBufferSize-prop">QSensor::efficientBufferSize</a>.</p>
 <!-- @@@maxBufferSize -->
 <!-- $$$outputRange-prop$$$outputRange$$$setOutputRangeint -->
 <h3 class="fn" id="outputRange-prop"><a name="outputRange-prop"></a><span class="name">outputRange</span> : <span class="type">int</span></h3>
@@ -481,7 +481,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>outputRange</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setOutputRange</b></span>(int <i>index</i>)</td></tr>
 </table></div>
-<p><b>参见</b><a href="qsensor.html#outputRanges-prop">QSensor::outputRanges</a>.</p>
+<p><b> 参见 </b><a href="qsensor.html#outputRanges-prop">QSensor::outputRanges</a>.</p>
 <!-- @@@outputRange -->
 <!-- $$$outputRanges-prop$$$outputRanges -->
 <h3 class="fn" id="outputRanges-prop"><a name="outputRanges-prop"></a><span class="name">outputRanges</span> : const <span class="type"><a href="qsensor.html#qoutputrangelist-typedef">qoutputrangelist</a></span></h3>
@@ -492,7 +492,7 @@
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> qoutputrangelist </td><td class="memItemRight bottomAlign"><span class="name"><b>outputRanges</b></span>() const</td></tr>
 </table></div>
-<p><b>参见</b><a href="qsensor.html#outputRange-prop">QSensor::outputRange</a> and <a href="qsensor.html#qoutputrangelist-typedef">qoutputrangelist</a>.</p>
+<p><b> 参见 </b><a href="qsensor.html#outputRange-prop">QSensor::outputRange</a> 和 <a href="qsensor.html#qoutputrangelist-typedef">qoutputrangelist</a>.</p>
 <!-- @@@outputRanges -->
 <!-- $$$reading-prop$$$reading$$$readingChanged -->
 <h3 class="fn" id="reading-prop"><a name="reading-prop"></a><span class="name">reading</span> : <span class="type"><a href="qsensorreading.html">QSensorReading</a></span>* const</h3>
@@ -508,7 +508,7 @@
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qsensor.html#readingChanged">readingChanged</a></b></span>()</td></tr>
 </table></div>
-<p><b>参见</b><a href="qsensor.html#connectedToBackend-prop">isConnectedToBackend</a>() and <a href="qsensor.html#start">start</a>().</p>
+<p><b> 参见 </b><a href="qsensor.html#connectedToBackend-prop">isConnectedToBackend</a>() 和 <a href="qsensor.html#start">start</a>().</p>
 <!-- @@@reading -->
 <!-- $$$skipDuplicates-prop$$$skipDuplicates$$$setSkipDuplicatesbool$$$skipDuplicatesChangedbool -->
 <h3 class="fn" id="skipDuplicates-prop"><a name="skipDuplicates-prop"></a><span class="name">skipDuplicates</span> : <span class="type">bool</span></h3>
@@ -583,13 +583,13 @@
 <!-- $$$activeChanged -->
 <h3 class="fn" id="activeChanged"><a name="activeChanged"></a><code>[signal] </code><span class="type">void</span> QSensor::<span class="name">activeChanged</span>()</h3>
 <p>This signal is emitted when the <a href="qsensor.html#active-prop">QSensor::active</a> property has changed.</p>
-<p><b>Note:</b> Notifier signal for property <a href="qsensor.html#active-prop">active</a>. </p><p><b>参见</b><a href="qsensor.html#active-prop">QSensor::active</a>.</p>
+<p><b>Note:</b> Notifier signal for property <a href="qsensor.html#active-prop">active</a>. </p><p><b> 参见 </b><a href="qsensor.html#active-prop">QSensor::active</a>.</p>
 <!-- @@@activeChanged -->
 <!-- $$$addFilter[overload1]$$$addFilterQSensorFilter* -->
 <h3 class="fn" id="addFilter"><a name="addFilter"></a><span class="type">void</span> QSensor::<span class="name">addFilter</span>(<span class="type"><a href="qsensorfilter.html">QSensorFilter</a></span> *<i>filter</i>)</h3>
 <p>Add a <i>filter</i> to the sensor.</p>
 <p>The sensor does not take ownership of the filter. <a href="qsensorfilter.html">QSensorFilter</a> will inform the sensor if it is destroyed.</p>
-<p><b>参见</b><a href="qsensorfilter.html">QSensorFilter</a>.</p>
+<p><b> 参见 </b><a href="qsensorfilter.html">QSensorFilter</a>.</p>
 <!-- @@@addFilter -->
 <!-- $$$alwaysOnChanged -->
 <h3 class="fn" id="alwaysOnChanged"><a name="alwaysOnChanged"></a><code>[signal] </code><span class="type">void</span> QSensor::<span class="name">alwaysOnChanged</span>()</h3>
@@ -598,7 +598,7 @@
 <!-- $$$availableSensorsChanged[overload1]$$$availableSensorsChanged -->
 <h3 class="fn" id="availableSensorsChanged"><a name="availableSensorsChanged"></a><code>[signal] </code><span class="type">void</span> QSensor::<span class="name">availableSensorsChanged</span>()</h3>
 <p>This signal is emitted when the list of available sensors has changed. The sensors available to a program will not generally change over time however some of the available sensors may represent hardware that is not permanently connected. For example, a game controller that is connected via bluetooth would become available when it was on and would become unavailable when it was off.</p>
-<p><b>参见</b><a href="qsensor.html#sensorTypes">QSensor::sensorTypes</a>() and <a href="qsensor.html#sensorsForType">QSensor::sensorsForType</a>().</p>
+<p><b> 参见 </b><a href="qsensor.html#sensorTypes">QSensor::sensorTypes</a>() 和 <a href="qsensor.html#sensorsForType">QSensor::sensorsForType</a>().</p>
 <!-- @@@availableSensorsChanged -->
 <!-- $$$busyChanged[overload1]$$$busyChanged -->
 <h3 class="fn" id="busyChanged"><a name="busyChanged"></a><code>[signal] </code><span class="type">void</span> QSensor::<span class="name">busyChanged</span>()</h3>
@@ -618,18 +618,18 @@
 <p>Returns true if a suitable backend could be found, false otherwise.</p>
 <p>The type must be set before calling this method if you are using <a href="qsensor.html">QSensor</a> directly.</p>
 <p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
-<p><b>参见</b><a href="qsensor.html#connectedToBackend-prop">isConnectedToBackend</a>().</p>
+<p><b> 参见 </b><a href="qsensor.html#connectedToBackend-prop">isConnectedToBackend</a>().</p>
 <!-- @@@connectToBackend -->
 <!-- $$$defaultSensorForType[overload1]$$$defaultSensorForTypeconstQByteArray& -->
 <h3 class="fn" id="defaultSensorForType"><a name="defaultSensorForType"></a><code>[static] </code><span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> QSensor::<span class="name">defaultSensorForType</span>(const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>type</i>)</h3>
 <p>Returns the default sensor identifier for <i>type</i>. This is set in a config file and can be overridden if required. If no default is available the system will return the first registered sensor for <i>type</i>.</p>
 <p>Note that there is special case logic to prevent the generic plugin's backends from becoming the default when another backend is registered for the same type. This logic means that a backend identifier starting with <code>generic.</code> will only be the default if no other backends have been registered for that type or if it is specified in <code>Sensors.conf</code>.</p>
-<p><b>参见</b><a href="determining-the-default-sensor-for-a-type.html">Determining the default sensor for a type</a>.</p>
+<p><b> 参见 </b><a href="determining-the-default-sensor-for-a-type.html">Determining the default sensor for a type</a>.</p>
 <!-- @@@defaultSensorForType -->
 <!-- $$$filters[overload1]$$$filters -->
 <h3 class="fn" id="filters"><a name="filters"></a><span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qsensorfilter.html">QSensorFilter</a></span> *&gt; QSensor::<span class="name">filters</span>() const</h3>
 <p>Returns the filters currently attached to the sensor.</p>
-<p><b>参见</b><a href="qsensorfilter.html">QSensorFilter</a>.</p>
+<p><b> 参见 </b><a href="qsensorfilter.html">QSensorFilter</a>.</p>
 <!-- @@@filters -->
 <!-- $$$isFeatureSupported[overload1]$$$isFeatureSupportedQSensor::Feature -->
 <h3 class="fn" id="isFeatureSupported"><a name="isFeatureSupported"></a><span class="type">bool</span> QSensor::<span class="name">isFeatureSupported</span>(<span class="type"><a href="qsensor.html#Feature-enum">QSensor::Feature</a></span> <i>feature</i>) const</h3>
@@ -647,12 +647,12 @@
 <p>This signal is emitted when a new sensor reading is received.</p>
 <p>The sensor reading can be found in the <a href="qsensor.html#reading-prop">QSensor::reading</a> property. Note that the reading object is a volatile cache of the most recent sensor reading that has been received so the application should process the reading immediately or save the values somewhere for later processing.</p>
 <p>Before this signal has been emitted for the first time, the reading object will have uninitialized data.</p>
-<p><b>Note:</b> Notifier signal for property <a href="qsensor.html#reading-prop">reading</a>. </p><p><b>参见</b><a href="qsensor.html#start">start</a>().</p>
+<p><b>Note:</b> Notifier signal for property <a href="qsensor.html#reading-prop">reading</a>. </p><p><b> 参见 </b><a href="qsensor.html#start">start</a>().</p>
 <!-- @@@readingChanged -->
 <!-- $$$removeFilter[overload1]$$$removeFilterQSensorFilter* -->
 <h3 class="fn" id="removeFilter"><a name="removeFilter"></a><span class="type">void</span> QSensor::<span class="name">removeFilter</span>(<span class="type"><a href="qsensorfilter.html">QSensorFilter</a></span> *<i>filter</i>)</h3>
 <p>Remove <i>filter</i> from the sensor.</p>
-<p><b>参见</b><a href="qsensorfilter.html">QSensorFilter</a>.</p>
+<p><b> 参见 </b><a href="qsensorfilter.html">QSensorFilter</a>.</p>
 <!-- @@@removeFilter -->
 <!-- $$$sensorError -->
 <h3 class="fn" id="sensorError"><a name="sensorError"></a><code>[signal] </code><span class="type">void</span> QSensor::<span class="name">sensorError</span>(<span class="type">int</span> <i>error</i>)</h3>
@@ -670,25 +670,25 @@
 <h3 class="fn" id="setCurrentOrientation"><a name="setCurrentOrientation"></a><span class="type">void</span> QSensor::<span class="name">setCurrentOrientation</span>(<span class="type">int</span> <i>currentOrientation</i>)</h3>
 <p>Sets the current screen orientation to <i>currentOrientation</i>. This is to be called from the backend whenever the screen orientation or the <a href="qsensor.html#userOrientation-prop">userOrientation</a> property changes.</p>
 <p>这个函数是在Qt 5.1版本中新增引入的。</p>
-<p><b>参见</b><a href="qsensor.html#currentOrientation-prop">currentOrientation</a>().</p>
+<p><b> 参见 </b><a href="qsensor.html#currentOrientation-prop">currentOrientation</a>().</p>
 <!-- @@@setCurrentOrientation -->
 <!-- $$$setEfficientBufferSize[overload1]$$$setEfficientBufferSizeint -->
 <h3 class="fn" id="setEfficientBufferSize"><a name="setEfficientBufferSize"></a><span class="type">void</span> QSensor::<span class="name">setEfficientBufferSize</span>(<span class="type">int</span> <i>efficientBufferSize</i>)</h3>
 <p>Sets the efficient buffer size to <i>efficientBufferSize</i>. This is to be called from the backend.</p>
 <p>这个函数是在Qt 5.1版本中新增引入的。</p>
-<p><b>参见</b><a href="qsensor.html#efficientBufferSize-prop">efficientBufferSize</a>().</p>
+<p><b> 参见 </b><a href="qsensor.html#efficientBufferSize-prop">efficientBufferSize</a>().</p>
 <!-- @@@setEfficientBufferSize -->
 <!-- $$$setMaxBufferSize[overload1]$$$setMaxBufferSizeint -->
 <h3 class="fn" id="setMaxBufferSize"><a name="setMaxBufferSize"></a><span class="type">void</span> QSensor::<span class="name">setMaxBufferSize</span>(<span class="type">int</span> <i>maxBufferSize</i>)</h3>
 <p>Sets the maximum buffer size to <i>maxBufferSize</i>. This is to be called from the backend.</p>
 <p>这个函数是在Qt 5.1版本中新增引入的。</p>
-<p><b>参见</b><a href="qsensor.html#maxBufferSize-prop">maxBufferSize</a>().</p>
+<p><b> 参见 </b><a href="qsensor.html#maxBufferSize-prop">maxBufferSize</a>().</p>
 <!-- @@@setMaxBufferSize -->
 <!-- $$$setSkipDuplicates -->
 <h3 class="fn" id="setSkipDuplicates"><a name="setSkipDuplicates"></a><span class="type">void</span> QSensor::<span class="name">setSkipDuplicates</span>(<span class="type">bool</span> <i>skipDuplicates</i>)</h3>
 <p>Sets the duplicate skipping to <i>skipDuplicates</i>.</p>
 <p>这个函数是在Qt 5.1版本中新增引入的。</p>
-<p><b>Note:</b> Setter function for property <a href="qsensor.html#skipDuplicates-prop">skipDuplicates</a>. </p><p><b>参见</b><a href="qsensor.html#skipDuplicates-prop">skipDuplicates</a>().</p>
+<p><b>Note:</b> Setter function for property <a href="qsensor.html#skipDuplicates-prop">skipDuplicates</a>. </p><p><b> 参见 </b><a href="qsensor.html#skipDuplicates-prop">skipDuplicates</a>().</p>
 <!-- @@@setSkipDuplicates -->
 <!-- $$$skipDuplicatesChanged -->
 <h3 class="fn" id="skipDuplicatesChanged"><a name="skipDuplicatesChanged"></a><code>[signal] </code><span class="type">void</span> QSensor::<span class="name">skipDuplicatesChanged</span>(<span class="type">bool</span> <i>skipDuplicates</i>)</h3>
@@ -717,13 +717,13 @@
       sensor<span class="operator">-</span><span class="operator">&gt;</span>reading()<span class="operator">-</span><span class="operator">&gt;</span>x();
 
 </pre>
-<p><b>参见</b><a href="qsensor.html#busy-prop">QSensor::busy</a>.</p>
+<p><b> 参见 </b><a href="qsensor.html#busy-prop">QSensor::busy</a>.</p>
 <!-- @@@start -->
 <!-- $$$stop[overload1]$$$stop -->
 <h3 class="fn" id="stop"><a name="stop"></a><code>[slot] </code><span class="type">void</span> QSensor::<span class="name">stop</span>()</h3>
 <p>Stop retrieving values from the sensor.</p>
 <p>This releases the sensor so that other processes can use it.</p>
-<p><b>参见</b><a href="qsensor.html#busy-prop">QSensor::busy</a>.</p>
+<p><b> 参见 </b><a href="qsensor.html#busy-prop">QSensor::busy</a>.</p>
 <!-- @@@stop -->
 </div>
 <div class="vars">
@@ -740,7 +740,7 @@
 
 </pre>
 <p>This typedef was introduced in  Qt 5.1.</p>
-<p><b>参见</b><a href="../qtcore/qlist.html">QList</a>, <a href="qoutputrange.html">qoutputrange</a>, and <a href="qsensor.html#outputRanges-prop">QSensor::outputRanges</a>.</p>
+<p><b> 参见 </b><a href="../qtcore/qlist.html">QList</a>, <a href="qoutputrange.html">qoutputrange</a>, and <a href="qsensor.html#outputRanges-prop">QSensor::outputRanges</a>.</p>
 <!-- @@@qoutputrangelist -->
 <!-- $$$qrange -->
 <h3 class="fn" id="qrange-typedef"><a name="qrange-typedef"></a>typedef <span class="name">qrange</span></h3>
@@ -751,7 +751,7 @@
 
 </pre>
 <p>This typedef was introduced in  Qt 5.1.</p>
-<p><b>参见</b><a href="../qtcore/qpair.html">QPair</a>, <a href="qsensor.html#qrangelist-typedef">qrangelist</a>, and <a href="qsensor.html#availableDataRates-prop">QSensor::availableDataRates</a>.</p>
+<p><b> 参见 </b><a href="../qtcore/qpair.html">QPair</a>, <a href="qsensor.html#qrangelist-typedef">qrangelist</a>, and <a href="qsensor.html#availableDataRates-prop">QSensor::availableDataRates</a>.</p>
 <!-- @@@qrange -->
 <!-- $$$qrangelist -->
 <h3 class="fn" id="qrangelist-typedef"><a name="qrangelist-typedef"></a>typedef <span class="name">qrangelist</span></h3>
@@ -762,7 +762,7 @@
 
 </pre>
 <p>This typedef was introduced in  Qt 5.1.</p>
-<p><b>参见</b><a href="../qtcore/qlist.html">QList</a>, <a href="qsensor.html#qrange-typedef">qrange</a>, and <a href="qsensor.html#availableDataRates-prop">QSensor::availableDataRates</a>.</p>
+<p><b> 参见 </b><a href="../qtcore/qlist.html">QList</a>, <a href="qsensor.html#qrange-typedef">qrange</a>, and <a href="qsensor.html#availableDataRates-prop">QSensor::availableDataRates</a>.</p>
 <!-- @@@qrangelist -->
 </div>
 <div class="macros">

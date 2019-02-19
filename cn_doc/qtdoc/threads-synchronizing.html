@@ -71,7 +71,7 @@
 <p>Another similar scenario is a <i>deadlock</i>. For example, suppose that thread A is waiting for thread B to unlock a resource. If thread B is also waiting for thread A to unlock a different resource, then both threads will end up waiting forever, so the application will freeze.</p>
 <a name="convenience-classes"></a>
 <h3 >Convenience classes</h3>
-<p><a href="../qtcore/qmutexlocker.html">QMutexLocker</a>, <a href="../qtcore/qreadlocker.html">QReadLocker</a> and <a href="../qtcore/qwritelocker.html">QWriteLocker</a> are convenience classes that make it easier to use <a href="../qtcore/qmutex.html">QMutex</a> and <a href="../qtcore/qreadwritelock.html">QReadWriteLock</a>. They lock a resource when they are constructed, and automatically unlock it when they are destroyed. They are designed to simplify code that use <a href="../qtcore/qmutex.html">QMutex</a> and <a href="../qtcore/qreadwritelock.html">QReadWriteLock</a>, thus reducing the chances that a resource becomes permanently locked by accident.</p>
+<p><a href="../qtcore/qmutexlocker.html">QMutexLocker</a>, <a href="../qtcore/qreadlocker.html">QReadLocker</a> 和 <a href="../qtcore/qwritelocker.html">QWriteLocker</a> are convenience classes that make it easier to use <a href="../qtcore/qmutex.html">QMutex</a> 和 <a href="../qtcore/qreadwritelock.html">QReadWriteLock</a>. They lock a resource when they are constructed, and automatically unlock it when they are destroyed. They are designed to simplify code that use <a href="../qtcore/qmutex.html">QMutex</a> 和 <a href="../qtcore/qreadwritelock.html">QReadWriteLock</a>, thus reducing the chances that a resource becomes permanently locked by accident.</p>
 <a name="high-level-event-queues"></a>
 <h2 id="high-level-event-queues">High-Level Event Queues</h2>
 <p>Qt's <a href="../qtcore/eventsandfilters.html">event system</a> is very useful for inter-thread communication. Every thread may have its own event loop. To call a slot (or any <a href="../qtcore/qobject.html#Q_INVOKABLE">invokable</a> method) in another thread, place that call in the target thread's event loop. This lets the target thread finish its current task before the slot starts running, while the original thread continues running in parallel.</p>
@@ -79,7 +79,7 @@
 <p>There is no risk of deadlocks when using the event system for thread synchronization, unlike using low-level primitives. However, the event system does not enforce mutual exclusion. If invokable methods access shared data, they must still be protected with low-level primitives.</p>
 <p>Having said that, Qt's event system, along with <a href="../qtcore/implicit-sharing.html">implicitly shared</a> data structures, offers an alternative to traditional thread locking. If signals and slots are used exclusively and no variables are shared between threads, a multithreaded program can do without low-level primitives altogether.</p>
 </div>
-<p><b>参见</b><a href="../qtcore/qthread.html#exec">QThread::exec</a>() and <a href="threads-qobject.html">Threads and QObjects</a>.</p>
+<p><b> 参见 </b><a href="../qtcore/qthread.html#exec">QThread::exec</a>() 和 <a href="threads-qobject.html">Threads and QObjects</a>.</p>
 <!-- @@@threads-synchronizing.html -->
 <p class="naviNextPrevious footerNavi">
 <a class="prevPage" href="threads-technologies.html">Multithreading Technologies in Qt</a>

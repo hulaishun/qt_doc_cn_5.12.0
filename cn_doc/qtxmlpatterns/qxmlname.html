@@ -55,7 +55,7 @@
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += xmlpatterns</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 4.4</td></tr></table></div><ul>
 <li><a href="qxmlname-members.html">所有成员清单，包括继承而来的成员</a></li>
 </ul>
-<p><b>Note:</b> All functions in this class are <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
+<p><b>注意：</b> 此类中的所有函数都是 <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
 <a name="public-functions"></a>
 <h2 id="public-functions">公共函数</h2>
 <div class="table"><table class="alignedsummary">
@@ -99,7 +99,7 @@
 <p>For the element named <i>book</i>, <a href="qxmlname.html#localName">localName</a>() returns <i>book</i>, <a href="qxmlname.html#namespaceUri">namespaceUri</a>() returns <i>http://example.com/MyDefault</i>, and <a href="qxmlname.html#prefix">prefix</a>() returns an empty string. For the element named <i>title</i>, <a href="qxmlname.html#localName">localName</a>() returns <i>title</i>, <a href="qxmlname.html#namespaceUri">namespaceUri</a>() returns <i>http://purl.org/dc/elements/1.1</i>, and <a href="qxmlname.html#prefix">prefix</a>() returns <i>dc</i>.</p>
 <p>To ensure that operations with <a href="qxmlname.html">QXmlName</a> are efficient, e.g&#x2e;, copying names and comparing them, each instance of <a href="qxmlname.html">QXmlName</a> is associated with a <a href="qxmlnamepool.html">name pool</a>, which must be specified at <a href="qxmlname.html">QXmlName</a> construction time. The three components of the <a href="qxmlname.html">QXmlName</a>, i.e&#x2e;, the namespace URI, the local name, and the prefix, are stored in the name pool mapped to identifiers so they can be shared. For this reason, the only way to create a valid instance of <a href="qxmlname.html">QXmlName</a> is to use the class constructor, where the <a href="qxmlnamepool.html">name pool</a>, local name, namespace URI, and prefix must all be specified.</p>
 <p>Note that <a href="qxmlname.html">QXmlName</a>'s default constructor constructs a null instance. It is typically used for allocating unused entries in collections of <a href="qxmlname.html">QXmlName</a>.</p>
-<p>A side effect of associating each instance of <a href="qxmlname.html">QXmlName</a> with a <a href="qxmlnamepool.html">name pool</a> is that each instance of <a href="qxmlname.html">QXmlName</a> is tied to the <a href="qxmlnamepool.html">QXmlNamePool</a> with which it was created. However, the <a href="qxmlname.html">QXmlName</a> class does not keep track of the name pool, so all the accessor functions, e.g&#x2e;, <a href="qxmlname.html#namespaceUri">namespaceUri</a>(), <a href="qxmlname.html#prefix">prefix</a>(), <a href="qxmlname.html#localName">localName</a>(), and <a href="qxmlname.html#toClarkName">toClarkName</a>() require that the correct name pool be passed to them. Failure to provide the correct name pool to these accessor functions results in undefined behavior.</p>
+<p>A side effect of associating each instance of <a href="qxmlname.html">QXmlName</a> with a <a href="qxmlnamepool.html">name pool</a> is that each instance of <a href="qxmlname.html">QXmlName</a> is tied to the <a href="qxmlnamepool.html">QXmlNamePool</a> with which it was created. However, the <a href="qxmlname.html">QXmlName</a> class does not keep track of the name pool, so all the accessor functions, e.g&#x2e;, <a href="qxmlname.html#namespaceUri">namespaceUri</a>(), <a href="qxmlname.html#prefix">prefix</a>(), <a href="qxmlname.html#localName">localName</a>(), 和 <a href="qxmlname.html#toClarkName">toClarkName</a>() require that the correct name pool be passed to them. Failure to provide the correct name pool to these accessor functions results in undefined behavior.</p>
 <p>Note that a <a href="qxmlnamepool.html">name pool</a> is <i>not</i> an XML namespace. One <a href="qxmlnamepool.html">name pool</a> can represent instances of <a href="qxmlname.html">QXmlName</a> from different XML namespaces, and the instances of <a href="qxmlname.html">QXmlName</a> from one XML namespace can be distributed over multiple <a href="qxmlnamepool.html">name pools</a>.</p>
 <a name="comparing-qxmlnames"></a><a name="comparing-qxmlnames"></a>
 <h3 >Comparing QXmlNames</h3>
@@ -118,7 +118,7 @@
 <p>A local name can never be an empty string, although the prefix and namespace URI can. If the prefix is not empty, the namespace URI cannot be empty. Local names and prefixes must be valid <a href="http://www.w3.org/TR/REC-xml-names/#NT-NCName">NCNames</a>, e.g&#x2e;, <i>abc.def</i> or <i>abc123</i>.</p>
 <p><a href="qxmlname.html">QXmlName</a> represents what is sometimes called an <i>expanded QName</i>, or simply a QName.</p>
 </div>
-<p><b>参见</b><a href="http://www.w3.org/TR/REC-xml-names/#NT-NCName">Namespaces in XML 1.0 (Second Edition), [4] NCName</a>.</p>
+<p><b> 参见 </b><a href="http://www.w3.org/TR/REC-xml-names/#NT-NCName">Namespaces in XML 1.0 (Second Edition), [4] NCName</a>.</p>
 <!-- @@@QXmlName -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -131,11 +131,11 @@
 <!-- $$$QXmlName[overload1]$$$QXmlName -->
 <h3 class="fn" id="QXmlName"><a name="QXmlName"></a>QXmlName::<span class="name">QXmlName</span>()</h3>
 <p>Constructs an uninitialized <a href="qxmlname.html">QXmlName</a>. To build a valid <a href="qxmlname.html">QXmlName</a>, you normally use the other constructor, which takes a <a href="qxmlnamepool.html">name pool</a>, namespace URI, local name, and prefix as parameters. But you can also use this constructor to build a null <a href="qxmlname.html">QXmlName</a> and then assign an existing <a href="qxmlname.html">QXmlName</a> to it.</p>
-<p><b>参见</b><a href="qxmlname.html#isNull">isNull</a>().</p>
+<p><b> 参见 </b><a href="qxmlname.html#isNull">isNull</a>().</p>
 <!-- @@@QXmlName -->
 <!-- $$$QXmlName$$$QXmlNameQXmlNamePool&constQString&constQString&constQString& -->
 <h3 class="fn" id="QXmlName-1"><a name="QXmlName-1"></a>QXmlName::<span class="name">QXmlName</span>(<span class="type"><a href="qxmlnamepool.html">QXmlNamePool</a></span> &amp;<i>namePool</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>localName</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>namespaceURI</i> = QString(), const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>prefix</i> = QString())</h3>
-<p>Constructs a <a href="qxmlname.html">QXmlName</a> instance that inserts <i>localName</i>, <i>namespaceURI</i> and <i>prefix</i> into <i>namePool</i> if they aren't already there. The accessor functions <a href="qxmlname.html#namespaceUri">namespaceUri</a>(), <a href="qxmlname.html#prefix">prefix</a>(), <a href="qxmlname.html#localName">localName</a>(), and <a href="qxmlname.html#toClarkName">toClarkName</a>() must be passed the <i>namePool</i> used here, so the <i>namePool</i> must remain in scope while the accessor functions might be used. However, two instances can be compared with <i>==</i> or <i>!=</i> and copied without the <i>namePool</i>.</p>
+<p>Constructs a <a href="qxmlname.html">QXmlName</a> instance that inserts <i>localName</i>, <i>namespaceURI</i> and <i>prefix</i> into <i>namePool</i> if they aren't already there. The accessor functions <a href="qxmlname.html#namespaceUri">namespaceUri</a>(), <a href="qxmlname.html#prefix">prefix</a>(), <a href="qxmlname.html#localName">localName</a>(), 和 <a href="qxmlname.html#toClarkName">toClarkName</a>() must be passed the <i>namePool</i> used here, so the <i>namePool</i> must remain in scope while the accessor functions might be used. However, two instances can be compared with <i>==</i> or <i>!=</i> and copied without the <i>namePool</i>.</p>
 <p>The user guarantees that the string components are valid for a QName. In particular, the local name, and the prefix (if present), must be valid <a href="http://www.w3.org/TR/REC-xml-names/#NT-NCName">NCNames</a>. The function <a href="qxmlname.html#isNCName">isNCName</a>() can be used to test validity of these names. The namespace URI should be an absolute URI. <a href="../qtcore/qurl.html#isRelative">QUrl::isRelative</a>() can be used to test whether the namespace URI is relative or absolute. Finally, providing a prefix is not valid when no namespace URI is provided.</p>
 <p><i>namePool</i> is not copied. Nor is the reference to it retained in this instance. This constructor inserts the three strings into <i>namePool</i>.</p>
 <!-- @@@QXmlName -->
@@ -143,7 +143,7 @@
 <h3 class="fn" id="QXmlName-2"><a name="QXmlName-2"></a>QXmlName::<span class="name">QXmlName</span>(const <span class="type"><a href="qxmlname.html#QXmlName">QXmlName</a></span> &amp;<i>other</i>)</h3>
 <p>Constructs a copy of <i>other</i>.</p>
 <p>这个函数是在Qt 5.9版本中新增引入的。</p>
-<p><b>参见</b><a href="qxmlname.html#operator-eq">operator=</a>().</p>
+<p><b> 参见 </b><a href="qxmlname.html#operator-eq">operator=</a>().</p>
 <!-- @@@QXmlName -->
 <!-- $$$fromClarkName[overload1]$$$fromClarkNameconstQString&constQXmlNamePool& -->
 <h3 class="fn" id="fromClarkName"><a name="fromClarkName"></a><code>[static] </code><span class="type"><a href="qxmlname.html#QXmlName">QXmlName</a></span> QXmlName::<span class="name">fromClarkName</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>clarkName</i>, const <span class="type"><a href="qxmlnamepool.html">QXmlNamePool</a></span> &amp;<i>namePool</i>)</h3>
@@ -158,12 +158,12 @@
 <p>If the namespace contains braces, the returned value is either invalid or has undefined content.</p>
 <p>If <i>clarkName</i> is an invalid name, a default constructed <a href="qxmlname.html">QXmlName</a> is returned.</p>
 <p>这个函数是在Qt 4.5版本中新增引入的。</p>
-<p><b>参见</b><a href="qxmlname.html#toClarkName">toClarkName</a>().</p>
+<p><b> 参见 </b><a href="qxmlname.html#toClarkName">toClarkName</a>().</p>
 <!-- @@@fromClarkName -->
 <!-- $$$isNCName[overload1]$$$isNCNameconstQString& -->
 <h3 class="fn" id="isNCName"><a name="isNCName"></a><code>[static] </code><span class="type">bool</span> QXmlName::<span class="name">isNCName</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>candidate</i>)</h3>
 <p>Returns true if <i>candidate</i> is an <code>NCName</code>. An <code>NCName</code> is a string that can be used as a name in XML and <a href="xmlprocessing.html">XQuery</a>, e.g&#x2e;, the prefix or local name in an element or attribute, or the name of a variable.</p>
-<p><b>参见</b><a href="http://www.w3.org/TR/REC-xml-names/#NT-NCName">Namespaces in XML 1.0 (Second Edition), [4] NCName</a>.</p>
+<p><b> 参见 </b><a href="http://www.w3.org/TR/REC-xml-names/#NT-NCName">Namespaces in XML 1.0 (Second Edition), [4] NCName</a>.</p>
 <!-- @@@isNCName -->
 <!-- $$$isNull[overload1]$$$isNull -->
 <h3 class="fn" id="isNull"><a name="isNull"></a><span class="type">bool</span> QXmlName::<span class="name">isNull</span>() const</h3>
@@ -201,13 +201,13 @@
 </pre>
 <p>Note that for efficiency, the namespace URI, local name, and prefix strings are not stored in the <a href="qxmlname.html">QXmlName</a> but in the <a href="qxmlnamepool.html">QXmlNamePool</a> that was passed to the constructor. Hence, that same <i>namePool</i> must be passed to this function, so it can be used for looking up the three string components.</p>
 <p>This function can be useful for debugging.</p>
-<p><b>参见</b><a href="http://www.jclark.com/xml/xmlns.htm">XML Namespaces, James Clark</a> and <a href="qxmlname.html#fromClarkName">fromClarkName</a>().</p>
+<p><b> 参见 </b><a href="http://www.jclark.com/xml/xmlns.htm">XML Namespaces, James Clark</a> 和 <a href="qxmlname.html#fromClarkName">fromClarkName</a>().</p>
 <!-- @@@toClarkName -->
 <!-- $$$operator!=[overload1]$$$operator!=constQXmlName& -->
 <h3 class="fn" id="operator-not-eq"><a name="operator-not-eq"></a><span class="type">bool</span> QXmlName::<span class="name">operator!=</span>(const <span class="type"><a href="qxmlname.html#QXmlName">QXmlName</a></span> &amp;<i>other</i>) const</h3>
 <p>Returns true if this <a href="qxmlname.html">QXmlName</a> is <i>not</i> equal to <i>other</i>; otherwise false. Two QXmlNames are equal if their namespace URIs are the same <i>and</i> their local names are the same. They are not equal if either their namespace URIs differ or their local names differ. Their prefixes are ignored.</p>
 <p>Note that it is meaningless to compare two instances of <a href="qxmlname.html">QXmlName</a> that were created with different <a href="qxmlnamepool.html">name pools</a>, but the attempt is not detected and the behavior is undefined.</p>
-<p><b>参见</b><a href="qxmlname.html#operator-eq-eq">operator==</a>().</p>
+<p><b> 参见 </b><a href="qxmlname.html#operator-eq-eq">operator==</a>().</p>
 <!-- @@@operator!= -->
 <!-- $$$operator=[overload1]$$$operator=constQXmlName& -->
 <h3 class="fn" id="operator-eq"><a name="operator-eq"></a><span class="type"><a href="qxmlname.html#QXmlName">QXmlName</a></span> &amp;QXmlName::<span class="name">operator=</span>(const <span class="type"><a href="qxmlname.html#QXmlName">QXmlName</a></span> &amp;<i>other</i>)</h3>
@@ -217,7 +217,7 @@
 <h3 class="fn" id="operator-eq-eq"><a name="operator-eq-eq"></a><span class="type">bool</span> QXmlName::<span class="name">operator==</span>(const <span class="type"><a href="qxmlname.html#QXmlName">QXmlName</a></span> &amp;<i>other</i>) const</h3>
 <p>Returns true if this <a href="qxmlname.html">QXmlName</a> is equal to <i>other</i>; otherwise false. Two QXmlNames are equal if their namespace URIs are the same <i>and</i> their local names are the same. The prefixes are ignored.</p>
 <p>Note that it is meaningless to compare two instances of <a href="qxmlname.html">QXmlName</a> that were created with different <a href="qxmlnamepool.html">name pools</a>, but the attempt is not detected and the behavior is undefined.</p>
-<p><b>参见</b><a href="qxmlname.html#operator-not-eq">operator!=</a>().</p>
+<p><b> 参见 </b><a href="qxmlname.html#operator-not-eq">operator!=</a>().</p>
 <!-- @@@operator== -->
 </div>
 <div class="vars">

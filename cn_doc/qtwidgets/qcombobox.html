@@ -249,14 +249,14 @@
 <p>The <a href="qcombobox.html">QComboBox</a> widget is a combined button and popup list.</p>
 <p class="centerAlign"><img src="images/windows-combobox.png" alt="" /></p><p>A <a href="qcombobox.html">QComboBox</a> provides a means of presenting a list of options to the user in a way that takes up the minimum amount of screen space.</p>
 <p>A combobox is a selection widget that displays the current item, and can pop up a list of selectable items. A combobox may be editable, allowing the user to modify each item in the list.</p>
-<p>Comboboxes can contain pixmaps as well as strings; the <a href="qcombobox.html#insertItem">insertItem</a>() and <a href="qcombobox.html#setItemText">setItemText</a>() functions are suitably overloaded. For editable comboboxes, the function <a href="qcombobox.html#clearEditText">clearEditText</a>() is provided, to clear the displayed string without changing the combobox's contents.</p>
-<p>There are two signals emitted if the current item of a combobox changes, <a href="qcombobox.html#currentIndexChanged">currentIndexChanged</a>() and <a href="qcombobox.html#activated">activated</a>(). <a href="qcombobox.html#currentIndexChanged">currentIndexChanged</a>() is always emitted regardless if the change was done programmatically or by user interaction, while <a href="qcombobox.html#activated">activated</a>() is only emitted when the change is caused by user interaction. The <a href="qcombobox.html#highlighted">highlighted</a>() signal is emitted when the user highlights an item in the combobox popup list. All three signals exist in two versions, one with a <a href="../qtcore/qstring.html">QString</a> argument and one with an <code>int</code> argument. If the user selects or highlights a pixmap, only the <code>int</code> signals are emitted. Whenever the text of an editable combobox is changed the <a href="qcombobox.html#editTextChanged">editTextChanged</a>() signal is emitted.</p>
+<p>Comboboxes can contain pixmaps as well as strings; the <a href="qcombobox.html#insertItem">insertItem</a>() 和 <a href="qcombobox.html#setItemText">setItemText</a>() functions are suitably overloaded. For editable comboboxes, the function <a href="qcombobox.html#clearEditText">clearEditText</a>() is provided, to clear the displayed string without changing the combobox's contents.</p>
+<p>There are two signals emitted if the current item of a combobox changes, <a href="qcombobox.html#currentIndexChanged">currentIndexChanged</a>() 和 <a href="qcombobox.html#activated">activated</a>(). <a href="qcombobox.html#currentIndexChanged">currentIndexChanged</a>() is always emitted regardless if the change was done programmatically or by user interaction, while <a href="qcombobox.html#activated">activated</a>() is only emitted when the change is caused by user interaction. The <a href="qcombobox.html#highlighted">highlighted</a>() signal is emitted when the user highlights an item in the combobox popup list. All three signals exist in two versions, one with a <a href="../qtcore/qstring.html">QString</a> argument and one with an <code>int</code> argument. If the user selects or highlights a pixmap, only the <code>int</code> signals are emitted. Whenever the text of an editable combobox is changed the <a href="qcombobox.html#editTextChanged">editTextChanged</a>() signal is emitted.</p>
 <p>When the user enters a new string in an editable combobox, the widget may or may not insert it, and it can insert it in several locations. The default policy is <a href="qcombobox.html#InsertPolicy-enum">InsertAtBottom</a> but you can change this using <a href="qcombobox.html#insertPolicy-prop">setInsertPolicy</a>().</p>
 <p>It is possible to constrain the input to an editable combobox using <a href="../qtgui/qvalidator.html">QValidator</a>; see <a href="qcombobox.html#setValidator">setValidator</a>(). By default, any input is accepted.</p>
-<p>A combobox can be populated using the insert functions, <a href="qcombobox.html#insertItem">insertItem</a>() and <a href="qcombobox.html#insertItems">insertItems</a>() for example. Items can be changed with <a href="qcombobox.html#setItemText">setItemText</a>(). An item can be removed with <a href="qcombobox.html#removeItem">removeItem</a>() and all items can be removed with <a href="qcombobox.html#clear">clear</a>(). The text of the current item is returned by <a href="qcombobox.html#currentText-prop">currentText</a>(), and the text of a numbered item is returned with text(). The current item can be set with <a href="qcombobox.html#currentIndex-prop">setCurrentIndex</a>(). The number of items in the combobox is returned by <a href="qcombobox.html#count-prop">count</a>(); the maximum number of items can be set with <a href="qcombobox.html#maxCount-prop">setMaxCount</a>(). You can allow editing using <a href="qcombobox.html#editable-prop">setEditable</a>(). For editable comboboxes you can set auto-completion using <a href="qcombobox.html#setCompleter">setCompleter</a>() and whether or not the user can add duplicates is set with <a href="qcombobox.html#duplicatesEnabled-prop">setDuplicatesEnabled</a>().</p>
-<p><a href="qcombobox.html">QComboBox</a> uses the <a href="model-view-programming.html">model/view framework</a> for its popup list and to store its items. By default a <a href="../qtgui/qstandarditemmodel.html">QStandardItemModel</a> stores the items and a <a href="qlistview.html">QListView</a> subclass displays the popuplist. You can access the model and view directly (with <a href="qcombobox.html#model">model</a>() and <a href="qcombobox.html#view">view</a>()), but <a href="qcombobox.html">QComboBox</a> also provides functions to set and get item data (e.g&#x2e;, <a href="qcombobox.html#setItemData">setItemData</a>() and <a href="qcombobox.html#itemText">itemText</a>()). You can also set a new model and view (with <a href="qcombobox.html#setModel">setModel</a>() and <a href="qcombobox.html#setView">setView</a>()). For the text and icon in the combobox label, the data in the model that has the <a href="../qtcore/qt.html#ItemDataRole-enum">Qt::DisplayRole</a> and <a href="../qtcore/qt.html#ItemDataRole-enum">Qt::DecorationRole</a> is used. Note that you cannot alter the <a href="qabstractitemview.html#SelectionMode-enum">SelectionMode</a> of the <a href="qcombobox.html#view">view</a>(), e.g&#x2e;, by using <a href="qabstractitemview.html#selectionMode-prop">setSelectionMode()</a>.</p>
+<p>A combobox can be populated using the insert functions, <a href="qcombobox.html#insertItem">insertItem</a>() 和 <a href="qcombobox.html#insertItems">insertItems</a>() for example. Items can be changed with <a href="qcombobox.html#setItemText">setItemText</a>(). An item can be removed with <a href="qcombobox.html#removeItem">removeItem</a>() and all items can be removed with <a href="qcombobox.html#clear">clear</a>(). The text of the current item is returned by <a href="qcombobox.html#currentText-prop">currentText</a>(), and the text of a numbered item is returned with text(). The current item can be set with <a href="qcombobox.html#currentIndex-prop">setCurrentIndex</a>(). The number of items in the combobox is returned by <a href="qcombobox.html#count-prop">count</a>(); the maximum number of items can be set with <a href="qcombobox.html#maxCount-prop">setMaxCount</a>(). You can allow editing using <a href="qcombobox.html#editable-prop">setEditable</a>(). For editable comboboxes you can set auto-completion using <a href="qcombobox.html#setCompleter">setCompleter</a>() and whether or not the user can add duplicates is set with <a href="qcombobox.html#duplicatesEnabled-prop">setDuplicatesEnabled</a>().</p>
+<p><a href="qcombobox.html">QComboBox</a> uses the <a href="model-view-programming.html">model/view framework</a> for its popup list and to store its items. By default a <a href="../qtgui/qstandarditemmodel.html">QStandardItemModel</a> stores the items and a <a href="qlistview.html">QListView</a> subclass displays the popuplist. You can access the model and view directly (with <a href="qcombobox.html#model">model</a>() 和 <a href="qcombobox.html#view">view</a>()), but <a href="qcombobox.html">QComboBox</a> also provides functions to set and get item data (e.g&#x2e;, <a href="qcombobox.html#setItemData">setItemData</a>() 和 <a href="qcombobox.html#itemText">itemText</a>()). You can also set a new model and view (with <a href="qcombobox.html#setModel">setModel</a>() 和 <a href="qcombobox.html#setView">setView</a>()). For the text and icon in the combobox label, the data in the model that has the <a href="../qtcore/qt.html#ItemDataRole-enum">Qt::DisplayRole</a> 和 <a href="../qtcore/qt.html#ItemDataRole-enum">Qt::DecorationRole</a> is used. Note that you cannot alter the <a href="qabstractitemview.html#SelectionMode-enum">SelectionMode</a> of the <a href="qcombobox.html#view">view</a>(), e.g&#x2e;, by using <a href="qabstractitemview.html#selectionMode-prop">setSelectionMode()</a>.</p>
 </div>
-<p><b>参见</b><a href="qlineedit.html">QLineEdit</a>, <a href="qspinbox.html">QSpinBox</a>, <a href="qradiobutton.html">QRadioButton</a>, <a href="qbuttongroup.html">QButtonGroup</a>, and <a href="guibooks.html#fowler">GUI Design Handbook: Combo Box, Drop-Down List Box</a>.</p>
+<p><b> 参见 </b><a href="qlineedit.html">QLineEdit</a>, <a href="qspinbox.html">QSpinBox</a>, <a href="qradiobutton.html">QRadioButton</a>, <a href="qbuttongroup.html">QButtonGroup</a>, and <a href="guibooks.html#fowler">GUI Design Handbook: Combo Box, Drop-Down List Box</a>.</p>
 <!-- @@@QComboBox -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -335,7 +335,7 @@
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qcombobox.html#currentTextChanged">currentTextChanged</a></b></span>(const QString &amp;<i>text</i>)</td></tr>
 </table></div>
-<p><b>参见</b><a href="qcombobox.html#editable-prop">editable</a> and <a href="qcombobox.html#setEditText">setEditText</a>().</p>
+<p><b> 参见 </b><a href="qcombobox.html#editable-prop">editable</a> 和 <a href="qcombobox.html#setEditText">setEditText</a>().</p>
 <!-- @@@currentText -->
 <!-- $$$duplicatesEnabled-prop$$$duplicatesEnabled$$$setDuplicatesEnabledbool -->
 <h3 class="fn" id="duplicatesEnabled-prop"><a name="duplicatesEnabled-prop"></a><span class="name">duplicatesEnabled</span> : <span class="type">bool</span></h3>
@@ -357,7 +357,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>isEditable</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setEditable</b></span>(bool <i>editable</i>)</td></tr>
 </table></div>
-<p><b>参见</b><a href="qcombobox.html#InsertPolicy-enum">InsertPolicy</a>.</p>
+<p><b> 参见 </b><a href="qcombobox.html#InsertPolicy-enum">InsertPolicy</a>.</p>
 <!-- @@@editable -->
 <!-- $$$frame-prop$$$hasFrame$$$setFramebool -->
 <h3 class="fn" id="frame-prop"><a name="frame-prop"></a><span class="name">frame</span> : <span class="type">bool</span></h3>
@@ -388,7 +388,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> QComboBox::InsertPolicy </td><td class="memItemRight bottomAlign"><span class="name"><b>insertPolicy</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setInsertPolicy</b></span>(QComboBox::InsertPolicy <i>policy</i>)</td></tr>
 </table></div>
-<p><b>参见</b><a href="qcombobox.html#InsertPolicy-enum">InsertPolicy</a>.</p>
+<p><b> 参见 </b><a href="qcombobox.html#InsertPolicy-enum">InsertPolicy</a>.</p>
 <!-- @@@insertPolicy -->
 <!-- $$$maxCount-prop$$$maxCount$$$setMaxCountint -->
 <h3 class="fn" id="maxCount-prop"><a name="maxCount-prop"></a><span class="name">maxCount</span> : <span class="type">int</span></h3>
@@ -414,13 +414,13 @@
 <h3 class="fn" id="minimumContentsLength-prop"><a name="minimumContentsLength-prop"></a><span class="name">minimumContentsLength</span> : <span class="type">int</span></h3>
 <p>This property holds the minimum number of characters that should fit into the combobox.</p>
 <p>The default value is 0.</p>
-<p>If this property is set to a positive value, the <a href="qcombobox.html#minimumSizeHint">minimumSizeHint</a>() and <a href="qcombobox.html#sizeHint">sizeHint</a>() take it into account.</p>
+<p>If this property is set to a positive value, the <a href="qcombobox.html#minimumSizeHint">minimumSizeHint</a>() 和 <a href="qcombobox.html#sizeHint">sizeHint</a>() take it into account.</p>
 <p><b>Access functions:</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>minimumContentsLength</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setMinimumContentsLength</b></span>(int <i>characters</i>)</td></tr>
 </table></div>
-<p><b>参见</b><a href="qcombobox.html#sizeAdjustPolicy-prop">sizeAdjustPolicy</a>.</p>
+<p><b> 参见 </b><a href="qcombobox.html#sizeAdjustPolicy-prop">sizeAdjustPolicy</a>.</p>
 <!-- @@@minimumContentsLength -->
 <!-- $$$modelColumn-prop$$$modelColumn$$$setModelColumnint -->
 <h3 class="fn" id="modelColumn-prop"><a name="modelColumn-prop"></a><span class="name">modelColumn</span> : <span class="type">int</span></h3>
@@ -442,7 +442,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> QComboBox::SizeAdjustPolicy </td><td class="memItemRight bottomAlign"><span class="name"><b>sizeAdjustPolicy</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setSizeAdjustPolicy</b></span>(QComboBox::SizeAdjustPolicy <i>policy</i>)</td></tr>
 </table></div>
-<p><b>参见</b><a href="qcombobox.html#SizeAdjustPolicy-enum">SizeAdjustPolicy</a>.</p>
+<p><b> 参见 </b><a href="qcombobox.html#SizeAdjustPolicy-enum">SizeAdjustPolicy</a>.</p>
 <!-- @@@sizeAdjustPolicy -->
 </div>
 <div class="func">
@@ -504,7 +504,7 @@
 <h3 class="fn" id="completer"><a name="completer"></a><span class="type"><a href="qcompleter.html">QCompleter</a></span> *QComboBox::<span class="name">completer</span>() const</h3>
 <p>Returns the completer that is used to auto complete text input for the combobox.</p>
 <p>这个函数是在Qt 4.2版本中新增引入的。</p>
-<p><b>参见</b><a href="qcombobox.html#setCompleter">setCompleter</a>() and <a href="qcombobox.html#editable-prop">editable</a>.</p>
+<p><b> 参见 </b><a href="qcombobox.html#setCompleter">setCompleter</a>() 和 <a href="qcombobox.html#editable-prop">editable</a>.</p>
 <!-- @@@completer -->
 <!-- $$$contextMenuEvent[overload1]$$$contextMenuEventQContextMenuEvent* -->
 <h3 class="fn" id="contextMenuEvent"><a name="contextMenuEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QComboBox::<span class="name">contextMenuEvent</span>(<span class="type"><a href="../qtgui/qcontextmenuevent.html">QContextMenuEvent</a></span> *<i>e</i>)</h3>
@@ -570,7 +570,7 @@
 <!-- $$$hidePopup[overload1]$$$hidePopup -->
 <h3 class="fn" id="hidePopup"><a name="hidePopup"></a><code>[virtual] </code><span class="type">void</span> QComboBox::<span class="name">hidePopup</span>()</h3>
 <p>Hides the list of items in the combobox if it is currently visible and resets the internal state, so that if the custom pop-up was shown inside the reimplemented <a href="qcombobox.html#showPopup">showPopup</a>(), then you also need to reimplement the hidePopup() function to hide your custom pop-up and call the base class implementation to reset the internal state whenever your custom pop-up widget is hidden.</p>
-<p><b>参见</b><a href="qcombobox.html#showPopup">showPopup</a>().</p>
+<p><b> 参见 </b><a href="qcombobox.html#showPopup">showPopup</a>().</p>
 <!-- @@@hidePopup -->
 <!-- $$$highlighted[overload1]$$$highlightedint -->
 <h3 class="fn" id="highlighted"><a name="highlighted"></a><code>[signal] </code><span class="type">void</span> QComboBox::<span class="name">highlighted</span>(<span class="type">int</span> <i>index</i>)</h3>
@@ -595,7 +595,7 @@
 <!-- $$$initStyleOption[overload1]$$$initStyleOptionQStyleOptionComboBox* -->
 <h3 class="fn" id="initStyleOption"><a name="initStyleOption"></a><code>[protected] </code><span class="type">void</span> QComboBox::<span class="name">initStyleOption</span>(<span class="type"><a href="qstyleoptioncombobox.html">QStyleOptionComboBox</a></span> *<i>option</i>) const</h3>
 <p>Initialize <i>option</i> with the values from this <a href="qcombobox.html">QComboBox</a>. This method is useful for subclasses when they need a <a href="qstyleoptioncombobox.html">QStyleOptionComboBox</a>, but don't want to fill in all the information themselves.</p>
-<p><b>参见</b><a href="qstyleoption.html#initFrom">QStyleOption::initFrom</a>().</p>
+<p><b> 参见 </b><a href="qstyleoption.html#initFrom">QStyleOption::initFrom</a>().</p>
 <!-- @@@initStyleOption -->
 <!-- $$$inputMethodEvent[overload1]$$$inputMethodEventQInputMethodEvent* -->
 <h3 class="fn" id="inputMethodEvent"><a name="inputMethodEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QComboBox::<span class="name">inputMethodEvent</span>(<span class="type"><a href="../qtgui/qinputmethodevent.html">QInputMethodEvent</a></span> *<i>e</i>)</h3>
@@ -609,46 +609,46 @@
 <h3 class="fn" id="insertItem"><a name="insertItem"></a><span class="type">void</span> QComboBox::<span class="name">insertItem</span>(<span class="type">int</span> <i>index</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>text</i>, const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>userData</i> = QVariant())</h3>
 <p>Inserts the <i>text</i> and <i>userData</i> (stored in the <a href="../qtcore/qt.html#ItemDataRole-enum">Qt::UserRole</a>) into the combobox at the given <i>index</i>.</p>
 <p>If the index is equal to or higher than the total number of items, the new item is appended to the list of existing items. If the index is zero or negative, the new item is prepended to the list of existing items.</p>
-<p><b>参见</b><a href="qcombobox.html#insertItems">insertItems</a>().</p>
+<p><b> 参见 </b><a href="qcombobox.html#insertItems">insertItems</a>().</p>
 <!-- @@@insertItem -->
 <!-- $$$insertItem$$$insertItemintconstQIcon&constQString&constQVariant& -->
 <h3 class="fn" id="insertItem-1"><a name="insertItem-1"></a><span class="type">void</span> QComboBox::<span class="name">insertItem</span>(<span class="type">int</span> <i>index</i>, const <span class="type"><a href="../qtgui/qicon.html">QIcon</a></span> &amp;<i>icon</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>text</i>, const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>userData</i> = QVariant())</h3>
 <p>Inserts the <i>icon</i>, <i>text</i> and <i>userData</i> (stored in the <a href="../qtcore/qt.html#ItemDataRole-enum">Qt::UserRole</a>) into the combobox at the given <i>index</i>.</p>
 <p>If the index is equal to or higher than the total number of items, the new item is appended to the list of existing items. If the index is zero or negative, the new item is prepended to the list of existing items.</p>
-<p><b>参见</b><a href="qcombobox.html#insertItems">insertItems</a>().</p>
+<p><b> 参见 </b><a href="qcombobox.html#insertItems">insertItems</a>().</p>
 <!-- @@@insertItem -->
 <!-- $$$insertItems[overload1]$$$insertItemsintconstQStringList& -->
 <h3 class="fn" id="insertItems"><a name="insertItems"></a><span class="type">void</span> QComboBox::<span class="name">insertItems</span>(<span class="type">int</span> <i>index</i>, const <span class="type"><a href="../qtcore/qstringlist.html">QStringList</a></span> &amp;<i>list</i>)</h3>
 <p>Inserts the strings from the <i>list</i> into the combobox as separate items, starting at the <i>index</i> specified.</p>
 <p>If the index is equal to or higher than the total number of items, the new items are appended to the list of existing items. If the index is zero or negative, the new items are prepended to the list of existing items.</p>
-<p><b>参见</b><a href="qcombobox.html#insertItem">insertItem</a>().</p>
+<p><b> 参见 </b><a href="qcombobox.html#insertItem">insertItem</a>().</p>
 <!-- @@@insertItems -->
 <!-- $$$insertSeparator[overload1]$$$insertSeparatorint -->
 <h3 class="fn" id="insertSeparator"><a name="insertSeparator"></a><span class="type">void</span> QComboBox::<span class="name">insertSeparator</span>(<span class="type">int</span> <i>index</i>)</h3>
 <p>Inserts a separator item into the combobox at the given <i>index</i>.</p>
 <p>If the index is equal to or higher than the total number of items, the new item is appended to the list of existing items. If the index is zero or negative, the new item is prepended to the list of existing items.</p>
 <p>这个函数是在Qt 4.4版本中新增引入的。</p>
-<p><b>参见</b><a href="qcombobox.html#insertItem">insertItem</a>().</p>
+<p><b> 参见 </b><a href="qcombobox.html#insertItem">insertItem</a>().</p>
 <!-- @@@insertSeparator -->
 <!-- $$$itemData[overload1]$$$itemDataintint -->
 <h3 class="fn" id="itemData"><a name="itemData"></a><span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> QComboBox::<span class="name">itemData</span>(<span class="type">int</span> <i>index</i>, <span class="type">int</span> <i>role</i> = Qt::UserRole) const</h3>
 <p>Returns the data for the given <i>role</i> in the given <i>index</i> in the combobox, or QVariant::Invalid if there is no data for this role.</p>
-<p><b>参见</b><a href="qcombobox.html#setItemData">setItemData</a>().</p>
+<p><b> 参见 </b><a href="qcombobox.html#setItemData">setItemData</a>().</p>
 <!-- @@@itemData -->
 <!-- $$$itemDelegate[overload1]$$$itemDelegate -->
 <h3 class="fn" id="itemDelegate"><a name="itemDelegate"></a><span class="type"><a href="qabstractitemdelegate.html">QAbstractItemDelegate</a></span> *QComboBox::<span class="name">itemDelegate</span>() const</h3>
 <p>Returns the item delegate used by the popup list view.</p>
-<p><b>参见</b><a href="qcombobox.html#setItemDelegate">setItemDelegate</a>().</p>
+<p><b> 参见 </b><a href="qcombobox.html#setItemDelegate">setItemDelegate</a>().</p>
 <!-- @@@itemDelegate -->
 <!-- $$$itemIcon[overload1]$$$itemIconint -->
 <h3 class="fn" id="itemIcon"><a name="itemIcon"></a><span class="type"><a href="../qtgui/qicon.html">QIcon</a></span> QComboBox::<span class="name">itemIcon</span>(<span class="type">int</span> <i>index</i>) const</h3>
 <p>Returns the icon for the given <i>index</i> in the combobox.</p>
-<p><b>参见</b><a href="qcombobox.html#setItemIcon">setItemIcon</a>().</p>
+<p><b> 参见 </b><a href="qcombobox.html#setItemIcon">setItemIcon</a>().</p>
 <!-- @@@itemIcon -->
 <!-- $$$itemText[overload1]$$$itemTextint -->
 <h3 class="fn" id="itemText"><a name="itemText"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QComboBox::<span class="name">itemText</span>(<span class="type">int</span> <i>index</i>) const</h3>
 <p>Returns the text for the given <i>index</i> in the combobox.</p>
-<p><b>参见</b><a href="qcombobox.html#setItemText">setItemText</a>().</p>
+<p><b> 参见 </b><a href="qcombobox.html#setItemText">setItemText</a>().</p>
 <!-- @@@itemText -->
 <!-- $$$keyPressEvent[overload1]$$$keyPressEventQKeyEvent* -->
 <h3 class="fn" id="keyPressEvent"><a name="keyPressEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QComboBox::<span class="name">keyPressEvent</span>(<span class="type"><a href="../qtgui/qkeyevent.html">QKeyEvent</a></span> *<i>e</i>)</h3>
@@ -662,7 +662,7 @@
 <h3 class="fn" id="lineEdit"><a name="lineEdit"></a><span class="type"><a href="qlineedit.html">QLineEdit</a></span> *QComboBox::<span class="name">lineEdit</span>() const</h3>
 <p>Returns the line edit used to edit items in the combobox, or 0 if there is no line edit.</p>
 <p>Only editable combo boxes have a line edit.</p>
-<p><b>参见</b><a href="qcombobox.html#setLineEdit">setLineEdit</a>().</p>
+<p><b> 参见 </b><a href="qcombobox.html#setLineEdit">setLineEdit</a>().</p>
 <!-- @@@lineEdit -->
 <!-- $$$minimumSizeHint[overload1]$$$minimumSizeHint -->
 <h3 class="fn" id="minimumSizeHint"><a name="minimumSizeHint"></a><code>[override virtual] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QComboBox::<span class="name">minimumSizeHint</span>() const</h3>
@@ -671,7 +671,7 @@
 <!-- $$$model[overload1]$$$model -->
 <h3 class="fn" id="model"><a name="model"></a><span class="type"><a href="../qtcore/qabstractitemmodel.html">QAbstractItemModel</a></span> *QComboBox::<span class="name">model</span>() const</h3>
 <p>Returns the model used by the combobox.</p>
-<p><b>参见</b><a href="qcombobox.html#setModel">setModel</a>().</p>
+<p><b> 参见 </b><a href="qcombobox.html#setModel">setModel</a>().</p>
 <!-- @@@model -->
 <!-- $$$mousePressEvent[overload1]$$$mousePressEventQMouseEvent* -->
 <h3 class="fn" id="mousePressEvent"><a name="mousePressEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QComboBox::<span class="name">mousePressEvent</span>(<span class="type"><a href="../qtgui/qmouseevent.html">QMouseEvent</a></span> *<i>e</i>)</h3>
@@ -697,14 +697,14 @@
 <!-- $$$rootModelIndex[overload1]$$$rootModelIndex -->
 <h3 class="fn" id="rootModelIndex"><a name="rootModelIndex"></a><span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> QComboBox::<span class="name">rootModelIndex</span>() const</h3>
 <p>Returns the root model item index for the items in the combobox.</p>
-<p><b>参见</b><a href="qcombobox.html#setRootModelIndex">setRootModelIndex</a>().</p>
+<p><b> 参见 </b><a href="qcombobox.html#setRootModelIndex">setRootModelIndex</a>().</p>
 <!-- @@@rootModelIndex -->
 <!-- $$$setCompleter[overload1]$$$setCompleterQCompleter* -->
 <h3 class="fn" id="setCompleter"><a name="setCompleter"></a><span class="type">void</span> QComboBox::<span class="name">setCompleter</span>(<span class="type"><a href="qcompleter.html">QCompleter</a></span> *<i>completer</i>)</h3>
 <p>Sets the <i>completer</i> to use instead of the current completer. If <i>completer</i> is 0, auto completion is disabled.</p>
 <p>By default, for an editable combo box, a <a href="qcompleter.html">QCompleter</a> that performs case insensitive inline completion is automatically created.</p>
 <p><b>Note: </b>The completer is removed when the <a href="qcombobox.html#editable-prop">editable</a> property becomes <code>false</code>.</p><p>这个函数是在Qt 4.2版本中新增引入的。</p>
-<p><b>参见</b><a href="qcombobox.html#completer">completer</a>().</p>
+<p><b> 参见 </b><a href="qcombobox.html#completer">completer</a>().</p>
 <!-- @@@setCompleter -->
 <!-- $$$setEditText[overload1]$$$setEditTextconstQString& -->
 <h3 class="fn" id="setEditText"><a name="setEditText"></a><code>[slot] </code><span class="type">void</span> QComboBox::<span class="name">setEditText</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>text</i>)</h3>
@@ -713,50 +713,50 @@
 <!-- $$$setItemData[overload1]$$$setItemDataintconstQVariant&int -->
 <h3 class="fn" id="setItemData"><a name="setItemData"></a><span class="type">void</span> QComboBox::<span class="name">setItemData</span>(<span class="type">int</span> <i>index</i>, const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>value</i>, <span class="type">int</span> <i>role</i> = Qt::UserRole)</h3>
 <p>Sets the data <i>role</i> for the item on the given <i>index</i> in the combobox to the specified <i>value</i>.</p>
-<p><b>参见</b><a href="qcombobox.html#itemData">itemData</a>().</p>
+<p><b> 参见 </b><a href="qcombobox.html#itemData">itemData</a>().</p>
 <!-- @@@setItemData -->
 <!-- $$$setItemDelegate[overload1]$$$setItemDelegateQAbstractItemDelegate* -->
 <h3 class="fn" id="setItemDelegate"><a name="setItemDelegate"></a><span class="type">void</span> QComboBox::<span class="name">setItemDelegate</span>(<span class="type"><a href="qabstractitemdelegate.html">QAbstractItemDelegate</a></span> *<i>delegate</i>)</h3>
 <p>Sets the item <i>delegate</i> for the popup list view. The combobox takes ownership of the delegate.</p>
 <p><b>Warning:</b> You should not share the same instance of a delegate between comboboxes, widget mappers or views. Doing so can cause incorrect or unintuitive editing behavior since each view connected to a given delegate may receive the <a href="qabstractitemdelegate.html#closeEditor">closeEditor()</a> signal, and attempt to access, modify or close an editor that has already been closed.</p>
-<p><b>参见</b><a href="qcombobox.html#itemDelegate">itemDelegate</a>().</p>
+<p><b> 参见 </b><a href="qcombobox.html#itemDelegate">itemDelegate</a>().</p>
 <!-- @@@setItemDelegate -->
 <!-- $$$setItemIcon[overload1]$$$setItemIconintconstQIcon& -->
 <h3 class="fn" id="setItemIcon"><a name="setItemIcon"></a><span class="type">void</span> QComboBox::<span class="name">setItemIcon</span>(<span class="type">int</span> <i>index</i>, const <span class="type"><a href="../qtgui/qicon.html">QIcon</a></span> &amp;<i>icon</i>)</h3>
 <p>Sets the <i>icon</i> for the item on the given <i>index</i> in the combobox.</p>
-<p><b>参见</b><a href="qcombobox.html#itemIcon">itemIcon</a>().</p>
+<p><b> 参见 </b><a href="qcombobox.html#itemIcon">itemIcon</a>().</p>
 <!-- @@@setItemIcon -->
 <!-- $$$setItemText[overload1]$$$setItemTextintconstQString& -->
 <h3 class="fn" id="setItemText"><a name="setItemText"></a><span class="type">void</span> QComboBox::<span class="name">setItemText</span>(<span class="type">int</span> <i>index</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>text</i>)</h3>
 <p>Sets the <i>text</i> for the item on the given <i>index</i> in the combobox.</p>
-<p><b>参见</b><a href="qcombobox.html#itemText">itemText</a>().</p>
+<p><b> 参见 </b><a href="qcombobox.html#itemText">itemText</a>().</p>
 <!-- @@@setItemText -->
 <!-- $$$setLineEdit[overload1]$$$setLineEditQLineEdit* -->
 <h3 class="fn" id="setLineEdit"><a name="setLineEdit"></a><span class="type">void</span> QComboBox::<span class="name">setLineEdit</span>(<span class="type"><a href="qlineedit.html">QLineEdit</a></span> *<i>edit</i>)</h3>
 <p>Sets the line <i>edit</i> to use instead of the current line edit widget.</p>
 <p>The combo box takes ownership of the line edit.</p>
-<p><b>参见</b><a href="qcombobox.html#lineEdit">lineEdit</a>().</p>
+<p><b> 参见 </b><a href="qcombobox.html#lineEdit">lineEdit</a>().</p>
 <!-- @@@setLineEdit -->
 <!-- $$$setModel[overload1]$$$setModelQAbstractItemModel* -->
 <h3 class="fn" id="setModel"><a name="setModel"></a><span class="type">void</span> QComboBox::<span class="name">setModel</span>(<span class="type"><a href="../qtcore/qabstractitemmodel.html">QAbstractItemModel</a></span> *<i>model</i>)</h3>
 <p>Sets the model to be <i>model</i>. <i>model</i> must not be 0. If you want to clear the contents of a model, call <a href="qcombobox.html#clear">clear</a>().</p>
-<p><b>参见</b><a href="qcombobox.html#model">model</a>() and <a href="qcombobox.html#clear">clear</a>().</p>
+<p><b> 参见 </b><a href="qcombobox.html#model">model</a>() 和 <a href="qcombobox.html#clear">clear</a>().</p>
 <!-- @@@setModel -->
 <!-- $$$setRootModelIndex[overload1]$$$setRootModelIndexconstQModelIndex& -->
 <h3 class="fn" id="setRootModelIndex"><a name="setRootModelIndex"></a><span class="type">void</span> QComboBox::<span class="name">setRootModelIndex</span>(const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>)</h3>
 <p>Sets the root model item <i>index</i> for the items in the combobox.</p>
-<p><b>参见</b><a href="qcombobox.html#rootModelIndex">rootModelIndex</a>().</p>
+<p><b> 参见 </b><a href="qcombobox.html#rootModelIndex">rootModelIndex</a>().</p>
 <!-- @@@setRootModelIndex -->
 <!-- $$$setValidator[overload1]$$$setValidatorconstQValidator* -->
 <h3 class="fn" id="setValidator"><a name="setValidator"></a><span class="type">void</span> QComboBox::<span class="name">setValidator</span>(const <span class="type"><a href="../qtgui/qvalidator.html">QValidator</a></span> *<i>validator</i>)</h3>
 <p>Sets the <i>validator</i> to use instead of the current validator.</p>
-<p><b>Note: </b>The validator is removed when the <a href="qcombobox.html#editable-prop">editable</a> property becomes <code>false</code>.</p><p><b>参见</b><a href="qcombobox.html#validator">validator</a>().</p>
+<p><b>Note: </b>The validator is removed when the <a href="qcombobox.html#editable-prop">editable</a> property becomes <code>false</code>.</p><p><b> 参见 </b><a href="qcombobox.html#validator">validator</a>().</p>
 <!-- @@@setValidator -->
 <!-- $$$setView[overload1]$$$setViewQAbstractItemView* -->
 <h3 class="fn" id="setView"><a name="setView"></a><span class="type">void</span> QComboBox::<span class="name">setView</span>(<span class="type"><a href="qabstractitemview.html">QAbstractItemView</a></span> *<i>itemView</i>)</h3>
 <p>Sets the view to be used in the combobox popup to the given <i>itemView</i>. The combobox takes ownership of the view.</p>
 <p>Note: If you want to use the convenience views (like <a href="qlistwidget.html">QListWidget</a>, <a href="qtablewidget.html">QTableWidget</a> or <a href="qtreewidget.html">QTreeWidget</a>), make sure to call <a href="qcombobox.html#setModel">setModel</a>() on the combobox with the convenience widgets model before calling this function.</p>
-<p><b>参见</b><a href="qcombobox.html#view">view</a>().</p>
+<p><b> 参见 </b><a href="qcombobox.html#view">view</a>().</p>
 <!-- @@@setView -->
 <!-- $$$showEvent[overload1]$$$showEventQShowEvent* -->
 <h3 class="fn" id="showEvent"><a name="showEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QComboBox::<span class="name">showEvent</span>(<span class="type"><a href="../qtgui/qshowevent.html">QShowEvent</a></span> *<i>e</i>)</h3>
@@ -766,7 +766,7 @@
 <h3 class="fn" id="showPopup"><a name="showPopup"></a><code>[virtual] </code><span class="type">void</span> QComboBox::<span class="name">showPopup</span>()</h3>
 <p>Displays the list of items in the combobox. If the list is empty then the no items will be shown.</p>
 <p>If you reimplement this function to show a custom pop-up, make sure you call <a href="qcombobox.html#hidePopup">hidePopup</a>() to reset the internal state.</p>
-<p><b>参见</b><a href="qcombobox.html#hidePopup">hidePopup</a>().</p>
+<p><b> 参见 </b><a href="qcombobox.html#hidePopup">hidePopup</a>().</p>
 <!-- @@@showPopup -->
 <!-- $$$sizeHint[overload1]$$$sizeHint -->
 <h3 class="fn" id="sizeHint"><a name="sizeHint"></a><code>[override virtual] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QComboBox::<span class="name">sizeHint</span>() const</h3>
@@ -776,12 +776,12 @@
 <!-- $$$validator[overload1]$$$validator -->
 <h3 class="fn" id="validator"><a name="validator"></a>const <span class="type"><a href="../qtgui/qvalidator.html">QValidator</a></span> *QComboBox::<span class="name">validator</span>() const</h3>
 <p>Returns the validator that is used to constrain text input for the combobox.</p>
-<p><b>参见</b><a href="qcombobox.html#setValidator">setValidator</a>() and <a href="qcombobox.html#editable-prop">editable</a>.</p>
+<p><b> 参见 </b><a href="qcombobox.html#setValidator">setValidator</a>() 和 <a href="qcombobox.html#editable-prop">editable</a>.</p>
 <!-- @@@validator -->
 <!-- $$$view[overload1]$$$view -->
 <h3 class="fn" id="view"><a name="view"></a><span class="type"><a href="qabstractitemview.html">QAbstractItemView</a></span> *QComboBox::<span class="name">view</span>() const</h3>
 <p>Returns the list view used for the combobox popup.</p>
-<p><b>参见</b><a href="qcombobox.html#setView">setView</a>().</p>
+<p><b> 参见 </b><a href="qcombobox.html#setView">setView</a>().</p>
 <!-- @@@view -->
 <!-- $$$wheelEvent[overload1]$$$wheelEventQWheelEvent* -->
 <h3 class="fn" id="wheelEvent"><a name="wheelEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QComboBox::<span class="name">wheelEvent</span>(<span class="type"><a href="../qtgui/qwheelevent.html">QWheelEvent</a></span> *<i>e</i>)</h3>

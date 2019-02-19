@@ -57,7 +57,7 @@
 <li><a href="qtextcodec-members.html">所有成员清单，包括继承而来的成员</a></li>
 <li><a href="qtextcodec-obsolete.html">过时的成员</a></li>
 </ul>
-<p><b>Note:</b> All functions in this class are <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
+<p><b>注意：</b> 此类中的所有函数都是 <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
 <ul>
 <li><a href="qtextcodec.html#setCodecForLocale">setCodecForLocale</a>(QTextCodec *c)</li>
 <li><a href="qtextcodec.html#dtor.QTextCodec">~QTextCodec</a>()</li>
@@ -204,7 +204,7 @@
 <tr valign="top" class="odd"><td ><a href="qtextcodec.html#convertFromUnicode">convertFromUnicode</a>()</td><td >Converts a Unicode string to an 8-bit character string.</td></tr>
 </table></div>
 </div>
-<p><b>参见</b><a href="qtextstream.html">QTextStream</a>, <a href="qtextdecoder.html">QTextDecoder</a>, <a href="qtextencoder.html">QTextEncoder</a>, and <a href="../qtwidgets/qtwidgets-tools-codecs-example.html">Text Codecs Example</a>.</p>
+<p><b> 参见 </b><a href="qtextstream.html">QTextStream</a>, <a href="qtextdecoder.html">QTextDecoder</a>, <a href="qtextencoder.html">QTextEncoder</a>, and <a href="../qtwidgets/qtwidgets-tools-codecs-example.html">Text Codecs Example</a>.</p>
 <!-- @@@QTextCodec -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -230,7 +230,7 @@
 <!-- $$$~QTextCodec[overload1]$$$~QTextCodec -->
 <h3 class="fn" id="dtor.QTextCodec"><a name="dtor.QTextCodec"></a><code>[virtual protected] </code>QTextCodec::<span class="name">~QTextCodec</span>()</h3>
 <p>Destroys the <a href="qtextcodec.html">QTextCodec</a>. Note that you should not delete codecs yourself: once created they become Qt's responsibility.</p>
-<p><b>Warning:</b> This function is not <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
+<p><b>Warning:</b> This function is not <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
 <!-- @@@~QTextCodec -->
 <!-- $$$aliases[overload1]$$$aliases -->
 <h3 class="fn" id="aliases"><a name="aliases"></a><code>[virtual] </code><span class="type"><a href="qlist.html">QList</a></span>&lt;<span class="type"><a href="qbytearray.html">QByteArray</a></span>&gt; QTextCodec::<span class="name">aliases</span>() const</h3>
@@ -242,13 +242,13 @@
 <p>Returns the list of all available codecs, by name. Call <a href="qtextcodec.html#codecForName">QTextCodec::codecForName</a>() to obtain the <a href="qtextcodec.html">QTextCodec</a> for the name.</p>
 <p>The list may contain many mentions of the same codec if the codec has aliases.</p>
 <p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
-<p><b>参见</b><a href="qtextcodec.html#availableMibs">availableMibs</a>(), <a href="qtextcodec.html#name">name</a>(), and <a href="qtextcodec.html#aliases">aliases</a>().</p>
+<p><b> 参见 </b><a href="qtextcodec.html#availableMibs">availableMibs</a>(), <a href="qtextcodec.html#name">name</a>(), 和 <a href="qtextcodec.html#aliases">aliases</a>().</p>
 <!-- @@@availableCodecs -->
 <!-- $$$availableMibs[overload1]$$$availableMibs -->
 <h3 class="fn" id="availableMibs"><a name="availableMibs"></a><code>[static] </code><span class="type"><a href="qlist.html">QList</a></span>&lt;<span class="type">int</span>&gt; QTextCodec::<span class="name">availableMibs</span>()</h3>
 <p>Returns the list of MIBs for all available codecs. Call <a href="qtextcodec.html#codecForMib">QTextCodec::codecForMib</a>() to obtain the <a href="qtextcodec.html">QTextCodec</a> for the MIB.</p>
 <p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
-<p><b>参见</b><a href="qtextcodec.html#availableCodecs">availableCodecs</a>() and <a href="qtextcodec.html#mibEnum">mibEnum</a>().</p>
+<p><b> 参见 </b><a href="qtextcodec.html#availableCodecs">availableCodecs</a>() 和 <a href="qtextcodec.html#mibEnum">mibEnum</a>().</p>
 <!-- @@@availableMibs -->
 <!-- $$$canEncode[overload1]$$$canEncodeQChar -->
 <h3 class="fn" id="canEncode"><a name="canEncode"></a><span class="type">bool</span> QTextCodec::<span class="name">canEncode</span>(<span class="type"><a href="qchar.html">QChar</a></span> <i>ch</i>) const</h3>
@@ -269,7 +269,7 @@
 <h3 class="fn" id="codecForHtml"><a name="codecForHtml"></a><code>[static] </code><span class="type"><a href="qtextcodec.html#QTextCodec">QTextCodec</a></span> *QTextCodec::<span class="name">codecForHtml</span>(const <span class="type"><a href="qbytearray.html">QByteArray</a></span> &amp;<i>ba</i>, <span class="type"><a href="qtextcodec.html#QTextCodec">QTextCodec</a></span> *<i>defaultCodec</i>)</h3>
 <p>Tries to detect the encoding of the provided snippet of HTML in the given byte array, <i>ba</i>, by checking the BOM (Byte Order Mark) and the content-type meta header and returns a <a href="qtextcodec.html">QTextCodec</a> instance that is capable of decoding the html to unicode. If the codec cannot be detected from the content provided, <i>defaultCodec</i> is returned.</p>
 <p>这个函数是在Qt 4.4版本中新增引入的。</p>
-<p><b>参见</b><a href="qtextcodec.html#codecForUtfText">codecForUtfText</a>().</p>
+<p><b> 参见 </b><a href="qtextcodec.html#codecForUtfText">codecForUtfText</a>().</p>
 <!-- @@@codecForHtml -->
 <!-- $$$codecForHtml$$$codecForHtmlconstQByteArray& -->
 <h3 class="fn" id="codecForHtml-1"><a name="codecForHtml-1"></a><code>[static] </code><span class="type"><a href="qtextcodec.html#QTextCodec">QTextCodec</a></span> *QTextCodec::<span class="name">codecForHtml</span>(const <span class="type"><a href="qbytearray.html">QByteArray</a></span> &amp;<i>ba</i>)</h3>
@@ -282,7 +282,7 @@
 <p>On Windows, the codec will be based on a system locale. On Unix systems, the codec will might fall back to using the <i>iconv</i> library if no builtin codec for the locale can be found.</p>
 <p>Note that in these cases the codec's name will be &quot;System&quot;.</p>
 <p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
-<p><b>参见</b><a href="qtextcodec.html#setCodecForLocale">setCodecForLocale</a>().</p>
+<p><b> 参见 </b><a href="qtextcodec.html#setCodecForLocale">setCodecForLocale</a>().</p>
 <!-- @@@codecForLocale -->
 <!-- $$$codecForMib[overload1]$$$codecForMibint -->
 <h3 class="fn" id="codecForMib"><a name="codecForMib"></a><code>[static] </code><span class="type"><a href="qtextcodec.html#QTextCodec">QTextCodec</a></span> *QTextCodec::<span class="name">codecForMib</span>(<span class="type">int</span> <i>mib</i>)</h3>
@@ -302,13 +302,13 @@
 <h3 class="fn" id="codecForUtfText"><a name="codecForUtfText"></a><code>[static] </code><span class="type"><a href="qtextcodec.html#QTextCodec">QTextCodec</a></span> *QTextCodec::<span class="name">codecForUtfText</span>(const <span class="type"><a href="qbytearray.html">QByteArray</a></span> &amp;<i>ba</i>, <span class="type"><a href="qtextcodec.html#QTextCodec">QTextCodec</a></span> *<i>defaultCodec</i>)</h3>
 <p>Tries to detect the encoding of the provided snippet <i>ba</i> by using the BOM (Byte Order Mark) and returns a <a href="qtextcodec.html">QTextCodec</a> instance that is capable of decoding the text to unicode. If the codec cannot be detected from the content provided, <i>defaultCodec</i> is returned.</p>
 <p>这个函数是在Qt 4.6版本中新增引入的。</p>
-<p><b>参见</b><a href="qtextcodec.html#codecForHtml">codecForHtml</a>().</p>
+<p><b> 参见 </b><a href="qtextcodec.html#codecForHtml">codecForHtml</a>().</p>
 <!-- @@@codecForUtfText -->
 <!-- $$$codecForUtfText$$$codecForUtfTextconstQByteArray& -->
 <h3 class="fn" id="codecForUtfText-1"><a name="codecForUtfText-1"></a><code>[static] </code><span class="type"><a href="qtextcodec.html#QTextCodec">QTextCodec</a></span> *QTextCodec::<span class="name">codecForUtfText</span>(const <span class="type"><a href="qbytearray.html">QByteArray</a></span> &amp;<i>ba</i>)</h3>
 <p>This is an overloaded function.</p>
 <p>Tries to detect the encoding of the provided snippet <i>ba</i> by using the BOM (Byte Order Mark) and returns a <a href="qtextcodec.html">QTextCodec</a> instance that is capable of decoding the text to unicode. If the codec cannot be detected, this overload returns a Latin-1 <a href="qtextcodec.html">QTextCodec</a>.</p>
-<p><b>参见</b><a href="qtextcodec.html#codecForHtml">codecForHtml</a>().</p>
+<p><b> 参见 </b><a href="qtextcodec.html#codecForHtml">codecForHtml</a>().</p>
 <!-- @@@codecForUtfText -->
 <!-- $$$convertFromUnicode[overload1]$$$convertFromUnicodeconstQChar*intQTextCodec::ConverterState* -->
 <h3 class="fn" id="convertFromUnicode"><a name="convertFromUnicode"></a><code>[pure virtual protected] </code><span class="type"><a href="qbytearray.html">QByteArray</a></span> QTextCodec::<span class="name">convertFromUnicode</span>(const <span class="type"><a href="qchar.html">QChar</a></span> *<i>input</i>, <span class="type">int</span> <i>number</i>, <span class="type"><a href="qtextcodec-converterstate.html">QTextCodec::ConverterState</a></span> *<i>state</i>) const</h3>
@@ -362,8 +362,8 @@
 <h3 class="fn" id="setCodecForLocale"><a name="setCodecForLocale"></a><code>[static] </code><span class="type">void</span> QTextCodec::<span class="name">setCodecForLocale</span>(<span class="type"><a href="qtextcodec.html#QTextCodec">QTextCodec</a></span> *<i>c</i>)</h3>
 <p>Set the codec to <i>c</i>; this will be returned by <a href="qtextcodec.html#codecForLocale">codecForLocale</a>(). If <i>c</i> is a null pointer, the codec is reset to the default.</p>
 <p>This might be needed for some applications that want to use their own mechanism for setting the locale.</p>
-<p><b>Warning:</b> This function is not <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
-<p><b>参见</b><a href="qtextcodec.html#codecForLocale">codecForLocale</a>().</p>
+<p><b>Warning:</b> This function is not <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
+<p><b> 参见 </b><a href="qtextcodec.html#codecForLocale">codecForLocale</a>().</p>
 <!-- @@@setCodecForLocale -->
 <!-- $$$toUnicode[overload1]$$$toUnicodeconstQByteArray& -->
 <h3 class="fn" id="toUnicode"><a name="toUnicode"></a><span class="type"><a href="qstring.html">QString</a></span> QTextCodec::<span class="name">toUnicode</span>(const <span class="type"><a href="qbytearray.html">QByteArray</a></span> &amp;<i>a</i>) const</h3>

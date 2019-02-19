@@ -130,7 +130,7 @@
 <h2 id="details">详细描述</h2>
 <p>The <a href="qgeosatelliteinfosource.html">QGeoSatelliteInfoSource</a> class is an abstract base class for the distribution of satellite information updates.</p>
 <p>The static function <a href="qgeosatelliteinfosource.html#createDefaultSource">QGeoSatelliteInfoSource::createDefaultSource</a>() creates a default satellite data source that is appropriate for the platform, if one is available. Otherwise, available <a href="qgeopositioninfosourcefactory.html">QGeoPositionInfoSourceFactory</a> plugins will be checked for one that has a satellite data source available.</p>
-<p>Call <a href="qgeosatelliteinfosource.html#startUpdates">startUpdates</a>() and <a href="qgeosatelliteinfosource.html#stopUpdates">stopUpdates</a>() to start and stop regular updates, or <a href="qgeosatelliteinfosource.html#requestUpdate">requestUpdate</a>() to request a single update. When an update is available, <a href="qgeosatelliteinfosource.html#satellitesInViewUpdated">satellitesInViewUpdated</a>() and/or <a href="qgeosatelliteinfosource.html#satellitesInUseUpdated">satellitesInUseUpdated</a>() will be emitted.</p>
+<p>Call <a href="qgeosatelliteinfosource.html#startUpdates">startUpdates</a>() 和 <a href="qgeosatelliteinfosource.html#stopUpdates">stopUpdates</a>() to start and stop regular updates, or <a href="qgeosatelliteinfosource.html#requestUpdate">requestUpdate</a>() to request a single update. When an update is available, <a href="qgeosatelliteinfosource.html#satellitesInViewUpdated">satellitesInViewUpdated</a>() and/or <a href="qgeosatelliteinfosource.html#satellitesInUseUpdated">satellitesInUseUpdated</a>() will be emitted.</p>
 <p>If regular satellite updates are required, <a href="qgeosatelliteinfosource.html#updateInterval-prop">setUpdateInterval</a>() can be used to specify how often these updates should be emitted. If no interval is specified, updates are simply provided whenever they are available. For example:</p>
 <pre class="cpp">
 
@@ -162,7 +162,7 @@
 <!-- $$$minimumUpdateInterval-prop$$$minimumUpdateInterval -->
 <h3 class="fn" id="minimumUpdateInterval-prop"><a name="minimumUpdateInterval-prop"></a><span class="name">minimumUpdateInterval</span> : const <span class="type">int</span></h3>
 <p>This property holds the minimum time (in milliseconds) required to retrieve a satellite update.</p>
-<p>This is the minimum value accepted by <a href="qgeosatelliteinfosource.html#updateInterval-prop">setUpdateInterval</a>() and <a href="qgeosatelliteinfosource.html#requestUpdate">requestUpdate</a>().</p>
+<p>This is the minimum value accepted by <a href="qgeosatelliteinfosource.html#updateInterval-prop">setUpdateInterval</a>() 和 <a href="qgeosatelliteinfosource.html#requestUpdate">requestUpdate</a>().</p>
 <p><b>Access functions:</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> virtual int </td><td class="memItemRight bottomAlign"><span class="name"><b>minimumUpdateInterval</b></span>() const = 0</td></tr>
@@ -229,7 +229,7 @@
 <!-- @@@requestTimeout -->
 <!-- $$$requestUpdate[overload1]$$$requestUpdateint -->
 <h3 class="fn" id="requestUpdate"><a name="requestUpdate"></a><code>[pure virtual slot] </code><span class="type">void</span> QGeoSatelliteInfoSource::<span class="name">requestUpdate</span>(<span class="type">int</span> <i>timeout</i> = ...)</h3>
-<p>Attempts to get the current satellite information and emit <a href="qgeosatelliteinfosource.html#satellitesInViewUpdated">satellitesInViewUpdated</a>() and <a href="qgeosatelliteinfosource.html#satellitesInUseUpdated">satellitesInUseUpdated</a>() with this information. If the current satellite information cannot be found within the given <i>timeout</i> (in milliseconds) or if <i>timeout</i> is less than the value returned by <a href="qgeosatelliteinfosource.html#minimumUpdateInterval-prop">minimumUpdateInterval</a>(), <a href="qgeosatelliteinfosource.html#requestTimeout">requestTimeout</a>() is emitted.</p>
+<p>Attempts to get the current satellite information and emit <a href="qgeosatelliteinfosource.html#satellitesInViewUpdated">satellitesInViewUpdated</a>() 和 <a href="qgeosatelliteinfosource.html#satellitesInUseUpdated">satellitesInUseUpdated</a>() with this information. If the current satellite information cannot be found within the given <i>timeout</i> (in milliseconds) or if <i>timeout</i> is less than the value returned by <a href="qgeosatelliteinfosource.html#minimumUpdateInterval-prop">minimumUpdateInterval</a>(), <a href="qgeosatelliteinfosource.html#requestTimeout">requestTimeout</a>() is emitted.</p>
 <p>If the timeout is zero, the timeout defaults to a reasonable timeout period as appropriate for the source.</p>
 <p>This does nothing if another update request is in progress. However it can be called even if <a href="qgeosatelliteinfosource.html#startUpdates">startUpdates</a>() has already been called and regular updates are in progress.</p>
 <!-- @@@requestUpdate -->
@@ -252,8 +252,8 @@
 <!-- $$$startUpdates[overload1]$$$startUpdates -->
 <h3 class="fn" id="startUpdates"><a name="startUpdates"></a><code>[pure virtual slot] </code><span class="type">void</span> QGeoSatelliteInfoSource::<span class="name">startUpdates</span>()</h3>
 <p>Starts emitting updates at regular intervals. The updates will be provided whenever new satellite information becomes available.</p>
-<p>If satellite information cannot be retrieved or some other form of timeout has occurred the <a href="qgeosatelliteinfosource.html#satellitesInViewUpdated">satellitesInViewUpdated</a>() and <a href="qgeosatelliteinfosource.html#satellitesInUseUpdated">satellitesInUseUpdated</a>() signals may be emitted with empty parameter lists.</p>
-<p><b>参见</b><a href="qgeosatelliteinfosource.html#satellitesInViewUpdated">satellitesInViewUpdated</a>() and <a href="qgeosatelliteinfosource.html#satellitesInUseUpdated">satellitesInUseUpdated</a>().</p>
+<p>If satellite information cannot be retrieved or some other form of timeout has occurred the <a href="qgeosatelliteinfosource.html#satellitesInViewUpdated">satellitesInViewUpdated</a>() 和 <a href="qgeosatelliteinfosource.html#satellitesInUseUpdated">satellitesInUseUpdated</a>() signals may be emitted with empty parameter lists.</p>
+<p><b> 参见 </b><a href="qgeosatelliteinfosource.html#satellitesInViewUpdated">satellitesInViewUpdated</a>() 和 <a href="qgeosatelliteinfosource.html#satellitesInUseUpdated">satellitesInUseUpdated</a>().</p>
 <!-- @@@startUpdates -->
 <!-- $$$stopUpdates[overload1]$$$stopUpdates -->
 <h3 class="fn" id="stopUpdates"><a name="stopUpdates"></a><code>[pure virtual slot] </code><span class="type">void</span> QGeoSatelliteInfoSource::<span class="name">stopUpdates</span>()</h3>

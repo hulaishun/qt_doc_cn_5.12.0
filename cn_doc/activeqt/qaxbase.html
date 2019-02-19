@@ -54,7 +54,7 @@
 <!-- @@@QAxBase -->
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign">头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QAxBase&gt;</span>
-</td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += axcontainer</td></tr><tr><td class="memItemLeft rightAlign topAlign"> 继承的子类有：</td><td class="memItemRight bottomAlign"> <p><a href="qaxobject.html">QAxObject</a> and <a href="qaxwidget.html">QAxWidget</a></p>
+</td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += axcontainer</td></tr><tr><td class="memItemLeft rightAlign topAlign"> 继承的子类有：</td><td class="memItemRight bottomAlign"> <p><a href="qaxobject.html">QAxObject</a> 和 <a href="qaxwidget.html">QAxWidget</a></p>
 </td></tr></table></div><ul>
 <li><a href="qaxbase-members.html">所有成员清单，包括继承而来的成员</a></li>
 </ul>
@@ -120,13 +120,13 @@
 <div class="descr">
 <h2 id="details">详细描述</h2>
 <p>The <a href="qaxbase.html">QAxBase</a> class is an abstract class that provides an API to initialize and access a COM object.</p>
-<p><a href="qaxbase.html">QAxBase</a> is an abstract class that cannot be used directly, and is instantiated through the subclasses <a href="qaxobject.html">QAxObject</a> and <a href="qaxwidget.html">QAxWidget</a>. This class provides the API to access the COM object directly through its IUnknown implementation. If the COM object implements the IDispatch interface, the properties and methods of that object become available as Qt properties and slots.</p>
+<p><a href="qaxbase.html">QAxBase</a> is an abstract class that cannot be used directly, and is instantiated through the subclasses <a href="qaxobject.html">QAxObject</a> 和 <a href="qaxwidget.html">QAxWidget</a>. This class provides the API to access the COM object directly through its IUnknown implementation. If the COM object implements the IDispatch interface, the properties and methods of that object become available as Qt properties and slots.</p>
 <pre class="cpp">
 
   connect(buttonBack<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> webBrowser<span class="operator">,</span> SLOT(GoBack()));
 
 </pre>
-<p>Properties exposed by the object's IDispatch implementation can be read and written through the property system provided by the Qt Object Model (both subclasses are <a href="../qtcore/qobject.html">QObject</a>s, so you can use <a href="../qtcore/qobject.html#setProperty">QObject::setProperty</a>() and <a href="../qtcore/qobject.html#property">QObject::property</a>()). Properties with multiple parameters are not supported.</p>
+<p>Properties exposed by the object's IDispatch implementation can be read and written through the property system provided by the Qt Object Model (both subclasses are <a href="../qtcore/qobject.html">QObject</a>s, so you can use <a href="../qtcore/qobject.html#setProperty">QObject::setProperty</a>() 和 <a href="../qtcore/qobject.html#property">QObject::property</a>()). Properties with multiple parameters are not supported.</p>
 <pre class="cpp">
 
   activeX<span class="operator">-</span><span class="operator">&gt;</span>setProperty(<span class="string">&quot;text&quot;</span><span class="operator">,</span> <span class="string">&quot;some text&quot;</span>);
@@ -222,7 +222,7 @@
 <p>To get the definition of the COM interfaces you will have to use the header files provided with the component you want to use. Some compilers can also import type libraries using the #import compiler directive. See the component documentation to find out which type libraries you have to import, and how to use them.</p>
 <p>If you need to react to events that pass parameters of unsupported datatypes you can use the generic signal that delivers the event data as provided by the COM event.</p>
 </div>
-<p><b>参见</b><a href="qaxobject.html">QAxObject</a>, <a href="qaxwidget.html">QAxWidget</a>, <a href="qaxscript.html">QAxScript</a>, and <a href="activeqt-index.html">ActiveQt Framework</a>.</p>
+<p><b> 参见 </b><a href="qaxobject.html">QAxObject</a>, <a href="qaxwidget.html">QAxWidget</a>, <a href="qaxscript.html">QAxScript</a>, and <a href="activeqt-index.html">ActiveQt Framework</a>.</p>
 <!-- @@@QAxBase -->
 <div class="types">
 <h2>变量类型文档</h2>
@@ -305,7 +305,7 @@
 <!-- $$$~QAxBase[overload1]$$$~QAxBase -->
 <h3 class="fn" id="dtor.QAxBase"><a name="dtor.QAxBase"></a><code>[virtual] </code>QAxBase::<span class="name">~QAxBase</span>()</h3>
 <p>Shuts down the COM object and destroys the <a href="qaxbase.html">QAxBase</a> object.</p>
-<p><b>参见</b><a href="qaxbase.html#clear">clear</a>().</p>
+<p><b> 参见 </b><a href="qaxbase.html#clear">clear</a>().</p>
 <!-- @@@~QAxBase -->
 <!-- $$$asVariant[overload1]$$$asVariant -->
 <h3 class="fn" id="asVariant"><a name="asVariant"></a><span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> QAxBase::<span class="name">asVariant</span>() const</h3>
@@ -356,7 +356,7 @@
   <span class="type"><a href="../qtcore/qstring.html">QString</a></span> text <span class="operator">=</span> activeX<span class="operator">-</span><span class="operator">&gt;</span>dynamicCall(<span class="string">&quot;Text&quot;</span>)<span class="operator">.</span>toString();
 
 </pre>
-<p>Note that it is faster to get and set properties using <a href="../qtcore/qobject.html#property">QObject::property</a>() and <a href="../qtcore/qobject.html#setProperty">QObject::setProperty</a>().</p>
+<p>Note that it is faster to get and set properties using <a href="../qtcore/qobject.html#property">QObject::property</a>() 和 <a href="../qtcore/qobject.html#setProperty">QObject::setProperty</a>().</p>
 <p>dynamicCall() can also be used to call objects with a <a href="qaxbase.html#disableMetaObject">disabled metaobject</a> wrapper, which can improve performance significantely, esp. when calling many different objects of different types during an automation process. <a href="activeqt-index.html">ActiveQt</a> will then however not validate parameters.</p>
 <p>It is only possible to call functions through dynamicCall() that have parameters or return values of datatypes supported by <a href="../qtcore/qvariant.html">QVariant</a>. See the <a href="qaxbase.html">QAxBase</a> class documentation for a list of supported and unsupported datatypes. If you want to call functions that have unsupported datatypes in the parameter list, use <a href="qaxbase.html#queryInterface">queryInterface</a>() to retrieve the appropriate COM interface, and use the function directly.</p>
 <pre class="cpp">
@@ -396,37 +396,37 @@
 <h3 class="fn" id="initializeActive"><a name="initializeActive"></a><code>[protected] </code><span class="type">bool</span> QAxBase::<span class="name">initializeActive</span>(<span class="type">IUnknown</span> **<i>ptr</i>)</h3>
 <p>Connects to an active instance running on the current machine, and returns the IUnknown interface to the running object in <i>ptr</i>. This function returns true if successful, otherwise returns false.</p>
 <p>This function is called by <a href="qaxbase.html#initialize">initialize</a>() if the control string contains the substring &quot;}&amp;&quot;.</p>
-<p><b>参见</b><a href="qaxbase.html#initialize">initialize</a>().</p>
+<p><b> 参见 </b><a href="qaxbase.html#initialize">initialize</a>().</p>
 <!-- @@@initializeActive -->
 <!-- $$$initializeFromFile[overload1]$$$initializeFromFileIUnknown** -->
 <h3 class="fn" id="initializeFromFile"><a name="initializeFromFile"></a><code>[protected] </code><span class="type">bool</span> QAxBase::<span class="name">initializeFromFile</span>(<span class="type">IUnknown</span> **<i>ptr</i>)</h3>
 <p>Creates the COM object handling the filename in the control property, and returns the IUnknown interface to the object in <i>ptr</i>. This function returns true if successful, otherwise returns false.</p>
 <p>This function is called by <a href="qaxbase.html#initialize">initialize</a>() if the control string is the name of an existing file.</p>
-<p><b>参见</b><a href="qaxbase.html#initialize">initialize</a>().</p>
+<p><b> 参见 </b><a href="qaxbase.html#initialize">initialize</a>().</p>
 <!-- @@@initializeFromFile -->
 <!-- $$$initializeLicensed[overload1]$$$initializeLicensedIUnknown** -->
 <h3 class="fn" id="initializeLicensed"><a name="initializeLicensed"></a><code>[protected] </code><span class="type">bool</span> QAxBase::<span class="name">initializeLicensed</span>(<span class="type">IUnknown</span> **<i>ptr</i>)</h3>
 <p>Creates an instance of a licensed control, and returns the IUnknown interface to the object in <i>ptr</i>. This functions returns true if successful, otherwise returns false.</p>
 <p>This function is called by <a href="qaxbase.html#initialize">initialize</a>() if the control string contains the substring &quot;}:&quot;. The license key needs to follow this substring.</p>
-<p><b>参见</b><a href="qaxbase.html#initialize">initialize</a>().</p>
+<p><b> 参见 </b><a href="qaxbase.html#initialize">initialize</a>().</p>
 <!-- @@@initializeLicensed -->
 <!-- $$$initializeRemote[overload1]$$$initializeRemoteIUnknown** -->
 <h3 class="fn" id="initializeRemote"><a name="initializeRemote"></a><code>[protected] </code><span class="type">bool</span> QAxBase::<span class="name">initializeRemote</span>(<span class="type">IUnknown</span> **<i>ptr</i>)</h3>
 <p>Creates the instance on a remote server, and returns the IUnknown interface to the object in <i>ptr</i>. This function returns true if successful, otherwise returns false.</p>
 <p>This function is called by <a href="qaxbase.html#initialize">initialize</a>() if the control string contains the substring &quot;/{&quot;. The information about the remote machine needs to be provided in front of the substring.</p>
-<p><b>参见</b><a href="qaxbase.html#initialize">initialize</a>().</p>
+<p><b> 参见 </b><a href="qaxbase.html#initialize">initialize</a>().</p>
 <!-- @@@initializeRemote -->
 <!-- $$$isNull[overload1]$$$isNull -->
 <h3 class="fn" id="isNull"><a name="isNull"></a><span class="type">bool</span> QAxBase::<span class="name">isNull</span>() const</h3>
 <p>Returns true if there is no COM object loaded by this wrapper; otherwise return false.</p>
-<p><b>参见</b><a href="qaxbase.html#control-prop">control</a>.</p>
+<p><b> 参见 </b><a href="qaxbase.html#control-prop">control</a>.</p>
 <!-- @@@isNull -->
 <!-- $$$propertyBag[overload1]$$$propertyBag -->
 <h3 class="fn" id="propertyBag"><a name="propertyBag"></a><span class="type"><a href="qaxbase.html#PropertyBag-typedef">QAxBase::PropertyBag</a></span> QAxBase::<span class="name">propertyBag</span>() const</h3>
 <p>Returns a name:value map of all the properties exposed by the COM object.</p>
 <p>This is more efficient than getting multiple properties individually if the COM object supports property bags.</p>
 <p><b>Warning:</b> It is not guaranteed that the property bag implementation of the COM object returns all properties, or that the properties returned are the same as those available through the IDispatch interface.</p>
-<p><b>参见</b><a href="qaxbase.html#setPropertyBag">setPropertyBag</a>().</p>
+<p><b> 参见 </b><a href="qaxbase.html#setPropertyBag">setPropertyBag</a>().</p>
 <!-- @@@propertyBag -->
 <!-- $$$propertyChanged[overload1]$$$propertyChangedconstQString& -->
 <h3 class="fn" id="propertyChanged"><a name="propertyChanged"></a><code>[signal] </code><span class="type">void</span> QAxBase::<span class="name">propertyChanged</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>name</i>)</h3>
@@ -436,13 +436,13 @@
 <h3 class="fn" id="propertyWritable"><a name="propertyWritable"></a><code>[virtual] </code><span class="type">bool</span> QAxBase::<span class="name">propertyWritable</span>(const <span class="type">char</span> *<i>prop</i>) const</h3>
 <p>Returns true if the property <i>prop</i> is writable; otherwise returns false. By default, all properties are writable.</p>
 <p><b>Warning:</b> Depending on the control implementation this setting might be ignored for some properties.</p>
-<p><b>参见</b><a href="qaxbase.html#setPropertyWritable">setPropertyWritable</a>() and <a href="qaxbase.html#propertyChanged">propertyChanged</a>().</p>
+<p><b> 参见 </b><a href="qaxbase.html#setPropertyWritable">setPropertyWritable</a>() 和 <a href="qaxbase.html#propertyChanged">propertyChanged</a>().</p>
 <!-- @@@propertyWritable -->
 <!-- $$$queryInterface[overload1]$$$queryInterfaceconstQUuid&void** -->
 <h3 class="fn" id="queryInterface"><a name="queryInterface"></a><span class="type">long</span> QAxBase::<span class="name">queryInterface</span>(const <span class="type"><a href="../qtcore/quuid.html">QUuid</a></span> &amp;<i>uuid</i>, <span class="type">void</span> **<i>iface</i>) const</h3>
 <p>Requests the interface <i>uuid</i> from the COM object and sets the value of <i>iface</i> to the provided interface, or to 0 if the requested interface could not be provided.</p>
 <p>Returns the result of the QueryInterface implementation of the COM object.</p>
-<p><b>参见</b><a href="qaxbase.html#control-prop">control</a>.</p>
+<p><b> 参见 </b><a href="qaxbase.html#control-prop">control</a>.</p>
 <!-- @@@queryInterface -->
 <!-- $$$querySubObject[overload1]$$$querySubObjectconstchar*constQVariant&constQVariant&constQVariant&constQVariant&constQVariant&constQVariant&constQVariant&constQVariant& -->
 <h3 class="fn" id="querySubObject"><a name="querySubObject"></a><span class="type"><a href="qaxobject.html">QAxObject</a></span> *QAxBase::<span class="name">querySubObject</span>(const <span class="type">char</span> *<i>name</i>, const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>var1</i> = QVariant(), const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>var2</i> = QVariant(), const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>var3</i> = QVariant(), const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>var4</i> = QVariant(), const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>var5</i> = QVariant(), const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>var6</i> = QVariant(), const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>var7</i> = QVariant(), const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>var8</i> = QVariant())</h3>
@@ -473,13 +473,13 @@
 <h3 class="fn" id="setPropertyBag"><a name="setPropertyBag"></a><span class="type">void</span> QAxBase::<span class="name">setPropertyBag</span>(const <span class="type"><a href="qaxbase.html#PropertyBag-typedef">QAxBase::PropertyBag</a></span> &amp;<i>bag</i>)</h3>
 <p>Sets the properties of the COM object to the corresponding values in <i>bag</i>.</p>
 <p><b>Warning:</b> You should only set property bags that have been returned by the <a href="qaxbase.html#propertyBag">propertyBag</a> function, as it cannot be guaranteed that the property bag implementation of the COM object supports the same properties that are available through the IDispatch interface.</p>
-<p><b>参见</b><a href="qaxbase.html#propertyBag">propertyBag</a>().</p>
+<p><b> 参见 </b><a href="qaxbase.html#propertyBag">propertyBag</a>().</p>
 <!-- @@@setPropertyBag -->
 <!-- $$$setPropertyWritable[overload1]$$$setPropertyWritableconstchar*bool -->
 <h3 class="fn" id="setPropertyWritable"><a name="setPropertyWritable"></a><code>[virtual] </code><span class="type">void</span> QAxBase::<span class="name">setPropertyWritable</span>(const <span class="type">char</span> *<i>prop</i>, <span class="type">bool</span> <i>ok</i>)</h3>
 <p>Sets the property <i>prop</i> to writable if <i>ok</i> is true, otherwise sets <i>prop</i> to be read-only. By default, all properties are writable.</p>
 <p><b>Warning:</b> Depending on the control implementation this setting might be ignored for some properties.</p>
-<p><b>参见</b><a href="qaxbase.html#propertyWritable">propertyWritable</a>() and <a href="qaxbase.html#propertyChanged">propertyChanged</a>().</p>
+<p><b> 参见 </b><a href="qaxbase.html#propertyWritable">propertyWritable</a>() 和 <a href="qaxbase.html#propertyChanged">propertyChanged</a>().</p>
 <!-- @@@setPropertyWritable -->
 <!-- $$$signal[overload1]$$$signalconstQString&intvoid* -->
 <h3 class="fn" id="signal"><a name="signal"></a><code>[signal] </code><span class="type">void</span> QAxBase::<span class="name">signal</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>name</i>, <span class="type">int</span> <i>argc</i>, <span class="type">void</span> *<i>argv</i>)</h3>

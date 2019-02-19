@@ -107,7 +107,7 @@
 <div class="descr">
 <h2 id="details">详细描述</h2>
 <p>The <a href="qset-iterator.html">QSet::iterator</a> class provides an STL-style non-const iterator for <a href="qset.html">QSet</a>.</p>
-<p><a href="qset.html">QSet</a> features both <a href="containers.html#stl-style-iterators">STL-style iterators</a> and <a href="containers.html#java-style-iterators">Java-style iterators</a>. The STL-style iterators are more low-level and more cumbersome to use; on the other hand, they are slightly faster and, for developers who already know STL, have the advantage of familiarity.</p>
+<p><a href="qset.html">QSet</a> features both <a href="containers.html#stl-style-iterators">STL-style iterators</a> 和 <a href="containers.html#java-style-iterators">Java-style iterators</a>. The STL-style iterators are more low-level and more cumbersome to use; on the other hand, they are slightly faster and, for developers who already know STL, have the advantage of familiarity.</p>
 <p><a href="qset.html">QSet</a>&lt;T&gt;::iterator allows you to iterate over a <a href="qset.html">QSet</a> and to remove items (using <a href="qset.html#erase">QSet::erase</a>()) while you iterate. (<a href="qset.html">QSet</a> doesn't let you <i>modify</i> a value through an iterator, because that would potentially require moving the value in the internal hash table used by <a href="qset.html">QSet</a>.) If you want to iterate over a const <a href="qset.html">QSet</a>, you should use <a href="qset-const-iterator.html">QSet::const_iterator</a>. It is generally good practice to use <a href="qset-const-iterator.html">QSet::const_iterator</a> on a non-const <a href="qset.html">QSet</a> as well, unless you need to change the <a href="qset.html">QSet</a> through the iterator. Const iterators are slightly faster, and can improve code readability.</p>
 <p>The default <a href="qset-iterator.html">QSet::iterator</a> constructor creates an uninitialized iterator. You must initialize it using a function like <a href="qset.html#begin">QSet::begin</a>(), <a href="qset.html#end">QSet::end</a>(), or <a href="qset.html#insert">QSet::insert</a>() before you can start iterating. Here's a typical loop that prints all the items stored in a set:</p>
 <pre class="cpp">
@@ -149,7 +149,7 @@
 <p>Multiple iterators can be used on the same set.</p>
 <p><b>Warning:</b> Iterators on implicitly shared containers do not work exactly like STL-iterators. You should avoid copying a container while iterators are active on that container. For more information, read <a href="containers.html#implicit-sharing-iterator-problem">Implicit sharing iterator problem</a>.</p>
 </div>
-<p><b>参见</b><a href="qset-const-iterator.html">QSet::const_iterator</a> and <a href="qmutablesetiterator.html">QMutableSetIterator</a>.</p>
+<p><b> 参见 </b><a href="qset-const-iterator.html">QSet::const_iterator</a> 和 <a href="qmutablesetiterator.html">QMutableSetIterator</a>.</p>
 <!-- @@@iterator -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -163,25 +163,25 @@
 <h3 class="fn fngroupitem" id="operator--eq"><a name="operator--eq"></a><span class="type"><a href="qset-iterator.html#iterator">iterator</a></span> &amp;iterator::<span class="name">operator-=</span>(<span class="type">int</span> <i>j</i>)</h3>
 <p>Makes the iterator go back by <i>j</i> items. (If <i>j</i> is negative, the iterator goes forward.)</p>
 <p>This operation can be slow for large <i>j</i> values.</p>
-<p><b>参见</b><a href="qset-iterator.html#operator-2b-eq">operator+=</a>() and <a href="qset-iterator.html#operator-">operator-</a>().</p>
+<p><b> 参见 </b><a href="qset-iterator.html#operator-2b-eq">operator+=</a>() 和 <a href="qset-iterator.html#operator-">operator-</a>().</p>
 <!-- @@@ -->
 <!-- $$$ -->
 <h3 class="fn fngroupitem" id="operator-2b-eq"><a name="operator-2b-eq"></a><span class="type"><a href="qset-iterator.html#iterator">iterator</a></span> &amp;iterator::<span class="name">operator+=</span>(<span class="type">int</span> <i>j</i>)</h3>
 <p>Advances the iterator by <i>j</i> items. (If <i>j</i> is negative, the iterator goes backward.)</p>
 <p>This operation can be slow for large <i>j</i> values.</p>
-<p><b>参见</b><a href="qset-iterator.html#operator--eq">operator-=</a>() and <a href="qset-iterator.html#operator-2b">operator+</a>().</p>
+<p><b> 参见 </b><a href="qset-iterator.html#operator--eq">operator-=</a>() 和 <a href="qset-iterator.html#operator-2b">operator+</a>().</p>
 <!-- @@@ -->
 <!-- $$$ -->
 <h3 class="fn fngroupitem" id="operator-"><a name="operator-"></a><span class="type"><a href="qset-iterator.html#iterator">iterator</a></span> iterator::<span class="name">operator-</span>(<span class="type">int</span> <i>j</i>) const</h3>
 <p>Returns an iterator to the item at <i>j</i> positions backward from this iterator. (If <i>j</i> is negative, the iterator goes forward.)</p>
 <p>This operation can be slow for large <i>j</i> values.</p>
-<p><b>参见</b><a href="qset-iterator.html#operator-2b">operator+</a>().</p>
+<p><b> 参见 </b><a href="qset-iterator.html#operator-2b">operator+</a>().</p>
 <!-- @@@ -->
 <!-- $$$ -->
 <h3 class="fn fngroupitem" id="operator-2b"><a name="operator-2b"></a><span class="type"><a href="qset-iterator.html#iterator">iterator</a></span> iterator::<span class="name">operator+</span>(<span class="type">int</span> <i>j</i>) const</h3>
 <p>Returns an iterator to the item at <i>j</i> positions forward from this iterator. (If <i>j</i> is negative, the iterator goes backward.)</p>
 <p>This operation can be slow for large <i>j</i> values.</p>
-<p><b>参见</b><a href="qset-iterator.html#operator-">operator-</a>().</p>
+<p><b> 参见 </b><a href="qset-iterator.html#operator-">operator-</a>().</p>
 <!-- @@@ -->
 <!-- $$$ -->
 <h3 class="fn fngroupitem" id="operator---1"><a name="operator---1"></a><span class="type"><a href="qset-iterator.html#iterator">iterator</a></span> iterator::<span class="name">operator--</span>(<i>int</i>)</h3>
@@ -192,7 +192,7 @@
 <h3 class="fn fngroupitem" id="operator--"><a name="operator--"></a><span class="type"><a href="qset-iterator.html#iterator">iterator</a></span> &amp;iterator::<span class="name">operator--</span>()</h3>
 <p>The prefix -- operator (<code>--it</code>) makes the preceding item current and returns an iterator to the new current item.</p>
 <p>Calling this function on <a href="qset.html#begin">QSet::begin</a>() leads to undefined results.</p>
-<p><b>参见</b><a href="qset-iterator.html#operator-2b-2b">operator++</a>().</p>
+<p><b> 参见 </b><a href="qset-iterator.html#operator-2b-2b">operator++</a>().</p>
 <!-- @@@ -->
 <!-- $$$ -->
 <h3 class="fn fngroupitem" id="operator-2b-2b-1"><a name="operator-2b-2b-1"></a><span class="type"><a href="qset-iterator.html#iterator">iterator</a></span> iterator::<span class="name">operator++</span>(<i>int</i>)</h3>
@@ -203,12 +203,12 @@
 <h3 class="fn fngroupitem" id="operator-2b-2b"><a name="operator-2b-2b"></a><span class="type"><a href="qset-iterator.html#iterator">iterator</a></span> &amp;iterator::<span class="name">operator++</span>()</h3>
 <p>The prefix ++ operator (<code>++it</code>) advances the iterator to the next item in the set and returns an iterator to the new current item.</p>
 <p>Calling this function on <a href="qset.html">QSet</a>&lt;T&gt;::constEnd() leads to undefined results.</p>
-<p><b>参见</b><a href="qset-iterator.html#operator--">operator--</a>().</p>
+<p><b> 参见 </b><a href="qset-iterator.html#operator--">operator--</a>().</p>
 <!-- @@@ -->
 <!-- $$$ -->
 <h3 class="fn fngroupitem" id="operator-not-eq"><a name="operator-not-eq"></a><span class="type">bool</span> iterator::<span class="name">operator!=</span>(const <span class="type"><a href="qset-iterator.html#iterator">iterator</a></span> &amp;<i>other</i>) const</h3>
 <p>Returns <code>true</code> if <i>other</i> points to a different item than this iterator; otherwise returns <code>false</code>.</p>
-<p><b>参见</b><a href="qset-iterator.html#operator-eq-eq">operator==</a>().</p>
+<p><b> 参见 </b><a href="qset-iterator.html#operator-eq-eq">operator==</a>().</p>
 <!-- @@@ -->
 <!-- $$$ -->
 <div class="fngroup">
@@ -218,17 +218,17 @@
 <!-- $$$ -->
 <h3 class="fn fngroupitem" id="operator-eq-eq"><a name="operator-eq-eq"></a><span class="type">bool</span> iterator::<span class="name">operator==</span>(const <span class="type"><a href="qset-iterator.html#iterator">iterator</a></span> &amp;<i>other</i>) const</h3>
 <p>Returns <code>true</code> if <i>other</i> points to the same item as this iterator; otherwise returns <code>false</code>.</p>
-<p><b>参见</b><a href="qset-iterator.html#operator-not-eq">operator!=</a>().</p>
+<p><b> 参见 </b><a href="qset-iterator.html#operator-not-eq">operator!=</a>().</p>
 <!-- @@@ -->
 <!-- $$$ -->
 <h3 class="fn fngroupitem" id="operator--gt"><a name="operator--gt"></a>const <span class="type">T</span> *iterator::<span class="name">operator-&gt;</span>() const</h3>
 <p>Returns a pointer to the current item.</p>
-<p><b>参见</b><a href="qset-iterator.html#operator-2a">operator*</a>().</p>
+<p><b> 参见 </b><a href="qset-iterator.html#operator-2a">operator*</a>().</p>
 <!-- @@@ -->
 <!-- $$$ -->
 <h3 class="fn fngroupitem" id="operator-2a"><a name="operator-2a"></a>const <span class="type">T</span> &amp;iterator::<span class="name">operator*</span>() const</h3>
 <p>Returns a reference to the current item.</p>
-<p><b>参见</b><a href="qset-iterator.html#operator--gt">operator-&gt;</a>().</p>
+<p><b> 参见 </b><a href="qset-iterator.html#operator--gt">operator-&gt;</a>().</p>
 <!-- @@@ -->
 <!-- $$$ -->
 <h3 class="fn fngroupitem" id="operator-eq"><a name="operator-eq"></a><span class="type"><a href="qset-iterator.html#iterator">iterator</a></span> &amp;iterator::<span class="name">operator=</span>(const <span class="type"><a href="qset-iterator.html#iterator">iterator</a></span> &amp;<i>other</i>)</h3>
@@ -246,7 +246,7 @@
 <h3 class="fn fngroupitem" id="iterator"><a name="iterator"></a>iterator::<span class="name">iterator</span>()</h3>
 <p>Constructs an uninitialized iterator.</p>
 <p>Functions like operator*() and operator++() should not be called on an uninitialized iterator. Use operator=() to assign a value to it before using it.</p>
-<p><b>参见</b><a href="qset.html#begin">QSet::begin</a>() and <a href="qset.html#end">QSet::end</a>().</p>
+<p><b> 参见 </b><a href="qset.html#begin">QSet::begin</a>() 和 <a href="qset.html#end">QSet::end</a>().</p>
 <!-- @@@ -->
 </div>
 <div class="vars">

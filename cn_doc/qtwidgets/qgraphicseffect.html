@@ -154,7 +154,7 @@
 <p>To create your own custom effect, create a subclass of <a href="qgraphicseffect.html">QGraphicsEffect</a> (or any other existing effects) and reimplement the virtual function <a href="qgraphicseffect.html#draw">draw</a>(). This function is called whenever the effect needs to redraw. The <a href="qgraphicseffect.html#draw">draw</a>() function takes the painter with which to draw as an argument. For more information, refer to the documenation for <a href="qgraphicseffect.html#draw">draw</a>(). In the <a href="qgraphicseffect.html#draw">draw</a>() function you can call <a href="qgraphicseffect.html#sourcePixmap">sourcePixmap</a>() to get a pixmap of the graphics effect source which you can then process.</p>
 <p>If your effect changes, use <a href="qgraphicseffect.html#update">update</a>() to request for a redraw. If your custom effect changes the bounding rectangle of the source, e.g&#x2e;, a radial glow effect may need to apply an extra margin, you can reimplement the virtual <a href="qgraphicseffect.html#boundingRectFor">boundingRectFor</a>() function, and call <a href="qgraphicseffect.html#updateBoundingRect">updateBoundingRect</a>() to notify the framework whenever this rectangle changes. The virtual <a href="qgraphicseffect.html#sourceChanged">sourceChanged</a>() function is called to notify the effects that the source has changed in some way - e.g&#x2e;, if the source is a <a href="qgraphicsrectitem.html">QGraphicsRectItem</a> and its rectangle parameters have changed.</p>
 </div>
-<p><b>参见</b><a href="qgraphicsitem.html#setGraphicsEffect">QGraphicsItem::setGraphicsEffect</a>() and <a href="qwidget.html#setGraphicsEffect">QWidget::setGraphicsEffect</a>().</p>
+<p><b> 参见 </b><a href="qgraphicsitem.html#setGraphicsEffect">QGraphicsItem::setGraphicsEffect</a>() 和 <a href="qwidget.html#setGraphicsEffect">QWidget::setGraphicsEffect</a>().</p>
 <!-- @@@QGraphicsEffect -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -211,12 +211,12 @@
 <!-- $$$boundingRect[overload1]$$$boundingRect -->
 <h3 class="fn" id="boundingRect"><a name="boundingRect"></a><span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> QGraphicsEffect::<span class="name">boundingRect</span>() const</h3>
 <p>Returns the effective bounding rectangle for this effect, i.e&#x2e;, the bounding rectangle of the source in device coordinates, adjusted by any margins applied by the effect itself.</p>
-<p><b>参见</b><a href="qgraphicseffect.html#boundingRectFor">boundingRectFor</a>() and <a href="qgraphicseffect.html#updateBoundingRect">updateBoundingRect</a>().</p>
+<p><b> 参见 </b><a href="qgraphicseffect.html#boundingRectFor">boundingRectFor</a>() 和 <a href="qgraphicseffect.html#updateBoundingRect">updateBoundingRect</a>().</p>
 <!-- @@@boundingRect -->
 <!-- $$$boundingRectFor[overload1]$$$boundingRectForconstQRectF& -->
 <h3 class="fn" id="boundingRectFor"><a name="boundingRectFor"></a><code>[virtual] </code><span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> QGraphicsEffect::<span class="name">boundingRectFor</span>(const <span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> &amp;<i>rect</i>) const</h3>
 <p>Returns the effective bounding rectangle for this effect, given the provided <i>rect</i> in the device coordinates. When writing you own custom effect, you must call <a href="qgraphicseffect.html#updateBoundingRect">updateBoundingRect</a>() whenever any parameters are changed that may cause this this function to return a different value.</p>
-<p><b>参见</b><a href="qgraphicseffect.html#sourceBoundingRect">sourceBoundingRect</a>().</p>
+<p><b> 参见 </b><a href="qgraphicseffect.html#sourceBoundingRect">sourceBoundingRect</a>().</p>
 <!-- @@@boundingRectFor -->
 <!-- $$$draw[overload1]$$$drawQPainter* -->
 <h3 class="fn" id="draw"><a name="draw"></a><code>[pure virtual protected] </code><span class="type">void</span> QGraphicsEffect::<span class="name">draw</span>(<span class="type"><a href="../qtgui/qpainter.html">QPainter</a></span> *<i>painter</i>)</h3>
@@ -265,18 +265,18 @@
   }
 
 </pre>
-<p><b>参见</b><a href="qgraphicseffect.html#draw">QGraphicsEffect::draw</a>().</p>
+<p><b> 参见 </b><a href="qgraphicseffect.html#draw">QGraphicsEffect::draw</a>().</p>
 <!-- @@@drawSource -->
 <!-- $$$enabledChanged -->
 <h3 class="fn" id="enabledChanged"><a name="enabledChanged"></a><code>[signal] </code><span class="type">void</span> QGraphicsEffect::<span class="name">enabledChanged</span>(<span class="type">bool</span> <i>enabled</i>)</h3>
 <p>This signal is emitted whenever the effect is enabled or disabled. The <i>enabled</i> parameter holds the effects's new enabled state.</p>
-<p><b>Note:</b> Notifier signal for property <a href="qgraphicseffect.html#enabled-prop">enabled</a>. </p><p><b>参见</b><a href="qgraphicseffect.html#enabled-prop">isEnabled</a>().</p>
+<p><b>Note:</b> Notifier signal for property <a href="qgraphicseffect.html#enabled-prop">enabled</a>. </p><p><b> 参见 </b><a href="qgraphicseffect.html#enabled-prop">isEnabled</a>().</p>
 <!-- @@@enabledChanged -->
 <!-- $$$sourceBoundingRect[overload1]$$$sourceBoundingRectQt::CoordinateSystem -->
 <h3 class="fn" id="sourceBoundingRect"><a name="sourceBoundingRect"></a><code>[protected] </code><span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> QGraphicsEffect::<span class="name">sourceBoundingRect</span>(<span class="type">Qt::CoordinateSystem</span> <i>system</i> = Qt::LogicalCoordinates) const</h3>
 <p>Returns the bounding rectangle of the source mapped to the given <i>system</i>.</p>
 <p>Calling this function with <a href="../qtcore/qt.html#CoordinateSystem-enum">Qt::DeviceCoordinates</a> outside of <a href="qgraphicseffect.html#draw">QGraphicsEffect::draw</a>() will give undefined results, as there is no device context available.</p>
-<p><b>参见</b><a href="qgraphicseffect.html#draw">draw</a>().</p>
+<p><b> 参见 </b><a href="qgraphicseffect.html#draw">draw</a>().</p>
 <!-- @@@sourceBoundingRect -->
 <!-- $$$sourceChanged[overload1]$$$sourceChangedQGraphicsEffect::ChangeFlags -->
 <h3 class="fn" id="sourceChanged"><a name="sourceChanged"></a><code>[virtual protected] </code><span class="type">void</span> QGraphicsEffect::<span class="name">sourceChanged</span>(<span class="type"><a href="qgraphicseffect.html#ChangeFlag-enum">QGraphicsEffect::ChangeFlags</a></span> <i>flags</i>)</h3>
@@ -294,18 +294,18 @@
 <p>The <i>system</i> specifies which coordinate system to be used for the source. The optional <i>offset</i> parameter returns the offset where the pixmap should be painted at using the current painter. For control on how the pixmap is padded use the <i>mode</i> parameter.</p>
 <p>The returned pixmap is clipped to the current painter's device rectangle when <i>system</i> is <a href="../qtcore/qt.html#CoordinateSystem-enum">Qt::DeviceCoordinates</a>.</p>
 <p>Calling this function with <a href="../qtcore/qt.html#CoordinateSystem-enum">Qt::DeviceCoordinates</a> outside of <a href="qgraphicseffect.html#draw">QGraphicsEffect::draw</a>() will give undefined results, as there is no device context available.</p>
-<p><b>参见</b><a href="qgraphicseffect.html#draw">draw</a>() and <a href="qgraphicseffect.html#boundingRect">boundingRect</a>().</p>
+<p><b> 参见 </b><a href="qgraphicseffect.html#draw">draw</a>() 和 <a href="qgraphicseffect.html#boundingRect">boundingRect</a>().</p>
 <!-- @@@sourcePixmap -->
 <!-- $$$update[overload1]$$$update -->
 <h3 class="fn" id="update"><a name="update"></a><code>[slot] </code><span class="type">void</span> QGraphicsEffect::<span class="name">update</span>()</h3>
 <p>Schedules a redraw of the effect. Call this function whenever the effect needs to be redrawn. This function does not trigger a redraw of the source.</p>
-<p><b>参见</b><a href="qgraphicseffect.html#updateBoundingRect">updateBoundingRect</a>().</p>
+<p><b> 参见 </b><a href="qgraphicseffect.html#updateBoundingRect">updateBoundingRect</a>().</p>
 <!-- @@@update -->
 <!-- $$$updateBoundingRect[overload1]$$$updateBoundingRect -->
 <h3 class="fn" id="updateBoundingRect"><a name="updateBoundingRect"></a><code>[protected] </code><span class="type">void</span> QGraphicsEffect::<span class="name">updateBoundingRect</span>()</h3>
 <p>This function notifies the effect framework when the effect's bounding rectangle has changed. As a custom effect author, you must call this function whenever you change any parameters that will cause the virtual <a href="qgraphicseffect.html#boundingRectFor">boundingRectFor</a>() function to return a different value.</p>
 <p>This function will call <a href="qgraphicseffect.html#update">update</a>() if this is necessary.</p>
-<p><b>参见</b><a href="qgraphicseffect.html#boundingRectFor">boundingRectFor</a>(), <a href="qgraphicseffect.html#boundingRect">boundingRect</a>(), and <a href="qgraphicseffect.html#sourceBoundingRect">sourceBoundingRect</a>().</p>
+<p><b> 参见 </b><a href="qgraphicseffect.html#boundingRectFor">boundingRectFor</a>(), <a href="qgraphicseffect.html#boundingRect">boundingRect</a>(), 和 <a href="qgraphicseffect.html#sourceBoundingRect">sourceBoundingRect</a>().</p>
 <!-- @@@updateBoundingRect -->
 </div>
 <div class="vars">

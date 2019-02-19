@@ -110,7 +110,7 @@
 <p>The <a href="qabstractnetworkcache.html">QAbstractNetworkCache</a> class provides the interface for cache implementations.</p>
 <p><a href="qabstractnetworkcache.html">QAbstractNetworkCache</a> is the base class for every standard cache that is used by <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>. <a href="qabstractnetworkcache.html">QAbstractNetworkCache</a> is an abstract class and cannot be instantiated.</p>
 </div>
-<p><b>参见</b><a href="qnetworkdiskcache.html">QNetworkDiskCache</a>.</p>
+<p><b> 参见 </b><a href="qnetworkdiskcache.html">QNetworkDiskCache</a>.</p>
 <!-- @@@QAbstractNetworkCache -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -128,19 +128,19 @@
 <h3 class="fn" id="dtor.QAbstractNetworkCache"><a name="dtor.QAbstractNetworkCache"></a><code>[virtual] </code>QAbstractNetworkCache::<span class="name">~QAbstractNetworkCache</span>()</h3>
 <p>Destroys the cache.</p>
 <p>Any operations that have not been inserted are discarded.</p>
-<p><b>参见</b><a href="qabstractnetworkcache.html#insert">insert</a>().</p>
+<p><b> 参见 </b><a href="qabstractnetworkcache.html#insert">insert</a>().</p>
 <!-- @@@~QAbstractNetworkCache -->
 <!-- $$$cacheSize[overload1]$$$cacheSize -->
 <h3 class="fn" id="cacheSize"><a name="cacheSize"></a><code>[pure virtual] </code><span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> QAbstractNetworkCache::<span class="name">cacheSize</span>() const</h3>
 <p>Returns the current size taken up by the cache. Depending upon the cache implementation this might be disk or memory size.</p>
 <p>In the base class this is a pure virtual function.</p>
-<p><b>参见</b><a href="qabstractnetworkcache.html#clear">clear</a>().</p>
+<p><b> 参见 </b><a href="qabstractnetworkcache.html#clear">clear</a>().</p>
 <!-- @@@cacheSize -->
 <!-- $$$clear[overload1]$$$clear -->
 <h3 class="fn" id="clear"><a name="clear"></a><code>[pure virtual slot] </code><span class="type">void</span> QAbstractNetworkCache::<span class="name">clear</span>()</h3>
 <p>Removes all items from the cache. Unless there was failures clearing the cache <a href="qabstractnetworkcache.html#cacheSize">cacheSize</a>() should return 0 after a call to clear.</p>
 <p>In the base class this is a pure virtual function.</p>
-<p><b>参见</b><a href="qabstractnetworkcache.html#cacheSize">cacheSize</a>() and <a href="qabstractnetworkcache.html#remove">remove</a>().</p>
+<p><b> 参见 </b><a href="qabstractnetworkcache.html#cacheSize">cacheSize</a>() 和 <a href="qabstractnetworkcache.html#remove">remove</a>().</p>
 <!-- @@@clear -->
 <!-- $$$data[overload1]$$$dataconstQUrl& -->
 <h3 class="fn" id="data"><a name="data"></a><code>[pure virtual] </code><span class="type"><a href="../qtcore/qiodevice.html">QIODevice</a></span> *QAbstractNetworkCache::<span class="name">data</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
@@ -148,21 +148,21 @@
 <p>It is up to the application that requests the data to delete the <a href="../qtcore/qiodevice.html">QIODevice</a> when done with it.</p>
 <p>If there is no cache for <i>url</i>, the url is invalid, or if there is an internal cache error 0 is returned.</p>
 <p>In the base class this is a pure virtual function.</p>
-<p><b>参见</b><a href="qabstractnetworkcache.html#metaData">metaData</a>() and <a href="qabstractnetworkcache.html#prepare">prepare</a>().</p>
+<p><b> 参见 </b><a href="qabstractnetworkcache.html#metaData">metaData</a>() 和 <a href="qabstractnetworkcache.html#prepare">prepare</a>().</p>
 <!-- @@@data -->
 <!-- $$$insert[overload1]$$$insertQIODevice* -->
 <h3 class="fn" id="insert"><a name="insert"></a><code>[pure virtual] </code><span class="type">void</span> QAbstractNetworkCache::<span class="name">insert</span>(<span class="type"><a href="../qtcore/qiodevice.html">QIODevice</a></span> *<i>device</i>)</h3>
-<p>Inserts the data in <i>device</i> and the prepared meta data into the cache. After this function is called the data and meta data should be retrievable using <a href="qabstractnetworkcache.html#data">data</a>() and <a href="qabstractnetworkcache.html#metaData">metaData</a>().</p>
+<p>Inserts the data in <i>device</i> and the prepared meta data into the cache. After this function is called the data and meta data should be retrievable using <a href="qabstractnetworkcache.html#data">data</a>() 和 <a href="qabstractnetworkcache.html#metaData">metaData</a>().</p>
 <p>To cancel a prepared inserted call <a href="qabstractnetworkcache.html#remove">remove</a>() on the metadata's url.</p>
 <p>In the base class this is a pure virtual function.</p>
-<p><b>参见</b><a href="qabstractnetworkcache.html#prepare">prepare</a>() and <a href="qabstractnetworkcache.html#remove">remove</a>().</p>
+<p><b> 参见 </b><a href="qabstractnetworkcache.html#prepare">prepare</a>() 和 <a href="qabstractnetworkcache.html#remove">remove</a>().</p>
 <!-- @@@insert -->
 <!-- $$$metaData[overload1]$$$metaDataconstQUrl& -->
 <h3 class="fn" id="metaData"><a name="metaData"></a><code>[pure virtual] </code><span class="type"><a href="qnetworkcachemetadata.html">QNetworkCacheMetaData</a></span> QAbstractNetworkCache::<span class="name">metaData</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
 <p>Returns the meta data for the url <i>url</i>.</p>
 <p>If the url is valid and the cache contains the data for url, a valid <a href="qnetworkcachemetadata.html">QNetworkCacheMetaData</a> is returned.</p>
 <p>In the base class this is a pure virtual function.</p>
-<p><b>参见</b><a href="qabstractnetworkcache.html#updateMetaData">updateMetaData</a>() and <a href="qabstractnetworkcache.html#data">data</a>().</p>
+<p><b> 参见 </b><a href="qabstractnetworkcache.html#updateMetaData">updateMetaData</a>() 和 <a href="qabstractnetworkcache.html#data">data</a>().</p>
 <!-- @@@metaData -->
 <!-- $$$prepare[overload1]$$$prepareconstQNetworkCacheMetaData& -->
 <h3 class="fn" id="prepare"><a name="prepare"></a><code>[pure virtual] </code><span class="type"><a href="../qtcore/qiodevice.html">QIODevice</a></span> *QAbstractNetworkCache::<span class="name">prepare</span>(const <span class="type"><a href="qnetworkcachemetadata.html">QNetworkCacheMetaData</a></span> &amp;<i>metaData</i>)</h3>
@@ -170,20 +170,20 @@
 <p>The cache owns the device and will take care of deleting it when it is inserted or removed.</p>
 <p>To cancel a prepared inserted call <a href="qabstractnetworkcache.html#remove">remove</a>() on the metadata's url.</p>
 <p>In the base class this is a pure virtual function.</p>
-<p><b>参见</b><a href="qabstractnetworkcache.html#remove">remove</a>(), <a href="qabstractnetworkcache.html#updateMetaData">updateMetaData</a>(), and <a href="qabstractnetworkcache.html#insert">insert</a>().</p>
+<p><b> 参见 </b><a href="qabstractnetworkcache.html#remove">remove</a>(), <a href="qabstractnetworkcache.html#updateMetaData">updateMetaData</a>(), 和 <a href="qabstractnetworkcache.html#insert">insert</a>().</p>
 <!-- @@@prepare -->
 <!-- $$$remove[overload1]$$$removeconstQUrl& -->
 <h3 class="fn" id="remove"><a name="remove"></a><code>[pure virtual] </code><span class="type">bool</span> QAbstractNetworkCache::<span class="name">remove</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
 <p>Removes the cache entry for <i>url</i>, returning true if success otherwise false.</p>
 <p>In the base class this is a pure virtual function.</p>
-<p><b>参见</b><a href="qabstractnetworkcache.html#clear">clear</a>() and <a href="qabstractnetworkcache.html#prepare">prepare</a>().</p>
+<p><b> 参见 </b><a href="qabstractnetworkcache.html#clear">clear</a>() 和 <a href="qabstractnetworkcache.html#prepare">prepare</a>().</p>
 <!-- @@@remove -->
 <!-- $$$updateMetaData[overload1]$$$updateMetaDataconstQNetworkCacheMetaData& -->
 <h3 class="fn" id="updateMetaData"><a name="updateMetaData"></a><code>[pure virtual] </code><span class="type">void</span> QAbstractNetworkCache::<span class="name">updateMetaData</span>(const <span class="type"><a href="qnetworkcachemetadata.html">QNetworkCacheMetaData</a></span> &amp;<i>metaData</i>)</h3>
 <p>Updates the cache meta date for the <a href="qabstractnetworkcache.html#metaData">metaData</a>'s url to <i>metaData</i></p>
 <p>If the cache does not contains a cache item for the url then no action is taken.</p>
 <p>In the base class this is a pure virtual function.</p>
-<p><b>参见</b><a href="qabstractnetworkcache.html#metaData">metaData</a>() and <a href="qabstractnetworkcache.html#prepare">prepare</a>().</p>
+<p><b> 参见 </b><a href="qabstractnetworkcache.html#metaData">metaData</a>() 和 <a href="qabstractnetworkcache.html#prepare">prepare</a>().</p>
 <!-- @@@updateMetaData -->
 </div>
 <div class="vars">

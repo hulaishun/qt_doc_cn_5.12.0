@@ -67,7 +67,7 @@
   <span class="type"><a href="../qtcore/qset.html">QSet</a></span><span class="operator">&lt;</span><span class="type"><a href="../qtcore/qstring.html">QString</a></span><span class="operator">&gt;</span> dictionary <span class="operator">=</span> <span class="type"><a href="qtconcurrent-module.html">QtConcurrent</a></span><span class="operator">::</span>blockingFilteredReduced(strings<span class="operator">,</span> allLowerCase<span class="operator">,</span> addToDictionary);
 
 </pre>
-<p>Note that the result types above are not <a href="../qtcore/qfuture.html">QFuture</a> objects, but real result types (in this case, <a href="../qtcore/qstringlist.html">QStringList</a> and <a href="../qtcore/qset.html">QSet</a>&lt;<a href="../qtcore/qstring.html">QString</a>&gt;).</p>
+<p>Note that the result types above are not <a href="../qtcore/qfuture.html">QFuture</a> objects, but real result types (in this case, <a href="../qtcore/qstringlist.html">QStringList</a> 和 <a href="../qtcore/qset.html">QSet</a>&lt;<a href="../qtcore/qstring.html">QString</a>&gt;).</p>
 <a name="concurrent-filter"></a>
 <h2 id="concurrent-filter">Concurrent Filter</h2>
 <p>QtConcurrent::filtered() takes an input sequence and a filter function. This filter function is then called for each item in the sequence, and a new sequence containing the filtered values is returned.</p>
@@ -90,7 +90,7 @@
   <span class="type"><a href="../qtcore/qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type"><a href="../qtcore/qstring.html">QString</a></span><span class="operator">&gt;</span> lowerCaseStrings <span class="operator">=</span> <span class="type"><a href="qtconcurrent-module.html">QtConcurrent</a></span><span class="operator">::</span>filtered(strings<span class="operator">,</span> allLowerCase);
 
 </pre>
-<p>The results of the filter are made available through <a href="../qtcore/qfuture.html">QFuture</a>. See the <a href="../qtcore/qfuture.html">QFuture</a> and <a href="../qtcore/qfuturewatcher.html">QFutureWatcher</a> documentation for more information on how to use <a href="../qtcore/qfuture.html">QFuture</a> in your applications.</p>
+<p>The results of the filter are made available through <a href="../qtcore/qfuture.html">QFuture</a>. See the <a href="../qtcore/qfuture.html">QFuture</a> 和 <a href="../qtcore/qfuturewatcher.html">QFutureWatcher</a> documentation for more information on how to use <a href="../qtcore/qfuture.html">QFuture</a> in your applications.</p>
 <p>If you want to modify a sequence in-place, use QtConcurrent::filter():</p>
 <pre class="cpp">
 
@@ -98,7 +98,7 @@
   <span class="type"><a href="../qtcore/qfuture.html">QFuture</a></span><span class="operator">&lt;</span><span class="type">void</span><span class="operator">&gt;</span> future <span class="operator">=</span> <span class="type"><a href="qtconcurrent-module.html">QtConcurrent</a></span><span class="operator">::</span>filter(strings<span class="operator">,</span> allLowerCase);
 
 </pre>
-<p>Since the sequence is modified in place, QtConcurrent::filter() does not return any results via <a href="../qtcore/qfuture.html">QFuture</a>. However, you can still use <a href="../qtcore/qfuture.html">QFuture</a> and <a href="../qtcore/qfuturewatcher.html">QFutureWatcher</a> to monitor the status of the filter.</p>
+<p>Since the sequence is modified in place, QtConcurrent::filter() does not return any results via <a href="../qtcore/qfuture.html">QFuture</a>. However, you can still use <a href="../qtcore/qfuture.html">QFuture</a> 和 <a href="../qtcore/qfuturewatcher.html">QFutureWatcher</a> to monitor the status of the filter.</p>
 <a name="concurrent-filter-reduce"></a>
 <h2 id="concurrent-filter-reduce">Concurrent Filter-Reduce</h2>
 <p>QtConcurrent::filteredReduced() is similar to QtConcurrent::filtered(), but instead of returing a sequence with the filtered results, the results are combined into a single value using a reduce function.</p>

@@ -90,7 +90,7 @@
 <p>Container is the base type of container-like user interface controls that allow dynamic insertion and removal of items.</p>
 <a name="using-containers"></a>
 <h3 >Using Containers</h3>
-<p>Typically, items are statically declared as children of Container, but it is also possible to <a href="qml-qtquick-controls2-container.html#addItem-method">add</a>, <a href="qml-qtquick-controls2-container.html#insertItem-method">insert</a>, <a href="qml-qtquick-controls2-container.html#moveItem-method">move</a> and <a href="qml-qtquick-controls2-container.html#removeItem-method">remove</a> items dynamically. The items in a container can be accessed using <a href="qml-qtquick-controls2-container.html#itemAt-method">itemAt()</a> or <a href="qml-qtquick-controls2-container.html#contentChildren-prop">contentChildren</a>.</p>
+<p>Typically, items are statically declared as children of Container, but it is also possible to <a href="qml-qtquick-controls2-container.html#addItem-method">add</a>, <a href="qml-qtquick-controls2-container.html#insertItem-method">insert</a>, <a href="qml-qtquick-controls2-container.html#moveItem-method">move</a> 和 <a href="qml-qtquick-controls2-container.html#removeItem-method">remove</a> items dynamically. The items in a container can be accessed using <a href="qml-qtquick-controls2-container.html#itemAt-method">itemAt()</a> or <a href="qml-qtquick-controls2-container.html#contentChildren-prop">contentChildren</a>.</p>
 <p>Most containers have the concept of a &quot;current&quot; item. The current item is specified via the <a href="qml-qtquick-controls2-container.html#currentIndex-prop">currentIndex</a> property, and can be accessed using the read-only <a href="qml-qtquick-controls2-container.html#currentItem-prop">currentItem</a> property.</p>
 <p>The following example illustrates dynamic insertion of items to a <a href="qtquickcontrols2-navigation.html#tabbar">TabBar</a>, which is one of the concrete implementations of Container.</p>
 <pre class="cpp">
@@ -124,7 +124,7 @@
 </pre>
 <a name="managing-the-current-index"></a>
 <h3 >Managing the Current Index</h3>
-<p>When using multiple containers, such as <a href="qtquickcontrols2-navigation.html#tabbar">TabBar</a> and <a href="qml-qtquick-controls2-swipeview.html">SwipeView</a>, together, their <a href="qml-qtquick-controls2-container.html#currentIndex-prop">currentIndex</a> properties can be bound to each other to keep them in sync. When the user interacts with either container, its current index changes automatically propagate to the other container.</p>
+<p>When using multiple containers, such as <a href="qtquickcontrols2-navigation.html#tabbar">TabBar</a> 和 <a href="qml-qtquick-controls2-swipeview.html">SwipeView</a>, together, their <a href="qml-qtquick-controls2-container.html#currentIndex-prop">currentIndex</a> properties can be bound to each other to keep them in sync. When the user interacts with either container, its current index changes automatically propagate to the other container.</p>
 <p>Notice, however, that assigning a <code>currentIndex</code> value in JavaScript removes the respective binding. In order to retain the bindings, use the following methods to alter the current index:</p>
 <ul>
 <li><a href="qml-qtquick-controls2-container.html#incrementCurrentIndex-method">incrementCurrentIndex()</a></li>
@@ -164,7 +164,7 @@
 </pre>
 <a name="implementing-containers"></a>
 <h3 >Implementing Containers</h3>
-<p>Container does not provide any default visualization. It is used to implement such containers as <a href="qml-qtquick-controls2-swipeview.html">SwipeView</a> and <a href="qtquickcontrols2-navigation.html#tabbar">TabBar</a>. When implementing a custom container, the most important part of the API is <a href="qml-qtquick-controls2-container.html#contentModel-prop">contentModel</a>, which provides the contained items in a way that it can be used as a delegate model for item views and repeaters.</p>
+<p>Container does not provide any default visualization. It is used to implement such containers as <a href="qml-qtquick-controls2-swipeview.html">SwipeView</a> 和 <a href="qtquickcontrols2-navigation.html#tabbar">TabBar</a>. When implementing a custom container, the most important part of the API is <a href="qml-qtquick-controls2-container.html#contentModel-prop">contentModel</a>, which provides the contained items in a way that it can be used as a delegate model for item views and repeaters.</p>
 <pre class="cpp">
 
   Container {
@@ -190,8 +190,8 @@
   }
 
 </pre>
-<p>Notice how the sizes of the page items are set by hand. This is because the example uses a plain Container, which does not make any assumptions on the visual layout. It is typically not necessary to specify sizes for items in concrete Container implementations, such as <a href="qml-qtquick-controls2-swipeview.html">SwipeView</a> and <a href="qtquickcontrols2-navigation.html#tabbar">TabBar</a>.</p>
-<p><b>参见</b><a href="qtquickcontrols2-containers.html">Container Controls</a>.</p>
+<p>Notice how the sizes of the page items are set by hand. This is because the example uses a plain Container, which does not make any assumptions on the visual layout. It is typically not necessary to specify sizes for items in concrete Container implementations, such as <a href="qml-qtquick-controls2-swipeview.html">SwipeView</a> 和 <a href="qtquickcontrols2-navigation.html#tabbar">TabBar</a>.</p>
+<p><b> 参见 </b><a href="qtquickcontrols2-containers.html">Container Controls</a>.</p>
 <!-- @@@Container -->
 <h2>属性文档</h2>
 <!-- $$$contentChildren -->
@@ -202,8 +202,8 @@
 <a name="contentChildren-prop"></a><span class="name">contentChildren</span> : <span class="type"><a href="../qtqml/qml-list.html">list</a></span>&lt;<span class="type"><a href="../qtquick/qml-qtquick-item.html">Item</a></span>&gt;</p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>This property holds the list of content children.</p>
-<p>The list contains all items that have been declared in QML as children of the container, and also items that have been dynamically added or inserted using the <a href="qml-qtquick-controls2-container.html#addItem-method">addItem()</a> and <a href="qml-qtquick-controls2-container.html#insertItem-method">insertItem()</a> methods, respectively.</p>
-<p><b>Note: </b>Unlike <code>contentData</code>, <code>contentChildren</code> does not include non-visual QML objects. It is re-ordered when items are inserted or moved.</p><p><b>参见</b><a href="../qtquick/qml-qtquick-item.html#children-prop">Item::children</a> and <a href="qml-qtquick-controls2-container.html#contentData-prop">contentData</a>.</p>
+<p>The list contains all items that have been declared in QML as children of the container, and also items that have been dynamically added or inserted using the <a href="qml-qtquick-controls2-container.html#addItem-method">addItem()</a> 和 <a href="qml-qtquick-controls2-container.html#insertItem-method">insertItem()</a> methods, respectively.</p>
+<p><b>Note: </b>Unlike <code>contentData</code>, <code>contentChildren</code> does not include non-visual QML objects. It is re-ordered when items are inserted or moved.</p><p><b> 参见 </b><a href="../qtquick/qml-qtquick-item.html#children-prop">Item::children</a> 和 <a href="qml-qtquick-controls2-container.html#contentData-prop">contentData</a>.</p>
 </div></div><!-- @@@contentChildren -->
 <br/>
 <!-- $$$contentData -->
@@ -214,8 +214,8 @@
 <a name="contentData-prop"></a><span class="qmldefault">[default] </span><span class="name">contentData</span> : <span class="type"><a href="../qtqml/qml-list.html">list</a></span>&lt;<span class="type">Object</span>&gt;</p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>This property holds the list of content data.</p>
-<p>The list contains all objects that have been declared in QML as children of the container, and also items that have been dynamically added or inserted using the <a href="qml-qtquick-controls2-container.html#addItem-method">addItem()</a> and <a href="qml-qtquick-controls2-container.html#insertItem-method">insertItem()</a> methods, respectively.</p>
-<p><b>Note: </b>Unlike <code>contentChildren</code>, <code>contentData</code> does include non-visual QML objects. It is not re-ordered when items are inserted or moved.</p><p><b>参见</b><a href="../qtquick/qml-qtquick-item.html#data-prop">Item::data</a> and <a href="qml-qtquick-controls2-container.html#contentChildren-prop">contentChildren</a>.</p>
+<p>The list contains all objects that have been declared in QML as children of the container, and also items that have been dynamically added or inserted using the <a href="qml-qtquick-controls2-container.html#addItem-method">addItem()</a> 和 <a href="qml-qtquick-controls2-container.html#insertItem-method">insertItem()</a> methods, respectively.</p>
+<p><b>Note: </b>Unlike <code>contentChildren</code>, <code>contentData</code> does include non-visual QML objects. It is not re-ordered when items are inserted or moved.</p><p><b> 参见 </b><a href="../qtquick/qml-qtquick-item.html#data-prop">Item::data</a> 和 <a href="qml-qtquick-controls2-container.html#contentChildren-prop">contentChildren</a>.</p>
 </div></div><!-- @@@contentData -->
 <br/>
 <!-- $$$contentHeight -->
@@ -228,7 +228,7 @@
 </div><div class="qmldoc"><p>This property holds the content height. It is used for calculating the total implicit height of the container.</p>
 <p>Unless explicitly overridden, the content height is automatically calculated based on the implicit height of the items in the container.</p>
 <p>This property was introduced in  QtQuick.Controls 2.5 (Qt 5.12).</p>
-<p><b>参见</b><a href="qml-qtquick-controls2-container.html#contentWidth-prop">contentWidth</a>.</p>
+<p><b> 参见 </b><a href="qml-qtquick-controls2-container.html#contentWidth-prop">contentWidth</a>.</p>
 </div></div><!-- @@@contentHeight -->
 <br/>
 <!-- $$$contentModel -->
@@ -250,7 +250,7 @@
   }
 
 </pre>
-<p><b>参见</b><a href="qml-qtquick-controls2-container.html#contentData-prop">contentData</a> and <a href="qml-qtquick-controls2-container.html#contentChildren-prop">contentChildren</a>.</p>
+<p><b> 参见 </b><a href="qml-qtquick-controls2-container.html#contentData-prop">contentData</a> 和 <a href="qml-qtquick-controls2-container.html#contentChildren-prop">contentChildren</a>.</p>
 </div></div><!-- @@@contentModel -->
 <br/>
 <!-- $$$contentWidth -->
@@ -263,7 +263,7 @@
 </div><div class="qmldoc"><p>This property holds the content width. It is used for calculating the total implicit width of the container.</p>
 <p>Unless explicitly overridden, the content width is automatically calculated based on the implicit width of the items in the container.</p>
 <p>This property was introduced in  QtQuick.Controls 2.5 (Qt 5.12).</p>
-<p><b>参见</b><a href="qml-qtquick-controls2-container.html#contentHeight-prop">contentHeight</a>.</p>
+<p><b> 参见 </b><a href="qml-qtquick-controls2-container.html#contentHeight-prop">contentHeight</a>.</p>
 </div></div><!-- @@@contentWidth -->
 <br/>
 <!-- $$$count -->
@@ -284,7 +284,7 @@
 <a name="currentIndex-prop"></a><span class="name">currentIndex</span> : <span class="type"><a href="../qtqml/qml-int.html">int</a></span></p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>This property holds the index of the current item.</p>
-<p><b>参见</b><a href="qml-qtquick-controls2-container.html#currentItem-prop">currentItem</a> and <a href="qml-qtquick-controls2-container.html#managing-the-current-index">Managing the Current Index</a>.</p>
+<p><b> 参见 </b><a href="qml-qtquick-controls2-container.html#currentItem-prop">currentItem</a> 和 <a href="qml-qtquick-controls2-container.html#managing-the-current-index">Managing the Current Index</a>.</p>
 </div></div><!-- @@@currentIndex -->
 <br/>
 <!-- $$$currentItem -->
@@ -295,7 +295,7 @@
 <a name="currentItem-prop"></a><span class="qmlreadonly">[read-only] </span><span class="name">currentItem</span> : <span class="type"><a href="../qtquick/qml-qtquick-item.html">Item</a></span></p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>This property holds the current item.</p>
-<p><b>参见</b><a href="qml-qtquick-controls2-container.html#currentIndex-prop">currentIndex</a>.</p>
+<p><b> 参见 </b><a href="qml-qtquick-controls2-container.html#currentIndex-prop">currentIndex</a>.</p>
 </div></div><!-- @@@currentItem -->
 <br/>
 <h2>Method Documentation</h2>
@@ -319,7 +319,7 @@
 </div><div class="qmldoc"><p>Decrements the current index of the container.</p>
 <p>This method can be called to alter the current index without breaking existing <code>currentIndex</code> bindings.</p>
 <p>This method was introduced in  QtQuick.Controls 2.1 (Qt 5.8).</p>
-<p><b>参见</b><a href="qml-qtquick-controls2-container.html#currentIndex-prop">currentIndex</a> and <a href="qml-qtquick-controls2-container.html#managing-the-current-index">Managing the Current Index</a>.</p>
+<p><b> 参见 </b><a href="qml-qtquick-controls2-container.html#currentIndex-prop">currentIndex</a> 和 <a href="qml-qtquick-controls2-container.html#managing-the-current-index">Managing the Current Index</a>.</p>
 </div></div><!-- @@@decrementCurrentIndex -->
 <br/>
 <!-- $$$incrementCurrentIndex -->
@@ -332,7 +332,7 @@
 </div><div class="qmldoc"><p>Increments the current index of the container.</p>
 <p>This method can be called to alter the current index without breaking existing <code>currentIndex</code> bindings.</p>
 <p>This method was introduced in  QtQuick.Controls 2.1 (Qt 5.8).</p>
-<p><b>参见</b><a href="qml-qtquick-controls2-container.html#currentIndex-prop">currentIndex</a> and <a href="qml-qtquick-controls2-container.html#managing-the-current-index">Managing the Current Index</a>.</p>
+<p><b> 参见 </b><a href="qml-qtquick-controls2-container.html#currentIndex-prop">currentIndex</a> 和 <a href="qml-qtquick-controls2-container.html#managing-the-current-index">Managing the Current Index</a>.</p>
 </div></div><!-- @@@incrementCurrentIndex -->
 <br/>
 <!-- $$$insertItem -->
@@ -385,7 +385,7 @@
 </table></div>
 </div><div class="qmldoc"><p>Sets the current index of the container.</p>
 <p>This method can be called to set a specific current index without breaking existing <code>currentIndex</code> bindings.</p>
-<p><b>参见</b><a href="qml-qtquick-controls2-container.html#currentIndex-prop">currentIndex</a> and <a href="qml-qtquick-controls2-container.html#managing-the-current-index">Managing the Current Index</a>.</p>
+<p><b> 参见 </b><a href="qml-qtquick-controls2-container.html#currentIndex-prop">currentIndex</a> 和 <a href="qml-qtquick-controls2-container.html#managing-the-current-index">Managing the Current Index</a>.</p>
 </div></div><!-- @@@setCurrentIndex -->
 <br/>
 <!-- $$$takeItem -->

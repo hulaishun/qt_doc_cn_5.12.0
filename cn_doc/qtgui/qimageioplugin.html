@@ -55,7 +55,7 @@
 <li><a href="qimageioplugin-members.html">所有成员清单，包括继承而来的成员</a></li>
 <li><a href="qimageioplugin-obsolete.html">过时的成员</a></li>
 </ul>
-<p><b>Note:</b> All functions in this class are <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
+<p><b>注意：</b> 此类中的所有函数都是 <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
 <a name="public-types"></a>
 <h2 id="public-types">公共类型</h2>
 <div class="table"><table class="alignedsummary">
@@ -95,8 +95,8 @@
 <div class="descr">
 <h2 id="details">详细描述</h2>
 <p>The <a href="qimageioplugin.html">QImageIOPlugin</a> class defines an interface for writing an image format plugin.</p>
-<p><a href="qimageioplugin.html">QImageIOPlugin</a> is a factory for creating <a href="qimageiohandler.html">QImageIOHandler</a> objects, which are used internally by <a href="qimagereader.html">QImageReader</a> and <a href="qimagewriter.html">QImageWriter</a> to add support for different image formats to Qt.</p>
-<p>Writing an image I/O plugin is achieved by subclassing this base class, reimplementing the pure virtual functions <a href="qimageioplugin.html#capabilities">capabilities</a>() and <a href="qimageioplugin.html#create">create</a>(), and exporting the class with the <a href="../qtcore/qtplugin.html#Q_PLUGIN_METADATA">Q_PLUGIN_METADATA</a>() macro. See <a href="../qtdoc/plugins-howto.html">如何创建Qt插件</a> for details.</p>
+<p><a href="qimageioplugin.html">QImageIOPlugin</a> is a factory for creating <a href="qimageiohandler.html">QImageIOHandler</a> objects, which are used internally by <a href="qimagereader.html">QImageReader</a> 和 <a href="qimagewriter.html">QImageWriter</a> to add support for different image formats to Qt.</p>
+<p>Writing an image I/O plugin is achieved by subclassing this base class, reimplementing the pure virtual functions <a href="qimageioplugin.html#capabilities">capabilities</a>() 和 <a href="qimageioplugin.html#create">create</a>(), and exporting the class with the <a href="../qtcore/qtplugin.html#Q_PLUGIN_METADATA">Q_PLUGIN_METADATA</a>() macro. See <a href="../qtdoc/plugins-howto.html">如何创建Qt插件</a> for details.</p>
 <p>An image format plugin can support three capabilities: reading (<a href="qimageioplugin.html#Capability-enum">CanRead</a>), writing (<a href="qimageioplugin.html#Capability-enum">CanWrite</a>) and <i>incremental</i> reading (<a href="qimageioplugin.html#Capability-enum">CanReadIncremental</a>). Reimplement <a href="qimageioplugin.html#capabilities">capabilities</a>() in you subclass to expose the capabilities of your image format.</p>
 <p><a href="qimageioplugin.html#create">create</a>() should create an instance of your <a href="qimageiohandler.html">QImageIOHandler</a> subclass, with the provided device and format properly set, and return this handler.</p>
 <p>The json metadata file for the plugin needs to contain information about the image formats the plugins supports, together with the corresponding MIME types (one for each format). For a jpeg plugin, this could, for example, look as follows:</p>
@@ -110,7 +110,7 @@
 </pre>
 <p>Different plugins can support different capabilities. For example, you may have one plugin that supports reading the GIF format, and another that supports writing. Qt will select the correct plugin for the job, depending on the return value of <a href="qimageioplugin.html#capabilities">capabilities</a>(). If several plugins support the same capability, Qt will select one arbitrarily.</p>
 </div>
-<p><b>参见</b><a href="qimageiohandler.html">QImageIOHandler</a> and <a href="../qtdoc/plugins-howto.html">如何创建Qt插件</a>.</p>
+<p><b> 参见 </b><a href="qimageiohandler.html">QImageIOHandler</a> 和 <a href="../qtdoc/plugins-howto.html">如何创建Qt插件</a>.</p>
 <!-- @@@QImageIOPlugin -->
 <div class="types">
 <h2>成员类型文档</h2>

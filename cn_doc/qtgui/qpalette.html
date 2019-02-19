@@ -142,15 +142,15 @@
 </ul>
 <p>Both active and inactive windows can contain disabled widgets. (Disabled widgets are often called <i>inaccessible</i> or <i>grayed out</i>.)</p>
 <p>In most styles, Active and Inactive look the same.</p>
-<p>Colors and brushes can be set for particular roles in any of a palette's color groups with <a href="qpalette.html#setColor">setColor</a>() and <a href="qpalette.html#setBrush">setBrush</a>(). A color group contains a group of colors used by widgets for drawing themselves. We recommend that widgets use color group roles from the palette such as &quot;foreground&quot; and &quot;base&quot; rather than literal colors like &quot;red&quot; or &quot;turquoise&quot;. The color roles are enumerated and defined in the <a href="qpalette.html#ColorRole-enum">ColorRole</a> documentation.</p>
+<p>Colors and brushes can be set for particular roles in any of a palette's color groups with <a href="qpalette.html#setColor">setColor</a>() 和 <a href="qpalette.html#setBrush">setBrush</a>(). A color group contains a group of colors used by widgets for drawing themselves. We recommend that widgets use color group roles from the palette such as &quot;foreground&quot; and &quot;base&quot; rather than literal colors like &quot;red&quot; or &quot;turquoise&quot;. The color roles are enumerated and defined in the <a href="qpalette.html#ColorRole-enum">ColorRole</a> documentation.</p>
 <p>We strongly recommend that you use the default palette of the current style (returned by <a href="qguiapplication.html#palette">QGuiApplication::palette</a>()) and modify that as necessary. This is done by Qt's widgets when they are drawn.</p>
-<p>To modify a color group you call the functions <a href="qpalette.html#setColor">setColor</a>() and <a href="qpalette.html#setBrush">setBrush</a>(), depending on whether you want a pure color or a pixmap pattern.</p>
-<p>There are also corresponding <a href="qpalette.html#color">color</a>() and <a href="qpalette.html#brush">brush</a>() getters, and a commonly used convenience function to get the <a href="qpalette.html#ColorRole-enum">ColorRole</a> for the current <a href="qpalette.html#ColorGroup-enum">ColorGroup</a>: <a href="qpalette.html#window">window</a>(), <a href="qpalette.html#windowText">windowText</a>(), <a href="qpalette.html#base">base</a>(), etc.</p>
+<p>To modify a color group you call the functions <a href="qpalette.html#setColor">setColor</a>() 和 <a href="qpalette.html#setBrush">setBrush</a>(), depending on whether you want a pure color or a pixmap pattern.</p>
+<p>There are also corresponding <a href="qpalette.html#color">color</a>() 和 <a href="qpalette.html#brush">brush</a>() getters, and a commonly used convenience function to get the <a href="qpalette.html#ColorRole-enum">ColorRole</a> for the current <a href="qpalette.html#ColorGroup-enum">ColorGroup</a>: <a href="qpalette.html#window">window</a>(), <a href="qpalette.html#windowText">windowText</a>(), <a href="qpalette.html#base">base</a>(), etc.</p>
 <p>You can copy a palette using the copy constructor and test to see if two palettes are <i>identical</i> using <a href="qpalette.html#isCopyOf">isCopyOf</a>().</p>
 <p><a href="qpalette.html">QPalette</a> is optimized by the use of <a href="../qtcore/implicit-sharing.html">implicit sharing</a>, so it is very efficient to pass <a href="qpalette.html">QPalette</a> objects as arguments.</p>
 <p><b>Warning:</b> Some styles do not use the palette for all drawing, for instance, if they make use of native theme engines. This is the case for both the Windows Vista and the <a href="../qtdoc/internationalization.html#macos">macOS</a> styles.</p>
 </div>
-<p><b>参见</b><a href="../qtwidgets/qapplication.html#setPalette">QApplication::setPalette</a>(), <a href="../qtwidgets/qwidget.html#palette-prop">QWidget::setPalette</a>(), and <a href="qcolor.html">QColor</a>.</p>
+<p><b> 参见 </b><a href="../qtwidgets/qapplication.html#setPalette">QApplication::setPalette</a>(), <a href="../qtwidgets/qwidget.html#palette-prop">QWidget::setPalette</a>(), 和 <a href="qcolor.html">QColor</a>.</p>
 <!-- @@@QPalette -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -174,8 +174,8 @@
 <tr><td class="topAlign"><code>QPalette::Foreground</code></td><td class="topAlign tblval"><code>WindowText</code></td><td class="topAlign">This value is obsolete. Use WindowText instead.</td></tr>
 <tr><td class="topAlign"><code>QPalette::Base</code></td><td class="topAlign tblval"><code>9</code></td><td class="topAlign">Used mostly as the background color for text entry widgets, but can also be used for other painting - such as the background of combobox drop down lists and toolbar handles. It is usually white or another light color.</td></tr>
 <tr><td class="topAlign"><code>QPalette::AlternateBase</code></td><td class="topAlign tblval"><code>16</code></td><td class="topAlign">Used as the alternate background color in views with alternating row colors (see <a href="../qtwidgets/qabstractitemview.html#alternatingRowColors-prop">QAbstractItemView::setAlternatingRowColors</a>()).</td></tr>
-<tr><td class="topAlign"><code>QPalette::ToolTipBase</code></td><td class="topAlign tblval"><code>18</code></td><td class="topAlign">Used as the background color for <a href="../qtwidgets/qtooltip.html">QToolTip</a> and <a href="../qtwidgets/qwhatsthis.html">QWhatsThis</a>. Tool tips use the Inactive color group of <a href="qpalette.html">QPalette</a>, because tool tips are not active windows.</td></tr>
-<tr><td class="topAlign"><code>QPalette::ToolTipText</code></td><td class="topAlign tblval"><code>19</code></td><td class="topAlign">Used as the foreground color for <a href="../qtwidgets/qtooltip.html">QToolTip</a> and <a href="../qtwidgets/qwhatsthis.html">QWhatsThis</a>. Tool tips use the Inactive color group of <a href="qpalette.html">QPalette</a>, because tool tips are not active windows.</td></tr>
+<tr><td class="topAlign"><code>QPalette::ToolTipBase</code></td><td class="topAlign tblval"><code>18</code></td><td class="topAlign">Used as the background color for <a href="../qtwidgets/qtooltip.html">QToolTip</a> 和 <a href="../qtwidgets/qwhatsthis.html">QWhatsThis</a>. Tool tips use the Inactive color group of <a href="qpalette.html">QPalette</a>, because tool tips are not active windows.</td></tr>
+<tr><td class="topAlign"><code>QPalette::ToolTipText</code></td><td class="topAlign tblval"><code>19</code></td><td class="topAlign">Used as the foreground color for <a href="../qtwidgets/qtooltip.html">QToolTip</a> 和 <a href="../qtwidgets/qwhatsthis.html">QWhatsThis</a>. Tool tips use the Inactive color group of <a href="qpalette.html">QPalette</a>, because tool tips are not active windows.</td></tr>
 <tr><td class="topAlign"><code>QPalette::PlaceholderText</code></td><td class="topAlign tblval"><code>20</code></td><td class="topAlign">Used as the placeholder color for various text input widgets. This enum value has been introduced in Qt 5.12</td></tr>
 <tr><td class="topAlign"><code>QPalette::Text</code></td><td class="topAlign tblval"><code>6</code></td><td class="topAlign">The foreground color used with <code>Base</code>. This is usually the same as the <code>WindowText</code>, in which case it must provide good contrast with <code>Window</code> and <code>Base</code>.</td></tr>
 <tr><td class="topAlign"><code>QPalette::Button</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">The general button background color. This background can be different from <code>Window</code> as some styles require a different background color for buttons.</td></tr>
@@ -222,7 +222,7 @@
 <!-- $$$QPalette[overload1]$$$QPalette -->
 <h3 class="fn" id="QPalette"><a name="QPalette"></a>QPalette::<span class="name">QPalette</span>()</h3>
 <p>Constructs a palette object that uses the application's default palette.</p>
-<p><b>参见</b><a href="../qtwidgets/qapplication.html#setPalette">QApplication::setPalette</a>() and <a href="../qtwidgets/qapplication.html#palette">QApplication::palette</a>().</p>
+<p><b> 参见 </b><a href="../qtwidgets/qapplication.html#setPalette">QApplication::setPalette</a>() 和 <a href="../qtwidgets/qapplication.html#palette">QApplication::palette</a>().</p>
 <!-- @@@QPalette -->
 <!-- $$$QPalette$$$QPaletteconstQColor& -->
 <h3 class="fn" id="QPalette-1"><a name="QPalette-1"></a>QPalette::<span class="name">QPalette</span>(const <span class="type"><a href="qcolor.html">QColor</a></span> &amp;<i>button</i>)</h3>
@@ -239,7 +239,7 @@
 <!-- $$$QPalette$$$QPaletteconstQBrush&constQBrush&constQBrush&constQBrush&constQBrush&constQBrush&constQBrush&constQBrush&constQBrush& -->
 <h3 class="fn" id="QPalette-4"><a name="QPalette-4"></a>QPalette::<span class="name">QPalette</span>(const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;<i>windowText</i>, const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;<i>button</i>, const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;<i>light</i>, const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;<i>dark</i>, const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;<i>mid</i>, const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;<i>text</i>, const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;<i>bright_text</i>, const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;<i>base</i>, const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;<i>window</i>)</h3>
 <p>Constructs a palette. You can pass either brushes, pixmaps or plain colors for <i>windowText</i>, <i>button</i>, <i>light</i>, <i>dark</i>, <i>mid</i>, <i>text</i>, <i>bright_text</i>, <i>base</i> and <i>window</i>.</p>
-<p><b>参见</b><a href="qbrush.html">QBrush</a>.</p>
+<p><b> 参见 </b><a href="qbrush.html">QBrush</a>.</p>
 <!-- @@@QPalette -->
 <!-- $$$QPalette$$$QPaletteconstQPalette& -->
 <h3 class="fn" id="QPalette-6"><a name="QPalette-6"></a>QPalette::<span class="name">QPalette</span>(const <span class="type"><a href="qpalette.html#QPalette">QPalette</a></span> &amp;<i>p</i>)</h3>
@@ -259,38 +259,38 @@
 <!-- $$$alternateBase[overload1]$$$alternateBase -->
 <h3 class="fn" id="alternateBase"><a name="alternateBase"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">alternateBase</span>() const</h3>
 <p>Returns the alternate base brush of the current color group.</p>
-<p><b>参见</b><a href="qpalette.html#ColorRole-enum">ColorRole</a> and <a href="qpalette.html#brush">brush</a>().</p>
+<p><b> 参见 </b><a href="qpalette.html#ColorRole-enum">ColorRole</a> 和 <a href="qpalette.html#brush">brush</a>().</p>
 <!-- @@@alternateBase -->
 <!-- $$$base[overload1]$$$base -->
 <h3 class="fn" id="base"><a name="base"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">base</span>() const</h3>
 <p>Returns the base brush of the current color group.</p>
-<p><b>参见</b><a href="qpalette.html#ColorRole-enum">ColorRole</a> and <a href="qpalette.html#brush">brush</a>().</p>
+<p><b> 参见 </b><a href="qpalette.html#ColorRole-enum">ColorRole</a> 和 <a href="qpalette.html#brush">brush</a>().</p>
 <!-- @@@base -->
 <!-- $$$brightText[overload1]$$$brightText -->
 <h3 class="fn" id="brightText"><a name="brightText"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">brightText</span>() const</h3>
 <p>Returns the bright text foreground brush of the current color group.</p>
-<p><b>参见</b><a href="qpalette.html#ColorRole-enum">ColorRole</a> and <a href="qpalette.html#brush">brush</a>().</p>
+<p><b> 参见 </b><a href="qpalette.html#ColorRole-enum">ColorRole</a> 和 <a href="qpalette.html#brush">brush</a>().</p>
 <!-- @@@brightText -->
 <!-- $$$brush[overload1]$$$brushQPalette::ColorGroupQPalette::ColorRole -->
 <h3 class="fn" id="brush"><a name="brush"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">brush</span>(<span class="type"><a href="qpalette.html#ColorGroup-enum">QPalette::ColorGroup</a></span> <i>group</i>, <span class="type"><a href="qpalette.html#ColorRole-enum">QPalette::ColorRole</a></span> <i>role</i>) const</h3>
 <p>Returns the brush in the specified color <i>group</i>, used for the given color <i>role</i>.</p>
-<p><b>参见</b><a href="qpalette.html#color">color</a>(), <a href="qpalette.html#setBrush">setBrush</a>(), and <a href="qpalette.html#ColorRole-enum">ColorRole</a>.</p>
+<p><b> 参见 </b><a href="qpalette.html#color">color</a>(), <a href="qpalette.html#setBrush">setBrush</a>(), 和 <a href="qpalette.html#ColorRole-enum">ColorRole</a>.</p>
 <!-- @@@brush -->
 <!-- $$$brush$$$brushQPalette::ColorRole -->
 <h3 class="fn" id="brush-1"><a name="brush-1"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">brush</span>(<span class="type"><a href="qpalette.html#ColorRole-enum">QPalette::ColorRole</a></span> <i>role</i>) const</h3>
 <p>This is an overloaded function.</p>
 <p>Returns the brush that has been set for the given color <i>role</i> in the current <a href="qpalette.html#ColorGroup-enum">ColorGroup</a>.</p>
-<p><b>参见</b><a href="qpalette.html#color">color</a>(), <a href="qpalette.html#setBrush">setBrush</a>(), and <a href="qpalette.html#ColorRole-enum">ColorRole</a>.</p>
+<p><b> 参见 </b><a href="qpalette.html#color">color</a>(), <a href="qpalette.html#setBrush">setBrush</a>(), 和 <a href="qpalette.html#ColorRole-enum">ColorRole</a>.</p>
 <!-- @@@brush -->
 <!-- $$$button[overload1]$$$button -->
 <h3 class="fn" id="button"><a name="button"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">button</span>() const</h3>
 <p>Returns the button brush of the current color group.</p>
-<p><b>参见</b><a href="qpalette.html#ColorRole-enum">ColorRole</a> and <a href="qpalette.html#brush">brush</a>().</p>
+<p><b> 参见 </b><a href="qpalette.html#ColorRole-enum">ColorRole</a> 和 <a href="qpalette.html#brush">brush</a>().</p>
 <!-- @@@button -->
 <!-- $$$buttonText[overload1]$$$buttonText -->
 <h3 class="fn" id="buttonText"><a name="buttonText"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">buttonText</span>() const</h3>
 <p>Returns the button text foreground brush of the current color group.</p>
-<p><b>参见</b><a href="qpalette.html#ColorRole-enum">ColorRole</a> and <a href="qpalette.html#brush">brush</a>().</p>
+<p><b> 参见 </b><a href="qpalette.html#ColorRole-enum">ColorRole</a> 和 <a href="qpalette.html#brush">brush</a>().</p>
 <!-- @@@buttonText -->
 <!-- $$$cacheKey[overload1]$$$cacheKey -->
 <h3 class="fn" id="cacheKey"><a name="cacheKey"></a><span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> QPalette::<span class="name">cacheKey</span>() const</h3>
@@ -300,44 +300,44 @@
 <!-- $$$color[overload1]$$$colorQPalette::ColorGroupQPalette::ColorRole -->
 <h3 class="fn" id="color"><a name="color"></a>const <span class="type"><a href="qcolor.html">QColor</a></span> &amp;QPalette::<span class="name">color</span>(<span class="type"><a href="qpalette.html#ColorGroup-enum">QPalette::ColorGroup</a></span> <i>group</i>, <span class="type"><a href="qpalette.html#ColorRole-enum">QPalette::ColorRole</a></span> <i>role</i>) const</h3>
 <p>Returns the color in the specified color <i>group</i>, used for the given color <i>role</i>.</p>
-<p><b>参见</b><a href="qpalette.html#brush">brush</a>(), <a href="qpalette.html#setColor">setColor</a>(), and <a href="qpalette.html#ColorRole-enum">ColorRole</a>.</p>
+<p><b> 参见 </b><a href="qpalette.html#brush">brush</a>(), <a href="qpalette.html#setColor">setColor</a>(), 和 <a href="qpalette.html#ColorRole-enum">ColorRole</a>.</p>
 <!-- @@@color -->
 <!-- $$$color$$$colorQPalette::ColorRole -->
 <h3 class="fn" id="color-1"><a name="color-1"></a>const <span class="type"><a href="qcolor.html">QColor</a></span> &amp;QPalette::<span class="name">color</span>(<span class="type"><a href="qpalette.html#ColorRole-enum">QPalette::ColorRole</a></span> <i>role</i>) const</h3>
 <p>This is an overloaded function.</p>
 <p>Returns the color that has been set for the given color <i>role</i> in the current <a href="qpalette.html#ColorGroup-enum">ColorGroup</a>.</p>
-<p><b>参见</b><a href="qpalette.html#brush">brush</a>() and <a href="qpalette.html#ColorRole-enum">ColorRole</a>.</p>
+<p><b> 参见 </b><a href="qpalette.html#brush">brush</a>() 和 <a href="qpalette.html#ColorRole-enum">ColorRole</a>.</p>
 <!-- @@@color -->
 <!-- $$$currentColorGroup[overload1]$$$currentColorGroup -->
 <h3 class="fn" id="currentColorGroup"><a name="currentColorGroup"></a><span class="type"><a href="qpalette.html#ColorGroup-enum">QPalette::ColorGroup</a></span> QPalette::<span class="name">currentColorGroup</span>() const</h3>
 <p>Returns the palette's current color group.</p>
-<p><b>参见</b><a href="qpalette.html#setCurrentColorGroup">setCurrentColorGroup</a>().</p>
+<p><b> 参见 </b><a href="qpalette.html#setCurrentColorGroup">setCurrentColorGroup</a>().</p>
 <!-- @@@currentColorGroup -->
 <!-- $$$dark[overload1]$$$dark -->
 <h3 class="fn" id="dark"><a name="dark"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">dark</span>() const</h3>
 <p>Returns the dark brush of the current color group.</p>
-<p><b>参见</b><a href="qpalette.html#ColorRole-enum">ColorRole</a> and <a href="qpalette.html#brush">brush</a>().</p>
+<p><b> 参见 </b><a href="qpalette.html#ColorRole-enum">ColorRole</a> 和 <a href="qpalette.html#brush">brush</a>().</p>
 <!-- @@@dark -->
 <!-- $$$highlight[overload1]$$$highlight -->
 <h3 class="fn" id="highlight"><a name="highlight"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">highlight</span>() const</h3>
 <p>Returns the highlight brush of the current color group.</p>
-<p><b>参见</b><a href="qpalette.html#ColorRole-enum">ColorRole</a> and <a href="qpalette.html#brush">brush</a>().</p>
+<p><b> 参见 </b><a href="qpalette.html#ColorRole-enum">ColorRole</a> 和 <a href="qpalette.html#brush">brush</a>().</p>
 <!-- @@@highlight -->
 <!-- $$$highlightedText[overload1]$$$highlightedText -->
 <h3 class="fn" id="highlightedText"><a name="highlightedText"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">highlightedText</span>() const</h3>
 <p>Returns the highlighted text brush of the current color group.</p>
-<p><b>参见</b><a href="qpalette.html#ColorRole-enum">ColorRole</a> and <a href="qpalette.html#brush">brush</a>().</p>
+<p><b> 参见 </b><a href="qpalette.html#ColorRole-enum">ColorRole</a> 和 <a href="qpalette.html#brush">brush</a>().</p>
 <!-- @@@highlightedText -->
 <!-- $$$isBrushSet[overload1]$$$isBrushSetQPalette::ColorGroupQPalette::ColorRole -->
 <h3 class="fn" id="isBrushSet"><a name="isBrushSet"></a><span class="type">bool</span> QPalette::<span class="name">isBrushSet</span>(<span class="type"><a href="qpalette.html#ColorGroup-enum">QPalette::ColorGroup</a></span> <i>cg</i>, <span class="type"><a href="qpalette.html#ColorRole-enum">QPalette::ColorRole</a></span> <i>cr</i>) const</h3>
 <p>Returns <code>true</code> if the <a href="qpalette.html#ColorGroup-enum">ColorGroup</a> <i>cg</i> and <a href="qpalette.html#ColorRole-enum">ColorRole</a> <i>cr</i> has been set previously on this palette; otherwise returns <code>false</code>.</p>
 <p>这个函数是在Qt 4.2版本中新增引入的。</p>
-<p><b>参见</b><a href="qpalette.html#setBrush">setBrush</a>().</p>
+<p><b> 参见 </b><a href="qpalette.html#setBrush">setBrush</a>().</p>
 <!-- @@@isBrushSet -->
 <!-- $$$isCopyOf[overload1]$$$isCopyOfconstQPalette& -->
 <h3 class="fn" id="isCopyOf"><a name="isCopyOf"></a><span class="type">bool</span> QPalette::<span class="name">isCopyOf</span>(const <span class="type"><a href="qpalette.html#QPalette">QPalette</a></span> &amp;<i>p</i>) const</h3>
 <p>Returns <code>true</code> if this palette and <i>p</i> are copies of each other, i.e&#x2e; one of them was created as a copy of the other and neither was subsequently modified; otherwise returns <code>false</code>. This is much stricter than equality.</p>
-<p><b>参见</b><a href="qpalette.html#operator-eq">operator=</a>() and <a href="qpalette.html#operator-eq-eq">operator==</a>().</p>
+<p><b> 参见 </b><a href="qpalette.html#operator-eq">operator=</a>() 和 <a href="qpalette.html#operator-eq-eq">operator==</a>().</p>
 <!-- @@@isCopyOf -->
 <!-- $$$isEqual[overload1]$$$isEqualQPalette::ColorGroupQPalette::ColorGroup -->
 <h3 class="fn" id="isEqual"><a name="isEqual"></a><span class="type">bool</span> QPalette::<span class="name">isEqual</span>(<span class="type"><a href="qpalette.html#ColorGroup-enum">QPalette::ColorGroup</a></span> <i>cg1</i>, <span class="type"><a href="qpalette.html#ColorGroup-enum">QPalette::ColorGroup</a></span> <i>cg2</i>) const</h3>
@@ -346,33 +346,33 @@
 <!-- $$$light[overload1]$$$light -->
 <h3 class="fn" id="light"><a name="light"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">light</span>() const</h3>
 <p>Returns the light brush of the current color group.</p>
-<p><b>参见</b><a href="qpalette.html#ColorRole-enum">ColorRole</a> and <a href="qpalette.html#brush">brush</a>().</p>
+<p><b> 参见 </b><a href="qpalette.html#ColorRole-enum">ColorRole</a> 和 <a href="qpalette.html#brush">brush</a>().</p>
 <!-- @@@light -->
 <!-- $$$link[overload1]$$$link -->
 <h3 class="fn" id="link"><a name="link"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">link</span>() const</h3>
 <p>Returns the unvisited link text brush of the current color group.</p>
-<p><b>参见</b><a href="qpalette.html#ColorRole-enum">ColorRole</a> and <a href="qpalette.html#brush">brush</a>().</p>
+<p><b> 参见 </b><a href="qpalette.html#ColorRole-enum">ColorRole</a> 和 <a href="qpalette.html#brush">brush</a>().</p>
 <!-- @@@link -->
 <!-- $$$linkVisited[overload1]$$$linkVisited -->
 <h3 class="fn" id="linkVisited"><a name="linkVisited"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">linkVisited</span>() const</h3>
 <p>Returns the visited link text brush of the current color group.</p>
-<p><b>参见</b><a href="qpalette.html#ColorRole-enum">ColorRole</a> and <a href="qpalette.html#brush">brush</a>().</p>
+<p><b> 参见 </b><a href="qpalette.html#ColorRole-enum">ColorRole</a> 和 <a href="qpalette.html#brush">brush</a>().</p>
 <!-- @@@linkVisited -->
 <!-- $$$mid[overload1]$$$mid -->
 <h3 class="fn" id="mid"><a name="mid"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">mid</span>() const</h3>
 <p>Returns the mid brush of the current color group.</p>
-<p><b>参见</b><a href="qpalette.html#ColorRole-enum">ColorRole</a> and <a href="qpalette.html#brush">brush</a>().</p>
+<p><b> 参见 </b><a href="qpalette.html#ColorRole-enum">ColorRole</a> 和 <a href="qpalette.html#brush">brush</a>().</p>
 <!-- @@@mid -->
 <!-- $$$midlight[overload1]$$$midlight -->
 <h3 class="fn" id="midlight"><a name="midlight"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">midlight</span>() const</h3>
 <p>Returns the midlight brush of the current color group.</p>
-<p><b>参见</b><a href="qpalette.html#ColorRole-enum">ColorRole</a> and <a href="qpalette.html#brush">brush</a>().</p>
+<p><b> 参见 </b><a href="qpalette.html#ColorRole-enum">ColorRole</a> 和 <a href="qpalette.html#brush">brush</a>().</p>
 <!-- @@@midlight -->
 <!-- $$$placeholderText[overload1]$$$placeholderText -->
 <h3 class="fn" id="placeholderText"><a name="placeholderText"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">placeholderText</span>() const</h3>
 <p>Returns the placeholder text brush of the current color group.</p>
 <p><b>Note: </b>Before Qt 5.12, the placeholder text color was hard-coded in the code as <a href="qpalette.html#text">QPalette::text</a>().<a href="qpalette.html#color">color</a>() where an alpha of 128 was applied. We continue to support this behavior by default, unless you set your own brush. One can get back the original placeholder color setting the special <a href="qbrush.html">QBrush</a> default constructor as placeholder brush.</p><p>这个函数是在Qt 5.12版本中新增引入的。</p>
-<p><b>参见</b><a href="qpalette.html#ColorRole-enum">ColorRole</a> and <a href="qpalette.html#brush">brush</a>().</p>
+<p><b> 参见 </b><a href="qpalette.html#ColorRole-enum">ColorRole</a> 和 <a href="qpalette.html#brush">brush</a>().</p>
 <!-- @@@placeholderText -->
 <!-- $$$resolve[overload1]$$$resolveconstQPalette& -->
 <h3 class="fn" id="resolve"><a name="resolve"></a><span class="type"><a href="qpalette.html#QPalette">QPalette</a></span> QPalette::<span class="name">resolve</span>(const <span class="type"><a href="qpalette.html#QPalette">QPalette</a></span> &amp;<i>other</i>) const</h3>
@@ -381,39 +381,39 @@
 <!-- $$$setBrush[overload1]$$$setBrushQPalette::ColorRoleconstQBrush& -->
 <h3 class="fn" id="setBrush"><a name="setBrush"></a><span class="type">void</span> QPalette::<span class="name">setBrush</span>(<span class="type"><a href="qpalette.html#ColorRole-enum">QPalette::ColorRole</a></span> <i>role</i>, const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;<i>brush</i>)</h3>
 <p>Sets the brush for the given color <i>role</i> to the specified <i>brush</i> for all groups in the palette.</p>
-<p><b>参见</b><a href="qpalette.html#brush">brush</a>(), <a href="qpalette.html#setColor">setColor</a>(), and <a href="qpalette.html#ColorRole-enum">ColorRole</a>.</p>
+<p><b> 参见 </b><a href="qpalette.html#brush">brush</a>(), <a href="qpalette.html#setColor">setColor</a>(), 和 <a href="qpalette.html#ColorRole-enum">ColorRole</a>.</p>
 <!-- @@@setBrush -->
 <!-- $$$setBrush$$$setBrushQPalette::ColorGroupQPalette::ColorRoleconstQBrush& -->
 <h3 class="fn" id="setBrush-1"><a name="setBrush-1"></a><span class="type">void</span> QPalette::<span class="name">setBrush</span>(<span class="type"><a href="qpalette.html#ColorGroup-enum">QPalette::ColorGroup</a></span> <i>group</i>, <span class="type"><a href="qpalette.html#ColorRole-enum">QPalette::ColorRole</a></span> <i>role</i>, const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;<i>brush</i>)</h3>
 <p>This is an overloaded function.</p>
 <p>Sets the brush in the specified color <i>group</i>, used for the given color <i>role</i>, to <i>brush</i>.</p>
-<p><b>参见</b><a href="qpalette.html#brush">brush</a>(), <a href="qpalette.html#setColor">setColor</a>(), and <a href="qpalette.html#ColorRole-enum">ColorRole</a>.</p>
+<p><b> 参见 </b><a href="qpalette.html#brush">brush</a>(), <a href="qpalette.html#setColor">setColor</a>(), 和 <a href="qpalette.html#ColorRole-enum">ColorRole</a>.</p>
 <!-- @@@setBrush -->
 <!-- $$$setColor[overload1]$$$setColorQPalette::ColorGroupQPalette::ColorRoleconstQColor& -->
 <h3 class="fn" id="setColor"><a name="setColor"></a><span class="type">void</span> QPalette::<span class="name">setColor</span>(<span class="type"><a href="qpalette.html#ColorGroup-enum">QPalette::ColorGroup</a></span> <i>group</i>, <span class="type"><a href="qpalette.html#ColorRole-enum">QPalette::ColorRole</a></span> <i>role</i>, const <span class="type"><a href="qcolor.html">QColor</a></span> &amp;<i>color</i>)</h3>
 <p>Sets the color in the specified color <i>group</i>, used for the given color <i>role</i>, to the specified solid <i>color</i>.</p>
-<p><b>参见</b><a href="qpalette.html#setBrush">setBrush</a>(), <a href="qpalette.html#color">color</a>(), and <a href="qpalette.html#ColorRole-enum">ColorRole</a>.</p>
+<p><b> 参见 </b><a href="qpalette.html#setBrush">setBrush</a>(), <a href="qpalette.html#color">color</a>(), 和 <a href="qpalette.html#ColorRole-enum">ColorRole</a>.</p>
 <!-- @@@setColor -->
 <!-- $$$setColor$$$setColorQPalette::ColorRoleconstQColor& -->
 <h3 class="fn" id="setColor-1"><a name="setColor-1"></a><span class="type">void</span> QPalette::<span class="name">setColor</span>(<span class="type"><a href="qpalette.html#ColorRole-enum">QPalette::ColorRole</a></span> <i>role</i>, const <span class="type"><a href="qcolor.html">QColor</a></span> &amp;<i>color</i>)</h3>
 <p>This is an overloaded function.</p>
 <p>Sets the color used for the given color <i>role</i>, in all color groups, to the specified solid <i>color</i>.</p>
-<p><b>参见</b><a href="qpalette.html#brush">brush</a>(), <a href="qpalette.html#setColor">setColor</a>(), and <a href="qpalette.html#ColorRole-enum">ColorRole</a>.</p>
+<p><b> 参见 </b><a href="qpalette.html#brush">brush</a>(), <a href="qpalette.html#setColor">setColor</a>(), 和 <a href="qpalette.html#ColorRole-enum">ColorRole</a>.</p>
 <!-- @@@setColor -->
 <!-- $$$setColorGroup[overload1]$$$setColorGroupQPalette::ColorGroupconstQBrush&constQBrush&constQBrush&constQBrush&constQBrush&constQBrush&constQBrush&constQBrush&constQBrush& -->
 <h3 class="fn" id="setColorGroup"><a name="setColorGroup"></a><span class="type">void</span> QPalette::<span class="name">setColorGroup</span>(<span class="type"><a href="qpalette.html#ColorGroup-enum">QPalette::ColorGroup</a></span> <i>cg</i>, const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;<i>windowText</i>, const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;<i>button</i>, const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;<i>light</i>, const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;<i>dark</i>, const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;<i>mid</i>, const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;<i>text</i>, const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;<i>bright_text</i>, const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;<i>base</i>, const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;<i>window</i>)</h3>
 <p>Sets a the group at <i>cg</i>. You can pass either brushes, pixmaps or plain colors for <i>windowText</i>, <i>button</i>, <i>light</i>, <i>dark</i>, <i>mid</i>, <i>text</i>, <i>bright_text</i>, <i>base</i> and <i>window</i>.</p>
-<p><b>参见</b><a href="qbrush.html">QBrush</a>.</p>
+<p><b> 参见 </b><a href="qbrush.html">QBrush</a>.</p>
 <!-- @@@setColorGroup -->
 <!-- $$$setCurrentColorGroup[overload1]$$$setCurrentColorGroupQPalette::ColorGroup -->
 <h3 class="fn" id="setCurrentColorGroup"><a name="setCurrentColorGroup"></a><span class="type">void</span> QPalette::<span class="name">setCurrentColorGroup</span>(<span class="type"><a href="qpalette.html#ColorGroup-enum">QPalette::ColorGroup</a></span> <i>cg</i>)</h3>
 <p>Set the palette's current color group to <i>cg</i>.</p>
-<p><b>参见</b><a href="qpalette.html#currentColorGroup">currentColorGroup</a>().</p>
+<p><b> 参见 </b><a href="qpalette.html#currentColorGroup">currentColorGroup</a>().</p>
 <!-- @@@setCurrentColorGroup -->
 <!-- $$$shadow[overload1]$$$shadow -->
 <h3 class="fn" id="shadow"><a name="shadow"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">shadow</span>() const</h3>
 <p>Returns the shadow brush of the current color group.</p>
-<p><b>参见</b><a href="qpalette.html#ColorRole-enum">ColorRole</a> and <a href="qpalette.html#brush">brush</a>().</p>
+<p><b> 参见 </b><a href="qpalette.html#ColorRole-enum">ColorRole</a> 和 <a href="qpalette.html#brush">brush</a>().</p>
 <!-- @@@shadow -->
 <!-- $$$swap[overload1]$$$swapQPalette& -->
 <h3 class="fn" id="swap"><a name="swap"></a><span class="type">void</span> QPalette::<span class="name">swap</span>(<span class="type"><a href="qpalette.html#QPalette">QPalette</a></span> &amp;<i>other</i>)</h3>
@@ -423,29 +423,29 @@
 <!-- $$$text[overload1]$$$text -->
 <h3 class="fn" id="text"><a name="text"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">text</span>() const</h3>
 <p>Returns the text foreground brush of the current color group.</p>
-<p><b>参见</b><a href="qpalette.html#ColorRole-enum">ColorRole</a> and <a href="qpalette.html#brush">brush</a>().</p>
+<p><b> 参见 </b><a href="qpalette.html#ColorRole-enum">ColorRole</a> 和 <a href="qpalette.html#brush">brush</a>().</p>
 <!-- @@@text -->
 <!-- $$$toolTipBase[overload1]$$$toolTipBase -->
 <h3 class="fn" id="toolTipBase"><a name="toolTipBase"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">toolTipBase</span>() const</h3>
-<p>Returns the tool tip base brush of the current color group. This brush is used by <a href="../qtwidgets/qtooltip.html">QToolTip</a> and <a href="../qtwidgets/qwhatsthis.html">QWhatsThis</a>.</p>
+<p>Returns the tool tip base brush of the current color group. This brush is used by <a href="../qtwidgets/qtooltip.html">QToolTip</a> 和 <a href="../qtwidgets/qwhatsthis.html">QWhatsThis</a>.</p>
 <p><b>Note: </b>Tool tips use the Inactive color group of <a href="qpalette.html">QPalette</a>, because tool tips are not active windows.</p><p>这个函数是在Qt 4.4版本中新增引入的。</p>
-<p><b>参见</b><a href="qpalette.html#ColorRole-enum">ColorRole</a> and <a href="qpalette.html#brush">brush</a>().</p>
+<p><b> 参见 </b><a href="qpalette.html#ColorRole-enum">ColorRole</a> 和 <a href="qpalette.html#brush">brush</a>().</p>
 <!-- @@@toolTipBase -->
 <!-- $$$toolTipText[overload1]$$$toolTipText -->
 <h3 class="fn" id="toolTipText"><a name="toolTipText"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">toolTipText</span>() const</h3>
-<p>Returns the tool tip text brush of the current color group. This brush is used by <a href="../qtwidgets/qtooltip.html">QToolTip</a> and <a href="../qtwidgets/qwhatsthis.html">QWhatsThis</a>.</p>
+<p>Returns the tool tip text brush of the current color group. This brush is used by <a href="../qtwidgets/qtooltip.html">QToolTip</a> 和 <a href="../qtwidgets/qwhatsthis.html">QWhatsThis</a>.</p>
 <p><b>Note: </b>Tool tips use the Inactive color group of <a href="qpalette.html">QPalette</a>, because tool tips are not active windows.</p><p>这个函数是在Qt 4.4版本中新增引入的。</p>
-<p><b>参见</b><a href="qpalette.html#ColorRole-enum">ColorRole</a> and <a href="qpalette.html#brush">brush</a>().</p>
+<p><b> 参见 </b><a href="qpalette.html#ColorRole-enum">ColorRole</a> 和 <a href="qpalette.html#brush">brush</a>().</p>
 <!-- @@@toolTipText -->
 <!-- $$$window[overload1]$$$window -->
 <h3 class="fn" id="window"><a name="window"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">window</span>() const</h3>
 <p>Returns the window (general background) brush of the current color group.</p>
-<p><b>参见</b><a href="qpalette.html#ColorRole-enum">ColorRole</a> and <a href="qpalette.html#brush">brush</a>().</p>
+<p><b> 参见 </b><a href="qpalette.html#ColorRole-enum">ColorRole</a> 和 <a href="qpalette.html#brush">brush</a>().</p>
 <!-- @@@window -->
 <!-- $$$windowText[overload1]$$$windowText -->
 <h3 class="fn" id="windowText"><a name="windowText"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">windowText</span>() const</h3>
 <p>Returns the window text (general foreground) brush of the current color group.</p>
-<p><b>参见</b><a href="qpalette.html#ColorRole-enum">ColorRole</a> and <a href="qpalette.html#brush">brush</a>().</p>
+<p><b> 参见 </b><a href="qpalette.html#ColorRole-enum">ColorRole</a> 和 <a href="qpalette.html#brush">brush</a>().</p>
 <!-- @@@windowText -->
 <!-- $$$operator QVariant[overload1]$$$operator QVariant -->
 <h3 class="fn" id="operator-QVariant"><a name="operator-QVariant"></a><span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> QPalette::<span class="name">operator QVariant</span>() const</h3>
@@ -454,7 +454,7 @@
 <!-- $$$operator!=[overload1]$$$operator!=constQPalette& -->
 <h3 class="fn" id="operator-not-eq"><a name="operator-not-eq"></a><span class="type">bool</span> QPalette::<span class="name">operator!=</span>(const <span class="type"><a href="qpalette.html#QPalette">QPalette</a></span> &amp;<i>p</i>) const</h3>
 <p>Returns <code>true</code> (slowly) if this palette is different from <i>p</i>; otherwise returns <code>false</code> (usually quickly).</p>
-<p><b>Note: </b>The current <a href="qpalette.html#ColorGroup-enum">ColorGroup</a> is not taken into account when comparing palettes</p><p><b>参见</b><a href="qpalette.html#operator-eq-eq">operator==</a>().</p>
+<p><b>Note: </b>The current <a href="qpalette.html#ColorGroup-enum">ColorGroup</a> is not taken into account when comparing palettes</p><p><b> 参见 </b><a href="qpalette.html#operator-eq-eq">operator==</a>().</p>
 <!-- @@@operator!= -->
 <!-- $$$operator=[overload1]$$$operator=constQPalette& -->
 <h3 class="fn" id="operator-eq"><a name="operator-eq"></a><span class="type"><a href="qpalette.html#QPalette">QPalette</a></span> &amp;QPalette::<span class="name">operator=</span>(const <span class="type"><a href="qpalette.html#QPalette">QPalette</a></span> &amp;<i>p</i>)</h3>
@@ -469,7 +469,7 @@
 <!-- $$$operator==[overload1]$$$operator==constQPalette& -->
 <h3 class="fn" id="operator-eq-eq"><a name="operator-eq-eq"></a><span class="type">bool</span> QPalette::<span class="name">operator==</span>(const <span class="type"><a href="qpalette.html#QPalette">QPalette</a></span> &amp;<i>p</i>) const</h3>
 <p>Returns <code>true</code> (usually quickly) if this palette is equal to <i>p</i>; otherwise returns <code>false</code> (slowly).</p>
-<p><b>Note: </b>The current <a href="qpalette.html#ColorGroup-enum">ColorGroup</a> is not taken into account when comparing palettes</p><p><b>参见</b><a href="qpalette.html#operator-not-eq">operator!=</a>().</p>
+<p><b>Note: </b>The current <a href="qpalette.html#ColorGroup-enum">ColorGroup</a> is not taken into account when comparing palettes</p><p><b> 参见 </b><a href="qpalette.html#operator-not-eq">operator!=</a>().</p>
 <!-- @@@operator== -->
 </div>
 <div class="vars">
@@ -480,12 +480,12 @@
 <!-- $$$operator<<[overload1]$$$operator<<QDataStream&constQPalette& -->
 <h3 class="fn" id="operator-lt-lt"><a name="operator-lt-lt"></a><span class="type"><a href="../qtcore/qdatastream.html">QDataStream</a></span> &amp;<span class="name">operator&lt;&lt;</span>(<span class="type"><a href="../qtcore/qdatastream.html">QDataStream</a></span> &amp;<i>s</i>, const <span class="type"><a href="qpalette.html#QPalette">QPalette</a></span> &amp;<i>p</i>)</h3>
 <p>Writes the palette, <i>p</i> to the stream <i>s</i> and returns a reference to the stream.</p>
-<p><b>参见</b><a href="../qtcore/datastreamformat.html">Format of the QDataStream operators</a>.</p>
+<p><b> 参见 </b><a href="../qtcore/datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator>>[overload1]$$$operator>>QDataStream&QPalette& -->
 <h3 class="fn" id="operator-gt-gt"><a name="operator-gt-gt"></a><span class="type"><a href="../qtcore/qdatastream.html">QDataStream</a></span> &amp;<span class="name">operator&gt;&gt;</span>(<span class="type"><a href="../qtcore/qdatastream.html">QDataStream</a></span> &amp;<i>s</i>, <span class="type"><a href="qpalette.html#QPalette">QPalette</a></span> &amp;<i>p</i>)</h3>
 <p>Reads a palette from the stream, <i>s</i> into the palette <i>p</i>, and returns a reference to the stream.</p>
-<p><b>参见</b><a href="../qtcore/datastreamformat.html">Format of the QDataStream operators</a>.</p>
+<p><b> 参见 </b><a href="../qtcore/datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <!-- @@@operator>> -->
 </div>
 <div class="macros">

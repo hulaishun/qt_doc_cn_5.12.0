@@ -138,7 +138,7 @@
 <h2 id="details">详细描述</h2>
 <p>The <a href="qgeopositioninfosource.html">QGeoPositionInfoSource</a> class is an abstract base class for the distribution of positional updates.</p>
 <p>The static function <a href="qgeopositioninfosource.html#createDefaultSource">QGeoPositionInfoSource::createDefaultSource</a>() creates a default position source that is appropriate for the platform, if one is available. Otherwise, <a href="qgeopositioninfosource.html">QGeoPositionInfoSource</a> will check for available plugins that implement the <a href="qgeopositioninfosourcefactory.html">QGeoPositionInfoSourceFactory</a> interface.</p>
-<p>Users of a <a href="qgeopositioninfosource.html">QGeoPositionInfoSource</a> subclass can request the current position using <a href="qgeopositioninfosource.html#requestUpdate">requestUpdate</a>(), or start and stop regular position updates using <a href="qgeopositioninfosource.html#startUpdates">startUpdates</a>() and <a href="qgeopositioninfosource.html#stopUpdates">stopUpdates</a>(). When an update is available, <a href="qgeopositioninfosource.html#positionUpdated">positionUpdated</a>() is emitted. The last known position can be accessed with <a href="qgeopositioninfosource.html#lastKnownPosition">lastKnownPosition</a>().</p>
+<p>Users of a <a href="qgeopositioninfosource.html">QGeoPositionInfoSource</a> subclass can request the current position using <a href="qgeopositioninfosource.html#requestUpdate">requestUpdate</a>(), or start and stop regular position updates using <a href="qgeopositioninfosource.html#startUpdates">startUpdates</a>() 和 <a href="qgeopositioninfosource.html#stopUpdates">stopUpdates</a>(). When an update is available, <a href="qgeopositioninfosource.html#positionUpdated">positionUpdated</a>() is emitted. The last known position can be accessed with <a href="qgeopositioninfosource.html#lastKnownPosition">lastKnownPosition</a>().</p>
 <p>If regular position updates are required, <a href="qgeopositioninfosource.html#updateInterval-prop">setUpdateInterval</a>() can be used to specify how often these updates should be emitted. If no interval is specified, updates are simply provided whenever they are available. For example:</p>
 <pre class="cpp">
 
@@ -181,7 +181,7 @@
 <!-- $$$minimumUpdateInterval-prop$$$minimumUpdateInterval -->
 <h3 class="fn" id="minimumUpdateInterval-prop"><a name="minimumUpdateInterval-prop"></a><span class="name">minimumUpdateInterval</span> : const <span class="type">int</span></h3>
 <p>This property holds the minimum time (in milliseconds) required to retrieve a position update.</p>
-<p>This is the minimum value accepted by <a href="qgeopositioninfosource.html#updateInterval-prop">setUpdateInterval</a>() and <a href="qgeopositioninfosource.html#requestUpdate">requestUpdate</a>().</p>
+<p>This is the minimum value accepted by <a href="qgeopositioninfosource.html#updateInterval-prop">setUpdateInterval</a>() 和 <a href="qgeopositioninfosource.html#requestUpdate">requestUpdate</a>().</p>
 <p><b>Access functions:</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> virtual int </td><td class="memItemRight bottomAlign"><span class="name"><b>minimumUpdateInterval</b></span>() const = 0</td></tr>
@@ -263,7 +263,7 @@
 <!-- $$$preferredPositioningMethods[overload1]$$$preferredPositioningMethods -->
 <h3 class="fn" id="preferredPositioningMethods"><a name="preferredPositioningMethods"></a><span class="type"><a href="qgeopositioninfosource.html#PositioningMethod-enum">QGeoPositionInfoSource::PositioningMethods</a></span> QGeoPositionInfoSource::<span class="name">preferredPositioningMethods</span>() const</h3>
 <p>Returns the positioning methods set by <a href="qgeopositioninfosource.html#setPreferredPositioningMethods">setPreferredPositioningMethods</a>().</p>
-<p><b>参见</b><a href="qgeopositioninfosource.html#setPreferredPositioningMethods">setPreferredPositioningMethods</a>().</p>
+<p><b> 参见 </b><a href="qgeopositioninfosource.html#setPreferredPositioningMethods">setPreferredPositioningMethods</a>().</p>
 <!-- @@@preferredPositioningMethods -->
 <!-- $$$requestUpdate[overload1]$$$requestUpdateint -->
 <h3 class="fn" id="requestUpdate"><a name="requestUpdate"></a><code>[pure virtual slot] </code><span class="type">void</span> QGeoPositionInfoSource::<span class="name">requestUpdate</span>(<span class="type">int</span> <i>timeout</i> = ...)</h3>
@@ -278,7 +278,7 @@
 <p>If <i>methods</i> includes a method that is not supported by the source, the unsupported method will be ignored.</p>
 <p>If <i>methods</i> does not include any methods supported by the source, the preferred methods will be set to the set of methods which the source supports.</p>
 <p><b>Note:</b> When reimplementing this method, subclasses must call the base method implementation to ensure <a href="qgeopositioninfosource.html#preferredPositioningMethods">preferredPositioningMethods</a>() returns the correct value.</p>
-<p><b>参见</b><a href="qgeopositioninfosource.html#preferredPositioningMethods">preferredPositioningMethods</a>() and <a href="qgeopositioninfosource.html#supportedPositioningMethods">supportedPositioningMethods</a>().</p>
+<p><b> 参见 </b><a href="qgeopositioninfosource.html#preferredPositioningMethods">preferredPositioningMethods</a>() 和 <a href="qgeopositioninfosource.html#supportedPositioningMethods">supportedPositioningMethods</a>().</p>
 <!-- @@@setPreferredPositioningMethods -->
 <!-- $$$startUpdates[overload1]$$$startUpdates -->
 <h3 class="fn" id="startUpdates"><a name="startUpdates"></a><code>[pure virtual slot] </code><span class="type">void</span> QGeoPositionInfoSource::<span class="name">startUpdates</span>()</h3>
@@ -294,7 +294,7 @@
 <!-- $$$supportedPositioningMethods[overload1]$$$supportedPositioningMethods -->
 <h3 class="fn" id="supportedPositioningMethods"><a name="supportedPositioningMethods"></a><code>[pure virtual] </code><span class="type"><a href="qgeopositioninfosource.html#PositioningMethod-enum">QGeoPositionInfoSource::PositioningMethods</a></span> QGeoPositionInfoSource::<span class="name">supportedPositioningMethods</span>() const</h3>
 <p>Returns the positioning methods available to this source.</p>
-<p><b>参见</b><a href="qgeopositioninfosource.html#setPreferredPositioningMethods">setPreferredPositioningMethods</a>().</p>
+<p><b> 参见 </b><a href="qgeopositioninfosource.html#setPreferredPositioningMethods">setPreferredPositioningMethods</a>().</p>
 <!-- @@@supportedPositioningMethods -->
 <!-- $$$supportedPositioningMethodsChanged[overload1]$$$supportedPositioningMethodsChanged -->
 <h3 class="fn" id="supportedPositioningMethodsChanged"><a name="supportedPositioningMethodsChanged"></a><code>[signal] </code><span class="type">void</span> QGeoPositionInfoSource::<span class="name">supportedPositioningMethodsChanged</span>()</h3>

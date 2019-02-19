@@ -136,7 +136,7 @@
       <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>connect(s3<span class="operator">,</span> SIGNAL(exited())<span class="operator">,</span> button<span class="operator">,</span> SLOT(showMinimized()));
 
 </pre>
-<p>Custom states can reimplement <a href="qabstractstate.html#onEntry">QAbstractState::onEntry</a>() and <a href="qabstractstate.html#onExit">QAbstractState::onExit</a>().</p>
+<p>Custom states can reimplement <a href="qabstractstate.html#onEntry">QAbstractState::onEntry</a>() 和 <a href="qabstractstate.html#onExit">QAbstractState::onExit</a>().</p>
 <a name="state-machines-that-finish"></a>
 <h2 id="state-machines-that-finish">State Machines That Finish</h2>
 <p>The state machine defined in the previous section never finishes. In order for a state machine to be able to finish, it needs to have a top-level <i>final</i> state (<a href="qfinalstate.html">QFinalState</a> object). When the state machine enters a top-level final state, the machine will emit the <a href="qstate.html#finished">QStateMachine::finished</a>() signal and halt.</p>
@@ -241,7 +241,7 @@
   machine<span class="operator">.</span>setInitialState(s1);
 
 </pre>
-<p>The message box will be displayed each time the button is clicked, but the state machine will remain in its current state (s1). If the target state were explicitly set to s1, however, s1 would be exited and re-entered each time (e.g&#x2e; the <a href="qabstractstate.html#entered">QAbstractState::entered</a>() and <a href="qabstractstate.html#exited">QAbstractState::exited</a>() signals would be emitted).</p>
+<p>The message box will be displayed each time the button is clicked, but the state machine will remain in its current state (s1). If the target state were explicitly set to s1, however, s1 would be exited and re-entered each time (e.g&#x2e; the <a href="qabstractstate.html#entered">QAbstractState::entered</a>() 和 <a href="qabstractstate.html#exited">QAbstractState::exited</a>() signals would be emitted).</p>
 <a name="events-transitions-and-guards"></a>
 <h2 id="events-transitions-and-guards">Events, Transitions and Guards</h2>
 <p>A <a href="qstatemachine.html">QStateMachine</a> runs its own event loop. For signal transitions (<a href="qsignaltransition.html">QSignalTransition</a> objects), <a href="qstatemachine.html">QStateMachine</a> automatically posts a <a href="qstatemachine-signalevent.html">QStateMachine::SignalEvent</a> to itself when it intercepts the corresponding signal; similarly, for <a href="qobject.html">QObject</a> event transitions (<a href="qeventtransition.html">QEventTransition</a> objects) a <a href="qstatemachine-wrappedevent.html">QStateMachine::WrappedEvent</a> is posted.</p>
@@ -474,7 +474,7 @@
 <p>The parent state machine treats the child machine as an <i>atomic</i> state in the state machine algorithm. The child state machine is self-contained; it maintains its own event queue and configuration. In particular, note that the <a href="qstatemachine.html#configuration">configuration()</a> of the child machine is not part of the parent machine's configuration (only the child machine itself is).</p>
 <p>States of the child state machine cannot be specified as targets of transitions in the parent state machine; only the child state machine itself can. Conversely, states of the parent state machine cannot be specified as targets of transitions in the child state machine. The child state machine's <a href="qstate.html#finished">finished</a>() signal can be used to trigger a transition in the parent machine.</p>
 </div>
-<p><b>参见</b><a href="../qtqml/qmlstatemachine.html">The Declarative State Machine Framework</a>.</p>
+<p><b> 参见 </b><a href="../qtqml/qmlstatemachine.html">The Declarative State Machine Framework</a>.</p>
 <!-- @@@statemachine-api.html -->
         </div>
        </div>

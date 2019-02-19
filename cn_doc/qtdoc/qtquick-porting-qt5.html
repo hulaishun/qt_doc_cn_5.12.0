@@ -74,8 +74,8 @@
 <a name="property-and-method-changes"></a>
 <h3 >Property and Method Changes</h3>
 <ul>
-<li><a href="../qtquick/qml-qtquick-listview.html">ListView</a>'s <code>highlightMoveSpeed</code> and <code>highlightResizeSpeed</code> properties have been renamed to <a href="../qtquick/qml-qtquick-listview.html#highlightMoveVelocity-prop">highlightMoveVelocity</a> and <a href="../qtquick/qml-qtquick-listview.html#highlightResizeVelocity-prop">highlightResizeVelocity</a>, respectively.</li>
-<li><a href="../qtquick/qml-qtquick-textinput.html">TextInput</a> and <a href="../qtquick/qml-qtquick-textedit.html">TextEdit</a>'s <code>openSoftwareInputPanel()</code> and <code>closeSoftwareInputPanel()</code> methods have been removed. Use the new Qt.inputMethod property and call Qt.inputMethod.show() Qt.inputMethod.hide() to show and hide the virtual keyboard.</li>
+<li><a href="../qtquick/qml-qtquick-listview.html">ListView</a>'s <code>highlightMoveSpeed</code> and <code>highlightResizeSpeed</code> properties have been renamed to <a href="../qtquick/qml-qtquick-listview.html#highlightMoveVelocity-prop">highlightMoveVelocity</a> 和 <a href="../qtquick/qml-qtquick-listview.html#highlightResizeVelocity-prop">highlightResizeVelocity</a>, respectively.</li>
+<li><a href="../qtquick/qml-qtquick-textinput.html">TextInput</a> 和 <a href="../qtquick/qml-qtquick-textedit.html">TextEdit</a>'s <code>openSoftwareInputPanel()</code> and <code>closeSoftwareInputPanel()</code> methods have been removed. Use the new Qt.inputMethod property and call Qt.inputMethod.show() Qt.inputMethod.hide() to show and hide the virtual keyboard.</li>
 </ul>
 <a name="type-and-api-changes"></a>
 <h3 >Type and API Changes</h3>
@@ -89,8 +89,8 @@
 <p><a href="../qtqml/qtquick-qmlmodule.html">QtQuick</a> 2 includes a number of behavioral changes and you should thoroughly test your applications after porting. These changes will not necessarily lead to run-time errors, but may break certain assumptions in your code. Below are the prominent changes to be aware of when porting your applications.</p>
 <p>Item opacity and visibility:</p>
 <ul>
-<li>The input handling details of <a href="../qtquick/qml-qtquick-item.html#opacity-prop">opacity</a> and <a href="../qtquick/qml-qtquick-item.html#visible-prop">visible</a> have changed. An opacity of zero no longer affects input handling, where previously it stopped mouse input. A visibility of false no longer affects keyboard input, but still stops mouse input. The new <a href="../qtquick/qml-qtquick-item.html#enabled-prop">enabled</a> property stops mouse and keyboard input, but does not affect how or whether the item is rendered. A workaround for applying the old behavior in most cases is to bind enabled to <code>(visible &amp;&amp; opacity &gt; 0.0)</code>.</li>
-<li>Previously, if an item was in a positioner (i.e&#x2e; a <a href="../qdoc/10-qdoc-commands-tablesandlists.html#row">Row</a>, <a href="../qtquick/qml-qtquick-column.html">Column</a>, <a href="../qtquick/qml-qtquick-grid.html">Grid</a> and <a href="../qtquick/qml-qtquick-flow.html">Flow</a>) and the item's <code>opacity</code> changed to 0, or its <code>visible</code> value became <code>false</code>, the positioner would remove the item from its layout and collapse the space for that item. In <a href="../qtqml/qtquick-qmlmodule.html">QtQuick</a> 2, this now only happens when an item's <code>visible</code> is <code>false</code>; the item opacity no longer affects whether the item is laid out. (This is consistent with the existing behavior of <a href="../qtquick/qml-qtquick-listview.html">ListView</a> and <a href="../qtquick/qml-qtquick-gridview.html">GridView</a>).</li>
+<li>The input handling details of <a href="../qtquick/qml-qtquick-item.html#opacity-prop">opacity</a> 和 <a href="../qtquick/qml-qtquick-item.html#visible-prop">visible</a> have changed. An opacity of zero no longer affects input handling, where previously it stopped mouse input. A visibility of false no longer affects keyboard input, but still stops mouse input. The new <a href="../qtquick/qml-qtquick-item.html#enabled-prop">enabled</a> property stops mouse and keyboard input, but does not affect how or whether the item is rendered. A workaround for applying the old behavior in most cases is to bind enabled to <code>(visible &amp;&amp; opacity &gt; 0.0)</code>.</li>
+<li>Previously, if an item was in a positioner (i.e&#x2e; a <a href="../qdoc/10-qdoc-commands-tablesandlists.html#row">Row</a>, <a href="../qtquick/qml-qtquick-column.html">Column</a>, <a href="../qtquick/qml-qtquick-grid.html">Grid</a> 和 <a href="../qtquick/qml-qtquick-flow.html">Flow</a>) and the item's <code>opacity</code> changed to 0, or its <code>visible</code> value became <code>false</code>, the positioner would remove the item from its layout and collapse the space for that item. In <a href="../qtqml/qtquick-qmlmodule.html">QtQuick</a> 2, this now only happens when an item's <code>visible</code> is <code>false</code>; the item opacity no longer affects whether the item is laid out. (This is consistent with the existing behavior of <a href="../qtquick/qml-qtquick-listview.html">ListView</a> 和 <a href="../qtquick/qml-qtquick-gridview.html">GridView</a>).</li>
 </ul>
 <p>Text:</p>
 <ul>
@@ -100,7 +100,7 @@
 <p>Other:</p>
 <ul>
 <li>Modifying the <a href="../qtquick/qml-qtquick-image.html#sourceSize-prop">Image::sourceSize</a> now fits the image to the size, maintaining aspect ratio.</li>
-<li>For <a href="../qtquick/qml-qtquick-listview.html">ListView</a> and <a href="../qtquick/qml-qtquick-gridview.html">GridView</a>, the <code>cacheBuffer</code> property now has a non-zero default and delegates in the cache buffer are created asynchronously. Also, using a <code>RightToLeft</code> layout now also reverses the <code>preferredHighlightBegin</code> and <code>preferredHighlightEnd</code>.</li>
+<li>For <a href="../qtquick/qml-qtquick-listview.html">ListView</a> 和 <a href="../qtquick/qml-qtquick-gridview.html">GridView</a>, the <code>cacheBuffer</code> property now has a non-zero default and delegates in the cache buffer are created asynchronously. Also, using a <code>RightToLeft</code> layout now also reverses the <code>preferredHighlightBegin</code> and <code>preferredHighlightEnd</code>.</li>
 <li>For <a href="../qtquick/qml-qtquick-loader.html">Loader</a>, the <code>sourceChanged</code> and <code>sourceComponentChanged</code> signals are now only emitted when their respective properties change value. (Previously <a href="../qtquick/qml-qtquick-loader.html">Loader</a> emitted both of these signals when either of the relevant properties had changed.)</li>
 </ul>
 <a name="changes-to-experimental-qt-labs-modules"></a>
@@ -112,7 +112,7 @@
 <a name="c-code"></a>
 <h2 id="c-code">C++ code</h2>
 <p>In Qt 5, all QML applications are rendered with an OpenGL scenegraph architecture rather than the Graphics View framework used in Qt 4. Due to the scale of this architectural change, the C++ API has been extensively restructured and the <code>QtDeclarative</code> module has been deprecated in favor of two new modules: <a href="../qtqml/qtqml-index.html">Qt QML</a>, which implements the QML engine and language infrastructure, and <a href="../qtquick/qtquick-index.html">Qt Quick</a>, which implements the visual canvas and scenegraph backend.</p>
-<p>All classes that were previously in the <code>QtDeclarative</code> module have been moved into the <a href="../qtqml/qtqml-index.html">Qt QML</a> and <a href="../qtquick/qtquick-index.html">Qt Quick</a> modules, and their class names have been changed to reflect their new module locations. The class name changes are as follows:</p>
+<p>All classes that were previously in the <code>QtDeclarative</code> module have been moved into the <a href="../qtqml/qtqml-index.html">Qt QML</a> 和 <a href="../qtquick/qtquick-index.html">Qt Quick</a> modules, and their class names have been changed to reflect their new module locations. The class name changes are as follows:</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th >Qt QML</th><th >Qt Quick</th></tr></thead>
 <tr valign="top" class="odd"><td ><ul>
@@ -138,7 +138,7 @@
 </ul>
 </td></tr>
 </table></div>
-<p>To use the new <code>QQml*</code> and <code>QQuick*</code> classes in Qt 5, link against the approprate module from your qmake <code>.pro</code> file. For example the following will link against both the <a href="../qtqml/qtqml-index.html">Qt QML</a> and <a href="../qtquick/qtquick-index.html">Qt Quick</a> modules:</p>
+<p>To use the new <code>QQml*</code> and <code>QQuick*</code> classes in Qt 5, link against the approprate module from your qmake <code>.pro</code> file. For example the following will link against both the <a href="../qtqml/qtqml-index.html">Qt QML</a> 和 <a href="../qtquick/qtquick-index.html">Qt Quick</a> modules:</p>
 <pre class="cpp">
 
   QT <span class="operator">+</span><span class="operator">=</span> qml quick
@@ -167,7 +167,7 @@
 <p>See the updated <a href="../qtqml/qtqml-modules-cppplugins.html">Creating C++ Plugins For QML</a> documentation for an overview of creating QML plugins in Qt 5.</p>
 <a name="qtdeclarative-module-in-qt-5"></a>
 <h3 >QtDeclarative module in Qt 5</h3>
-<p>For the purposes of porting older applications, the <code>QtDeclarative</code> module has been available until Qt 5.6 but has been renamed to <code>Qt Quick 1</code>. Applications that required Qt Quick 1 specific API (e.g&#x2e; QDeclarativeView or QDeclarativeItem and the Graphics View integration) can use this module. Note that new applications should use the new <a href="../qtqml/qtqml-index.html">Qt QML</a> and <a href="../qtquick/qtquick-index.html">Qt Quick</a> modules instead.</p>
+<p>For the purposes of porting older applications, the <code>QtDeclarative</code> module has been available until Qt 5.6 but has been renamed to <code>Qt Quick 1</code>. Applications that required Qt Quick 1 specific API (e.g&#x2e; QDeclarativeView or QDeclarativeItem and the Graphics View integration) can use this module. Note that new applications should use the new <a href="../qtqml/qtqml-index.html">Qt QML</a> 和 <a href="../qtquick/qtquick-index.html">Qt Quick</a> modules instead.</p>
 <p>To use the <code>Qt Quick 1</code> module, add &quot;declarative&quot; to your qmake <code>.pro</code> file:</p>
 <pre class="cpp">
 

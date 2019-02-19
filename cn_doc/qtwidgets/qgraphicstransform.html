@@ -51,7 +51,7 @@
 <!-- @@@QGraphicsTransform -->
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign">头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QGraphicsTransform&gt;</span>
-</td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += widgets</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 4.6</td></tr><tr><td class="memItemLeft rightAlign topAlign"> 继承的父类是：</td><td class="memItemRight bottomAlign"> <a href="../qtcore/qobject.html">QObject</a></td></tr><tr><td class="memItemLeft rightAlign topAlign"> 继承的子类有：</td><td class="memItemRight bottomAlign"> <p><a href="qgraphicsrotation.html">QGraphicsRotation</a> and <a href="qgraphicsscale.html">QGraphicsScale</a></p>
+</td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += widgets</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 4.6</td></tr><tr><td class="memItemLeft rightAlign topAlign"> 继承的父类是：</td><td class="memItemRight bottomAlign"> <a href="../qtcore/qobject.html">QObject</a></td></tr><tr><td class="memItemLeft rightAlign topAlign"> 继承的子类有：</td><td class="memItemRight bottomAlign"> <p><a href="qgraphicsrotation.html">QGraphicsRotation</a> 和 <a href="qgraphicsscale.html">QGraphicsScale</a></p>
 </td></tr></table></div><ul>
 <li><a href="qgraphicstransform-members.html">所有成员清单，包括继承而来的成员</a></li>
 <li><a href="qgraphicstransform-obsolete.html">过时的成员</a></li>
@@ -98,9 +98,9 @@
 <p><a href="qgraphicstransform.html">QGraphicsTransform</a> is particularly useful for animations. Whereas <a href="qgraphicsitem.html#setTransform">QGraphicsItem::setTransform</a>() lets you assign any transform directly to an item, there is no direct way to interpolate between two different transformations (e.g&#x2e;, when transitioning between two states, each for which the item has a different arbitrary transform assigned). Using <a href="qgraphicstransform.html">QGraphicsTransform</a> you can interpolate the property values of each independent transformation. The resulting operation is then combined into a single transform which is applied to <a href="qgraphicsitem.html">QGraphicsItem</a>.</p>
 <p>Transformations are computed in true 3D space using <a href="../qtgui/qmatrix4x4.html">QMatrix4x4</a>. When the transformation is applied to a <a href="qgraphicsitem.html">QGraphicsItem</a>, it will be projected back to a 2D <a href="../qtgui/qtransform.html">QTransform</a>. When multiple <a href="qgraphicstransform.html">QGraphicsTransform</a> objects are applied to a <a href="qgraphicsitem.html">QGraphicsItem</a>, all of the transformations are computed in true 3D space, with the projection back to 2D only occurring after the last <a href="qgraphicstransform.html">QGraphicsTransform</a> is applied. The exception to this is <a href="qgraphicsrotation.html">QGraphicsRotation</a>, which projects back to 2D after each rotation to preserve the perspective effect around the X and Y axes.</p>
 <p>If you want to create your own configurable transformation, you can create a subclass of <a href="qgraphicstransform.html">QGraphicsTransform</a> (or any or the existing subclasses), and reimplement the pure virtual <a href="qgraphicstransform.html#applyTo">applyTo</a>() function, which takes a pointer to a <a href="../qtgui/qmatrix4x4.html">QMatrix4x4</a>. Each operation you would like to apply should be exposed as properties (e.g&#x2e;, customTransform-&gt;setVerticalShear(2.5)). Inside you reimplementation of <a href="qgraphicstransform.html#applyTo">applyTo</a>(), you can modify the provided transform respectively.</p>
-<p><a href="qgraphicstransform.html">QGraphicsTransform</a> can be used together with <a href="qgraphicsitem.html#setTransform">QGraphicsItem::setTransform</a>(), <a href="qgraphicsitem.html#setRotation">QGraphicsItem::setRotation</a>(), and <a href="qgraphicsitem.html#setScale">QGraphicsItem::setScale</a>().</p>
+<p><a href="qgraphicstransform.html">QGraphicsTransform</a> can be used together with <a href="qgraphicsitem.html#setTransform">QGraphicsItem::setTransform</a>(), <a href="qgraphicsitem.html#setRotation">QGraphicsItem::setRotation</a>(), 和 <a href="qgraphicsitem.html#setScale">QGraphicsItem::setScale</a>().</p>
 </div>
-<p><b>参见</b><a href="qgraphicsitem.html#transform">QGraphicsItem::transform</a>(), <a href="qgraphicsscale.html">QGraphicsScale</a>, and <a href="qgraphicsrotation.html">QGraphicsRotation</a>.</p>
+<p><b> 参见 </b><a href="qgraphicsitem.html#transform">QGraphicsItem::transform</a>(), <a href="qgraphicsscale.html">QGraphicsScale</a>, and <a href="qgraphicsrotation.html">QGraphicsRotation</a>.</p>
 <!-- @@@QGraphicsTransform -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -122,13 +122,13 @@
 <h3 class="fn" id="applyTo"><a name="applyTo"></a><code>[pure virtual] </code><span class="type">void</span> QGraphicsTransform::<span class="name">applyTo</span>(<span class="type"><a href="../qtgui/qmatrix4x4.html">QMatrix4x4</a></span> *<i>matrix</i>) const</h3>
 <p>This pure virtual method has to be reimplemented in derived classes.</p>
 <p>It applies this transformation to <i>matrix</i>.</p>
-<p><b>参见</b><a href="qgraphicsitem.html#transform">QGraphicsItem::transform</a>() and <a href="../qtgui/qmatrix4x4.html#toTransform">QMatrix4x4::toTransform</a>().</p>
+<p><b> 参见 </b><a href="qgraphicsitem.html#transform">QGraphicsItem::transform</a>() 和 <a href="../qtgui/qmatrix4x4.html#toTransform">QMatrix4x4::toTransform</a>().</p>
 <!-- @@@applyTo -->
 <!-- $$$update[overload1]$$$update -->
 <h3 class="fn" id="update"><a name="update"></a><code>[protected slot] </code><span class="type">void</span> QGraphicsTransform::<span class="name">update</span>()</h3>
 <p>Notifies that this transform operation has changed its parameters in such a way that <a href="qgraphicstransform.html#applyTo">applyTo</a>() will return a different result than before.</p>
 <p>When implementing you own custom graphics transform, you must call this function every time you change a parameter, to let <a href="qgraphicsitem.html">QGraphicsItem</a> know that its transformation needs to be updated.</p>
-<p><b>参见</b><a href="qgraphicstransform.html#applyTo">applyTo</a>().</p>
+<p><b> 参见 </b><a href="qgraphicstransform.html#applyTo">applyTo</a>().</p>
 <!-- @@@update -->
 </div>
 <div class="vars">

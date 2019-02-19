@@ -178,7 +178,7 @@
 <tr><td class="topAlign"><code>QCanBusDevice::DataBitRateKey</code></td><td class="topAlign tblval"><code>6</code></td><td class="topAlign">This key defines the CAN FD payload bitrate in bits per second. CAN FD allows to transmit the payload of frames with <a href="qcanbusframe.html#hasBitrateSwitch">QCanBusFrame::hasBitrateSwitch</a>() flag at a higher data bitrate, after the arbitration phase at the nominal bitrate is finished. This enum value was introduced in Qt 5.9&#x2e; See also <code>QCanBusDevice::BitRateKey</code></td></tr>
 <tr><td class="topAlign"><code>QCanBusDevice::UserKey</code></td><td class="topAlign tblval"><code>30</code></td><td class="topAlign">This key defines the range where custom keys start. Its most common purpose is to permit platform-specific configuration options.</td></tr>
 </table></div>
-<p><b>参见</b><a href="qcanbusdevice.html#configurationParameter">configurationParameter</a>().</p>
+<p><b> 参见 </b><a href="qcanbusdevice.html#configurationParameter">configurationParameter</a>().</p>
 <!-- @@@ConfigurationKey -->
 <!-- $$$Direction$$$Input$$$Output$$$AllDirections -->
 <h3 class="flags" id="Direction-enum"><a name="Direction-enum"></a>enum QCanBusDevice::<span class="name">Direction</span><br/>flags QCanBusDevice::<span class="name">Directions</span></h3>
@@ -206,13 +206,13 @@
 <p>Clears the devices input or output buffers, depending on <i>direction</i>.</p>
 <p>This function only operates on <a href="qcanbusdevice.html">QCanBusDevice</a> buffers. Frames that are already written to the CAN driver or CAN hardware layer, or that are not yet read from these layers, are not cleared by this function.</p>
 <p><b>Note: </b>Clearing the output buffers is only possible for buffered devices.</p><p>这个函数是在Qt 5.12版本中新增引入的。</p>
-<p><b>参见</b><a href="qcanbusdevice.html#framesAvailable">framesAvailable</a>(), <a href="qcanbusdevice.html#readFrame">readFrame</a>(), <a href="qcanbusdevice.html#framesToWrite">framesToWrite</a>(), and <a href="qcanbusdevice.html#writeFrame">writeFrame</a>().</p>
+<p><b> 参见 </b><a href="qcanbusdevice.html#framesAvailable">framesAvailable</a>(), <a href="qcanbusdevice.html#readFrame">readFrame</a>(), <a href="qcanbusdevice.html#framesToWrite">framesToWrite</a>(), 和 <a href="qcanbusdevice.html#writeFrame">writeFrame</a>().</p>
 <!-- @@@clear -->
 <!-- $$$close[overload1]$$$close -->
 <h3 class="fn" id="close"><a name="close"></a><code>[pure virtual protected] </code><span class="type">void</span> QCanBusDevice::<span class="name">close</span>()</h3>
 <p>This function is responsible for closing the CAN bus connection. The implementation must ensure that the instance's <a href="qcanbusdevice.html#state">state</a>() is set to <a href="qcanbusdevice.html#CanBusDeviceState-enum">QCanBusDevice::UnconnectedState</a>.</p>
 <p>This function's most important task is to close the socket to the CAN device and to call <a href="qcanbusdevice.html#setState">QCanBusDevice::setState</a>().</p>
-<p><b>参见</b><a href="qcanbusdevice.html#disconnectDevice">disconnectDevice</a>().</p>
+<p><b> 参见 </b><a href="qcanbusdevice.html#disconnectDevice">disconnectDevice</a>().</p>
 <!-- @@@close -->
 <!-- $$$configurationKeys[overload1]$$$configurationKeys -->
 <h3 class="fn" id="configurationKeys"><a name="configurationKeys"></a><span class="type"><a href="../qtcore/qvector.html">QVector</a></span>&lt;<span class="type">int</span>&gt; QCanBusDevice::<span class="name">configurationKeys</span>() const</h3>
@@ -222,13 +222,13 @@
 <!-- $$$configurationParameter[overload1]$$$configurationParameterint -->
 <h3 class="fn" id="configurationParameter"><a name="configurationParameter"></a><span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> QCanBusDevice::<span class="name">configurationParameter</span>(<span class="type">int</span> <i>key</i>) const</h3>
 <p>Returns the current value assigned to the <a href="qcanbusdevice.html#ConfigurationKey-enum">ConfigurationKey</a> <i>key</i>; otherwise an invalid <a href="../qtcore/qvariant.html">QVariant</a>.</p>
-<p><b>参见</b><a href="qcanbusdevice.html#setConfigurationParameter">setConfigurationParameter</a>() and <a href="qcanbusdevice.html#configurationKeys">configurationKeys</a>().</p>
+<p><b> 参见 </b><a href="qcanbusdevice.html#setConfigurationParameter">setConfigurationParameter</a>() 和 <a href="qcanbusdevice.html#configurationKeys">configurationKeys</a>().</p>
 <!-- @@@configurationParameter -->
 <!-- $$$connectDevice[overload1]$$$connectDevice -->
 <h3 class="fn" id="connectDevice"><a name="connectDevice"></a><span class="type">bool</span> QCanBusDevice::<span class="name">connectDevice</span>()</h3>
 <p>Connects the device to the CAN bus. Returns <code>true</code> on success; otherwise <code>false</code>.</p>
 <p>This function calls <a href="qcanbusdevice.html#open">open</a>() as part of its implementation.</p>
-<p><b>参见</b><a href="qcanbusdevice.html#disconnectDevice">disconnectDevice</a>().</p>
+<p><b> 参见 </b><a href="qcanbusdevice.html#disconnectDevice">disconnectDevice</a>().</p>
 <!-- @@@connectDevice -->
 <!-- $$$dequeueOutgoingFrame[overload1]$$$dequeueOutgoingFrame -->
 <h3 class="fn" id="dequeueOutgoingFrame"><a name="dequeueOutgoingFrame"></a><code>[protected] </code><span class="type"><a href="qcanbusframe.html">QCanBusFrame</a></span> QCanBusDevice::<span class="name">dequeueOutgoingFrame</span>()</h3>
@@ -238,7 +238,7 @@
 <h3 class="fn" id="disconnectDevice"><a name="disconnectDevice"></a><span class="type">void</span> QCanBusDevice::<span class="name">disconnectDevice</span>()</h3>
 <p>Disconnects the device from the CAN bus.</p>
 <p>This function calls <a href="qcanbusdevice.html#close">close</a>() as part of its implementation.</p>
-<p><b>Note: </b>This function should only be called, if <a href="qcanbusdevice.html#connectDevice">connectDevice</a>() returned <code>true</code>.</p><p><b>参见</b><a href="qcanbusdevice.html#connectDevice">connectDevice</a>().</p>
+<p><b>Note: </b>This function should only be called, if <a href="qcanbusdevice.html#connectDevice">connectDevice</a>() returned <code>true</code>.</p><p><b> 参见 </b><a href="qcanbusdevice.html#connectDevice">connectDevice</a>().</p>
 <!-- @@@disconnectDevice -->
 <!-- $$$enqueueOutgoingFrame[overload1]$$$enqueueOutgoingFrameconstQCanBusFrame& -->
 <h3 class="fn" id="enqueueOutgoingFrame"><a name="enqueueOutgoingFrame"></a><code>[protected] </code><span class="type">void</span> QCanBusDevice::<span class="name">enqueueOutgoingFrame</span>(const <span class="type"><a href="qcanbusframe.html">QCanBusFrame</a></span> &amp;<i>newFrame</i>)</h3>
@@ -253,7 +253,7 @@
 <!-- $$$error[overload1]$$$error -->
 <h3 class="fn" id="error"><a name="error"></a><span class="type"><a href="qcanbusdevice.html#CanBusError-enum">QCanBusDevice::CanBusError</a></span> QCanBusDevice::<span class="name">error</span>() const</h3>
 <p>Returns the last error that has occurred. The error value is always set to last error that occurred and it is never reset.</p>
-<p><b>参见</b><a href="qcanbusdevice.html#setError">setError</a>() and <a href="qcanbusdevice.html#errorString">errorString</a>().</p>
+<p><b> 参见 </b><a href="qcanbusdevice.html#setError">setError</a>() 和 <a href="qcanbusdevice.html#errorString">errorString</a>().</p>
 <!-- @@@error -->
 <!-- $$$errorOccurred[overload1]$$$errorOccurredQCanBusDevice::CanBusError -->
 <h3 class="fn" id="errorOccurred"><a name="errorOccurred"></a><code>[signal] </code><span class="type">void</span> QCanBusDevice::<span class="name">errorOccurred</span>(<i>QCanBusDevice::CanBusError</i>)</h3>
@@ -262,21 +262,21 @@
 <!-- $$$errorString[overload1]$$$errorString -->
 <h3 class="fn" id="errorString"><a name="errorString"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QCanBusDevice::<span class="name">errorString</span>() const</h3>
 <p>Returns a human-readable description of the last device error that occurred.</p>
-<p><b>参见</b><a href="qcanbusdevice.html#error">error</a>().</p>
+<p><b> 参见 </b><a href="qcanbusdevice.html#error">error</a>().</p>
 <!-- @@@errorString -->
 <!-- $$$framesAvailable[overload1]$$$framesAvailable -->
 <h3 class="fn" id="framesAvailable"><a name="framesAvailable"></a><span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> QCanBusDevice::<span class="name">framesAvailable</span>() const</h3>
 <p>Returns the number of available frames. If no frames are available, this function returns 0.</p>
-<p><b>参见</b><a href="qcanbusdevice.html#clear">clear</a>(), <a href="qcanbusdevice.html#readFrame">readFrame</a>(), and <a href="qcanbusdevice.html#readAllFrames">readAllFrames</a>().</p>
+<p><b> 参见 </b><a href="qcanbusdevice.html#clear">clear</a>(), <a href="qcanbusdevice.html#readFrame">readFrame</a>(), 和 <a href="qcanbusdevice.html#readAllFrames">readAllFrames</a>().</p>
 <!-- @@@framesAvailable -->
 <!-- $$$framesReceived[overload1]$$$framesReceived -->
 <h3 class="fn" id="framesReceived"><a name="framesReceived"></a><code>[signal] </code><span class="type">void</span> QCanBusDevice::<span class="name">framesReceived</span>()</h3>
-<p>This signal is emitted when one or more frames have been received. The frames should be read using <a href="qcanbusdevice.html#readFrame">readFrame</a>() and <a href="qcanbusdevice.html#framesAvailable">framesAvailable</a>().</p>
+<p>This signal is emitted when one or more frames have been received. The frames should be read using <a href="qcanbusdevice.html#readFrame">readFrame</a>() 和 <a href="qcanbusdevice.html#framesAvailable">framesAvailable</a>().</p>
 <!-- @@@framesReceived -->
 <!-- $$$framesToWrite[overload1]$$$framesToWrite -->
 <h3 class="fn" id="framesToWrite"><a name="framesToWrite"></a><span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> QCanBusDevice::<span class="name">framesToWrite</span>() const</h3>
 <p>For buffered devices, this function returns the number of frames waiting to be written. For unbuffered devices, this function always returns zero.</p>
-<p><b>Note: </b>There may be additional buffering in the CAN driver and CAN hardware layer. Therefore, if this function returns zero, that does not mean all CAN frames are already written to the CAN bus.</p><p><b>参见</b><a href="qcanbusdevice.html#clear">clear</a>() and <a href="qcanbusdevice.html#writeFrame">writeFrame</a>().</p>
+<p><b>Note: </b>There may be additional buffering in the CAN driver and CAN hardware layer. Therefore, if this function returns zero, that does not mean all CAN frames are already written to the CAN bus.</p><p><b> 参见 </b><a href="qcanbusdevice.html#clear">clear</a>() 和 <a href="qcanbusdevice.html#writeFrame">writeFrame</a>().</p>
 <!-- @@@framesToWrite -->
 <!-- $$$framesWritten[overload1]$$$framesWrittenqint64 -->
 <h3 class="fn" id="framesWritten"><a name="framesWritten"></a><code>[signal] </code><span class="type">void</span> QCanBusDevice::<span class="name">framesWritten</span>(<span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> <i>framesCount</i>)</h3>
@@ -296,66 +296,66 @@
 <p>This function is called by <a href="qcanbusdevice.html#connectDevice">connectDevice</a>(). Subclasses must provide an implementation which returns <code>true</code> if the CAN bus connection could be established; otherwise <code>false</code>. The <a href="qcanbusdevice.html">QCanBusDevice</a> implementation ensures upon entry of this function that the device's <a href="qcanbusdevice.html#state">state</a>() is set to <a href="qcanbusdevice.html#CanBusDeviceState-enum">QCanBusDevice::ConnectingState</a> already.</p>
 <p>The implementation must ensure that upon success the instance's <a href="qcanbusdevice.html#state">state</a>() is set to <a href="qcanbusdevice.html#CanBusDeviceState-enum">QCanBusDevice::ConnectedState</a>; otherwise <a href="qcanbusdevice.html#CanBusDeviceState-enum">QCanBusDevice::UnconnectedState</a>. <a href="qcanbusdevice.html#setState">setState</a>() must be used to set the new device state.</p>
 <p>The custom implementation is responsible for opening the socket, instanciation of a potentially required <a href="../qtcore/qsocketnotifier.html">QSocketNotifier</a> and the application of custom and default <a href="qcanbusdevice.html#configurationParameter">QCanBusDevice::configurationParameter</a>().</p>
-<p><b>参见</b><a href="qcanbusdevice.html#connectDevice">connectDevice</a>().</p>
+<p><b> 参见 </b><a href="qcanbusdevice.html#connectDevice">connectDevice</a>().</p>
 <!-- @@@open -->
 <!-- $$$readAllFrames[overload1]$$$readAllFrames -->
 <h3 class="fn" id="readAllFrames"><a name="readAllFrames"></a><span class="type"><a href="../qtcore/qvector.html">QVector</a></span>&lt;<span class="type"><a href="qcanbusframe.html">QCanBusFrame</a></span>&gt; QCanBusDevice::<span class="name">readAllFrames</span>()</h3>
 <p>Returns all <a href="qcanbusframe.html">QCanBusFrame</a>s from the queue; otherwise returns an empty <a href="../qtcore/qvector.html">QVector</a>. The returned frames are removed from the queue.</p>
 <p>The queue operates according to the FIFO principle.</p>
 <p>这个函数是在Qt 5.12版本中新增引入的。</p>
-<p><b>参见</b><a href="qcanbusdevice.html#clear">clear</a>(), <a href="qcanbusdevice.html#framesAvailable">framesAvailable</a>(), and <a href="qcanbusdevice.html#readFrame">readFrame</a>().</p>
+<p><b> 参见 </b><a href="qcanbusdevice.html#clear">clear</a>(), <a href="qcanbusdevice.html#framesAvailable">framesAvailable</a>(), 和 <a href="qcanbusdevice.html#readFrame">readFrame</a>().</p>
 <!-- @@@readAllFrames -->
 <!-- $$$readFrame[overload1]$$$readFrame -->
 <h3 class="fn" id="readFrame"><a name="readFrame"></a><span class="type"><a href="qcanbusframe.html">QCanBusFrame</a></span> QCanBusDevice::<span class="name">readFrame</span>()</h3>
 <p>Returns the next <a href="qcanbusframe.html">QCanBusFrame</a> from the queue; otherwise returns an empty <a href="qcanbusframe.html">QCanBusFrame</a>. The returned frame is removed from the queue.</p>
 <p>The queue operates according to the FIFO principle.</p>
-<p><b>参见</b><a href="qcanbusdevice.html#clear">clear</a>(), <a href="qcanbusdevice.html#framesAvailable">framesAvailable</a>(), and <a href="qcanbusdevice.html#readAllFrames">readAllFrames</a>().</p>
+<p><b> 参见 </b><a href="qcanbusdevice.html#clear">clear</a>(), <a href="qcanbusdevice.html#framesAvailable">framesAvailable</a>(), 和 <a href="qcanbusdevice.html#readAllFrames">readAllFrames</a>().</p>
 <!-- @@@readFrame -->
 <!-- $$$setConfigurationParameter[overload1]$$$setConfigurationParameterintconstQVariant& -->
 <h3 class="fn" id="setConfigurationParameter"><a name="setConfigurationParameter"></a><code>[virtual] </code><span class="type">void</span> QCanBusDevice::<span class="name">setConfigurationParameter</span>(<span class="type">int</span> <i>key</i>, const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>value</i>)</h3>
 <p>Sets the configuration parameter <i>key</i> for the CAN bus connection to <i>value</i>. The potential keys are represented by <a href="qcanbusdevice.html#ConfigurationKey-enum">ConfigurationKey</a>.</p>
 <p>A parameter can be unset by setting an invalid <a href="../qtcore/qvariant.html">QVariant</a>. Unsetting a parameter implies that the configuration is reset to its default setting.</p>
-<p><b>Note: </b>In most cases, configuration changes only take effect after a reconnect.</p><p><b>参见</b><a href="qcanbusdevice.html#configurationParameter">configurationParameter</a>().</p>
+<p><b>Note: </b>In most cases, configuration changes only take effect after a reconnect.</p><p><b> 参见 </b><a href="qcanbusdevice.html#configurationParameter">configurationParameter</a>().</p>
 <!-- @@@setConfigurationParameter -->
 <!-- $$$setError[overload1]$$$setErrorconstQString&QCanBusDevice::CanBusError -->
 <h3 class="fn" id="setError"><a name="setError"></a><code>[protected] </code><span class="type">void</span> QCanBusDevice::<span class="name">setError</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>errorText</i>, <span class="type"><a href="qcanbusdevice.html#CanBusError-enum">QCanBusDevice::CanBusError</a></span> <i>errorId</i>)</h3>
 <p>Sets the human readable description of the last device error to <i>errorText</i>. <i>errorId</i> categorizes the type of error.</p>
 <p>CAN bus implementations must use this function to update the device's error state.</p>
-<p><b>参见</b><a href="qcanbusdevice.html#error">error</a>() and <a href="qcanbusdevice.html#errorOccurred">errorOccurred</a>().</p>
+<p><b> 参见 </b><a href="qcanbusdevice.html#error">error</a>() 和 <a href="qcanbusdevice.html#errorOccurred">errorOccurred</a>().</p>
 <!-- @@@setError -->
 <!-- $$$setState[overload1]$$$setStateQCanBusDevice::CanBusDeviceState -->
 <h3 class="fn" id="setState"><a name="setState"></a><code>[protected] </code><span class="type">void</span> QCanBusDevice::<span class="name">setState</span>(<span class="type"><a href="qcanbusdevice.html#CanBusDeviceState-enum">QCanBusDevice::CanBusDeviceState</a></span> <i>newState</i>)</h3>
 <p>Sets the state of the device to <i>newState</i>. CAN bus implementations must use this function to update the device state.</p>
-<p><b>参见</b><a href="qcanbusdevice.html#state">state</a>().</p>
+<p><b> 参见 </b><a href="qcanbusdevice.html#state">state</a>().</p>
 <!-- @@@setState -->
 <!-- $$$state[overload1]$$$state -->
 <h3 class="fn" id="state"><a name="state"></a><span class="type"><a href="qcanbusdevice.html#CanBusDeviceState-enum">QCanBusDevice::CanBusDeviceState</a></span> QCanBusDevice::<span class="name">state</span>() const</h3>
 <p>Returns the current state of the device.</p>
-<p><b>参见</b><a href="qcanbusdevice.html#setState">setState</a>() and <a href="qcanbusdevice.html#stateChanged">stateChanged</a>().</p>
+<p><b> 参见 </b><a href="qcanbusdevice.html#setState">setState</a>() 和 <a href="qcanbusdevice.html#stateChanged">stateChanged</a>().</p>
 <!-- @@@state -->
 <!-- $$$stateChanged[overload1]$$$stateChangedQCanBusDevice::CanBusDeviceState -->
 <h3 class="fn" id="stateChanged"><a name="stateChanged"></a><code>[signal] </code><span class="type">void</span> QCanBusDevice::<span class="name">stateChanged</span>(<span class="type"><a href="qcanbusdevice.html#CanBusDeviceState-enum">QCanBusDevice::CanBusDeviceState</a></span> <i>state</i>)</h3>
 <p>This signal is emitted every time the state of the device changes. The new state is represented by <i>state</i>.</p>
-<p><b>参见</b><a href="qcanbusdevice.html#setState">setState</a>() and <a href="qcanbusdevice.html#state">state</a>().</p>
+<p><b> 参见 </b><a href="qcanbusdevice.html#setState">setState</a>() 和 <a href="qcanbusdevice.html#state">state</a>().</p>
 <!-- @@@stateChanged -->
 <!-- $$$waitForFramesReceived[overload1]$$$waitForFramesReceivedint -->
 <h3 class="fn" id="waitForFramesReceived"><a name="waitForFramesReceived"></a><code>[virtual] </code><span class="type">bool</span> QCanBusDevice::<span class="name">waitForFramesReceived</span>(<span class="type">int</span> <i>msecs</i>)</h3>
 <p>Blocks until new frames are available for reading and the <a href="qcanbusdevice.html#framesReceived">framesReceived</a>() signal has been emitted, or until <i>msecs</i> milliseconds have passed. If <i>msecs</i> is <code>-1</code>, this function will not time out.</p>
 <p>Returns <code>true</code> if new frames are available for reading and the <a href="qcanbusdevice.html#framesReceived">framesReceived</a>() signal is emitted; otherwise returns <code>false</code> (if the operation timed out or if an error occurred).</p>
-<p><b>Note: </b>This function will start a local event loop. This may lead to scenarios whereby other application slots may be called while the execution of this function scope is blocking. To avoid problems, the signals for this class should not be connected to slots. Similarly this function must never be called in response to the <a href="qcanbusdevice.html#framesReceived">framesReceived</a>() or <a href="qcanbusdevice.html#errorOccurred">errorOccurred</a>() signals.</p><p><b>参见</b><a href="qcanbusdevice.html#waitForFramesWritten">waitForFramesWritten</a>().</p>
+<p><b>Note: </b>This function will start a local event loop. This may lead to scenarios whereby other application slots may be called while the execution of this function scope is blocking. To avoid problems, the signals for this class should not be connected to slots. Similarly this function must never be called in response to the <a href="qcanbusdevice.html#framesReceived">framesReceived</a>() or <a href="qcanbusdevice.html#errorOccurred">errorOccurred</a>() signals.</p><p><b> 参见 </b><a href="qcanbusdevice.html#waitForFramesWritten">waitForFramesWritten</a>().</p>
 <!-- @@@waitForFramesReceived -->
 <!-- $$$waitForFramesWritten[overload1]$$$waitForFramesWrittenint -->
 <h3 class="fn" id="waitForFramesWritten"><a name="waitForFramesWritten"></a><code>[virtual] </code><span class="type">bool</span> QCanBusDevice::<span class="name">waitForFramesWritten</span>(<span class="type">int</span> <i>msecs</i>)</h3>
 <p>For buffered devices, this function waits until all buffered frames have been written to the device and the <a href="qcanbusdevice.html#framesWritten">framesWritten</a>() signal has been emitted, or until <i>msecs</i> milliseconds have passed. If <i>msecs</i> is -1, this function will not time out. For unbuffered devices, it returns immediately with <code>false</code> as <a href="qcanbusdevice.html#writeFrame">writeFrame</a>() does not require a write buffer.</p>
 <p>Returns <code>true</code> if the <a href="qcanbusdevice.html#framesWritten">framesWritten</a>() signal is emitted; otherwise returns <code>false</code> (i.e&#x2e; if the operation timed out, or if an error occurred).</p>
-<p><b>Note: </b>This function will start a local event loop. This may lead to scenarios whereby other application slots may be called while the execution of this function scope is blocking. To avoid problems, the signals for this class should not be connected to slots. Similarly this function must never be called in response to the <a href="qcanbusdevice.html#framesWritten">framesWritten</a>() or <a href="qcanbusdevice.html#errorOccurred">errorOccurred</a>() signals.</p><p><b>参见</b><a href="qcanbusdevice.html#waitForFramesReceived">waitForFramesReceived</a>().</p>
+<p><b>Note: </b>This function will start a local event loop. This may lead to scenarios whereby other application slots may be called while the execution of this function scope is blocking. To avoid problems, the signals for this class should not be connected to slots. Similarly this function must never be called in response to the <a href="qcanbusdevice.html#framesWritten">framesWritten</a>() or <a href="qcanbusdevice.html#errorOccurred">errorOccurred</a>() signals.</p><p><b> 参见 </b><a href="qcanbusdevice.html#waitForFramesReceived">waitForFramesReceived</a>().</p>
 <!-- @@@waitForFramesWritten -->
 <!-- $$$writeFrame[overload1]$$$writeFrameconstQCanBusFrame& -->
 <h3 class="fn" id="writeFrame"><a name="writeFrame"></a><code>[pure virtual] </code><span class="type">bool</span> QCanBusDevice::<span class="name">writeFrame</span>(const <span class="type"><a href="qcanbusframe.html">QCanBusFrame</a></span> &amp;<i>frame</i>)</h3>
 <p>Writes <i>frame</i> to the CAN bus and returns <code>true</code> on success; otherwise <code>false</code>.</p>
 <p>On some platforms, the frame may be put into a queue and the return value may only indicate a successful insertion into the queue. The actual frame will be send later on. Therefore the <a href="qcanbusdevice.html#framesWritten">framesWritten</a>() signal is the final confirmation that the frame has been handed off to the transport layer. If an error occurs the <a href="qcanbusdevice.html#errorOccurred">errorOccurred</a>() is emitted.</p>
 <p>As per CAN bus specification, frames of type <a href="qcanbusframe.html#FrameType-enum">remote transfer request (RTR)</a> do not have a payload, but a length from 0 to 8 (including). This length indicates the expected response payload length from the remote party. Therefore when sending a RTR frame using this function it may still be required to set an arbitrary payload on <i>frame</i>. The length of the arbitrary payload is what is set as size expectation for the RTR frame.</p>
-<p><b>参见</b><a href="qcanbusframe.html#setPayload">QCanBusFrame::setPayload</a>().</p>
+<p><b> 参见 </b><a href="qcanbusframe.html#setPayload">QCanBusFrame::setPayload</a>().</p>
 <!-- @@@writeFrame -->
 </div>
 <div class="vars">

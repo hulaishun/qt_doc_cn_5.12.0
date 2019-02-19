@@ -68,7 +68,7 @@
 <!-- $$$ViewTransition-description -->
 <a name="details"></a>
 <h2 id="details">详细描述</h2>
-<p>With <a href="qml-qtquick-listview.html">ListView</a> and <a href="qml-qtquick-gridview.html">GridView</a>, it is possible to specify transitions that should be applied whenever the items in the view change as a result of modifications to the view's model. They both have the following properties that can be set to the appropriate transitions to be run for various operations:</p>
+<p>With <a href="qml-qtquick-listview.html">ListView</a> 和 <a href="qml-qtquick-gridview.html">GridView</a>, it is possible to specify transitions that should be applied whenever the items in the view change as a result of modifications to the view's model. They both have the following properties that can be set to the appropriate transitions to be run for various operations:</p>
 <ul>
 <li><code>populate</code> - the transition to apply to the items created initially for the view, or when the model changes</li>
 <li><code>add</code> - the transition to apply to items that are added to the view after it has been created</li>
@@ -77,7 +77,7 @@
 <li><code>displaced</code> - the generic transition to be applied to any items that are displaced by an add, move or remove operation</li>
 <li><code>addDisplaced</code>, <code>removeDisplaced</code> and <code>moveDisplaced</code> - the transitions to be applied when items are displaced by add, move, or remove operations, respectively (these override the generic displaced transition if specified)</li>
 </ul>
-<p>For the <a href="qml-qtquick-row.html">Row</a>, <a href="qml-qtquick-column.html">Column</a>, <a href="qml-qtquick-grid.html">Grid</a> and <a href="qml-qtquick-flow.html">Flow</a> positioner types, which operate with collections of child items rather than data models, the following properties are used instead:</p>
+<p>For the <a href="qml-qtquick-row.html">Row</a>, <a href="qml-qtquick-column.html">Column</a>, <a href="qml-qtquick-grid.html">Grid</a> 和 <a href="qml-qtquick-flow.html">Flow</a> positioner types, which operate with collections of child items rather than data models, the following properties are used instead:</p>
 <ul>
 <li><code>populate</code> - the transition to apply to items that have been added to the positioner at the time of its creation</li>
 <li><code>add</code> - the transition to apply to items that are added to or reparented to the positioner, or items that have become <a href="qml-qtquick-item.html#visible-prop">visible</a></li>
@@ -95,7 +95,7 @@
 <li><a href="qml-qtquick-viewtransition.html">ViewTransition</a>.<a href="qml-qtquick-viewtransition.html#targetIndexes-attached-prop">targetIndexes</a> - the indexes of the target items</li>
 <li><a href="qml-qtquick-viewtransition.html">ViewTransition</a>.<a href="qml-qtquick-viewtransition.html#targetItems-attached-prop">targetItems</a> - the target items themselves</li>
 </ul>
-<p>(Note that for the <a href="qml-qtquick-row.html">Row</a>, <a href="qml-qtquick-column.html">Column</a>, <a href="qml-qtquick-grid.html">Grid</a> and <a href="qml-qtquick-flow.html">Flow</a> positioner types, the <code>move</code> transition only provides these two additional details when the transition is triggered by the addition of items to a positioner.)</p>
+<p>(Note that for the <a href="qml-qtquick-row.html">Row</a>, <a href="qml-qtquick-column.html">Column</a>, <a href="qml-qtquick-grid.html">Grid</a> 和 <a href="qml-qtquick-flow.html">Flow</a> positioner types, the <code>move</code> transition only provides these two additional details when the transition is triggered by the addition of items to a positioner.)</p>
 <p>View transitions can be written without referring to any of the attributes listed above. These attributes merely provide extra details that are useful for customising view transitions.</p>
 <p>Following is an introduction to view transitions and the ways in which the <a href="qml-qtquick-viewtransition.html">ViewTransition</a> attached property can be used to augment view transitions.</p>
 <a name="view-transitions-a-simple-example"></a>
@@ -147,8 +147,8 @@
 <tr valign="top" class="even"><td ><a href="qml-qtquick-viewtransition.html">ViewTransition</a>.<a href="qml-qtquick-viewtransition.html#targetIndexes-attached-prop">targetIndexes</a></td><td ><code>int</code> array, just contains the integer &quot;0&quot; (zero)</td><td >The index of &quot;Item 4&quot;, the new item added to the view</td></tr>
 <tr valign="top" class="odd"><td ><a href="qml-qtquick-viewtransition.html">ViewTransition</a>.<a href="qml-qtquick-viewtransition.html#targetItems-attached-prop">targetItems</a></td><td >object array, just contains the &quot;Item 4&quot; delegate instance</td><td >The &quot;Item 4&quot; <a href="qml-qtquick-rectangle.html">Rectangle</a> object - the new item added to the view</td></tr>
 </table></div>
-<p>The <a href="qml-qtquick-viewtransition.html">ViewTransition</a>.<a href="qml-qtquick-viewtransition.html#targetIndexes-attached-prop">targetIndexes</a> and <a href="qml-qtquick-viewtransition.html">ViewTransition</a>.<a href="qml-qtquick-viewtransition.html#targetItems-attached-prop">targetItems</a> lists provide the items and indexes of all delegate instances that are the targets of the relevant operation. For an add operation, these are all the items that are added into the view; for a remove, these are all the items removed from the view, and so on. (Note these lists will only contain references to items that have been created within the view or its cached items; targets that are not within the visible area of the view or within the item cache will not be accessible.)</p>
-<p>So, while the <a href="qml-qtquick-viewtransition.html">ViewTransition</a>.item, <a href="qml-qtquick-viewtransition.html">ViewTransition</a>.index and <a href="qml-qtquick-viewtransition.html">ViewTransition</a>.destination values vary for each individual transition that is run, the <a href="qml-qtquick-viewtransition.html">ViewTransition</a>.<a href="qml-qtquick-viewtransition.html#targetIndexes-attached-prop">targetIndexes</a> and <a href="qml-qtquick-viewtransition.html">ViewTransition</a>.<a href="qml-qtquick-viewtransition.html#targetItems-attached-prop">targetItems</a> values are the same for every <code>add</code> and <code>displaced</code> transition that is triggered by a particular add operation.</p>
+<p>The <a href="qml-qtquick-viewtransition.html">ViewTransition</a>.<a href="qml-qtquick-viewtransition.html#targetIndexes-attached-prop">targetIndexes</a> 和 <a href="qml-qtquick-viewtransition.html">ViewTransition</a>.<a href="qml-qtquick-viewtransition.html#targetItems-attached-prop">targetItems</a> lists provide the items and indexes of all delegate instances that are the targets of the relevant operation. For an add operation, these are all the items that are added into the view; for a remove, these are all the items removed from the view, and so on. (Note these lists will only contain references to items that have been created within the view or its cached items; targets that are not within the visible area of the view or within the item cache will not be accessible.)</p>
+<p>So, while the <a href="qml-qtquick-viewtransition.html">ViewTransition</a>.item, <a href="qml-qtquick-viewtransition.html">ViewTransition</a>.index and <a href="qml-qtquick-viewtransition.html">ViewTransition</a>.destination values vary for each individual transition that is run, the <a href="qml-qtquick-viewtransition.html">ViewTransition</a>.<a href="qml-qtquick-viewtransition.html#targetIndexes-attached-prop">targetIndexes</a> 和 <a href="qml-qtquick-viewtransition.html">ViewTransition</a>.<a href="qml-qtquick-viewtransition.html#targetItems-attached-prop">targetItems</a> values are the same for every <code>add</code> and <code>displaced</code> transition that is triggered by a particular add operation.</p>
 <a name="delaying-animations-based-on-index"></a>
 <h4 >Delaying Animations Based on Index</h4>
 <p>Since each view transition is run once for each item affected by the transition, the <a href="qml-qtquick-viewtransition.html">ViewTransition</a> properties can be used within a transition to define custom behavior for each item's transition. For example, the <a href="qml-qtquick-listview.html">ListView</a> in the previous example could use this information to create a ripple-type effect on the movement of the displaced items.</p>
@@ -380,7 +380,7 @@
 </div><div class="qmldoc"><p>This attached property holds a list of the indexes of the items in view that are the target of the relevant operation.</p>
 <p>The targets are the items that are the subject of the operation. For an add operation, these are the items being added; for a remove, these are the items being removed; for a move, these are the items being moved.</p>
 <p>For example, if the transition was triggered by an insert operation that added two items at index 1 and 2, this targetIndexes list would have the value [1,2].</p>
-<p><b>Note: </b>The targetIndexes list only contains the indexes of items that are actually in view, or will be in the view once the relevant operation completes.</p><p><b>参见</b><a href="qml-qtquick-viewtransition.html#targetItems-attached-prop">QtQuick::ViewTransition::targetItems</a>.</p>
+<p><b>Note: </b>The targetIndexes list only contains the indexes of items that are actually in view, or will be in the view once the relevant operation completes.</p><p><b> 参见 </b><a href="qml-qtquick-viewtransition.html#targetItems-attached-prop">QtQuick::ViewTransition::targetItems</a>.</p>
 </div></div><!-- @@@targetIndexes -->
 <br/>
 <!-- $$$targetItems -->
@@ -394,7 +394,7 @@
 <p>The targets are the items that are the subject of the operation. For an add operation, these are the items being added; for a remove, these are the items being removed; for a move, these are the items being moved.</p>
 <p>For example, if the transition was triggered by an insert operation that added two items at index 1 and 2, this targetItems list would contain these two items.</p>
 <p><b>Note: </b>The targetItems list only contains items that are actually in view, or will be in the view once the relevant operation completes.</p><p><b>Warning:</b> The objects in this list should not be kept and referred to outside of the transition as the items may become invalid. The targetItems are only valid when the Transition is initially created; this also means they should not be used by <a href="qml-qtquick-scriptaction.html">ScriptAction</a> objects in the Transition, which are not evaluated until the transition is run.</p>
-<p><b>参见</b><a href="qml-qtquick-viewtransition.html#targetIndexes-attached-prop">QtQuick::ViewTransition::targetIndexes</a>.</p>
+<p><b> 参见 </b><a href="qml-qtquick-viewtransition.html#targetIndexes-attached-prop">QtQuick::ViewTransition::targetIndexes</a>.</p>
 </div></div><!-- @@@targetItems -->
 <br/>
         </div>

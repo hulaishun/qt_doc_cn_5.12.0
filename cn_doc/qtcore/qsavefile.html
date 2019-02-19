@@ -56,7 +56,7 @@
 <li><a href="qsavefile-members.html">所有成员清单，包括继承而来的成员</a></li>
 <li><a href="qsavefile-obsolete.html">过时的成员</a></li>
 </ul>
-<p><b>Note:</b> All functions in this class are <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
+<p><b>注意：</b> 此类中的所有函数都是 <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
 <a name="public-functions"></a>
 <h2 id="public-functions">公共函数</h2>
 <div class="table"><table class="alignedsummary">
@@ -125,7 +125,7 @@
 <p>Unlike <a href="qfile.html">QFile</a>, calling <a href="qfiledevice.html#close">close</a>() is not allowed. <a href="qsavefile.html#commit">commit</a>() replaces it. If <a href="qsavefile.html#commit">commit</a>() was not called and the <a href="qsavefile.html">QSaveFile</a> instance is destroyed, the temporary file is discarded.</p>
 <p>To abort saving due to an application error, call <a href="qsavefile.html#cancelWriting">cancelWriting</a>(), so that even a call to <a href="qsavefile.html#commit">commit</a>() later on will not save.</p>
 </div>
-<p><b>参见</b><a href="qtextstream.html">QTextStream</a>, <a href="qdatastream.html">QDataStream</a>, <a href="qfileinfo.html">QFileInfo</a>, <a href="qdir.html">QDir</a>, <a href="qfile.html">QFile</a>, and <a href="qtemporaryfile.html">QTemporaryFile</a>.</p>
+<p><b> 参见 </b><a href="qtextstream.html">QTextStream</a>, <a href="qdatastream.html">QDataStream</a>, <a href="qfileinfo.html">QFileInfo</a>, <a href="qdir.html">QDir</a>, <a href="qfile.html">QFile</a>, and <a href="qtemporaryfile.html">QTemporaryFile</a>.</p>
 <!-- @@@QSaveFile -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -158,33 +158,33 @@
 <p>Alternatively, it can simply make sure not to call <a href="qsavefile.html#commit">commit</a>().</p>
 <p>Further write operations are possible after calling this method, but none of it will have any effect, the written file will be discarded.</p>
 <p>This method has no effect when direct write fallback is used. This is the case when saving over an existing file in a readonly directory: no temporary file can be created, so the existing file is overwritten no matter what, and cancelWriting() cannot do anything about that, the contents of the existing file will be lost.</p>
-<p><b>参见</b><a href="qsavefile.html#commit">commit</a>().</p>
+<p><b> 参见 </b><a href="qsavefile.html#commit">commit</a>().</p>
 <!-- @@@cancelWriting -->
 <!-- $$$commit[overload1]$$$commit -->
 <h3 class="fn" id="commit"><a name="commit"></a><span class="type">bool</span> QSaveFile::<span class="name">commit</span>()</h3>
 <p>Commits the changes to disk, if all previous writes were successful.</p>
 <p>It is mandatory to call this at the end of the saving operation, otherwise the file will be discarded.</p>
 <p>If an error happened during writing, deletes the temporary file and returns <code>false</code>. Otherwise, renames it to the final <a href="qsavefile.html#fileName">fileName</a> and returns <code>true</code> on success. Finally, closes the device.</p>
-<p><b>参见</b><a href="qsavefile.html#cancelWriting">cancelWriting</a>().</p>
+<p><b> 参见 </b><a href="qsavefile.html#cancelWriting">cancelWriting</a>().</p>
 <!-- @@@commit -->
 <!-- $$$directWriteFallback[overload1]$$$directWriteFallback -->
 <h3 class="fn" id="directWriteFallback"><a name="directWriteFallback"></a><span class="type">bool</span> QSaveFile::<span class="name">directWriteFallback</span>() const</h3>
 <p>Returns <code>true</code> if the fallback solution for saving files in read-only directories is enabled.</p>
-<p><b>参见</b><a href="qsavefile.html#setDirectWriteFallback">setDirectWriteFallback</a>().</p>
+<p><b> 参见 </b><a href="qsavefile.html#setDirectWriteFallback">setDirectWriteFallback</a>().</p>
 <!-- @@@directWriteFallback -->
 <!-- $$$fileName[overload1]$$$fileName -->
 <h3 class="fn" id="fileName"><a name="fileName"></a><code>[override virtual] </code><span class="type"><a href="qstring.html">QString</a></span> QSaveFile::<span class="name">fileName</span>() const</h3>
 <p>Reimplemented from <a href="qfiledevice.html#fileName">QFileDevice::fileName</a>().</p>
 <p>Returns the name set by <a href="qsavefile.html#setFileName">setFileName</a>() or to the <a href="qsavefile.html">QSaveFile</a> constructor.</p>
-<p><b>参见</b><a href="qsavefile.html#setFileName">setFileName</a>().</p>
+<p><b> 参见 </b><a href="qsavefile.html#setFileName">setFileName</a>().</p>
 <!-- @@@fileName -->
 <!-- $$$open[overload1]$$$openQIODevice::OpenMode -->
 <h3 class="fn" id="open"><a name="open"></a><code>[override virtual] </code><span class="type">bool</span> QSaveFile::<span class="name">open</span>(<span class="type"><a href="qiodevice.html#OpenModeFlag-enum">QIODevice::OpenMode</a></span> <i>mode</i>)</h3>
 <p>Reimplemented from <a href="qiodevice.html#open">QIODevice::open</a>().</p>
 <p>Opens the file using <a href="qiodevice.html#OpenModeFlag-enum">OpenMode</a> <i>mode</i>, returning true if successful; otherwise false.</p>
-<p>Important: the <i>mode</i> must include <a href="qiodevice.html#OpenModeFlag-enum">QIODevice::WriteOnly</a>. It may also have additional flags, such as <a href="qiodevice.html#OpenModeFlag-enum">QIODevice::Text</a> and <a href="qiodevice.html#OpenModeFlag-enum">QIODevice::Unbuffered</a>.</p>
-<p><a href="qiodevice.html#OpenModeFlag-enum">QIODevice::ReadWrite</a>, <a href="qiodevice.html#OpenModeFlag-enum">QIODevice::Append</a>, <a href="qiodevice.html#OpenModeFlag-enum">QIODevice::NewOnly</a> and <a href="qiodevice.html#OpenModeFlag-enum">QIODevice::ExistingOnly</a> are not supported at the moment.</p>
-<p><b>参见</b><a href="qiodevice.html#OpenModeFlag-enum">QIODevice::OpenMode</a> and <a href="qsavefile.html#setFileName">setFileName</a>().</p>
+<p>Important: the <i>mode</i> must include <a href="qiodevice.html#OpenModeFlag-enum">QIODevice::WriteOnly</a>. It may also have additional flags, such as <a href="qiodevice.html#OpenModeFlag-enum">QIODevice::Text</a> 和 <a href="qiodevice.html#OpenModeFlag-enum">QIODevice::Unbuffered</a>.</p>
+<p><a href="qiodevice.html#OpenModeFlag-enum">QIODevice::ReadWrite</a>, <a href="qiodevice.html#OpenModeFlag-enum">QIODevice::Append</a>, <a href="qiodevice.html#OpenModeFlag-enum">QIODevice::NewOnly</a> 和 <a href="qiodevice.html#OpenModeFlag-enum">QIODevice::ExistingOnly</a> are not supported at the moment.</p>
+<p><b> 参见 </b><a href="qiodevice.html#OpenModeFlag-enum">QIODevice::OpenMode</a> 和 <a href="qsavefile.html#setFileName">setFileName</a>().</p>
 <!-- @@@open -->
 <!-- $$$setDirectWriteFallback[overload1]$$$setDirectWriteFallbackbool -->
 <h3 class="fn" id="setDirectWriteFallback"><a name="setDirectWriteFallback"></a><span class="type">void</span> QSaveFile::<span class="name">setDirectWriteFallback</span>(<span class="type">bool</span> <i>enabled</i>)</h3>
@@ -192,12 +192,12 @@
 <p><a href="qsavefile.html">QSaveFile</a> creates a temporary file in the same directory as the final file and atomically renames it. However this is not possible if the directory permissions do not allow creating new files. In order to preserve atomicity guarantees, <a href="qsavefile.html#open">open</a>() fails when it cannot create the temporary file.</p>
 <p>In order to allow users to edit files with write permissions in a directory with restricted permissions, call setDirectWriteFallback() with <i>enabled</i> set to true, and the following calls to <a href="qsavefile.html#open">open</a>() will fallback to opening the existing file directly and writing into it, without the use of a temporary file. This does not have atomicity guarantees, i.e&#x2e; an application crash or for instance a power failure could lead to a partially-written file on disk. It also means <a href="qsavefile.html#cancelWriting">cancelWriting</a>() has no effect, in such a case.</p>
 <p>Typically, to save documents edited by the user, call setDirectWriteFallback(true), and to save application internal files (configuration files, data files, ..&#x2e;), keep the default setting which ensures atomicity.</p>
-<p><b>参见</b><a href="qsavefile.html#directWriteFallback">directWriteFallback</a>().</p>
+<p><b> 参见 </b><a href="qsavefile.html#directWriteFallback">directWriteFallback</a>().</p>
 <!-- @@@setDirectWriteFallback -->
 <!-- $$$setFileName[overload1]$$$setFileNameconstQString& -->
 <h3 class="fn" id="setFileName"><a name="setFileName"></a><span class="type">void</span> QSaveFile::<span class="name">setFileName</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>name</i>)</h3>
 <p>Sets the <i>name</i> of the file. The name can have no path, a relative path, or an absolute path.</p>
-<p><b>参见</b><a href="qfile.html#setFileName">QFile::setFileName</a>() and <a href="qsavefile.html#fileName">fileName</a>().</p>
+<p><b> 参见 </b><a href="qfile.html#setFileName">QFile::setFileName</a>() 和 <a href="qsavefile.html#fileName">fileName</a>().</p>
 <!-- @@@setFileName -->
 <!-- $$$writeData[overload1]$$$writeDataconstchar*qint64 -->
 <h3 class="fn" id="writeData"><a name="writeData"></a><code>[override virtual protected] </code><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> QSaveFile::<span class="name">writeData</span>(const <span class="type">char</span> *<i>data</i>, <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> <i>len</i>)</h3>

@@ -53,7 +53,7 @@
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += xmlpatterns</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 4.4</td></tr></table></div><ul>
 <li><a href="qxmlnodemodelindex-members.html">所有成员清单，包括继承而来的成员</a></li>
 </ul>
-<p><b>Note:</b> All functions in this class are <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
+<p><b>注意：</b> 此类中的所有函数都是 <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
 <a name="public-types"></a>
 <h2 id="public-types">公共类型</h2>
 <div class="table"><table class="alignedsummary">
@@ -82,7 +82,7 @@
 <p><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a> is an index into an <a href="qabstractxmlnodemodel.html">XML node model</a>. It contains:</p>
 <ul>
 <li>A pointer to an <a href="qabstractxmlnodemodel.html">XML node model</a>, which is returned by <a href="qxmlnodemodelindex.html#model">model</a>(), and</li>
-<li>Some data, which is returned by <a href="qxmlnodemodelindex.html#data">data</a>(), <a href="qxmlnodemodelindex.html#internalPointer">internalPointer</a>(), and <a href="qxmlnodemodelindex.html#additionalData">additionalData</a>().</li>
+<li>Some data, which is returned by <a href="qxmlnodemodelindex.html#data">data</a>(), <a href="qxmlnodemodelindex.html#internalPointer">internalPointer</a>(), 和 <a href="qxmlnodemodelindex.html#additionalData">additionalData</a>().</li>
 </ul>
 <p>Because <a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a> is intentionally a simple class, it doesn't have member functions for accessing the properties of nodes. For example, it doesn't have functions for getting a node's name or its list of attributes or child nodes. If you find that you need to retrieve this kind of information from your query results, there are two ways to proceed.</p>
 <ul>
@@ -92,7 +92,7 @@
 <p>The second case is explained by example. Suppose you want to populate a list widget with the values of certain attributes from a set of result elements. You could write an <a href="xmlprocessing.html">XQuery</a> to return the set of elements, and then you would write the code to iterate over the result elements, get their attributes, and extract the desired string values. But the simpler way is to just augment your <a href="xmlprocessing.html">XQuery</a> to finding the desired attribute values. Then all you have to do is evaluate the <a href="xmlprocessing.html">XQuery</a> using the version of <a href="qxmlquery.html#evaluateTo">QXmlQuery::evaluateTo</a>() that populates a <a href="../qtcore/qstringlist.html">QStringList</a>, which you can send directly to your widget.</p>
 <p><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a> doesn't impose any restrictions on the <code>data</code> value an <a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a> should contain. The meaning of the data left to the associated <a href="qabstractxmlnodemodel.html">node model</a>. Because <a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a> depends on a particular subclass of <a href="qabstractxmlnodemodel.html">QAbstractXmlNodeModel</a> for its existence, the only way you can create an instance of <a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a> is by asking the node model to create one for you with <a href="qabstractxmlnodemodel.html#createIndex">QAbstractXmlNodeModel::createIndex</a>(). Since that function is protected, it is usually a good idea to write a public function that creates a <a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a> from arguments that are appropriate for your particular node model.</p>
 <p>A default constructed node index is said to be null, i.e&#x2e;, <a href="qxmlnodemodelindex.html#isNull">isNull</a>() returns true.</p>
-<p><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a> and <a href="qabstractxmlnodemodel.html">QAbstractXmlNodeModel</a> follow the same design pattern used for <a href="../qtcore/qmodelindex.html">QModelIndex</a> and <a href="../qtcore/qabstractitemmodel.html">QAbstractItemModel</a>.</p>
+<p><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a> 和 <a href="qabstractxmlnodemodel.html">QAbstractXmlNodeModel</a> follow the same design pattern used for <a href="../qtcore/qmodelindex.html">QModelIndex</a> 和 <a href="../qtcore/qabstractitemmodel.html">QAbstractItemModel</a>.</p>
 </div>
 <!-- @@@QXmlNodeModelIndex -->
 <div class="types">
@@ -123,7 +123,7 @@
 <tr><td class="topAlign"><code>QXmlNodeModelIndex::ProcessingInstruction</code></td><td class="topAlign tblval"><code>32</code></td><td class="topAlign">Identifies a processing instruction.</td></tr>
 </table></div>
 <p>Note that the optional XML declaration at very beginning of the XML document is not a processing instruction</p>
-<p><b>参见</b><a href="qabstractxmlnodemodel.html#kind">QAbstractXmlNodeModel::kind</a>().</p>
+<p><b> 参见 </b><a href="qabstractxmlnodemodel.html#kind">QAbstractXmlNodeModel::kind</a>().</p>
 <!-- @@@NodeKind -->
 </div>
 <div class="prop">
@@ -134,7 +134,7 @@
 <!-- $$$QXmlNodeModelIndex[overload1]$$$QXmlNodeModelIndex -->
 <h3 class="fn" id="QXmlNodeModelIndex"><a name="QXmlNodeModelIndex"></a>QXmlNodeModelIndex::<span class="name">QXmlNodeModelIndex</span>()</h3>
 <p>Default constructor. Creates an item that is <code>null</code>.</p>
-<p><b>参见</b><a href="qxmlnodemodelindex.html#isNull">isNull</a>().</p>
+<p><b> 参见 </b><a href="qxmlnodemodelindex.html#isNull">isNull</a>().</p>
 <!-- @@@QXmlNodeModelIndex -->
 <!-- $$$QXmlNodeModelIndex$$$QXmlNodeModelIndexconstQXmlNodeModelIndex& -->
 <h3 class="fn" id="QXmlNodeModelIndex-1"><a name="QXmlNodeModelIndex-1"></a>QXmlNodeModelIndex::<span class="name">QXmlNodeModelIndex</span>(const <span class="type"><a href="qxmlnodemodelindex.html#QXmlNodeModelIndex">QXmlNodeModelIndex</a></span> &amp;<i>other</i>)</h3>
@@ -143,17 +143,17 @@
 <!-- $$$additionalData[overload1]$$$additionalData -->
 <h3 class="fn" id="additionalData"><a name="additionalData"></a><span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> QXmlNodeModelIndex::<span class="name">additionalData</span>() const</h3>
 <p>Returns the second data value. The node index holds two data values. <a href="qxmlnodemodelindex.html#data">data</a>() returns the first one.</p>
-<p><b>参见</b><a href="qxmlnodemodelindex.html#data">data</a>().</p>
+<p><b> 参见 </b><a href="qxmlnodemodelindex.html#data">data</a>().</p>
 <!-- @@@additionalData -->
 <!-- $$$data[overload1]$$$data -->
 <h3 class="fn" id="data"><a name="data"></a><span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> QXmlNodeModelIndex::<span class="name">data</span>() const</h3>
 <p>Returns the first data value. The node index holds two data values. <a href="qxmlnodemodelindex.html#additionalData">additionalData</a>() returns the second one.</p>
-<p><b>参见</b><a href="qxmlnodemodelindex.html#additionalData">additionalData</a>().</p>
+<p><b> 参见 </b><a href="qxmlnodemodelindex.html#additionalData">additionalData</a>().</p>
 <!-- @@@data -->
 <!-- $$$internalPointer[overload1]$$$internalPointer -->
 <h3 class="fn" id="internalPointer"><a name="internalPointer"></a><span class="type">void</span> *QXmlNodeModelIndex::<span class="name">internalPointer</span>() const</h3>
 <p>Returns the first data value as a void* pointer.</p>
-<p><b>参见</b><a href="qxmlnodemodelindex.html#additionalData">additionalData</a>().</p>
+<p><b> 参见 </b><a href="qxmlnodemodelindex.html#additionalData">additionalData</a>().</p>
 <!-- @@@internalPointer -->
 <!-- $$$isNull[overload1]$$$isNull -->
 <h3 class="fn" id="isNull"><a name="isNull"></a><span class="type">bool</span> QXmlNodeModelIndex::<span class="name">isNull</span>() const</h3>

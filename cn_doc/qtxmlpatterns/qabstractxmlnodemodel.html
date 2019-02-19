@@ -59,7 +59,7 @@
 </td></tr></table></div><ul>
 <li><a href="qabstractxmlnodemodel-members.html">所有成员清单，包括继承而来的成员</a></li>
 </ul>
-<p><b>Note:</b> All functions in this class are <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
+<p><b>注意：</b> 此类中的所有函数都是 <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
 <a name="public-types"></a>
 <h2 id="public-types">公共类型</h2>
 <div class="table"><table class="alignedsummary">
@@ -137,7 +137,7 @@
 <p>The application first creates an instance of <a href="qxmlquery.html">QXmlQuery</a> and calls <a href="qxmlquery.html#setQuery">setQuery()</a> to read <code>queryFile</code> containing the <a href="xmlprocessing.html">XQuery</a> we want to run. Then it creates an instance of our custom node model class, <code>ChemistryNodeModel</code>, which is a subclass of <a href="qabstractxmlnodemodel.html">QAbstractXmlNodeModel</a>. Its constructor is called with the <a href="qxmlnamepool.html">name pool</a> obtained from our <a href="qxmlquery.html">QXmlQuery</a>, and with the <code>chemistryFile</code> containing the structure of molecules and atoms to be queried. The <a href="qxmlnamepool.html">name pool</a> is required because our custom node model has the member function <a href="qabstractxmlnodemodel.html#name">name()</a>, which returns the <a href="qxmlname.html">name</a> of any node in the model. The <a href="qxmlquery.html">query</a> and the custom node model must use the same name pool for constructing these <a href="qxmlname.html">names</a>. The constructor would then read <code>chemistryFile</code> and build the custom node model structure.</p>
 <p>To connect the <code>query</code> to the custom node model, we must bind a variable name used in the query to a node in the model. The variable can then be used in the query as a starting node. First, an <a href="qxmlnodemodelindex.html">index</a> for the desired starting node is retrieved by calling <a href="qabstractxmlnodemodel.html#createIndex">QAbstractXmlNodeModel::createIndex</a>(). Then the index is bound to a variable name, in this case <code>queryRoot</code>, by passing the name and the index to <a href="qxmlquery.html#bindVariable">QXmlQuery::bindVariable</a>(). The query can then use a variable reference <code>$queryRoot</code> to refer to the starting node. Note that if the <a href="qxmlquery.html">query</a> uses multiple variable references, a call to <a href="qxmlquery.html#bindVariable">QXmlQuery::bindVariable</a>() is required to bind each different variable name to a node in the model.</p>
 <p>The query is executed when the application calls one of the <a href="qxmlquery.html">QXmlQuery</a> evaluation functions. The application uses <a href="qxmlquery.html#evaluateTo">QXmlQuery::evaluateTo</a>(QAbstractXmlReceiver *), because it then uses a <a href="qxmlserializer.html">serializer</a> to out the query result as XML to <code>stdout</code>. We could have used <a href="qxmlquery.html#evaluateTo">QXmlQuery::evaluateTo</a>(<a href="qxmlresultitems.html">QXmlResultItems</a> *) to get a list of result items, or <a href="qxmlquery.html#evaluateTo">QXmlQuery::evaluateTo</a>(<a href="../qtcore/qstringlist.html">QStringList</a> *) if the query evaluated to a sequence of <code>xs:string</code> values.</p>
-<p>During query execution, the engine iterates over the node model using <a href="qabstractxmlnodemodel.html#nextFromSimpleAxis">nextFromSimpleAxis</a>() to get the <a href="qxmlnodemodelindex.html">index</a> of the next node to be visited. The engine can get the name of a node by calling <a href="qabstractxmlnodemodel.html#name">name</a>() with the node's <a href="qxmlnodemodelindex.html">index</a>. <a href="qabstractxmlnodemodel.html#stringValue">stringValue</a>(), <a href="qabstractxmlnodemodel.html#baseUri">baseUri</a>(), <a href="qabstractxmlnodemodel.html#documentUri">documentUri</a>() and <a href="qabstractxmlnodemodel.html#kind">kind</a>() are also called as needed with a node <a href="qxmlnodemodelindex.html">index</a>.</p>
+<p>During query execution, the engine iterates over the node model using <a href="qabstractxmlnodemodel.html#nextFromSimpleAxis">nextFromSimpleAxis</a>() to get the <a href="qxmlnodemodelindex.html">index</a> of the next node to be visited. The engine can get the name of a node by calling <a href="qabstractxmlnodemodel.html#name">name</a>() with the node's <a href="qxmlnodemodelindex.html">index</a>. <a href="qabstractxmlnodemodel.html#stringValue">stringValue</a>(), <a href="qabstractxmlnodemodel.html#baseUri">baseUri</a>(), <a href="qabstractxmlnodemodel.html#documentUri">documentUri</a>() 和 <a href="qabstractxmlnodemodel.html#kind">kind</a>() are also called as needed with a node <a href="qxmlnodemodelindex.html">index</a>.</p>
 <p>The example demonstrates the standard pattern for using a subclass of <a href="qabstractxmlnodemodel.html">QAbstractXmlNodeModel</a> in combination with <a href="qxmlquery.html">QXmlQuery</a> to perform an <a href="xmlprocessing.html">XQuery</a>.</p>
 <ol class="1" type="1"><li>Instantiate <a href="qxmlquery.html">QXmlQuery</a> and give it the <a href="xmlprocessing.html">XQuery</a> to be run;</li>
 <li>Instantiate a subclass of <a href="qabstractxmlnodemodel.html">QAbstractXmlNodeModel</a> or <a href="qsimplexmlnodemodel.html">QSimpleXmlNodeModel</a>;</li>
@@ -150,7 +150,7 @@
 <p>Because the <a href="http://www.w3.org/TR/xpath-datamodel/">XPath Data Model interface</a> presented by <a href="qabstractxmlnodemodel.html">QAbstractXmlNodeModel</a> allows <a href="qxmlquery.html">QXmlQuery</a> to operate on non-XML data as if it were XML, implementing subclasses of <a href="qabstractxmlnodemodel.html">QAbstractXmlNodeModel</a> can involve a significant amount of work. The <a href="qsimplexmlnodemodel.html">QSimpleXmlNodeModel</a> class is provided to simplify the implementation for many common use cases.</p>
 <a name="thread-safety"></a>
 <h3 >线程安全</h3>
-<p>Because the node model can be accessed concurrently by threads in the Qt XML Patterns module, subclasses of <a href="qabstractxmlnodemodel.html">QAbstractXmlNodeModel</a> must be written to be <a href="qxmlquery.html#reentrancy-and-thread-safety">thread-safe</a>. Classes that simplify implementing thread-safety include <a href="../qtcore/qreadlocker.html">QReadLocker</a> and <a href="../qtcore/qwritelocker.html">QWriteLocker</a>.</p>
+<p>Because the node model can be accessed concurrently by threads in the Qt XML Patterns module, subclasses of <a href="qabstractxmlnodemodel.html">QAbstractXmlNodeModel</a> must be written to be <a href="qxmlquery.html#reentrancy-and-thread-safety">thread-safe</a>. Classes that simplify implementing thread-safety include <a href="../qtcore/qreadlocker.html">QReadLocker</a> 和 <a href="../qtcore/qwritelocker.html">QWriteLocker</a>.</p>
 <p>See the example <a href="qtxmlpatterns-filetree-example.html">File System Example</a> for a demonstration.</p>
 </div>
 <!-- @@@QAbstractXmlNodeModel -->
@@ -159,12 +159,12 @@
 <!-- $$$List -->
 <h3 class="fn" id="List-typedef"><a name="List-typedef"></a>typedef QAbstractXmlNodeModel::<span class="name">List</span></h3>
 <p>A <a href="../qtcore/qlist.html">list</a> of <a href="../qtcore/qexplicitlyshareddatapointer.html">smart pointers</a> to instances of <a href="qabstractxmlnodemodel.html">QAbstractXmlNodeModel</a>.</p>
-<p><b>参见</b><a href="../qtcore/qexplicitlyshareddatapointer.html">QExplicitlySharedDataPointer</a>.</p>
+<p><b> 参见 </b><a href="../qtcore/qexplicitlyshareddatapointer.html">QExplicitlySharedDataPointer</a>.</p>
 <!-- @@@List -->
 <!-- $$$Ptr -->
 <h3 class="fn" id="Ptr-typedef"><a name="Ptr-typedef"></a>typedef QAbstractXmlNodeModel::<span class="name">Ptr</span></h3>
 <p>A <a href="../qtcore/qexplicitlyshareddatapointer.html">smart pointer</a> to an instance of <a href="qabstractxmlnodemodel.html">QAbstractXmlNodeModel</a>.</p>
-<p><b>参见</b><a href="../qtcore/qexplicitlyshareddatapointer.html">QExplicitlySharedDataPointer</a>.</p>
+<p><b> 参见 </b><a href="../qtcore/qexplicitlyshareddatapointer.html">QExplicitlySharedDataPointer</a>.</p>
 <!-- @@@Ptr -->
 <!-- $$$SimpleAxis$$$Parent$$$FirstChild$$$PreviousSibling$$$NextSibling -->
 <h3 class="fn" id="SimpleAxis-enum"><a name="SimpleAxis-enum"></a>enum QAbstractXmlNodeModel::<span class="name">SimpleAxis</span></h3>
@@ -206,14 +206,14 @@
 <li>The base URI for a processing instruction, comment, attribute, or text node is the base URI of the node's parent element.</li>
 </ul>
 <p>The implementation guarantees to return a valid <a href="../qtcore/qurl.html">QUrl</a>, or a default constructed <a href="../qtcore/qurl.html">QUrl</a>. If a node has no base URI, as in the case where a comment has no parent, a default constructed <a href="../qtcore/qurl.html">QUrl</a> is returned.</p>
-<p><b>参见</b><a href="http://www.w3.org/TR/xpath-datamodel/#dm-base-uri">XQuery 1.0 and XPath 2.0 Data Model (XDM), 5.2 base-uri Accessor</a>.</p>
+<p><b> 参见 </b><a href="http://www.w3.org/TR/xpath-datamodel/#dm-base-uri">XQuery 1.0 and XPath 2.0 Data Model (XDM), 5.2 base-uri Accessor</a>.</p>
 <!-- @@@baseUri -->
 <!-- $$$compareOrder[overload1]$$$compareOrderconstQXmlNodeModelIndex&constQXmlNodeModelIndex& -->
 <h3 class="fn" id="compareOrder"><a name="compareOrder"></a><code>[pure virtual] </code><span class="type"><a href="qxmlnodemodelindex.html#DocumentOrder-enum">QXmlNodeModelIndex::DocumentOrder</a></span> QAbstractXmlNodeModel::<span class="name">compareOrder</span>(const <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> &amp;<i>ni1</i>, const <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> &amp;<i>ni2</i>) const</h3>
 <p>This function returns the relative document order for the nodes indexed by <i>ni1</i> and <i>ni2</i>. It is used for the <code>Is</code> operator and for sorting nodes in document order.</p>
 <p>The caller guarantees that <i>ni1</i> and <i>ni2</i> are not <code>null</code> and that both identify nodes in this node model.</p>
 <p>If <i>ni1</i> is identical to <i>ni2</i>, <a href="qxmlnodemodelindex.html#DocumentOrder-enum">QXmlNodeModelIndex::Is</a> is returned. If <i>ni1</i> precedes <i>ni2</i> in document order, <a href="qxmlnodemodelindex.html#DocumentOrder-enum">QXmlNodeModelIndex::Precedes</a> is returned. If <i>ni1</i> follows <i>ni2</i> in document order, <a href="qxmlnodemodelindex.html#DocumentOrder-enum">QXmlNodeModelIndex::Follows</a> is returned.</p>
-<p><b>参见</b><a href="http://www.w3.org/TR/xpath-datamodel/#document-order">XQuery 1.0 and XPath 2.0 Data Model (XDM), 2.4 Document Order</a>.</p>
+<p><b> 参见 </b><a href="http://www.w3.org/TR/xpath-datamodel/#document-order">XQuery 1.0 and XPath 2.0 Data Model (XDM), 2.4 Document Order</a>.</p>
 <!-- @@@compareOrder -->
 <!-- $$$createIndex[overload1]$$$createIndexqint64 -->
 <h3 class="fn" id="createIndex"><a name="createIndex"></a><code>[protected] </code><span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> QAbstractXmlNodeModel::<span class="name">createIndex</span>(<span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> <i>data</i>) const</h3>
@@ -239,7 +239,7 @@
 <li>If <i>n</i> is a document node, return an absolute <a href="../qtcore/qurl.html">QUrl</a> containing the document URI, or a default constructed <a href="../qtcore/qurl.html">QUrl</a>. The latter signals that no document URI is available for the document node.</li>
 <li>For all other nodes, return a default constructed <a href="../qtcore/qurl.html">QUrl</a>.</li>
 </ul>
-<p><b>参见</b><a href="http://www.w3.org/TR/xpath-datamodel/#dm-document-uri">XQuery 1.0 and XPath 2.0 Data Model (XDM), 5.4 document-uri Accessor</a>, <a href="../qtcore/qurl.html#isValid">QUrl::isValid</a>(), and <a href="../qtcore/qurl.html#isRelative">QUrl::isRelative</a>().</p>
+<p><b> 参见 </b><a href="http://www.w3.org/TR/xpath-datamodel/#dm-document-uri">XQuery 1.0 and XPath 2.0 Data Model (XDM), 5.4 document-uri Accessor</a>, <a href="../qtcore/qurl.html#isValid">QUrl::isValid</a>(), 和 <a href="../qtcore/qurl.html#isRelative">QUrl::isRelative</a>().</p>
 <!-- @@@documentUri -->
 <!-- $$$elementById[overload1]$$$elementByIdconstQXmlName& -->
 <h3 class="fn" id="elementById"><a name="elementById"></a><code>[pure virtual] </code><span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> QAbstractXmlNodeModel::<span class="name">elementById</span>(const <span class="type"><a href="qxmlname.html">QXmlName</a></span> &amp;<i>id</i>) const</h3>
@@ -247,12 +247,12 @@
 <p>The node index returned will be the element node whose value is of type <code>ID</code> and equals <i>id</i>, or it will be the element node that has an attribute whose typed value is of type <code>ID</code> and equals <i>id</i>. If there is no such element, a default constructed <a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a> instance is returned. The implementor guarantees that if the returned node index is not null, it identifies an element.</p>
 <p>It is not sufficient for an attribute or element to merely be called <code>id</code>. Its value type must also be <code>ID</code>. However, the reserved name <code>xml:id</code> is sufficient.</p>
 <p>In <i>id</i>, the <code>namespace URI</code> and the <code>prefix</code> are undefined, and the <code>local name</code> is the ID that should be looked up.</p>
-<p><b>参见</b><a href="http://www.w3.org/TR/xpath-functions/#func-id">XQuery 1.0 and XPath 2.0 Functions and Operators, 15.5&#x2e;2 fn:id</a>.</p>
+<p><b> 参见 </b><a href="http://www.w3.org/TR/xpath-functions/#func-id">XQuery 1.0 and XPath 2.0 Functions and Operators, 15.5&#x2e;2 fn:id</a>.</p>
 <!-- @@@elementById -->
 <!-- $$$kind[overload1]$$$kindconstQXmlNodeModelIndex& -->
 <h3 class="fn" id="kind"><a name="kind"></a><code>[pure virtual] </code><span class="type"><a href="qxmlnodemodelindex.html#NodeKind-enum">QXmlNodeModelIndex::NodeKind</a></span> QAbstractXmlNodeModel::<span class="name">kind</span>(const <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> &amp;<i>ni</i>) const</h3>
 <p>Returns a value indicating the kind of node identified by <i>ni</i>. The caller guarantees that <i>ni</i> is not null and that it identifies a node in this node model. This function maps to the <code>dm:node-kind()</code> accessor.</p>
-<p><b>参见</b><a href="http://www.w3.org/TR/xpath-datamodel/#dm-node-kind">XQuery 1.0 and XPath 2.0 Data Model (XDM), 5.10 node-kind Accessor</a>.</p>
+<p><b> 参见 </b><a href="http://www.w3.org/TR/xpath-datamodel/#dm-node-kind">XQuery 1.0 and XPath 2.0 Data Model (XDM), 5.10 node-kind Accessor</a>.</p>
 <!-- @@@kind -->
 <!-- $$$name[overload1]$$$nameconstQXmlNodeModelIndex& -->
 <h3 class="fn" id="name"><a name="name"></a><code>[pure virtual] </code><span class="type"><a href="qxmlname.html">QXmlName</a></span> QAbstractXmlNodeModel::<span class="name">name</span>(const <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> &amp;<i>ni</i>) const</h3>
@@ -260,7 +260,7 @@
 <p>If a node does not have a name, e.g&#x2e;, comment nodes, a null <a href="qxmlname.html">QXmlName</a> is returned. QXmlNames must be created with the instance of <a href="qxmlquery.html">QXmlQuery</a> that is being used for evaluating queries using this <a href="qabstractxmlnodemodel.html">QAbstractXmlNodeModel</a>.</p>
 <p>This function maps to the <code>dm:node-name()</code> accessor.</p>
 <p>If <i>ni</i> is a processing instruction, a <a href="qxmlname.html">QXmlName</a> is returned with the local name as the target name and the namespace URI and prefix both empty.</p>
-<p><b>参见</b><a href="http://www.w3.org/TR/xpath-datamodel/#dm-node-name">XQuery 1.0 and XPath 2.0 Data Model (XDM), 5.11 node-name Accessor</a> and <a href="qxmlname.html">QXmlName</a>.</p>
+<p><b> 参见 </b><a href="http://www.w3.org/TR/xpath-datamodel/#dm-node-name">XQuery 1.0 and XPath 2.0 Data Model (XDM), 5.11 node-name Accessor</a> 和 <a href="qxmlname.html">QXmlName</a>.</p>
 <!-- @@@name -->
 <!-- $$$namespaceBindings[overload1]$$$namespaceBindingsconstQXmlNodeModelIndex& -->
 <h3 class="fn" id="namespaceBindings"><a name="namespaceBindings"></a><code>[pure virtual] </code><span class="type"><a href="../qtcore/qvector.html">QVector</a></span>&lt;<span class="type"><a href="qxmlname.html">QXmlName</a></span>&gt; QAbstractXmlNodeModel::<span class="name">namespaceBindings</span>(const <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> &amp;<i>n</i>) const</h3>
@@ -306,7 +306,7 @@
 <p>The implementor guarantees that the nodes identified by the returned indexes are elements or attributes.</p>
 <p>It is not sufficient for an attribute or element to merely be called <code>idref</code>. It must also be of type <code>IDREF</code>. Elements must be typed as <code>xs:IDREF</code> or <code>xs:IDREFS</code>, or, in the case of attributes, as <code>IDREF</code> or <code>IDREFS</code> in the schema.</p>
 <p>In <i>idref</i>, the <code>namespace URI</code> and the <code>prefix</code> are undefined, and the <code>local name</code> is the ID that should be looked up.</p>
-<p><b>参见</b><a href="http://www.w3.org/TR/xpath-functions/#func-idref">XQuery 1.0 and XPath 2.0 Functions and Operators, 15.5&#x2e;3 fn:idref</a>.</p>
+<p><b> 参见 </b><a href="http://www.w3.org/TR/xpath-functions/#func-idref">XQuery 1.0 and XPath 2.0 Functions and Operators, 15.5&#x2e;3 fn:idref</a>.</p>
 <!-- @@@nodesByIdref -->
 <!-- $$$root[overload1]$$$rootconstQXmlNodeModelIndex& -->
 <h3 class="fn" id="root"><a name="root"></a><code>[pure virtual] </code><span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> QAbstractXmlNodeModel::<span class="name">root</span>(const <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> &amp;<i>n</i>) const</h3>
@@ -330,7 +330,7 @@
 <li>For elements, the concatenation of all text nodes that are descendants. Note, this is not only the children, but the childrens' childrens' text nodes, and so forth.</li>
 <li>For document nodes, the concatenation of all text nodes in the document.</li>
 </ul>
-<p><b>参见</b><a href="http://www.w3.org/TR/xpath-datamodel/#dm-string-value">XQuery 1.0 and XPath 2.0 Data Model (XDM), 5.13 string-value Accessor</a>.</p>
+<p><b> 参见 </b><a href="http://www.w3.org/TR/xpath-datamodel/#dm-string-value">XQuery 1.0 and XPath 2.0 Data Model (XDM), 5.13 string-value Accessor</a>.</p>
 <!-- @@@stringValue -->
 <!-- $$$typedValue[overload1]$$$typedValueconstQXmlNodeModelIndex& -->
 <h3 class="fn" id="typedValue"><a name="typedValue"></a><code>[pure virtual] </code><span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> QAbstractXmlNodeModel::<span class="name">typedValue</span>(const <span class="type"><a href="qxmlnodemodelindex.html">QXmlNodeModelIndex</a></span> &amp;<i>node</i>) const</h3>

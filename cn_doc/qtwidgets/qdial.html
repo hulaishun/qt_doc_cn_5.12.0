@@ -156,13 +156,13 @@
 <p class="centerAlign"><img src="images/windows-dial.png" alt="" /></p><p><a href="qdial.html">QDial</a> is used when the user needs to control a value within a program-definable range, and the range either wraps around (for example, with angles measured from 0 to 359 degrees) or the dialog layout needs a square widget.</p>
 <p>Since <a href="qdial.html">QDial</a> inherits from <a href="qabstractslider.html">QAbstractSlider</a>, the dial behaves in a similar way to a <a href="qslider.html">slider</a>. When <a href="qdial.html#wrapping-prop">wrapping</a>() is false (the default setting) there is no real difference between a slider and a dial. They both share the same signals, slots and member functions. Which one you use depends on the expectations of your users and on the type of application.</p>
 <p>The dial initially emits <a href="qabstractslider.html#valueChanged">valueChanged</a>() signals continuously while the slider is being moved; you can make it emit the signal less often by disabling the <a href="qabstractslider.html#tracking-prop">tracking</a> property. The <a href="qabstractslider.html#sliderMoved">sliderMoved</a>() signal is emitted continuously even when tracking is disabled.</p>
-<p>The dial also emits <a href="qabstractslider.html#sliderPressed">sliderPressed</a>() and <a href="qabstractslider.html#sliderReleased">sliderReleased</a>() signals when the mouse button is pressed and released. Note that the dial's value can change without these signals being emitted since the keyboard and wheel can also be used to change the value.</p>
+<p>The dial also emits <a href="qabstractslider.html#sliderPressed">sliderPressed</a>() 和 <a href="qabstractslider.html#sliderReleased">sliderReleased</a>() signals when the mouse button is pressed and released. Note that the dial's value can change without these signals being emitted since the keyboard and wheel can also be used to change the value.</p>
 <p>Unlike the slider, <a href="qdial.html">QDial</a> attempts to draw a &quot;nice&quot; number of notches rather than one per line step. If possible, the number of notches drawn is one per line step, but if there aren't enough pixels to draw every one, <a href="qdial.html">QDial</a> will skip notches to try and draw a uniform set (e.g&#x2e; by drawing every second or third notch).</p>
 <p>Like the slider, the dial makes the <a href="qabstractslider.html">QAbstractSlider</a> function <a href="qabstractslider.html#value-prop">setValue</a>() available as a slot.</p>
-<p>The dial's keyboard interface is fairly simple: The <b>left</b>/<b>up</b> and <b>right</b>/<b>down</b> arrow keys adjust the dial's <a href="qabstractslider.html#value-prop">value</a> by the defined <a href="qabstractslider.html#singleStep-prop">singleStep</a>, <b>Page Up</b> and <b>Page Down</b> by the defined <a href="qabstractslider.html#pageStep-prop">pageStep</a>, and the <b>Home</b> and <b>End</b> keys set the value to the defined <a href="qabstractslider.html#minimum-prop">minimum</a> and <a href="qabstractslider.html#maximum-prop">maximum</a> values.</p>
+<p>The dial's keyboard interface is fairly simple: The <b>left</b>/<b>up</b> and <b>right</b>/<b>down</b> arrow keys adjust the dial's <a href="qabstractslider.html#value-prop">value</a> by the defined <a href="qabstractslider.html#singleStep-prop">singleStep</a>, <b>Page Up</b> and <b>Page Down</b> by the defined <a href="qabstractslider.html#pageStep-prop">pageStep</a>, and the <b>Home</b> and <b>End</b> keys set the value to the defined <a href="qabstractslider.html#minimum-prop">minimum</a> 和 <a href="qabstractslider.html#maximum-prop">maximum</a> values.</p>
 <p>If you are using the mouse wheel to adjust the dial, the increment value is determined by the lesser value of <a href="qapplication.html#wheelScrollLines-prop">wheelScrollLines</a> multipled by <a href="qabstractslider.html#singleStep-prop">singleStep</a>, and <a href="qabstractslider.html#pageStep-prop">pageStep</a>.</p>
 </div>
-<p><b>参见</b><a href="qscrollbar.html">QScrollBar</a>, <a href="qspinbox.html">QSpinBox</a>, <a href="qslider.html">QSlider</a>, <a href="guibooks.html#fowler">GUI Design Handbook: Slider</a>, and <a href="qtwidgets-widgets-sliders-example.html">Sliders Example</a>.</p>
+<p><b> 参见 </b><a href="qscrollbar.html">QScrollBar</a>, <a href="qspinbox.html">QSpinBox</a>, <a href="qslider.html">QSlider</a>, <a href="guibooks.html#fowler">GUI Design Handbook: Slider</a>, and <a href="qtwidgets-widgets-sliders-example.html">Sliders Example</a>.</p>
 <!-- @@@QDial -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -178,7 +178,7 @@
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>notchSize</b></span>() const</td></tr>
 </table></div>
-<p><b>参见</b><a href="qdial.html#notchTarget-prop">notchTarget</a>() and <a href="qabstractslider.html#singleStep-prop">singleStep</a>().</p>
+<p><b> 参见 </b><a href="qdial.html#notchTarget-prop">notchTarget</a>() 和 <a href="qabstractslider.html#singleStep-prop">singleStep</a>().</p>
 <!-- @@@notchSize -->
 <!-- $$$notchTarget-prop$$$notchTarget$$$setNotchTargetdouble -->
 <h3 class="fn" id="notchTarget-prop"><a name="notchTarget-prop"></a><span class="name">notchTarget</span> : <span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span></h3>
@@ -234,7 +234,7 @@
 <!-- $$$initStyleOption[overload1]$$$initStyleOptionQStyleOptionSlider* -->
 <h3 class="fn" id="initStyleOption"><a name="initStyleOption"></a><code>[protected] </code><span class="type">void</span> QDial::<span class="name">initStyleOption</span>(<span class="type"><a href="qstyleoptionslider.html">QStyleOptionSlider</a></span> *<i>option</i>) const</h3>
 <p>Initialize <i>option</i> with the values from this <a href="qdial.html">QDial</a>. This method is useful for subclasses when they need a <a href="qstyleoptionslider.html">QStyleOptionSlider</a>, but don't want to fill in all the information themselves.</p>
-<p><b>参见</b><a href="qstyleoption.html#initFrom">QStyleOption::initFrom</a>().</p>
+<p><b> 参见 </b><a href="qstyleoption.html#initFrom">QStyleOption::initFrom</a>().</p>
 <!-- @@@initStyleOption -->
 <!-- $$$minimumSizeHint[overload1]$$$minimumSizeHint -->
 <h3 class="fn" id="minimumSizeHint"><a name="minimumSizeHint"></a><code>[override virtual] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QDial::<span class="name">minimumSizeHint</span>() const</h3>

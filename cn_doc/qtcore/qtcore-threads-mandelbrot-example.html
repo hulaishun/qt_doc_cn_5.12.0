@@ -379,7 +379,7 @@
   }
 
 </pre>
-<p>The interesting part of the constructor is the <a href="qmetatype.html#qRegisterMetaType-1">qRegisterMetaType</a>() and <a href="qobject.html#connect">QObject::connect</a>() calls. Let's start with the <a href="qobject.html#connect">connect()</a> call.</p>
+<p>The interesting part of the constructor is the <a href="qmetatype.html#qRegisterMetaType-1">qRegisterMetaType</a>() 和 <a href="qobject.html#connect">QObject::connect</a>() calls. Let's start with the <a href="qobject.html#connect">connect()</a> call.</p>
 <p>Although it looks like a standard signal-slot connection between two <a href="qobject.html">QObject</a>s, because the signal is emitted in a different thread than the receiver lives in, the connection is effectively a <a href="qt.html#ConnectionType-enum">queued connection</a>. These connections are asynchronous (i.e&#x2e;, non-blocking), meaning that the slot will be called at some point after the <code>emit</code> statement. What's more, the slot will be invoked in the thread in which the receiver lives. Here, the signal is emitted in the worker thread, and the slot is executed in the GUI thread when control returns to the event loop.</p>
 <p>With queued connections, Qt must store a copy of the arguments that were passed to the signal so that it can pass them to the slot later on. Qt knows how to take of copy of many C++ and Qt types, but <a href="../qtgui/qimage.html">QImage</a> isn't one of them. We must therefore call the template function <a href="qmetatype.html#qRegisterMetaType-1">qRegisterMetaType</a>() before we can use <a href="../qtgui/qimage.html">QImage</a> as a parameter in queued connections.</p>
 <pre class="cpp">
@@ -417,7 +417,7 @@
       }
 
 </pre>
-<p>If the pixmap has the right scale factor, we draw the pixmap directly onto the widget. Otherwise, we scale and translate the <a href="../qtgui/coordsys.html">coordinate system</a> before we draw the pixmap. By reverse mapping the widget's rectangle using the scaled painter matrix, we also make sure that only the exposed areas of the pixmap are drawn. The calls to <a href="../qtgui/qpainter.html#save">QPainter::save</a>() and <a href="../qtgui/qpainter.html#restore">QPainter::restore</a>() make sure that any painting performed afterwards uses the standard coordinate system.</p>
+<p>If the pixmap has the right scale factor, we draw the pixmap directly onto the widget. Otherwise, we scale and translate the <a href="../qtgui/coordsys.html">coordinate system</a> before we draw the pixmap. By reverse mapping the widget's rectangle using the scaled painter matrix, we also make sure that only the exposed areas of the pixmap are drawn. The calls to <a href="../qtgui/qpainter.html#save">QPainter::save</a>() 和 <a href="../qtgui/qpainter.html#restore">QPainter::restore</a>() make sure that any painting performed afterwards uses the standard coordinate system.</p>
 <pre class="cpp">
 
       <span class="type"><a href="qstring.html">QString</a></span> text <span class="operator">=</span> tr(<span class="string">&quot;Use mouse wheel or the '+' and '-' keys to zoom. &quot;</span>

@@ -115,7 +115,7 @@
 <p>This enum describes the possible reply type.</p>
 <div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QModbusReply::Raw</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">The reply originates from a raw Modbus request. See <a href="qmodbusclient.html#sendRawRequest">QModbusClient::sendRawRequest</a></td></tr>
-<tr><td class="topAlign"><code>QModbusReply::Common</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">The reply originates from a common read, write or read/write request. See <a href="qmodbusclient.html#sendReadRequest">QModbusClient::sendReadRequest</a>, <a href="qmodbusclient.html#sendWriteRequest">QModbusClient::sendWriteRequest</a> and <a href="qmodbusclient.html#sendReadWriteRequest">QModbusClient::sendReadWriteRequest</a></td></tr>
+<tr><td class="topAlign"><code>QModbusReply::Common</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">The reply originates from a common read, write or read/write request. See <a href="qmodbusclient.html#sendReadRequest">QModbusClient::sendReadRequest</a>, <a href="qmodbusclient.html#sendWriteRequest">QModbusClient::sendWriteRequest</a> 和 <a href="qmodbusclient.html#sendReadWriteRequest">QModbusClient::sendReadWriteRequest</a></td></tr>
 </table></div>
 <!-- @@@ReplyType -->
 </div>
@@ -143,14 +143,14 @@
 <h3 class="fn" id="errorString"><a name="errorString"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QModbusReply::<span class="name">errorString</span>() const</h3>
 <p>Returns the textual representation of the error state of this reply.</p>
 <p>If no error has occurred this will return an empty string. It is possible that an error occurred which has no associated textual representation, in which case this will also return an empty string.</p>
-<p><b>参见</b><a href="qmodbusreply.html#error">error</a>() and <a href="qmodbusreply.html#errorOccurred">errorOccurred</a>().</p>
+<p><b> 参见 </b><a href="qmodbusreply.html#error">error</a>() 和 <a href="qmodbusreply.html#errorOccurred">errorOccurred</a>().</p>
 <!-- @@@errorString -->
 <!-- $$$finished[overload1]$$$finished -->
 <h3 class="fn" id="finished"><a name="finished"></a><code>[signal] </code><span class="type">void</span> QModbusReply::<span class="name">finished</span>()</h3>
 <p>This signal is emitted when the reply has finished processing. The reply may still have returned with an error.</p>
 <p>After this signal is emitted, there will be no more updates to the reply's data.</p>
 <p><b>Note: </b>Do not delete the object in the slot connected to this signal. Use <a href="../qtcore/qobject.html#deleteLater">deleteLater</a>().</p><p>You can also use <a href="qmodbusreply.html#isFinished">isFinished</a>() to check if a QNetworkReply has finished even before you receive the finished() signal.</p>
-<p><b>参见</b><a href="qmodbusreply.html#isFinished">isFinished</a>() and <a href="qmodbusreply.html#error">error</a>().</p>
+<p><b> 参见 </b><a href="qmodbusreply.html#isFinished">isFinished</a>() 和 <a href="qmodbusreply.html#error">error</a>().</p>
 <!-- @@@finished -->
 <!-- $$$isFinished[overload1]$$$isFinished -->
 <h3 class="fn" id="isFinished"><a name="isFinished"></a><span class="type">bool</span> QModbusReply::<span class="name">isFinished</span>() const</h3>
@@ -160,14 +160,14 @@
 <h3 class="fn" id="rawResult"><a name="rawResult"></a><span class="type"><a href="qmodbusresponse.html">QModbusResponse</a></span> QModbusReply::<span class="name">rawResult</span>() const</h3>
 <p>Returns the raw response of a Modbus request.</p>
 <p>If the request has not finished then the returned <a href="qmodbusresponse.html">QModbusResponse</a> instance is invalid.</p>
-<p><b>参见</b><a href="qmodbusreply.html#type">type</a>() and <a href="qmodbusreply.html#result">result</a>().</p>
+<p><b> 参见 </b><a href="qmodbusreply.html#type">type</a>() 和 <a href="qmodbusreply.html#result">result</a>().</p>
 <!-- @@@rawResult -->
 <!-- $$$result[overload1]$$$result -->
 <h3 class="fn" id="result"><a name="result"></a><span class="type"><a href="qmodbusdataunit.html">QModbusDataUnit</a></span> QModbusReply::<span class="name">result</span>() const</h3>
 <p>Returns the preprocessed result of a Modbus request.</p>
 <p>For read requests as well as combined read/write requests send via <a href="qmodbusclient.html#sendReadWriteRequest">QModbusClient::sendReadWriteRequest</a>() it contains the values read from the server instance.</p>
 <p>If the request has not finished, has failed with an error or was a write request then the returned <a href="qmodbusdataunit.html">QModbusDataUnit</a> instance is invalid.</p>
-<p><b>Note: </b>If the <a href="qmodbusreply.html#type">type</a>() of the reply is <a href="qmodbusreply.html#ReplyType-enum">QModbusReply::Raw</a>, the return value will always be invalid.</p><p><b>参见</b><a href="qmodbusreply.html#type">type</a>() and <a href="qmodbusreply.html#rawResult">rawResult</a>().</p>
+<p><b>Note: </b>If the <a href="qmodbusreply.html#type">type</a>() of the reply is <a href="qmodbusreply.html#ReplyType-enum">QModbusReply::Raw</a>, the return value will always be invalid.</p><p><b> 参见 </b><a href="qmodbusreply.html#type">type</a>() 和 <a href="qmodbusreply.html#rawResult">rawResult</a>().</p>
 <!-- @@@result -->
 <!-- $$$serverAddress[overload1]$$$serverAddress -->
 <h3 class="fn" id="serverAddress"><a name="serverAddress"></a><span class="type">int</span> QModbusReply::<span class="name">serverAddress</span>() const</h3>
@@ -176,7 +176,7 @@
 <!-- $$$type[overload1]$$$type -->
 <h3 class="fn" id="type"><a name="type"></a><span class="type"><a href="qmodbusreply.html#ReplyType-enum">QModbusReply::ReplyType</a></span> QModbusReply::<span class="name">type</span>() const</h3>
 <p>Returns the type of the reply.</p>
-<p><b>Note: </b>If the type of the reply is <a href="qmodbusreply.html#ReplyType-enum">QModbusReply::Raw</a>, the return value of <a href="qmodbusreply.html#result">result</a>() will always be invalid.</p><p><b>参见</b><a href="qmodbusreply.html#result">result</a>() and <a href="qmodbusreply.html#rawResult">rawResult</a>().</p>
+<p><b>Note: </b>If the type of the reply is <a href="qmodbusreply.html#ReplyType-enum">QModbusReply::Raw</a>, the return value of <a href="qmodbusreply.html#result">result</a>() will always be invalid.</p><p><b> 参见 </b><a href="qmodbusreply.html#result">result</a>() 和 <a href="qmodbusreply.html#rawResult">rawResult</a>().</p>
 <!-- @@@type -->
 </div>
 <div class="vars">

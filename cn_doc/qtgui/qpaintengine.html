@@ -113,7 +113,7 @@
 <p>If one wants to use <a href="qpainter.html">QPainter</a> to draw to a different backend, one must subclass <a href="qpaintengine.html">QPaintEngine</a> and reimplement all its virtual functions. The <a href="qpaintengine.html">QPaintEngine</a> implementation is then made available by subclassing <a href="qpaintdevice.html">QPaintDevice</a> and reimplementing the virtual function <a href="qpaintdevice.html#paintEngine">QPaintDevice::paintEngine</a>().</p>
 <p><a href="qpaintengine.html">QPaintEngine</a> is created and owned by the <a href="qpaintdevice.html">QPaintDevice</a> that created it.</p>
 </div>
-<p><b>参见</b><a href="qpainter.html">QPainter</a>, <a href="qpaintdevice.html#paintEngine">QPaintDevice::paintEngine</a>(), and <a href="paintsystem.html">Paint System</a>.</p>
+<p><b> 参见 </b><a href="qpainter.html">QPainter</a>, <a href="qpaintdevice.html#paintEngine">QPaintDevice::paintEngine</a>(), 和 <a href="paintsystem.html">Paint System</a>.</p>
 <!-- @@@QPaintEngine -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -217,7 +217,7 @@
 <!-- $$$begin[overload1]$$$beginQPaintDevice* -->
 <h3 class="fn" id="begin"><a name="begin"></a><code>[pure virtual] </code><span class="type">bool</span> QPaintEngine::<span class="name">begin</span>(<span class="type"><a href="qpaintdevice.html">QPaintDevice</a></span> *<i>pdev</i>)</h3>
 <p>Reimplement this function to initialise your paint engine when painting is to start on the paint device <i>pdev</i>. Return true if the initialization was successful; otherwise return false.</p>
-<p><b>参见</b><a href="qpaintengine.html#end">end</a>() and <a href="qpaintengine.html#isActive">isActive</a>().</p>
+<p><b> 参见 </b><a href="qpaintengine.html#end">end</a>() 和 <a href="qpaintengine.html#isActive">isActive</a>().</p>
 <!-- @@@begin -->
 <!-- $$$drawEllipse[overload1]$$$drawEllipseconstQRectF& -->
 <h3 class="fn" id="drawEllipse"><a name="drawEllipse"></a><code>[virtual] </code><span class="type">void</span> QPaintEngine::<span class="name">drawEllipse</span>(const <span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> &amp;<i>rect</i>)</h3>
@@ -287,7 +287,7 @@
 <!-- $$$end[overload1]$$$end -->
 <h3 class="fn" id="end"><a name="end"></a><code>[pure virtual] </code><span class="type">bool</span> QPaintEngine::<span class="name">end</span>()</h3>
 <p>Reimplement this function to finish painting on the current paint device. Return true if painting was finished successfully; otherwise return false.</p>
-<p><b>参见</b><a href="qpaintengine.html#begin">begin</a>() and <a href="qpaintengine.html#isActive">isActive</a>().</p>
+<p><b> 参见 </b><a href="qpaintengine.html#begin">begin</a>() 和 <a href="qpaintengine.html#isActive">isActive</a>().</p>
 <!-- @@@end -->
 <!-- $$$hasFeature[overload1]$$$hasFeatureQPaintEngine::PaintEngineFeatures -->
 <h3 class="fn" id="hasFeature"><a name="hasFeature"></a><span class="type">bool</span> QPaintEngine::<span class="name">hasFeature</span>(<span class="type"><a href="qpaintengine.html#PaintEngineFeature-enum">QPaintEngine::PaintEngineFeatures</a></span> <i>feature</i>) const</h3>
@@ -296,7 +296,7 @@
 <!-- $$$isActive[overload1]$$$isActive -->
 <h3 class="fn" id="isActive"><a name="isActive"></a><span class="type">bool</span> QPaintEngine::<span class="name">isActive</span>() const</h3>
 <p>Returns <code>true</code> if the paint engine is actively drawing; otherwise returns <code>false</code>.</p>
-<p><b>参见</b><a href="qpaintengine.html#setActive">setActive</a>().</p>
+<p><b> 参见 </b><a href="qpaintengine.html#setActive">setActive</a>().</p>
 <!-- @@@isActive -->
 <!-- $$$paintDevice[overload1]$$$paintDevice -->
 <h3 class="fn" id="paintDevice"><a name="paintDevice"></a><span class="type"><a href="qpaintdevice.html">QPaintDevice</a></span> *QPaintEngine::<span class="name">paintDevice</span>() const</h3>
@@ -309,7 +309,7 @@
 <!-- $$$setActive[overload1]$$$setActivebool -->
 <h3 class="fn" id="setActive"><a name="setActive"></a><span class="type">void</span> QPaintEngine::<span class="name">setActive</span>(<span class="type">bool</span> <i>state</i>)</h3>
 <p>Sets the active state of the paint engine to <i>state</i>.</p>
-<p><b>参见</b><a href="qpaintengine.html#isActive">isActive</a>().</p>
+<p><b> 参见 </b><a href="qpaintengine.html#isActive">isActive</a>().</p>
 <!-- @@@setActive -->
 <!-- $$$type[overload1]$$$type -->
 <h3 class="fn" id="type"><a name="type"></a><code>[pure virtual] </code><span class="type"><a href="qpaintengine.html#Type-enum">QPaintEngine::Type</a></span> QPaintEngine::<span class="name">type</span>() const</h3>
@@ -319,7 +319,7 @@
 <h3 class="fn" id="updateState"><a name="updateState"></a><code>[pure virtual] </code><span class="type">void</span> QPaintEngine::<span class="name">updateState</span>(const <span class="type"><a href="qpaintenginestate.html">QPaintEngineState</a></span> &amp;<i>state</i>)</h3>
 <p>Reimplement this function to update the state of a paint engine.</p>
 <p>When implemented, this function is responsible for checking the paint engine's current <i>state</i> and update the properties that are changed. Use the <a href="qpaintenginestate.html#state">QPaintEngineState::state</a>() function to find out which properties that must be updated, then use the corresponding <a href="qpaintenginestate.html#getfunction">get function</a> to retrieve the current values for the given properties.</p>
-<p><b>参见</b><a href="qpaintenginestate.html">QPaintEngineState</a>.</p>
+<p><b> 参见 </b><a href="qpaintenginestate.html">QPaintEngineState</a>.</p>
 <!-- @@@updateState -->
 </div>
 <div class="vars">

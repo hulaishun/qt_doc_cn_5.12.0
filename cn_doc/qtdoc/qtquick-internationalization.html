@@ -62,7 +62,7 @@
 <p>The following sections describe various aspects of internationalizing your QML source code. If you follow these guides for all the user interface components in your application, it becomes possible to localize every aspect of your application for different languages and local cultural conventions such as the way dates and numbers are formatted.</p>
 <a name="1-use-qstr-for-all-literal-user-interface-strings"></a>
 <h3 >1. Use qsTr() for all Literal User Interface Strings</h3>
-<p>Strings in QML can be marked for translation using the qsTr(), qsTranslate(), qsTrId(), <a href="../qtcore/qtglobal.html#QT_TR_NOOP">QT_TR_NOOP</a>(), <a href="../qtcore/qtglobal.html#QT_TRANSLATE_NOOP">QT_TRANSLATE_NOOP</a>(), and <a href="../qtcore/qtglobal.html#QT_TRID_NOOP">QT_TRID_NOOP</a>() functions. The most common way of marking strings is with the qsTr() function. For example:</p>
+<p>Strings in QML can be marked for translation using the qsTr(), qsTranslate(), qsTrId(), <a href="../qtcore/qtglobal.html#QT_TR_NOOP">QT_TR_NOOP</a>(), <a href="../qtcore/qtglobal.html#QT_TRANSLATE_NOOP">QT_TRANSLATE_NOOP</a>(), 和 <a href="../qtcore/qtglobal.html#QT_TRID_NOOP">QT_TRID_NOOP</a>() functions. The most common way of marking strings is with the qsTr() function. For example:</p>
 <pre class="cpp">
 
   Text {
@@ -181,7 +181,7 @@
 </pre>
 <a name="9-prepare-for-dynamic-language-changes"></a>
 <h3 >9. Prepare for Dynamic Language Changes</h3>
-<p>You can change the language that Qt translation functions use by adding and removing translators with <a href="../qtcore/qcoreapplication.html#installTranslator">QCoreApplication::installTranslator</a>() and <a href="../qtcore/qcoreapplication.html#removeTranslator">QCoreApplication::removeTranslator</a>(). Afterwards you can call <a href="../qtqml/qqmlengine.html#retranslate">QQmlEngine::retranslate</a>() to trigger a refresh of all bindings that use translations. As a result, your user interface will switch, dynamically, to the newly selected language.</p>
+<p>You can change the language that Qt translation functions use by adding and removing translators with <a href="../qtcore/qcoreapplication.html#installTranslator">QCoreApplication::installTranslator</a>() 和 <a href="../qtcore/qcoreapplication.html#removeTranslator">QCoreApplication::removeTranslator</a>(). Afterwards you can call <a href="../qtqml/qqmlengine.html#retranslate">QQmlEngine::retranslate</a>() to trigger a refresh of all bindings that use translations. As a result, your user interface will switch, dynamically, to the newly selected language.</p>
 <p>Alternatively, you can also forward a <a href="../qtcore/qevent.html#Type-enum">QEvent::LanguageChange</a> event to your application's <a href="../qtqml/qqmlengine.html">QQmlEngine</a> instance or connect your own signal to <a href="../qtqml/qqmlengine.html#retranslate">QQmlEngine::retranslate</a>().</p>
 <a name="localizing-your-application"></a>
 <h2 id="localizing-your-application">Localizing Your Application</h2>

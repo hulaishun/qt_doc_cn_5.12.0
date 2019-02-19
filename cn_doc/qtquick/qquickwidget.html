@@ -189,7 +189,7 @@
 </pre>
 <p>To receive errors related to loading and executing QML with <a href="qquickwidget.html">QQuickWidget</a>, you can connect to the <a href="qquickwidget.html#statusChanged">statusChanged</a>() signal and monitor for <a href="qquickwidget.html#Status-enum">QQuickWidget::Error</a>. The errors are available via <a href="qquickwidget.html#errors">QQuickWidget::errors</a>().</p>
 <p><a href="qquickwidget.html">QQuickWidget</a> also manages sizing of the view and root object. By default, the <a href="qquickwidget.html#resizeMode-prop">resizeMode</a> is <a href="qquickwidget.html#ResizeMode-enum">SizeViewToRootObject</a>, which will load the component and resize it to the size of the view. Alternatively the <a href="qquickwidget.html#resizeMode-prop">resizeMode</a> may be set to <a href="qquickwidget.html#ResizeMode-enum">SizeRootObjectToView</a> which will resize the view to the size of the root object.</p>
-<p><b>Note: </b><a href="qquickwidget.html">QQuickWidget</a> is an alternative to using <a href="qquickview.html">QQuickView</a> and <a href="../qtwidgets/qwidget.html#createWindowContainer">QWidget::createWindowContainer</a>(). The restrictions on stacking order do not apply, making <a href="qquickwidget.html">QQuickWidget</a> the more flexible alternative, behaving more like an ordinary widget. This comes at the expense of performance. Unlike <a href="qquickwindow.html">QQuickWindow</a> and <a href="qquickview.html">QQuickView</a>, <a href="qquickwidget.html">QQuickWidget</a> involves rendering into OpenGL framebuffer objects. This will naturally carry a minor performance hit.</p><p><b>Note: </b>Using <a href="qquickwidget.html">QQuickWidget</a> disables the threaded render loop on all platforms. This means that some of the benefits of threaded rendering, for example <a href="qml-qtquick-animator.html">Animator</a> classes and vsync driven animations, will not be available.</p><p><b>Note: </b>Avoid calling <a href="../qtwidgets/qwidget.html#winId">winId</a>() on a <a href="qquickwidget.html">QQuickWidget</a>. This function triggers the creation of a native window, resulting in reduced performance and possibly rendering glitches. The entire purpose of <a href="qquickwidget.html">QQuickWidget</a> is to render Quick scenes without a separate native window, hence making it a native widget should always be avoided.</p><a name="scene-graph-and-context-persistency"></a>
+<p><b>Note: </b><a href="qquickwidget.html">QQuickWidget</a> is an alternative to using <a href="qquickview.html">QQuickView</a> 和 <a href="../qtwidgets/qwidget.html#createWindowContainer">QWidget::createWindowContainer</a>(). The restrictions on stacking order do not apply, making <a href="qquickwidget.html">QQuickWidget</a> the more flexible alternative, behaving more like an ordinary widget. This comes at the expense of performance. Unlike <a href="qquickwindow.html">QQuickWindow</a> 和 <a href="qquickview.html">QQuickView</a>, <a href="qquickwidget.html">QQuickWidget</a> involves rendering into OpenGL framebuffer objects. This will naturally carry a minor performance hit.</p><p><b>Note: </b>Using <a href="qquickwidget.html">QQuickWidget</a> disables the threaded render loop on all platforms. This means that some of the benefits of threaded rendering, for example <a href="qml-qtquick-animator.html">Animator</a> classes and vsync driven animations, will not be available.</p><p><b>Note: </b>Avoid calling <a href="../qtwidgets/qwidget.html#winId">winId</a>() on a <a href="qquickwidget.html">QQuickWidget</a>. This function triggers the creation of a native window, resulting in reduced performance and possibly rendering glitches. The entire purpose of <a href="qquickwidget.html">QQuickWidget</a> is to render Quick scenes without a separate native window, hence making it a native widget should always be avoided.</p><a name="scene-graph-and-context-persistency"></a>
 <h3 >Scene Graph and Context Persistency</h3>
 <p><a href="qquickwidget.html">QQuickWidget</a> honors <a href="qquickwindow.html#isPersistentSceneGraph">QQuickWindow::isPersistentSceneGraph</a>(), meaning that applications can decide - by calling <a href="qquickwindow.html#setPersistentSceneGraph">QQuickWindow::setPersistentSceneGraph</a>() on the window returned from the <a href="qquickwidget.html#quickWindow">quickWindow</a>() function - to let scenegraph nodes and other Qt Quick scene related resources be released whenever the widget becomes hidden. By default persistency is enabled, just like with <a href="qquickwindow.html">QQuickWindow</a>.</p>
 <p>When running with the OpenGL backend of the scene graph, <a href="qquickwindow.html">QQuickWindow</a> offers the possibility to disable persistent OpenGL contexts as well. This setting is currently ignored by <a href="qquickwidget.html">QQuickWidget</a> and the context is always persistent. The OpenGL context is thus not destroyed when hiding the widget. The context is destroyed only when the widget is destroyed or when the widget gets reparented into another top-level widget's child hierarchy. However, some applications, in particular those that have their own graphics resources due to performing custom OpenGL rendering in the Qt Quick scene, may wish to disable the latter since they may not be prepared to handle the loss of the context when moving a <a href="qquickwidget.html">QQuickWidget</a> into another window. Such applications can set the QCoreApplication::AA_ShareOpenGLContexts attribute. For a discussion on the details of resource initialization and cleanup, refer to the <a href="../qtwidgets/qopenglwidget.html">QOpenGLWidget</a> documentation.</p>
@@ -205,7 +205,7 @@
 <h3 >Tab Key Handling</h3>
 <p>On press of the <code>[TAB]</code> key, the item inside the <a href="qquickwidget.html">QQuickWidget</a> gets focus. If this item can handle <code>[TAB]</code> key press, focus will change accordingly within the item, otherwise the next widget in the focus chain gets focus.</p>
 </div>
-<p><b>参见</b><a href="../qtqml/qtqml-cppintegration-exposecppattributes.html">Exposing Attributes of C++ Types to QML</a>, <a href="qtquick-quickwidgets-quickwidget-example.html">Qt Quick Widgets Example</a>, and <a href="qquickview.html">QQuickView</a>.</p>
+<p><b> 参见 </b><a href="../qtqml/qtqml-cppintegration-exposecppattributes.html">Exposing Attributes of C++ Types to QML</a>, <a href="qtquick-quickwidgets-quickwidget-example.html">Qt Quick Widgets Example</a>, and <a href="qquickview.html">QQuickView</a>.</p>
 <!-- @@@QQuickWidget -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -241,7 +241,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> QQuickWidget::ResizeMode </td><td class="memItemRight bottomAlign"><span class="name"><b>resizeMode</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setResizeMode</b></span>(<i>QQuickWidget::ResizeMode</i>)</td></tr>
 </table></div>
-<p><b>参见</b><a href="qquickwidget.html#initialSize">initialSize</a>().</p>
+<p><b> 参见 </b><a href="qquickwidget.html#initialSize">initialSize</a>().</p>
 <!-- @@@resizeMode -->
 <!-- $$$source-prop$$$source$$$setSourceconstQUrl& -->
 <h3 class="fn" id="source-prop"><a name="source-prop"></a><span class="name">source</span> : <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span></h3>
@@ -276,7 +276,7 @@
 <h3 class="fn" id="QQuickWidget-1"><a name="QQuickWidget-1"></a>QQuickWidget::<span class="name">QQuickWidget</span>(<span class="type"><a href="../qtqml/qqmlengine.html">QQmlEngine</a></span> *<i>engine</i>, <span class="type"><a href="../qtwidgets/qwidget.html#QWidget">QWidget</a></span> *<i>parent</i>)</h3>
 <p>Constructs a <a href="qquickwidget.html">QQuickWidget</a> with the given QML <i>engine</i> and <i>parent</i>.</p>
 <p>Note: In this case, the <a href="qquickwidget.html">QQuickWidget</a> does not own the given <i>engine</i> object; it is the caller's responsibility to destroy the engine. If the <i>engine</i> is deleted before the view, <a href="qquickwidget.html#status-prop">status</a>() will return <a href="qquickwidget.html#Status-enum">QQuickWidget::Error</a>.</p>
-<p><b>参见</b><a href="qquickwidget.html#Status-enum">Status</a>, <a href="qquickwidget.html#status-prop">status</a>(), and <a href="qquickwidget.html#errors">errors</a>().</p>
+<p><b> 参见 </b><a href="qquickwidget.html#Status-enum">Status</a>, <a href="qquickwidget.html#status-prop">status</a>(), 和 <a href="qquickwidget.html#errors">errors</a>().</p>
 <!-- @@@QQuickWidget -->
 <!-- $$$QQuickWidget$$$QQuickWidgetconstQUrl&QWidget* -->
 <h3 class="fn" id="QQuickWidget-2"><a name="QQuickWidget-2"></a>QQuickWidget::<span class="name">QQuickWidget</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>source</i>, <span class="type"><a href="../qtwidgets/qwidget.html#QWidget">QWidget</a></span> *<i>parent</i> = nullptr)</h3>
@@ -309,7 +309,7 @@
 <!-- $$$errors[overload1]$$$errors -->
 <h3 class="fn" id="errors"><a name="errors"></a><span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="../qtqml/qqmlerror.html">QQmlError</a></span>&gt; QQuickWidget::<span class="name">errors</span>() const</h3>
 <p>Return the list of errors that occurred during the last compile or create operation. When the status is not <a href="qquickwidget.html#Status-enum">Error</a>, an empty list is returned.</p>
-<p><b>参见</b><a href="qquickwidget.html#status-prop">status</a>.</p>
+<p><b> 参见 </b><a href="qquickwidget.html#status-prop">status</a>.</p>
 <!-- @@@errors -->
 <!-- $$$event[overload1]$$$eventQEvent* -->
 <h3 class="fn" id="event"><a name="event"></a><code>[override virtual protected] </code><span class="type">bool</span> QQuickWidget::<span class="name">event</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>e</i>)</h3>
@@ -331,7 +331,7 @@
 <h3 class="fn" id="format"><a name="format"></a><span class="type"><a href="../qtgui/qsurfaceformat.html">QSurfaceFormat</a></span> QQuickWidget::<span class="name">format</span>() const</h3>
 <p>Returns the actual surface format.</p>
 <p>If the widget has not yet been shown, the requested format is returned.</p>
-<p><b>参见</b><a href="qquickwidget.html#setFormat">setFormat</a>().</p>
+<p><b> 参见 </b><a href="qquickwidget.html#setFormat">setFormat</a>().</p>
 <!-- @@@format -->
 <!-- $$$grabFramebuffer[overload1]$$$grabFramebuffer -->
 <h3 class="fn" id="grabFramebuffer"><a name="grabFramebuffer"></a><span class="type"><a href="../qtgui/qimage.html">QImage</a></span> QQuickWidget::<span class="name">grabFramebuffer</span>() const</h3>
@@ -393,26 +393,26 @@
 <p>This signal is emitted when an <i>error</i> occurred during scene graph initialization.</p>
 <p>Applications should connect to this signal if they wish to handle errors, like OpenGL context creation failures, in a custom way. When no slot is connected to the signal, the behavior will be different: Quick will print the <i>message</i>, or show a message box, and terminate the application.</p>
 <p>This signal will be emitted from the gui thread.</p>
-<p><b>参见</b><a href="qquickwindow.html#sceneGraphError">QQuickWindow::sceneGraphError</a>().</p>
+<p><b> 参见 </b><a href="qquickwindow.html#sceneGraphError">QQuickWindow::sceneGraphError</a>().</p>
 <!-- @@@sceneGraphError -->
 <!-- $$$setClearColor[overload1]$$$setClearColorconstQColor& -->
 <h3 class="fn" id="setClearColor"><a name="setClearColor"></a><span class="type">void</span> QQuickWidget::<span class="name">setClearColor</span>(const <span class="type"><a href="../qtgui/qcolor.html">QColor</a></span> &amp;<i>color</i>)</h3>
 <p>Sets the clear <i>color</i>. By default this is an opaque color.</p>
 <p>To get a semi-transparent <a href="qquickwidget.html">QQuickWidget</a>, call this function with <i>color</i> set to <a href="../qtcore/qt.html#GlobalColor-enum">Qt::transparent</a>, set the <a href="../qtcore/qt.html#WidgetAttribute-enum">Qt::WA_TranslucentBackground</a> widget attribute on the top-level window, and request an alpha channel via <a href="qquickwidget.html#setFormat">setFormat</a>().</p>
-<p><b>参见</b><a href="qquickwindow.html#color-prop">QQuickWindow::setColor</a>().</p>
+<p><b> 参见 </b><a href="qquickwindow.html#color-prop">QQuickWindow::setColor</a>().</p>
 <!-- @@@setClearColor -->
 <!-- $$$setFormat[overload1]$$$setFormatconstQSurfaceFormat& -->
 <h3 class="fn" id="setFormat"><a name="setFormat"></a><span class="type">void</span> QQuickWidget::<span class="name">setFormat</span>(const <span class="type"><a href="../qtgui/qsurfaceformat.html">QSurfaceFormat</a></span> &amp;<i>format</i>)</h3>
 <p>Sets the surface <i>format</i> for the context and offscreen surface used by this widget.</p>
 <p>Call this function when there is a need to request a context for a given OpenGL version or profile. The sizes for depth, stencil and alpha buffers are taken care of automatically and there is no need to request those explicitly.</p>
-<p><b>参见</b><a href="../qtgui/qwindow.html#setFormat">QWindow::setFormat</a>(), <a href="../qtgui/qwindow.html#format">QWindow::format</a>(), and <a href="qquickwidget.html#format">format</a>().</p>
+<p><b> 参见 </b><a href="../qtgui/qwindow.html#setFormat">QWindow::setFormat</a>(), <a href="../qtgui/qwindow.html#format">QWindow::format</a>(), 和 <a href="qquickwidget.html#format">format</a>().</p>
 <!-- @@@setFormat -->
 <!-- $$$setSource -->
 <h3 class="fn" id="setSource"><a name="setSource"></a><code>[slot] </code><span class="type">void</span> QQuickWidget::<span class="name">setSource</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
 <p>Sets the source to the <i>url</i>, loads the QML component and instantiates it.</p>
 <p>Ensure that the URL provided is full and correct, in particular, use <a href="../qtcore/qurl.html#fromLocalFile">QUrl::fromLocalFile</a>() when loading a file from the local filesystem.</p>
 <p>Calling this method multiple times with the same URL will result in the QML component being reinstantiated.</p>
-<p><b>Note:</b> Setter function for property <a href="qquickwidget.html#source-prop">source</a>. </p><p><b>参见</b><a href="qquickwidget.html#source">source</a>().</p>
+<p><b>Note:</b> Setter function for property <a href="qquickwidget.html#source-prop">source</a>. </p><p><b> 参见 </b><a href="qquickwidget.html#source">source</a>().</p>
 <!-- @@@setSource -->
 <!-- $$$showEvent[overload1]$$$showEventQShowEvent* -->
 <h3 class="fn" id="showEvent"><a name="showEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QQuickWidget::<span class="name">showEvent</span>(<i>QShowEvent *</i>)</h3>
@@ -421,7 +421,7 @@
 <!-- $$$source -->
 <h3 class="fn" id="source"><a name="source"></a><span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> QQuickWidget::<span class="name">source</span>() const</h3>
 <p>Returns the source URL, if set.</p>
-<p><b>Note:</b> Getter function for property <a href="qquickwidget.html#source-prop">source</a>. </p><p><b>参见</b><a href="qquickwidget.html#setSource">setSource</a>().</p>
+<p><b>Note:</b> Getter function for property <a href="qquickwidget.html#source-prop">source</a>. </p><p><b> 参见 </b><a href="qquickwidget.html#setSource">setSource</a>().</p>
 <!-- @@@source -->
 <!-- $$$statusChanged -->
 <h3 class="fn" id="statusChanged"><a name="statusChanged"></a><code>[signal] </code><span class="type">void</span> QQuickWidget::<span class="name">statusChanged</span>(<span class="type"><a href="qquickwidget.html#Status-enum">QQuickWidget::Status</a></span> <i>status</i>)</h3>

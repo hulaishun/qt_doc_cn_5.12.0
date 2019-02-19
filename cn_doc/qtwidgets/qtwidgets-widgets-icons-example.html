@@ -72,7 +72,7 @@
 <tr valign="top" class="odd"><td ><a href="../qtgui/qicon.html#Mode-enum">QIcon::Disabled</a></td><td >Display the pixmap when the functionality represented by the icon is not available.</td></tr>
 <tr valign="top" class="even"><td ><a href="../qtgui/qicon.html#Mode-enum">QIcon::Selected</a></td><td >Display the pixmap when the icon is selected.</td></tr>
 </table></div>
-<p><a href="../qtgui/qicon.html">QIcon</a>'s states are <a href="../qtgui/qicon.html#State-enum">QIcon::On</a> and <a href="../qtgui/qicon.html#State-enum">QIcon::Off</a>, which will display the pixmap when the widget is in the respective state. The most common usage of <a href="../qtgui/qicon.html">QIcon</a>'s states are when displaying checkable tool buttons or menu entries (see <a href="qabstractbutton.html#checkable-prop">QAbstractButton::setCheckable</a>() and <a href="qaction.html#checkable-prop">QAction::setCheckable</a>()). When a tool button or menu entry is checked, the <a href="../qtgui/qicon.html">QIcon</a>'s state is <a href="../qtgui/qicon.html#State-enum">On</a>, otherwise it's <a href="../qtgui/qicon.html#State-enum">Off</a>. You can, for example, use the <a href="../qtgui/qicon.html">QIcon</a>'s states to display differing pixmaps depending on whether the tool button or menu entry is checked or not.</p>
+<p><a href="../qtgui/qicon.html">QIcon</a>'s states are <a href="../qtgui/qicon.html#State-enum">QIcon::On</a> 和 <a href="../qtgui/qicon.html#State-enum">QIcon::Off</a>, which will display the pixmap when the widget is in the respective state. The most common usage of <a href="../qtgui/qicon.html">QIcon</a>'s states are when displaying checkable tool buttons or menu entries (see <a href="qabstractbutton.html#checkable-prop">QAbstractButton::setCheckable</a>() 和 <a href="qaction.html#checkable-prop">QAction::setCheckable</a>()). When a tool button or menu entry is checked, the <a href="../qtgui/qicon.html">QIcon</a>'s state is <a href="../qtgui/qicon.html#State-enum">On</a>, otherwise it's <a href="../qtgui/qicon.html#State-enum">Off</a>. You can, for example, use the <a href="../qtgui/qicon.html">QIcon</a>'s states to display differing pixmaps depending on whether the tool button or menu entry is checked or not.</p>
 <p>A <a href="../qtgui/qicon.html">QIcon</a> can generate smaller, larger, active, disabled, and selected pixmaps from the set of pixmaps it is given. Such pixmaps are used by Qt widgets to show an icon representing a particular action.</p>
 <a name="overview-of-the-icons-application"></a>
 <h2 id="overview-of-the-icons-application">Overview of the Icons Application</h2>
@@ -741,7 +741,7 @@
 
 </pre>
 <p>We introduce an enumeration constant <code>OtherSize</code> to represent a custom size.</p>
-<p>The spin box is not a regular <a href="qspinbox.html">QSpinBox</a> but an <code>IconSizeSpinBox</code>. The <code>IconSizeSpinBox</code> class inherits <a href="qspinbox.html">QSpinBox</a> and reimplements two functions: <a href="qspinbox.html#textFromValue">QSpinBox::textFromValue</a>() and <a href="qspinbox.html#valueFromText">QSpinBox::valueFromText</a>(). The <code>IconSizeSpinBox</code> is designed to handle icon sizes, e.g&#x2e;, &quot;32 x 32&quot;, instead of plain integer values.</p>
+<p>The spin box is not a regular <a href="qspinbox.html">QSpinBox</a> but an <code>IconSizeSpinBox</code>. The <code>IconSizeSpinBox</code> class inherits <a href="qspinbox.html">QSpinBox</a> and reimplements two functions: <a href="qspinbox.html#textFromValue">QSpinBox::textFromValue</a>() 和 <a href="qspinbox.html#valueFromText">QSpinBox::valueFromText</a>(). The <code>IconSizeSpinBox</code> is designed to handle icon sizes, e.g&#x2e;, &quot;32 x 32&quot;, instead of plain integer values.</p>
 <pre class="cpp">
 
       connect(otherSpinBox<span class="operator">,</span> <span class="type">QOverload</span><span class="operator">&lt;</span><span class="type">int</span><span class="operator">&gt;</span><span class="operator">::</span>of(<span class="operator">&amp;</span><span class="type"><a href="qspinbox.html">QSpinBox</a></span><span class="operator">::</span>valueChanged)<span class="operator">,</span>
@@ -888,7 +888,7 @@
   };
 
 </pre>
-<p>The <code>IconSizeSpinBox</code> class is a subclass of <a href="qspinbox.html">QSpinBox</a>. A plain <a href="qspinbox.html">QSpinBox</a> can only handle integers. But since we want to display the spin box's values in a more sophisticated way, we need to subclass <a href="qspinbox.html">QSpinBox</a> and reimplement the <a href="qspinbox.html#textFromValue">QSpinBox::textFromValue</a>() and <a href="qspinbox.html#valueFromText">QSpinBox::valueFromText</a>() functions.</p>
+<p>The <code>IconSizeSpinBox</code> class is a subclass of <a href="qspinbox.html">QSpinBox</a>. A plain <a href="qspinbox.html">QSpinBox</a> can only handle integers. But since we want to display the spin box's values in a more sophisticated way, we need to subclass <a href="qspinbox.html">QSpinBox</a> and reimplement the <a href="qspinbox.html#textFromValue">QSpinBox::textFromValue</a>() 和 <a href="qspinbox.html#valueFromText">QSpinBox::valueFromText</a>() functions.</p>
 <p class="centerAlign"><img src="images/icons_size_spinbox.png" alt="Screenshot of the icon size spinbox" /></p><a name="iconsizespinbox-class-implementation"></a>
 <h3 >IconSizeSpinBox Class Implementation</h3>
 <pre class="cpp">
@@ -951,7 +951,7 @@
                         <span class="keyword">const</span> <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index) <span class="keyword">const</span> override;
 
 </pre>
-<p>The default implementation of <a href="qitemdelegate.html">QItemDelegate</a> creates a <a href="qlineedit.html">QLineEdit</a>. Since we want the editor to be a <a href="qcombobox.html">QComboBox</a>, we need to subclass <a href="qitemdelegate.html">QItemDelegate</a> and reimplement the <a href="qitemdelegate.html#createEditor">QItemDelegate::createEditor</a>(), <a href="qitemdelegate.html#setEditorData">QItemDelegate::setEditorData</a>() and <a href="qitemdelegate.html#setModelData">QItemDelegate::setModelData</a>() functions.</p>
+<p>The default implementation of <a href="qitemdelegate.html">QItemDelegate</a> creates a <a href="qlineedit.html">QLineEdit</a>. Since we want the editor to be a <a href="qcombobox.html">QComboBox</a>, we need to subclass <a href="qitemdelegate.html">QItemDelegate</a> and reimplement the <a href="qitemdelegate.html#createEditor">QItemDelegate::createEditor</a>(), <a href="qitemdelegate.html#setEditorData">QItemDelegate::setEditorData</a>() 和 <a href="qitemdelegate.html#setModelData">QItemDelegate::setModelData</a>() functions.</p>
 <pre class="cpp">
 
   <span class="keyword">private</span> <span class="keyword">slots</span>:

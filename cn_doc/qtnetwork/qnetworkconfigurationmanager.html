@@ -118,11 +118,11 @@
 <h2 id="details">详细描述</h2>
 <p>The <a href="qnetworkconfigurationmanager.html">QNetworkConfigurationManager</a> class manages the network configurations provided by the system.</p>
 <p><a href="qnetworkconfigurationmanager.html">QNetworkConfigurationManager</a> provides access to the network configurations known to the system and enables applications to detect the system capabilities (with regards to network sessions) at runtime.</p>
-<p>A <a href="qnetworkconfiguration.html">QNetworkConfiguration</a> abstracts a set of configuration options describing how a network interface has to be configured to connect to a particular target network. <a href="qnetworkconfigurationmanager.html">QNetworkConfigurationManager</a> maintains and updates the global list of QNetworkConfigurations. Applications can access and filter this list via <a href="qnetworkconfigurationmanager.html#allConfigurations">allConfigurations</a>(). If a new configuration is added or an existing one is removed or changed the <a href="qnetworkconfigurationmanager.html#configurationAdded">configurationAdded</a>(), <a href="qnetworkconfigurationmanager.html#configurationRemoved">configurationRemoved</a>() and <a href="qnetworkconfigurationmanager.html#configurationChanged">configurationChanged</a>() signals are emitted respectively.</p>
+<p>A <a href="qnetworkconfiguration.html">QNetworkConfiguration</a> abstracts a set of configuration options describing how a network interface has to be configured to connect to a particular target network. <a href="qnetworkconfigurationmanager.html">QNetworkConfigurationManager</a> maintains and updates the global list of QNetworkConfigurations. Applications can access and filter this list via <a href="qnetworkconfigurationmanager.html#allConfigurations">allConfigurations</a>(). If a new configuration is added or an existing one is removed or changed the <a href="qnetworkconfigurationmanager.html#configurationAdded">configurationAdded</a>(), <a href="qnetworkconfigurationmanager.html#configurationRemoved">configurationRemoved</a>() 和 <a href="qnetworkconfigurationmanager.html#configurationChanged">configurationChanged</a>() signals are emitted respectively.</p>
 <p>The <a href="qnetworkconfigurationmanager.html#defaultConfiguration">defaultConfiguration</a>() can be used when intending to immediately create a new network session without caring about the particular configuration. It returns a <a href="qnetworkconfiguration.html#StateFlag-enum">QNetworkConfiguration::Discovered</a> configuration. If there are not any discovered ones an invalid configuration is returned.</p>
 <p>Some configuration updates may require some time to perform updates. A WLAN scan is such an example. Unless the platform performs internal updates it may be required to manually trigger configuration updates via <a href="qnetworkconfigurationmanager.html#updateConfigurations">QNetworkConfigurationManager::updateConfigurations</a>(). The completion of the update process is indicated by emitting the <a href="qnetworkconfigurationmanager.html#updateCompleted">updateCompleted</a>() signal. The update process ensures that every existing <a href="qnetworkconfiguration.html">QNetworkConfiguration</a> instance is updated. There is no need to ask for a renewed configuration list via <a href="qnetworkconfigurationmanager.html#allConfigurations">allConfigurations</a>().</p>
 </div>
-<p><b>参见</b><a href="qnetworkconfiguration.html">QNetworkConfiguration</a>.</p>
+<p><b> 参见 </b><a href="qnetworkconfiguration.html">QNetworkConfiguration</a>.</p>
 <!-- @@@QNetworkConfigurationManager -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -178,7 +178,7 @@
 <!-- $$$configurationFromIdentifier[overload1]$$$configurationFromIdentifierconstQString& -->
 <h3 class="fn" id="configurationFromIdentifier"><a name="configurationFromIdentifier"></a><span class="type"><a href="qnetworkconfiguration.html">QNetworkConfiguration</a></span> QNetworkConfigurationManager::<span class="name">configurationFromIdentifier</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>identifier</i>) const</h3>
 <p>Returns the <a href="qnetworkconfiguration.html">QNetworkConfiguration</a> for <i>identifier</i>; otherwise returns an invalid <a href="qnetworkconfiguration.html">QNetworkConfiguration</a>.</p>
-<p><b>参见</b><a href="qnetworkconfiguration.html#identifier">QNetworkConfiguration::identifier</a>().</p>
+<p><b> 参见 </b><a href="qnetworkconfiguration.html#identifier">QNetworkConfiguration::identifier</a>().</p>
 <!-- @@@configurationFromIdentifier -->
 <!-- $$$configurationRemoved[overload1]$$$configurationRemovedconstQNetworkConfiguration& -->
 <h3 class="fn" id="configurationRemoved"><a name="configurationRemoved"></a><code>[signal] </code><span class="type">void</span> QNetworkConfigurationManager::<span class="name">configurationRemoved</span>(const <span class="type"><a href="qnetworkconfiguration.html">QNetworkConfiguration</a></span> &amp;<i>config</i>)</h3>
@@ -188,7 +188,7 @@
 <h3 class="fn" id="defaultConfiguration"><a name="defaultConfiguration"></a><span class="type"><a href="qnetworkconfiguration.html">QNetworkConfiguration</a></span> QNetworkConfigurationManager::<span class="name">defaultConfiguration</span>() const</h3>
 <p>Returns the default configuration to be used. This function always returns a discovered configuration; otherwise an invalid configuration.</p>
 <p>In some cases it may be required to call <a href="qnetworkconfigurationmanager.html#updateConfigurations">updateConfigurations</a>() and wait for the <a href="qnetworkconfigurationmanager.html#updateCompleted">updateCompleted</a>() signal before calling this function.</p>
-<p><b>参见</b><a href="qnetworkconfigurationmanager.html#allConfigurations">allConfigurations</a>().</p>
+<p><b> 参见 </b><a href="qnetworkconfigurationmanager.html#allConfigurations">allConfigurations</a>().</p>
 <!-- @@@defaultConfiguration -->
 <!-- $$$isOnline[overload1]$$$isOnline -->
 <h3 class="fn" id="isOnline"><a name="isOnline"></a><span class="type">bool</span> QNetworkConfigurationManager::<span class="name">isOnline</span>() const</h3>
@@ -204,7 +204,7 @@
       Q_ASSERT(<span class="operator">!</span>mgr<span class="operator">.</span>isOnline());
 
 </pre>
-<p><b>参见</b><a href="qnetworkconfigurationmanager.html#onlineStateChanged">onlineStateChanged</a>().</p>
+<p><b> 参见 </b><a href="qnetworkconfigurationmanager.html#onlineStateChanged">onlineStateChanged</a>().</p>
 <!-- @@@isOnline -->
 <!-- $$$onlineStateChanged[overload1]$$$onlineStateChangedbool -->
 <h3 class="fn" id="onlineStateChanged"><a name="onlineStateChanged"></a><code>[signal] </code><span class="type">void</span> QNetworkConfigurationManager::<span class="name">onlineStateChanged</span>(<span class="type">bool</span> <i>isOnline</i>)</h3>
@@ -218,9 +218,9 @@
 <!-- $$$updateConfigurations[overload1]$$$updateConfigurations -->
 <h3 class="fn" id="updateConfigurations"><a name="updateConfigurations"></a><code>[slot] </code><span class="type">void</span> QNetworkConfigurationManager::<span class="name">updateConfigurations</span>()</h3>
 <p>Initiates an update of all configurations. This may be used to initiate WLAN scans or other time consuming updates which may be required to obtain the correct state for configurations.</p>
-<p>This call is asynchronous. On completion of this update the <a href="qnetworkconfigurationmanager.html#updateCompleted">updateCompleted</a>() signal is emitted. If new configurations are discovered or old ones were removed or changed the update process may trigger the emission of one or multiple <a href="qnetworkconfigurationmanager.html#configurationAdded">configurationAdded</a>(), <a href="qnetworkconfigurationmanager.html#configurationRemoved">configurationRemoved</a>() and <a href="qnetworkconfigurationmanager.html#configurationChanged">configurationChanged</a>() signals.</p>
+<p>This call is asynchronous. On completion of this update the <a href="qnetworkconfigurationmanager.html#updateCompleted">updateCompleted</a>() signal is emitted. If new configurations are discovered or old ones were removed or changed the update process may trigger the emission of one or multiple <a href="qnetworkconfigurationmanager.html#configurationAdded">configurationAdded</a>(), <a href="qnetworkconfigurationmanager.html#configurationRemoved">configurationRemoved</a>() 和 <a href="qnetworkconfigurationmanager.html#configurationChanged">configurationChanged</a>() signals.</p>
 <p>If a configuration state changes as a result of this update all existing <a href="qnetworkconfiguration.html">QNetworkConfiguration</a> instances are updated automatically.</p>
-<p><b>参见</b><a href="qnetworkconfigurationmanager.html#allConfigurations">allConfigurations</a>().</p>
+<p><b> 参见 </b><a href="qnetworkconfigurationmanager.html#allConfigurations">allConfigurations</a>().</p>
 <!-- @@@updateConfigurations -->
 </div>
 <div class="vars">

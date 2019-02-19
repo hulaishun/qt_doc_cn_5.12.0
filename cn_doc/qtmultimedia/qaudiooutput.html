@@ -176,7 +176,7 @@
   }
 
 </pre>
-<p>At any given time, the <a href="qaudiooutput.html">QAudioOutput</a> will be in one of four states: active, suspended, stopped, or idle. These states are described by the <a href="qaudio.html#State-enum">QAudio::State</a> enum. State changes are reported through the <a href="qaudiooutput.html#stateChanged">stateChanged</a>() signal. You can use this signal to, for instance, update the GUI of the application; the mundane example here being changing the state of a <code>play/pause</code> button. You request a state change directly with <a href="qaudiooutput.html#suspend">suspend</a>(), <a href="qaudiooutput.html#stop">stop</a>(), <a href="qaudiooutput.html#reset">reset</a>(), <a href="qaudiooutput.html#resume">resume</a>(), and <a href="qaudiooutput.html#start-1">start</a>().</p>
+<p>At any given time, the <a href="qaudiooutput.html">QAudioOutput</a> will be in one of four states: active, suspended, stopped, or idle. These states are described by the <a href="qaudio.html#State-enum">QAudio::State</a> enum. State changes are reported through the <a href="qaudiooutput.html#stateChanged">stateChanged</a>() signal. You can use this signal to, for instance, update the GUI of the application; the mundane example here being changing the state of a <code>play/pause</code> button. You request a state change directly with <a href="qaudiooutput.html#suspend">suspend</a>(), <a href="qaudiooutput.html#stop">stop</a>(), <a href="qaudiooutput.html#reset">reset</a>(), <a href="qaudiooutput.html#resume">resume</a>(), 和 <a href="qaudiooutput.html#start-1">start</a>().</p>
 <p>While the stream is playing, you can set a notify interval in milliseconds with <a href="qaudiooutput.html#setNotifyInterval">setNotifyInterval</a>(). This interval specifies the time between two emissions of the <a href="qaudiooutput.html#notify">notify</a>() signal. This is relative to the position in the stream, i.e&#x2e;, if the <a href="qaudiooutput.html">QAudioOutput</a> is in the SuspendedState or the IdleState, the <a href="qaudiooutput.html#notify">notify</a>() signal is not emitted. A typical use-case would be to update a <a href="../qtwidgets/qslider.html">slider</a> that allows seeking in the stream. If you want the time since playback started regardless of which states the audio output has been in, <a href="qaudiooutput.html#elapsedUSecs">elapsedUSecs</a>() is the function for you.</p>
 <p>If an error occurs, you can fetch the <a href="qaudio.html#Error-enum">error type</a> with the <a href="qaudiooutput.html#error">error</a>() function. Please see the <a href="qaudio.html#Error-enum">QAudio::Error</a> enum for a description of the possible errors that are reported. When an error is encountered, the state changes to <a href="qaudio.html#State-enum">QAudio::StoppedState</a>. You can check for errors by connecting to the <a href="qaudiooutput.html#stateChanged">stateChanged</a>() signal:</p>
 <pre class="cpp">
@@ -206,7 +206,7 @@
 
 </pre>
 </div>
-<p><b>参见</b><a href="qaudioinput.html">QAudioInput</a> and <a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a>.</p>
+<p><b> 参见 </b><a href="qaudioinput.html">QAudioInput</a> 和 <a href="qaudiodeviceinfo.html">QAudioDeviceInfo</a>.</p>
 <!-- @@@QAudioOutput -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -233,7 +233,7 @@
 <h3 class="fn" id="bufferSize"><a name="bufferSize"></a><span class="type">int</span> QAudioOutput::<span class="name">bufferSize</span>() const</h3>
 <p>Returns the audio buffer size in bytes.</p>
 <p>If called before <a href="qaudiooutput.html#start-1">start</a>(), returns platform default value. If called before <a href="qaudiooutput.html#start-1">start</a>() but <a href="qaudiooutput.html#setBufferSize">setBufferSize</a>() was called prior, returns value set by <a href="qaudiooutput.html#setBufferSize">setBufferSize</a>(). If called after <a href="qaudiooutput.html#start-1">start</a>(), returns the actual buffer size being used. This may not be what was set previously by <a href="qaudiooutput.html#setBufferSize">setBufferSize</a>().</p>
-<p><b>参见</b><a href="qaudiooutput.html#setBufferSize">setBufferSize</a>().</p>
+<p><b> 参见 </b><a href="qaudiooutput.html#setBufferSize">setBufferSize</a>().</p>
 <!-- @@@bufferSize -->
 <!-- $$$bytesFree[overload1]$$$bytesFree -->
 <h3 class="fn" id="bytesFree"><a name="bytesFree"></a><span class="type">int</span> QAudioOutput::<span class="name">bytesFree</span>() const</h3>
@@ -243,7 +243,7 @@
 <h3 class="fn" id="category"><a name="category"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QAudioOutput::<span class="name">category</span>() const</h3>
 <p>Returns the audio category of this audio stream.</p>
 <p>Some platforms can group audio streams into categories and manage their volumes independently, or display them in a system mixer control. You can set this property to allow the platform to distinguish the purpose of your streams.</p>
-<p><b>参见</b><a href="qaudiooutput.html#setCategory">setCategory</a>().</p>
+<p><b> 参见 </b><a href="qaudiooutput.html#setCategory">setCategory</a>().</p>
 <!-- @@@category -->
 <!-- $$$elapsedUSecs[overload1]$$$elapsedUSecs -->
 <h3 class="fn" id="elapsedUSecs"><a name="elapsedUSecs"></a><span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> QAudioOutput::<span class="name">elapsedUSecs</span>() const</h3>
@@ -264,7 +264,7 @@
 <!-- $$$notifyInterval[overload1]$$$notifyInterval -->
 <h3 class="fn" id="notifyInterval"><a name="notifyInterval"></a><span class="type">int</span> QAudioOutput::<span class="name">notifyInterval</span>() const</h3>
 <p>Returns the notify interval in milliseconds.</p>
-<p><b>参见</b><a href="qaudiooutput.html#setNotifyInterval">setNotifyInterval</a>().</p>
+<p><b> 参见 </b><a href="qaudiooutput.html#setNotifyInterval">setNotifyInterval</a>().</p>
 <!-- @@@notifyInterval -->
 <!-- $$$periodSize[overload1]$$$periodSize -->
 <h3 class="fn" id="periodSize"><a name="periodSize"></a><span class="type">int</span> QAudioOutput::<span class="name">periodSize</span>() const</h3>
@@ -286,7 +286,7 @@
 <!-- $$$setBufferSize[overload1]$$$setBufferSizeint -->
 <h3 class="fn" id="setBufferSize"><a name="setBufferSize"></a><span class="type">void</span> QAudioOutput::<span class="name">setBufferSize</span>(<span class="type">int</span> <i>value</i>)</h3>
 <p>Sets the audio buffer size to <i>value</i> in bytes.</p>
-<p><b>Note: </b>This function can be called anytime before <a href="qaudiooutput.html#start-1">start</a>(). Calls to this are ignored after <a href="qaudiooutput.html#start-1">start</a>(). It should not be assumed that the buffer size set is the actual buffer size used - call <a href="qaudiooutput.html#bufferSize">bufferSize</a>() anytime after <a href="qaudiooutput.html#start-1">start</a>() to return the actual buffer size being used.</p><p><b>参见</b><a href="qaudiooutput.html#bufferSize">bufferSize</a>().</p>
+<p><b>Note: </b>This function can be called anytime before <a href="qaudiooutput.html#start-1">start</a>(). Calls to this are ignored after <a href="qaudiooutput.html#start-1">start</a>(). It should not be assumed that the buffer size set is the actual buffer size used - call <a href="qaudiooutput.html#bufferSize">bufferSize</a>() anytime after <a href="qaudiooutput.html#start-1">start</a>() to return the actual buffer size being used.</p><p><b> 参见 </b><a href="qaudiooutput.html#bufferSize">bufferSize</a>().</p>
 <!-- @@@setBufferSize -->
 <!-- $$$setCategory[overload1]$$$setCategoryconstQString& -->
 <h3 class="fn" id="setCategory"><a name="setCategory"></a><span class="type">void</span> QAudioOutput::<span class="name">setCategory</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>category</i>)</h3>
@@ -294,12 +294,12 @@
 <p>Some platforms can group audio streams into categories and manage their volumes independently, or display them in a system mixer control. You can set this property to allow the platform to distinguish the purpose of your streams.</p>
 <p>Not all platforms support audio stream categorization. In this case, the function call will be ignored.</p>
 <p>Changing an audio output stream's category while it is opened will not take effect until it is reopened.</p>
-<p><b>参见</b><a href="qaudiooutput.html#category">category</a>().</p>
+<p><b> 参见 </b><a href="qaudiooutput.html#category">category</a>().</p>
 <!-- @@@setCategory -->
 <!-- $$$setNotifyInterval[overload1]$$$setNotifyIntervalint -->
 <h3 class="fn" id="setNotifyInterval"><a name="setNotifyInterval"></a><span class="type">void</span> QAudioOutput::<span class="name">setNotifyInterval</span>(<span class="type">int</span> <i>ms</i>)</h3>
 <p>Sets the interval for <a href="qaudiooutput.html#notify">notify</a>() signal to be emitted. This is based on the <i>ms</i> of audio data processed, not on wall clock time. The minimum resolution of the timer is platform specific and values should be checked with <a href="qaudiooutput.html#notifyInterval">notifyInterval</a>() to confirm the actual value being used.</p>
-<p><b>参见</b><a href="qaudiooutput.html#notifyInterval">notifyInterval</a>().</p>
+<p><b> 参见 </b><a href="qaudiooutput.html#notifyInterval">notifyInterval</a>().</p>
 <!-- @@@setNotifyInterval -->
 <!-- $$$setVolume[overload1]$$$setVolumeqreal -->
 <h3 class="fn" id="setVolume"><a name="setVolume"></a><span class="type">void</span> QAudioOutput::<span class="name">setVolume</span>(<span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> <i>volume</i>)</h3>
@@ -308,21 +308,21 @@
 <p>The default volume is <code>1.0</code>.</p>
 <p>Note: Adjustments to the volume will change the volume of this audio stream, not the global volume.</p>
 <p>UI volume controls should usually be scaled nonlinearly. For example, using a logarithmic scale will produce linear changes in perceived loudness, which is what a user would normally expect from a volume control. See <a href="qaudio.html#convertVolume">QAudio::convertVolume</a>() for more details.</p>
-<p><b>参见</b><a href="qaudiooutput.html#volume">volume</a>().</p>
+<p><b> 参见 </b><a href="qaudiooutput.html#volume">volume</a>().</p>
 <!-- @@@setVolume -->
 <!-- $$$start[overload1]$$$startQIODevice* -->
 <h3 class="fn" id="start"><a name="start"></a><span class="type">void</span> QAudioOutput::<span class="name">start</span>(<span class="type"><a href="../qtcore/qiodevice.html">QIODevice</a></span> *<i>device</i>)</h3>
 <p>Starts transferring audio data from the <i>device</i> to the system's audio output. The <i>device</i> must have been opened in the <a href="../qtcore/qiodevice.html#OpenModeFlag-enum">ReadOnly</a> or <a href="../qtcore/qiodevice.html#OpenModeFlag-enum">ReadWrite</a> modes.</p>
 <p>If the <a href="qaudiooutput.html">QAudioOutput</a> is able to successfully output audio data, <a href="qaudiooutput.html#state">state</a>() returns <a href="qaudio.html#State-enum">QAudio::ActiveState</a>, <a href="qaudiooutput.html#error">error</a>() returns <a href="qaudio.html#Error-enum">QAudio::NoError</a> and the <a href="qaudiooutput.html#stateChanged">stateChanged</a>() signal is emitted.</p>
 <p>If a problem occurs during this process, <a href="qaudiooutput.html#error">error</a>() returns <a href="qaudio.html#Error-enum">QAudio::OpenError</a>, <a href="qaudiooutput.html#state">state</a>() returns <a href="qaudio.html#State-enum">QAudio::StoppedState</a> and the <a href="qaudiooutput.html#stateChanged">stateChanged</a>() signal is emitted.</p>
-<p><b>参见</b><a href="../qtcore/qiodevice.html">QIODevice</a>.</p>
+<p><b> 参见 </b><a href="../qtcore/qiodevice.html">QIODevice</a>.</p>
 <!-- @@@start -->
 <!-- $$$start$$$start -->
 <h3 class="fn" id="start-1"><a name="start-1"></a><span class="type"><a href="../qtcore/qiodevice.html">QIODevice</a></span> *QAudioOutput::<span class="name">start</span>()</h3>
 <p>Returns a pointer to the internal <a href="../qtcore/qiodevice.html">QIODevice</a> being used to transfer data to the system's audio output. The device will already be open and <a href="../qtcore/qiodevice.html#write-2">write()</a> can write data directly to it.</p>
 <p><b>Note: </b>The pointer will become invalid after the stream is stopped or if you start another stream.</p><p>If the <a href="qaudiooutput.html">QAudioOutput</a> is able to access the system's audio device, <a href="qaudiooutput.html#state">state</a>() returns <a href="qaudio.html#State-enum">QAudio::IdleState</a>, <a href="qaudiooutput.html#error">error</a>() returns <a href="qaudio.html#Error-enum">QAudio::NoError</a> and the <a href="qaudiooutput.html#stateChanged">stateChanged</a>() signal is emitted.</p>
 <p>If a problem occurs during this process, <a href="qaudiooutput.html#error">error</a>() returns <a href="qaudio.html#Error-enum">QAudio::OpenError</a>, <a href="qaudiooutput.html#state">state</a>() returns <a href="qaudio.html#State-enum">QAudio::StoppedState</a> and the <a href="qaudiooutput.html#stateChanged">stateChanged</a>() signal is emitted.</p>
-<p><b>参见</b><a href="../qtcore/qiodevice.html">QIODevice</a>.</p>
+<p><b> 参见 </b><a href="../qtcore/qiodevice.html">QIODevice</a>.</p>
 <!-- @@@start -->
 <!-- $$$state[overload1]$$$state -->
 <h3 class="fn" id="state"><a name="state"></a><span class="type">QAudio::State</span> QAudioOutput::<span class="name">state</span>() const</h3>
@@ -345,7 +345,7 @@
 <!-- $$$volume[overload1]$$$volume -->
 <h3 class="fn" id="volume"><a name="volume"></a><span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> QAudioOutput::<span class="name">volume</span>() const</h3>
 <p>Returns the volume between 0.0 and 1.0 inclusive.</p>
-<p><b>参见</b><a href="qaudiooutput.html#setVolume">setVolume</a>().</p>
+<p><b> 参见 </b><a href="qaudiooutput.html#setVolume">setVolume</a>().</p>
 <!-- @@@volume -->
 </div>
 <div class="vars">

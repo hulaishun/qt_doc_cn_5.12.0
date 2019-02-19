@@ -122,7 +122,7 @@
       rectPath<span class="operator">.</span>closeSubpath();
 
 </pre>
-<p>We construct a rectangle with sharp corners using the <a href="../qtgui/qpainterpath.html#moveTo">QPainterPath::moveTo</a>() and <a href="../qtgui/qpainterpath.html#lineTo">QPainterPath::lineTo</a>() functions.</p>
+<p>We construct a rectangle with sharp corners using the <a href="../qtgui/qpainterpath.html#moveTo">QPainterPath::moveTo</a>() 和 <a href="../qtgui/qpainterpath.html#lineTo">QPainterPath::lineTo</a>() functions.</p>
 <p><a href="../qtgui/qpainterpath.html#moveTo">QPainterPath::moveTo</a>() moves the current point to the point passed as argument. A painter path is an object composed of a number of graphical building blocks, i.e&#x2e; subpaths. Moving the current point will also start a new subpath (implicitly closing the previously current path when the new one is started). The <a href="../qtgui/qpainterpath.html#lineTo">QPainterPath::lineTo</a>() function adds a straight line from the current point to the given end point. After the line is drawn, the current point is updated to be at the end point of the line.</p>
 <p>We first move the current point starting a new subpath, and we draw three of the rectangle's sides. Then we call the <a href="../qtgui/qpainterpath.html#closeSubpath">QPainterPath::closeSubpath</a>() function which draws a line to the beginning of the current subpath. A new subpath is automatically begun when the current subpath is closed. The current point of the new path is (0, 0). We could also have called <a href="../qtgui/qpainterpath.html#lineTo">QPainterPath::lineTo</a>() to draw the last line as well, and then explicitly start a new subpath using the <a href="../qtgui/qpainterpath.html#moveTo">QPainterPath::moveTo</a>() function.</p>
 <p><a href="../qtgui/qpainterpath.html">QPainterPath</a> also provide the <a href="../qtgui/qpainterpath.html#addRect">QPainterPath::addRect</a>() convenience function, which adds a given rectangle to the path as a closed subpath. The rectangle is added as a clockwise set of lines. The painter path's current position after the rect has been added is at the top-left corner of the rectangle.</p>
@@ -140,7 +140,7 @@
       roundRectPath<span class="operator">.</span>closeSubpath();
 
 </pre>
-<p>Then we construct a rectangle with rounded corners. As before, we use the <a href="../qtgui/qpainterpath.html#moveTo">QPainterPath::moveTo</a>() and <a href="../qtgui/qpainterpath.html#lineTo">QPainterPath::lineTo</a>() functions to draw the rectangle's sides. To create the rounded corners we use the <a href="../qtgui/qpainterpath.html#arcTo">QPainterPath::arcTo</a>() function.</p>
+<p>Then we construct a rectangle with rounded corners. As before, we use the <a href="../qtgui/qpainterpath.html#moveTo">QPainterPath::moveTo</a>() 和 <a href="../qtgui/qpainterpath.html#lineTo">QPainterPath::lineTo</a>() functions to draw the rectangle's sides. To create the rounded corners we use the <a href="../qtgui/qpainterpath.html#arcTo">QPainterPath::arcTo</a>() function.</p>
 <p><a href="../qtgui/qpainterpath.html#arcTo">QPainterPath::arcTo</a>() creates an arc that occupies the given rectangle (specified by a <a href="../qtcore/qrect.html">QRect</a> or the rectangle's coordinates), beginning at the given start angle and extending the given degrees counter-clockwise. Angles are specified in degrees. Clockwise arcs can be specified using negative angles. The function connects the current point to the starting point of the arc if they are not already connected.</p>
 <pre class="cpp">
 
@@ -217,7 +217,7 @@
       starPath<span class="operator">.</span>closeSubpath();
 
 </pre>
-<p>The final path that we construct shows that you can use <a href="../qtgui/qpainterpath.html">QPainterPath</a> to construct rather complex shapes using only the previous mentioned <a href="../qtgui/qpainterpath.html#moveTo">QPainterPath::moveTo</a>(), <a href="../qtgui/qpainterpath.html#lineTo">QPainterPath::lineTo</a>() and <a href="../qtgui/qpainterpath.html#closeSubpath">QPainterPath::closeSubpath</a>() functions.</p>
+<p>The final path that we construct shows that you can use <a href="../qtgui/qpainterpath.html">QPainterPath</a> to construct rather complex shapes using only the previous mentioned <a href="../qtgui/qpainterpath.html#moveTo">QPainterPath::moveTo</a>(), <a href="../qtgui/qpainterpath.html#lineTo">QPainterPath::lineTo</a>() 和 <a href="../qtgui/qpainterpath.html#closeSubpath">QPainterPath::closeSubpath</a>() functions.</p>
 <pre class="cpp">
 
       renderAreas<span class="operator">.</span>push_back(<span class="keyword">new</span> RenderArea(rectPath));
@@ -413,7 +413,7 @@
       <span class="type">void</span> paintEvent(<span class="type"><a href="../qtgui/qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event) override;
 
 </pre>
-<p>We declare several public slots updating the <code>RenderArea</code> widget's associated painter path. In addition we reimplement the <a href="qwidget.html#minimumSizeHint-prop">QWidget::minimumSizeHint</a>() and <a href="qwidget.html#sizeHint-prop">QWidget::sizeHint</a>() functions to give the <code>RenderArea</code> widget a reasonable size within our application, and we reimplement the <a href="qwidget.html#paintEvent">QWidget::paintEvent</a>() event handler to draw its painter path.</p>
+<p>We declare several public slots updating the <code>RenderArea</code> widget's associated painter path. In addition we reimplement the <a href="qwidget.html#minimumSizeHint-prop">QWidget::minimumSizeHint</a>() 和 <a href="qwidget.html#sizeHint-prop">QWidget::sizeHint</a>() functions to give the <code>RenderArea</code> widget a reasonable size within our application, and we reimplement the <a href="qwidget.html#paintEvent">QWidget::paintEvent</a>() event handler to draw its painter path.</p>
 <pre class="cpp">
 
   <span class="keyword">private</span>:
@@ -455,7 +455,7 @@
   }
 
 </pre>
-<p>Then we reimplement the <a href="qwidget.html#minimumSizeHint-prop">QWidget::minimumSizeHint</a>() and <a href="qwidget.html#sizeHint-prop">QWidget::sizeHint</a>() functions to give the <code>RenderArea</code> widget a reasonable size within our application.</p>
+<p>Then we reimplement the <a href="qwidget.html#minimumSizeHint-prop">QWidget::minimumSizeHint</a>() 和 <a href="qwidget.html#sizeHint-prop">QWidget::sizeHint</a>() functions to give the <code>RenderArea</code> widget a reasonable size within our application.</p>
 <pre class="cpp">
 
   <span class="type">void</span> RenderArea<span class="operator">::</span>setFillRule(<span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>FillRule rule)

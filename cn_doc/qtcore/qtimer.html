@@ -186,7 +186,7 @@
 <h3 >Accuracy and Timer Resolution</h3>
 <p>The accuracy of timers depends on the underlying operating system and hardware. Most platforms support a resolution of 1 millisecond, though the accuracy of the timer will not equal this resolution in many real-world situations.</p>
 <p>The accuracy also depends on the <a href="qt.html#TimerType-enum">timer type</a>. For <a href="qt.html#TimerType-enum">Qt::PreciseTimer</a>, <a href="qtimer.html">QTimer</a> will try to keep the accuracy at 1 millisecond. Precise timers will also never time out earlier than expected.</p>
-<p>For <a href="qt.html#TimerType-enum">Qt::CoarseTimer</a> and <a href="qt.html#TimerType-enum">Qt::VeryCoarseTimer</a> types, <a href="qtimer.html">QTimer</a> may wake up earlier than expected, within the margins for those types: 5% of the interval for <a href="qt.html#TimerType-enum">Qt::CoarseTimer</a> and 500 ms for <a href="qt.html#TimerType-enum">Qt::VeryCoarseTimer</a>.</p>
+<p>For <a href="qt.html#TimerType-enum">Qt::CoarseTimer</a> 和 <a href="qt.html#TimerType-enum">Qt::VeryCoarseTimer</a> types, <a href="qtimer.html">QTimer</a> may wake up earlier than expected, within the margins for those types: 5% of the interval for <a href="qt.html#TimerType-enum">Qt::CoarseTimer</a> and 500 ms for <a href="qt.html#TimerType-enum">Qt::VeryCoarseTimer</a>.</p>
 <p>All timer types may time out later than expected if the system is busy or unable to provide the requested accuracy. In such a case of timeout overrun, Qt will emit <a href="qtimer.html#timeout">timeout</a>() only once, even if multiple timeouts have expired, and then will resume the original interval.</p>
 <a name="alternatives-to-qtimer"></a>
 <h3 >Alternatives to QTimer</h3>
@@ -194,7 +194,7 @@
 <p>Another alternative is <a href="qbasictimer.html">QBasicTimer</a>. It is typically less cumbersome than using <a href="qobject.html#startTimer">QObject::startTimer</a>() directly. See <a href="timers.html">Timers</a> for an overview of all three approaches.</p>
 <p>Some operating systems limit the number of timers that may be used; Qt tries to work around these limitations.</p>
 </div>
-<p><b>参见</b><a href="qbasictimer.html">QBasicTimer</a>, <a href="qtimerevent.html">QTimerEvent</a>, <a href="qobject.html#timerEvent">QObject::timerEvent</a>(), <a href="timers.html">Timers</a>, <a href="../qtwidgets/qtwidgets-widgets-analogclock-example.html">Analog Clock Example</a>, and <a href="../qtwidgets/qtwidgets-widgets-wiggly-example.html">Wiggly Example</a>.</p>
+<p><b> 参见 </b><a href="qbasictimer.html">QBasicTimer</a>, <a href="qtimerevent.html">QTimerEvent</a>, <a href="qobject.html#timerEvent">QObject::timerEvent</a>(), <a href="timers.html">Timers</a>, <a href="../qtwidgets/qtwidgets-widgets-analogclock-example.html">Analog Clock Example</a>, and <a href="../qtwidgets/qtwidgets-widgets-wiggly-example.html">Wiggly Example</a>.</p>
 <!-- @@@QTimer -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -221,7 +221,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setInterval</b></span>(int <i>msec</i>)</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setInterval</b></span>(std::chrono::milliseconds <i>value</i>)</td></tr>
 </table></div>
-<p><b>参见</b><a href="qtimer.html#singleShot-prop">singleShot</a>.</p>
+<p><b> 参见 </b><a href="qtimer.html#singleShot-prop">singleShot</a>.</p>
 <!-- @@@interval -->
 <!-- $$$remainingTime-prop$$$remainingTime -->
 <h3 class="fn" id="remainingTime-prop"><a name="remainingTime-prop"></a><span class="name">remainingTime</span> : const <span class="type">int</span></h3>
@@ -232,7 +232,7 @@
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>remainingTime</b></span>() const</td></tr>
 </table></div>
-<p><b>参见</b><a href="qtimer.html#interval-prop">interval</a>.</p>
+<p><b> 参见 </b><a href="qtimer.html#interval-prop">interval</a>.</p>
 <!-- @@@remainingTime -->
 <!-- $$$singleShot-prop$$$isSingleShot$$$setSingleShotbool -->
 <h3 class="fn" id="singleShot-prop"><a name="singleShot-prop"></a><span class="name">singleShot</span> : <span class="type">bool</span></h3>
@@ -244,7 +244,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>isSingleShot</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setSingleShot</b></span>(bool <i>singleShot</i>)</td></tr>
 </table></div>
-<p><b>参见</b><a href="qtimer.html#interval-prop">interval</a> and <a href="qtimer.html#singleShot">singleShot</a>().</p>
+<p><b> 参见 </b><a href="qtimer.html#interval-prop">interval</a> 和 <a href="qtimer.html#singleShot">singleShot</a>().</p>
 <!-- @@@singleShot -->
 <!-- $$$timerType-prop$$$timerType$$$setTimerTypeQt::TimerType -->
 <h3 class="fn" id="timerType-prop"><a name="timerType-prop"></a><span class="name">timerType</span> : <span class="type">Qt::TimerType</span></h3>
@@ -255,7 +255,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> Qt::TimerType </td><td class="memItemRight bottomAlign"><span class="name"><b>timerType</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setTimerType</b></span>(Qt::TimerType <i>atype</i>)</td></tr>
 </table></div>
-<p><b>参见</b><a href="qt.html#TimerType-enum">Qt::TimerType</a>.</p>
+<p><b> 参见 </b><a href="qt.html#TimerType-enum">Qt::TimerType</a>.</p>
 <!-- @@@timerType -->
 </div>
 <div class="func">
@@ -274,7 +274,7 @@
 <p>Creates a connection from the <a href="qtimer.html#timeout">timeout</a>() signal to <i>slot</i>, and returns a handle to the connection.</p>
 <p>This method is provided for convenience. It's equivalent to calling <code>QObject::connect(timer, &amp;QTimer::timeout, timer, slot, connectionType)</code>.</p>
 <p>这个函数是在Qt 5.12版本中新增引入的。</p>
-<p><b>参见</b><a href="qobject.html#connect">QObject::connect</a>() and <a href="qtimer.html#timeout">timeout</a>().</p>
+<p><b> 参见 </b><a href="qobject.html#connect">QObject::connect</a>() 和 <a href="qtimer.html#timeout">timeout</a>().</p>
 <!-- @@@callOnTimeout -->
 <!-- $$$callOnTimeout$$$callOnTimeoutconstQObject*FunctorQt::ConnectionType -->
 <h3 class="fn" id="callOnTimeout-1"><a name="callOnTimeout-1"></a><span class="type"><a href="qmetaobject-connection.html">QMetaObject::Connection</a></span> QTimer::<span class="name">callOnTimeout</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>context</i>, <span class="type">Functor</span> <i>slot</i>, <span class="type">Qt::ConnectionType</span> <i>connectionType</i> = ...)</h3>
@@ -282,7 +282,7 @@
 <p>Creates a connection from the <a href="qtimer.html#timeout">timeout</a>() signal to <i>slot</i> to be placed in a specific event loop of <i>context</i>, and returns a handle to the connection.</p>
 <p>This method is provided for convenience. It's equivalent to calling <code>QObject::connect(timer, &amp;QTimer::timeout, context, slot, connectionType)</code>.</p>
 <p>这个函数是在Qt 5.12版本中新增引入的。</p>
-<p><b>参见</b><a href="qobject.html#connect">QObject::connect</a>() and <a href="qtimer.html#timeout">timeout</a>().</p>
+<p><b> 参见 </b><a href="qobject.html#connect">QObject::connect</a>() 和 <a href="qtimer.html#timeout">timeout</a>().</p>
 <!-- @@@callOnTimeout -->
 <!-- $$$callOnTimeout$$$callOnTimeoutconstQObject*PointerToMemberFunctionQt::ConnectionType -->
 <h3 class="fn" id="callOnTimeout-2"><a name="callOnTimeout-2"></a><span class="type"><a href="qmetaobject-connection.html">QMetaObject::Connection</a></span> QTimer::<span class="name">callOnTimeout</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, <span class="type">PointerToMemberFunction</span> <i>slot</i>, <span class="type">Qt::ConnectionType</span> <i>connectionType</i> = ...)</h3>
@@ -290,13 +290,13 @@
 <p>Creates a connection from the <a href="qtimer.html#timeout">timeout</a>() signal to the <i>slot</i> in the <i>receiver</i> object. Returns a handle to the connection.</p>
 <p>This method is provided for convenience. It's equivalent to calling <code>QObject::connect(timer, &amp;QTimer::timeout, receiver, slot, connectionType)</code>.</p>
 <p>这个函数是在Qt 5.12版本中新增引入的。</p>
-<p><b>参见</b><a href="qobject.html#connect">QObject::connect</a>() and <a href="qtimer.html#timeout">timeout</a>().</p>
+<p><b> 参见 </b><a href="qobject.html#connect">QObject::connect</a>() 和 <a href="qtimer.html#timeout">timeout</a>().</p>
 <!-- @@@callOnTimeout -->
 <!-- $$$intervalAsDuration[overload1]$$$intervalAsDuration -->
 <h3 class="fn" id="intervalAsDuration"><a name="intervalAsDuration"></a><span class="type">std::chrono::milliseconds</span> QTimer::<span class="name">intervalAsDuration</span>() const</h3>
 <p>Returns the interval of this timer as a <code>std::chrono::milliseconds</code> object.</p>
 <p>这个函数是在Qt 5.8版本中新增引入的。</p>
-<p><b>参见</b><a href="qtimer.html#interval-prop">interval</a>.</p>
+<p><b> 参见 </b><a href="qtimer.html#interval-prop">interval</a>.</p>
 <!-- @@@intervalAsDuration -->
 <!-- $$$isActive -->
 <h3 class="fn" id="isActive"><a name="isActive"></a><span class="type">bool</span> QTimer::<span class="name">isActive</span>() const</h3>
@@ -306,7 +306,7 @@
 <h3 class="fn" id="remainingTimeAsDuration"><a name="remainingTimeAsDuration"></a><span class="type">std::chrono::milliseconds</span> QTimer::<span class="name">remainingTimeAsDuration</span>() const</h3>
 <p>Returns the time remaining in this timer object as a <code>std::chrono::milliseconds</code> object. If this timer is due or overdue, the returned value is <code>std::chrono::milliseconds::zero()</code>. If the remaining time could not be found or the timer is not active, this function returns a negative duration.</p>
 <p>这个函数是在Qt 5.8版本中新增引入的。</p>
-<p><b>参见</b><a href="qtimer.html#remainingTime-prop">remainingTime</a>().</p>
+<p><b> 参见 </b><a href="qtimer.html#remainingTime-prop">remainingTime</a>().</p>
 <!-- @@@remainingTimeAsDuration -->
 <!-- $$$singleShot[overload1]$$$singleShotintconstQObject*constchar* -->
 <h3 class="fn" id="singleShot"><a name="singleShot"></a><code>[static] </code><span class="type">void</span> QTimer::<span class="name">singleShot</span>(<span class="type">int</span> <i>msec</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, const <span class="type">char</span> *<i>member</i>)</h3>
@@ -329,8 +329,8 @@
 </pre>
 <p>This sample program automatically terminates after 10 minutes (600,000 milliseconds).</p>
 <p>The <i>receiver</i> is the receiving object and the <i>member</i> is the slot. The time interval is <i>msec</i> milliseconds.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
-<p><b>参见</b><a href="qtimer.html#singleShot-prop">setSingleShot</a>() and <a href="qtimer.html#start-1">start</a>().</p>
+<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
+<p><b> 参见 </b><a href="qtimer.html#singleShot-prop">setSingleShot</a>() 和 <a href="qtimer.html#start-1">start</a>().</p>
 <!-- @@@singleShot -->
 <!-- $$$singleShot$$$singleShotintQt::TimerTypeconstQObject*constchar* -->
 <h3 class="fn" id="singleShot-1"><a name="singleShot-1"></a><code>[static] </code><span class="type">void</span> QTimer::<span class="name">singleShot</span>(<span class="type">int</span> <i>msec</i>, <span class="type">Qt::TimerType</span> <i>timerType</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, const <span class="type">char</span> *<i>member</i>)</h3>
@@ -338,8 +338,8 @@
 <p>This static function calls a slot after a given time interval.</p>
 <p>It is very convenient to use this function because you do not need to bother with a <a href="qobject.html#timerEvent">timerEvent</a> or create a local <a href="qtimer.html">QTimer</a> object.</p>
 <p>The <i>receiver</i> is the receiving object and the <i>member</i> is the slot. The time interval is <i>msec</i> milliseconds. The <i>timerType</i> affects the accuracy of the timer.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
-<p><b>参见</b><a href="qtimer.html#start-1">start</a>().</p>
+<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
+<p><b> 参见 </b><a href="qtimer.html#start-1">start</a>().</p>
 <!-- @@@singleShot -->
 <!-- $$$singleShot$$$singleShotintconstQObject*PointerToMemberFunction -->
 <h3 class="fn" id="singleShot-2"><a name="singleShot-2"></a><code>[static] </code><span class="type">void</span> QTimer::<span class="name">singleShot</span>(<span class="type">int</span> <i>msec</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, <span class="type">PointerToMemberFunction</span> <i>method</i>)</h3>
@@ -348,9 +348,9 @@
 <p>It is very convenient to use this function because you do not need to bother with a <a href="qobject.html#timerEvent">timerEvent</a> or create a local <a href="qtimer.html">QTimer</a> object.</p>
 <p>The <i>receiver</i> is the receiving object and the <i>method</i> is the member function. The time interval is <i>msec</i> milliseconds.</p>
 <p>If <i>receiver</i> is destroyed before the interval occurs, the method will not be called. The function will be run in the thread of <i>receiver</i>. The receiver's thread must have a running Qt event loop.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
+<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
 <p>这个函数是在Qt 5.4版本中新增引入的。</p>
-<p><b>参见</b><a href="qtimer.html#start-1">start</a>().</p>
+<p><b> 参见 </b><a href="qtimer.html#start-1">start</a>().</p>
 <!-- @@@singleShot -->
 <!-- $$$singleShot$$$singleShotintQt::TimerTypeconstQObject*PointerToMemberFunction -->
 <h3 class="fn" id="singleShot-3"><a name="singleShot-3"></a><code>[static] </code><span class="type">void</span> QTimer::<span class="name">singleShot</span>(<span class="type">int</span> <i>msec</i>, <span class="type">Qt::TimerType</span> <i>timerType</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, <span class="type">PointerToMemberFunction</span> <i>method</i>)</h3>
@@ -359,9 +359,9 @@
 <p>It is very convenient to use this function because you do not need to bother with a <a href="qobject.html#timerEvent">timerEvent</a> or create a local <a href="qtimer.html">QTimer</a> object.</p>
 <p>The <i>receiver</i> is the receiving object and the <i>method</i> is the member function. The time interval is <i>msec</i> milliseconds. The <i>timerType</i> affects the accuracy of the timer.</p>
 <p>If <i>receiver</i> is destroyed before the interval occurs, the method will not be called. The function will be run in the thread of <i>receiver</i>. The receiver's thread must have a running Qt event loop.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
+<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
 <p>这个函数是在Qt 5.4版本中新增引入的。</p>
-<p><b>参见</b><a href="qtimer.html#start-1">start</a>().</p>
+<p><b> 参见 </b><a href="qtimer.html#start-1">start</a>().</p>
 <!-- @@@singleShot -->
 <!-- $$$singleShot$$$singleShotintFunctor -->
 <h3 class="fn" id="singleShot-4"><a name="singleShot-4"></a><code>[static] </code><span class="type">void</span> QTimer::<span class="name">singleShot</span>(<span class="type">int</span> <i>msec</i>, <span class="type">Functor</span> <i>functor</i>)</h3>
@@ -369,9 +369,9 @@
 <p>This static function calls <i>functor</i> after a given time interval.</p>
 <p>It is very convenient to use this function because you do not need to bother with a <a href="qobject.html#timerEvent">timerEvent</a> or create a local <a href="qtimer.html">QTimer</a> object.</p>
 <p>The time interval is <i>msec</i> milliseconds.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
+<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
 <p>这个函数是在Qt 5.4版本中新增引入的。</p>
-<p><b>参见</b><a href="qtimer.html#start-1">start</a>().</p>
+<p><b> 参见 </b><a href="qtimer.html#start-1">start</a>().</p>
 <!-- @@@singleShot -->
 <!-- $$$singleShot$$$singleShotintQt::TimerTypeFunctor -->
 <h3 class="fn" id="singleShot-5"><a name="singleShot-5"></a><code>[static] </code><span class="type">void</span> QTimer::<span class="name">singleShot</span>(<span class="type">int</span> <i>msec</i>, <span class="type">Qt::TimerType</span> <i>timerType</i>, <span class="type">Functor</span> <i>functor</i>)</h3>
@@ -379,9 +379,9 @@
 <p>This static function calls <i>functor</i> after a given time interval.</p>
 <p>It is very convenient to use this function because you do not need to bother with a <a href="qobject.html#timerEvent">timerEvent</a> or create a local <a href="qtimer.html">QTimer</a> object.</p>
 <p>The time interval is <i>msec</i> milliseconds. The <i>timerType</i> affects the accuracy of the timer.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
+<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
 <p>这个函数是在Qt 5.4版本中新增引入的。</p>
-<p><b>参见</b><a href="qtimer.html#start-1">start</a>().</p>
+<p><b> 参见 </b><a href="qtimer.html#start-1">start</a>().</p>
 <!-- @@@singleShot -->
 <!-- $$$singleShot$$$singleShotintconstQObject*Functor -->
 <h3 class="fn" id="singleShot-6"><a name="singleShot-6"></a><code>[static] </code><span class="type">void</span> QTimer::<span class="name">singleShot</span>(<span class="type">int</span> <i>msec</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>context</i>, <span class="type">Functor</span> <i>functor</i>)</h3>
@@ -390,9 +390,9 @@
 <p>It is very convenient to use this function because you do not need to bother with a <a href="qobject.html#timerEvent">timerEvent</a> or create a local <a href="qtimer.html">QTimer</a> object.</p>
 <p>The time interval is <i>msec</i> milliseconds.</p>
 <p>If <i>context</i> is destroyed before the interval occurs, the method will not be called. The function will be run in the thread of <i>context</i>. The context's thread must have a running Qt event loop.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
+<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
 <p>这个函数是在Qt 5.4版本中新增引入的。</p>
-<p><b>参见</b><a href="qtimer.html#start-1">start</a>().</p>
+<p><b> 参见 </b><a href="qtimer.html#start-1">start</a>().</p>
 <!-- @@@singleShot -->
 <!-- $$$singleShot$$$singleShotintQt::TimerTypeconstQObject*Functor -->
 <h3 class="fn" id="singleShot-7"><a name="singleShot-7"></a><code>[static] </code><span class="type">void</span> QTimer::<span class="name">singleShot</span>(<span class="type">int</span> <i>msec</i>, <span class="type">Qt::TimerType</span> <i>timerType</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>context</i>, <span class="type">Functor</span> <i>functor</i>)</h3>
@@ -401,9 +401,9 @@
 <p>It is very convenient to use this function because you do not need to bother with a <a href="qobject.html#timerEvent">timerEvent</a> or create a local <a href="qtimer.html">QTimer</a> object.</p>
 <p>The time interval is <i>msec</i> milliseconds. The <i>timerType</i> affects the accuracy of the timer.</p>
 <p>If <i>context</i> is destroyed before the interval occurs, the method will not be called. The function will be run in the thread of <i>context</i>. The context's thread must have a running Qt event loop.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
+<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
 <p>这个函数是在Qt 5.4版本中新增引入的。</p>
-<p><b>参见</b><a href="qtimer.html#start-1">start</a>().</p>
+<p><b> 参见 </b><a href="qtimer.html#start-1">start</a>().</p>
 <!-- @@@singleShot -->
 <!-- $$$singleShot$$$singleShotstd::chrono::millisecondsconstQObject*constchar* -->
 <h3 class="fn" id="singleShot-8"><a name="singleShot-8"></a><code>[static] </code><span class="type">void</span> QTimer::<span class="name">singleShot</span>(<span class="type">std::chrono::milliseconds</span> <i>msec</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, const <span class="type">char</span> *<i>member</i>)</h3>
@@ -411,9 +411,9 @@
 <p>This static function calls a slot after a given time interval.</p>
 <p>It is very convenient to use this function because you do not need to bother with a <a href="qobject.html#timerEvent">timerEvent</a> or create a local <a href="qtimer.html">QTimer</a> object.</p>
 <p>The <i>receiver</i> is the receiving object and the <i>member</i> is the slot. The time interval is given in the duration object <i>msec</i>.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
+<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
 <p>这个函数是在Qt 5.8版本中新增引入的。</p>
-<p><b>参见</b><a href="qtimer.html#start-1">start</a>().</p>
+<p><b> 参见 </b><a href="qtimer.html#start-1">start</a>().</p>
 <!-- @@@singleShot -->
 <!-- $$$singleShot$$$singleShotstd::chrono::millisecondsQt::TimerTypeconstQObject*constchar* -->
 <h3 class="fn" id="singleShot-9"><a name="singleShot-9"></a><code>[static] </code><span class="type">void</span> QTimer::<span class="name">singleShot</span>(<span class="type">std::chrono::milliseconds</span> <i>msec</i>, <span class="type">Qt::TimerType</span> <i>timerType</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, const <span class="type">char</span> *<i>member</i>)</h3>
@@ -421,9 +421,9 @@
 <p>This static function calls a slot after a given time interval.</p>
 <p>It is very convenient to use this function because you do not need to bother with a <a href="qobject.html#timerEvent">timerEvent</a> or create a local <a href="qtimer.html">QTimer</a> object.</p>
 <p>The <i>receiver</i> is the receiving object and the <i>member</i> is the slot. The time interval is given in the duration object <i>msec</i>. The <i>timerType</i> affects the accuracy of the timer.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
+<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
 <p>这个函数是在Qt 5.8版本中新增引入的。</p>
-<p><b>参见</b><a href="qtimer.html#start-1">start</a>().</p>
+<p><b> 参见 </b><a href="qtimer.html#start-1">start</a>().</p>
 <!-- @@@singleShot -->
 <!-- $$$start[overload1]$$$startint -->
 <h3 class="fn" id="start"><a name="start"></a><code>[slot] </code><span class="type">void</span> QTimer::<span class="name">start</span>(<span class="type">int</span> <i>msec</i>)</h3>
@@ -449,13 +449,13 @@
 <!-- $$$stop[overload1]$$$stop -->
 <h3 class="fn" id="stop"><a name="stop"></a><code>[slot] </code><span class="type">void</span> QTimer::<span class="name">stop</span>()</h3>
 <p>Stops the timer.</p>
-<p><b>参见</b><a href="qtimer.html#start-1">start</a>().</p>
+<p><b> 参见 </b><a href="qtimer.html#start-1">start</a>().</p>
 <!-- @@@stop -->
 <!-- $$$timeout[overload1]$$$timeout -->
 <h3 class="fn" id="timeout"><a name="timeout"></a><code>[signal] </code><span class="type">void</span> QTimer::<span class="name">timeout</span>()</h3>
 <p>This signal is emitted when the timer times out.</p>
 <p><b>Note: </b>This is a private signal. It can be used in signal connections but cannot be emitted by the user.</p>
-<p><b>参见</b><a href="qtimer.html#interval-prop">interval</a>, <a href="qtimer.html#start-1">start</a>(), and <a href="qtimer.html#stop">stop</a>().</p>
+<p><b> 参见 </b><a href="qtimer.html#interval-prop">interval</a>, <a href="qtimer.html#start-1">start</a>(), 和 <a href="qtimer.html#stop">stop</a>().</p>
 <!-- @@@timeout -->
 <!-- $$$timerEvent[overload1]$$$timerEventQTimerEvent* -->
 <h3 class="fn" id="timerEvent"><a name="timerEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTimer::<span class="name">timerEvent</span>(<span class="type"><a href="qtimerevent.html">QTimerEvent</a></span> *<i>e</i>)</h3>

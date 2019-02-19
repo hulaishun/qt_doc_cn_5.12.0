@@ -121,7 +121,7 @@
 <p>The <a href="qcameraimagecapturecontrol.html">QCameraImageCaptureControl</a> class provides a control interface for image capture services.</p>
 <p>The interface name of <a href="qcameraimagecapturecontrol.html">QCameraImageCaptureControl</a> is <code>org.qt-project.qt.cameraimagecapturecontrol/5.0</code> as defined in <a href="qcameraimagecapturecontrol.html#QCameraImageCaptureControl_iid">QCameraImageCaptureControl_iid</a>.</p>
 </div>
-<p><b>参见</b><a href="qmediaservice.html#requestControl-1">QMediaService::requestControl</a>().</p>
+<p><b> 参见 </b><a href="qmediaservice.html#requestControl-1">QMediaService::requestControl</a>().</p>
 <!-- @@@QCameraImageCaptureControl -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -147,17 +147,17 @@
 <h3 class="fn" id="capture"><a name="capture"></a><code>[pure virtual] </code><span class="type">int</span> QCameraImageCaptureControl::<span class="name">capture</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>fileName</i>)</h3>
 <p>Initiates the capture of an image to <i>fileName</i>. The <i>fileName</i> can be relative or empty, in this case the service should use the system specific place and file naming scheme.</p>
 <p>The Camera service should save all the capture parameters like exposure settings or image processing parameters, so changes to camera parameters after capture() is called do not affect previous capture requests.</p>
-<p>Returns the capture request id number, which is used later with <a href="qcameraimagecapturecontrol.html#imageExposed">imageExposed</a>(), <a href="qcameraimagecapturecontrol.html#imageCaptured">imageCaptured</a>() and <a href="qcameraimagecapturecontrol.html#imageSaved">imageSaved</a>() signals.</p>
+<p>Returns the capture request id number, which is used later with <a href="qcameraimagecapturecontrol.html#imageExposed">imageExposed</a>(), <a href="qcameraimagecapturecontrol.html#imageCaptured">imageCaptured</a>() 和 <a href="qcameraimagecapturecontrol.html#imageSaved">imageSaved</a>() signals.</p>
 <!-- @@@capture -->
 <!-- $$$driveMode[overload1]$$$driveMode -->
 <h3 class="fn" id="driveMode"><a name="driveMode"></a><code>[pure virtual] </code><span class="type"><a href="qcameraimagecapture.html#DriveMode-enum">QCameraImageCapture::DriveMode</a></span> QCameraImageCaptureControl::<span class="name">driveMode</span>() const</h3>
 <p>Returns the current camera drive mode.</p>
-<p><b>参见</b><a href="qcameraimagecapturecontrol.html#setDriveMode">setDriveMode</a>().</p>
+<p><b> 参见 </b><a href="qcameraimagecapturecontrol.html#setDriveMode">setDriveMode</a>().</p>
 <!-- @@@driveMode -->
 <!-- $$$error[overload1]$$$errorintintconstQString& -->
 <h3 class="fn" id="error"><a name="error"></a><code>[signal] </code><span class="type">void</span> QCameraImageCaptureControl::<span class="name">error</span>(<span class="type">int</span> <i>id</i>, <span class="type">int</span> <i>error</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>errorString</i>)</h3>
 <p>Signals the capture request <i>id</i> failed with <i>error</i> code and message <i>errorString</i>.</p>
-<p><b>参见</b><a href="qcameraimagecapture.html#Error-enum">QCameraImageCapture::Error</a>.</p>
+<p><b> 参见 </b><a href="qcameraimagecapture.html#Error-enum">QCameraImageCapture::Error</a>.</p>
 <!-- @@@error -->
 <!-- $$$imageAvailable[overload1]$$$imageAvailableintconstQVideoFrame& -->
 <h3 class="fn" id="imageAvailable"><a name="imageAvailable"></a><code>[signal] </code><span class="type">void</span> QCameraImageCaptureControl::<span class="name">imageAvailable</span>(<span class="type">int</span> <i>requestId</i>, const <span class="type"><a href="qvideoframe.html">QVideoFrame</a></span> &amp;<i>buffer</i>)</h3>
@@ -174,7 +174,7 @@
 <!-- $$$imageMetadataAvailable[overload1]$$$imageMetadataAvailableintconstQString&constQVariant& -->
 <h3 class="fn" id="imageMetadataAvailable"><a name="imageMetadataAvailable"></a><code>[signal] </code><span class="type">void</span> QCameraImageCaptureControl::<span class="name">imageMetadataAvailable</span>(<span class="type">int</span> <i>id</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i>, const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>value</i>)</h3>
 <p>Signals that a metadata for an image with request <i>id</i> is available. Signal also contains the <i>key</i> and <i>value</i> of the metadata.</p>
-<p>This signal should be emitted between <a href="qcameraimagecapturecontrol.html#imageExposed">imageExposed</a> and <a href="qcameraimagecapturecontrol.html#imageSaved">imageSaved</a> signals.</p>
+<p>This signal should be emitted between <a href="qcameraimagecapturecontrol.html#imageExposed">imageExposed</a> 和 <a href="qcameraimagecapturecontrol.html#imageSaved">imageSaved</a> signals.</p>
 <!-- @@@imageMetadataAvailable -->
 <!-- $$$imageSaved[overload1]$$$imageSavedintconstQString& -->
 <h3 class="fn" id="imageSaved"><a name="imageSaved"></a><code>[signal] </code><span class="type">void</span> QCameraImageCaptureControl::<span class="name">imageSaved</span>(<span class="type">int</span> <i>requestId</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>fileName</i>)</h3>
@@ -193,7 +193,7 @@
 <!-- $$$setDriveMode[overload1]$$$setDriveModeQCameraImageCapture::DriveMode -->
 <h3 class="fn" id="setDriveMode"><a name="setDriveMode"></a><code>[pure virtual] </code><span class="type">void</span> QCameraImageCaptureControl::<span class="name">setDriveMode</span>(<span class="type"><a href="qcameraimagecapture.html#DriveMode-enum">QCameraImageCapture::DriveMode</a></span> <i>mode</i>)</h3>
 <p>Sets the current camera drive <i>mode</i>.</p>
-<p><b>参见</b><a href="qcameraimagecapturecontrol.html#driveMode">driveMode</a>().</p>
+<p><b> 参见 </b><a href="qcameraimagecapturecontrol.html#driveMode">driveMode</a>().</p>
 <!-- @@@setDriveMode -->
 </div>
 <div class="vars">

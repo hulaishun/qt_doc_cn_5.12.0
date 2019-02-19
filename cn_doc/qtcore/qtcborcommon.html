@@ -38,7 +38,7 @@
 <h1 class="title">&lt;QtCborCommon&gt;</h1>
 <span class="subtitle"></span>
 <!-- $$$<QtCborCommon>-brief -->
-<p>The &lt;QtCborCommon&gt; header contains definitions common to both the streaming classes (<a href="qcborstreamreader.html">QCborStreamReader</a> and <a href="qcborstreamwriter.html">QCborStreamWriter</a>) and to <a href="qcborvalue.html">QCborValue</a>. <a href="#details">More...</a></p>
+<p>The &lt;QtCborCommon&gt; header contains definitions common to both the streaming classes (<a href="qcborstreamreader.html">QCborStreamReader</a> 和 <a href="qcborstreamwriter.html">QCborStreamWriter</a>) and to <a href="qcborvalue.html">QCborValue</a>. <a href="#details">More...</a></p>
 <!-- @@@<QtCborCommon> -->
 <ul>
 </ul>
@@ -62,9 +62,9 @@
 <!-- $$$QCborError -->
 <h3 class="fn" id=""><a name=""></a>class <span class="name">QCborError</span></h3>
 <p>The <a href="qtcborcommon.html">QCborError</a> class holds the error condition found while parsing or validating a CBOR stream.</p>
-<p><b>Note:</b> All functions in this class are <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
+<p><b>注意：</b> 此类中的所有函数都是 <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
 <p>This class was introduced in  Qt 5.12.</p>
-<p><b>参见</b><a href="qcborstreamreader.html">QCborStreamReader</a>, <a href="qcborvalue.html">QCborValue</a>, and <a href="qcborparsererror.html">QCborParserError</a>.</p>
+<p><b> 参见 </b><a href="qcborstreamreader.html">QCborStreamReader</a>, <a href="qcborvalue.html">QCborValue</a>, and <a href="qcborparsererror.html">QCborParserError</a>.</p>
 <!-- @@@QCborError -->
 <h2>类型文档</h2>
 <!-- $$$QCborKnownTags$$$DateTimeString$$$UnixTime_t$$$PositiveBignum$$$NegativeBignum$$$Decimal$$$Bigfloat$$$COSE_Encrypt0$$$COSE_Mac0$$$COSE_Sign1$$$ExpectedBase64url$$$ExpectedBase64$$$ExpectedBase16$$$EncodedCbor$$$Url$$$Base64url$$$Base64$$$RegularExpression$$$MimeMessage$$$Uuid$$$COSE_Encrypt$$$COSE_Mac$$$COSE_Sign$$$Signature -->
@@ -72,7 +72,7 @@
 <p>This enum contains a list of CBOR tags, known at the time of the Qt implementation. This list is not meant to be complete and contains only tags that are either backed by an RFC or specifically used by the Qt implementation.</p>
 <p>The authoritative list is maintained by IANA in the <a href="https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml">CBOR tag registry</a>.</p>
 <div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
-<tr><td class="topAlign"><code>DateTimeString</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">A date and time string, formatted according to RFC 3339, as refined by RFC 4287. It is the same format as <a href="qt.html#DateFormat-enum">Qt::ISODate</a> and <a href="qt.html#DateFormat-enum">Qt::ISODateWithMs</a>.</td></tr>
+<tr><td class="topAlign"><code>DateTimeString</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">A date and time string, formatted according to RFC 3339, as refined by RFC 4287. It is the same format as <a href="qt.html#DateFormat-enum">Qt::ISODate</a> 和 <a href="qt.html#DateFormat-enum">Qt::ISODateWithMs</a>.</td></tr>
 <tr><td class="topAlign"><code>UnixTime_t</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">A numerical representation of seconds elapsed since 1970-01-01T00:00Z.</td></tr>
 <tr><td class="topAlign"><code>PositiveBignum</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">A positive number of arbitrary length, encoded as a byte array in network byte order. For example, the number 2<sup>64</sup> is represented by a byte array containing the byte value 0x01 followed by 8 zero bytes.</td></tr>
 <tr><td class="topAlign"><code>NegativeBignum</code></td><td class="topAlign tblval"><code>3</code></td><td class="topAlign">A negative number of arbirary length, encoded as the absolute value of that number, minus one. For example, a byte array containing byte value 0x02 followed by 8 zero bytes represents the number -2<sup>65</sup> - 1.</td></tr>
@@ -104,7 +104,7 @@
 <tr><td class="topAlign"><code>Uuid</code></td><td class="topAlign tblval"><code>37</code></td><td class="topAlign"><a href="quuid.html">QUuid</a></td></tr>
 </table></div>
 <p>Additionally, if a <a href="qcborvalue.html">QCborValue</a> containing a <a href="qbytearray.html">QByteArray</a> is tagged using one of <code>ExpectedBase64url</code>, <code>ExpectedBase64</code> or <code>ExpectedBase16</code>, <a href="qcborvalue.html">QCborValue</a> will use the expected encoding when converting to JSON (see <a href="qcborvalue.html#toJsonValue">QCborValue::toJsonValue</a>).</p>
-<p><b>参见</b><a href="qtcborcommon.html#QCborTag-enum">QCborTag</a>, <a href="qcborstreamwriter.html#append-6">QCborStreamWriter::append</a>(QCborTag), <a href="qcborstreamreader.html#isTag">QCborStreamReader::isTag</a>(), <a href="qcborstreamreader.html#toTag">QCborStreamReader::toTag</a>(), <a href="qcborvalue.html#isTag">QCborValue::isTag</a>(), and <a href="qcborvalue.html#tag">QCborValue::tag</a>().</p>
+<p><b> 参见 </b><a href="qtcborcommon.html#QCborTag-enum">QCborTag</a>, <a href="qcborstreamwriter.html#append-6">QCborStreamWriter::append</a>(QCborTag), <a href="qcborstreamreader.html#isTag">QCborStreamReader::isTag</a>(), <a href="qcborstreamreader.html#toTag">QCborStreamReader::toTag</a>(), <a href="qcborvalue.html#isTag">QCborValue::isTag</a>(), 和 <a href="qcborvalue.html#tag">QCborValue::tag</a>().</p>
 <!-- @@@QCborKnownTags -->
 <!-- $$$QCborSimpleType -->
 <h3 class="fn" id="QCborSimpleType-enum"><a name="QCborSimpleType-enum"></a>enum <span class="name">QCborSimpleType</span></h3>
@@ -119,7 +119,7 @@
 <p>Qt CBOR API supports encoding and decoding any Simple Type, whether one of those above or any other value.</p>
 <p>Applications should only use further values if a corresponding specification has been published, otherwise interpretation and validation by the remote may fail. Values 24 to 31 are reserved and must not be used.</p>
 <p>The current authoritative list is maintained by IANA in the <a href="https://www.iana.org/assignments/cbor-simple-values/cbor-simple-values.xml">Simple Values registry</a>.</p>
-<p><b>参见</b><a href="qcborstreamwriter.html#append-8">QCborStreamWriter::append</a>(QCborSimpleType), <a href="qcborstreamreader.html#isSimpleType">QCborStreamReader::isSimpleType</a>(), <a href="qcborstreamreader.html#toSimpleType">QCborStreamReader::toSimpleType</a>(), <a href="qcborvalue.html#isSimpleType">QCborValue::isSimpleType</a>(), and <a href="qcborvalue.html#toSimpleType">QCborValue::toSimpleType</a>().</p>
+<p><b> 参见 </b><a href="qcborstreamwriter.html#append-8">QCborStreamWriter::append</a>(QCborSimpleType), <a href="qcborstreamreader.html#isSimpleType">QCborStreamReader::isSimpleType</a>(), <a href="qcborstreamreader.html#toSimpleType">QCborStreamReader::toSimpleType</a>(), <a href="qcborvalue.html#isSimpleType">QCborValue::isSimpleType</a>(), 和 <a href="qcborvalue.html#toSimpleType">QCborValue::toSimpleType</a>().</p>
 <!-- @@@QCborSimpleType -->
 <!-- $$$QCborTag -->
 <h3 class="fn" id="QCborTag-enum"><a name="QCborTag-enum"></a>enum <span class="name">QCborTag</span></h3>
@@ -131,7 +131,7 @@
      <span class="type"><a href="qcborvalue.html">QCborValue</a></span>(<span class="type">QCborTag</span>(<span class="number">2</span>)<span class="operator">,</span> <span class="type"><a href="qbytearray.html">QByteArray</a></span>(<span class="string">&quot;\x01\0\0\0\0\0\0\0\0&quot;</span><span class="operator">,</span> <span class="number">9</span>));
 
 </pre>
-<p><b>参见</b><a href="qtcborcommon.html#QCborKnownTags-enum">QCborKnownTags</a>, <a href="qcborstreamwriter.html#append-6">QCborStreamWriter::append</a>(QCborTag), <a href="qcborstreamreader.html#isTag">QCborStreamReader::isTag</a>(), <a href="qcborstreamreader.html#toTag">QCborStreamReader::toTag</a>(), <a href="qcborvalue.html#isTag">QCborValue::isTag</a>(), and <a href="qcborvalue.html#tag">QCborValue::tag</a>().</p>
+<p><b> 参见 </b><a href="qtcborcommon.html#QCborKnownTags-enum">QCborKnownTags</a>, <a href="qcborstreamwriter.html#append-6">QCborStreamWriter::append</a>(QCborTag), <a href="qcborstreamreader.html#isTag">QCborStreamReader::isTag</a>(), <a href="qcborstreamreader.html#toTag">QCborStreamReader::toTag</a>(), <a href="qcborvalue.html#isTag">QCborValue::isTag</a>(), 和 <a href="qcborvalue.html#tag">QCborValue::tag</a>().</p>
 <!-- @@@QCborTag -->
         </div>
        </div>

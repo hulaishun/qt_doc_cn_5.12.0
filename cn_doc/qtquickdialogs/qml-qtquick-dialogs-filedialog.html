@@ -105,7 +105,7 @@
 </pre>
 <p>A <a href="qml-qtquick-dialogs-filedialog.html">FileDialog</a> window is automatically transient for its parent window. So whether you declare the dialog inside an <a href="../qtquick/qml-qtquick-item.html">Item</a> or inside a <a href="../qtquick/qml-qtquick-window-window.html">Window</a>, the dialog will appear centered over the window containing the item, or over the Window that you declared.</p>
 <p>The implementation of <a href="qml-qtquick-dialogs-filedialog.html">FileDialog</a> will be a platform file dialog if possible. If that isn't possible, then it will try to instantiate a <a href="../qtwidgets/qfiledialog.html">QFileDialog</a>. If that also isn't possible, then it will fall back to a QML implementation, DefaultFileDialog.qml. In that case you can customize the appearance by editing this file. DefaultFileDialog.qml contains a Rectangle to hold the dialog's contents, because certain embedded systems do not support multiple top-level windows. When the dialog becomes visible, it will automatically be wrapped in a Window if possible, or simply reparented on top of the main window if there can only be one window.</p>
-<p>The QML implementation has a sidebar containing <a href="qml-qtquick-dialogs-filedialog.html#shortcuts-prop">shortcuts</a> to common platform-specific locations, and user-modifiable favorites. It uses application-specific <a href="../qtquick/qt-labs-settings-qmlmodule.html">settings</a> to store the user's favorites, as well as other user-modifiable state, such as whether or not the sidebar is shown, the positions of the splitters, and the dialog size. The settings are stored in a section called <code>QQControlsFileDialog</code> of the application-specific <a href="../qtcore/qsettings.html">QSettings</a>. For example when testing an application with the qml tool, the <code>QQControlsFileDialog</code> section will be created in the <code>Qml Runtime</code> settings file (or registry entry). If an application is started via a custom C++ main() function, it is recommended to set the <a href="../qtcore/qcoreapplication.html#applicationName-prop">name</a>, <a href="../qtcore/qcoreapplication.html#organizationName-prop">organization</a> and <a href="../qtcore/qcoreapplication.html#organizationDomain-prop">domain</a> in order to control the location of the application's settings. If you use <a href="../qtquick/qt-labs-settings-qmlmodule.html">Settings</a> objects in other parts of an application, they will be stored in other sections of the same file.</p>
+<p>The QML implementation has a sidebar containing <a href="qml-qtquick-dialogs-filedialog.html#shortcuts-prop">shortcuts</a> to common platform-specific locations, and user-modifiable favorites. It uses application-specific <a href="../qtquick/qt-labs-settings-qmlmodule.html">settings</a> to store the user's favorites, as well as other user-modifiable state, such as whether or not the sidebar is shown, the positions of the splitters, and the dialog size. The settings are stored in a section called <code>QQControlsFileDialog</code> of the application-specific <a href="../qtcore/qsettings.html">QSettings</a>. For example when testing an application with the qml tool, the <code>QQControlsFileDialog</code> section will be created in the <code>Qml Runtime</code> settings file (or registry entry). If an application is started via a custom C++ main() function, it is recommended to set the <a href="../qtcore/qcoreapplication.html#applicationName-prop">name</a>, <a href="../qtcore/qcoreapplication.html#organizationName-prop">organization</a> 和 <a href="../qtcore/qcoreapplication.html#organizationDomain-prop">domain</a> in order to control the location of the application's settings. If you use <a href="../qtquick/qt-labs-settings-qmlmodule.html">Settings</a> objects in other parts of an application, they will be stored in other sections of the same file.</p>
 <p><a href="../qtwidgets/qfiledialog.html">QFileDialog</a> stores its settings globally instead of per-application. Platform-native file dialogs may or may not store settings in various platform-dependent ways.</p>
 <!-- @@@FileDialog -->
 <h2>属性文档</h2>
@@ -130,7 +130,7 @@
 <a name="fileUrl-prop"></a><span class="name">fileUrl</span> : <span class="type"><a href="../qtqml/qml-url.html">url</a></span></p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>The path of the file which was selected by the user.</p>
-<p><b>Note: </b>This property is set only if exactly one file was selected. In all other cases, it will be empty.</p><p><b>参见</b><a href="qml-qtquick-dialogs-filedialog.html#fileUrls-prop">fileUrls</a>.</p>
+<p><b>Note: </b>This property is set only if exactly one file was selected. In all other cases, it will be empty.</p><p><b> 参见 </b><a href="qml-qtquick-dialogs-filedialog.html#fileUrls-prop">fileUrls</a>.</p>
 </div></div><!-- @@@fileUrl -->
 <br/>
 <!-- $$$fileUrls -->
@@ -153,7 +153,7 @@
 </div><div class="qmldoc"><p>The path to the currently selected folder. Setting this property before invoking <a href="qml-qtquick-dialogs-filedialog.html#open-method">open()</a> will cause the file browser to be initially positioned on the specified folder.</p>
 <p>The value of this property is also updated after the dialog is closed.</p>
 <p>By default, the url is empty.</p>
-<p><b>Note: </b>On iOS, if you set <i>folder</i> to <a href="qml-qtquick-dialogs-filedialog.html#shortcuts-prop">shortcuts.pictures</a>, a native image picker dialog will be used for accessing the user's photo album. The URL returned can be set as <a href="../qtquick/qml-qtquick-image.html#source-prop">source</a> for <a href="../qtquick/qml-qtquick-image.html">Image</a>. For this to be enabled, the Info.plist assigned to QMAKE_INFO_PLIST in the project file must contain the key, NSPhotoLibraryUsageDescription. See Info.plist documentation from Apple for more information regarding this key. This feature was added in Qt 5.5&#x2e;</p><p><b>参见</b><a href="qml-qtquick-dialogs-filedialog.html#shortcuts-prop">shortcuts</a>.</p>
+<p><b>Note: </b>On iOS, if you set <i>folder</i> to <a href="qml-qtquick-dialogs-filedialog.html#shortcuts-prop">shortcuts.pictures</a>, a native image picker dialog will be used for accessing the user's photo album. The URL returned can be set as <a href="../qtquick/qml-qtquick-image.html#source-prop">source</a> for <a href="../qtquick/qml-qtquick-image.html">Image</a>. For this to be enabled, the Info.plist assigned to QMAKE_INFO_PLIST in the project file must contain the key, NSPhotoLibraryUsageDescription. See Info.plist documentation from Apple for more information regarding this key. This feature was added in Qt 5.5&#x2e;</p><p><b> 参见 </b><a href="qml-qtquick-dialogs-filedialog.html#shortcuts-prop">shortcuts</a>.</p>
 </div></div><!-- @@@folder -->
 <br/>
 <!-- $$$modality -->
@@ -184,7 +184,7 @@
   }
 
 </pre>
-<p><b>Note: </b>Directories are not excluded by filters.</p><p><b>参见</b><a href="qml-qtquick-dialogs-filedialog.html#selectedNameFilter-prop">selectedNameFilter</a>.</p>
+<p><b>Note: </b>Directories are not excluded by filters.</p><p><b> 参见 </b><a href="qml-qtquick-dialogs-filedialog.html#selectedNameFilter-prop">selectedNameFilter</a>.</p>
 </div></div><!-- @@@nameFilters -->
 <br/>
 <!-- $$$selectExisting -->
@@ -280,7 +280,7 @@
 <a name="visible-prop"></a><span class="name">visible</span> : <span class="type"><a href="../qtqml/qml-bool.html">bool</a></span></p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>This property holds whether the dialog is visible. By default this is false.</p>
-<p><b>参见</b><a href="qml-qtquick-dialogs-filedialog.html#modality-prop">modality</a>.</p>
+<p><b> 参见 </b><a href="qml-qtquick-dialogs-filedialog.html#modality-prop">modality</a>.</p>
 </div></div><!-- @@@visible -->
 <br/>
 <h2>方法文档</h2>

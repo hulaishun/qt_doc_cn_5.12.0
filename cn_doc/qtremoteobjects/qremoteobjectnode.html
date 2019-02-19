@@ -148,11 +148,11 @@
 <h2 id="details">详细描述</h2>
 <p>A node on a Qt Remote Objects network.</p>
 <p>The <a href="qremoteobjectnode.html">QRemoteObjectNode</a> class provides an entry point to a <a href="qtremoteobjects-qmlmodule.html">QtRemoteObjects</a> network. A network can be as simple as two nodes, or an arbitrarily complex set of processes and devices.</p>
-<p>A <a href="qremoteobjectnode.html">QRemoteObjectNode</a> does not have a url that other nodes can connect to, and thus is able to acquire replicas only. It is not able to share source objects (only <a href="qremoteobjecthost.html">QRemoteObjectHost</a> and <a href="qremoteobjectregistryhost.html">QRemoteObjectRegistryHost</a> Nodes can share).</p>
+<p>A <a href="qremoteobjectnode.html">QRemoteObjectNode</a> does not have a url that other nodes can connect to, and thus is able to acquire replicas only. It is not able to share source objects (only <a href="qremoteobjecthost.html">QRemoteObjectHost</a> 和 <a href="qremoteobjectregistryhost.html">QRemoteObjectRegistryHost</a> Nodes can share).</p>
 <p>Nodes may connect to each other directly using <a href="qremoteobjectnode.html#connectToNode">connectToNode</a>, or they can use the <a href="qremoteobjectregistry.html">QRemoteObjectRegistry</a> to simplify connections.</p>
 <p>The <a href="qremoteobjectregistry.html">QRemoteObjectRegistry</a> is a special replica available to every node that connects to the Registry Url. It knows how to connect to every QRemoteObjectSource object on the network.</p>
 </div>
-<p><b>参见</b><a href="qremoteobjecthost.html">QRemoteObjectHost</a> and <a href="qremoteobjectregistryhost.html">QRemoteObjectRegistryHost</a>.</p>
+<p><b> 参见 </b><a href="qremoteobjecthost.html">QRemoteObjectHost</a> 和 <a href="qremoteobjectregistryhost.html">QRemoteObjectRegistryHost</a>.</p>
 <!-- @@@QRemoteObjectNode -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -225,12 +225,12 @@
 <!-- $$$QRemoteObjectNode[overload1]$$$QRemoteObjectNodeQObject* -->
 <h3 class="fn" id="QRemoteObjectNode"><a name="QRemoteObjectNode"></a>QRemoteObjectNode::<span class="name">QRemoteObjectNode</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
 <p>Default constructor for <a href="qremoteobjectnode.html">QRemoteObjectNode</a> with the given <i>parent</i>. A Node constructed in this manner can not be connected to, and thus can not expose Source objects on the network. It also will not include a <a href="qremoteobjectregistry.html">QRemoteObjectRegistry</a>, unless set manually using <a href="qremoteobjectnode.html#registryUrl-prop">setRegistryUrl</a>.</p>
-<p><b>参见</b><a href="qremoteobjectnode.html#connectToNode">connectToNode</a> and <a href="qremoteobjectnode.html#registryUrl-prop">setRegistryUrl</a>.</p>
+<p><b> 参见 </b><a href="qremoteobjectnode.html#connectToNode">connectToNode</a> 和 <a href="qremoteobjectnode.html#registryUrl-prop">setRegistryUrl</a>.</p>
 <!-- @@@QRemoteObjectNode -->
 <!-- $$$QRemoteObjectNode$$$QRemoteObjectNodeconstQUrl&QObject* -->
 <h3 class="fn" id="QRemoteObjectNode-1"><a name="QRemoteObjectNode-1"></a>QRemoteObjectNode::<span class="name">QRemoteObjectNode</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>registryAddress</i>, <span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
 <p><a href="qremoteobjectnode.html">QRemoteObjectNode</a> connected to a {<a href="qremoteobjectregistry.html">QRemoteObjectRegistry</a>} {Registry}. A Node constructed in this manner can not be connected to, and thus can not expose Source objects on the network. Finding and connecting to other (Host) Nodes is handled by the <a href="qremoteobjectregistry.html">QRemoteObjectRegistry</a> specified by <i>registryAddress</i>.</p>
-<p><b>参见</b><a href="qremoteobjectnode.html#connectToNode">connectToNode</a>, <a href="qremoteobjectnode.html#registryUrl-prop">setRegistryUrl</a>, <a href="qremoteobjecthost.html">QRemoteObjectHost</a>, and <a href="qremoteobjectregistryhost.html">QRemoteObjectRegistryHost</a>.</p>
+<p><b> 参见 </b><a href="qremoteobjectnode.html#connectToNode">connectToNode</a>, <a href="qremoteobjectnode.html#registryUrl-prop">setRegistryUrl</a>, <a href="qremoteobjecthost.html">QRemoteObjectHost</a>, and <a href="qremoteobjectregistryhost.html">QRemoteObjectRegistryHost</a>.</p>
 <!-- @@@QRemoteObjectNode -->
 <!-- $$$QRemoteObjectNode$$$QRemoteObjectNodeQRemoteObjectNodePrivate&QObject* -->
 <h3 class="fn" id="QRemoteObjectNode-2"><a name="QRemoteObjectNode-2"></a><code>[protected] </code>QRemoteObjectNode::<span class="name">QRemoteObjectNode</span>(<i>QRemoteObjectNodePrivate &amp;</i>, <span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i>)</h3>
@@ -254,7 +254,7 @@
 <h3 class="fn" id="addClientSideConnection"><a name="addClientSideConnection"></a><span class="type">void</span> QRemoteObjectNode::<span class="name">addClientSideConnection</span>(<span class="type"><a href="../qtcore/qiodevice.html">QIODevice</a></span> *<i>ioDevice</i>)</h3>
 <p>In order to <a href="qremoteobjectnode.html#acquire">QRemoteObjectNode::acquire</a>() <a href="qtremoteobjects-replica.html#replica">Replica</a> objects over <a href="qtremoteobjects-external-schemas.html#external-qiodevices">External QIODevices</a>, Qt Remote Objects needs access to the communications channel (a QIODEvice) between the respective nodes. It is the addClientSideConnection() call that enables this, taking the <i>ioDevice</i> as input. Any <a href="qremoteobjectnode.html#acquire">acquire</a>() call made without calling addClientSideConnection will still work, but the Node will not be able to initialize the <a href="qtremoteobjects-replica.html#replica">Replica</a> without being provided the connection to the Host node.</p>
 <p>这个函数是在Qt 5.12版本中新增引入的。</p>
-<p><b>参见</b><a href="qremoteobjecthostbase.html#addHostSideConnection">QRemoteObjectHostBase::addHostSideConnection</a>.</p>
+<p><b> 参见 </b><a href="qremoteobjecthostbase.html#addHostSideConnection">QRemoteObjectHostBase::addHostSideConnection</a>.</p>
 <!-- @@@addClientSideConnection -->
 <!-- $$$connectToNode[overload1]$$$connectToNodeconstQUrl& -->
 <h3 class="fn" id="connectToNode"><a name="connectToNode"></a><span class="type">bool</span> QRemoteObjectNode::<span class="name">connectToNode</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>address</i>)</h3>
@@ -301,10 +301,10 @@
 <!-- $$$registerExternalSchema[overload1]$$$registerExternalSchemaconstQString&QRemoteObjectNode::RemoteObjectSchemaHandler -->
 <h3 class="fn" id="registerExternalSchema"><a name="registerExternalSchema"></a><span class="type">void</span> QRemoteObjectNode::<span class="name">registerExternalSchema</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>schema</i>, <span class="type"><a href="qremoteobjectnode.html#RemoteObjectSchemaHandler-typedef">QRemoteObjectNode::RemoteObjectSchemaHandler</a></span> <i>handler</i>)</h3>
 <p>Provide a custom method to handle externally provided schemas</p>
-<p>This method is tied to the <a href="qtremoteobjects-registry.html#registry">Registry</a> and <a href="qtremoteobjects-external-schemas.html#external-schemas">External Schemas</a>. By registering a std::function handler for an external schema, the registered method will be called when the registry is notified of a <a href="qtremoteobjects-source.html#source">Source</a> you've acquired being available. Without this registration, QtRO would only be able to handle the &quot;built-in&quot; schemas.</p>
+<p>This method is tied to the <a href="qtremoteobjects-registry.html#registry">Registry</a> 和 <a href="qtremoteobjects-external-schemas.html#external-schemas">External Schemas</a>. By registering a std::function handler for an external schema, the registered method will be called when the registry is notified of a <a href="qtremoteobjects-source.html#source">Source</a> you've acquired being available. Without this registration, QtRO would only be able to handle the &quot;built-in&quot; schemas.</p>
 <p>The provided method, <i>handler</i>, will be called when the registry sees a <a href="qtremoteobjects-source.html#source">Source</a> object on a new (not yet connected) Node with a {QUrl::schema()} of <i>schema</i>. The <i>handler</i>, of type <a href="qremoteobjectnode.html#RemoteObjectSchemaHandler-typedef">QRemoteObjectNode::RemoteObjectSchemaHandler</a> will get the <a href="../qtcore/qurl.html">QUrl</a> of the Node providing the <a href="qtremoteobjects-source.html#source">Source</a> as an input parameter, and is responsible for establishing the communications channel (a <a href="../qtcore/qiodevice.html">QIODevice</a> of some sort) and calling <a href="qremoteobjectnode.html#addClientSideConnection">addClientSideConnection</a> with it.</p>
 <p>这个函数是在Qt 5.12版本中新增引入的。</p>
-<p><b>参见</b><a href="qremoteobjectnode.html#RemoteObjectSchemaHandler-typedef">RemoteObjectSchemaHandler</a>.</p>
+<p><b> 参见 </b><a href="qremoteobjectnode.html#RemoteObjectSchemaHandler-typedef">RemoteObjectSchemaHandler</a>.</p>
 <!-- @@@registerExternalSchema -->
 <!-- $$$registry[overload1]$$$registry -->
 <h3 class="fn" id="registry"><a name="registry"></a>const <span class="type"><a href="qremoteobjectregistry.html">QRemoteObjectRegistry</a></span> *QRemoteObjectNode::<span class="name">registry</span>() const</h3>
@@ -313,7 +313,7 @@
 <!-- $$$remoteObjectAdded[overload1]$$$remoteObjectAddedconstQRemoteObjectSourceLocation& -->
 <h3 class="fn" id="remoteObjectAdded"><a name="remoteObjectAdded"></a><code>[signal] </code><span class="type">void</span> QRemoteObjectNode::<span class="name">remoteObjectAdded</span>(const <span class="type">QRemoteObjectSourceLocation</span> &amp;<i>loc</i>)</h3>
 <p>This signal is emitted whenever a new <a href="qtremoteobjects-source.html#source">Source</a> object is added to the Registry. The signal will not be emitted if there is no Registry set (i.e&#x2e;, Sources over connections made via <a href="qremoteobjectnode.html#connectToNode">connectToNode</a> directly). The <i>loc</i> parameter contains the information about the added Source, including name, type and the <a href="../qtcore/qurl.html">QUrl</a> of the hosting Node.</p>
-<p><b>参见</b><a href="qremoteobjectnode.html#remoteObjectRemoved">remoteObjectRemoved</a> and <a href="qremoteobjectnode.html#instances">instances</a>.</p>
+<p><b> 参见 </b><a href="qremoteobjectnode.html#remoteObjectRemoved">remoteObjectRemoved</a> 和 <a href="qremoteobjectnode.html#instances">instances</a>.</p>
 <!-- @@@remoteObjectAdded -->
 <!-- $$$remoteObjectRemoved[overload1]$$$remoteObjectRemovedconstQRemoteObjectSourceLocation& -->
 <h3 class="fn" id="remoteObjectRemoved"><a name="remoteObjectRemoved"></a><code>[signal] </code><span class="type">void</span> QRemoteObjectNode::<span class="name">remoteObjectRemoved</span>(<i>const QRemoteObjectSourceLocation &amp;</i>)</h3>

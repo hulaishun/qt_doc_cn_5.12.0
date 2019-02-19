@@ -171,7 +171,7 @@
 
 </pre>
 <p>The pen style defines the line type. The default style is solid (<a href="../qtcore/qt.html#PenStyle-enum">Qt::SolidLine</a>). Setting the style to none (<a href="../qtcore/qt.html#PenStyle-enum">Qt::NoPen</a>) tells the painter to not draw lines or outlines. The pen cap defines how the end points of lines are drawn. And the pen join defines how two lines join when multiple connected lines are drawn. The cap and join only apply to lines with a width of 1 pixel or greater.</p>
-<p>We create <a href="qcombobox.html">QComboBox</a>es for each of the <b>Pen Style</b>, <b>Pen Cap</b> and <b>Pen Join</b> parameters, and adds the associated items (i.e the values of the <a href="../qtcore/qt.html#PenStyle-enum">Qt::PenStyle</a>, <a href="../qtcore/qt.html#PenCapStyle-enum">Qt::PenCapStyle</a> and <a href="../qtcore/qt.html#PenJoinStyle-enum">Qt::PenJoinStyle</a> enums respectively).</p>
+<p>We create <a href="qcombobox.html">QComboBox</a>es for each of the <b>Pen Style</b>, <b>Pen Cap</b> and <b>Pen Join</b> parameters, and adds the associated items (i.e the values of the <a href="../qtcore/qt.html#PenStyle-enum">Qt::PenStyle</a>, <a href="../qtcore/qt.html#PenCapStyle-enum">Qt::PenCapStyle</a> 和 <a href="../qtcore/qt.html#PenJoinStyle-enum">Qt::PenJoinStyle</a> enums respectively).</p>
 <pre class="cpp">
 
       brushStyleComboBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qcombobox.html">QComboBox</a></span>;
@@ -218,7 +218,7 @@
 
 </pre>
 <p>The <b>Transformations</b> option implies a manipulation of the coordinate system that will appear as if the rendered shape is rotated in three dimensions.</p>
-<p>We use the <a href="../qtgui/qpainter.html#translate-1">QPainter::translate</a>(), <a href="../qtgui/qpainter.html#rotate">QPainter::rotate</a>() and <a href="../qtgui/qpainter.html#scale">QPainter::scale</a>() functions to implement this feature represented in the main application window by a simple <a href="qcheckbox.html">QCheckBox</a>.</p>
+<p>We use the <a href="../qtgui/qpainter.html#translate-1">QPainter::translate</a>(), <a href="../qtgui/qpainter.html#rotate">QPainter::rotate</a>() 和 <a href="../qtgui/qpainter.html#scale">QPainter::scale</a>() functions to implement this feature represented in the main application window by a simple <a href="qcheckbox.html">QCheckBox</a>.</p>
 <pre class="cpp">
 
       connect(shapeComboBox<span class="operator">,</span> SIGNAL(activated(<span class="type">int</span>))<span class="operator">,</span>
@@ -329,7 +329,7 @@
 
 </pre>
 <p>If the brush parameter is a gradient fill, special actions are required.</p>
-<p>The <a href="../qtgui/qgradient.html">QGradient</a> class is used in combination with <a href="../qtgui/qbrush.html">QBrush</a> to specify gradient fills. Qt currently supports three types of gradient fills: linear, radial and conical. Each of these is represented by a subclass of <a href="../qtgui/qgradient.html">QGradient</a>: <a href="../qtgui/qlineargradient.html">QLinearGradient</a>, <a href="../qtgui/qradialgradient.html">QRadialGradient</a> and <a href="../qtgui/qconicalgradient.html">QConicalGradient</a>.</p>
+<p>The <a href="../qtgui/qgradient.html">QGradient</a> class is used in combination with <a href="../qtgui/qbrush.html">QBrush</a> to specify gradient fills. Qt currently supports three types of gradient fills: linear, radial and conical. Each of these is represented by a subclass of <a href="../qtgui/qgradient.html">QGradient</a>: <a href="../qtgui/qlineargradient.html">QLinearGradient</a>, <a href="../qtgui/qradialgradient.html">QRadialGradient</a> 和 <a href="../qtgui/qconicalgradient.html">QConicalGradient</a>.</p>
 <p>So if the brush style is <a href="../qtcore/qt.html#BrushStyle-enum">Qt::LinearGradientPattern</a>, we first create a <a href="../qtgui/qlineargradient.html">QLinearGradient</a> object with interpolation area between the coordinates passed as arguments to the constructor. The positions are specified using logical coordinates. Then we set the gradient's colors using the <a href="../qtgui/qgradient.html#setColorAt">QGradient::setColorAt</a>() function. The colors is defined using stop points which are composed by a position (between 0 and 1) and a <a href="../qtgui/qcolor.html">QColor</a>. The set of stop points describes how the gradient area should be filled. A gradient can have an arbitrary number of stop points.</p>
 <p>In the end we call <code>RenderArea::setBrush()</code> slot to update the <code>RenderArea</code> widget's brush with the <a href="../qtgui/qlineargradient.html">QLinearGradient</a> object.</p>
 <pre class="cpp">
@@ -348,7 +348,7 @@
           renderArea<span class="operator">-</span><span class="operator">&gt;</span>setBrush(conicalGradient);
 
 </pre>
-<p>A similar pattern of actions, as the one used for <a href="../qtgui/qlineargradient.html">QLinearGradient</a>, is used in the cases of <a href="../qtcore/qt.html#BrushStyle-enum">Qt::RadialGradientPattern</a> and <a href="../qtcore/qt.html#BrushStyle-enum">Qt::ConicalGradientPattern</a>.</p>
+<p>A similar pattern of actions, as the one used for <a href="../qtgui/qlineargradient.html">QLinearGradient</a>, is used in the cases of <a href="../qtcore/qt.html#BrushStyle-enum">Qt::RadialGradientPattern</a> 和 <a href="../qtcore/qt.html#BrushStyle-enum">Qt::ConicalGradientPattern</a>.</p>
 <p>The only difference is the arguments passed to the constructor: Regarding the <a href="../qtgui/qradialgradient.html">QRadialGradient</a> constructor the first argument is the center, and the second the radial gradient's radius. The third argument is optional, but can be used to define the focal point of the gradient inside the circle (the default focal point is the circle center). Regarding the <a href="../qtgui/qconicalgradient.html">QConicalGradient</a> constructor, the first argument specifies the center of the conical, and the second specifies the start angle of the interpolation.</p>
 <pre class="cpp">
 
@@ -404,7 +404,7 @@
   };
 
 </pre>
-<p>First we define a public <code>Shape</code> enum to hold the different shapes that can be rendered by the widget (i.e the shapes that can be rendered by a <a href="../qtgui/qpainter.html">QPainter</a>). Then we reimplement the constructor as well as two of <a href="qwidget.html">QWidget</a>'s public functions: <a href="qwidget.html#minimumSizeHint-prop">minimumSizeHint()</a> and <a href="qwidget.html#sizeHint-prop">sizeHint()</a>.</p>
+<p>First we define a public <code>Shape</code> enum to hold the different shapes that can be rendered by the widget (i.e the shapes that can be rendered by a <a href="../qtgui/qpainter.html">QPainter</a>). Then we reimplement the constructor as well as two of <a href="qwidget.html">QWidget</a>'s public functions: <a href="qwidget.html#minimumSizeHint-prop">minimumSizeHint()</a> 和 <a href="qwidget.html#sizeHint-prop">sizeHint()</a>.</p>
 <p>We also reimplement the <a href="qwidget.html#paintEvent">QWidget::paintEvent</a>() function to be able to draw the currently active shape according to the specified parameters.</p>
 <p>We declare several private slots: The <code>setShape()</code> slot changes the <code>RenderArea</code>'s shape, the <code>setPen()</code> and <code>setBrush()</code> slots modify the widget's pen and brush, and the <code>setAntialiased()</code> and <code>setTransformed()</code> slots modify the widget's respective properties.</p>
 <a name="renderarea-class-implementation"></a>

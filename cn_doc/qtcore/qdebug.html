@@ -131,12 +131,12 @@
       <a href="qtglobal.html#qDebugx">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Custom coordinate type:&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> coordinate;
 
 </pre>
-<p>This constructs a <a href="qdebug.html">QDebug</a> object using the constructor that accepts a <a href="qtglobal.html#QtMsgType-enum">QtMsgType</a> value of <a href="qtglobal.html#QtMsgType-enum">QtDebugMsg</a>. Similarly, the <a href="qtglobal.html#qWarning">qWarning</a>(), <a href="qtglobal.html#qCritical">qCritical</a>() and <a href="qtglobal.html#qFatal">qFatal</a>() functions also return <a href="qdebug.html">QDebug</a> objects for the corresponding message types.</p>
+<p>This constructs a <a href="qdebug.html">QDebug</a> object using the constructor that accepts a <a href="qtglobal.html#QtMsgType-enum">QtMsgType</a> value of <a href="qtglobal.html#QtMsgType-enum">QtDebugMsg</a>. Similarly, the <a href="qtglobal.html#qWarning">qWarning</a>(), <a href="qtglobal.html#qCritical">qCritical</a>() 和 <a href="qtglobal.html#qFatal">qFatal</a>() functions also return <a href="qdebug.html">QDebug</a> objects for the corresponding message types.</p>
 <p>The class also provides several constructors for other situations, including a constructor that accepts a <a href="qfile.html">QFile</a> or any other <a href="qiodevice.html">QIODevice</a> subclass that is used to write debugging information to files and other devices. The constructor that accepts a <a href="qstring.html">QString</a> is used to write to a string for display or serialization.</p>
 <a name="formatting-options"></a>
 <h3 >Formatting Options</h3>
 <p><a href="qdebug.html">QDebug</a> formats output so that it's easily readable. It automatically adds spaces between arguments, and adds quotes around <a href="qstring.html">QString</a>, <a href="qbytearray.html">QByteArray</a>, <a href="qchar.html">QChar</a> arguments.</p>
-<p>You can tweak these options through the <a href="qdebug.html#space">space</a>(), <a href="qdebug.html#nospace">nospace</a>() and <a href="qdebug.html#quote">quote</a>(), <a href="qdebug.html#noquote">noquote</a>() methods. Furthermore, <a href="qtextstream.html#qtextstream-manipulators">QTextStream manipulators</a> can be piped into a <a href="qdebug.html">QDebug</a> stream.</p>
+<p>You can tweak these options through the <a href="qdebug.html#space">space</a>(), <a href="qdebug.html#nospace">nospace</a>() 和 <a href="qdebug.html#quote">quote</a>(), <a href="qdebug.html#noquote">noquote</a>() methods. Furthermore, <a href="qtextstream.html#qtextstream-manipulators">QTextStream manipulators</a> can be piped into a <a href="qdebug.html">QDebug</a> stream.</p>
 <p><a href="qdebugstatesaver.html">QDebugStateSaver</a> limits changes to the formatting to the current scope. <a href="qdebug.html#resetFormat">resetFormat</a>() resets the options to the default ones.</p>
 <a name="writing-custom-types-to-a-stream"></a>
 <h3 >Writing Custom Types to a Stream</h3>
@@ -152,7 +152,7 @@
   }
 
 </pre>
-<p>This is described in the <a href="../qtdoc/testing-and-debugging.html#debugging-techniques">Debugging Techniques</a> and <a href="custom-types.html#making-the-type-printable">Creating Custom Qt Types</a> documents.</p>
+<p>This is described in the <a href="../qtdoc/testing-and-debugging.html#debugging-techniques">Debugging Techniques</a> 和 <a href="custom-types.html#making-the-type-printable">Creating Custom Qt Types</a> documents.</p>
 </div>
 <!-- @@@QDebug -->
 <div class="types">
@@ -187,63 +187,63 @@
 <h3 class="fn" id="autoInsertSpaces"><a name="autoInsertSpaces"></a><span class="type">bool</span> QDebug::<span class="name">autoInsertSpaces</span>() const</h3>
 <p>Returns <code>true</code> if this <a href="qdebug.html">QDebug</a> instance will automatically insert spaces between writes.</p>
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
-<p><b>参见</b><a href="qdebug.html#setAutoInsertSpaces">setAutoInsertSpaces</a>() and <a href="qdebugstatesaver.html">QDebugStateSaver</a>.</p>
+<p><b> 参见 </b><a href="qdebug.html#setAutoInsertSpaces">setAutoInsertSpaces</a>() 和 <a href="qdebugstatesaver.html">QDebugStateSaver</a>.</p>
 <!-- @@@autoInsertSpaces -->
 <!-- $$$maybeQuote[overload1]$$$maybeQuotechar -->
 <h3 class="fn" id="maybeQuote"><a name="maybeQuote"></a><span class="type"><a href="qdebug.html#QDebug">QDebug</a></span> &amp;QDebug::<span class="name">maybeQuote</span>(<span class="type">char</span> <i>c</i> = '&quot;')</h3>
 <p>Writes a character <i>c</i> to the debug stream, depending on the current setting for automatic insertion of quotes, and returns a reference to the stream.</p>
 <p>The default character is a double quote <code>&quot;</code>.</p>
 <p>这个函数是在Qt 5.4版本中新增引入的。</p>
-<p><b>参见</b><a href="qdebug.html#quote">quote</a>() and <a href="qdebug.html#noquote">noquote</a>().</p>
+<p><b> 参见 </b><a href="qdebug.html#quote">quote</a>() 和 <a href="qdebug.html#noquote">noquote</a>().</p>
 <!-- @@@maybeQuote -->
 <!-- $$$maybeSpace[overload1]$$$maybeSpace -->
 <h3 class="fn" id="maybeSpace"><a name="maybeSpace"></a><span class="type"><a href="qdebug.html#QDebug">QDebug</a></span> &amp;QDebug::<span class="name">maybeSpace</span>()</h3>
 <p>Writes a space character to the debug stream, depending on the current setting for automatic insertion of spaces, and returns a reference to the stream.</p>
-<p><b>参见</b><a href="qdebug.html#space">space</a>() and <a href="qdebug.html#nospace">nospace</a>().</p>
+<p><b> 参见 </b><a href="qdebug.html#space">space</a>() 和 <a href="qdebug.html#nospace">nospace</a>().</p>
 <!-- @@@maybeSpace -->
 <!-- $$$noquote[overload1]$$$noquote -->
 <h3 class="fn" id="noquote"><a name="noquote"></a><span class="type"><a href="qdebug.html#QDebug">QDebug</a></span> &amp;QDebug::<span class="name">noquote</span>()</h3>
-<p>Disables automatic insertion of quotation characters around <a href="qchar.html">QChar</a>, <a href="qstring.html">QString</a> and <a href="qbytearray.html">QByteArray</a> contents and returns a reference to the stream.</p>
+<p>Disables automatic insertion of quotation characters around <a href="qchar.html">QChar</a>, <a href="qstring.html">QString</a> 和 <a href="qbytearray.html">QByteArray</a> contents and returns a reference to the stream.</p>
 <p>When quoting is disabled, these types are printed without quotation characters and without escaping of non-printable characters.</p>
 <p>这个函数是在Qt 5.4版本中新增引入的。</p>
-<p><b>参见</b><a href="qdebug.html#quote">quote</a>() and <a href="qdebug.html#maybeQuote">maybeQuote</a>().</p>
+<p><b> 参见 </b><a href="qdebug.html#quote">quote</a>() 和 <a href="qdebug.html#maybeQuote">maybeQuote</a>().</p>
 <!-- @@@noquote -->
 <!-- $$$nospace[overload1]$$$nospace -->
 <h3 class="fn" id="nospace"><a name="nospace"></a><span class="type"><a href="qdebug.html#QDebug">QDebug</a></span> &amp;QDebug::<span class="name">nospace</span>()</h3>
 <p>Disables automatic insertion of spaces and returns a reference to the stream.</p>
-<p><b>参见</b><a href="qdebug.html#space">space</a>() and <a href="qdebug.html#maybeSpace">maybeSpace</a>().</p>
+<p><b> 参见 </b><a href="qdebug.html#space">space</a>() 和 <a href="qdebug.html#maybeSpace">maybeSpace</a>().</p>
 <!-- @@@nospace -->
 <!-- $$$quote[overload1]$$$quote -->
 <h3 class="fn" id="quote"><a name="quote"></a><span class="type"><a href="qdebug.html#QDebug">QDebug</a></span> &amp;QDebug::<span class="name">quote</span>()</h3>
-<p>Enables automatic insertion of quotation characters around <a href="qchar.html">QChar</a>, <a href="qstring.html">QString</a> and <a href="qbytearray.html">QByteArray</a> contents and returns a reference to the stream.</p>
+<p>Enables automatic insertion of quotation characters around <a href="qchar.html">QChar</a>, <a href="qstring.html">QString</a> 和 <a href="qbytearray.html">QByteArray</a> contents and returns a reference to the stream.</p>
 <p>Quoting is enabled by default.</p>
 <p>这个函数是在Qt 5.4版本中新增引入的。</p>
-<p><b>参见</b><a href="qdebug.html#noquote">noquote</a>() and <a href="qdebug.html#maybeQuote">maybeQuote</a>().</p>
+<p><b> 参见 </b><a href="qdebug.html#noquote">noquote</a>() 和 <a href="qdebug.html#maybeQuote">maybeQuote</a>().</p>
 <!-- @@@quote -->
 <!-- $$$resetFormat[overload1]$$$resetFormat -->
 <h3 class="fn" id="resetFormat"><a name="resetFormat"></a><span class="type"><a href="qdebug.html#QDebug">QDebug</a></span> &amp;QDebug::<span class="name">resetFormat</span>()</h3>
 <p>Resets the stream formatting options, bringing it back to its original constructed state.</p>
 <p>这个函数是在Qt 5.4版本中新增引入的。</p>
-<p><b>参见</b><a href="qdebug.html#space">space</a>() and <a href="qdebug.html#quote">quote</a>().</p>
+<p><b> 参见 </b><a href="qdebug.html#space">space</a>() 和 <a href="qdebug.html#quote">quote</a>().</p>
 <!-- @@@resetFormat -->
 <!-- $$$setAutoInsertSpaces[overload1]$$$setAutoInsertSpacesbool -->
 <h3 class="fn" id="setAutoInsertSpaces"><a name="setAutoInsertSpaces"></a><span class="type">void</span> QDebug::<span class="name">setAutoInsertSpaces</span>(<span class="type">bool</span> <i>b</i>)</h3>
 <p>Enables automatic insertion of spaces between writes if <i>b</i> is true; otherwise automatic insertion of spaces is disabled.</p>
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
-<p><b>参见</b><a href="qdebug.html#autoInsertSpaces">autoInsertSpaces</a>() and <a href="qdebugstatesaver.html">QDebugStateSaver</a>.</p>
+<p><b> 参见 </b><a href="qdebug.html#autoInsertSpaces">autoInsertSpaces</a>() 和 <a href="qdebugstatesaver.html">QDebugStateSaver</a>.</p>
 <!-- @@@setAutoInsertSpaces -->
 <!-- $$$setVerbosity[overload1]$$$setVerbosityint -->
 <h3 class="fn" id="setVerbosity"><a name="setVerbosity"></a><span class="type">void</span> QDebug::<span class="name">setVerbosity</span>(<span class="type">int</span> <i>verbosityLevel</i>)</h3>
 <p>Sets the verbosity of the stream to <i>verbosityLevel</i>.</p>
 <p>The allowed range is from 0 to 7. The default value is 2.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
-<p><b>参见</b><a href="qdebug.html#verbosity">verbosity</a>().</p>
+<p><b> 参见 </b><a href="qdebug.html#verbosity">verbosity</a>().</p>
 <!-- @@@setVerbosity -->
 <!-- $$$space[overload1]$$$space -->
 <h3 class="fn" id="space"><a name="space"></a><span class="type"><a href="qdebug.html#QDebug">QDebug</a></span> &amp;QDebug::<span class="name">space</span>()</h3>
 <p>Writes a space character to the debug stream and returns a reference to the stream.</p>
 <p>The stream remembers that automatic insertion of spaces is enabled for future writes.</p>
-<p><b>参见</b><a href="qdebug.html#nospace">nospace</a>() and <a href="qdebug.html#maybeSpace">maybeSpace</a>().</p>
+<p><b> 参见 </b><a href="qdebug.html#nospace">nospace</a>() 和 <a href="qdebug.html#maybeSpace">maybeSpace</a>().</p>
 <!-- @@@space -->
 <!-- $$$swap[overload1]$$$swapQDebug& -->
 <h3 class="fn" id="swap"><a name="swap"></a><span class="type">void</span> QDebug::<span class="name">swap</span>(<span class="type"><a href="qdebug.html#QDebug">QDebug</a></span> &amp;<i>other</i>)</h3>
@@ -256,7 +256,7 @@
 <p>Streaming operators can check the value to decide whether verbose output is desired and print more information depending on the level. Higher values indicate that more information is desired.</p>
 <p>The allowed range is from 0 to 7. The default value is 2.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
-<p><b>参见</b><a href="qdebug.html#setVerbosity">setVerbosity</a>().</p>
+<p><b> 参见 </b><a href="qdebug.html#setVerbosity">setVerbosity</a>().</p>
 <!-- @@@verbosity -->
 <!-- $$$operator<<[overload1]$$$operator<<QChar -->
 <h3 class="fn" id="operator-lt-lt"><a name="operator-lt-lt"></a><span class="type"><a href="qdebug.html#QDebug">QDebug</a></span> &amp;QDebug::<span class="name">operator&lt;&lt;</span>(<span class="type"><a href="qchar.html">QChar</a></span> <i>t</i>)</h3>

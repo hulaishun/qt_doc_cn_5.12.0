@@ -53,7 +53,7 @@
 <!-- @@@QAxWidget -->
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign">头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QAxWidget&gt;</span>
-</td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += axcontainer</td></tr><tr><td class="memItemLeft rightAlign topAlign"> 继承的父类是：</td><td class="memItemRight bottomAlign"> <a href="../qtwidgets/qwidget.html">QWidget</a> and <a href="qaxbase.html">QAxBase</a></td></tr></table></div><ul>
+</td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += axcontainer</td></tr><tr><td class="memItemLeft rightAlign topAlign"> 继承的父类是：</td><td class="memItemRight bottomAlign"> <a href="../qtwidgets/qwidget.html">QWidget</a> 和 <a href="qaxbase.html">QAxBase</a></td></tr></table></div><ul>
 <li><a href="qaxwidget-members.html">所有成员清单，包括继承而来的成员</a></li>
 <li><a href="qaxwidget-obsolete.html">过时的成员</a></li>
 </ul>
@@ -132,10 +132,10 @@
 <p>A <a href="qaxwidget.html">QAxWidget</a> can be instantiated as an empty object, with the name of the ActiveX control it should wrap, or with an existing interface pointer to the ActiveX control. The ActiveX control's properties, methods and events which only use <a href="qaxbase.html">QAxBase</a> supported data types, become available as Qt properties, slots and signals. The base class <a href="qaxbase.html">QAxBase</a> provides an API to access the ActiveX directly through the <code>IUnknown</code> pointer.</p>
 <p><a href="qaxwidget.html">QAxWidget</a> is a <a href="../qtwidgets/qwidget.html">QWidget</a> and can mostly be used as such, e.g&#x2e; it can be organized in a widget hierarchy and layouts or act as an event filter. Standard widget properties, e.g&#x2e; <a href="../qtwidgets/qwidget.html#enabled-prop">enabled</a> are supported, but it depends on the ActiveX control to implement support for ambient properties like e.g&#x2e; palette or font. <a href="qaxwidget.html">QAxWidget</a> tries to provide the necessary hints.</p>
 <p>However, you cannot reimplement Qt-specific event handlers like <a href="../qtwidgets/qwidget.html#mousePressEvent">mousePressEvent</a> or <a href="../qtwidgets/qwidget.html#keyPressEvent">keyPressEvent</a> and expect them to be called reliably. The embedded control covers the <a href="qaxwidget.html">QAxWidget</a> completely, and usually handles the user interface itself. Use control-specific APIs (i.e&#x2e; listen to the signals of the control), or use standard COM techniques like window procedure subclassing.</p>
-<p><a href="qaxwidget.html">QAxWidget</a> also inherits most of its ActiveX-related functionality from <a href="qaxbase.html">QAxBase</a>, notably <a href="qaxbase.html#dynamicCall">dynamicCall</a>() and <a href="qaxbase.html#querySubObject">querySubObject</a>().</p>
+<p><a href="qaxwidget.html">QAxWidget</a> also inherits most of its ActiveX-related functionality from <a href="qaxbase.html">QAxBase</a>, notably <a href="qaxbase.html#dynamicCall">dynamicCall</a>() 和 <a href="qaxbase.html#querySubObject">querySubObject</a>().</p>
 <p><b>Warning:</b> You can subclass <a href="qaxwidget.html">QAxWidget</a>, but you cannot use the <code>Q_OBJECT</code> macro in the subclass (the generated moc-file will not compile), so you cannot add further signals, slots or properties. This limitation is due to the metaobject information generated in runtime. To work around this problem, aggregate the <a href="qaxwidget.html">QAxWidget</a> as a member of the <a href="../qtcore/qobject.html">QObject</a> subclass.</p>
 </div>
-<p><b>参见</b><a href="qaxbase.html">QAxBase</a>, <a href="qaxobject.html">QAxObject</a>, <a href="qaxscript.html">QAxScript</a>, and <a href="activeqt-index.html">ActiveQt Framework</a>.</p>
+<p><b> 参见 </b><a href="qaxbase.html">QAxBase</a>, <a href="qaxobject.html">QAxObject</a>, <a href="qaxscript.html">QAxScript</a>, and <a href="activeqt-index.html">ActiveQt Framework</a>.</p>
 <!-- @@@QAxWidget -->
 <div class="types">
 <h2>变量类型文档</h2>
@@ -152,7 +152,7 @@
 <!-- $$$QAxWidget$$$QAxWidgetconstQString&QWidget*Qt::WindowFlags -->
 <h3 class="fn" id="QAxWidget-1"><a name="QAxWidget-1"></a>QAxWidget::<span class="name">QAxWidget</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>c</i>, <span class="type"><a href="../qtwidgets/qwidget.html#QWidget">QWidget</a></span> *<i>parent</i> = nullptr, <span class="type">Qt::WindowFlags</span> <i>f</i> = ...)</h3>
 <p>Creates an <a href="qaxwidget.html">QAxWidget</a> widget and initializes the ActiveX control <i>c</i>. <i>parent</i> and <i>f</i> are propagated to the <a href="../qtwidgets/qwidget.html">QWidget</a> contructor.</p>
-<p><b>参见</b><a href="qaxbase.html#control-prop">setControl</a>().</p>
+<p><b> 参见 </b><a href="qaxbase.html#control-prop">setControl</a>().</p>
 <!-- @@@QAxWidget -->
 <!-- $$$QAxWidget$$$QAxWidgetIUnknown*QWidget*Qt::WindowFlags -->
 <h3 class="fn" id="QAxWidget-2"><a name="QAxWidget-2"></a>QAxWidget::<span class="name">QAxWidget</span>(<span class="type">IUnknown</span> *<i>iface</i>, <span class="type"><a href="../qtwidgets/qwidget.html#QWidget">QWidget</a></span> *<i>parent</i> = nullptr, <span class="type">Qt::WindowFlags</span> <i>f</i> = ...)</h3>
@@ -161,7 +161,7 @@
 <!-- $$$~QAxWidget[overload1]$$$~QAxWidget -->
 <h3 class="fn" id="dtor.QAxWidget"><a name="dtor.QAxWidget"></a><code>[override virtual] </code>QAxWidget::<span class="name">~QAxWidget</span>()</h3>
 <p>Shuts down the ActiveX control and destroys the <a href="qaxwidget.html">QAxWidget</a> widget, cleaning up all allocated resources.</p>
-<p><b>参见</b><a href="qaxwidget.html#clear">clear</a>().</p>
+<p><b> 参见 </b><a href="qaxwidget.html#clear">clear</a>().</p>
 <!-- @@@~QAxWidget -->
 <!-- $$$changeEvent[overload1]$$$changeEventQEvent* -->
 <h3 class="fn" id="changeEvent"><a name="changeEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QAxWidget::<span class="name">changeEvent</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>e</i>)</h3>

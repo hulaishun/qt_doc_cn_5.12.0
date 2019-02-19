@@ -66,7 +66,7 @@
 <h2 id="transformation-operations">Transformation Operations</h2>
 <p>Normally, the <a href="../qtgui/qpainter.html">QPainter</a> operates on the associated device's own coordinate system, but it also has good support for coordinate transformations.</p>
 <p>The default coordinate system of a paint device has its origin at the top-left corner. The x values increase to the right and the y values increase downwards. You can scale the coordinate system by a given offset using the <a href="../qtgui/qpainter.html#scale">QPainter::scale</a>() function, you can rotate it clockwise using the <a href="../qtgui/qpainter.html#rotate">QPainter::rotate</a>() function and you can translate it (i.e&#x2e; adding a given offset to the points) using the <a href="../qtgui/qpainter.html#translate-1">QPainter::translate</a>() function. You can also twist the coordinate system around the origin (called shearing) using the <a href="../qtgui/qpainter.html#shear">QPainter::shear</a>() function.</p>
-<p>All the tranformation operations operate on <a href="../qtgui/qpainter.html">QPainter</a>'s tranformation matrix that you can retrieve using the <a href="../qtgui/qpainter.html#worldTransform">QPainter::worldTransform</a>() function. A matrix transforms a point in the plane to another point. For more information about the transformation matrix, see the <a href="../qtgui/coordsys.html">Coordinate System</a> and <a href="../qtgui/qtransform.html">QTransform</a> documentation.</p>
+<p>All the tranformation operations operate on <a href="../qtgui/qpainter.html">QPainter</a>'s tranformation matrix that you can retrieve using the <a href="../qtgui/qpainter.html#worldTransform">QPainter::worldTransform</a>() function. A matrix transforms a point in the plane to another point. For more information about the transformation matrix, see the <a href="../qtgui/coordsys.html">Coordinate System</a> 和 <a href="../qtgui/qtransform.html">QTransform</a> documentation.</p>
 <pre class="cpp">
 
   <span class="keyword">enum</span> Operation { NoTransformation<span class="operator">,</span> Translate<span class="operator">,</span> Rotate<span class="operator">,</span> Scale };
@@ -96,7 +96,7 @@
 
 </pre>
 <p>We declare two public functions, <code>setOperations()</code> and <code>setShape()</code>, to be able to specify the <code>RenderArea</code> widget's shape and to transform the coordinate system the shape is rendered within.</p>
-<p>We reimplement the <a href="qwidget.html">QWidget</a>'s <a href="qwidget.html#minimumSizeHint-prop">minimumSizeHint()</a> and <a href="qwidget.html#sizeHint-prop">sizeHint()</a> functions to give the <code>RenderArea</code> widget a reasonable size within our application, and we reimplement the <a href="qwidget.html#paintEvent">QWidget::paintEvent</a>() event handler to draw the render area's shape applying the user's transformation choices.</p>
+<p>We reimplement the <a href="qwidget.html">QWidget</a>'s <a href="qwidget.html#minimumSizeHint-prop">minimumSizeHint()</a> 和 <a href="qwidget.html#sizeHint-prop">sizeHint()</a> functions to give the <code>RenderArea</code> widget a reasonable size within our application, and we reimplement the <a href="qwidget.html#paintEvent">QWidget::paintEvent</a>() event handler to draw the render area's shape applying the user's transformation choices.</p>
 <pre class="cpp">
 
   <span class="keyword">private</span>:
@@ -164,7 +164,7 @@
   }
 
 </pre>
-<p>We reimplement the <a href="qwidget.html">QWidget</a>'s <a href="qwidget.html#minimumSizeHint-prop">minimumSizeHint()</a> and <a href="qwidget.html#sizeHint-prop">sizeHint()</a> functions to give the <code>RenderArea</code> widget a reasonable size within our application. The default implementations of these functions returns an invalid size if there is no layout for this widget, and returns the layout's minimum size or preferred size, respectively, otherwise.</p>
+<p>We reimplement the <a href="qwidget.html">QWidget</a>'s <a href="qwidget.html#minimumSizeHint-prop">minimumSizeHint()</a> 和 <a href="qwidget.html#sizeHint-prop">sizeHint()</a> functions to give the <code>RenderArea</code> widget a reasonable size within our application. The default implementations of these functions returns an invalid size if there is no layout for this widget, and returns the layout's minimum size or preferred size, respectively, otherwise.</p>
 <pre class="cpp">
 
   <span class="type">void</span> RenderArea<span class="operator">::</span>paintEvent(<span class="type"><a href="../qtgui/qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event)
@@ -406,7 +406,7 @@
 <a name="summary"></a>
 <h2 id="summary">总述</h2>
 <p>The Transformations example shows how transformations influence the way that <a href="../qtgui/qpainter.html">QPainter</a> renders graphics primitives. Normally, the <a href="../qtgui/qpainter.html">QPainter</a> operates on the device's own coordinate system, but it also has good support for coordinate transformations. With the Transformations application you can scale, rotate and translate <a href="../qtgui/qpainter.html">QPainter</a>'s coordinate system. The order in which these tranformations are applied is essential for the result.</p>
-<p>All the tranformation operations operate on <a href="../qtgui/qpainter.html">QPainter</a>'s tranformation matrix. For more information about the transformation matrix, see the <a href="../qtgui/coordsys.html">Coordinate System</a> and <a href="../qtgui/qtransform.html">QTransform</a> documentation.</p>
+<p>All the tranformation operations operate on <a href="../qtgui/qpainter.html">QPainter</a>'s tranformation matrix. For more information about the transformation matrix, see the <a href="../qtgui/coordsys.html">Coordinate System</a> 和 <a href="../qtgui/qtransform.html">QTransform</a> documentation.</p>
 <p>The Qt reference documentation provides several painting examples. Among these is the <a href="qtwidgets-painting-affine-example.html">Affine Transformations</a> example that shows Qt's ability to perform transformations on painting operations. The example also allows the user to experiment with the various transformation operations.</p>
 <p>文件：</p>
 <ul>

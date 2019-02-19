@@ -129,7 +129,7 @@
 <li>Multi-streamed datagram mode.</li>
 </ul>
 <p>To set a continuous byte stream mode, instantiate <a href="qsctpsocket.html">QSctpSocket</a> and call <a href="qsctpsocket.html#setMaximumChannelCount">setMaximumChannelCount</a>() with a negative value. This gives the ability to use <a href="qsctpsocket.html">QSctpSocket</a> as a regular buffered <a href="qtcpsocket.html">QTcpSocket</a>. You can call <a href="qabstractsocket.html#connectToHost">connectToHost</a>() to initiate connection with endpoint, <a href="../qtcore/qiodevice.html#write-2">write</a>() to transmit and <a href="../qtcore/qiodevice.html#read-1">read</a>() to receive data from the peer, but you cannot distinguish message boundaries.</p>
-<p>By default, <a href="qsctpsocket.html">QSctpSocket</a> operates in datagram mode. Before connecting, call <a href="qsctpsocket.html#setMaximumChannelCount">setMaximumChannelCount</a>() to set the maximum number of channels that the application is prepared to support. This number is a parameter negotiated with the remote endpoint and its value can be bounded by the operating system. The default value of 0 indicates to use the peer's value. If both endpoints have default values, then number of connection channels is system-dependent. After establishing a connection, you can fetch the actual number of channels by calling <a href="../qtcore/qiodevice.html#readChannelCount">readChannelCount</a>() and <a href="../qtcore/qiodevice.html#writeChannelCount">writeChannelCount</a>().</p>
+<p>By default, <a href="qsctpsocket.html">QSctpSocket</a> operates in datagram mode. Before connecting, call <a href="qsctpsocket.html#setMaximumChannelCount">setMaximumChannelCount</a>() to set the maximum number of channels that the application is prepared to support. This number is a parameter negotiated with the remote endpoint and its value can be bounded by the operating system. The default value of 0 indicates to use the peer's value. If both endpoints have default values, then number of connection channels is system-dependent. After establishing a connection, you can fetch the actual number of channels by calling <a href="../qtcore/qiodevice.html#readChannelCount">readChannelCount</a>() 和 <a href="../qtcore/qiodevice.html#writeChannelCount">writeChannelCount</a>().</p>
 <pre class="cpp">
 
   <span class="type"><a href="qsctpsocket.html#QSctpSocket">QSctpSocket</a></span> <span class="operator">*</span>socket <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qsctpsocket.html#QSctpSocket">QSctpSocket</a></span>(<span class="keyword">this</span>);
@@ -148,7 +148,7 @@
 <p>In datagram mode, <a href="qsctpsocket.html">QSctpSocket</a> performs the buffering of datagrams independently for each channel. You can queue a datagram to the buffer of the current channel by calling <a href="qsctpsocket.html#writeDatagram">writeDatagram</a>() and read a pending datagram by calling <a href="qsctpsocket.html#readDatagram">readDatagram</a>() respectively.</p>
 <p>Using the standard <a href="../qtcore/qiodevice.html">QIODevice</a> functions <a href="../qtcore/qiodevice.html#read-1">read</a>(), <a href="../qtcore/qiodevice.html#readLine-1">readLine</a>(), <a href="../qtcore/qiodevice.html#write-2">write</a>(), etc. is allowed in datagram mode with the same limitations as in continuous byte stream mode.</p>
 <p><b>Note: </b>This feature is not supported on the Windows platform.</p></div>
-<p><b>参见</b><a href="qsctpserver.html">QSctpServer</a>, <a href="qtcpsocket.html">QTcpSocket</a>, and <a href="qabstractsocket.html">QAbstractSocket</a>.</p>
+<p><b> 参见 </b><a href="qsctpserver.html">QSctpServer</a>, <a href="qtcpsocket.html">QTcpSocket</a>, and <a href="qabstractsocket.html">QAbstractSocket</a>.</p>
 <!-- @@@QSctpSocket -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -162,12 +162,12 @@
 <h3 class="fn" id="QSctpSocket"><a name="QSctpSocket"></a>QSctpSocket::<span class="name">QSctpSocket</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
 <p>Creates a <a href="qsctpsocket.html">QSctpSocket</a> object in state <code>UnconnectedState</code>.</p>
 <p>Sets the datagram operation mode. The <i>parent</i> argument is passed to <a href="../qtcore/qobject.html">QObject</a>'s constructor.</p>
-<p><b>参见</b><a href="qabstractsocket.html#socketType">socketType</a>() and <a href="qsctpsocket.html#setMaximumChannelCount">setMaximumChannelCount</a>().</p>
+<p><b> 参见 </b><a href="qabstractsocket.html#socketType">socketType</a>() 和 <a href="qsctpsocket.html#setMaximumChannelCount">setMaximumChannelCount</a>().</p>
 <!-- @@@QSctpSocket -->
 <!-- $$$~QSctpSocket[overload1]$$$~QSctpSocket -->
 <h3 class="fn" id="dtor.QSctpSocket"><a name="dtor.QSctpSocket"></a><code>[virtual] </code>QSctpSocket::<span class="name">~QSctpSocket</span>()</h3>
 <p>Destroys the socket, closing the connection if necessary.</p>
-<p><b>参见</b><a href="qsctpsocket.html#close">close</a>().</p>
+<p><b> 参见 </b><a href="qsctpsocket.html#close">close</a>().</p>
 <!-- @@@~QSctpSocket -->
 <!-- $$$close[overload1]$$$close -->
 <h3 class="fn" id="close"><a name="close"></a><code>[override virtual] </code><span class="type">void</span> QSctpSocket::<span class="name">close</span>()</h3>
@@ -180,14 +180,14 @@
 <!-- $$$isInDatagramMode[overload1]$$$isInDatagramMode -->
 <h3 class="fn" id="isInDatagramMode"><a name="isInDatagramMode"></a><span class="type">bool</span> QSctpSocket::<span class="name">isInDatagramMode</span>() const</h3>
 <p>Returns <code>true</code> if the socket is running in datagram mode.</p>
-<p><b>参见</b><a href="qsctpsocket.html#setMaximumChannelCount">setMaximumChannelCount</a>().</p>
+<p><b> 参见 </b><a href="qsctpsocket.html#setMaximumChannelCount">setMaximumChannelCount</a>().</p>
 <!-- @@@isInDatagramMode -->
 <!-- $$$maximumChannelCount[overload1]$$$maximumChannelCount -->
 <h3 class="fn" id="maximumChannelCount"><a name="maximumChannelCount"></a><span class="type">int</span> QSctpSocket::<span class="name">maximumChannelCount</span>() const</h3>
 <p>Returns the maximum number of channels that <a href="qsctpsocket.html">QSctpSocket</a> is able to support.</p>
 <p>A value of 0 (the default) means that the number of connection channels would be set by the remote endpoint.</p>
 <p>Returns -1 if <a href="qsctpsocket.html">QSctpSocket</a> is running in continuous byte stream mode.</p>
-<p><b>参见</b><a href="qsctpsocket.html#setMaximumChannelCount">setMaximumChannelCount</a>(), <a href="../qtcore/qiodevice.html#readChannelCount">readChannelCount</a>(), and <a href="../qtcore/qiodevice.html#writeChannelCount">writeChannelCount</a>().</p>
+<p><b> 参见 </b><a href="qsctpsocket.html#setMaximumChannelCount">setMaximumChannelCount</a>(), <a href="../qtcore/qiodevice.html#readChannelCount">readChannelCount</a>(), 和 <a href="../qtcore/qiodevice.html#writeChannelCount">writeChannelCount</a>().</p>
 <!-- @@@maximumChannelCount -->
 <!-- $$$readData[overload1]$$$readDatachar*qint64 -->
 <h3 class="fn" id="readData"><a name="readData"></a><code>[override virtual protected] </code><span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> QSctpSocket::<span class="name">readData</span>(<span class="type">char</span> *<i>data</i>, <span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> <i>maxSize</i>)</h3>
@@ -197,7 +197,7 @@
 <h3 class="fn" id="readDatagram"><a name="readDatagram"></a><span class="type"><a href="qnetworkdatagram.html">QNetworkDatagram</a></span> QSctpSocket::<span class="name">readDatagram</span>()</h3>
 <p>Reads a datagram from the buffer of the current read channel, and returns it as a <a href="qnetworkdatagram.html">QNetworkDatagram</a> object, along with the sender's host address and port. If possible, this function will also try to determine the datagram's destination address, port, and the number of hop counts at reception time.</p>
 <p>On failure, returns a <a href="qnetworkdatagram.html">QNetworkDatagram</a> that reports <a href="qnetworkdatagram.html#isValid">not valid</a>.</p>
-<p><b>参见</b><a href="qsctpsocket.html#writeDatagram">writeDatagram</a>(), <a href="qsctpsocket.html#isInDatagramMode">isInDatagramMode</a>(), and <a href="../qtcore/qiodevice.html#currentReadChannel">currentReadChannel</a>().</p>
+<p><b> 参见 </b><a href="qsctpsocket.html#writeDatagram">writeDatagram</a>(), <a href="qsctpsocket.html#isInDatagramMode">isInDatagramMode</a>(), 和 <a href="../qtcore/qiodevice.html#currentReadChannel">currentReadChannel</a>().</p>
 <!-- @@@readDatagram -->
 <!-- $$$readLineData[overload1]$$$readLineDatachar*qint64 -->
 <h3 class="fn" id="readLineData"><a name="readLineData"></a><code>[override virtual protected] </code><span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> QSctpSocket::<span class="name">readLineData</span>(<span class="type">char</span> *<i>data</i>, <span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> <i>maxlen</i>)</h3>
@@ -207,12 +207,12 @@
 <h3 class="fn" id="setMaximumChannelCount"><a name="setMaximumChannelCount"></a><span class="type">void</span> QSctpSocket::<span class="name">setMaximumChannelCount</span>(<span class="type">int</span> <i>count</i>)</h3>
 <p>Sets the maximum number of channels that the application is prepared to support in datagram mode, to <i>count</i>. If <i>count</i> is 0, endpoint's value for maximum number of channels is used. Negative <i>count</i> sets a continuous byte stream mode.</p>
 <p>Call this method only when <a href="qsctpsocket.html">QSctpSocket</a> is in <a href="qabstractsocket.html#SocketState-enum">UnconnectedState</a>.</p>
-<p><b>参见</b><a href="qsctpsocket.html#maximumChannelCount">maximumChannelCount</a>(), <a href="../qtcore/qiodevice.html#readChannelCount">readChannelCount</a>(), and <a href="../qtcore/qiodevice.html#writeChannelCount">writeChannelCount</a>().</p>
+<p><b> 参见 </b><a href="qsctpsocket.html#maximumChannelCount">maximumChannelCount</a>(), <a href="../qtcore/qiodevice.html#readChannelCount">readChannelCount</a>(), 和 <a href="../qtcore/qiodevice.html#writeChannelCount">writeChannelCount</a>().</p>
 <!-- @@@setMaximumChannelCount -->
 <!-- $$$writeDatagram[overload1]$$$writeDatagramconstQNetworkDatagram& -->
 <h3 class="fn" id="writeDatagram"><a name="writeDatagram"></a><span class="type">bool</span> QSctpSocket::<span class="name">writeDatagram</span>(const <span class="type"><a href="qnetworkdatagram.html">QNetworkDatagram</a></span> &amp;<i>datagram</i>)</h3>
 <p>Writes a <i>datagram</i> to the buffer of the current write channel. Returns true on success; otherwise returns false.</p>
-<p><b>参见</b><a href="qsctpsocket.html#readDatagram">readDatagram</a>(), <a href="qsctpsocket.html#isInDatagramMode">isInDatagramMode</a>(), and <a href="../qtcore/qiodevice.html#currentWriteChannel">currentWriteChannel</a>().</p>
+<p><b> 参见 </b><a href="qsctpsocket.html#readDatagram">readDatagram</a>(), <a href="qsctpsocket.html#isInDatagramMode">isInDatagramMode</a>(), 和 <a href="../qtcore/qiodevice.html#currentWriteChannel">currentWriteChannel</a>().</p>
 <!-- @@@writeDatagram -->
 </div>
 <div class="vars">

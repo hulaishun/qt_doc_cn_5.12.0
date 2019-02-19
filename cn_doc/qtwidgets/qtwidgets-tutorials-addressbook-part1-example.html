@@ -88,9 +88,9 @@
   };
 
 </pre>
-<p>The class holds declarations of <code>nameLine</code> and <code>addressText</code>, the private instances of <a href="qlineedit.html">QLineEdit</a> and <a href="qtextedit.html">QTextEdit</a> mentioned earlier. The data stored in <code>nameLine</code> and <code>addressText</code> will be needed for many of the address book functions.</p>
+<p>The class holds declarations of <code>nameLine</code> and <code>addressText</code>, the private instances of <a href="qlineedit.html">QLineEdit</a> 和 <a href="qtextedit.html">QTextEdit</a> mentioned earlier. The data stored in <code>nameLine</code> and <code>addressText</code> will be needed for many of the address book functions.</p>
 <p>We don't include declarations of the <a href="qlabel.html">QLabel</a> objects we will use because we will not need to reference them once they have been created. The way Qt tracks the ownership of objects is explained in the next section.</p>
-<p>The <a href="../qtcore/qobject.html#Q_OBJECT">Q_OBJECT</a> macro itself implements some of the more advanced features of Qt. For now, it is useful to think of the <a href="../qtcore/qobject.html#Q_OBJECT">Q_OBJECT</a> macro as a shortcut which allows us to use the <a href="../qtcore/qobject.html#tr">tr()</a> and <a href="../qtcore/qobject.html#connect-4">connect()</a> functions.</p>
+<p>The <a href="../qtcore/qobject.html#Q_OBJECT">Q_OBJECT</a> macro itself implements some of the more advanced features of Qt. For now, it is useful to think of the <a href="../qtcore/qobject.html#Q_OBJECT">Q_OBJECT</a> macro as a shortcut which allows us to use the <a href="../qtcore/qobject.html#tr">tr()</a> 和 <a href="../qtcore/qobject.html#connect-4">connect()</a> functions.</p>
 <p>We have now completed the <code>addressbook.h</code> file and we move on to implement the corresponding <code>addressbook.cpp</code> file.</p>
 <a name="implementing-the-addressbook-class"></a>
 <h2 id="implementing-the-addressbook-class">Implementing the AddressBook Class</h2>
@@ -108,7 +108,7 @@
 
 </pre>
 <p>In this constructor, the <a href="qlabel.html">QLabel</a> objects <code>nameLabel</code> and <code>addressLabel</code> are instantiated, as well as <code>nameLine</code> and <code>addressText</code>. The <a href="../qtcore/qobject.html#tr">tr()</a> function returns a translated version of the string, if there is one available. Otherwise it returns the string itself. This function marks its <a href="../qtcore/qstring.html">QString</a> parameter as one that should be translated into other languages. It should be used wherever a translatable string appears.</p>
-<p>When programming with Qt, it is useful to know how layouts work. Qt provides three main layout classes: <a href="qhboxlayout.html">QHBoxLayout</a>, <a href="qvboxlayout.html">QVBoxLayout</a> and <a href="qgridlayout.html">QGridLayout</a> to handle the positioning of widgets.</p>
+<p>When programming with Qt, it is useful to know how layouts work. Qt provides three main layout classes: <a href="qhboxlayout.html">QHBoxLayout</a>, <a href="qvboxlayout.html">QVBoxLayout</a> 和 <a href="qgridlayout.html">QGridLayout</a> to handle the positioning of widgets.</p>
 <p class="centerAlign"><img src="images/addressbook-tutorial-part1-labeled-layout.png" alt="" /></p><p>We use a <a href="qgridlayout.html">QGridLayout</a> to position our labels and input fields in a structured manner. <a href="qgridlayout.html">QGridLayout</a> divides the available space into a grid and places widgets in the cells we specify with row and column numbers. The diagram above shows the layout cells and the position of our widgets, and we specify this arrangement using the following code:</p>
 <pre class="cpp">
 

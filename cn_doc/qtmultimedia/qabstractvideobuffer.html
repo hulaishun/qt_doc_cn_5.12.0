@@ -90,7 +90,7 @@
 <p>The contents of a buffer can be accessed by mapping the buffer to memory using the <a href="qabstractvideobuffer.html#map">map</a>() function, which returns a pointer to memory containing the contents of the video buffer. The memory returned by <a href="qabstractvideobuffer.html#map">map</a>() is released by calling the <a href="qabstractvideobuffer.html#unmap">unmap</a>() function.</p>
 <p>The <a href="qabstractvideobuffer.html#handle">handle</a>() of a buffer may also be used to manipulate its contents using type specific APIs. The type of a buffer's handle is given by the <a href="qabstractvideobuffer.html#handleType">handleType</a>() function.</p>
 </div>
-<p><b>参见</b><a href="qvideoframe.html">QVideoFrame</a>.</p>
+<p><b> 参见 </b><a href="qvideoframe.html">QVideoFrame</a>.</p>
 <!-- @@@QAbstractVideoBuffer -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -106,7 +106,7 @@
 <tr><td class="topAlign"><code>QAbstractVideoBuffer::EGLImageHandle</code></td><td class="topAlign tblval"><code>5</code></td><td class="topAlign">The handle of the buffer is an EGLImageKHR.</td></tr>
 <tr><td class="topAlign"><code>QAbstractVideoBuffer::UserHandle</code></td><td class="topAlign tblval"><code>1000</code></td><td class="topAlign">Start value for user defined handle types.</td></tr>
 </table></div>
-<p><b>参见</b><a href="qabstractvideobuffer.html#handleType">handleType</a>().</p>
+<p><b> 参见 </b><a href="qabstractvideobuffer.html#handleType">handleType</a>().</p>
 <!-- @@@HandleType -->
 <!-- $$$MapMode$$$NotMapped$$$ReadOnly$$$WriteOnly$$$ReadWrite -->
 <h3 class="fn" id="MapMode-enum"><a name="MapMode-enum"></a>enum QAbstractVideoBuffer::<span class="name">MapMode</span></h3>
@@ -117,7 +117,7 @@
 <tr><td class="topAlign"><code>QAbstractVideoBuffer::WriteOnly</code></td><td class="topAlign tblval"><code>0x02</code></td><td class="topAlign">The mapped memory is uninitialized when mapped, but the possibly modified content will be used to populate the video buffer when unmapped.</td></tr>
 <tr><td class="topAlign"><code>QAbstractVideoBuffer::ReadWrite</code></td><td class="topAlign tblval"><code>ReadOnly | WriteOnly</code></td><td class="topAlign">The mapped memory is populated with data from the video buffer, and the video buffer is repopulated with the content of the mapped memory when it is unmapped.</td></tr>
 </table></div>
-<p><b>参见</b><a href="qabstractvideobuffer.html#mapMode">mapMode</a>() and <a href="qabstractvideobuffer.html#map">map</a>().</p>
+<p><b> 参见 </b><a href="qabstractvideobuffer.html#mapMode">mapMode</a>() 和 <a href="qabstractvideobuffer.html#map">map</a>().</p>
 <!-- @@@MapMode -->
 </div>
 <div class="prop">
@@ -137,12 +137,12 @@
 <h3 class="fn" id="handle"><a name="handle"></a><code>[virtual] </code><span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> QAbstractVideoBuffer::<span class="name">handle</span>() const</h3>
 <p>Returns a type specific handle to the data buffer.</p>
 <p>The type of the handle is given by <a href="qabstractvideobuffer.html#handleType">handleType</a>() function.</p>
-<p><b>参见</b><a href="qabstractvideobuffer.html#handleType">handleType</a>().</p>
+<p><b> 参见 </b><a href="qabstractvideobuffer.html#handleType">handleType</a>().</p>
 <!-- @@@handle -->
 <!-- $$$handleType[overload1]$$$handleType -->
 <h3 class="fn" id="handleType"><a name="handleType"></a><span class="type"><a href="qabstractvideobuffer.html#HandleType-enum">QAbstractVideoBuffer::HandleType</a></span> QAbstractVideoBuffer::<span class="name">handleType</span>() const</h3>
 <p>Returns the type of a video buffer's handle.</p>
-<p><b>参见</b><a href="qabstractvideobuffer.html#handle">handle</a>().</p>
+<p><b> 参见 </b><a href="qabstractvideobuffer.html#handle">handle</a>().</p>
 <!-- @@@handleType -->
 <!-- $$$map[overload1]$$$mapQAbstractVideoBuffer::MapModeint*int* -->
 <h3 class="fn" id="map"><a name="map"></a><code>[pure virtual] </code><span class="type"><a href="../qtcore/qtglobal.html#uchar-typedef">uchar</a></span> *QAbstractVideoBuffer::<span class="name">map</span>(<span class="type"><a href="qabstractvideobuffer.html#MapMode-enum">QAbstractVideoBuffer::MapMode</a></span> <i>mode</i>, <span class="type">int</span> *<i>numBytes</i>, <span class="type">int</span> *<i>bytesPerLine</i>)</h3>
@@ -151,12 +151,12 @@
 <p>The map <i>mode</i> indicates whether the contents of the mapped memory should be read from and/or written to the buffer. If the map mode includes the <code>QAbstractVideoBuffer::ReadOnly</code> flag the mapped memory will be populated with the content of the buffer when initially mapped. If the map mode includes the <code>QAbstractVideoBuffer::WriteOnly</code> flag the content of the possibly modified mapped memory will be written back to the buffer when unmapped.</p>
 <p>When access to the data is no longer needed be sure to call the <a href="qabstractvideobuffer.html#unmap">unmap</a>() function to release the mapped memory and possibly update the buffer contents.</p>
 <p>Returns a pointer to the mapped memory region, or a null pointer if the mapping failed. The size in bytes of the mapped memory region is returned in <i>numBytes</i>, and the line stride in <i>bytesPerLine</i>.</p>
-<p><b>Note: </b>Writing to memory that is mapped as read-only is undefined, and may result in changes to shared data or crashes.</p><p><b>参见</b><a href="qabstractvideobuffer.html#unmap">unmap</a>() and <a href="qabstractvideobuffer.html#mapMode">mapMode</a>().</p>
+<p><b>Note: </b>Writing to memory that is mapped as read-only is undefined, and may result in changes to shared data or crashes.</p><p><b> 参见 </b><a href="qabstractvideobuffer.html#unmap">unmap</a>() 和 <a href="qabstractvideobuffer.html#mapMode">mapMode</a>().</p>
 <!-- @@@map -->
 <!-- $$$mapMode[overload1]$$$mapMode -->
 <h3 class="fn" id="mapMode"><a name="mapMode"></a><code>[pure virtual] </code><span class="type"><a href="qabstractvideobuffer.html#MapMode-enum">QAbstractVideoBuffer::MapMode</a></span> QAbstractVideoBuffer::<span class="name">mapMode</span>() const</h3>
 <p>Returns the mode a video buffer is mapped in.</p>
-<p><b>参见</b><a href="qabstractvideobuffer.html#map">map</a>().</p>
+<p><b> 参见 </b><a href="qabstractvideobuffer.html#map">map</a>().</p>
 <!-- @@@mapMode -->
 <!-- $$$mapPlanes[overload1]$$$mapPlanesQAbstractVideoBuffer::MapModeint*int[4]uchar*[4] -->
 <h3 class="fn" id="mapPlanes"><a name="mapPlanes"></a><span class="type">int</span> QAbstractVideoBuffer::<span class="name">mapPlanes</span>(<span class="type"><a href="qabstractvideobuffer.html#MapMode-enum">QAbstractVideoBuffer::MapMode</a></span> <i>mode</i>, <span class="type">int</span> *<i>numBytes</i>, <span class="type">int</span> [<span class="type">4</span>] <i>bytesPerLine</i> = 4, <span class="type"><a href="../qtcore/qtglobal.html#uchar-typedef">uchar</a></span> *[<span class="type">4</span>] <i>data</i> = 4)</h3>
@@ -178,7 +178,7 @@
 <h3 class="fn" id="unmap"><a name="unmap"></a><code>[pure virtual] </code><span class="type">void</span> QAbstractVideoBuffer::<span class="name">unmap</span>()</h3>
 <p>Releases the memory mapped by the <a href="qabstractvideobuffer.html#map">map</a>() function.</p>
 <p>If the <a href="qabstractvideobuffer.html#MapMode-enum">MapMode</a> included the <code>QAbstractVideoBuffer::WriteOnly</code> flag this will write the current content of the mapped memory back to the video frame.</p>
-<p><b>参见</b><a href="qabstractvideobuffer.html#map">map</a>().</p>
+<p><b> 参见 </b><a href="qabstractvideobuffer.html#map">map</a>().</p>
 <!-- @@@unmap -->
 </div>
 <div class="vars">

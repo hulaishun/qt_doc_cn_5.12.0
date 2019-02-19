@@ -103,7 +103,7 @@
 <div class="descr">
 <h2 id="details">详细描述</h2>
 <p>The <a href="qquickrendercontrol.html">QQuickRenderControl</a> class provides a mechanism for rendering the Qt Quick scenegraph onto an offscreen render target in a fully application-controlled manner.</p>
-<p><a href="qquickwindow.html">QQuickWindow</a> and <a href="qquickview.html">QQuickView</a> and their associated internal render loops render the Qt Quick scene onto a native window. In some cases, for example when integrating with 3rd party OpenGL renderers, it might be beneficial to get the scene into a texture that can then be used in arbitrary ways by the external rendering engine. <a href="qquickrendercontrol.html">QQuickRenderControl</a> makes this possible in a hardware accelerated manner, unlike the performance-wise limited alternative of using <a href="qquickwindow.html#grabWindow">QQuickWindow::grabWindow</a>()</p>
+<p><a href="qquickwindow.html">QQuickWindow</a> 和 <a href="qquickview.html">QQuickView</a> and their associated internal render loops render the Qt Quick scene onto a native window. In some cases, for example when integrating with 3rd party OpenGL renderers, it might be beneficial to get the scene into a texture that can then be used in arbitrary ways by the external rendering engine. <a href="qquickrendercontrol.html">QQuickRenderControl</a> makes this possible in a hardware accelerated manner, unlike the performance-wise limited alternative of using <a href="qquickwindow.html#grabWindow">QQuickWindow::grabWindow</a>()</p>
 <p>When using a <a href="qquickrendercontrol.html">QQuickRenderControl</a>, the <a href="qquickwindow.html">QQuickWindow</a> does not have to be shown or even created at all. This means there will not be an underlying native window for it. Instead, the <a href="qquickwindow.html">QQuickWindow</a> instance is associated with the render control, using the overload of the <a href="qquickwindow.html">QQuickWindow</a> constructor, and an OpenGL framebuffer object by calling <a href="qquickwindow.html#setRenderTarget">QQuickWindow::setRenderTarget</a>().</p>
 <p>Management of the context and framebuffer object is up to the application. The context that will be used by Qt Quick must be created before calling <a href="qquickrendercontrol.html#initialize">initialize</a>(). The creation of the framebuffer object can be deferred, see below. Qt 5.4 introduces the ability for <a href="../qtgui/qopenglcontext.html">QOpenGLContext</a> to adopt existing native contexts. Together with <a href="qquickrendercontrol.html">QQuickRenderControl</a> this makes it possible to create a <a href="../qtgui/qopenglcontext.html">QOpenGLContext</a> that shares with an external rendering engine's existing context. This new <a href="../qtgui/qopenglcontext.html">QOpenGLContext</a> can then be used to render the Qt Quick scene into a texture that is accessible by the other engine's context too.</p>
 <p>Loading and instantiation of the QML components happen by using a <a href="../qtqml/qqmlengine.html">QQmlEngine</a>. Once the root object is created, it will need to be parented to the <a href="qquickwindow.html">QQuickWindow</a>'s contentItem().</p>
@@ -132,7 +132,7 @@
 <!-- $$$~QQuickRenderControl[overload1]$$$~QQuickRenderControl -->
 <h3 class="fn" id="dtor.QQuickRenderControl"><a name="dtor.QQuickRenderControl"></a><code>[override virtual] </code>QQuickRenderControl::<span class="name">~QQuickRenderControl</span>()</h3>
 <p>Destroys the instance. Releases all scenegraph resources.</p>
-<p><b>参见</b><a href="qquickrendercontrol.html#invalidate">invalidate</a>().</p>
+<p><b> 参见 </b><a href="qquickrendercontrol.html#invalidate">invalidate</a>().</p>
 <!-- @@@~QQuickRenderControl -->
 <!-- $$$grab[overload1]$$$grab -->
 <h3 class="fn" id="grab"><a name="grab"></a><span class="type"><a href="../qtgui/qimage.html">QImage</a></span> QQuickRenderControl::<span class="name">grab</span>()</h3>
@@ -178,7 +178,7 @@
 <!-- @@@renderWindowFor -->
 <!-- $$$sceneChanged[overload1]$$$sceneChanged -->
 <h3 class="fn" id="sceneChanged"><a name="sceneChanged"></a><code>[signal] </code><span class="type">void</span> QQuickRenderControl::<span class="name">sceneChanged</span>()</h3>
-<p>This signal is emitted when the scene graph is updated, meaning that <a href="qquickrendercontrol.html#polishItems">polishItems</a>() and <a href="qquickrendercontrol.html#sync">sync</a>() needs to be called. If <a href="qquickrendercontrol.html#sync">sync</a>() returns true, then <a href="qquickrendercontrol.html#render">render</a>() needs to be called.</p>
+<p>This signal is emitted when the scene graph is updated, meaning that <a href="qquickrendercontrol.html#polishItems">polishItems</a>() 和 <a href="qquickrendercontrol.html#sync">sync</a>() needs to be called. If <a href="qquickrendercontrol.html#sync">sync</a>() returns true, then <a href="qquickrendercontrol.html#render">render</a>() needs to be called.</p>
 <p><b>Note: </b>Avoid triggering polishing, synchronization and rendering directly when this signal is emitted. Instead, prefer deferring it by using a timer for example. This will lead to better performance.</p><!-- @@@sceneChanged -->
 <!-- $$$sync[overload1]$$$sync -->
 <h3 class="fn" id="sync"><a name="sync"></a><span class="type">bool</span> QQuickRenderControl::<span class="name">sync</span>()</h3>

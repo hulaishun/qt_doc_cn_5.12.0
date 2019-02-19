@@ -128,7 +128,7 @@
 <p>If the <a href="qbluetoothserviceinfo.html#Protocol-enum">QBluetoothServiceInfo::Protocol</a> is not supported by a platform, <a href="qbluetoothserver.html#listen">listen</a>() will return <code>false</code>. Android and <a href="../qtdoc/supported-platforms.html#winrt">WinRT</a> only support RFCOMM for example.</p>
 <p>On iOS, this class cannot be used because the platform does not expose an API which may permit access to <a href="qbluetoothserver.html">QBluetoothServer</a> related features.</p>
 </div>
-<p><b>参见</b><a href="qbluetoothserviceinfo.html">QBluetoothServiceInfo</a> and <a href="qbluetoothsocket.html">QBluetoothSocket</a>.</p>
+<p><b> 参见 </b><a href="qbluetoothserviceinfo.html">QBluetoothServiceInfo</a> 和 <a href="qbluetoothsocket.html">QBluetoothSocket</a>.</p>
 <!-- @@@QBluetoothServer -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -175,7 +175,7 @@
       <span class="operator">[</span><span class="operator">=</span><span class="operator">]</span>(<span class="type"><a href="qbluetoothserver.html#QBluetoothServer">QBluetoothServer</a></span><span class="operator">::</span>Error error){ <span class="comment">/* ... */</span> });
 
 </pre>
-<p><b>参见</b><a href="qbluetoothserver.html#error">error</a>() and <a href="qbluetoothserver.html#Error-enum">QBluetoothServer::Error</a>.</p>
+<p><b> 参见 </b><a href="qbluetoothserver.html#error">error</a>() 和 <a href="qbluetoothserver.html#Error-enum">QBluetoothServer::Error</a>.</p>
 <!-- @@@error -->
 <!-- $$$hasPendingConnections[overload1]$$$hasPendingConnections -->
 <h3 class="fn" id="hasPendingConnections"><a name="hasPendingConnections"></a><span class="type">bool</span> QBluetoothServer::<span class="name">hasPendingConnections</span>() const</h3>
@@ -190,11 +190,11 @@
 <p>Start listening for incoming connections to <i>address</i> on <i>port</i>. <i>address</i> must be a local Bluetooth adapter address and <i>port</i> must be larger than zero and not be taken already by another Bluetooth server object. It is recommended to avoid setting a port number to enable the system to automatically choose a port.</p>
 <p>Returns <code>true</code> if the operation succeeded and the server is listening for incoming connections, otherwise returns <code>false</code>.</p>
 <p>If the server object is already listening for incoming connections this function always returns <code>false</code>. <a href="qbluetoothserver.html#close">close</a>() should be called before calling this function.</p>
-<p><b>参见</b><a href="qbluetoothserver.html#isListening">isListening</a>() and <a href="qbluetoothserver.html#newConnection">newConnection</a>().</p>
+<p><b> 参见 </b><a href="qbluetoothserver.html#isListening">isListening</a>() 和 <a href="qbluetoothserver.html#newConnection">newConnection</a>().</p>
 <!-- @@@listen -->
 <!-- $$$listen$$$listenconstQBluetoothUuid&constQString& -->
 <h3 class="fn" id="listen-1"><a name="listen-1"></a><span class="type"><a href="qbluetoothserviceinfo.html">QBluetoothServiceInfo</a></span> QBluetoothServer::<span class="name">listen</span>(const <span class="type"><a href="qbluetoothuuid.html">QBluetoothUuid</a></span> &amp;<i>uuid</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>serviceName</i> = QString())</h3>
-<p>Convenience function for registering an SPP service with <i>uuid</i> and <i>serviceName</i>. Because this function already registers the service, the <a href="qbluetoothserviceinfo.html">QBluetoothServiceInfo</a> object which is returned can not be changed any more. To shutdown the server later on it is required to call <a href="qbluetoothserviceinfo.html#unregisterService">QBluetoothServiceInfo::unregisterService</a>() and <a href="qbluetoothserver.html#close">close</a>() on this server object.</p>
+<p>Convenience function for registering an SPP service with <i>uuid</i> and <i>serviceName</i>. Because this function already registers the service, the <a href="qbluetoothserviceinfo.html">QBluetoothServiceInfo</a> object which is returned can not be changed any more. To shutdown the server later on it is required to call <a href="qbluetoothserviceinfo.html#unregisterService">QBluetoothServiceInfo::unregisterService</a>() 和 <a href="qbluetoothserver.html#close">close</a>() on this server object.</p>
 <p>Returns a registered <a href="qbluetoothserviceinfo.html">QBluetoothServiceInfo</a> instance if successful otherwise an invalid <a href="qbluetoothserviceinfo.html">QBluetoothServiceInfo</a>. This function always assumes that the default Bluetooth adapter should be used.</p>
 <p>If the server object is already listening for incoming connections this function returns an invalid <a href="qbluetoothserviceinfo.html">QBluetoothServiceInfo</a>.</p>
 <p>For an RFCOMM server this function is equivalent to following code snippet.</p>
@@ -237,18 +237,18 @@
       bool result <span class="operator">=</span> serviceInfo<span class="operator">.</span>registerService();
 
 </pre>
-<p><b>参见</b><a href="qbluetoothserver.html#isListening">isListening</a>(), <a href="qbluetoothserver.html#newConnection">newConnection</a>(), and <a href="qbluetoothserver.html#listen">listen</a>().</p>
+<p><b> 参见 </b><a href="qbluetoothserver.html#isListening">isListening</a>(), <a href="qbluetoothserver.html#newConnection">newConnection</a>(), 和 <a href="qbluetoothserver.html#listen">listen</a>().</p>
 <!-- @@@listen -->
 <!-- $$$maxPendingConnections[overload1]$$$maxPendingConnections -->
 <h3 class="fn" id="maxPendingConnections"><a name="maxPendingConnections"></a><span class="type">int</span> QBluetoothServer::<span class="name">maxPendingConnections</span>() const</h3>
 <p>Returns the maximum number of pending connections.</p>
-<p><b>参见</b><a href="qbluetoothserver.html#setMaxPendingConnections">setMaxPendingConnections</a>().</p>
+<p><b> 参见 </b><a href="qbluetoothserver.html#setMaxPendingConnections">setMaxPendingConnections</a>().</p>
 <!-- @@@maxPendingConnections -->
 <!-- $$$newConnection[overload1]$$$newConnection -->
 <h3 class="fn" id="newConnection"><a name="newConnection"></a><code>[signal] </code><span class="type">void</span> QBluetoothServer::<span class="name">newConnection</span>()</h3>
 <p>This signal is emitted when a new connection is available.</p>
 <p>The connected slot should call <a href="qbluetoothserver.html#nextPendingConnection">nextPendingConnection</a>() to get a <a href="qbluetoothsocket.html">QBluetoothSocket</a> object to send and receive data over the connection.</p>
-<p><b>参见</b><a href="qbluetoothserver.html#nextPendingConnection">nextPendingConnection</a>() and <a href="qbluetoothserver.html#hasPendingConnections">hasPendingConnections</a>().</p>
+<p><b> 参见 </b><a href="qbluetoothserver.html#nextPendingConnection">nextPendingConnection</a>() 和 <a href="qbluetoothserver.html#hasPendingConnections">hasPendingConnections</a>().</p>
 <!-- @@@newConnection -->
 <!-- $$$nextPendingConnection[overload1]$$$nextPendingConnection -->
 <h3 class="fn" id="nextPendingConnection"><a name="nextPendingConnection"></a><span class="type"><a href="qbluetoothsocket.html">QBluetoothSocket</a></span> *QBluetoothServer::<span class="name">nextPendingConnection</span>()</h3>
@@ -257,7 +257,7 @@
 <!-- $$$securityFlags[overload1]$$$securityFlags -->
 <h3 class="fn" id="securityFlags"><a name="securityFlags"></a><span class="type">QBluetooth::SecurityFlags</span> QBluetoothServer::<span class="name">securityFlags</span>() const</h3>
 <p>Returns the Bluetooth security flags.</p>
-<p><b>参见</b><a href="qbluetoothserver.html#setSecurityFlags">setSecurityFlags</a>().</p>
+<p><b> 参见 </b><a href="qbluetoothserver.html#setSecurityFlags">setSecurityFlags</a>().</p>
 <!-- @@@securityFlags -->
 <!-- $$$serverAddress[overload1]$$$serverAddress -->
 <h3 class="fn" id="serverAddress"><a name="serverAddress"></a><span class="type"><a href="qbluetoothaddress.html">QBluetoothAddress</a></span> QBluetoothServer::<span class="name">serverAddress</span>() const</h3>
@@ -274,14 +274,14 @@
 <!-- $$$setMaxPendingConnections[overload1]$$$setMaxPendingConnectionsint -->
 <h3 class="fn" id="setMaxPendingConnections"><a name="setMaxPendingConnections"></a><span class="type">void</span> QBluetoothServer::<span class="name">setMaxPendingConnections</span>(<span class="type">int</span> <i>numConnections</i>)</h3>
 <p>Sets the maximum number of pending connections to <i>numConnections</i>. If the number of pending sockets exceeds this limit new sockets will be rejected.</p>
-<p><b>参见</b><a href="qbluetoothserver.html#maxPendingConnections">maxPendingConnections</a>().</p>
+<p><b> 参见 </b><a href="qbluetoothserver.html#maxPendingConnections">maxPendingConnections</a>().</p>
 <!-- @@@setMaxPendingConnections -->
 <!-- $$$setSecurityFlags[overload1]$$$setSecurityFlagsQBluetooth::SecurityFlags -->
 <h3 class="fn" id="setSecurityFlags"><a name="setSecurityFlags"></a><span class="type">void</span> QBluetoothServer::<span class="name">setSecurityFlags</span>(<span class="type">QBluetooth::SecurityFlags</span> <i>security</i>)</h3>
 <p>Sets the Bluetooth security flags to <i>security</i>. This function must be called before calling <a href="qbluetoothserver.html#listen">listen</a>(). The Bluetooth link will always be encrypted when using Bluetooth 2.1 devices as encryption is mandatory.</p>
 <p>Android only supports two levels of security (secure and non-secure). If this flag is set to <a href="qbluetooth.html#Security-enum">QBluetooth::NoSecurity</a> the server object will not employ any authentication or encryption. Any other security flag combination will trigger a secure Bluetooth connection.</p>
 <p>On <a href="../qtdoc/internationalization.html#macos">macOS</a>, security flags are not supported and will be ignored.</p>
-<p><b>参见</b><a href="qbluetoothserver.html#securityFlags">securityFlags</a>().</p>
+<p><b> 参见 </b><a href="qbluetoothserver.html#securityFlags">securityFlags</a>().</p>
 <!-- @@@setSecurityFlags -->
 </div>
 <div class="vars">

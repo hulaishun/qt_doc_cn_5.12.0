@@ -100,7 +100,7 @@
 <div class="descr">
 <h2 id="details">详细描述</h2>
 <p>The <a href="qsgnode.html">QSGNode</a> class is the base class for all nodes in the scene graph.</p>
-<p>The <a href="qsgnode.html">QSGNode</a> class can be used as a child container. Children are added with the <a href="qsgnode.html#appendChildNode">appendChildNode</a>(), <a href="qsgnode.html#prependChildNode">prependChildNode</a>(), <a href="qsgnode.html#insertChildNodeBefore">insertChildNodeBefore</a>() and <a href="qsgnode.html#insertChildNodeAfter">insertChildNodeAfter</a>(). The order of nodes is important as geometry nodes are rendered according to their ordering in the scene graph.</p>
+<p>The <a href="qsgnode.html">QSGNode</a> class can be used as a child container. Children are added with the <a href="qsgnode.html#appendChildNode">appendChildNode</a>(), <a href="qsgnode.html#prependChildNode">prependChildNode</a>(), <a href="qsgnode.html#insertChildNodeBefore">insertChildNodeBefore</a>() 和 <a href="qsgnode.html#insertChildNodeAfter">insertChildNodeAfter</a>(). The order of nodes is important as geometry nodes are rendered according to their ordering in the scene graph.</p>
 <p>The scene graph nodes contains a mechanism to describe which parts of the scene has changed. This includes the combined matrices, accumulated opacity, changes to the node hierarchy, and so on. This information can be used for optimizations inside the scene graph renderer. For the renderer to properly render the nodes, it is important that users call <a href="qsgnode.html#markDirty">QSGNode::markDirty</a>() with the correct flags when nodes are changed. Most of the functions on the node classes will implicitly call <a href="qsgnode.html#markDirty">markDirty</a>(). For example, <a href="qsgnode.html#appendChildNode">QSGNode::appendChildNode</a>() will call <a href="qsgnode.html#markDirty">markDirty</a>() passing in <a href="qsgnode.html#DirtyStateBit-enum">QSGNode::DirtyNodeAdded</a>.</p>
 <p>If nodes change every frame, the <a href="qsgnode.html#preprocess">preprocess</a>() function can be used to apply changes to a node for every frame it is rendered. The use of <a href="qsgnode.html#preprocess">preprocess</a>() must be explicitly enabled by setting the <a href="qsgnode.html#Flag-enum">QSGNode::UsePreprocess</a> flag on the node.</p>
 <p>The virtual <a href="qsgnode.html#isSubtreeBlocked">isSubtreeBlocked</a>() function can be used to disable a subtree all together. Nodes in a blocked subtree will not be preprocessed() and not rendered.</p>
@@ -121,7 +121,7 @@
 <tr><td class="topAlign"><code>QSGNode::DirtySubtreeBlocked</code></td><td class="topAlign tblval"><code>0x0080</code></td><td class="topAlign">The subtree has been blocked.</td></tr>
 </table></div>
 <p>The DirtyState type is a typedef for <a href="../qtcore/qflags.html">QFlags</a>&lt;DirtyStateBit&gt;. It stores an OR combination of DirtyStateBit values.</p>
-<p><b>参见</b><a href="qsgnode.html#markDirty">QSGNode::markDirty</a>().</p>
+<p><b> 参见 </b><a href="qsgnode.html#markDirty">QSGNode::markDirty</a>().</p>
 <!-- @@@DirtyStateBit -->
 <!-- $$$Flag$$$OwnedByParent$$$UsePreprocess$$$OwnsGeometry$$$OwnsMaterial$$$OwnsOpaqueMaterial$$$IsVisitableNode$$$InternalReserved -->
 <h3 class="flags" id="Flag-enum"><a name="Flag-enum"></a>enum QSGNode::<span class="name">Flag</span><br/>flags QSGNode::<span class="name">Flags</span></h3>
@@ -129,7 +129,7 @@
 <div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QSGNode::OwnedByParent</code></td><td class="topAlign tblval"><code>0x0001</code></td><td class="topAlign">The node is owned by its parent and will be deleted when the parent is deleted.</td></tr>
 <tr><td class="topAlign"><code>QSGNode::UsePreprocess</code></td><td class="topAlign tblval"><code>0x0002</code></td><td class="topAlign">The node's virtual <a href="qsgnode.html#preprocess">preprocess</a>() function will be called before rendering starts.</td></tr>
-<tr><td class="topAlign"><code>QSGNode::OwnsGeometry</code></td><td class="topAlign tblval"><code>0x00010000</code></td><td class="topAlign">Only valid for <a href="qsggeometrynode.html">QSGGeometryNode</a> and <a href="qsgclipnode.html">QSGClipNode</a>. The node has ownership over the <a href="qsggeometry.html">QSGGeometry</a> instance and will delete it when the node is destroyed or a geometry is assigned.</td></tr>
+<tr><td class="topAlign"><code>QSGNode::OwnsGeometry</code></td><td class="topAlign tblval"><code>0x00010000</code></td><td class="topAlign">Only valid for <a href="qsggeometrynode.html">QSGGeometryNode</a> 和 <a href="qsgclipnode.html">QSGClipNode</a>. The node has ownership over the <a href="qsggeometry.html">QSGGeometry</a> instance and will delete it when the node is destroyed or a geometry is assigned.</td></tr>
 <tr><td class="topAlign"><code>QSGNode::OwnsMaterial</code></td><td class="topAlign tblval"><code>0x00020000</code></td><td class="topAlign">Only valid for <a href="qsggeometrynode.html">QSGGeometryNode</a>. The node has ownership over the material and will delete it when the node is destroyed or a material is assigned.</td></tr>
 <tr><td class="topAlign"><code>QSGNode::OwnsOpaqueMaterial</code></td><td class="topAlign tblval"><code>0x00040000</code></td><td class="topAlign">Only valid for <a href="qsggeometrynode.html">QSGGeometryNode</a>. The node has ownership over the opaque material and will delete it when the node is destroyed or a material is assigned.</td></tr>
 <tr><td class="topAlign"><code>QSGNode::InternalReserved</code></td><td class="topAlign tblval"><code>0x01000000</code></td><td class="topAlign">Reserved for internal use.</td></tr>
@@ -147,7 +147,7 @@
 <tr><td class="topAlign"><code>QSGNode::OpacityNodeType</code></td><td class="topAlign tblval"><code>4</code></td><td class="topAlign">The type of <a href="qsgopacitynode.html">QSGOpacityNode</a></td></tr>
 <tr><td class="topAlign"><code>QSGNode::RenderNodeType</code></td><td class="topAlign tblval"><code>6</code></td><td class="topAlign">The type of <a href="qsgrendernode.html">QSGRenderNode</a></td></tr>
 </table></div>
-<p><b>参见</b><a href="qsgnode.html#type">type</a>().</p>
+<p><b> 参见 </b><a href="qsgnode.html#type">type</a>().</p>
 <!-- @@@NodeType -->
 </div>
 <div class="prop">
@@ -186,7 +186,7 @@
 <!-- $$$flags[overload1]$$$flags -->
 <h3 class="fn" id="flags"><a name="flags"></a><span class="type"><a href="qsgnode.html#Flag-enum">QSGNode::Flags</a></span> QSGNode::<span class="name">flags</span>() const</h3>
 <p>Returns the set of flags for this node.</p>
-<p><b>参见</b><a href="qsgnode.html#setFlags">setFlags</a>().</p>
+<p><b> 参见 </b><a href="qsgnode.html#setFlags">setFlags</a>().</p>
 <!-- @@@flags -->
 <!-- $$$insertChildNodeAfter[overload1]$$$insertChildNodeAfterQSGNode*QSGNode* -->
 <h3 class="fn" id="insertChildNodeAfter"><a name="insertChildNodeAfter"></a><span class="type">void</span> QSGNode::<span class="name">insertChildNodeAfter</span>(<span class="type"><a href="qsgnode.html#QSGNode">QSGNode</a></span> *<i>node</i>, <span class="type"><a href="qsgnode.html#QSGNode">QSGNode</a></span> *<i>after</i>)</h3>
@@ -249,12 +249,12 @@
 <!-- $$$setFlag[overload1]$$$setFlagQSGNode::Flagbool -->
 <h3 class="fn" id="setFlag"><a name="setFlag"></a><span class="type">void</span> QSGNode::<span class="name">setFlag</span>(<span class="type"><a href="qsgnode.html#Flag-enum">QSGNode::Flag</a></span> <i>f</i>, <span class="type">bool</span> <i>enabled</i> = true)</h3>
 <p>Sets the flag <i>f</i> on this node if <i>enabled</i> is true; otherwise clears the flag.</p>
-<p><b>参见</b><a href="qsgnode.html#flags">flags</a>().</p>
+<p><b> 参见 </b><a href="qsgnode.html#flags">flags</a>().</p>
 <!-- @@@setFlag -->
 <!-- $$$setFlags[overload1]$$$setFlagsQSGNode::Flagsbool -->
 <h3 class="fn" id="setFlags"><a name="setFlags"></a><span class="type">void</span> QSGNode::<span class="name">setFlags</span>(<span class="type"><a href="qsgnode.html#Flag-enum">QSGNode::Flags</a></span> <i>f</i>, <span class="type">bool</span> <i>enabled</i> = true)</h3>
 <p>Sets the flags <i>f</i> on this node if <i>enabled</i> is true; otherwise clears the flags.</p>
-<p><b>参见</b><a href="qsgnode.html#flags">flags</a>().</p>
+<p><b> 参见 </b><a href="qsgnode.html#flags">flags</a>().</p>
 <!-- @@@setFlags -->
 <!-- $$$type[overload1]$$$type -->
 <h3 class="fn" id="type"><a name="type"></a><span class="type"><a href="qsgnode.html#NodeType-enum">QSGNode::NodeType</a></span> QSGNode::<span class="name">type</span>() const</h3>

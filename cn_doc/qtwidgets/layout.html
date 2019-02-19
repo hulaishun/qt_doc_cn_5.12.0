@@ -186,7 +186,7 @@
 <a name="adding-widgets-to-a-layout"></a>
 <h2 id="adding-widgets-to-a-layout">Adding Widgets to a Layout</h2>
 <p>When you add widgets to a layout, the layout process works as follows:</p>
-<ol class="1" type="1"><li>All the widgets will initially be allocated an amount of space in accordance with their <a href="qwidget.html#sizePolicy-prop">QWidget::sizePolicy</a>() and <a href="qwidget.html#sizeHint-prop">QWidget::sizeHint</a>().</li>
+<ol class="1" type="1"><li>All the widgets will initially be allocated an amount of space in accordance with their <a href="qwidget.html#sizePolicy-prop">QWidget::sizePolicy</a>() 和 <a href="qwidget.html#sizeHint-prop">QWidget::sizeHint</a>().</li>
 <li>If any of the widgets have stretch factors set, with a value greater than zero, then they are allocated space in proportion to their stretch factor (explained below).</li>
 <li>If any of the widgets have stretch factors set to zero they will only get more space if no other widgets want the space. Of these, space is allocated to widgets with an <a href="qsizepolicy.html#Policy-enum">Expanding</a> size policy first.</li>
 <li>Any widgets that are allocated less space than their minimum size (or minimum size hint if no minimum size is specified) are allocated this minimum size they require. (Widgets don't have to have a minimum size or minimum size hint in which case the stretch factor is their determining factor.)</li>
@@ -212,15 +212,15 @@
 <a name="layout-issues"></a>
 <h2 id="layout-issues">Layout Issues</h2>
 <p>The use of rich text in a label widget can introduce some problems to the layout of its parent widget. Problems occur due to the way rich text is handled by Qt's layout managers when the label is word wrapped.</p>
-<p>In certain cases the parent layout is put into QLayout::FreeResize mode, meaning that it will not adapt the layout of its contents to fit inside small sized windows, or even prevent the user from making the window too small to be usable. This can be overcome by subclassing the problematic widgets, and implementing suitable <a href="qwidget.html#sizeHint-prop">sizeHint()</a> and <a href="qwidget.html#minimumSizeHint-prop">minimumSizeHint()</a> functions.</p>
-<p>In some cases, it is relevant when a layout is added to a widget. When you set the widget of a <a href="qdockwidget.html">QDockWidget</a> or a <a href="qscrollarea.html">QScrollArea</a> (with <a href="qdockwidget.html#setWidget">QDockWidget::setWidget</a>() and <a href="qscrollarea.html#setWidget">QScrollArea::setWidget</a>()), the layout must already have been set on the widget. If not, the widget will not be visible.</p>
+<p>In certain cases the parent layout is put into QLayout::FreeResize mode, meaning that it will not adapt the layout of its contents to fit inside small sized windows, or even prevent the user from making the window too small to be usable. This can be overcome by subclassing the problematic widgets, and implementing suitable <a href="qwidget.html#sizeHint-prop">sizeHint()</a> 和 <a href="qwidget.html#minimumSizeHint-prop">minimumSizeHint()</a> functions.</p>
+<p>In some cases, it is relevant when a layout is added to a widget. When you set the widget of a <a href="qdockwidget.html">QDockWidget</a> or a <a href="qscrollarea.html">QScrollArea</a> (with <a href="qdockwidget.html#setWidget">QDockWidget::setWidget</a>() 和 <a href="qscrollarea.html#setWidget">QScrollArea::setWidget</a>()), the layout must already have been set on the widget. If not, the widget will not be visible.</p>
 <a name="manual-layout"></a>
 <h2 id="manual-layout">Manual Layout</h2>
 <p>If you are making a one-of-a-kind special layout, you can also make a custom widget as described above. Reimplement <a href="qwidget.html#resizeEvent">QWidget::resizeEvent</a>() to calculate the required distribution of sizes and call <a href="qwidget.html#geometry-prop">setGeometry()</a> on each child.</p>
 <p>The widget will get an event of type <a href="../qtcore/qevent.html#Type-enum">QEvent::LayoutRequest</a> when the layout needs to be recalculated. Reimplement <a href="qwidget.html#event">QWidget::event</a>() to handle <a href="../qtcore/qevent.html#Type-enum">QEvent::LayoutRequest</a> events.</p>
 <a name="how-to-write-a-custom-layout-manager"></a>
 <h2 id="how-to-write-a-custom-layout-manager">How to Write A Custom Layout Manager</h2>
-<p>An alternative to manual layout is to write your own layout manager by subclassing <a href="qlayout.html">QLayout</a>. The <a href="qtwidgets-layouts-borderlayout-example.html">Border Layout</a> and <a href="qtwidgets-layouts-flowlayout-example.html">Flow Layout</a> examples show how to do this.</p>
+<p>An alternative to manual layout is to write your own layout manager by subclassing <a href="qlayout.html">QLayout</a>. The <a href="qtwidgets-layouts-borderlayout-example.html">Border Layout</a> 和 <a href="qtwidgets-layouts-flowlayout-example.html">Flow Layout</a> examples show how to do this.</p>
 <p>Here we present an example in detail. The <code>CardLayout</code> class is inspired by the Java layout manager of the same name. It lays out the items (widgets or nested layouts) on top of each other, each item offset by <a href="qlayout.html#spacing-prop">QLayout::spacing</a>().</p>
 <p>To write your own layout class, you must define the following:</p>
 <ul>
@@ -299,7 +299,7 @@
   }
 
 </pre>
-<p><code>addItem()</code> implements the default placement strategy for layout items. This function must be implemented. It is used by QLayout::add(), by the <a href="qlayout.html">QLayout</a> constructor that takes a layout as parent. If your layout has advanced placement options that require parameters, you must provide extra access functions such as the row and column spanning overloads of <a href="qgridlayout.html#addItem">QGridLayout::addItem</a>(), <a href="qgridlayout.html#addWidget">QGridLayout::addWidget</a>(), and <a href="qgridlayout.html#addLayout">QGridLayout::addLayout</a>().</p>
+<p><code>addItem()</code> implements the default placement strategy for layout items. This function must be implemented. It is used by QLayout::add(), by the <a href="qlayout.html">QLayout</a> constructor that takes a layout as parent. If your layout has advanced placement options that require parameters, you must provide extra access functions such as the row and column spanning overloads of <a href="qgridlayout.html#addItem">QGridLayout::addItem</a>(), <a href="qgridlayout.html#addWidget">QGridLayout::addWidget</a>(), 和 <a href="qgridlayout.html#addLayout">QGridLayout::addLayout</a>().</p>
 <pre class="cpp">
 
   <span class="type">void</span> CardLayout<span class="operator">::</span>addItem(<span class="type"><a href="qlayoutitem.html">QLayoutItem</a></span> <span class="operator">*</span>item)

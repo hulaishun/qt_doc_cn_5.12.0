@@ -136,7 +136,7 @@
 <p>When the user types the <a href="../qtgui/qkeysequence.html">key sequence</a> for a given shortcut, the shortcut's <a href="qshortcut.html#activated">activated</a>() signal is emitted. (In the case of ambiguity, the <a href="qshortcut.html#activatedAmbiguously">activatedAmbiguously</a>() signal is emitted.) A shortcut is &quot;listened for&quot; by Qt's event loop when the shortcut's parent widget is receiving events.</p>
 <p>A shortcut's key sequence can be set with <a href="qshortcut.html#key-prop">setKey</a>() and retrieved with <a href="qshortcut.html#key-prop">key</a>(). A shortcut can be enabled or disabled with <a href="qshortcut.html#enabled-prop">setEnabled</a>(), and can have &quot;What's This?&quot; help text set with <a href="qshortcut.html#whatsThis-prop">setWhatsThis</a>().</p>
 </div>
-<p><b>参见</b><a href="../qtgui/qshortcutevent.html">QShortcutEvent</a>, <a href="../qtgui/qkeysequence.html">QKeySequence</a>, and <a href="qaction.html">QAction</a>.</p>
+<p><b> 参见 </b><a href="../qtgui/qshortcutevent.html">QShortcutEvent</a>, <a href="../qtgui/qkeysequence.html">QKeySequence</a>, and <a href="qaction.html">QAction</a>.</p>
 <!-- @@@QShortcut -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -176,7 +176,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>isEnabled</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setEnabled</b></span>(bool <i>enable</i>)</td></tr>
 </table></div>
-<p><b>参见</b><a href="qshortcut.html#whatsThis-prop">whatsThis</a>.</p>
+<p><b> 参见 </b><a href="qshortcut.html#whatsThis-prop">whatsThis</a>.</p>
 <!-- @@@enabled -->
 <!-- $$$key-prop$$$key$$$setKeyconstQKeySequence& -->
 <h3 class="fn" id="key-prop"><a name="key-prop"></a><span class="name">key</span> : <span class="type"><a href="../qtgui/qkeysequence.html">QKeySequence</a></span></h3>
@@ -211,7 +211,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><span class="name"><b>whatsThis</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setWhatsThis</b></span>(const QString &amp;<i>text</i>)</td></tr>
 </table></div>
-<p><b>参见</b><a href="qwhatsthis.html#inWhatsThisMode">QWhatsThis::inWhatsThisMode</a>() and <a href="qaction.html#whatsThis-prop">QAction::setWhatsThis</a>().</p>
+<p><b> 参见 </b><a href="qwhatsthis.html#inWhatsThisMode">QWhatsThis::inWhatsThisMode</a>() 和 <a href="qaction.html#whatsThis-prop">QAction::setWhatsThis</a>().</p>
 <!-- @@@whatsThis -->
 </div>
 <div class="func">
@@ -219,7 +219,7 @@
 <!-- $$$QShortcut[overload1]$$$QShortcutQWidget* -->
 <h3 class="fn" id="QShortcut"><a name="QShortcut"></a>QShortcut::<span class="name">QShortcut</span>(<span class="type"><a href="qwidget.html">QWidget</a></span> *<i>parent</i>)</h3>
 <p>Constructs a <a href="qshortcut.html">QShortcut</a> object for the <i>parent</i> widget. Since no shortcut key sequence is specified, the shortcut will not emit any signals.</p>
-<p><b>参见</b><a href="qshortcut.html#key-prop">setKey</a>().</p>
+<p><b> 参见 </b><a href="qshortcut.html#key-prop">setKey</a>().</p>
 <!-- @@@QShortcut -->
 <!-- $$$QShortcut$$$QShortcutconstQKeySequence&QWidget*constchar*constchar*Qt::ShortcutContext -->
 <h3 class="fn" id="QShortcut-1"><a name="QShortcut-1"></a>QShortcut::<span class="name">QShortcut</span>(const <span class="type"><a href="../qtgui/qkeysequence.html">QKeySequence</a></span> &amp;<i>key</i>, <span class="type"><a href="qwidget.html">QWidget</a></span> *<i>parent</i>, const <span class="type">char</span> *<i>member</i> = nullptr, const <span class="type">char</span> *<i>ambiguousMember</i> = nullptr, <span class="type">Qt::ShortcutContext</span> <i>context</i> = Qt::WindowShortcut)</h3>
@@ -232,18 +232,18 @@
 <!-- $$$activated[overload1]$$$activated -->
 <h3 class="fn" id="activated"><a name="activated"></a><code>[signal] </code><span class="type">void</span> QShortcut::<span class="name">activated</span>()</h3>
 <p>This signal is emitted when the user types the shortcut's key sequence.</p>
-<p><b>参见</b><a href="qshortcut.html#activatedAmbiguously">activatedAmbiguously</a>().</p>
+<p><b> 参见 </b><a href="qshortcut.html#activatedAmbiguously">activatedAmbiguously</a>().</p>
 <!-- @@@activated -->
 <!-- $$$activatedAmbiguously[overload1]$$$activatedAmbiguously -->
 <h3 class="fn" id="activatedAmbiguously"><a name="activatedAmbiguously"></a><code>[signal] </code><span class="type">void</span> QShortcut::<span class="name">activatedAmbiguously</span>()</h3>
 <p>When a key sequence is being typed at the keyboard, it is said to be ambiguous as long as it matches the start of more than one shortcut.</p>
 <p>When a shortcut's key sequence is completed, activatedAmbiguously() is emitted if the key sequence is still ambiguous (i.e&#x2e;, it is the start of one or more other shortcuts). The <a href="qshortcut.html#activated">activated</a>() signal is not emitted in this case.</p>
-<p><b>参见</b><a href="qshortcut.html#activated">activated</a>().</p>
+<p><b> 参见 </b><a href="qshortcut.html#activated">activated</a>().</p>
 <!-- @@@activatedAmbiguously -->
 <!-- $$$id[overload1]$$$id -->
 <h3 class="fn" id="id"><a name="id"></a><span class="type">int</span> QShortcut::<span class="name">id</span>() const</h3>
 <p>Returns the shortcut's ID.</p>
-<p><b>参见</b><a href="../qtgui/qshortcutevent.html#shortcutId">QShortcutEvent::shortcutId</a>().</p>
+<p><b> 参见 </b><a href="../qtgui/qshortcutevent.html#shortcutId">QShortcutEvent::shortcutId</a>().</p>
 <!-- @@@id -->
 <!-- $$$parentWidget[overload1]$$$parentWidget -->
 <h3 class="fn" id="parentWidget"><a name="parentWidget"></a><span class="type"><a href="qwidget.html">QWidget</a></span> *QShortcut::<span class="name">parentWidget</span>() const</h3>

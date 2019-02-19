@@ -85,7 +85,7 @@
  <thead><tr class="qt-style"><th >Variable</th><th >描述</th></tr></thead>
 <tr valign="top" class="odd"><td ><code>QT_DEBUG_PLUGINS</code></td><td >Set to a non-zero value to make Qt print out diagnostic information about the each (C++) plugin it tries to load.</td></tr>
 <tr valign="top" class="even"><td ><code>QML_IMPORT_TRACE</code></td><td >Set to a non-zero value to make QML print out diagnostic information from the import loading mechanism.</td></tr>
-<tr valign="top" class="odd"><td ><code>QT_HASH_SEED</code></td><td >Set to an integer value to disable <a href="../qtcore/qhash.html#qhash">QHash</a> and <a href="../qtcore/qset.html">QSet</a> using a new random ordering for each application run, which in some cases might make testing and debugging difficult.</td></tr>
+<tr valign="top" class="odd"><td ><code>QT_HASH_SEED</code></td><td >Set to an integer value to disable <a href="../qtcore/qhash.html#qhash">QHash</a> 和 <a href="../qtcore/qset.html">QSet</a> using a new random ordering for each application run, which in some cases might make testing and debugging difficult.</td></tr>
 </table></div>
 <a name="warning-and-debugging-messages"></a>
 <h2 id="warning-and-debugging-messages">Warning and Debugging Messages</h2>
@@ -112,11 +112,11 @@
 </pre>
 <p>The format is documented in <a href="../qtcore/qtglobal.html#qSetMessagePattern">qSetMessagePattern</a>(). You can also install your own message handler using <a href="../qtcore/qtglobal.html#qInstallMessageHandler">qInstallMessageHandler</a>().</p>
 <p>If the <code>QT_FATAL_WARNINGS</code> environment variable is set, <a href="../qtcore/qtglobal.html#qWarning">qWarning</a>() exits after printing the warning message. This makes it easy to obtain a backtrace in the debugger.</p>
-<p><a href="../qtcore/qtglobal.html#qDebug">qDebug</a>(), <a href="../qtcore/qtglobal.html#qInfo">qInfo</a>(), and <a href="../qtcore/qtglobal.html#qWarning">qWarning</a>() are debugging tools. They can be compiled away by defining <code>QT_NO_DEBUG_OUTPUT</code>, <code>QT_NO_INFO_OUTPUT</code>, or <code>QT_NO_WARNING_OUTPUT</code> during compilation.</p>
+<p><a href="../qtcore/qtglobal.html#qDebug">qDebug</a>(), <a href="../qtcore/qtglobal.html#qInfo">qInfo</a>(), 和 <a href="../qtcore/qtglobal.html#qWarning">qWarning</a>() are debugging tools. They can be compiled away by defining <code>QT_NO_DEBUG_OUTPUT</code>, <code>QT_NO_INFO_OUTPUT</code>, or <code>QT_NO_WARNING_OUTPUT</code> during compilation.</p>
 <p>The debugging functions QObject::dumpObjectTree() and QObject::dumpObjectInfo() are often useful when an application looks or acts strangely. More useful if you use <a href="../qtcore/qobject.html#objectName-prop">object names</a> than not, but often useful even without names.</p>
 <a name="providing-support-for-the-qdebug-stream-operator"></a>
 <h2 id="providing-support-for-the-qdebug-stream-operator">Providing Support for the qDebug() Stream Operator</h2>
-<p>You can implement the stream operator used by <a href="../qtcore/qtglobal.html#qDebug">qDebug</a>() to provide debugging support for your classes. The class that implements the stream is <code>QDebug</code>. Use <code>QDebugStateSaver</code> to temporarily save the formatting options of the stream. Use <a href="../qtcore/qdebug.html#nospace">nospace()</a> and <a href="../qtcore/qtextstream.html#qtextstream-manipulators">QTextStream manipulators</a> to further customize the formatting.</p>
+<p>You can implement the stream operator used by <a href="../qtcore/qtglobal.html#qDebug">qDebug</a>() to provide debugging support for your classes. The class that implements the stream is <code>QDebug</code>. Use <code>QDebugStateSaver</code> to temporarily save the formatting options of the stream. Use <a href="../qtcore/qdebug.html#nospace">nospace()</a> 和 <a href="../qtcore/qtextstream.html#qtextstream-manipulators">QTextStream manipulators</a> to further customize the formatting.</p>
 <p>Here is an example for a class that represents a 2D coordinate.</p>
 <pre class="cpp">
 
@@ -151,7 +151,7 @@
   }
 
 </pre>
-<p><a href="../qtcore/qtglobal.html#Q_ASSERT">Q_ASSERT</a>(), <a href="../qtcore/qtglobal.html#Q_ASSERT_X">Q_ASSERT_X</a>(), and <a href="../qtcore/qtglobal.html#Q_CHECK_PTR">Q_CHECK_PTR</a>() expand to nothing if <code>QT_NO_DEBUG</code> is defined during compilation. For this reason, the arguments to these macro should not have any side-effects. Here is an incorrect usage of <a href="../qtcore/qtglobal.html#Q_CHECK_PTR">Q_CHECK_PTR</a>():</p>
+<p><a href="../qtcore/qtglobal.html#Q_ASSERT">Q_ASSERT</a>(), <a href="../qtcore/qtglobal.html#Q_ASSERT_X">Q_ASSERT_X</a>(), 和 <a href="../qtcore/qtglobal.html#Q_CHECK_PTR">Q_CHECK_PTR</a>() expand to nothing if <code>QT_NO_DEBUG</code> is defined during compilation. For this reason, the arguments to these macro should not have any side-effects. Here is an incorrect usage of <a href="../qtcore/qtglobal.html#Q_CHECK_PTR">Q_CHECK_PTR</a>():</p>
 <pre class="cpp">
 
   <span class="type">char</span> <span class="operator">*</span>alloc(<span class="type">int</span> size)

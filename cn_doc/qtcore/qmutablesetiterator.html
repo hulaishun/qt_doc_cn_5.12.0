@@ -93,7 +93,7 @@
 <div class="descr">
 <h2 id="details">详细描述</h2>
 <p>The <a href="qmutablesetiterator.html">QMutableSetIterator</a> class provides a Java-style non-const iterator for <a href="qset.html">QSet</a>.</p>
-<p><a href="qset.html">QSet</a> has both <a href="containers.html#java-style-iterators">Java-style iterators</a> and <a href="containers.html#stl-style-iterators">STL-style iterators</a>. The Java-style iterators are more high-level and easier to use than the STL-style iterators; on the other hand, they are slightly less efficient.</p>
+<p><a href="qset.html">QSet</a> has both <a href="containers.html#java-style-iterators">Java-style iterators</a> 和 <a href="containers.html#stl-style-iterators">STL-style iterators</a>. The Java-style iterators are more high-level and easier to use than the STL-style iterators; on the other hand, they are slightly less efficient.</p>
 <p><a href="qmutablesetiterator.html">QMutableSetIterator</a>&lt;T&gt; allows you to iterate over a <a href="qset.html">QSet</a>&lt;T&gt; and remove items from the set as you iterate. If you don't want to modify the set (or have a const <a href="qset.html">QSet</a>), use the slightly faster <a href="qsetiterator.html">QSetIterator</a>&lt;T&gt; instead.</p>
 <p>The <a href="qmutablesetiterator.html">QMutableSetIterator</a> constructor takes a <a href="qset.html">QSet</a> as argument. After construction, the iterator is located at the very beginning of the set (before the first item). Here's how to iterate over all the elements sequentially:</p>
 <pre class="cpp">
@@ -118,7 +118,7 @@
 <p>If you want to remove items as you iterate over the set, use <a href="qmutablesetiterator.html#remove">remove</a>().</p>
 <p>Only one mutable iterator can be active on a given set at any time. Furthermore, no changes should be done directly to the set while the iterator is active (as opposed to through the iterator), since this could invalidate the iterator and lead to undefined behavior.</p>
 </div>
-<p><b>参见</b><a href="qsetiterator.html">QSetIterator</a> and <a href="qset-iterator.html">QSet::iterator</a>.</p>
+<p><b> 参见 </b><a href="qsetiterator.html">QSetIterator</a> 和 <a href="qset-iterator.html">QSet::iterator</a>.</p>
 <!-- @@@QMutableSetIterator -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -137,67 +137,67 @@
 <h3 class="fn fngroupitem" id="findPrevious"><a name="findPrevious"></a><span class="type">bool</span> QMutableSetIterator::<span class="name">findPrevious</span>(const <span class="type">T</span> &amp;<i>value</i>)</h3>
 <p>Searches for <i>value</i> starting from the current iterator position backward. Returns <code>true</code> if <i>value</i> is found; otherwise returns false.</p>
 <p>After the call, if <i>value</i> was found, the iterator is positioned just before the matching item; otherwise, the iterator is positioned at the front of the container.</p>
-<p><b>参见</b><a href="qmutablesetiterator.html#findNext">findNext</a>().</p>
+<p><b> 参见 </b><a href="qmutablesetiterator.html#findNext">findNext</a>().</p>
 <!-- @@@ -->
 <!-- $$$ -->
 <h3 class="fn fngroupitem" id="findNext"><a name="findNext"></a><span class="type">bool</span> QMutableSetIterator::<span class="name">findNext</span>(const <span class="type">T</span> &amp;<i>value</i>)</h3>
 <p>Searches for <i>value</i> starting from the current iterator position forward. Returns <code>true</code> if <i>value</i> is found; otherwise returns <code>false</code>.</p>
 <p>After the call, if <i>value</i> was found, the iterator is positioned just after the matching item; otherwise, the iterator is positioned at the back of the container.</p>
-<p><b>参见</b><a href="qmutablesetiterator.html#findPrevious">findPrevious</a>().</p>
+<p><b> 参见 </b><a href="qmutablesetiterator.html#findPrevious">findPrevious</a>().</p>
 <!-- @@@ -->
 <!-- $$$ -->
 <h3 class="fn fngroupitem" id="peekPrevious"><a name="peekPrevious"></a>const <span class="type">T</span> &amp;QMutableSetIterator::<span class="name">peekPrevious</span>() const</h3>
 <p>Returns the previous item without moving the iterator.</p>
 <p>Calling this function on an iterator located at the front of the container leads to undefined results.</p>
-<p><b>参见</b><a href="qmutablesetiterator.html#hasPrevious">hasPrevious</a>(), <a href="qmutablesetiterator.html#previous">previous</a>(), and <a href="qmutablesetiterator.html#peekNext">peekNext</a>().</p>
+<p><b> 参见 </b><a href="qmutablesetiterator.html#hasPrevious">hasPrevious</a>(), <a href="qmutablesetiterator.html#previous">previous</a>(), 和 <a href="qmutablesetiterator.html#peekNext">peekNext</a>().</p>
 <!-- @@@ -->
 <!-- $$$ -->
 <h3 class="fn fngroupitem" id="previous"><a name="previous"></a>const <span class="type">T</span> &amp;QMutableSetIterator::<span class="name">previous</span>()</h3>
 <p>Returns the previous item and moves the iterator back by one position.</p>
 <p>Calling this function on an iterator located at the front of the container leads to undefined results.</p>
-<p><b>参见</b><a href="qmutablesetiterator.html#hasPrevious">hasPrevious</a>(), <a href="qmutablesetiterator.html#peekPrevious">peekPrevious</a>(), and <a href="qmutablesetiterator.html#next">next</a>().</p>
+<p><b> 参见 </b><a href="qmutablesetiterator.html#hasPrevious">hasPrevious</a>(), <a href="qmutablesetiterator.html#peekPrevious">peekPrevious</a>(), 和 <a href="qmutablesetiterator.html#next">next</a>().</p>
 <!-- @@@ -->
 <!-- $$$ -->
 <h3 class="fn fngroupitem" id="hasPrevious"><a name="hasPrevious"></a><span class="type">bool</span> QMutableSetIterator::<span class="name">hasPrevious</span>() const</h3>
 <p>Returns <code>true</code> if there is at least one item behind the iterator, i.e&#x2e; the iterator is <i>not</i> at the front of the container; otherwise returns <code>false</code>.</p>
-<p><b>参见</b><a href="qmutablesetiterator.html#hasNext">hasNext</a>() and <a href="qmutablesetiterator.html#previous">previous</a>().</p>
+<p><b> 参见 </b><a href="qmutablesetiterator.html#hasNext">hasNext</a>() 和 <a href="qmutablesetiterator.html#previous">previous</a>().</p>
 <!-- @@@ -->
 <!-- $$$ -->
 <h3 class="fn fngroupitem" id="peekNext"><a name="peekNext"></a>const <span class="type">T</span> &amp;QMutableSetIterator::<span class="name">peekNext</span>() const</h3>
 <p>Returns the next item without moving the iterator.</p>
 <p>Calling this function on an iterator located at the back of the container leads to undefined results.</p>
-<p><b>参见</b><a href="qmutablesetiterator.html#hasNext">hasNext</a>(), <a href="qmutablesetiterator.html#next">next</a>(), and <a href="qmutablesetiterator.html#peekPrevious">peekPrevious</a>().</p>
+<p><b> 参见 </b><a href="qmutablesetiterator.html#hasNext">hasNext</a>(), <a href="qmutablesetiterator.html#next">next</a>(), 和 <a href="qmutablesetiterator.html#peekPrevious">peekPrevious</a>().</p>
 <!-- @@@ -->
 <!-- $$$ -->
 <h3 class="fn fngroupitem" id="next"><a name="next"></a>const <span class="type">T</span> &amp;QMutableSetIterator::<span class="name">next</span>()</h3>
 <p>Returns the next item and advances the iterator by one position.</p>
 <p>Calling this function on an iterator located at the back of the container leads to undefined results.</p>
-<p><b>参见</b><a href="qmutablesetiterator.html#hasNext">hasNext</a>(), <a href="qmutablesetiterator.html#peekNext">peekNext</a>(), and <a href="qmutablesetiterator.html#previous">previous</a>().</p>
+<p><b> 参见 </b><a href="qmutablesetiterator.html#hasNext">hasNext</a>(), <a href="qmutablesetiterator.html#peekNext">peekNext</a>(), 和 <a href="qmutablesetiterator.html#previous">previous</a>().</p>
 <!-- @@@ -->
 <!-- $$$ -->
 <h3 class="fn fngroupitem" id="hasNext"><a name="hasNext"></a><span class="type">bool</span> QMutableSetIterator::<span class="name">hasNext</span>() const</h3>
 <p>Returns <code>true</code> if there is at least one item ahead of the iterator, i.e&#x2e; the iterator is <i>not</i> at the back of the container; otherwise returns <code>false</code>.</p>
-<p><b>参见</b><a href="qmutablesetiterator.html#hasPrevious">hasPrevious</a>() and <a href="qmutablesetiterator.html#next">next</a>().</p>
+<p><b> 参见 </b><a href="qmutablesetiterator.html#hasPrevious">hasPrevious</a>() 和 <a href="qmutablesetiterator.html#next">next</a>().</p>
 <!-- @@@ -->
 <!-- $$$ -->
 <h3 class="fn fngroupitem" id="toBack"><a name="toBack"></a><span class="type">void</span> QMutableSetIterator::<span class="name">toBack</span>()</h3>
 <p>Moves the iterator to the back of the container (after the last item).</p>
-<p><b>参见</b><a href="qmutablesetiterator.html#toFront">toFront</a>() and <a href="qmutablesetiterator.html#previous">previous</a>().</p>
+<p><b> 参见 </b><a href="qmutablesetiterator.html#toFront">toFront</a>() 和 <a href="qmutablesetiterator.html#previous">previous</a>().</p>
 <!-- @@@ -->
 <!-- $$$ -->
 <h3 class="fn fngroupitem" id="toFront"><a name="toFront"></a><span class="type">void</span> QMutableSetIterator::<span class="name">toFront</span>()</h3>
 <p>Moves the iterator to the front of the container (before the first item).</p>
-<p><b>参见</b><a href="qmutablesetiterator.html#toBack">toBack</a>() and <a href="qmutablesetiterator.html#next">next</a>().</p>
+<p><b> 参见 </b><a href="qmutablesetiterator.html#toBack">toBack</a>() 和 <a href="qmutablesetiterator.html#next">next</a>().</p>
 <!-- @@@ -->
 <!-- $$$ -->
 <h3 class="fn fngroupitem" id="operator-eq"><a name="operator-eq"></a><span class="type"><a href="qmutablesetiterator.html#QMutableSetIterator">QMutableSetIterator</a></span>&lt;<span class="type">T</span>&gt; &amp;QMutableSetIterator::<span class="name">operator=</span>(<span class="type"><a href="qset.html">QSet</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>container</i>)</h3>
 <p>Makes the iterator operate on <i>set</i>. The iterator is set to be at the front of the set (before the first item).</p>
-<p><b>参见</b><a href="qmutablesetiterator.html#toFront">toFront</a>() and <a href="qmutablesetiterator.html#toBack">toBack</a>().</p>
+<p><b> 参见 </b><a href="qmutablesetiterator.html#toFront">toFront</a>() 和 <a href="qmutablesetiterator.html#toBack">toBack</a>().</p>
 <!-- @@@ -->
 <!-- $$$ -->
 <h3 class="fn fngroupitem" id="QMutableSetIterator"><a name="QMutableSetIterator"></a>QMutableSetIterator::<span class="name">QMutableSetIterator</span>(<span class="type"><a href="qset.html">QSet</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>set</i>)</h3>
 <p>Constructs an iterator for traversing <i>set</i>. The iterator is set to be at the front of the set (before the first item).</p>
-<p><b>参见</b><a href="qmutablesetiterator.html#operator-eq">operator=</a>().</p>
+<p><b> 参见 </b><a href="qmutablesetiterator.html#operator-eq">operator=</a>().</p>
 <!-- @@@ -->
 <!-- $$$remove[overload1]$$$remove -->
 <h3 class="fn" id="remove"><a name="remove"></a><span class="type">void</span> QMutableSetIterator::<span class="name">remove</span>()</h3>
@@ -213,7 +213,7 @@
   }
 
 </pre>
-<p><b>参见</b><a href="qmutablesetiterator.html#value">value</a>().</p>
+<p><b> 参见 </b><a href="qmutablesetiterator.html#value">value</a>().</p>
 <!-- @@@remove -->
 </div>
 <div class="vars">

@@ -121,7 +121,7 @@
 <div class="descr">
 <h2 id="details">详细描述</h2>
 <p>The <a href="qnetworkdiskcache.html">QNetworkDiskCache</a> class provides a very basic disk cache.</p>
-<p><a href="qnetworkdiskcache.html">QNetworkDiskCache</a> stores each url in its own file inside of the <a href="qnetworkdiskcache.html#cacheDirectory">cacheDirectory</a> using <a href="../qtcore/qdatastream.html">QDataStream</a>. Files with a text MimeType are compressed using <a href="../qtcore/qbytearray.html#qCompress">qCompress</a>. Data is written to disk only in <a href="qnetworkdiskcache.html#insert">insert</a>() and <a href="qnetworkdiskcache.html#updateMetaData">updateMetaData</a>().</p>
+<p><a href="qnetworkdiskcache.html">QNetworkDiskCache</a> stores each url in its own file inside of the <a href="qnetworkdiskcache.html#cacheDirectory">cacheDirectory</a> using <a href="../qtcore/qdatastream.html">QDataStream</a>. Files with a text MimeType are compressed using <a href="../qtcore/qbytearray.html#qCompress">qCompress</a>. Data is written to disk only in <a href="qnetworkdiskcache.html#insert">insert</a>() 和 <a href="qnetworkdiskcache.html#updateMetaData">updateMetaData</a>().</p>
 <p>Currently you cannot share the same cache files with more than one disk cache.</p>
 <p><a href="qnetworkdiskcache.html">QNetworkDiskCache</a> by default limits the amount of space that the cache will use on the system to 50MB.</p>
 <p>Note you have to set the cache directory before it will work.</p>
@@ -177,7 +177,7 @@
 <!-- $$$cacheDirectory[overload1]$$$cacheDirectory -->
 <h3 class="fn" id="cacheDirectory"><a name="cacheDirectory"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QNetworkDiskCache::<span class="name">cacheDirectory</span>() const</h3>
 <p>Returns the location where cached files will be stored.</p>
-<p><b>参见</b><a href="qnetworkdiskcache.html#setCacheDirectory">setCacheDirectory</a>().</p>
+<p><b> 参见 </b><a href="qnetworkdiskcache.html#setCacheDirectory">setCacheDirectory</a>().</p>
 <!-- @@@cacheDirectory -->
 <!-- $$$cacheSize[overload1]$$$cacheSize -->
 <h3 class="fn" id="cacheSize"><a name="cacheSize"></a><code>[override virtual] </code><span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> QNetworkDiskCache::<span class="name">cacheSize</span>() const</h3>
@@ -196,7 +196,7 @@
 <p>Cleans the cache so that its size is under the maximum cache size. Returns the current size of the cache.</p>
 <p>When the current size of the cache is greater than the <a href="qnetworkdiskcache.html#maximumCacheSize">maximumCacheSize</a>() older cache files are removed until the total size is less then 90% of <a href="qnetworkdiskcache.html#maximumCacheSize">maximumCacheSize</a>() starting with the oldest ones first using the file creation date to determine how old a cache file is.</p>
 <p>Subclasses can reimplement this function to change the order that cache files are removed taking into account information in the application knows about that <a href="qnetworkdiskcache.html">QNetworkDiskCache</a> does not, for example the number of times a cache is accessed.</p>
-<p><b>Note: </b><a href="qnetworkdiskcache.html#cacheSize">cacheSize</a>() calls expire if the current cache size is unknown.</p><p><b>参见</b><a href="qnetworkdiskcache.html#maximumCacheSize">maximumCacheSize</a>() and <a href="qnetworkdiskcache.html#fileMetaData">fileMetaData</a>().</p>
+<p><b>Note: </b><a href="qnetworkdiskcache.html#cacheSize">cacheSize</a>() calls expire if the current cache size is unknown.</p><p><b> 参见 </b><a href="qnetworkdiskcache.html#maximumCacheSize">maximumCacheSize</a>() 和 <a href="qnetworkdiskcache.html#fileMetaData">fileMetaData</a>().</p>
 <!-- @@@expire -->
 <!-- $$$fileMetaData[overload1]$$$fileMetaDataconstQString& -->
 <h3 class="fn" id="fileMetaData"><a name="fileMetaData"></a><span class="type"><a href="qnetworkcachemetadata.html">QNetworkCacheMetaData</a></span> QNetworkDiskCache::<span class="name">fileMetaData</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>fileName</i>) const</h3>
@@ -210,7 +210,7 @@
 <!-- $$$maximumCacheSize[overload1]$$$maximumCacheSize -->
 <h3 class="fn" id="maximumCacheSize"><a name="maximumCacheSize"></a><span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> QNetworkDiskCache::<span class="name">maximumCacheSize</span>() const</h3>
 <p>Returns the current maximum size for the disk cache.</p>
-<p><b>参见</b><a href="qnetworkdiskcache.html#setMaximumCacheSize">setMaximumCacheSize</a>().</p>
+<p><b> 参见 </b><a href="qnetworkdiskcache.html#setMaximumCacheSize">setMaximumCacheSize</a>().</p>
 <!-- @@@maximumCacheSize -->
 <!-- $$$metaData[overload1]$$$metaDataconstQUrl& -->
 <h3 class="fn" id="metaData"><a name="metaData"></a><code>[override virtual] </code><span class="type"><a href="qnetworkcachemetadata.html">QNetworkCacheMetaData</a></span> QNetworkDiskCache::<span class="name">metaData</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
@@ -229,13 +229,13 @@
 <p>Sets the directory where cached files will be stored to <i>cacheDir</i></p>
 <p><a href="qnetworkdiskcache.html">QNetworkDiskCache</a> will create this directory if it does not exists.</p>
 <p>Prepared cache items will be stored in the new cache directory when they are inserted.</p>
-<p><b>参见</b><a href="qnetworkdiskcache.html#cacheDirectory">cacheDirectory</a>() and <a href="../qtgui/qdesktopservices-obsolete.html#StandardLocation-enum">QDesktopServices::CacheLocation</a>.</p>
+<p><b> 参见 </b><a href="qnetworkdiskcache.html#cacheDirectory">cacheDirectory</a>() 和 <a href="../qtgui/qdesktopservices-obsolete.html#StandardLocation-enum">QDesktopServices::CacheLocation</a>.</p>
 <!-- @@@setCacheDirectory -->
 <!-- $$$setMaximumCacheSize[overload1]$$$setMaximumCacheSizeqint64 -->
 <h3 class="fn" id="setMaximumCacheSize"><a name="setMaximumCacheSize"></a><span class="type">void</span> QNetworkDiskCache::<span class="name">setMaximumCacheSize</span>(<span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> <i>size</i>)</h3>
 <p>Sets the maximum size of the disk cache to be <i>size</i>.</p>
 <p>If the new size is smaller then the current cache size then the cache will call <a href="qnetworkdiskcache.html#expire">expire</a>().</p>
-<p><b>参见</b><a href="qnetworkdiskcache.html#maximumCacheSize">maximumCacheSize</a>().</p>
+<p><b> 参见 </b><a href="qnetworkdiskcache.html#maximumCacheSize">maximumCacheSize</a>().</p>
 <!-- @@@setMaximumCacheSize -->
 <!-- $$$updateMetaData[overload1]$$$updateMetaDataconstQNetworkCacheMetaData& -->
 <h3 class="fn" id="updateMetaData"><a name="updateMetaData"></a><code>[override virtual] </code><span class="type">void</span> QNetworkDiskCache::<span class="name">updateMetaData</span>(const <span class="type"><a href="qnetworkcachemetadata.html">QNetworkCacheMetaData</a></span> &amp;<i>metaData</i>)</h3>

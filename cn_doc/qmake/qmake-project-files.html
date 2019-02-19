@@ -69,7 +69,7 @@
 <a name="projectfileelementsvariables"></a><a name="variables"></a>
 <h3 >变量</h3>
 <p>In a project file, variables are used to hold lists of strings. In the simplest projects, these variables inform qmake about the configuration options to use, or supply filenames and paths to use in the build process.</p>
-<p>qmake looks for certain variables in each project file, and it uses the contents of these to determine what it should write to a Makefile. For example, the lists of values in the <a href="qmake-variable-reference.html#headers">HEADERS</a> and <a href="qmake-variable-reference.html#sources">SOURCES</a> variables are used to tell qmake about header and source files in the same directory as the project file.</p>
+<p>qmake looks for certain variables in each project file, and it uses the contents of these to determine what it should write to a Makefile. For example, the lists of values in the <a href="qmake-variable-reference.html#headers">HEADERS</a> 和 <a href="qmake-variable-reference.html#sources">SOURCES</a> variables are used to tell qmake about header and source files in the same directory as the project file.</p>
 <p>Variables can also be used internally to store temporary lists of values, and existing lists of values can be overwritten or extended with new values.</p>
 <p>The following snippet illustrates how lists of values are assigned to variables:</p>
 <pre class="cpp">
@@ -113,7 +113,7 @@
   DEST = &quot;Program Files&quot;
 
 </pre>
-<p>The quoted text is treated as a single item in the list of values held by the variable. A similar approach is used to deal with paths that contain spaces, particularly when defining the <a href="qmake-variable-reference.html#includepath">INCLUDEPATH</a> and <a href="qmake-variable-reference.html#libs">LIBS</a> variables for the Windows platform:</p>
+<p>The quoted text is treated as a single item in the list of values held by the variable. A similar approach is used to deal with paths that contain spaces, particularly when defining the <a href="qmake-variable-reference.html#includepath">INCLUDEPATH</a> 和 <a href="qmake-variable-reference.html#libs">LIBS</a> variables for the Windows platform:</p>
 <pre class="cpp">
 
   win32:INCLUDEPATH += &quot;C:/mylibs/extra headers&quot;
@@ -147,7 +147,7 @@
 
 </pre>
 <p>The assignments inside the braces are only made if the condition is true. In this case, the <code>win32</code> <a href="qmake-variable-reference.html#config">CONFIG</a> option must be set. This happens automatically on Windows. The opening brace must stand on the same line as the condition.</p>
-<p>More complex operations on variables that would usually require loops are provided by built-in functions such as <a href="qmake-function-reference.html#findfunction">find()</a>, <a href="qmake-function-reference.html#unique">unique()</a>, and <a href="qmake-test-function-reference.html#countfunction">count()</a>. These functions, and many others are provided to manipulate strings and paths, support user input, and call external tools. For more information about using the functions, see <a href="qmake-language.html">qmake语言</a>. For lists of all functions and their descriptions, see <a href="qmake-function-reference.html">替换函数</a> and <a href="qmake-test-function-reference.html">测试函数</a>.</p>
+<p>More complex operations on variables that would usually require loops are provided by built-in functions such as <a href="qmake-function-reference.html#findfunction">find()</a>, <a href="qmake-function-reference.html#unique">unique()</a>, and <a href="qmake-test-function-reference.html#countfunction">count()</a>. These functions, and many others are provided to manipulate strings and paths, support user input, and call external tools. For more information about using the functions, see <a href="qmake-language.html">qmake语言</a>. For lists of all functions and their descriptions, see <a href="qmake-function-reference.html">替换函数</a> 和 <a href="qmake-test-function-reference.html">测试函数</a>.</p>
 <a name="project-templates"></a>
 <h2 id="project-templates">工程模板</h2>
 <p>The <a href="qmake-variable-reference.html#template">TEMPLATE</a> variable is used to define the type of project that will be built. If this is not declared in the project file, qmake assumes that an application should be built, and will generate an appropriate Makefile (or equivalent file) for the purpose.</p>

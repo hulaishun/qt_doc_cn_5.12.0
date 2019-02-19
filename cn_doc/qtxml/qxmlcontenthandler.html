@@ -53,7 +53,7 @@
 </td></tr></table></div><ul>
 <li><a href="qxmlcontenthandler-members.html">所有成员清单，包括继承而来的成员</a></li>
 </ul>
-<p><b>Note:</b> All functions in this class are <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
+<p><b>注意：</b> 此类中的所有函数都是 <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
 <a name="public-functions"></a>
 <h2 id="public-functions">公共函数</h2>
 <div class="table"><table class="alignedsummary">
@@ -81,7 +81,7 @@
 <p>The class <a href="qxmldefaulthandler.html">QXmlDefaultHandler</a> provides a default implementation for this interface; subclassing from the <a href="qxmldefaulthandler.html">QXmlDefaultHandler</a> class is very convenient if you only want to be informed of some parsing events.</p>
 <p>The <a href="qxmlcontenthandler.html#startDocument">startDocument</a>() function is called at the start of the document, and <a href="qxmlcontenthandler.html#endDocument">endDocument</a>() is called at the end. Before parsing begins <a href="qxmlcontenthandler.html#setDocumentLocator">setDocumentLocator</a>() is called. For each element <a href="qxmlcontenthandler.html#startElement">startElement</a>() is called, with <a href="qxmlcontenthandler.html#endElement">endElement</a>() being called at the end of each element. The <a href="qxmlcontenthandler.html#characters">characters</a>() function is called with chunks of character data; <a href="qxmlcontenthandler.html#ignorableWhitespace">ignorableWhitespace</a>() is called with chunks of whitespace and <a href="qxmlcontenthandler.html#processingInstruction">processingInstruction</a>() is called with processing instructions. If an entity is skipped <a href="qxmlcontenthandler.html#skippedEntity">skippedEntity</a>() is called. At the beginning of prefix-URI scopes <a href="qxmlcontenthandler.html#startPrefixMapping">startPrefixMapping</a>() is called.</p>
 </div>
-<p><b>参见</b><a href="qxmldtdhandler.html">QXmlDTDHandler</a>, <a href="qxmldeclhandler.html">QXmlDeclHandler</a>, <a href="qxmlentityresolver.html">QXmlEntityResolver</a>, <a href="qxmlerrorhandler.html">QXmlErrorHandler</a>, <a href="qxmllexicalhandler.html">QXmlLexicalHandler</a>, and <a href="xml-sax.html#introduction-to-sax2">Introduction to SAX2</a>.</p>
+<p><b> 参见 </b><a href="qxmldtdhandler.html">QXmlDTDHandler</a>, <a href="qxmldeclhandler.html">QXmlDeclHandler</a>, <a href="qxmlentityresolver.html">QXmlEntityResolver</a>, <a href="qxmlerrorhandler.html">QXmlErrorHandler</a>, <a href="qxmllexicalhandler.html">QXmlLexicalHandler</a>, and <a href="xml-sax.html#introduction-to-sax2">Introduction to SAX2</a>.</p>
 <!-- @@@QXmlContentHandler -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -97,7 +97,7 @@
 <!-- @@@~QXmlContentHandler -->
 <!-- $$$characters[overload1]$$$charactersconstQString& -->
 <h3 class="fn" id="characters"><a name="characters"></a><code>[pure virtual] </code><span class="type">bool</span> QXmlContentHandler::<span class="name">characters</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>ch</i>)</h3>
-<p>The reader calls this function when it has parsed a chunk of character data (either normal character data or character data inside a CDATA section; if you need to distinguish between those two types you must use <a href="qxmllexicalhandler.html#startCDATA">QXmlLexicalHandler::startCDATA</a>() and <a href="qxmllexicalhandler.html#endCDATA">QXmlLexicalHandler::endCDATA</a>()). The character data is reported in <i>ch</i>.</p>
+<p>The reader calls this function when it has parsed a chunk of character data (either normal character data or character data inside a CDATA section; if you need to distinguish between those two types you must use <a href="qxmllexicalhandler.html#startCDATA">QXmlLexicalHandler::startCDATA</a>() 和 <a href="qxmllexicalhandler.html#endCDATA">QXmlLexicalHandler::endCDATA</a>()). The character data is reported in <i>ch</i>.</p>
 <p>Some readers report whitespace in element content using the <a href="qxmlcontenthandler.html#ignorableWhitespace">ignorableWhitespace</a>() function rather than using this one.</p>
 <p>A reader may report the character data of an element in more than one chunk; e.g&#x2e; a reader might want to report &quot;a&lt;b&quot; in three characters() events (&quot;a &quot;, &quot;&lt;&quot; and &quot; b&quot;).</p>
 <p>If this function returns <code>false</code> the reader stops parsing and reports an error. The reader uses the function <a href="qxmlcontenthandler.html#errorString">errorString</a>() to get the error message.</p>
@@ -106,19 +106,19 @@
 <h3 class="fn" id="endDocument"><a name="endDocument"></a><code>[pure virtual] </code><span class="type">bool</span> QXmlContentHandler::<span class="name">endDocument</span>()</h3>
 <p>The reader calls this function after it has finished parsing. It is called just once, and is the last handler function called. It is called after the reader has read all input or has abandoned parsing because of a fatal error.</p>
 <p>If this function returns <code>false</code> the reader stops parsing and reports an error. The reader uses the function <a href="qxmlcontenthandler.html#errorString">errorString</a>() to get the error message.</p>
-<p><b>参见</b><a href="qxmlcontenthandler.html#startDocument">startDocument</a>().</p>
+<p><b> 参见 </b><a href="qxmlcontenthandler.html#startDocument">startDocument</a>().</p>
 <!-- @@@endDocument -->
 <!-- $$$endElement[overload1]$$$endElementconstQString&constQString&constQString& -->
 <h3 class="fn" id="endElement"><a name="endElement"></a><code>[pure virtual] </code><span class="type">bool</span> QXmlContentHandler::<span class="name">endElement</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>namespaceURI</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>localName</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>qName</i>)</h3>
 <p>The reader calls this function when it has parsed an end element tag with the qualified name <i>qName</i>, the local name <i>localName</i> and the namespace URI <i>namespaceURI</i>.</p>
 <p>If this function returns <code>false</code> the reader stops parsing and reports an error. The reader uses the function <a href="qxmlcontenthandler.html#errorString">errorString</a>() to get the error message.</p>
-<p><b>参见</b><a href="qxmlcontenthandler.html#startElement">startElement</a>() and <a href="xml-sax.html#namespace-support-via-features">Namespace Support via Features</a>.</p>
+<p><b> 参见 </b><a href="qxmlcontenthandler.html#startElement">startElement</a>() 和 <a href="xml-sax.html#namespace-support-via-features">Namespace Support via Features</a>.</p>
 <!-- @@@endElement -->
 <!-- $$$endPrefixMapping[overload1]$$$endPrefixMappingconstQString& -->
 <h3 class="fn" id="endPrefixMapping"><a name="endPrefixMapping"></a><code>[pure virtual] </code><span class="type">bool</span> QXmlContentHandler::<span class="name">endPrefixMapping</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>prefix</i>)</h3>
 <p>The reader calls this function to signal the end of a prefix mapping for the prefix <i>prefix</i>.</p>
 <p>If this function returns <code>false</code> the reader stops parsing and reports an error. The reader uses the function <a href="qxmlcontenthandler.html#errorString">errorString</a>() to get the error message.</p>
-<p><b>参见</b><a href="qxmlcontenthandler.html#startPrefixMapping">startPrefixMapping</a>() and <a href="xml-sax.html#namespace-support-via-features">Namespace Support via Features</a>.</p>
+<p><b> 参见 </b><a href="qxmlcontenthandler.html#startPrefixMapping">startPrefixMapping</a>() 和 <a href="xml-sax.html#namespace-support-via-features">Namespace Support via Features</a>.</p>
 <!-- @@@endPrefixMapping -->
 <!-- $$$errorString[overload1]$$$errorString -->
 <h3 class="fn" id="errorString"><a name="errorString"></a><code>[pure virtual] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QXmlContentHandler::<span class="name">errorString</span>() const</h3>
@@ -149,7 +149,7 @@
 <h3 class="fn" id="startDocument"><a name="startDocument"></a><code>[pure virtual] </code><span class="type">bool</span> QXmlContentHandler::<span class="name">startDocument</span>()</h3>
 <p>The reader calls this function when it starts parsing the document. The reader calls this function just once, after the call to <a href="qxmlcontenthandler.html#setDocumentLocator">setDocumentLocator</a>(), and before any other functions in this class or in the <a href="qxmldtdhandler.html">QXmlDTDHandler</a> class are called.</p>
 <p>If this function returns <code>false</code> the reader stops parsing and reports an error. The reader uses the function <a href="qxmlcontenthandler.html#errorString">errorString</a>() to get the error message.</p>
-<p><b>参见</b><a href="qxmlcontenthandler.html#endDocument">endDocument</a>().</p>
+<p><b> 参见 </b><a href="qxmlcontenthandler.html#endDocument">endDocument</a>().</p>
 <!-- @@@startDocument -->
 <!-- $$$startElement[overload1]$$$startElementconstQString&constQString&constQString&constQXmlAttributes& -->
 <h3 class="fn" id="startElement"><a name="startElement"></a><code>[pure virtual] </code><span class="type">bool</span> QXmlContentHandler::<span class="name">startElement</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>namespaceURI</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>localName</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>qName</i>, const <span class="type"><a href="qxmlattributes.html">QXmlAttributes</a></span> &amp;<i>atts</i>)</h3>
@@ -158,7 +158,7 @@
 <p>The attribute list provided only contains attributes with explicit values. The attribute list contains attributes used for namespace declaration (i.e&#x2e; attributes starting with xmlns) only if the namespace-prefix property of the reader is true.</p>
 <p>The argument <i>namespaceURI</i> is the namespace URI, or an empty string if the element has no namespace URI or if no namespace processing is done. <i>localName</i> is the local name (without prefix), or an empty string if no namespace processing is done, <i>qName</i> is the qualified name (with prefix) and <i>atts</i> are the attributes attached to the element. If there are no attributes, <i>atts</i> is an empty attributes object.</p>
 <p>If this function returns <code>false</code> the reader stops parsing and reports an error. The reader uses the function <a href="qxmlcontenthandler.html#errorString">errorString</a>() to get the error message.</p>
-<p><b>参见</b><a href="qxmlcontenthandler.html#endElement">endElement</a>() and <a href="xml-sax.html#namespace-support-via-features">Namespace Support via Features</a>.</p>
+<p><b> 参见 </b><a href="qxmlcontenthandler.html#endElement">endElement</a>() 和 <a href="xml-sax.html#namespace-support-via-features">Namespace Support via Features</a>.</p>
 <!-- @@@startElement -->
 <!-- $$$startPrefixMapping[overload1]$$$startPrefixMappingconstQString&constQString& -->
 <h3 class="fn" id="startPrefixMapping"><a name="startPrefixMapping"></a><code>[pure virtual] </code><span class="type">bool</span> QXmlContentHandler::<span class="name">startPrefixMapping</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>prefix</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>uri</i>)</h3>
@@ -166,7 +166,7 @@
 <p>Note that startPrefixMapping() and <a href="qxmlcontenthandler.html#endPrefixMapping">endPrefixMapping</a>() calls are not guaranteed to be properly nested relative to each other: all startPrefixMapping() events occur before the corresponding <a href="qxmlcontenthandler.html#startElement">startElement</a>() event, and all <a href="qxmlcontenthandler.html#endPrefixMapping">endPrefixMapping</a>() events occur after the corresponding <a href="qxmlcontenthandler.html#endElement">endElement</a>() event, but their order is not otherwise guaranteed.</p>
 <p>The argument <i>prefix</i> is the namespace prefix being declared and the argument <i>uri</i> is the namespace URI the prefix is mapped to.</p>
 <p>If this function returns <code>false</code> the reader stops parsing and reports an error. The reader uses the function <a href="qxmlcontenthandler.html#errorString">errorString</a>() to get the error message.</p>
-<p><b>参见</b><a href="qxmlcontenthandler.html#endPrefixMapping">endPrefixMapping</a>() and <a href="xml-sax.html#namespace-support-via-features">Namespace Support via Features</a>.</p>
+<p><b> 参见 </b><a href="qxmlcontenthandler.html#endPrefixMapping">endPrefixMapping</a>() 和 <a href="xml-sax.html#namespace-support-via-features">Namespace Support via Features</a>.</p>
 <!-- @@@startPrefixMapping -->
 </div>
 <div class="vars">

@@ -162,7 +162,7 @@
 <p>Several examples in the <code>scroller</code> examples directory show how <a href="qscroller.html">QScroller</a>, <a href="../qtgui/qscrollevent.html">QScrollEvent</a> and the scroller gesture can be used.</p>
 <p>Even though this kinetic scroller has a large number of settings available via <a href="qscrollerproperties.html">QScrollerProperties</a>, we recommend that you leave them all at their default, platform optimized values. Before changing them you can experiment with the <code>plot</code> example in the <code>scroller</code> examples directory.</p>
 </div>
-<p><b>参见</b><a href="../qtgui/qscrollevent.html">QScrollEvent</a>, <a href="../qtgui/qscrollprepareevent.html">QScrollPrepareEvent</a>, and <a href="qscrollerproperties.html">QScrollerProperties</a>.</p>
+<p><b> 参见 </b><a href="../qtgui/qscrollevent.html">QScrollEvent</a>, <a href="../qtgui/qscrollprepareevent.html">QScrollPrepareEvent</a>, and <a href="qscrollerproperties.html">QScrollerProperties</a>.</p>
 <!-- @@@QScroller -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -222,7 +222,7 @@
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qscroller.html#stateChanged">stateChanged</a></b></span>(QScroller::State <i>newState</i>)</td></tr>
 </table></div>
-<p><b>参见</b><a href="qscroller.html#State-enum">QScroller::State</a>.</p>
+<p><b> 参见 </b><a href="qscroller.html#State-enum">QScroller::State</a>.</p>
 <!-- @@@state -->
 </div>
 <div class="func">
@@ -237,7 +237,7 @@
 <p>In cases where it is not possible to fit the rect plus margins inside the viewport the contents are scrolled so that as much as possible is visible from <i>rect</i>.</p>
 <p>The scrolling speed is calculated so that the given position is reached after a platform-defined time span.</p>
 <p>This function performs the actual scrolling by calling <a href="qscroller.html#scrollTo">scrollTo</a>().</p>
-<p><b>参见</b><a href="qscroller.html#scrollTo">scrollTo</a>().</p>
+<p><b> 参见 </b><a href="qscroller.html#scrollTo">scrollTo</a>().</p>
 <!-- @@@ensureVisible -->
 <!-- $$$ensureVisible$$$ensureVisibleconstQRectF&qrealqrealint -->
 <h3 class="fn" id="ensureVisible-1"><a name="ensureVisible-1"></a><code>[slot] </code><span class="type">void</span> QScroller::<span class="name">ensureVisible</span>(const <span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> &amp;<i>rect</i>, <span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> <i>xmargin</i>, <span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> <i>ymargin</i>, <span class="type">int</span> <i>scrollTime</i>)</h3>
@@ -248,18 +248,18 @@
 <h3 class="fn" id="finalPosition"><a name="finalPosition"></a><span class="type"><a href="../qtcore/qpointf.html">QPointF</a></span> QScroller::<span class="name">finalPosition</span>() const</h3>
 <p>Returns the estimated final position for the current scroll movement. Returns the current position if the scroller state is not Scrolling. The result is undefined when the scroller state is Inactive.</p>
 <p>The target position is in pixel.</p>
-<p><b>参见</b><a href="qscroller.html#pixelPerMeter">pixelPerMeter</a>() and <a href="qscroller.html#scrollTo">scrollTo</a>().</p>
+<p><b> 参见 </b><a href="qscroller.html#pixelPerMeter">pixelPerMeter</a>() 和 <a href="qscroller.html#scrollTo">scrollTo</a>().</p>
 <!-- @@@finalPosition -->
 <!-- $$$grabGesture[overload1]$$$grabGestureQObject*QScroller::ScrollerGestureType -->
 <h3 class="fn" id="grabGesture"><a name="grabGesture"></a><code>[static] </code><span class="type">Qt::GestureType</span> QScroller::<span class="name">grabGesture</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>target</i>, <span class="type"><a href="qscroller.html#ScrollerGestureType-enum">QScroller::ScrollerGestureType</a></span> <i>scrollGestureType</i> = TouchGesture)</h3>
 <p>Registers a custom scroll gesture recognizer, grabs it for the <i>target</i> and returns the resulting gesture type. If <i>scrollGestureType</i> is set to <a href="qscroller.html#ScrollerGestureType-enum">TouchGesture</a> the gesture triggers on touch events. If it is set to one of <a href="qscroller.html#ScrollerGestureType-enum">LeftMouseButtonGesture</a>, <a href="qscroller.html#ScrollerGestureType-enum">RightMouseButtonGesture</a> or <a href="qscroller.html#ScrollerGestureType-enum">MiddleMouseButtonGesture</a> it triggers on mouse events of the corresponding button.</p>
 <p>Only one scroll gesture can be active on a single object at the same time. If you call this function twice on the same object, it will ungrab the existing gesture before grabbing the new one.</p>
-<p><b>Note: </b>To avoid unwanted side-effects, mouse events are consumed while the gesture is triggered. Since the initial mouse press event is not consumed, the gesture sends a fake mouse release event at the global position <code>(INT_MIN, INT_MIN)</code>. This ensures that internal states of the widget that received the original mouse press are consistent.</p><p><b>参见</b><a href="qscroller.html#ungrabGesture">ungrabGesture</a>() and <a href="qscroller.html#grabbedGesture">grabbedGesture</a>().</p>
+<p><b>Note: </b>To avoid unwanted side-effects, mouse events are consumed while the gesture is triggered. Since the initial mouse press event is not consumed, the gesture sends a fake mouse release event at the global position <code>(INT_MIN, INT_MIN)</code>. This ensures that internal states of the widget that received the original mouse press are consistent.</p><p><b> 参见 </b><a href="qscroller.html#ungrabGesture">ungrabGesture</a>() 和 <a href="qscroller.html#grabbedGesture">grabbedGesture</a>().</p>
 <!-- @@@grabGesture -->
 <!-- $$$grabbedGesture[overload1]$$$grabbedGestureQObject* -->
 <h3 class="fn" id="grabbedGesture"><a name="grabbedGesture"></a><code>[static] </code><span class="type">Qt::GestureType</span> QScroller::<span class="name">grabbedGesture</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>target</i>)</h3>
 <p>Returns the gesture type currently grabbed for the <i>target</i> or 0 if no gesture is grabbed.</p>
-<p><b>参见</b><a href="qscroller.html#grabGesture">grabGesture</a>() and <a href="qscroller.html#ungrabGesture">ungrabGesture</a>().</p>
+<p><b> 参见 </b><a href="qscroller.html#grabGesture">grabGesture</a>() 和 <a href="qscroller.html#ungrabGesture">ungrabGesture</a>().</p>
 <!-- @@@grabbedGesture -->
 <!-- $$$handleInput[overload1]$$$handleInputQScroller::InputconstQPointF&qint64 -->
 <h3 class="fn" id="handleInput"><a name="handleInput"></a><span class="type">bool</span> QScroller::<span class="name">handleInput</span>(<span class="type"><a href="qscroller.html#Input-enum">QScroller::Input</a></span> <i>input</i>, const <span class="type"><a href="../qtcore/qpointf.html">QPointF</a></span> &amp;<i>position</i>, <span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> <i>timestamp</i> = 0)</h3>
@@ -269,7 +269,7 @@
 <!-- $$$hasScroller[overload1]$$$hasScrollerQObject* -->
 <h3 class="fn" id="hasScroller"><a name="hasScroller"></a><code>[static] </code><span class="type">bool</span> QScroller::<span class="name">hasScroller</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>target</i>)</h3>
 <p>Returns <code>true</code> if a <a href="qscroller.html">QScroller</a> object was already created for <i>target</i>; <code>false</code> otherwise.</p>
-<p><b>参见</b><a href="qscroller.html#scroller">scroller</a>().</p>
+<p><b> 参见 </b><a href="qscroller.html#scroller">scroller</a>().</p>
 <!-- @@@hasScroller -->
 <!-- $$$pixelPerMeter[overload1]$$$pixelPerMeter -->
 <h3 class="fn" id="pixelPerMeter"><a name="pixelPerMeter"></a><span class="type"><a href="../qtcore/qpointf.html">QPointF</a></span> QScroller::<span class="name">pixelPerMeter</span>() const</h3>
@@ -286,7 +286,7 @@
 <p>The behaviour when scrolling outside the valid scroll area is undefined. In this case the scroller might or might not overshoot.</p>
 <p>The scrolling speed will be calculated so that the given position will be reached after a platform-defined time span.</p>
 <p><i>pos</i> is given in viewport coordinates.</p>
-<p><b>参见</b><a href="qscroller.html#ensureVisible">ensureVisible</a>().</p>
+<p><b> 参见 </b><a href="qscroller.html#ensureVisible">ensureVisible</a>().</p>
 <!-- @@@scrollTo -->
 <!-- $$$scrollTo$$$scrollToconstQPointF&int -->
 <h3 class="fn" id="scrollTo-1"><a name="scrollTo-1"></a><code>[slot] </code><span class="type">void</span> QScroller::<span class="name">scrollTo</span>(const <span class="type"><a href="../qtcore/qpointf.html">QPointF</a></span> &amp;<i>pos</i>, <span class="type">int</span> <i>scrollTime</i>)</h3>
@@ -296,7 +296,7 @@
 <!-- $$$scroller[overload1]$$$scrollerQObject* -->
 <h3 class="fn" id="scroller"><a name="scroller"></a><code>[static] </code><span class="type">QScroller</span> *QScroller::<span class="name">scroller</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>target</i>)</h3>
 <p>Returns the scroller for the given <i>target</i>. As long as the object exists this function will always return the same <a href="qscroller.html">QScroller</a> instance. If no <a href="qscroller.html">QScroller</a> exists for the <i>target</i>, one will implicitly be created. At no point more than one <a href="qscroller.html">QScroller</a> will be active on an object.</p>
-<p><b>参见</b><a href="qscroller.html#hasScroller">hasScroller</a>() and <a href="qscroller.html#target">target</a>().</p>
+<p><b> 参见 </b><a href="qscroller.html#hasScroller">hasScroller</a>() 和 <a href="qscroller.html#target">target</a>().</p>
 <!-- @@@scroller -->
 <!-- $$$scroller$$$scrollerconstQObject* -->
 <h3 class="fn" id="scroller-1"><a name="scroller-1"></a><code>[static] </code>const <span class="type">QScroller</span> *QScroller::<span class="name">scroller</span>(const <span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>target</i>)</h3>
@@ -306,7 +306,7 @@
 <!-- $$$scrollerPropertiesChanged -->
 <h3 class="fn" id="scrollerPropertiesChanged"><a name="scrollerPropertiesChanged"></a><code>[signal] </code><span class="type">void</span> QScroller::<span class="name">scrollerPropertiesChanged</span>(const <span class="type"><a href="qscrollerproperties.html">QScrollerProperties</a></span> &amp;<i>newProperties</i>)</h3>
 <p><a href="qscroller.html">QScroller</a> emits this signal whenever its scroller properties change. <i>newProperties</i> are the new scroller properties.</p>
-<p><b>Note:</b> Notifier signal for property <a href="qscroller.html#scrollerProperties-prop">scrollerProperties</a>. </p><p><b>参见</b><a href="qscroller.html#scrollerProperties-prop">scrollerProperties</a>.</p>
+<p><b>Note:</b> Notifier signal for property <a href="qscroller.html#scrollerProperties-prop">scrollerProperties</a>. </p><p><b> 参见 </b><a href="qscroller.html#scrollerProperties-prop">scrollerProperties</a>.</p>
 <!-- @@@scrollerPropertiesChanged -->
 <!-- $$$setSnapPositionsX[overload1]$$$setSnapPositionsXconstQList<qreal>& -->
 <h3 class="fn" id="setSnapPositionsX"><a name="setSnapPositionsX"></a><span class="type">void</span> QScroller::<span class="name">setSnapPositionsX</span>(const <span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span>&gt; &amp;<i>positions</i>)</h3>
@@ -327,7 +327,7 @@
 <!-- $$$stateChanged -->
 <h3 class="fn" id="stateChanged"><a name="stateChanged"></a><code>[signal] </code><span class="type">void</span> QScroller::<span class="name">stateChanged</span>(<span class="type"><a href="qscroller.html#State-enum">QScroller::State</a></span> <i>newState</i>)</h3>
 <p><a href="qscroller.html">QScroller</a> emits this signal whenever the state changes. <i>newState</i> is the new State.</p>
-<p><b>Note:</b> Notifier signal for property <a href="qscroller.html#state-prop">state</a>. </p><p><b>参见</b><a href="qscroller.html#state-prop">state</a>.</p>
+<p><b>Note:</b> Notifier signal for property <a href="qscroller.html#state-prop">state</a>. </p><p><b> 参见 </b><a href="qscroller.html#state-prop">state</a>.</p>
 <!-- @@@stateChanged -->
 <!-- $$$stop[overload1]$$$stop -->
 <h3 class="fn" id="stop"><a name="stop"></a><span class="type">void</span> QScroller::<span class="name">stop</span>()</h3>
@@ -336,18 +336,18 @@
 <!-- $$$target[overload1]$$$target -->
 <h3 class="fn" id="target"><a name="target"></a><span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *QScroller::<span class="name">target</span>() const</h3>
 <p>Returns the target object of this scroller.</p>
-<p><b>参见</b><a href="qscroller.html#hasScroller">hasScroller</a>() and <a href="qscroller.html#scroller">scroller</a>().</p>
+<p><b> 参见 </b><a href="qscroller.html#hasScroller">hasScroller</a>() 和 <a href="qscroller.html#scroller">scroller</a>().</p>
 <!-- @@@target -->
 <!-- $$$ungrabGesture[overload1]$$$ungrabGestureQObject* -->
 <h3 class="fn" id="ungrabGesture"><a name="ungrabGesture"></a><code>[static] </code><span class="type">void</span> QScroller::<span class="name">ungrabGesture</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>target</i>)</h3>
 <p>Ungrabs the gesture for the <i>target</i>. Does nothing if no gesture is grabbed.</p>
-<p><b>参见</b><a href="qscroller.html#grabGesture">grabGesture</a>() and <a href="qscroller.html#grabbedGesture">grabbedGesture</a>().</p>
+<p><b> 参见 </b><a href="qscroller.html#grabGesture">grabGesture</a>() 和 <a href="qscroller.html#grabbedGesture">grabbedGesture</a>().</p>
 <!-- @@@ungrabGesture -->
 <!-- $$$velocity[overload1]$$$velocity -->
 <h3 class="fn" id="velocity"><a name="velocity"></a><span class="type"><a href="../qtcore/qpointf.html">QPointF</a></span> QScroller::<span class="name">velocity</span>() const</h3>
 <p>Returns the current scrolling velocity in meter per second when the state is Scrolling or Dragging. Returns a zero velocity otherwise.</p>
 <p>The velocity is reported for both the x and y axis separately by using a <a href="../qtcore/qpointf.html">QPointF</a>.</p>
-<p><b>参见</b><a href="qscroller.html#pixelPerMeter">pixelPerMeter</a>().</p>
+<p><b> 参见 </b><a href="qscroller.html#pixelPerMeter">pixelPerMeter</a>().</p>
 <!-- @@@velocity -->
 </div>
 <div class="vars">

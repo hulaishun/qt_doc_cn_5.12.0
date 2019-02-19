@@ -117,7 +117,7 @@
 <p>NFC Forum devices support two modes of communications. The first mode, peer-to-peer communications, is used to communicate between two NFC Forum devices. The second mode, master/slave communications, is used to communicate between an NFC Forum device and an NFC Forum Tag or Contactless Card. The <a href="qnearfieldmanager.html#targetDetected">targetDetected</a>() signal is emitted when a target device enters communications range. Communications can be initiated from the slot connected to this signal.</p>
 <p>NFC Forum devices generally operate as the master in master/slave communications. Some devices are also capable of operating as the slave, so called Card Emulation mode. In this mode the local NFC device emulates a NFC Forum Tag or Contactless Card.</p>
 <p>NFC Forum Tags can contain one or more messages in a standardized format. These messages are encapsulated by the <a href="qndefmessage.html">QNdefMessage</a> class. Use the <a href="qnearfieldmanager.html#registerNdefMessageHandler">registerNdefMessageHandler</a>() functions to register message handlers with particular criteria. Handlers can be unregistered with the <a href="qnearfieldmanager.html#unregisterNdefMessageHandler">unregisterNdefMessageHandler</a>() function.</p>
-<p>Applications can connect to the <a href="qnearfieldmanager.html#targetDetected">targetDetected</a>() and <a href="qnearfieldmanager.html#targetLost">targetLost</a>() signals to get notified when an NFC Forum Tag enters or leaves proximity. Before these signals are emitted target detection must be started with the <a href="qnearfieldmanager.html#startTargetDetection">startTargetDetection</a>() function. Target detection can be stopped with the <a href="qnearfieldmanager.html#stopTargetDetection">stopTargetDetection</a>() function. Before a detected target can be accessed it is necessary to request access rights. This must be done before the target device is touched. The <a href="qnearfieldmanager.html#setTargetAccessModes">setTargetAccessModes</a>() function is used to set the types of access the application wants to perform on the detected target. When access is no longer required the target access modes should be set to <a href="qnearfieldmanager.html#TargetAccessMode-enum">NoTargetAccess</a> as other applications may be blocked from accessing targets. The current target access modes can be retried with the <a href="qnearfieldmanager.html#targetAccessModes">targetAccessModes</a>() function.</p>
+<p>Applications can connect to the <a href="qnearfieldmanager.html#targetDetected">targetDetected</a>() 和 <a href="qnearfieldmanager.html#targetLost">targetLost</a>() signals to get notified when an NFC Forum Tag enters or leaves proximity. Before these signals are emitted target detection must be started with the <a href="qnearfieldmanager.html#startTargetDetection">startTargetDetection</a>() function. Target detection can be stopped with the <a href="qnearfieldmanager.html#stopTargetDetection">stopTargetDetection</a>() function. Before a detected target can be accessed it is necessary to request access rights. This must be done before the target device is touched. The <a href="qnearfieldmanager.html#setTargetAccessModes">setTargetAccessModes</a>() function is used to set the types of access the application wants to perform on the detected target. When access is no longer required the target access modes should be set to <a href="qnearfieldmanager.html#TargetAccessMode-enum">NoTargetAccess</a> as other applications may be blocked from accessing targets. The current target access modes can be retried with the <a href="qnearfieldmanager.html#targetAccessModes">targetAccessModes</a>() function.</p>
 <a name="automatically-launching-ndef-message-handlers"></a>
 <h4 >Automatically launching NDEF message handlers</h4>
 <p>On some platforms it is possible to pre-register an application to receive NDEF messages matching a given criteria. This is useful to get the system to automatically launch your application when a matching NDEF message is received. This removes the need to have the user manually launch NDEF handling applications, prior to touching a tag, or to have those applications always running and using system resources.</p>
@@ -181,13 +181,13 @@
 <!-- $$$isAvailable[overload1]$$$isAvailable -->
 <h3 class="fn" id="isAvailable"><a name="isAvailable"></a><span class="type">bool</span> QNearFieldManager::<span class="name">isAvailable</span>() const</h3>
 <p>Returns <code>true</code> if the device has a NFC adapter and it is turned on; otherwise returns <code>false</code>.</p>
-<p><b>参见</b><a href="qnearfieldmanager.html#isSupported">isSupported</a>().</p>
+<p><b> 参见 </b><a href="qnearfieldmanager.html#isSupported">isSupported</a>().</p>
 <!-- @@@isAvailable -->
 <!-- $$$isSupported[overload1]$$$isSupported -->
 <h3 class="fn" id="isSupported"><a name="isSupported"></a><span class="type">bool</span> QNearFieldManager::<span class="name">isSupported</span>() const</h3>
 <p>Returns <code>true</code> if the underlying device has a NFC adapter; otherwise returns <code>false</code>.</p>
 <p>这个函数是在Qt 5.12版本中新增引入的。</p>
-<p><b>参见</b><a href="qnearfieldmanager.html#isAvailable">isAvailable</a>().</p>
+<p><b> 参见 </b><a href="qnearfieldmanager.html#isAvailable">isAvailable</a>().</p>
 <!-- @@@isSupported -->
 <!-- $$$registerNdefMessageHandler[overload1]$$$registerNdefMessageHandlerQObject*constchar* -->
 <h3 class="fn" id="registerNdefMessageHandler"><a name="registerNdefMessageHandler"></a><span class="type">int</span> QNearFieldManager::<span class="name">registerNdefMessageHandler</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>object</i>, const <span class="type">char</span> *<i>method</i>)</h3>
@@ -208,12 +208,12 @@
 <!-- $$$setTargetAccessModes[overload1]$$$setTargetAccessModesQNearFieldManager::TargetAccessModes -->
 <h3 class="fn" id="setTargetAccessModes"><a name="setTargetAccessModes"></a><span class="type">void</span> QNearFieldManager::<span class="name">setTargetAccessModes</span>(<span class="type"><a href="qnearfieldmanager.html#TargetAccessMode-enum">QNearFieldManager::TargetAccessModes</a></span> <i>accessModes</i>)</h3>
 <p>Sets the requested target access modes to <i>accessModes</i>.</p>
-<p><b>参见</b><a href="qnearfieldmanager.html#targetAccessModes">targetAccessModes</a>().</p>
+<p><b> 参见 </b><a href="qnearfieldmanager.html#targetAccessModes">targetAccessModes</a>().</p>
 <!-- @@@setTargetAccessModes -->
 <!-- $$$startTargetDetection[overload1]$$$startTargetDetection -->
 <h3 class="fn" id="startTargetDetection"><a name="startTargetDetection"></a><span class="type">bool</span> QNearFieldManager::<span class="name">startTargetDetection</span>()</h3>
 <p>Starts detecting targets and returns true if target detection is successfully started; otherwise returns false. Causes the <a href="qnearfieldmanager.html#targetDetected">targetDetected</a>() signal to be emitted when a target is within proximity.</p>
-<p><b>Note: </b>For platforms using neard: target detection will stop as soon as a tag has been detected.</p><p><b>参见</b><a href="qnearfieldmanager.html#stopTargetDetection">stopTargetDetection</a>().</p>
+<p><b>Note: </b>For platforms using neard: target detection will stop as soon as a tag has been detected.</p><p><b> 参见 </b><a href="qnearfieldmanager.html#stopTargetDetection">stopTargetDetection</a>().</p>
 <!-- @@@startTargetDetection -->
 <!-- $$$stopTargetDetection[overload1]$$$stopTargetDetection -->
 <h3 class="fn" id="stopTargetDetection"><a name="stopTargetDetection"></a><span class="type">void</span> QNearFieldManager::<span class="name">stopTargetDetection</span>()</h3>
@@ -222,7 +222,7 @@
 <!-- $$$targetAccessModes[overload1]$$$targetAccessModes -->
 <h3 class="fn" id="targetAccessModes"><a name="targetAccessModes"></a><span class="type"><a href="qnearfieldmanager.html#TargetAccessMode-enum">QNearFieldManager::TargetAccessModes</a></span> QNearFieldManager::<span class="name">targetAccessModes</span>() const</h3>
 <p>Returns current requested target access modes.</p>
-<p><b>参见</b><a href="qnearfieldmanager.html#setTargetAccessModes">setTargetAccessModes</a>().</p>
+<p><b> 参见 </b><a href="qnearfieldmanager.html#setTargetAccessModes">setTargetAccessModes</a>().</p>
 <!-- @@@targetAccessModes -->
 <!-- $$$targetDetected[overload1]$$$targetDetectedQNearFieldTarget* -->
 <h3 class="fn" id="targetDetected"><a name="targetDetected"></a><code>[signal] </code><span class="type">void</span> QNearFieldManager::<span class="name">targetDetected</span>(<span class="type"><a href="qnearfieldtarget.html">QNearFieldTarget</a></span> *<i>target</i>)</h3>
@@ -230,13 +230,13 @@
 <p>This signal will be emitted for all detected targets.</p>
 <p><a href="qnearfieldmanager.html">QNearFieldManager</a> maintains ownership of <i>target</i>, however, it will not be destroyed until the <a href="qnearfieldmanager.html">QNearFieldManager</a> destructor is called. Ownership may be transferred by calling <a href="../qtcore/qobject.html#setParent">setParent</a>().</p>
 <p>Do not delete <i>target</i> from the slot connected to this signal, instead call <a href="../qtcore/qobject.html#deleteLater">deleteLater</a>().</p>
-<p><b>Note: </b>that if <i>target</i> is deleted before it moves out of proximity the <a href="qnearfieldmanager.html#targetLost">targetLost</a>() signal will not be emitted.</p><p><b>参见</b><a href="qnearfieldmanager.html#targetLost">targetLost</a>().</p>
+<p><b>Note: </b>that if <i>target</i> is deleted before it moves out of proximity the <a href="qnearfieldmanager.html#targetLost">targetLost</a>() signal will not be emitted.</p><p><b> 参见 </b><a href="qnearfieldmanager.html#targetLost">targetLost</a>().</p>
 <!-- @@@targetDetected -->
 <!-- $$$targetLost[overload1]$$$targetLostQNearFieldTarget* -->
 <h3 class="fn" id="targetLost"><a name="targetLost"></a><code>[signal] </code><span class="type">void</span> QNearFieldManager::<span class="name">targetLost</span>(<span class="type"><a href="qnearfieldtarget.html">QNearFieldTarget</a></span> *<i>target</i>)</h3>
 <p>This signal is emitted whenever a target moves out of proximity. The <i>target</i> parameter represents the lost target.</p>
 <p>Do not delete <i>target</i> from the slot connected to this signal, instead use <a href="../qtcore/qobject.html#deleteLater">deleteLater</a>().</p>
-<p><b>参见</b><a href="qnearfieldtarget.html#disconnected">QNearFieldTarget::disconnected</a>().</p>
+<p><b> 参见 </b><a href="qnearfieldtarget.html#disconnected">QNearFieldTarget::disconnected</a>().</p>
 <!-- @@@targetLost -->
 <!-- $$$unregisterNdefMessageHandler[overload1]$$$unregisterNdefMessageHandlerint -->
 <h3 class="fn" id="unregisterNdefMessageHandler"><a name="unregisterNdefMessageHandler"></a><span class="type">bool</span> QNearFieldManager::<span class="name">unregisterNdefMessageHandler</span>(<span class="type">int</span> <i>handlerId</i>)</h3>

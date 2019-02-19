@@ -87,9 +87,9 @@
 <p>The <a href="qiconengine.html">QIconEngine</a> class provides an abstract base class for <a href="qicon.html">QIcon</a> renderers.</p>
 <p>An icon engine provides the rendering functions for a <a href="qicon.html">QIcon</a>. Each icon has a corresponding icon engine that is responsible for drawing the icon with a requested size, mode and state.</p>
 <p>The icon is rendered by the <a href="qiconengine.html#paint">paint</a>() function, and the icon can additionally be obtained as a pixmap with the <a href="qiconengine.html#pixmap">pixmap</a>() function (the default implementation simply uses <a href="qiconengine.html#paint">paint</a>() to achieve this). The <a href="qiconengine.html#addPixmap">addPixmap</a>() function can be used to add new pixmaps to the icon engine, and is used by <a href="qicon.html">QIcon</a> to add specialized custom pixmaps.</p>
-<p>The <a href="qiconengine.html#paint">paint</a>(), <a href="qiconengine.html#pixmap">pixmap</a>(), and <a href="qiconengine.html#addPixmap">addPixmap</a>() functions are all virtual, and can therefore be reimplemented in subclasses of <a href="qiconengine.html">QIconEngine</a>.</p>
+<p>The <a href="qiconengine.html#paint">paint</a>(), <a href="qiconengine.html#pixmap">pixmap</a>(), 和 <a href="qiconengine.html#addPixmap">addPixmap</a>() functions are all virtual, and can therefore be reimplemented in subclasses of <a href="qiconengine.html">QIconEngine</a>.</p>
 </div>
-<p><b>参见</b><a href="qiconengineplugin.html">QIconEnginePlugin</a>.</p>
+<p><b> 参见 </b><a href="qiconengineplugin.html">QIconEnginePlugin</a>.</p>
 <!-- @@@QIconEngine -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -103,7 +103,7 @@
 <tr><td class="topAlign"><code>QIconEngine::ScaledPixmapHook</code></td><td class="topAlign tblval"><code>4</code></td><td class="topAlign">Provides a way to get a pixmap that is scaled according to the given scale (typically equal to the <a href="../qtdoc/highdpi.html#glossary-of-high-dpi-terms">device pixel ratio</a>). The <i>data</i> argument of the <a href="qiconengine.html#virtual_hook">virtual_hook</a>() function is a <a href="qiconengine-scaledpixmapargument.html">ScaledPixmapArgument</a> pointer that contains both the input and output arguments. This enum value was added in Qt 5.9&#x2e;</td></tr>
 </table></div>
 <p>This enum was introduced or modified in  Qt 4.5.</p>
-<p><b>参见</b><a href="qiconengine.html#virtual_hook">virtual_hook</a>().</p>
+<p><b> 参见 </b><a href="qiconengine.html#virtual_hook">virtual_hook</a>().</p>
 <!-- @@@IconEngineHook -->
 </div>
 <div class="prop">
@@ -173,13 +173,13 @@
 <p>Returns a pixmap for the given <i>size</i>, <i>mode</i>, <i>state</i> and <i>scale</i>.</p>
 <p>The <i>scale</i> argument is typically equal to the <a href="../qtdoc/highdpi.html#glossary-of-high-dpi-terms">device pixel ratio</a> of the display.</p>
 <p><b>Note: </b>This is a helper method and the actual work is done by the <a href="qiconengine.html#virtual_hook">virtual_hook</a>() method, hence this method depends on icon engine support and may not work with all icon engines.</p><p><b>Note: </b>Some engines may cast <i>scale</i> to an integer.</p><p>这个函数是在Qt 5.9版本中新增引入的。</p>
-<p><b>参见</b><a href="qiconengine-scaledpixmapargument.html">ScaledPixmapArgument</a>.</p>
+<p><b> 参见 </b><a href="qiconengine-scaledpixmapargument.html">ScaledPixmapArgument</a>.</p>
 <!-- @@@scaledPixmap -->
 <!-- $$$virtual_hook[overload1]$$$virtual_hookintvoid* -->
 <h3 class="fn" id="virtual_hook"><a name="virtual_hook"></a><code>[virtual] </code><span class="type">void</span> QIconEngine::<span class="name">virtual_hook</span>(<span class="type">int</span> <i>id</i>, <span class="type">void</span> *<i>data</i>)</h3>
 <p>Additional method to allow extending <a href="qiconengine.html">QIconEngine</a> without adding new virtual methods (and without breaking binary compatibility). The actual action and format of <i>data</i> depends on <i>id</i> argument which is in fact a constant from <a href="qiconengine.html#IconEngineHook-enum">IconEngineHook</a> enum.</p>
 <p>这个函数是在Qt 4.5版本中新增引入的。</p>
-<p><b>参见</b><a href="qiconengine.html#IconEngineHook-enum">IconEngineHook</a>.</p>
+<p><b> 参见 </b><a href="qiconengine.html#IconEngineHook-enum">IconEngineHook</a>.</p>
 <!-- @@@virtual_hook -->
 <!-- $$$write[overload1]$$$writeQDataStream& -->
 <h3 class="fn" id="write"><a name="write"></a><code>[virtual] </code><span class="type">bool</span> QIconEngine::<span class="name">write</span>(<span class="type"><a href="../qtcore/qdatastream.html">QDataStream</a></span> &amp;<i>out</i>) const</h3>

@@ -112,7 +112,7 @@
 <h2 id="details">详细描述</h2>
 <p>The <a href="qgeocoordinate.html">QGeoCoordinate</a> class defines a geographical position on the surface of the Earth.</p>
 <p>A <a href="qgeocoordinate.html">QGeoCoordinate</a> is defined by latitude, longitude, and optionally, altitude.</p>
-<p>Use <a href="qgeocoordinate.html#type">type</a>() to determine whether a coordinate is a 2D coordinate (has latitude and longitude only) or 3D coordinate (has latitude, longitude and altitude). Use <a href="qgeocoordinate.html#distanceTo">distanceTo</a>() and <a href="qgeocoordinate.html#azimuthTo">azimuthTo</a>() to calculate the distance and bearing between coordinates.</p>
+<p>Use <a href="qgeocoordinate.html#type">type</a>() to determine whether a coordinate is a 2D coordinate (has latitude and longitude only) or 3D coordinate (has latitude, longitude and altitude). Use <a href="qgeocoordinate.html#distanceTo">distanceTo</a>() 和 <a href="qgeocoordinate.html#azimuthTo">azimuthTo</a>() to calculate the distance and bearing between coordinates.</p>
 <p>The coordinate values should be specified using the WGS84 datum. For more information on geographical terms see this article on <a href="http://en.wikipedia.org/wiki/Geographic_coordinate_system">coordinates</a> and another on <a href="http://en.wikipedia.org/wiki/Geodetic_system">geodetic systems</a> including WGS84.</p>
 <p>Azimuth in this context is equivalent to a compass bearing based on true north.</p>
 <p>This class is a <a href="../qtcore/qobject.html#Q_GADGET">Q_GADGET</a> since Qt 5.5&#x2e; It can be <a href="positioning-cpp-qml.html#cpp-value-integration-positioning">directly used from C++ and QML</a>.</p>
@@ -131,7 +131,7 @@
 <tr><td class="topAlign"><code>QGeoCoordinate::DegreesMinutesSeconds</code></td><td class="topAlign tblval"><code>4</code></td><td class="topAlign">Returns a string representation of the coordinates in degrees-minutes-seconds format.</td></tr>
 <tr><td class="topAlign"><code>QGeoCoordinate::DegreesMinutesSecondsWithHemisphere</code></td><td class="topAlign tblval"><code>5</code></td><td class="topAlign">Returns a string representation of the coordinates in degrees-minutes-seconds format, using 'N', 'S', 'E' or 'W' to indicate the hemispheres of the coordinates.</td></tr>
 </table></div>
-<p><b>参见</b><a href="qgeocoordinate.html#toString">toString</a>().</p>
+<p><b> 参见 </b><a href="qgeocoordinate.html#toString">toString</a>().</p>
 <!-- @@@CoordinateFormat -->
 <!-- $$$CoordinateType$$$InvalidCoordinate$$$Coordinate2D$$$Coordinate3D -->
 <h3 class="fn" id="CoordinateType-enum"><a name="CoordinateType-enum"></a>enum QGeoCoordinate::<span class="name">CoordinateType</span></h3>
@@ -160,7 +160,7 @@
 <!-- $$$isValid-prop$$$isValid -->
 <h3 class="fn" id="isValid-prop"><a name="isValid-prop"></a><span class="name">isValid</span> : const <span class="type">bool</span></h3>
 <p>This property holds the validity of this geo coordinate.</p>
-<p>The geo coordinate is valid if the <a href="qgeocoordinate.html#longitude-prop">longitude</a> and <a href="qgeocoordinate.html#latitude-prop">latitude</a> properties have been set to valid values.</p>
+<p>The geo coordinate is valid if the <a href="qgeocoordinate.html#longitude-prop">longitude</a> 和 <a href="qgeocoordinate.html#latitude-prop">latitude</a> properties have been set to valid values.</p>
 <p>While this property is introduced in Qt 5.5, the related accessor functions exist since the first version of this class.</p>
 <p>This property was introduced in  Qt 5.5.</p>
 <p><b>Access functions:</b></p>
@@ -203,20 +203,20 @@
 <!-- @@@ -->
 <!-- $$$QGeoCoordinate[overload1]$$$QGeoCoordinate -->
 <h3 class="fn" id="QGeoCoordinate"><a name="QGeoCoordinate"></a>QGeoCoordinate::<span class="name">QGeoCoordinate</span>()</h3>
-<p>Constructs a coordinate. The coordinate will be invalid until <a href="qgeocoordinate.html#setLatitude">setLatitude</a>() and <a href="qgeocoordinate.html#setLongitude">setLongitude</a>() have been called.</p>
+<p>Constructs a coordinate. The coordinate will be invalid until <a href="qgeocoordinate.html#setLatitude">setLatitude</a>() 和 <a href="qgeocoordinate.html#setLongitude">setLongitude</a>() have been called.</p>
 <!-- @@@QGeoCoordinate -->
 <!-- $$$QGeoCoordinate$$$QGeoCoordinatedoubledouble -->
 <h3 class="fn" id="QGeoCoordinate-1"><a name="QGeoCoordinate-1"></a>QGeoCoordinate::<span class="name">QGeoCoordinate</span>(<span class="type">double</span> <i>latitude</i>, <span class="type">double</span> <i>longitude</i>)</h3>
 <p>Constructs a coordinate with the given <i>latitude</i> and <i>longitude</i>.</p>
 <p>If the latitude is not between -90 to 90 inclusive, or the longitude is not between -180 to 180 inclusive, none of the values are set and the <a href="qgeocoordinate.html#type">type</a>() will be <a href="qgeocoordinate.html#CoordinateType-enum">QGeoCoordinate::InvalidCoordinate</a>.</p>
-<p><b>参见</b><a href="qgeocoordinate.html#isValid">isValid</a>().</p>
+<p><b> 参见 </b><a href="qgeocoordinate.html#isValid">isValid</a>().</p>
 <!-- @@@QGeoCoordinate -->
 <!-- $$$QGeoCoordinate$$$QGeoCoordinatedoubledoubledouble -->
 <h3 class="fn" id="QGeoCoordinate-2"><a name="QGeoCoordinate-2"></a>QGeoCoordinate::<span class="name">QGeoCoordinate</span>(<span class="type">double</span> <i>latitude</i>, <span class="type">double</span> <i>longitude</i>, <span class="type">double</span> <i>altitude</i>)</h3>
 <p>Constructs a coordinate with the given <i>latitude</i>, <i>longitude</i> and <i>altitude</i>.</p>
 <p>If the latitude is not between -90 to 90 inclusive, or the longitude is not between -180 to 180 inclusive, none of the values are set and the <a href="qgeocoordinate.html#type">type</a>() will be <a href="qgeocoordinate.html#CoordinateType-enum">QGeoCoordinate::InvalidCoordinate</a>.</p>
 <p>Note that <i>altitude</i> specifies the meters above sea level.</p>
-<p><b>参见</b><a href="qgeocoordinate.html#isValid">isValid</a>().</p>
+<p><b> 参见 </b><a href="qgeocoordinate.html#isValid">isValid</a>().</p>
 <!-- @@@QGeoCoordinate -->
 <!-- $$$QGeoCoordinate$$$QGeoCoordinateconstQGeoCoordinate& -->
 <h3 class="fn" id="QGeoCoordinate-3"><a name="QGeoCoordinate-3"></a>QGeoCoordinate::<span class="name">QGeoCoordinate</span>(const <span class="type"><a href="qgeocoordinate.html#QGeoCoordinate">QGeoCoordinate</a></span> &amp;<i>other</i>)</h3>
@@ -230,7 +230,7 @@
 <h3 class="fn" id="altitude"><a name="altitude"></a><span class="type">double</span> QGeoCoordinate::<span class="name">altitude</span>() const</h3>
 <p>Returns the altitude (meters above sea level).</p>
 <p>The return value is undefined if the altitude has not been set.</p>
-<p><b>Note:</b> Getter function for property <a href="qgeocoordinate.html#altitude-prop">altitude</a>. </p><p><b>参见</b><a href="qgeocoordinate.html#setAltitude">setAltitude</a>() and <a href="qgeocoordinate.html#type">type</a>().</p>
+<p><b>Note:</b> Getter function for property <a href="qgeocoordinate.html#altitude-prop">altitude</a>. </p><p><b> 参见 </b><a href="qgeocoordinate.html#setAltitude">setAltitude</a>() 和 <a href="qgeocoordinate.html#type">type</a>().</p>
 <!-- @@@altitude -->
 <!-- $$$atDistanceAndAzimuth[overload1]$$$atDistanceAndAzimuthqrealqrealqreal -->
 <h3 class="fn" id="atDistanceAndAzimuth"><a name="atDistanceAndAzimuth"></a><span class="type"><a href="qgeocoordinate.html#QGeoCoordinate">QGeoCoordinate</a></span> QGeoCoordinate::<span class="name">atDistanceAndAzimuth</span>(<span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> <i>distance</i>, <span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> <i>azimuth</i>, <span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> <i>distanceUp</i> = 0.0) const</h3>
@@ -255,36 +255,36 @@
 <!-- @@@distanceTo -->
 <!-- $$$isValid -->
 <h3 class="fn" id="isValid"><a name="isValid"></a><span class="type">bool</span> QGeoCoordinate::<span class="name">isValid</span>() const</h3>
-<p>Returns <code>true</code> if the <a href="qml-coordinate.html#longitude">longitude</a> and <a href="qml-coordinate.html#latitude">latitude</a> are valid.</p>
+<p>Returns <code>true</code> if the <a href="qml-coordinate.html#longitude">longitude</a> 和 <a href="qml-coordinate.html#latitude">latitude</a> are valid.</p>
 <p><b>Note:</b> Getter function for property <a href="qgeocoordinate.html#isValid-prop">isValid</a>. </p><!-- @@@isValid -->
 <!-- $$$latitude -->
 <h3 class="fn" id="latitude"><a name="latitude"></a><span class="type">double</span> QGeoCoordinate::<span class="name">latitude</span>() const</h3>
 <p>Returns the latitude, in decimal degrees. The return value is undefined if the latitude has not been set.</p>
 <p>A positive latitude indicates the Northern Hemisphere, and a negative latitude indicates the Southern Hemisphere.</p>
-<p><b>Note:</b> Getter function for property <a href="qgeocoordinate.html#latitude-prop">latitude</a>. </p><p><b>参见</b><a href="qgeocoordinate.html#setLatitude">setLatitude</a>() and <a href="qgeocoordinate.html#type">type</a>().</p>
+<p><b>Note:</b> Getter function for property <a href="qgeocoordinate.html#latitude-prop">latitude</a>. </p><p><b> 参见 </b><a href="qgeocoordinate.html#setLatitude">setLatitude</a>() 和 <a href="qgeocoordinate.html#type">type</a>().</p>
 <!-- @@@latitude -->
 <!-- $$$longitude -->
 <h3 class="fn" id="longitude"><a name="longitude"></a><span class="type">double</span> QGeoCoordinate::<span class="name">longitude</span>() const</h3>
 <p>Returns the longitude, in decimal degrees. The return value is undefined if the longitude has not been set.</p>
 <p>A positive longitude indicates the Eastern Hemisphere, and a negative longitude indicates the Western Hemisphere.</p>
-<p><b>Note:</b> Getter function for property <a href="qgeocoordinate.html#longitude-prop">longitude</a>. </p><p><b>参见</b><a href="qgeocoordinate.html#setLongitude">setLongitude</a>() and <a href="qgeocoordinate.html#type">type</a>().</p>
+<p><b>Note:</b> Getter function for property <a href="qgeocoordinate.html#longitude-prop">longitude</a>. </p><p><b> 参见 </b><a href="qgeocoordinate.html#setLongitude">setLongitude</a>() 和 <a href="qgeocoordinate.html#type">type</a>().</p>
 <!-- @@@longitude -->
 <!-- $$$setAltitude -->
 <h3 class="fn" id="setAltitude"><a name="setAltitude"></a><span class="type">void</span> QGeoCoordinate::<span class="name">setAltitude</span>(<span class="type">double</span> <i>altitude</i>)</h3>
 <p>Sets the altitude (meters above sea level) to <i>altitude</i>.</p>
-<p><b>Note:</b> Setter function for property <a href="qgeocoordinate.html#altitude-prop">altitude</a>. </p><p><b>参见</b><a href="qgeocoordinate.html#altitude">altitude</a>().</p>
+<p><b>Note:</b> Setter function for property <a href="qgeocoordinate.html#altitude-prop">altitude</a>. </p><p><b> 参见 </b><a href="qgeocoordinate.html#altitude">altitude</a>().</p>
 <!-- @@@setAltitude -->
 <!-- $$$setLatitude -->
 <h3 class="fn" id="setLatitude"><a name="setLatitude"></a><span class="type">void</span> QGeoCoordinate::<span class="name">setLatitude</span>(<span class="type">double</span> <i>latitude</i>)</h3>
 <p>Sets the latitude (in decimal degrees) to <i>latitude</i>. The value should be in the WGS84 datum.</p>
 <p>To be valid, the latitude must be between -90 to 90 inclusive.</p>
-<p><b>Note:</b> Setter function for property <a href="qgeocoordinate.html#latitude-prop">latitude</a>. </p><p><b>参见</b><a href="qgeocoordinate.html#latitude">latitude</a>().</p>
+<p><b>Note:</b> Setter function for property <a href="qgeocoordinate.html#latitude-prop">latitude</a>. </p><p><b> 参见 </b><a href="qgeocoordinate.html#latitude">latitude</a>().</p>
 <!-- @@@setLatitude -->
 <!-- $$$setLongitude -->
 <h3 class="fn" id="setLongitude"><a name="setLongitude"></a><span class="type">void</span> QGeoCoordinate::<span class="name">setLongitude</span>(<span class="type">double</span> <i>longitude</i>)</h3>
 <p>Sets the longitude (in decimal degrees) to <i>longitude</i>. The value should be in the WGS84 datum.</p>
 <p>To be valid, the longitude must be between -180 to 180 inclusive.</p>
-<p><b>Note:</b> Setter function for property <a href="qgeocoordinate.html#longitude-prop">longitude</a>. </p><p><b>参见</b><a href="qgeocoordinate.html#longitude">longitude</a>().</p>
+<p><b>Note:</b> Setter function for property <a href="qgeocoordinate.html#longitude-prop">longitude</a>. </p><p><b> 参见 </b><a href="qgeocoordinate.html#longitude">longitude</a>().</p>
 <!-- @@@setLongitude -->
 <!-- $$$toString[overload1]$$$toStringQGeoCoordinate::CoordinateFormat -->
 <h3 class="fn" id="toString"><a name="toString"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QGeoCoordinate::<span class="name">toString</span>(<span class="type"><a href="qgeocoordinate.html#CoordinateFormat-enum">QGeoCoordinate::CoordinateFormat</a></span> <i>format</i> = DegreesMinutesSecondsWithHemisphere) const</h3>
@@ -325,12 +325,12 @@
 <!-- $$$operator<<[overload1]$$$operator<<QDataStream&constQGeoCoordinate& -->
 <h3 class="fn" id="operator-lt-lt"><a name="operator-lt-lt"></a><span class="type"><a href="../qtcore/qdatastream.html">QDataStream</a></span> &amp;<span class="name">operator&lt;&lt;</span>(<span class="type"><a href="../qtcore/qdatastream.html">QDataStream</a></span> &amp;<i>stream</i>, const <span class="type"><a href="qgeocoordinate.html#QGeoCoordinate">QGeoCoordinate</a></span> &amp;<i>coordinate</i>)</h3>
 <p>Writes the given <i>coordinate</i> to the specified <i>stream</i>.</p>
-<p><b>参见</b><a href="../qtcore/datastreamformat.html">序列化Qt数据类型</a>.</p>
+<p><b> 参见 </b><a href="../qtcore/datastreamformat.html">序列化Qt数据类型</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator>>[overload1]$$$operator>>QDataStream&QGeoCoordinate& -->
 <h3 class="fn" id="operator-gt-gt"><a name="operator-gt-gt"></a><span class="type"><a href="../qtcore/qdatastream.html">QDataStream</a></span> &amp;<span class="name">operator&gt;&gt;</span>(<span class="type"><a href="../qtcore/qdatastream.html">QDataStream</a></span> &amp;<i>stream</i>, <span class="type"><a href="qgeocoordinate.html#QGeoCoordinate">QGeoCoordinate</a></span> &amp;<i>coordinate</i>)</h3>
 <p>Reads a coordinate from the specified <i>stream</i> into the given <i>coordinate</i>.</p>
-<p><b>参见</b><a href="../qtcore/datastreamformat.html">序列化Qt数据类型</a>.</p>
+<p><b> 参见 </b><a href="../qtcore/datastreamformat.html">序列化Qt数据类型</a>.</p>
 <!-- @@@operator>> -->
 </div>
 <div class="macros">

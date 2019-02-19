@@ -104,8 +104,8 @@
 <div class="descr">
 <h2 id="details">详细描述</h2>
 <p>The <a href="qvalidator.html">QValidator</a> class provides validation of input text.</p>
-<p>The class itself is abstract. Two subclasses, <a href="qintvalidator.html">QIntValidator</a> and <a href="qdoublevalidator.html">QDoubleValidator</a>, provide basic numeric-range checking, and <a href="qregexpvalidator.html">QRegExpValidator</a> provides general checking using a custom regular expression.</p>
-<p>If the built-in validators aren't sufficient, you can subclass <a href="qvalidator.html">QValidator</a>. The class has two virtual functions: <a href="qvalidator.html#validate">validate</a>() and <a href="qvalidator.html#fixup">fixup</a>().</p>
+<p>The class itself is abstract. Two subclasses, <a href="qintvalidator.html">QIntValidator</a> 和 <a href="qdoublevalidator.html">QDoubleValidator</a>, provide basic numeric-range checking, and <a href="qregexpvalidator.html">QRegExpValidator</a> provides general checking using a custom regular expression.</p>
+<p>If the built-in validators aren't sufficient, you can subclass <a href="qvalidator.html">QValidator</a>. The class has two virtual functions: <a href="qvalidator.html#validate">validate</a>() 和 <a href="qvalidator.html#fixup">fixup</a>().</p>
 <p><a href="qvalidator.html#validate">validate</a>() must be implemented by every subclass. It returns <a href="qvalidator.html#State-enum">Invalid</a>, <a href="qvalidator.html#State-enum">Intermediate</a> or <a href="qvalidator.html#State-enum">Acceptable</a> depending on whether its argument is valid (for the subclass's definition of valid).</p>
 <p>These three states require some explanation. An <a href="qvalidator.html#State-enum">Invalid</a> string is <i>clearly</i> invalid. <a href="qvalidator.html#State-enum">Intermediate</a> is less obvious: the concept of validity is difficult to apply when the string is incomplete (still being edited). <a href="qvalidator.html">QValidator</a> defines <a href="qvalidator.html#State-enum">Intermediate</a> as the property of a string that is neither clearly invalid nor acceptable as a final result. <a href="qvalidator.html#State-enum">Acceptable</a> means that the string is acceptable as a final result. One might say that any string that is a plausible intermediate state during entry of an <a href="qvalidator.html#State-enum">Acceptable</a> string is <a href="qvalidator.html#State-enum">Intermediate</a>.</p>
 <p>Here are some examples:</p>
@@ -115,10 +115,10 @@
 <li>For a spin box that accepts lengths, &quot;11cm&quot; and &quot;1in&quot; are <a href="qvalidator.html#State-enum">Acceptable</a>, &quot;11&quot; and the empty string are <a href="qvalidator.html#State-enum">Intermediate</a>, and &quot;http://example.com&quot; and &quot;hour&quot; are <a href="qvalidator.html#State-enum">Invalid</a>.</li>
 </ul>
 <p><a href="qvalidator.html#fixup">fixup</a>() is provided for validators that can repair some user errors. The default implementation does nothing. <a href="../qtwidgets/qlineedit.html">QLineEdit</a>, for example, will call <a href="qvalidator.html#fixup">fixup</a>() if the user presses Enter (or Return) and the content is not currently valid. This allows the <a href="qvalidator.html#fixup">fixup</a>() function the opportunity of performing some magic to make an <a href="qvalidator.html#State-enum">Invalid</a> string <a href="qvalidator.html#State-enum">Acceptable</a>.</p>
-<p>A validator has a locale, set with <a href="qvalidator.html#setLocale">setLocale</a>(). It is typically used to parse localized data. For example, <a href="qintvalidator.html">QIntValidator</a> and <a href="qdoublevalidator.html">QDoubleValidator</a> use it to parse localized representations of integers and doubles.</p>
-<p><a href="qvalidator.html">QValidator</a> is typically used with <a href="../qtwidgets/qlineedit.html">QLineEdit</a>, <a href="../qtwidgets/qspinbox.html">QSpinBox</a> and <a href="../qtwidgets/qcombobox.html">QComboBox</a>.</p>
+<p>A validator has a locale, set with <a href="qvalidator.html#setLocale">setLocale</a>(). It is typically used to parse localized data. For example, <a href="qintvalidator.html">QIntValidator</a> 和 <a href="qdoublevalidator.html">QDoubleValidator</a> use it to parse localized representations of integers and doubles.</p>
+<p><a href="qvalidator.html">QValidator</a> is typically used with <a href="../qtwidgets/qlineedit.html">QLineEdit</a>, <a href="../qtwidgets/qspinbox.html">QSpinBox</a> 和 <a href="../qtwidgets/qcombobox.html">QComboBox</a>.</p>
 </div>
-<p><b>参见</b><a href="qintvalidator.html">QIntValidator</a>, <a href="qdoublevalidator.html">QDoubleValidator</a>, <a href="qregexpvalidator.html">QRegExpValidator</a>, and <a href="../qtwidgets/qtwidgets-widgets-lineedits-example.html">Line Edits Example</a>.</p>
+<p><b> 参见 </b><a href="qintvalidator.html">QIntValidator</a>, <a href="qdoublevalidator.html">QDoubleValidator</a>, <a href="qregexpvalidator.html">QRegExpValidator</a>, and <a href="../qtwidgets/qtwidgets-widgets-lineedits-example.html">Line Edits Example</a>.</p>
 <!-- @@@QValidator -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -157,12 +157,12 @@
 <!-- $$$locale[overload1]$$$locale -->
 <h3 class="fn" id="locale"><a name="locale"></a><span class="type"><a href="../qtcore/qlocale.html">QLocale</a></span> QValidator::<span class="name">locale</span>() const</h3>
 <p>Returns the locale for the validator. The locale is by default initialized to the same as QLocale().</p>
-<p><b>参见</b><a href="qvalidator.html#setLocale">setLocale</a>() and <a href="../qtcore/qlocale.html#QLocale">QLocale::QLocale</a>().</p>
+<p><b> 参见 </b><a href="qvalidator.html#setLocale">setLocale</a>() 和 <a href="../qtcore/qlocale.html#QLocale">QLocale::QLocale</a>().</p>
 <!-- @@@locale -->
 <!-- $$$setLocale[overload1]$$$setLocaleconstQLocale& -->
 <h3 class="fn" id="setLocale"><a name="setLocale"></a><span class="type">void</span> QValidator::<span class="name">setLocale</span>(const <span class="type"><a href="../qtcore/qlocale.html">QLocale</a></span> &amp;<i>locale</i>)</h3>
 <p>Sets the <i>locale</i> that will be used for the validator. Unless setLocale has been called, the validator will use the default locale set with <a href="../qtcore/qlocale.html#setDefault">QLocale::setDefault</a>(). If a default locale has not been set, it is the operating system's locale.</p>
-<p><b>参见</b><a href="qvalidator.html#locale">locale</a>() and <a href="../qtcore/qlocale.html#setDefault">QLocale::setDefault</a>().</p>
+<p><b> 参见 </b><a href="qvalidator.html#locale">locale</a>() 和 <a href="../qtcore/qlocale.html#setDefault">QLocale::setDefault</a>().</p>
 <!-- @@@setLocale -->
 <!-- $$$validate[overload1]$$$validateQString&int& -->
 <h3 class="fn" id="validate"><a name="validate"></a><code>[pure virtual] </code><span class="type"><a href="qvalidator.html#State-enum">QValidator::State</a></span> QValidator::<span class="name">validate</span>(<span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>input</i>, <span class="type">int</span> &amp;<i>pos</i>) const</h3>

@@ -48,7 +48,7 @@
 <h1 class="title">iterator Class</h1>
 <span class="small-subtitle">(<a href="qlist-iterator.html">QList::iterator</a>)<br/></span>
 <!-- $$$iterator-brief -->
-<p>The <a href="qlist-iterator.html">QList::iterator</a> class provides an STL-style non-const iterator for <a href="qlist.html">QList</a> and <a href="qqueue.html">QQueue</a>. <a href="#details">More...</a></p>
+<p>The <a href="qlist-iterator.html">QList::iterator</a> class provides an STL-style non-const iterator for <a href="qlist.html">QList</a> 和 <a href="qqueue.html">QQueue</a>. <a href="#details">More...</a></p>
 <!-- @@@iterator -->
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> 头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;iterator&gt;</span>
@@ -105,8 +105,8 @@
 <!-- $$$iterator-description -->
 <div class="descr">
 <h2 id="details">详细描述</h2>
-<p>The <a href="qlist-iterator.html">QList::iterator</a> class provides an STL-style non-const iterator for <a href="qlist.html">QList</a> and <a href="qqueue.html">QQueue</a>.</p>
-<p><a href="qlist.html">QList</a> features both <a href="containers.html#stl-style-iterators">STL-style iterators</a> and <a href="containers.html#java-style-iterators">Java-style iterators</a>. The STL-style iterators are more low-level and more cumbersome to use; on the other hand, they are slightly faster and, for developers who already know STL, have the advantage of familiarity.</p>
+<p>The <a href="qlist-iterator.html">QList::iterator</a> class provides an STL-style non-const iterator for <a href="qlist.html">QList</a> 和 <a href="qqueue.html">QQueue</a>.</p>
+<p><a href="qlist.html">QList</a> features both <a href="containers.html#stl-style-iterators">STL-style iterators</a> 和 <a href="containers.html#java-style-iterators">Java-style iterators</a>. The STL-style iterators are more low-level and more cumbersome to use; on the other hand, they are slightly faster and, for developers who already know STL, have the advantage of familiarity.</p>
 <p><a href="qlist.html">QList</a>&lt;T&gt;::iterator allows you to iterate over a <a href="qlist.html">QList</a>&lt;T&gt; (or <a href="qqueue.html">QQueue</a>&lt;T&gt;) and to modify the list item associated with the iterator. If you want to iterate over a const <a href="qlist.html">QList</a>, use <a href="qlist-const-iterator.html">QList::const_iterator</a> instead. It is generally good practice to use <a href="qlist-const-iterator.html">QList::const_iterator</a> on a non-const <a href="qlist.html">QList</a> as well, unless you need to change the <a href="qlist.html">QList</a> through the iterator. Const iterators are slightly faster, and can improve code readability.</p>
 <p>The default <a href="qlist-iterator.html">QList::iterator</a> constructor creates an uninitialized iterator. You must initialize it using a <a href="qlist.html">QList</a> function like <a href="qlist.html#begin">QList::begin</a>(), <a href="qlist.html#end">QList::end</a>(), or <a href="qlist.html#insert">QList::insert</a>() before you can start iterating. Here's a typical loop that prints all the items stored in a list:</p>
 <pre class="cpp">
@@ -142,7 +142,7 @@
 <p>Multiple iterators can be used on the same list. However, be aware that any non-const function call performed on the <a href="qlist.html">QList</a> will render all existing iterators undefined. If you need to keep iterators over a long period of time, we recommend that you use <a href="qlinkedlist.html">QLinkedList</a> rather than <a href="qlist.html">QList</a>.</p>
 <p><b>Warning:</b> Iterators on implicitly shared containers do not work exactly like STL-iterators. You should avoid copying a container while iterators are active on that container. For more information, read <a href="containers.html#implicit-sharing-iterator-problem">Implicit sharing iterator problem</a>.</p>
 </div>
-<p><b>参见</b><a href="qlist-const-iterator.html">QList::const_iterator</a> and <a href="qmutablelistiterator.html">QMutableListIterator</a>.</p>
+<p><b> 参见 </b><a href="qlist-const-iterator.html">QList::const_iterator</a> 和 <a href="qmutablelistiterator.html">QMutableListIterator</a>.</p>
 <!-- @@@iterator -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -180,19 +180,19 @@
 <div class="fngroup">
 <h3 class="fn fngroupitem" id="operator-not-eq"><a name="operator-not-eq"></a><span class="type">bool</span> iterator::<span class="name">operator!=</span>(const <span class="type"><a href="qlist-iterator.html#iterator">iterator</a></span> &amp;<i>other</i>) const</h3><h3 class="fn fngroupitem" id="operator-not-eq-1"><a name="operator-not-eq-1"></a><span class="type">bool</span> iterator::<span class="name">operator!=</span>(const <span class="type"><a href="qlist-const-iterator.html">const_iterator</a></span> &amp;<i>other</i>) const</h3></div>
 <p>Returns <code>true</code> if <i>other</i> points to a different item than this iterator; otherwise returns <code>false</code>.</p>
-<p><b>参见</b><a href="qlist-iterator.html#operator-eq-eq">operator==</a>().</p>
+<p><b> 参见 </b><a href="qlist-iterator.html#operator-eq-eq">operator==</a>().</p>
 <!-- @@@ -->
 <!-- $$$ -->
 <div class="fngroup">
 <h3 class="fn fngroupitem" id="operator-eq-eq"><a name="operator-eq-eq"></a><span class="type">bool</span> iterator::<span class="name">operator==</span>(const <span class="type"><a href="qlist-iterator.html#iterator">iterator</a></span> &amp;<i>other</i>) const</h3><h3 class="fn fngroupitem" id="operator-eq-eq-1"><a name="operator-eq-eq-1"></a><span class="type">bool</span> iterator::<span class="name">operator==</span>(const <span class="type"><a href="qlist-const-iterator.html">const_iterator</a></span> &amp;<i>other</i>) const</h3></div>
 <p>Returns <code>true</code> if <i>other</i> points to the same item as this iterator; otherwise returns <code>false</code>.</p>
-<p><b>参见</b><a href="qlist-iterator.html#operator-not-eq">operator!=</a>().</p>
+<p><b> 参见 </b><a href="qlist-iterator.html#operator-not-eq">operator!=</a>().</p>
 <!-- @@@ -->
 <!-- $$$iterator[overload1]$$$iterator -->
 <h3 class="fn" id="iterator"><a name="iterator"></a>iterator::<span class="name">iterator</span>()</h3>
 <p>Constructs an uninitialized iterator.</p>
 <p>Functions like operator*() and operator++() should not be called on an uninitialized iterator. Use operator=() to assign a value to it before using it.</p>
-<p><b>参见</b><a href="qlist.html#begin">QList::begin</a>() and <a href="qlist.html#end">QList::end</a>().</p>
+<p><b> 参见 </b><a href="qlist.html#begin">QList::begin</a>() 和 <a href="qlist.html#end">QList::end</a>().</p>
 <!-- @@@iterator -->
 <!-- $$$iterator$$$iteratorconstiterator& -->
 <h3 class="fn" id="iterator-2"><a name="iterator-2"></a>iterator::<span class="name">iterator</span>(const <span class="type"><a href="qlist-iterator.html#iterator">iterator</a></span> &amp;<i>other</i>)</h3>
@@ -208,18 +208,18 @@
       <span class="operator">*</span>it <span class="operator">=</span> <span class="string">&quot;Bonjour&quot;</span>;
 
 </pre>
-<p><b>参见</b><a href="qlist-iterator.html#operator--gt">operator-&gt;</a>().</p>
+<p><b> 参见 </b><a href="qlist-iterator.html#operator--gt">operator-&gt;</a>().</p>
 <!-- @@@operator* -->
 <!-- $$$operator+[overload1]$$$operator+iterator::difference_type -->
 <h3 class="fn" id="operator-2b"><a name="operator-2b"></a><span class="type"><a href="qlist-iterator.html#iterator">iterator</a></span> iterator::<span class="name">operator+</span>(<span class="type">iterator::difference_type</span> <i>j</i>) const</h3>
 <p>Returns an iterator to the item at <i>j</i> positions forward from this iterator. (If <i>j</i> is negative, the iterator goes backward.)</p>
-<p><b>参见</b><a href="qlist-iterator.html#operator-">operator-</a>() and <a href="qlist-iterator.html#operator-2b-eq">operator+=</a>().</p>
+<p><b> 参见 </b><a href="qlist-iterator.html#operator-">operator-</a>() 和 <a href="qlist-iterator.html#operator-2b-eq">operator+=</a>().</p>
 <!-- @@@operator+ -->
 <!-- $$$operator++[overload1]$$$operator++ -->
 <h3 class="fn" id="operator-2b-2b"><a name="operator-2b-2b"></a><span class="type"><a href="qlist-iterator.html#iterator">iterator</a></span> &amp;iterator::<span class="name">operator++</span>()</h3>
 <p>The prefix ++ operator (<code>++it</code>) advances the iterator to the next item in the list and returns an iterator to the new current item.</p>
 <p>Calling this function on <a href="qlist.html#end">QList::end</a>() leads to undefined results.</p>
-<p><b>参见</b><a href="qlist-iterator.html#operator--">operator--</a>().</p>
+<p><b> 参见 </b><a href="qlist-iterator.html#operator--">operator--</a>().</p>
 <!-- @@@operator++ -->
 <!-- $$$operator++$$$operator++int -->
 <h3 class="fn" id="operator-2b-2b-1"><a name="operator-2b-2b-1"></a><span class="type"><a href="qlist-iterator.html#iterator">iterator</a></span> iterator::<span class="name">operator++</span>(<i>int</i>)</h3>
@@ -229,12 +229,12 @@
 <!-- $$$operator+=[overload1]$$$operator+=iterator::difference_type -->
 <h3 class="fn" id="operator-2b-eq"><a name="operator-2b-eq"></a><span class="type"><a href="qlist-iterator.html#iterator">iterator</a></span> &amp;iterator::<span class="name">operator+=</span>(<span class="type">iterator::difference_type</span> <i>j</i>)</h3>
 <p>Advances the iterator by <i>j</i> items. (If <i>j</i> is negative, the iterator goes backward.)</p>
-<p><b>参见</b><a href="qlist-iterator.html#operator--eq">operator-=</a>() and <a href="qlist-iterator.html#operator-2b">operator+</a>().</p>
+<p><b> 参见 </b><a href="qlist-iterator.html#operator--eq">operator-=</a>() 和 <a href="qlist-iterator.html#operator-2b">operator+</a>().</p>
 <!-- @@@operator+= -->
 <!-- $$$operator-[overload1]$$$operator-iterator::difference_type -->
 <h3 class="fn" id="operator-"><a name="operator-"></a><span class="type"><a href="qlist-iterator.html#iterator">iterator</a></span> iterator::<span class="name">operator-</span>(<span class="type">iterator::difference_type</span> <i>j</i>) const</h3>
 <p>Returns an iterator to the item at <i>j</i> positions backward from this iterator. (If <i>j</i> is negative, the iterator goes forward.)</p>
-<p><b>参见</b><a href="qlist-iterator.html#operator-2b">operator+</a>() and <a href="qlist-iterator.html#operator--eq">operator-=</a>().</p>
+<p><b> 参见 </b><a href="qlist-iterator.html#operator-2b">operator+</a>() 和 <a href="qlist-iterator.html#operator--eq">operator-=</a>().</p>
 <!-- @@@operator- -->
 <!-- $$$operator-$$$operator-iterator -->
 <h3 class="fn" id="operator--1"><a name="operator--1"></a><span class="type">int</span> iterator::<span class="name">operator-</span>(<span class="type"><a href="qlist-iterator.html#iterator">iterator</a></span> <i>other</i>) const</h3>
@@ -244,7 +244,7 @@
 <h3 class="fn" id="operator--"><a name="operator--"></a><span class="type"><a href="qlist-iterator.html#iterator">iterator</a></span> &amp;iterator::<span class="name">operator--</span>()</h3>
 <p>The prefix -- operator (<code>--it</code>) makes the preceding item current and returns an iterator to the new current item.</p>
 <p>Calling this function on <a href="qlist.html#begin">QList::begin</a>() leads to undefined results.</p>
-<p><b>参见</b><a href="qlist-iterator.html#operator-2b-2b">operator++</a>().</p>
+<p><b> 参见 </b><a href="qlist-iterator.html#operator-2b-2b">operator++</a>().</p>
 <!-- @@@operator-- -->
 <!-- $$$operator--$$$operator--int -->
 <h3 class="fn" id="operator---1"><a name="operator---1"></a><span class="type"><a href="qlist-iterator.html#iterator">iterator</a></span> iterator::<span class="name">operator--</span>(<i>int</i>)</h3>
@@ -254,18 +254,18 @@
 <!-- $$$operator-=[overload1]$$$operator-=iterator::difference_type -->
 <h3 class="fn" id="operator--eq"><a name="operator--eq"></a><span class="type"><a href="qlist-iterator.html#iterator">iterator</a></span> &amp;iterator::<span class="name">operator-=</span>(<span class="type">iterator::difference_type</span> <i>j</i>)</h3>
 <p>Makes the iterator go back by <i>j</i> items. (If <i>j</i> is negative, the iterator goes forward.)</p>
-<p><b>参见</b><a href="qlist-iterator.html#operator-2b-eq">operator+=</a>() and <a href="qlist-iterator.html#operator-">operator-</a>().</p>
+<p><b> 参见 </b><a href="qlist-iterator.html#operator-2b-eq">operator+=</a>() 和 <a href="qlist-iterator.html#operator-">operator-</a>().</p>
 <!-- @@@operator-= -->
 <!-- $$$operator->[overload1]$$$operator-> -->
 <h3 class="fn" id="operator--gt"><a name="operator--gt"></a><span class="type">T</span> *iterator::<span class="name">operator-&gt;</span>() const</h3>
 <p>Returns a pointer to the current item.</p>
-<p><b>参见</b><a href="qlist-iterator.html#operator-2a">operator*</a>().</p>
+<p><b> 参见 </b><a href="qlist-iterator.html#operator-2a">operator*</a>().</p>
 <!-- @@@operator-> -->
 <!-- $$$operator[][overload1]$$$operator[]iterator::difference_type -->
 <h3 class="fn" id="operator-5b-5d"><a name="operator-5b-5d"></a><span class="type">T</span> &amp;iterator::<span class="name">operator[]</span>(<span class="type">iterator::difference_type</span> <i>j</i>) const</h3>
 <p>Returns a modifiable reference to the item at position *this + <i>j</i>.</p>
 <p>This function is provided to make <a href="qlist.html">QList</a> iterators behave like C++ pointers.</p>
-<p><b>参见</b><a href="qlist-iterator.html#operator-2b">operator+</a>().</p>
+<p><b> 参见 </b><a href="qlist-iterator.html#operator-2b">operator+</a>().</p>
 <!-- @@@operator[] -->
 </div>
 <div class="vars">

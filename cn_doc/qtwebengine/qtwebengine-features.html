@@ -111,13 +111,13 @@
 <p>The Chromium DevTools provide the ability to inspect and debug layout and performance issues of any web content.</p>
 <p>This feature can be tested by launching a Qt WebEngine application with the command line option <code>--remote-debugging-port=[your-port]</code> or by setting the environment variable <code>QTWEBENGINE_REMOTE_DEBUGGING</code>, and then using a Chromium based browser (such as <a href="qtwebengine-webenginewidgets-simplebrowser-example.html">Simple Browser</a> or <a href="qtwebengine-webengine-quicknanobrowser-example.html">Nano Browser</a>) to connect to <code>http://localhost:[your-port]</code>.</p>
 <p>The Chromium DevTools page can also be shown within the application. To set this up, you can call either <a href="qwebenginepage.html#setInspectedPage">QWebEnginePage::setInspectedPage</a>() to the page to be inspected, which implicitly loads the DevTools into the <code>this</code> page, or <a href="qwebenginepage.html#setDevToolsPage">QWebEnginePage::setDevToolsPage</a>() to let the <code>this</code> page be inspected.</p>
-<p>The respective QML properties are <a href="qml-qtwebengine-webengineview.html#devToolsView-prop">WebEngineView.devToolsView</a> and <a href="qml-qtwebengine-webengineview.html#inspectedView-prop">WebEngineView.inspectedView</a>.</p>
+<p>The respective QML properties are <a href="qml-qtwebengine-webengineview.html#devToolsView-prop">WebEngineView.devToolsView</a> 和 <a href="qml-qtwebengine-webengineview.html#inspectedView-prop">WebEngineView.inspectedView</a>.</p>
 <p>For more information, see <a href="qtwebengine-debugging.html">Qt WebEngine Debugging and Profiling</a>.</p>
 <a name="custom-schemes"></a>
 <h2 id="custom-schemes">Custom Schemes</h2>
 <p>Qt WebEngine makes it possible for the application to define its own custom URL schemes with specialized security policies and transport mechanisms.</p>
 <p>Custom schemes can be used to implement alternative network protocols with all the usual web security policies, privileged internal schemes for displaying user interface compoments or debugging information, sandboxed schemes with extra restrictions, and so on.</p>
-<p>For more information, see <a href="qwebengineurlscheme.html">QWebEngineUrlScheme</a> and <a href="qwebengineurlschemehandler.html">QWebEngineUrlSchemeHandler</a>.</p>
+<p>For more information, see <a href="qwebengineurlscheme.html">QWebEngineUrlScheme</a> 和 <a href="qwebengineurlschemehandler.html">QWebEngineUrlSchemeHandler</a>.</p>
 <a name="drag-and-drop"></a>
 <h2 id="drag-and-drop">Drag and Drop</h2>
 <p>Qt WebEngine supports HTML5 drag and drop.</p>
@@ -156,7 +156,7 @@
 </ul>
 <p>Qt WebEngine provides standard dialogs for these functions. In widget-based applications, the standard dialogs are based on <a href="../qtwidgets/qdialog.html">QDialog</a>, whereas in Qt Quick applications, they can be based either on Qt Quick Controls 1 or Qt Quick Controls 2 (since Qt 5.8). The latter are used only on <code>eglfs</code> platforms.</p>
 <p>To explicitly force either dialogs based on Qt Quick Controls 1 or Qt Quick Controls 2, set the <code>QTWEBENGINE_DIALOG_SET</code> environment variable to either <code>QtQuickControls1</code> or <code>QtQuickControls2</code>.</p>
-<p>Qt WebEngine Widgets dialogs can be customized by reimplementing the <a href="qwebenginepage.html#chooseFiles">QWebEnginePage::chooseFiles</a>(), <a href="qwebenginepage.html#javaScriptAlert">QWebEnginePage::javaScriptAlert</a>(), <a href="qwebenginepage.html#javaScriptConfirm">QWebEnginePage::javaScriptConfirm</a>(), and <a href="qwebenginepage.html#javaScriptPrompt">QWebEnginePage::javaScriptPrompt</a>() functions.</p>
+<p>Qt WebEngine Widgets dialogs can be customized by reimplementing the <a href="qwebenginepage.html#chooseFiles">QWebEnginePage::chooseFiles</a>(), <a href="qwebenginepage.html#javaScriptAlert">QWebEnginePage::javaScriptAlert</a>(), <a href="qwebenginepage.html#javaScriptConfirm">QWebEnginePage::javaScriptConfirm</a>(), 和 <a href="qwebenginepage.html#javaScriptPrompt">QWebEnginePage::javaScriptPrompt</a>() functions.</p>
 <p>Since Qt 5.8, Qt Quick dialogs can be customized by connecting to the <a href="qml-qtwebengine-webengineview.html#authenticationDialogRequested-signal">WebEngineView::authenticationDialogRequested</a>(), <a href="qml-qtwebengine-webengineview.html#javaScriptDialogRequested-signal">WebEngineView::javaScriptDialogRequested</a>(), <a href="qml-qtwebengine-webengineview.html#colorDialogRequested-signal">WebEngineView::colorDialogRequested</a>(), <a href="qml-qtwebengine-webengineview.html#fileDialogRequested-signal">WebEngineView::fileDialogRequested</a>(), and WebEngineView::formValidationMessageRequested() signals. For an example, see <a href="qtwebengine-webengine-customdialogs-example.html">WebEngine Qt Quick Custom Dialogs Example</a>.</p>
 <a name="pepper-plugin-api"></a>
 <h2 id="pepper-plugin-api">Pepper Plugin API</h2>
@@ -217,7 +217,7 @@
 <p>This feature can be tested in <a href="qtwebengine-webenginewidgets-simplebrowser-example.html">Simple Browser</a> or <a href="qtwebengine-webengine-quicknanobrowser-example.html">Nano Browser</a> if the Adobe Flash PPAPI plugin is installed and plugins are enabled in the browser. To test the feature, the <code>https://helpx.adobe.com/flash-player.html</code> page can be opened in the browser.</p>
 <a name="print-to-pdf"></a>
 <h2 id="print-to-pdf">Print to PDF</h2>
-<p>Qt WebEngine supports printing a web page to a PDF file. For more information, see <a href="qwebenginepage.html#printToPdf">QWebEnginePage::printToPdf</a>() and <a href="qml-qtwebengine-webengineview.html#printToPdf-method">WebEngineView.printToPdf</a>.</p>
+<p>Qt WebEngine supports printing a web page to a PDF file. For more information, see <a href="qwebenginepage.html#printToPdf">QWebEnginePage::printToPdf</a>() 和 <a href="qml-qtwebengine-webengineview.html#printToPdf-method">WebEngineView.printToPdf</a>.</p>
 <p>This feature can be tested using <a href="qtwebengine-webenginewidgets-html2pdf-example.html">Html2Pdf</a>.</p>
 <p>Support for this feature was added in Qt 5.7&#x2e;0&#x2e;</p>
 <a name="process-models"></a>
@@ -241,7 +241,7 @@
 <p>To enable this model, use the command-line argument <code>--process-per-site</code>. See <a href="qtwebengine-debugging.html#using-command-line-arguments">Using Command-Line Arguments</a>.</p>
 <a name="single-process"></a>
 <h3 >Single Process</h3>
-<p>For debugging purposes only, a single process mode can be enabled using the command-line argument <code>--single-process</code>. See <a href="qtwebengine-debugging.html#using-command-line-arguments">Using Command-Line Arguments</a> and <a href="qtwebengine-debugging.html">Qt WebEngine Debugging and Profiling</a>.</p>
+<p>For debugging purposes only, a single process mode can be enabled using the command-line argument <code>--single-process</code>. See <a href="qtwebengine-debugging.html#using-command-line-arguments">Using Command-Line Arguments</a> 和 <a href="qtwebengine-debugging.html">Qt WebEngine Debugging and Profiling</a>.</p>
 <a name="spellchecker"></a>
 <h2 id="spellchecker">Spellchecker</h2>
 <p>Qt WebEngine supports integrating spellchecking support into HTML forms to enable users to submit spellchecked messages. When the user clicks on an underlined misspelled word, the default context menu displays up to four suggestions. Selecting one will replace the misspelled word.</p>
@@ -296,7 +296,7 @@
 <p>Support for this feature was added in Qt 5.8&#x2e;0&#x2e;</p>
 <a name="webrtc"></a>
 <h2 id="webrtc">WebRTC</h2>
-<p><a href="qtwebengine-3rdparty-webrtc.html">WebRTC</a> provides browsers with Real-Time Communications (RTC) capabilities via simple APIs. For more information, see <a href="qml-qtwebengine-webengineview.html#Feature-prop">WebEngineView.Feature</a> and <a href="qwebenginepage.html#Feature-enum">QWebEnginePage::Feature</a>.</p>
+<p><a href="qtwebengine-3rdparty-webrtc.html">WebRTC</a> provides browsers with Real-Time Communications (RTC) capabilities via simple APIs. For more information, see <a href="qml-qtwebengine-webengineview.html#Feature-prop">WebEngineView.Feature</a> 和 <a href="qwebenginepage.html#Feature-enum">QWebEnginePage::Feature</a>.</p>
 <p>This feature can be tested by setting up a webcam or microphone and then opening <code>https://test.webrtc.org/</code> in <a href="qtwebengine-webenginewidgets-simplebrowser-example.html">Simple Browser</a> or <a href="qtwebengine-webengine-quicknanobrowser-example.html">Nano Browser</a>.</p>
 </div>
 <!-- @@@qtwebengine-features.html -->

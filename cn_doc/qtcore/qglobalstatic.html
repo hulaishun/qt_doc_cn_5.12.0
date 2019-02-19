@@ -55,7 +55,7 @@
 <li><a href="qglobalstatic-members.html">所有成员清单，包括继承而来的成员</a></li>
 <li><a href="qglobalstatic-obsolete.html">过时的成员</a></li>
 </ul>
-<p><b>Note:</b> All functions in this class are <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
+<p><b>注意：</b> 此类中的所有函数都是 <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
 <a name="public-types"></a>
 <h2 id="public-types">公共类型</h2>
 <div class="table"><table class="alignedsummary">
@@ -88,9 +88,9 @@
   Q_GLOBAL_STATIC(MyType<span class="operator">,</span> staticType)
 
 </pre>
-<p>The above example creates an object of type <a href="qglobalstatic.html">QGlobalStatic</a> called <code>staticType</code>. After the above declaration, the <code>staticType</code> object may be used as if it were a pointer, guaranteed to be initialized exactly once. In addition to the use as a pointer, the object offers two methods to determine the current status of the global: <a href="qglobalstatic.html#exists">exists</a>() and <a href="qglobalstatic.html#isDestroyed">isDestroyed</a>().</p>
+<p>The above example creates an object of type <a href="qglobalstatic.html">QGlobalStatic</a> called <code>staticType</code>. After the above declaration, the <code>staticType</code> object may be used as if it were a pointer, guaranteed to be initialized exactly once. In addition to the use as a pointer, the object offers two methods to determine the current status of the global: <a href="qglobalstatic.html#exists">exists</a>() 和 <a href="qglobalstatic.html#isDestroyed">isDestroyed</a>().</p>
 </div>
-<p><b>参见</b><a href="qglobalstatic.html#Q_GLOBAL_STATIC">Q_GLOBAL_STATIC</a>() and <a href="qglobalstatic.html#Q_GLOBAL_STATIC_WITH_ARGS">Q_GLOBAL_STATIC_WITH_ARGS</a>().</p>
+<p><b> 参见 </b><a href="qglobalstatic.html#Q_GLOBAL_STATIC">Q_GLOBAL_STATIC</a>() 和 <a href="qglobalstatic.html#Q_GLOBAL_STATIC_WITH_ARGS">Q_GLOBAL_STATIC_WITH_ARGS</a>().</p>
 <!-- @@@QGlobalStatic -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -124,7 +124,7 @@
 </pre>
 <p><b>Thread-safety notice:</b> this function is thread-safe in the sense that it may be called from any thread at any time and will always return a valid reply. But due to the non-atomic nature of construction, this function may return false for a short time after the construction has completed.</p>
 <p><b>Memory ordering notice:</b> this function does not impose any memory ordering guarantees. That is instead provided by the accessor functions that return the pointer or reference to the contents. If you bypass the accessor functions and attempt to access some global state set by the constructor, be sure to use the correct memory ordering semantics provided by <a href="qatomicint.html">QAtomicInt</a> or <a href="qatomicpointer.html">QAtomicPointer</a>.</p>
-<p><b>参见</b><a href="qglobalstatic.html#isDestroyed">isDestroyed</a>().</p>
+<p><b> 参见 </b><a href="qglobalstatic.html#isDestroyed">isDestroyed</a>().</p>
 <!-- @@@exists -->
 <!-- $$$isDestroyed[overload1]$$$isDestroyed -->
 <h3 class="fn" id="isDestroyed"><a name="isDestroyed"></a><span class="type">bool</span> QGlobalStatic::<span class="name">isDestroyed</span>() const</h3>
@@ -132,7 +132,7 @@
 <p>Once this function has returned true once, it will never return false again until either the program is restarted or the plugin or library containing the global static is unloaded and reloaded.</p>
 <p>This function is safe to call at any point in the program execution: it cannot fail and cannot cause a deadlock. Additionally, it will not cause the contents to be created if they have not yet been created.</p>
 <p>This function is useful in code that may be executed at program shutdown, to determine whether the contents may still be accessed or not.</p>
-<p><b>参见</b><a href="qglobalstatic.html#exists">exists</a>().</p>
+<p><b> 参见 </b><a href="qglobalstatic.html#exists">exists</a>().</p>
 <!-- @@@isDestroyed -->
 <!-- $$$operator QGlobalStatic::Type *[overload1]$$$operator QGlobalStatic::Type * -->
 <h3 class="fn" id="operator-QGlobalStatic::Type--2a"><a name="operator-QGlobalStatic::Type--2a"></a><span class="type"><a href="qglobalstatic.html#Type-typedef">QGlobalStatic::Type</a></span> *QGlobalStatic::<span class="name">operator QGlobalStatic::Type *</span>()</h3>
@@ -155,7 +155,7 @@
   }
 
 </pre>
-<p><b>参见</b><a href="qglobalstatic.html#operator--gt">operator-&gt;</a>() and <a href="qglobalstatic.html#operator-2a">operator*</a>().</p>
+<p><b> 参见 </b><a href="qglobalstatic.html#operator--gt">operator-&gt;</a>() 和 <a href="qglobalstatic.html#operator-2a">operator*</a>().</p>
 <!-- @@@operator QGlobalStatic::Type * -->
 <!-- $$$operator*[overload1]$$$operator* -->
 <h3 class="fn" id="operator-2a"><a name="operator-2a"></a><span class="type"><a href="qglobalstatic.html#Type-typedef">QGlobalStatic::Type</a></span> &amp;QGlobalStatic::<span class="name">operator*</span>()</h3>
@@ -248,12 +248,12 @@
 <p>In addition, if two Q_GLOBAL_STATIC objects are being initialized on two different threads and each one's initialization sequence accesses the other, a deadlock might happen. For that reason, it is recommended to keep global static constructors simple or, failing that, to ensure that there's no cross-dependency of uses of global static during construction.</p>
 <a name="destruction"></a>
 <h4 >Destruction</h4>
-<p>If the object is never used during the lifetime of the program, aside from the <a href="qglobalstatic.html#exists">QGlobalStatic::exists</a>() and <a href="qglobalstatic.html#isDestroyed">QGlobalStatic::isDestroyed</a>() functions, the contents of type <i>类型</i> will not be created and there will not be any exit-time operation.</p>
+<p>If the object is never used during the lifetime of the program, aside from the <a href="qglobalstatic.html#exists">QGlobalStatic::exists</a>() 和 <a href="qglobalstatic.html#isDestroyed">QGlobalStatic::isDestroyed</a>() functions, the contents of type <i>类型</i> will not be created and there will not be any exit-time operation.</p>
 <p>If the object is created, it will be destroyed at exit-time, similar to the C <code>atexit</code> function. On most systems, in fact, the destructor will also be called if the library or plugin is unloaded from memory before exit.</p>
 <p>Since the destruction is meant to happen at program exit, no thread-safety is provided. This includes the case of plugin or library unload. In addition, since destructors are not supposed to throw exceptions, no exception safety is provided either.</p>
 <p>However, reentrancy is permitted: during destruction, it is possible to access the global static object and the pointer returned will be the same as it was before destruction began. After the destruction has completed, accessing the global static object is not permitted, except as noted in the <a href="qglobalstatic.html">QGlobalStatic</a> API.</p>
 <p>这个函数是在Qt 5.1版本中新增引入的。</p>
-<p><b>参见</b><a href="qglobalstatic.html#Q_GLOBAL_STATIC_WITH_ARGS">Q_GLOBAL_STATIC_WITH_ARGS</a>() and <a href="qglobalstatic.html">QGlobalStatic</a>.</p>
+<p><b> 参见 </b><a href="qglobalstatic.html#Q_GLOBAL_STATIC_WITH_ARGS">Q_GLOBAL_STATIC_WITH_ARGS</a>() 和 <a href="qglobalstatic.html">QGlobalStatic</a>.</p>
 <!-- @@@Q_GLOBAL_STATIC -->
 <!-- $$$Q_GLOBAL_STATIC_WITH_ARGS[overload1]$$$Q_GLOBAL_STATIC_WITH_ARGS -->
 <h3 class="fn" id="Q_GLOBAL_STATIC_WITH_ARGS"><a name="Q_GLOBAL_STATIC_WITH_ARGS"></a><span class="name">Q_GLOBAL_STATIC_WITH_ARGS</span>(<i>类型</i>, <i>VariableName</i>, <i>Arguments</i>)</h3>
@@ -267,7 +267,7 @@
 <p>The <i>Arguments</i> macro parameter must always include the parentheses or, if C++11 uniform initialization is allowed, the braces.</p>
 <p>Aside from the actual initialization of the contents with the supplied arguments, this macro behaves identically to <a href="qglobalstatic.html#Q_GLOBAL_STATIC">Q_GLOBAL_STATIC</a>(). Please see that macro's documentation for more information.</p>
 <p>这个函数是在Qt 5.1版本中新增引入的。</p>
-<p><b>参见</b><a href="qglobalstatic.html#Q_GLOBAL_STATIC">Q_GLOBAL_STATIC</a>() and <a href="qglobalstatic.html">QGlobalStatic</a>.</p>
+<p><b> 参见 </b><a href="qglobalstatic.html#Q_GLOBAL_STATIC">Q_GLOBAL_STATIC</a>() 和 <a href="qglobalstatic.html">QGlobalStatic</a>.</p>
 <!-- @@@Q_GLOBAL_STATIC_WITH_ARGS -->
 </div>
         </div>

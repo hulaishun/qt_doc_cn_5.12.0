@@ -126,7 +126,7 @@
 <li><a href="../qtgui/qpainter.html#drawText-1">QPainter::drawText</a>(int x, int y, const <a href="../qtcore/qstring.html">QString</a> &amp;str) will always draw the string with its left edge at the position specified with the x, y parameters. This will usually give you left aligned strings. Arabic and Hebrew application strings are usually right aligned, so for these languages use the version of drawText() that takes a <a href="../qtcore/qrect.html">QRect</a> since this will align in accordance with the language.</li>
 <li>When you write your own text input controls, use <a href="../qtgui/qtextlayout.html">QTextLayout</a>. In some languages (e.g&#x2e; Arabic or languages from the Indian subcontinent), the width and shape of a glyph changes depending on the surrounding characters, which <a href="../qtgui/qtextlayout.html">QTextLayout</a> takes into account. Writing input controls usually requires a certain knowledge of the scripts it is going to be used in. Usually the easiest way is to subclass <a href="../qtwidgets/qlineedit.html">QLineEdit</a> or <a href="../qtwidgets/qtextedit.html">QTextEdit</a>.</li>
 </ul>
-<p>For more information about how to internationalize source code, see <a href="i18n-source-translation.html">Writing Source Code for Translation</a> and <a href="qtquick-internationalization.html">Internationalization and Localization with Qt Quick</a>.</p>
+<p>For more information about how to internationalize source code, see <a href="i18n-source-translation.html">Writing Source Code for Translation</a> 和 <a href="qtquick-internationalization.html">Internationalization and Localization with Qt Quick</a>.</p>
 <a name="producing-translations"></a>
 <h4 >Producing Translations</h4>
 <p>Qt provides excellent support for translating Qt C++ and Qt Quick applications into local languages. Release managers, translators, and developers can use the Qt translation tools to accomplish their tasks.</p>
@@ -170,7 +170,7 @@
 
 </pre>
 <p>For converting Unicode to local 8-bit encodings, a shortcut is available: the <a href="../qtcore/qstring.html#toLocal8Bit">QString::toLocal8Bit</a>() function returns such 8-bit data. Another useful shortcut is <a href="../qtcore/qstring.html#toUtf8">QString::toUtf8</a>(), which returns text in the 8-bit <a href="http://www.ietf.org/rfc/rfc2279.txt">UTF-8</a> encoding: this perfectly preserves Unicode information while looking like plain ASCII if the text is wholly ASCII.</p>
-<p>For converting the other way, there are the <a href="../qtcore/qstring.html#fromUtf8-1">QString::fromUtf8</a>() and <a href="../qtcore/qstring.html#fromLocal8Bit-1">QString::fromLocal8Bit</a>() convenience functions, or the general code, demonstrated by this conversion from ISO 8859-5 Cyrillic to Unicode conversion:</p>
+<p>For converting the other way, there are the <a href="../qtcore/qstring.html#fromUtf8-1">QString::fromUtf8</a>() 和 <a href="../qtcore/qstring.html#fromLocal8Bit-1">QString::fromLocal8Bit</a>() convenience functions, or the general code, demonstrated by this conversion from ISO 8859-5 Cyrillic to Unicode conversion:</p>
 <pre class="cpp">
 
   <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> encodedString <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>; <span class="comment">// some ISO 8859-5 encoded text</span>

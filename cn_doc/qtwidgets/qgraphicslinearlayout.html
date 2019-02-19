@@ -121,7 +121,7 @@
   scene<span class="operator">.</span>addItem(form);
 
 </pre>
-<p>You can add widgets, layouts, stretches (<a href="qgraphicslinearlayout.html#addStretch">addStretch</a>(), <a href="qgraphicslinearlayout.html#insertStretch">insertStretch</a>() or <a href="qgraphicslinearlayout.html#setStretchFactor">setStretchFactor</a>()), and spacings (<a href="qgraphicslinearlayout.html#setItemSpacing">setItemSpacing</a>()) to a linear layout. The layout takes ownership of the items. In some cases when the layout item also inherits from <a href="qgraphicsitem.html">QGraphicsItem</a> (such as <a href="graphicsview.html#qgraphicswidget">QGraphicsWidget</a>) there will be a ambiguity in ownership because the layout item belongs to two ownership hierarchies. See the documentation of <a href="qgraphicslayoutitem.html#setOwnedByLayout">QGraphicsLayoutItem::setOwnedByLayout</a>() how to handle this. You can access each item in the layout by calling <a href="qgraphicslinearlayout.html#count">count</a>() and <a href="qgraphicslinearlayout.html#itemAt">itemAt</a>(). Calling <a href="qgraphicslinearlayout.html#removeAt">removeAt</a>() or <a href="qgraphicslinearlayout.html#removeItem">removeItem</a>() will remove an item from the layout, without destroying it.</p>
+<p>You can add widgets, layouts, stretches (<a href="qgraphicslinearlayout.html#addStretch">addStretch</a>(), <a href="qgraphicslinearlayout.html#insertStretch">insertStretch</a>() or <a href="qgraphicslinearlayout.html#setStretchFactor">setStretchFactor</a>()), and spacings (<a href="qgraphicslinearlayout.html#setItemSpacing">setItemSpacing</a>()) to a linear layout. The layout takes ownership of the items. In some cases when the layout item also inherits from <a href="qgraphicsitem.html">QGraphicsItem</a> (such as <a href="graphicsview.html#qgraphicswidget">QGraphicsWidget</a>) there will be a ambiguity in ownership because the layout item belongs to two ownership hierarchies. See the documentation of <a href="qgraphicslayoutitem.html#setOwnedByLayout">QGraphicsLayoutItem::setOwnedByLayout</a>() how to handle this. You can access each item in the layout by calling <a href="qgraphicslinearlayout.html#count">count</a>() 和 <a href="qgraphicslinearlayout.html#itemAt">itemAt</a>(). Calling <a href="qgraphicslinearlayout.html#removeAt">removeAt</a>() or <a href="qgraphicslinearlayout.html#removeItem">removeItem</a>() will remove an item from the layout, without destroying it.</p>
 <a name="size-hints-and-size-policies-in-qgraphicslinearlayout"></a>
 <h3 >Size Hints and Size Policies in QGraphicsLinearLayout</h3>
 <p><a href="qgraphicslinearlayout.html">QGraphicsLinearLayout</a> respects each item's size hints and size policies, and when the layout contains more space than the items can fill, each item is arranged according to the layout's alignment for that item. You can set an alignment for each item by calling <a href="qgraphicslinearlayout.html#setAlignment">setAlignment</a>(), and check the alignment for any item by calling <a href="qgraphicslinearlayout.html#alignment">alignment</a>(). By default, items are aligned to the top left.</p>
@@ -134,9 +134,9 @@
 <p><a href="qgraphicslinearlayout.html">QGraphicsLinearLayout</a> calculates the distribution of sizes by adding up the stretch factors of all items, and then dividing the available space accordingly. The default stretch factor is 0 for all items; a factor of 0 means the item does not have any defined stretch factor; effectively this is the same as setting the stretch factor to 1. The stretch factor only applies to the available space in the lengthwise direction of the layout (following its orientation). If you want to control both the item's horizontal and vertical stretch, you can use <a href="qgraphicsgridlayout.html">QGraphicsGridLayout</a> instead.</p>
 <a name="qgraphicslinearlayout-compared-to-other-layouts"></a>
 <h3 >QGraphicsLinearLayout Compared to Other Layouts</h3>
-<p><a href="qgraphicslinearlayout.html">QGraphicsLinearLayout</a> is very similar to <a href="qvboxlayout.html">QVBoxLayout</a> and <a href="qhboxlayout.html">QHBoxLayout</a>, but in contrast to these classes, it is used to manage <a href="graphicsview.html#qgraphicswidget">QGraphicsWidget</a> and <a href="graphicsview.html#qgraphicslayout">QGraphicsLayout</a> instead of <a href="qwidget.html">QWidget</a> and <a href="qlayout.html">QLayout</a>.</p>
+<p><a href="qgraphicslinearlayout.html">QGraphicsLinearLayout</a> is very similar to <a href="qvboxlayout.html">QVBoxLayout</a> 和 <a href="qhboxlayout.html">QHBoxLayout</a>, but in contrast to these classes, it is used to manage <a href="graphicsview.html#qgraphicswidget">QGraphicsWidget</a> 和 <a href="graphicsview.html#qgraphicslayout">QGraphicsLayout</a> instead of <a href="qwidget.html">QWidget</a> 和 <a href="qlayout.html">QLayout</a>.</p>
 </div>
-<p><b>参见</b><a href="qgraphicsgridlayout.html">QGraphicsGridLayout</a> and <a href="graphicsview.html#qgraphicswidget">QGraphicsWidget</a>.</p>
+<p><b> 参见 </b><a href="qgraphicsgridlayout.html">QGraphicsGridLayout</a> 和 <a href="graphicsview.html#qgraphicswidget">QGraphicsWidget</a>.</p>
 <!-- @@@QGraphicsLinearLayout -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -170,7 +170,7 @@
 <h3 class="fn" id="alignment"><a name="alignment"></a><span class="type">Qt::Alignment</span> QGraphicsLinearLayout::<span class="name">alignment</span>(<span class="type"><a href="qgraphicslayoutitem.html#QGraphicsLayoutItem">QGraphicsLayoutItem</a></span> *<i>item</i>) const</h3>
 <p>Returns the alignment for <i>item</i>. The default alignment is <a href="../qtcore/qt.html#AlignmentFlag-enum">Qt::AlignTop</a> | <a href="../qtcore/qt.html#AlignmentFlag-enum">Qt::AlignLeft</a>.</p>
 <p>The alignment decides how the item is positioned within its assigned space in the case where there's more space available in the layout than the widgets can occupy.</p>
-<p><b>参见</b><a href="qgraphicslinearlayout.html#setAlignment">setAlignment</a>().</p>
+<p><b> 参见 </b><a href="qgraphicslinearlayout.html#setAlignment">setAlignment</a>().</p>
 <!-- @@@alignment -->
 <!-- $$$count[overload1]$$$count -->
 <h3 class="fn" id="count"><a name="count"></a><code>[override virtual] </code><span class="type">int</span> QGraphicsLinearLayout::<span class="name">count</span>() const</h3>
@@ -179,12 +179,12 @@
 <!-- $$$insertItem[overload1]$$$insertItemintQGraphicsLayoutItem* -->
 <h3 class="fn" id="insertItem"><a name="insertItem"></a><span class="type">void</span> QGraphicsLinearLayout::<span class="name">insertItem</span>(<span class="type">int</span> <i>index</i>, <span class="type"><a href="qgraphicslayoutitem.html#QGraphicsLayoutItem">QGraphicsLayoutItem</a></span> *<i>item</i>)</h3>
 <p>Inserts <i>item</i> into the layout at <i>index</i>, or before any item that is currently at <i>index</i>.</p>
-<p><b>参见</b><a href="qgraphicslinearlayout.html#addItem">addItem</a>(), <a href="qgraphicslinearlayout.html#itemAt">itemAt</a>(), <a href="qgraphicslinearlayout.html#insertStretch">insertStretch</a>(), and <a href="qgraphicslinearlayout.html#setItemSpacing">setItemSpacing</a>().</p>
+<p><b> 参见 </b><a href="qgraphicslinearlayout.html#addItem">addItem</a>(), <a href="qgraphicslinearlayout.html#itemAt">itemAt</a>(), <a href="qgraphicslinearlayout.html#insertStretch">insertStretch</a>(), 和 <a href="qgraphicslinearlayout.html#setItemSpacing">setItemSpacing</a>().</p>
 <!-- @@@insertItem -->
 <!-- $$$insertStretch[overload1]$$$insertStretchintint -->
 <h3 class="fn" id="insertStretch"><a name="insertStretch"></a><span class="type">void</span> QGraphicsLinearLayout::<span class="name">insertStretch</span>(<span class="type">int</span> <i>index</i>, <span class="type">int</span> <i>stretch</i> = 1)</h3>
 <p>Inserts a stretch of <i>stretch</i> at <i>index</i>, or before any item that is currently at <i>index</i>.</p>
-<p><b>参见</b><a href="qgraphicslinearlayout.html#addStretch">addStretch</a>(), <a href="qgraphicslinearlayout.html#setStretchFactor">setStretchFactor</a>(), <a href="qgraphicslinearlayout.html#setItemSpacing">setItemSpacing</a>(), and <a href="qgraphicslinearlayout.html#insertItem">insertItem</a>().</p>
+<p><b> 参见 </b><a href="qgraphicslinearlayout.html#addStretch">addStretch</a>(), <a href="qgraphicslinearlayout.html#setStretchFactor">setStretchFactor</a>(), <a href="qgraphicslinearlayout.html#setItemSpacing">setItemSpacing</a>(), 和 <a href="qgraphicslinearlayout.html#insertItem">insertItem</a>().</p>
 <!-- @@@insertStretch -->
 <!-- $$$invalidate[overload1]$$$invalidate -->
 <h3 class="fn" id="invalidate"><a name="invalidate"></a><code>[override virtual] </code><span class="type">void</span> QGraphicsLinearLayout::<span class="name">invalidate</span>()</h3>
@@ -198,28 +198,28 @@
 <!-- $$$itemSpacing[overload1]$$$itemSpacingint -->
 <h3 class="fn" id="itemSpacing"><a name="itemSpacing"></a><span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> QGraphicsLinearLayout::<span class="name">itemSpacing</span>(<span class="type">int</span> <i>index</i>) const</h3>
 <p>Returns the spacing after item at <i>index</i>.</p>
-<p><b>参见</b><a href="qgraphicslinearlayout.html#setItemSpacing">setItemSpacing</a>().</p>
+<p><b> 参见 </b><a href="qgraphicslinearlayout.html#setItemSpacing">setItemSpacing</a>().</p>
 <!-- @@@itemSpacing -->
 <!-- $$$orientation[overload1]$$$orientation -->
 <h3 class="fn" id="orientation"><a name="orientation"></a><span class="type">Qt::Orientation</span> QGraphicsLinearLayout::<span class="name">orientation</span>() const</h3>
 <p>Returns the layout orientation.</p>
-<p><b>参见</b><a href="qgraphicslinearlayout.html#setOrientation">setOrientation</a>().</p>
+<p><b> 参见 </b><a href="qgraphicslinearlayout.html#setOrientation">setOrientation</a>().</p>
 <!-- @@@orientation -->
 <!-- $$$removeAt[overload1]$$$removeAtint -->
 <h3 class="fn" id="removeAt"><a name="removeAt"></a><code>[override virtual] </code><span class="type">void</span> QGraphicsLinearLayout::<span class="name">removeAt</span>(<span class="type">int</span> <i>index</i>)</h3>
 <p>Reimplemented from <a href="qgraphicslayout.html#removeAt">QGraphicsLayout::removeAt</a>().</p>
 <p>Removes the item at <i>index</i> without destroying it. Ownership of the item is transferred to the caller.</p>
-<p><b>参见</b><a href="qgraphicslinearlayout.html#removeItem">removeItem</a>() and <a href="qgraphicslinearlayout.html#insertItem">insertItem</a>().</p>
+<p><b> 参见 </b><a href="qgraphicslinearlayout.html#removeItem">removeItem</a>() 和 <a href="qgraphicslinearlayout.html#insertItem">insertItem</a>().</p>
 <!-- @@@removeAt -->
 <!-- $$$removeItem[overload1]$$$removeItemQGraphicsLayoutItem* -->
 <h3 class="fn" id="removeItem"><a name="removeItem"></a><span class="type">void</span> QGraphicsLinearLayout::<span class="name">removeItem</span>(<span class="type"><a href="qgraphicslayoutitem.html#QGraphicsLayoutItem">QGraphicsLayoutItem</a></span> *<i>item</i>)</h3>
 <p>Removes <i>item</i> from the layout without destroying it. Ownership of <i>item</i> is transferred to the caller.</p>
-<p><b>参见</b><a href="qgraphicslinearlayout.html#removeAt">removeAt</a>() and <a href="qgraphicslinearlayout.html#insertItem">insertItem</a>().</p>
+<p><b> 参见 </b><a href="qgraphicslinearlayout.html#removeAt">removeAt</a>() 和 <a href="qgraphicslinearlayout.html#insertItem">insertItem</a>().</p>
 <!-- @@@removeItem -->
 <!-- $$$setAlignment[overload1]$$$setAlignmentQGraphicsLayoutItem*Qt::Alignment -->
 <h3 class="fn" id="setAlignment"><a name="setAlignment"></a><span class="type">void</span> QGraphicsLinearLayout::<span class="name">setAlignment</span>(<span class="type"><a href="qgraphicslayoutitem.html#QGraphicsLayoutItem">QGraphicsLayoutItem</a></span> *<i>item</i>, <span class="type">Qt::Alignment</span> <i>alignment</i>)</h3>
 <p>Sets the alignment of <i>item</i> to <i>alignment</i>. If <i>item</i>'s alignment changes, the layout is automatically invalidated.</p>
-<p><b>参见</b><a href="qgraphicslinearlayout.html#alignment">alignment</a>() and <a href="qgraphicslinearlayout.html#invalidate">invalidate</a>().</p>
+<p><b> 参见 </b><a href="qgraphicslinearlayout.html#alignment">alignment</a>() 和 <a href="qgraphicslinearlayout.html#invalidate">invalidate</a>().</p>
 <!-- @@@setAlignment -->
 <!-- $$$setGeometry[overload1]$$$setGeometryconstQRectF& -->
 <h3 class="fn" id="setGeometry"><a name="setGeometry"></a><code>[override virtual] </code><span class="type">void</span> QGraphicsLinearLayout::<span class="name">setGeometry</span>(const <span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> &amp;<i>rect</i>)</h3>
@@ -228,23 +228,23 @@
 <!-- $$$setItemSpacing[overload1]$$$setItemSpacingintqreal -->
 <h3 class="fn" id="setItemSpacing"><a name="setItemSpacing"></a><span class="type">void</span> QGraphicsLinearLayout::<span class="name">setItemSpacing</span>(<span class="type">int</span> <i>index</i>, <span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> <i>spacing</i>)</h3>
 <p>Sets the spacing after item at <i>index</i> to <i>spacing</i>.</p>
-<p><b>参见</b><a href="qgraphicslinearlayout.html#itemSpacing">itemSpacing</a>().</p>
+<p><b> 参见 </b><a href="qgraphicslinearlayout.html#itemSpacing">itemSpacing</a>().</p>
 <!-- @@@setItemSpacing -->
 <!-- $$$setOrientation[overload1]$$$setOrientationQt::Orientation -->
 <h3 class="fn" id="setOrientation"><a name="setOrientation"></a><span class="type">void</span> QGraphicsLinearLayout::<span class="name">setOrientation</span>(<span class="type">Qt::Orientation</span> <i>orientation</i>)</h3>
 <p>Change the layout orientation to <i>orientation</i>. Changing the layout orientation will automatically invalidate the layout.</p>
-<p><b>参见</b><a href="qgraphicslinearlayout.html#orientation">orientation</a>().</p>
+<p><b> 参见 </b><a href="qgraphicslinearlayout.html#orientation">orientation</a>().</p>
 <!-- @@@setOrientation -->
 <!-- $$$setSpacing[overload1]$$$setSpacingqreal -->
 <h3 class="fn" id="setSpacing"><a name="setSpacing"></a><span class="type">void</span> QGraphicsLinearLayout::<span class="name">setSpacing</span>(<span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> <i>spacing</i>)</h3>
 <p>Sets the layout's spacing to <i>spacing</i>. Spacing refers to the vertical and horizontal distances between items.</p>
-<p><b>参见</b><a href="qgraphicslinearlayout.html#spacing">spacing</a>(), <a href="qgraphicslinearlayout.html#setItemSpacing">setItemSpacing</a>(), <a href="qgraphicslinearlayout.html#setStretchFactor">setStretchFactor</a>(), and <a href="qgraphicsgridlayout.html#setSpacing">QGraphicsGridLayout::setSpacing</a>().</p>
+<p><b> 参见 </b><a href="qgraphicslinearlayout.html#spacing">spacing</a>(), <a href="qgraphicslinearlayout.html#setItemSpacing">setItemSpacing</a>(), <a href="qgraphicslinearlayout.html#setStretchFactor">setStretchFactor</a>(), 和 <a href="qgraphicsgridlayout.html#setSpacing">QGraphicsGridLayout::setSpacing</a>().</p>
 <!-- @@@setSpacing -->
 <!-- $$$setStretchFactor[overload1]$$$setStretchFactorQGraphicsLayoutItem*int -->
 <h3 class="fn" id="setStretchFactor"><a name="setStretchFactor"></a><span class="type">void</span> QGraphicsLinearLayout::<span class="name">setStretchFactor</span>(<span class="type"><a href="qgraphicslayoutitem.html#QGraphicsLayoutItem">QGraphicsLayoutItem</a></span> *<i>item</i>, <span class="type">int</span> <i>stretch</i>)</h3>
 <p>Sets the stretch factor for <i>item</i> to <i>stretch</i>. If an item's stretch factor changes, this function will invalidate the layout.</p>
 <p>Setting <i>stretch</i> to 0 removes the stretch factor from the item, and is effectively equivalent to setting <i>stretch</i> to 1.</p>
-<p><b>参见</b><a href="qgraphicslinearlayout.html#stretchFactor">stretchFactor</a>().</p>
+<p><b> 参见 </b><a href="qgraphicslinearlayout.html#stretchFactor">stretchFactor</a>().</p>
 <!-- @@@setStretchFactor -->
 <!-- $$$sizeHint[overload1]$$$sizeHintQt::SizeHintconstQSizeF& -->
 <h3 class="fn" id="sizeHint"><a name="sizeHint"></a><code>[override virtual] </code><span class="type"><a href="../qtcore/qsizef.html">QSizeF</a></span> QGraphicsLinearLayout::<span class="name">sizeHint</span>(<span class="type">Qt::SizeHint</span> <i>which</i>, const <span class="type"><a href="../qtcore/qsizef.html">QSizeF</a></span> &amp;<i>constraint</i> = QSizeF()) const</h3>
@@ -253,12 +253,12 @@
 <!-- $$$spacing[overload1]$$$spacing -->
 <h3 class="fn" id="spacing"><a name="spacing"></a><span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> QGraphicsLinearLayout::<span class="name">spacing</span>() const</h3>
 <p>Returns the layout's spacing. Spacing refers to the vertical and horizontal distances between items.</p>
-<p><b>参见</b><a href="qgraphicslinearlayout.html#setSpacing">setSpacing</a>().</p>
+<p><b> 参见 </b><a href="qgraphicslinearlayout.html#setSpacing">setSpacing</a>().</p>
 <!-- @@@spacing -->
 <!-- $$$stretchFactor[overload1]$$$stretchFactorQGraphicsLayoutItem* -->
 <h3 class="fn" id="stretchFactor"><a name="stretchFactor"></a><span class="type">int</span> QGraphicsLinearLayout::<span class="name">stretchFactor</span>(<span class="type"><a href="qgraphicslayoutitem.html#QGraphicsLayoutItem">QGraphicsLayoutItem</a></span> *<i>item</i>) const</h3>
 <p>Returns the stretch factor for <i>item</i>. The default stretch factor is 0, meaning that the item has no assigned stretch factor.</p>
-<p><b>参见</b><a href="qgraphicslinearlayout.html#setStretchFactor">setStretchFactor</a>().</p>
+<p><b> 参见 </b><a href="qgraphicslinearlayout.html#setStretchFactor">setStretchFactor</a>().</p>
 <!-- @@@stretchFactor -->
 </div>
 <div class="vars">

@@ -54,7 +54,7 @@
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += xml</td></tr></table></div><ul>
 <li><a href="qdomimplementation-members.html">所有成员清单，包括继承而来的成员</a></li>
 </ul>
-<p><b>Note:</b> All functions in this class are <a href="../qtdoc/threads-reentrancy.html">reentrant</a> with the following exceptions:</p>
+<p><b>注意：</b> 此类中的所有函数都是 <a href="../qtdoc/threads-reentrancy.html">reentrant</a> with the following exceptions:</p>
 <ul>
 <li><a href="qdomimplementation.html#invalidDataPolicy">invalidDataPolicy</a>()</li>
 <li><a href="qdomimplementation.html#setInvalidDataPolicy">setInvalidDataPolicy</a>(QDomImplementation::InvalidDataPolicy policy)</li>
@@ -92,10 +92,10 @@
 <p>This class describes the features that are supported by the DOM implementation. Currently the XML subset of DOM Level 1 and DOM Level 2 Core are supported.</p>
 <p>Normally you will use the function <a href="qdomdocument.html#implementation">QDomDocument::implementation</a>() to get the implementation object.</p>
 <p>You can create a new document type with <a href="qdomimplementation.html#createDocumentType">createDocumentType</a>() and a new document with <a href="qdomimplementation.html#createDocument">createDocument</a>().</p>
-<p>For further information about the Document Object Model see <a href="http://www.w3.org/TR/REC-DOM-Level-1/">Level 1</a> and <a href="http://www.w3.org/TR/DOM-Level-2-Core/">Level 2 Core</a>. For a more general introduction of the DOM implementation see the <a href="qdomdocument.html">QDomDocument</a> documentation.</p>
-<p>The QDom classes have a few issues of nonconformance with the XML specifications that cannot be fixed in Qt 4 without breaking backward compatibility. The Qt XML Patterns module and the <a href="../qtcore/qxmlstreamreader.html">QXmlStreamReader</a> and <a href="../qtcore/qxmlstreamwriter.html">QXmlStreamWriter</a> classes have a higher degree of a conformance.</p>
+<p>For further information about the Document Object Model see <a href="http://www.w3.org/TR/REC-DOM-Level-1/">Level 1</a> 和 <a href="http://www.w3.org/TR/DOM-Level-2-Core/">Level 2 Core</a>. For a more general introduction of the DOM implementation see the <a href="qdomdocument.html">QDomDocument</a> documentation.</p>
+<p>The QDom classes have a few issues of nonconformance with the XML specifications that cannot be fixed in Qt 4 without breaking backward compatibility. The Qt XML Patterns module and the <a href="../qtcore/qxmlstreamreader.html">QXmlStreamReader</a> 和 <a href="../qtcore/qxmlstreamwriter.html">QXmlStreamWriter</a> classes have a higher degree of a conformance.</p>
 </div>
-<p><b>参见</b><a href="qdomimplementation.html#hasFeature">hasFeature</a>().</p>
+<p><b> 参见 </b><a href="qdomimplementation.html#hasFeature">hasFeature</a>().</p>
 <!-- @@@QDomImplementation -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -107,7 +107,7 @@
 <tr><td class="topAlign"><code>QDomImplementation::DropInvalidChars</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">The invalid characters should be removed from the data.</td></tr>
 <tr><td class="topAlign"><code>QDomImplementation::ReturnNullNode</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">The factory function should return a null node.</td></tr>
 </table></div>
-<p><b>参见</b><a href="qdomimplementation.html#setInvalidDataPolicy">setInvalidDataPolicy</a>() and <a href="qdomimplementation.html#invalidDataPolicy">invalidDataPolicy</a>().</p>
+<p><b> 参见 </b><a href="qdomimplementation.html#setInvalidDataPolicy">setInvalidDataPolicy</a>() 和 <a href="qdomimplementation.html#invalidDataPolicy">invalidDataPolicy</a>().</p>
 <!-- @@@InvalidDataPolicy -->
 </div>
 <div class="prop">
@@ -140,7 +140,7 @@
 <p>DOM level 2 does not support any other document type declaration features.</p>
 <p>The only way you can use a document type that was created this way, is in combination with the <a href="qdomimplementation.html#createDocument">createDocument</a>() function to create a <a href="qdomdocument.html">QDomDocument</a> with this document type.</p>
 <p>In the DOM specification, this is the only way to create a non-null document. For historical reasons, Qt also allows to create the document using the default empty constructor. The resulting document is null, but becomes non-null when a factory function, for example <a href="qdomdocument.html#createElement">QDomDocument::createElement</a>(), is called. The document also becomes non-null when setContent() is called.</p>
-<p><b>参见</b><a href="qdomimplementation.html#createDocument">createDocument</a>().</p>
+<p><b> 参见 </b><a href="qdomimplementation.html#createDocument">createDocument</a>().</p>
 <!-- @@@createDocumentType -->
 <!-- $$$hasFeature[overload1]$$$hasFeatureconstQString&constQString& -->
 <h3 class="fn" id="hasFeature"><a name="hasFeature"></a><span class="type">bool</span> QDomImplementation::<span class="name">hasFeature</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>feature</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>version</i>) const</h3>
@@ -154,9 +154,9 @@
 <!-- $$$invalidDataPolicy[overload1]$$$invalidDataPolicy -->
 <h3 class="fn" id="invalidDataPolicy"><a name="invalidDataPolicy"></a><code>[static] </code><span class="type"><a href="qdomimplementation.html#InvalidDataPolicy-enum">QDomImplementation::InvalidDataPolicy</a></span> QDomImplementation::<span class="name">invalidDataPolicy</span>()</h3>
 <p>Returns the invalid data policy, which specifies what should be done when a factory function in <a href="qdomdocument.html">QDomDocument</a> is passed invalid data.</p>
-<p><b>Warning:</b> This function is not <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
+<p><b>Warning:</b> This function is not <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
 <p>这个函数是在Qt 4.1版本中新增引入的。</p>
-<p><b>参见</b><a href="qdomimplementation.html#setInvalidDataPolicy">setInvalidDataPolicy</a>() and <a href="qdomimplementation.html#InvalidDataPolicy-enum">InvalidDataPolicy</a>.</p>
+<p><b> 参见 </b><a href="qdomimplementation.html#setInvalidDataPolicy">setInvalidDataPolicy</a>() 和 <a href="qdomimplementation.html#InvalidDataPolicy-enum">InvalidDataPolicy</a>.</p>
 <!-- @@@invalidDataPolicy -->
 <!-- $$$isNull[overload1]$$$isNull -->
 <h3 class="fn" id="isNull"><a name="isNull"></a><span class="type">bool</span> QDomImplementation::<span class="name">isNull</span>()</h3>
@@ -185,9 +185,9 @@
   <span class="type"><a href="qdomelement.html">QDomElement</a></span> elt3 <span class="operator">=</span> doc<span class="operator">.</span>createElement(<span class="string">&quot;foo~bar&quot;</span>);
 
 </pre>
-<p><b>Warning:</b> This function is not <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
+<p><b>Warning:</b> This function is not <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
 <p>这个函数是在Qt 4.1版本中新增引入的。</p>
-<p><b>参见</b><a href="qdomimplementation.html#invalidDataPolicy">invalidDataPolicy</a>() and <a href="qdomimplementation.html#InvalidDataPolicy-enum">InvalidDataPolicy</a>.</p>
+<p><b> 参见 </b><a href="qdomimplementation.html#invalidDataPolicy">invalidDataPolicy</a>() 和 <a href="qdomimplementation.html#InvalidDataPolicy-enum">InvalidDataPolicy</a>.</p>
 <!-- @@@setInvalidDataPolicy -->
 <!-- $$$operator!=[overload1]$$$operator!=constQDomImplementation& -->
 <h3 class="fn" id="operator-not-eq"><a name="operator-not-eq"></a><span class="type">bool</span> QDomImplementation::<span class="name">operator!=</span>(const <span class="type"><a href="qdomimplementation.html#QDomImplementation">QDomImplementation</a></span> &amp;<i>x</i>) const</h3>

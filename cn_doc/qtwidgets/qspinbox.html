@@ -174,15 +174,15 @@
 <h2 id="details">详细描述</h2>
 <p>The <a href="qspinbox.html">QSpinBox</a> class provides a spin box widget.</p>
 <p class="centerAlign"><img src="images/windows-spinbox.png" alt="" /></p><p><a href="qspinbox.html">QSpinBox</a> is designed to handle integers and discrete sets of values (e.g&#x2e;, month names); use <a href="qdoublespinbox.html">QDoubleSpinBox</a> for floating point values.</p>
-<p><a href="qspinbox.html">QSpinBox</a> allows the user to choose a value by clicking the up/down buttons or pressing up/down on the keyboard to increase/decrease the value currently displayed. The user can also type the value in manually. The spin box supports integer values but can be extended to use different strings with <a href="qspinbox.html#validate">validate</a>(), <a href="qspinbox.html#textFromValue">textFromValue</a>() and <a href="qspinbox.html#valueFromText">valueFromText</a>().</p>
-<p>Every time the value changes <a href="qspinbox.html">QSpinBox</a> emits two <a href="qspinbox.html#valueChanged">valueChanged</a>() signals, one providing an int and the other a <a href="../qtcore/qstring.html">QString</a>. The <a href="../qtcore/qstring.html">QString</a> overload provides the value with both <a href="qspinbox.html#prefix-prop">prefix</a>() and <a href="qspinbox.html#suffix-prop">suffix</a>(). The current value can be fetched with <a href="qspinbox.html#value-prop">value</a>() and set with <a href="qspinbox.html#value-prop">setValue</a>().</p>
-<p>Clicking the up/down buttons or using the keyboard accelerator's up and down arrows will increase or decrease the current value in steps of size <a href="qspinbox.html#singleStep-prop">singleStep</a>(). If you want to change this behaviour you can reimplement the virtual function <a href="qabstractspinbox.html#stepBy">stepBy</a>(). The minimum and maximum value and the step size can be set using one of the constructors, and can be changed later with <a href="qspinbox.html#minimum-prop">setMinimum</a>(), <a href="qspinbox.html#maximum-prop">setMaximum</a>() and <a href="qspinbox.html#singleStep-prop">setSingleStep</a>().</p>
+<p><a href="qspinbox.html">QSpinBox</a> allows the user to choose a value by clicking the up/down buttons or pressing up/down on the keyboard to increase/decrease the value currently displayed. The user can also type the value in manually. The spin box supports integer values but can be extended to use different strings with <a href="qspinbox.html#validate">validate</a>(), <a href="qspinbox.html#textFromValue">textFromValue</a>() 和 <a href="qspinbox.html#valueFromText">valueFromText</a>().</p>
+<p>Every time the value changes <a href="qspinbox.html">QSpinBox</a> emits two <a href="qspinbox.html#valueChanged">valueChanged</a>() signals, one providing an int and the other a <a href="../qtcore/qstring.html">QString</a>. The <a href="../qtcore/qstring.html">QString</a> overload provides the value with both <a href="qspinbox.html#prefix-prop">prefix</a>() 和 <a href="qspinbox.html#suffix-prop">suffix</a>(). The current value can be fetched with <a href="qspinbox.html#value-prop">value</a>() and set with <a href="qspinbox.html#value-prop">setValue</a>().</p>
+<p>Clicking the up/down buttons or using the keyboard accelerator's up and down arrows will increase or decrease the current value in steps of size <a href="qspinbox.html#singleStep-prop">singleStep</a>(). If you want to change this behaviour you can reimplement the virtual function <a href="qabstractspinbox.html#stepBy">stepBy</a>(). The minimum and maximum value and the step size can be set using one of the constructors, and can be changed later with <a href="qspinbox.html#minimum-prop">setMinimum</a>(), <a href="qspinbox.html#maximum-prop">setMaximum</a>() 和 <a href="qspinbox.html#singleStep-prop">setSingleStep</a>().</p>
 <p>Most spin boxes are directional, but <a href="qspinbox.html">QSpinBox</a> can also operate as a circular spin box, i.e&#x2e; if the range is 0-99 and the current value is 99, clicking &quot;up&quot; will give 0 if <a href="qabstractspinbox.html#wrapping-prop">wrapping</a>() is set to true. Use <a href="qabstractspinbox.html#wrapping-prop">setWrapping</a>() if you want circular behavior.</p>
-<p>The displayed value can be prepended and appended with arbitrary strings indicating, for example, currency or the unit of measurement. See <a href="qspinbox.html#prefix-prop">setPrefix</a>() and <a href="qspinbox.html#suffix-prop">setSuffix</a>(). The text in the spin box is retrieved with <a href="qabstractspinbox.html#text-prop">text</a>() (which includes any <a href="qspinbox.html#prefix-prop">prefix</a>() and <a href="qspinbox.html#suffix-prop">suffix</a>()), or with <a href="qspinbox.html#cleanText-prop">cleanText</a>() (which has no <a href="qspinbox.html#prefix-prop">prefix</a>(), no <a href="qspinbox.html#suffix-prop">suffix</a>() and no leading or trailing whitespace).</p>
+<p>The displayed value can be prepended and appended with arbitrary strings indicating, for example, currency or the unit of measurement. See <a href="qspinbox.html#prefix-prop">setPrefix</a>() 和 <a href="qspinbox.html#suffix-prop">setSuffix</a>(). The text in the spin box is retrieved with <a href="qabstractspinbox.html#text-prop">text</a>() (which includes any <a href="qspinbox.html#prefix-prop">prefix</a>() 和 <a href="qspinbox.html#suffix-prop">suffix</a>()), or with <a href="qspinbox.html#cleanText-prop">cleanText</a>() (which has no <a href="qspinbox.html#prefix-prop">prefix</a>(), no <a href="qspinbox.html#suffix-prop">suffix</a>() and no leading or trailing whitespace).</p>
 <p>It is often desirable to give the user a special (often default) choice in addition to the range of numeric values. See <a href="qabstractspinbox.html#specialValueText-prop">setSpecialValueText</a>() for how to do this with <a href="qspinbox.html">QSpinBox</a>.</p>
 <a name="subclassing-qspinbox"></a>
 <h3 >Subclassing QSpinBox</h3>
-<p>If using <a href="qspinbox.html#prefix-prop">prefix</a>(), <a href="qspinbox.html#suffix-prop">suffix</a>(), and <a href="qabstractspinbox.html#specialValueText-prop">specialValueText</a>() don't provide enough control, you subclass <a href="qspinbox.html">QSpinBox</a> and reimplement <a href="qspinbox.html#valueFromText">valueFromText</a>() and <a href="qspinbox.html#textFromValue">textFromValue</a>(). For example, here's the code for a custom spin box that allows the user to enter icon sizes (e.g&#x2e;, &quot;32 x 32&quot;):</p>
+<p>If using <a href="qspinbox.html#prefix-prop">prefix</a>(), <a href="qspinbox.html#suffix-prop">suffix</a>(), 和 <a href="qabstractspinbox.html#specialValueText-prop">specialValueText</a>() don't provide enough control, you subclass <a href="qspinbox.html">QSpinBox</a> and reimplement <a href="qspinbox.html#valueFromText">valueFromText</a>() 和 <a href="qspinbox.html#textFromValue">textFromValue</a>(). For example, here's the code for a custom spin box that allows the user to enter icon sizes (e.g&#x2e;, &quot;32 x 32&quot;):</p>
 <pre class="cpp">
 
   <span class="type">int</span> IconSizeSpinBox<span class="operator">::</span>valueFromText(<span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> <span class="operator">&amp;</span>text) <span class="keyword">const</span>
@@ -204,7 +204,7 @@
 </pre>
 <p>See the <a href="qtwidgets-widgets-icons-example.html">Icons</a> example for the full source code.</p>
 </div>
-<p><b>参见</b><a href="qdoublespinbox.html">QDoubleSpinBox</a>, <a href="qdatetimeedit.html">QDateTimeEdit</a>, <a href="qslider.html">QSlider</a>, and <a href="qtwidgets-widgets-spinboxes-example.html">Spin Boxes Example</a>.</p>
+<p><b> 参见 </b><a href="qdoublespinbox.html">QDoubleSpinBox</a>, <a href="qdatetimeedit.html">QDateTimeEdit</a>, <a href="qslider.html">QSlider</a>, and <a href="qtwidgets-widgets-spinboxes-example.html">Spin Boxes Example</a>.</p>
 <!-- @@@QSpinBox -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -218,7 +218,7 @@
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><span class="name"><b>cleanText</b></span>() const</td></tr>
 </table></div>
-<p><b>参见</b><a href="qabstractspinbox.html#text-prop">text</a>, <a href="qspinbox.html#prefix-prop">QSpinBox::prefix</a>, and <a href="qspinbox.html#suffix-prop">QSpinBox::suffix</a>.</p>
+<p><b> 参见 </b><a href="qabstractspinbox.html#text-prop">text</a>, <a href="qspinbox.html#prefix-prop">QSpinBox::prefix</a>, and <a href="qspinbox.html#suffix-prop">QSpinBox::suffix</a>.</p>
 <!-- @@@cleanText -->
 <!-- $$$displayIntegerBase-prop$$$displayIntegerBase$$$setDisplayIntegerBaseint -->
 <h3 class="fn" id="displayIntegerBase-prop"><a name="displayIntegerBase-prop"></a><span class="name">displayIntegerBase</span> : <span class="type">int</span></h3>
@@ -230,7 +230,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>displayIntegerBase</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setDisplayIntegerBase</b></span>(int <i>base</i>)</td></tr>
 </table></div>
-<p><b>参见</b><a href="qspinbox.html#textFromValue">textFromValue</a>() and <a href="qspinbox.html#valueFromText">valueFromText</a>().</p>
+<p><b> 参见 </b><a href="qspinbox.html#textFromValue">textFromValue</a>() 和 <a href="qspinbox.html#valueFromText">valueFromText</a>().</p>
 <!-- @@@displayIntegerBase -->
 <!-- $$$maximum-prop$$$maximum$$$setMaximumint -->
 <h3 class="fn" id="maximum-prop"><a name="maximum-prop"></a><span class="name">maximum</span> : <span class="type">int</span></h3>
@@ -242,7 +242,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>maximum</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setMaximum</b></span>(int <i>max</i>)</td></tr>
 </table></div>
-<p><b>参见</b><a href="qspinbox.html#setRange">setRange</a>() and <a href="qabstractspinbox.html#specialValueText-prop">specialValueText</a>.</p>
+<p><b> 参见 </b><a href="qspinbox.html#setRange">setRange</a>() 和 <a href="qabstractspinbox.html#specialValueText-prop">specialValueText</a>.</p>
 <!-- @@@maximum -->
 <!-- $$$minimum-prop$$$minimum$$$setMinimumint -->
 <h3 class="fn" id="minimum-prop"><a name="minimum-prop"></a><span class="name">minimum</span> : <span class="type">int</span></h3>
@@ -254,7 +254,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>minimum</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setMinimum</b></span>(int <i>min</i>)</td></tr>
 </table></div>
-<p><b>参见</b><a href="qspinbox.html#setRange">setRange</a>() and <a href="qabstractspinbox.html#specialValueText-prop">specialValueText</a>.</p>
+<p><b> 参见 </b><a href="qspinbox.html#setRange">setRange</a>() 和 <a href="qabstractspinbox.html#specialValueText-prop">specialValueText</a>.</p>
 <!-- @@@minimum -->
 <!-- $$$prefix-prop$$$prefix$$$setPrefixconstQString& -->
 <h3 class="fn" id="prefix-prop"><a name="prefix-prop"></a><span class="name">prefix</span> : <span class="type"><a href="../qtcore/qstring.html">QString</a></span></h3>
@@ -265,14 +265,14 @@
   sb<span class="operator">-</span><span class="operator">&gt;</span>setPrefix(<span class="string">&quot;$&quot;</span>);
 
 </pre>
-<p>To turn off the prefix display, set this property to an empty string. The default is no prefix. The prefix is not displayed when <a href="qspinbox.html#value-prop">value</a>() == <a href="qspinbox.html#minimum-prop">minimum</a>() and <a href="qabstractspinbox.html#specialValueText-prop">specialValueText</a>() is set.</p>
+<p>To turn off the prefix display, set this property to an empty string. The default is no prefix. The prefix is not displayed when <a href="qspinbox.html#value-prop">value</a>() == <a href="qspinbox.html#minimum-prop">minimum</a>() 和 <a href="qabstractspinbox.html#specialValueText-prop">specialValueText</a>() is set.</p>
 <p>If no prefix is set, prefix() returns an empty string.</p>
 <p><b>Access functions:</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><span class="name"><b>prefix</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setPrefix</b></span>(const QString &amp;<i>prefix</i>)</td></tr>
 </table></div>
-<p><b>参见</b><a href="qspinbox.html#suffix-prop">suffix</a>(), <a href="qspinbox.html#suffix-prop">setSuffix</a>(), <a href="qabstractspinbox.html#specialValueText-prop">specialValueText</a>(), and <a href="qabstractspinbox.html#specialValueText-prop">setSpecialValueText</a>().</p>
+<p><b> 参见 </b><a href="qspinbox.html#suffix-prop">suffix</a>(), <a href="qspinbox.html#suffix-prop">setSuffix</a>(), <a href="qabstractspinbox.html#specialValueText-prop">specialValueText</a>(), 和 <a href="qabstractspinbox.html#specialValueText-prop">setSpecialValueText</a>().</p>
 <!-- @@@prefix -->
 <!-- $$$singleStep-prop$$$singleStep$$$setSingleStepint -->
 <h3 class="fn" id="singleStep-prop"><a name="singleStep-prop"></a><span class="name">singleStep</span> : <span class="type">int</span></h3>
@@ -310,7 +310,7 @@
 <tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><span class="name"><b>suffix</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setSuffix</b></span>(const QString &amp;<i>suffix</i>)</td></tr>
 </table></div>
-<p><b>参见</b><a href="qspinbox.html#prefix-prop">prefix</a>(), <a href="qspinbox.html#prefix-prop">setPrefix</a>(), <a href="qabstractspinbox.html#specialValueText-prop">specialValueText</a>(), and <a href="qabstractspinbox.html#specialValueText-prop">setSpecialValueText</a>().</p>
+<p><b> 参见 </b><a href="qspinbox.html#prefix-prop">prefix</a>(), <a href="qspinbox.html#prefix-prop">setPrefix</a>(), <a href="qabstractspinbox.html#specialValueText-prop">specialValueText</a>(), 和 <a href="qabstractspinbox.html#specialValueText-prop">setSpecialValueText</a>().</p>
 <!-- @@@suffix -->
 <!-- $$$value-prop$$$value$$$setValueint$$$valueChangedint$$$valueChangedconstQString& -->
 <h3 class="fn" id="value-prop"><a name="value-prop"></a><span class="name">value</span> : <span class="type">int</span></h3>
@@ -333,7 +333,7 @@
 <!-- $$$QSpinBox[overload1]$$$QSpinBoxQWidget* -->
 <h3 class="fn" id="QSpinBox"><a name="QSpinBox"></a>QSpinBox::<span class="name">QSpinBox</span>(<span class="type"><a href="qwidget.html#QWidget">QWidget</a></span> *<i>parent</i> = nullptr)</h3>
 <p>Constructs a spin box with 0 as minimum value and 99 as maximum value, a step value of 1. The value is initially set to 0. It is parented to <i>parent</i>.</p>
-<p><b>参见</b><a href="qspinbox.html#minimum-prop">setMinimum</a>(), <a href="qspinbox.html#maximum-prop">setMaximum</a>(), and <a href="qspinbox.html#singleStep-prop">setSingleStep</a>().</p>
+<p><b> 参见 </b><a href="qspinbox.html#minimum-prop">setMinimum</a>(), <a href="qspinbox.html#maximum-prop">setMaximum</a>(), 和 <a href="qspinbox.html#singleStep-prop">setSingleStep</a>().</p>
 <!-- @@@QSpinBox -->
 <!-- $$$~QSpinBox[overload1]$$$~QSpinBox -->
 <h3 class="fn" id="dtor.QSpinBox"><a name="dtor.QSpinBox"></a><code>[virtual] </code>QSpinBox::<span class="name">~QSpinBox</span>()</h3>
@@ -362,7 +362,7 @@
   setMaximum(maximum);
 
 </pre>
-<p><b>参见</b><a href="qspinbox.html#minimum-prop">minimum</a> and <a href="qspinbox.html#maximum-prop">maximum</a>.</p>
+<p><b> 参见 </b><a href="qspinbox.html#minimum-prop">minimum</a> 和 <a href="qspinbox.html#maximum-prop">maximum</a>.</p>
 <!-- @@@setRange -->
 <!-- $$$setStepType -->
 <h3 class="fn" id="setStepType"><a name="setStepType"></a><span class="type">void</span> QSpinBox::<span class="name">setStepType</span>(<span class="type"><a href="qabstractspinbox.html#StepType-enum">QAbstractSpinBox::StepType</a></span> <i>stepType</i>)</h3>
@@ -371,14 +371,14 @@
 <p>Step direction is taken into account to handle edges cases, so that stepping down from 100 takes the value to 99 instead of 90. Thus a step up followed by a step down -- or vice versa -- always lands on the starting value; 99 -&gt; 100 -&gt; 99.</p>
 <p>Setting this will cause the spin box to disregard the value of <a href="qspinbox.html#singleStep-prop">singleStep</a>, although it is preserved so that <a href="qspinbox.html#singleStep-prop">singleStep</a> comes into effect if adaptive decimal step is later turned off.</p>
 <p>这个函数是在Qt 5.12版本中新增引入的。</p>
-<p><b>Note:</b> Setter function for property <a href="qspinbox.html#stepType-prop">stepType</a>. </p><p><b>参见</b><a href="qspinbox.html#stepType-prop">stepType</a>().</p>
+<p><b>Note:</b> Setter function for property <a href="qspinbox.html#stepType-prop">stepType</a>. </p><p><b> 参见 </b><a href="qspinbox.html#stepType-prop">stepType</a>().</p>
 <!-- @@@setStepType -->
 <!-- $$$textFromValue[overload1]$$$textFromValueint -->
 <h3 class="fn" id="textFromValue"><a name="textFromValue"></a><code>[virtual protected] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QSpinBox::<span class="name">textFromValue</span>(<span class="type">int</span> <i>value</i>) const</h3>
 <p>This virtual function is used by the spin box whenever it needs to display the given <i>value</i>. The default implementation returns a string containing <i>value</i> printed in the standard way using <a href="qwidget.html#locale-prop">QWidget::locale</a>().toString(), but with the thousand separator removed unless <a href="qabstractspinbox.html#showGroupSeparator-prop">setGroupSeparatorShown</a>() is set. Reimplementations may return anything. (See the example in the detailed description.)</p>
 <p>Note: <a href="qspinbox.html">QSpinBox</a> does not call this function for <a href="qabstractspinbox.html#specialValueText-prop">specialValueText</a>() and that neither <a href="qspinbox.html#prefix-prop">prefix</a>() nor <a href="qspinbox.html#suffix-prop">suffix</a>() should be included in the return value.</p>
-<p>If you reimplement this, you may also need to reimplement <a href="qspinbox.html#valueFromText">valueFromText</a>() and <a href="qspinbox.html#validate">validate</a>()</p>
-<p><b>参见</b><a href="qspinbox.html#valueFromText">valueFromText</a>(), <a href="qspinbox.html#validate">validate</a>(), and <a href="../qtcore/qlocale.html#groupSeparator">QLocale::groupSeparator</a>().</p>
+<p>If you reimplement this, you may also need to reimplement <a href="qspinbox.html#valueFromText">valueFromText</a>() 和 <a href="qspinbox.html#validate">validate</a>()</p>
+<p><b> 参见 </b><a href="qspinbox.html#valueFromText">valueFromText</a>(), <a href="qspinbox.html#validate">validate</a>(), 和 <a href="../qtcore/qlocale.html#groupSeparator">QLocale::groupSeparator</a>().</p>
 <!-- @@@textFromValue -->
 <!-- $$$validate[overload1]$$$validateQString&int& -->
 <h3 class="fn" id="validate"><a name="validate"></a><code>[override virtual protected] </code><span class="type"><a href="../qtgui/qvalidator.html#State-enum">QValidator::State</a></span> QSpinBox::<span class="name">validate</span>(<span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>text</i>, <span class="type">int</span> &amp;<i>pos</i>) const</h3>
@@ -397,7 +397,7 @@
 <!-- $$$valueChanged -->
 <h3 class="fn" id="valueChanged-1"><a name="valueChanged-1"></a><code>[signal] </code><span class="type">void</span> QSpinBox::<span class="name">valueChanged</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>text</i>)</h3>
 <p>This is an overloaded function.</p>
-<p>The new value is passed in <i>text</i> with <a href="qspinbox.html#prefix-prop">prefix</a>() and <a href="qspinbox.html#suffix-prop">suffix</a>().</p>
+<p>The new value is passed in <i>text</i> with <a href="qspinbox.html#prefix-prop">prefix</a>() 和 <a href="qspinbox.html#suffix-prop">suffix</a>().</p>
 <p><b>Note:</b> Signal <i>valueChanged</i> is overloaded in this class. To connect to this signal by using the function pointer syntax, Qt provides a convenient helper for obtaining the function pointer as shown in this example:<pre class="cpp">
 
   connect(spinBox<span class="operator">,</span> <span class="type">QOverload</span><span class="operator">&lt;</span><span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> <span class="operator">&amp;</span><span class="operator">&gt;</span><span class="operator">::</span>of(<span class="operator">&amp;</span><span class="type"><a href="qspinbox.html#QSpinBox">QSpinBox</a></span><span class="operator">::</span>valueChanged)<span class="operator">,</span>
@@ -410,7 +410,7 @@
 <p>This virtual function is used by the spin box whenever it needs to interpret <i>text</i> entered by the user as a value.</p>
 <p>Subclasses that need to display spin box values in a non-numeric way need to reimplement this function.</p>
 <p>Note: <a href="qspinbox.html">QSpinBox</a> handles <a href="qabstractspinbox.html#specialValueText-prop">specialValueText</a>() separately; this function is only concerned with the other values.</p>
-<p><b>参见</b><a href="qspinbox.html#textFromValue">textFromValue</a>() and <a href="qspinbox.html#validate">validate</a>().</p>
+<p><b> 参见 </b><a href="qspinbox.html#textFromValue">textFromValue</a>() 和 <a href="qspinbox.html#validate">validate</a>().</p>
 <!-- @@@valueFromText -->
 </div>
 <div class="vars">

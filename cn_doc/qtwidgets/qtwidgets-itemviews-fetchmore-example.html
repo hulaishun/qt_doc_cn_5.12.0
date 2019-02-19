@@ -85,7 +85,7 @@
   };
 
 </pre>
-<p>The secret lies in the reimplementation of <a href="../qtcore/qabstractitemmodel.html#fetchMore">fetchMore()</a> and <a href="../qtcore/qabstractitemmodel.html#canFetchMore">canFetchMore()</a> from <a href="../qtcore/qabstractitemmodel.html">QAbstractItemModel</a>. These functions are called by the item view when it needs more items.</p>
+<p>The secret lies in the reimplementation of <a href="../qtcore/qabstractitemmodel.html#fetchMore">fetchMore()</a> 和 <a href="../qtcore/qabstractitemmodel.html#canFetchMore">canFetchMore()</a> from <a href="../qtcore/qabstractitemmodel.html">QAbstractItemModel</a>. These functions are called by the item view when it needs more items.</p>
 <p>The <code>setDirPath()</code> function sets the directory the model will work on. We emit <code>numberPopulated()</code> each time we add a batch of items to the model.</p>
 <p>We keep all directory entries in <code>fileList</code>. <code>fileCount</code> is the number of items that have been added to the model.</p>
 <a name="filelistmodel-class-implementation"></a>
@@ -138,7 +138,7 @@
   }
 
 </pre>
-<p>We first calculate the number of items to fetch. <a href="../qtcore/qabstractitemmodel.html#beginInsertRows">beginInsertRows()</a> and <a href="../qtcore/qabstractitemmodel.html#endInsertRows">endInsertRows()</a> are mandatory for <a href="../qtcore/qabstractitemmodel.html">QAbstractItemModel</a> to keep up with the row insertions. Finally, we emit <code>numberPopulated()</code>, which is picked up by <code>Window</code>.</p>
+<p>We first calculate the number of items to fetch. <a href="../qtcore/qabstractitemmodel.html#beginInsertRows">beginInsertRows()</a> 和 <a href="../qtcore/qabstractitemmodel.html#endInsertRows">endInsertRows()</a> are mandatory for <a href="../qtcore/qabstractitemmodel.html">QAbstractItemModel</a> to keep up with the row insertions. Finally, we emit <code>numberPopulated()</code>, which is picked up by <code>Window</code>.</p>
 <p>To complete the tour, we also look at <code>rowCount()</code> and <code>data()</code>.</p>
 <pre class="cpp">
 

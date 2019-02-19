@@ -65,7 +65,7 @@
 <h2 id="audio-implementation-details">Audio Implementation Details</h2>
 <a name="playing-compressed-audio"></a>
 <h3 >Playing Compressed Audio</h3>
-<p>For playing media or audio files that are not simple, uncompressed audio, you can use the <a href="qmediaplayer.html">QMediaPlayer</a> C++ class, or the <a href="qml-multimedia.html#audio">Audio</a> and <a href="qml-qtmultimedia-mediaplayer.html">MediaPlayer</a> QML types. The <a href="qmediaplayer.html">QMediaPlayer</a> class and associated QML types are also capable of playing <a href="videooverview.html#multimedia-playing-video">video</a>, if required. The compressed audio formats supported does depend on the operating system environment, and also what media plugins the user may have installed.</p>
+<p>For playing media or audio files that are not simple, uncompressed audio, you can use the <a href="qmediaplayer.html">QMediaPlayer</a> C++ class, or the <a href="qml-multimedia.html#audio">Audio</a> 和 <a href="qml-qtmultimedia-mediaplayer.html">MediaPlayer</a> QML types. The <a href="qmediaplayer.html">QMediaPlayer</a> class and associated QML types are also capable of playing <a href="videooverview.html#multimedia-playing-video">video</a>, if required. The compressed audio formats supported does depend on the operating system environment, and also what media plugins the user may have installed.</p>
 <p>Here is how you play a local file using C++:</p>
 <pre class="cpp">
 
@@ -108,12 +108,12 @@
 </pre>
 <a name="low-latency-sound-effects"></a>
 <h3 >Low Latency Sound Effects</h3>
-<p>In addition to the raw access to sound devices described above, the <a href="qsoundeffect.html">QSoundEffect</a> class (and <a href="qml-multimedia.html#soundeffect">SoundEffect</a> QML type) offers a slightly higher level way to play sounds. These classes allow you to specify a WAV format file which can then be played with low latency when necessary. Both <a href="qsoundeffect.html">QSoundEffect</a> and <a href="qml-multimedia.html#soundeffect">SoundEffect</a> have essentially the same API.</p>
+<p>In addition to the raw access to sound devices described above, the <a href="qsoundeffect.html">QSoundEffect</a> class (and <a href="qml-multimedia.html#soundeffect">SoundEffect</a> QML type) offers a slightly higher level way to play sounds. These classes allow you to specify a WAV format file which can then be played with low latency when necessary. Both <a href="qsoundeffect.html">QSoundEffect</a> 和 <a href="qml-multimedia.html#soundeffect">SoundEffect</a> have essentially the same API.</p>
 <p>You can adjust the number of <a href="qsoundeffect.html#loopCount">loops</a> a sound effect is played, as well as the <a href="qsoundeffect.html#setVolume">volume</a> (or <a href="qsoundeffect.html#setMuted">muting</a>) of the effect.</p>
 <p>For older, Qt 4.x based applications <a href="qsound.html">QSound</a> is also available. Applications are recommended to use <a href="qsoundeffect.html">QSoundEffect</a> where possible.</p>
 <a name="monitoring-audio-data-during-playback-or-recording"></a>
 <h3 >Monitoring Audio Data During Playback or Recording</h3>
-<p>The <a href="qaudioprobe.html">QAudioProbe</a> class allows you to monitor audio data being played or recorded in the higher level classes like <a href="qmediaplayer.html">QMediaPlayer</a>, <a href="qcamera.html">QCamera</a> and <a href="qaudiorecorder.html">QAudioRecorder</a>. After creating your high level class, you can simply set the source of the probe to your class, and receive audio buffers as they are processed. This is useful for several audio processing tasks, particularly for visualization or adjusting gain. You cannot modify the buffers, and they may arrive at a slightly different time than the media pipeline processes them.</p>
+<p>The <a href="qaudioprobe.html">QAudioProbe</a> class allows you to monitor audio data being played or recorded in the higher level classes like <a href="qmediaplayer.html">QMediaPlayer</a>, <a href="qcamera.html">QCamera</a> 和 <a href="qaudiorecorder.html">QAudioRecorder</a>. After creating your high level class, you can simply set the source of the probe to your class, and receive audio buffers as they are processed. This is useful for several audio processing tasks, particularly for visualization or adjusting gain. You cannot modify the buffers, and they may arrive at a slightly different time than the media pipeline processes them.</p>
 <p>Here's an example of installing a probe during recording:</p>
 <pre class="cpp">
 

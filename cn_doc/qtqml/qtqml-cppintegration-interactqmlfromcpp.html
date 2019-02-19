@@ -111,7 +111,7 @@
   item<span class="operator">-</span><span class="operator">&gt;</span>setWidth(<span class="number">500</span>);
 
 </pre>
-<p>You can also connect to any signals or call methods defined in the component using <a href="../qtcore/qmetaobject.html#invokeMethod-5">QMetaObject::invokeMethod</a>() and <a href="../qtcore/qobject.html#connect-4">QObject::connect</a>(). See <a href="qtqml-cppintegration-interactqmlfromcpp.html#invoking-qml-methods">Invoking QML Methods</a> and <a href="qtqml-cppintegration-interactqmlfromcpp.html#connecting-to-qml-signals">Connecting to QML Signals</a> below for further details.</p>
+<p>You can also connect to any signals or call methods defined in the component using <a href="../qtcore/qmetaobject.html#invokeMethod-5">QMetaObject::invokeMethod</a>() 和 <a href="../qtcore/qobject.html#connect-4">QObject::connect</a>(). See <a href="qtqml-cppintegration-interactqmlfromcpp.html#invoking-qml-methods">Invoking QML Methods</a> 和 <a href="qtqml-cppintegration-interactqmlfromcpp.html#connecting-to-qml-signals">Connecting to QML Signals</a> below for further details.</p>
 <a name="accessing-loaded-qml-objects-by-object-name"></a>
 <h2 id="accessing-loaded-qml-objects-by-object-name">Accessing Loaded QML Objects by Object Name</h2>
 <p>QML components are essentially object trees with children that have siblings and their own children. Child objects of QML components can be located using the <a href="../qtcore/qobject.html#objectName-prop">QObject::objectName</a> property with <a href="../qtcore/qobject.html#findChild">QObject::findChild</a>(). For example, if the root item in <code>MyItem.qml</code> had a child <a href="../qtquick/qml-qtquick-rectangle.html">Rectangle</a> item:</p>
@@ -154,7 +154,7 @@
   }
 
 </pre>
-<p>The value of the <code>someNumber</code> property can be set and read using <a href="qqmlproperty.html">QQmlProperty</a>, or <a href="../qtcore/qobject.html#setProperty">QObject::setProperty</a>() and <a href="../qtcore/qobject.html#property">QObject::property</a>():</p>
+<p>The value of the <code>someNumber</code> property can be set and read using <a href="qqmlproperty.html">QQmlProperty</a>, or <a href="../qtcore/qobject.html#setProperty">QObject::setProperty</a>() 和 <a href="../qtcore/qobject.html#property">QObject::property</a>():</p>
 <pre class="cpp">
 
   <span class="type"><a href="qqmlengine.html">QQmlEngine</a></span> engine;
@@ -216,7 +216,7 @@
 </pre>
 </td></tr>
 </table></div>
-<p>Notice the <a href="../qtcore/qmetaobject.html#Q_RETURN_ARG">Q_RETURN_ARG</a>() and <a href="../qtcore/qmetaobject.html#Q_ARG">Q_ARG</a>() arguments for <a href="../qtcore/qmetaobject.html#invokeMethod-5">QMetaObject::invokeMethod</a>() must be specified as <a href="../qtcore/qvariant.html">QVariant</a> types, as this is the generic data type used for QML method parameters and return values.</p>
+<p>Notice the <a href="../qtcore/qmetaobject.html#Q_RETURN_ARG">Q_RETURN_ARG</a>() 和 <a href="../qtcore/qmetaobject.html#Q_ARG">Q_ARG</a>() arguments for <a href="../qtcore/qmetaobject.html#invokeMethod-5">QMetaObject::invokeMethod</a>() must be specified as <a href="../qtcore/qvariant.html">QVariant</a> types, as this is the generic data type used for QML method parameters and return values.</p>
 <a name="connecting-to-qml-signals"></a>
 <h3 >Connecting to QML Signals</h3>
 <p>All QML signals are automatically available to C++, and can be connected to using <a href="../qtcore/qobject.html#connect-4">QObject::connect</a>() like any ordinary Qt C++ signal. In return, any C++ signal can be received by a QML object using <a href="qtqml-syntax-signals.html">signal handlers</a>.</p>

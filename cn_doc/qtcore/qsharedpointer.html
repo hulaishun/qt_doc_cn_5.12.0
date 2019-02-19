@@ -57,7 +57,7 @@
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += core</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 4.5</td></tr></table></div><ul>
 <li><a href="qsharedpointer-members.html">所有成员清单，包括继承而来的成员</a></li>
 </ul>
-<p><b>Note:</b> All functions in this class are <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
+<p><b>注意：</b> 此类中的所有函数都是 <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
 <a name="public-functions"></a>
 <h2 id="public-functions">公共函数</h2>
 <div class="table"><table class="alignedsummary">
@@ -124,12 +124,12 @@
 <p>A <a href="qsharedpointer.html">QSharedPointer</a> object can be created from a normal pointer, another <a href="qsharedpointer.html">QSharedPointer</a> object or by promoting a <a href="qweakpointer.html">QWeakPointer</a> object to a strong reference.</p>
 <a name="thread-safety"></a>
 <h3 >Thread-Safety</h3>
-<p><a href="qsharedpointer.html">QSharedPointer</a> and <a href="qweakpointer.html">QWeakPointer</a> are thread-safe and operate atomically on the pointer value. Different threads can also access the <a href="qsharedpointer.html">QSharedPointer</a> or <a href="qweakpointer.html">QWeakPointer</a> pointing to the same object at the same time without need for locking mechanisms.</p>
-<p>It should be noted that, while the pointer value can be accessed in this manner, <a href="qsharedpointer.html">QSharedPointer</a> and <a href="qweakpointer.html">QWeakPointer</a> provide no guarantee about the object being pointed to. Thread-safety and reentrancy rules for that object still apply.</p>
+<p><a href="qsharedpointer.html">QSharedPointer</a> 和 <a href="qweakpointer.html">QWeakPointer</a> are thread-safe and operate atomically on the pointer value. Different threads can also access the <a href="qsharedpointer.html">QSharedPointer</a> or <a href="qweakpointer.html">QWeakPointer</a> pointing to the same object at the same time without need for locking mechanisms.</p>
+<p>It should be noted that, while the pointer value can be accessed in this manner, <a href="qsharedpointer.html">QSharedPointer</a> 和 <a href="qweakpointer.html">QWeakPointer</a> provide no guarantee about the object being pointed to. Thread-safety and reentrancy rules for that object still apply.</p>
 <a name="other-pointer-classes"></a>
 <h3 >Other Pointer Classes</h3>
-<p>Qt also provides two other pointer wrapper classes: <a href="qpointer.html">QPointer</a> and <a href="qshareddatapointer.html">QSharedDataPointer</a>. They are incompatible with one another, since each has its very different use case.</p>
-<p><a href="qsharedpointer.html">QSharedPointer</a> holds a shared pointer by means of an external reference count (i.e&#x2e;, a reference counter placed outside the object). Like its name indicates, the pointer value is shared among all instances of <a href="qsharedpointer.html">QSharedPointer</a> and <a href="qweakpointer.html">QWeakPointer</a>. The contents of the object pointed to by the pointer should not be considered shared, however: there is only one object. For that reason, <a href="qsharedpointer.html">QSharedPointer</a> does not provide a way to detach or make copies of the pointed object.</p>
+<p>Qt also provides two other pointer wrapper classes: <a href="qpointer.html">QPointer</a> 和 <a href="qshareddatapointer.html">QSharedDataPointer</a>. They are incompatible with one another, since each has its very different use case.</p>
+<p><a href="qsharedpointer.html">QSharedPointer</a> holds a shared pointer by means of an external reference count (i.e&#x2e;, a reference counter placed outside the object). Like its name indicates, the pointer value is shared among all instances of <a href="qsharedpointer.html">QSharedPointer</a> 和 <a href="qweakpointer.html">QWeakPointer</a>. The contents of the object pointed to by the pointer should not be considered shared, however: there is only one object. For that reason, <a href="qsharedpointer.html">QSharedPointer</a> does not provide a way to detach or make copies of the pointed object.</p>
 <p><a href="qshareddatapointer.html">QSharedDataPointer</a>, on the other hand, holds a pointer to shared data (i.e&#x2e;, a class derived from <a href="qshareddata.html">QSharedData</a>). It does so by means of an internal reference count, placed in the <a href="qshareddata.html">QSharedData</a> base class. This class can, therefore, detach based on the type of access made to the data being guarded: if it's a non-const access, it creates a copy atomically for the operation to complete.</p>
 <p><a href="qexplicitlyshareddatapointer.html">QExplicitlySharedDataPointer</a> is a variant of <a href="qshareddatapointer.html">QSharedDataPointer</a>, except that it only detaches if <a href="qexplicitlyshareddatapointer.html#detach">QExplicitlySharedDataPointer::detach</a>() is explicitly called (hence the name).</p>
 <p><a href="qscopedpointer.html">QScopedPointer</a> simply holds a pointer to a heap allocated object and deletes it in its destructor. This class is useful when an object needs to be heap allocated and deleted, but no more. <a href="qscopedpointer.html">QScopedPointer</a> is lightweight, it makes no use of additional structure or reference counting.</p>
@@ -141,7 +141,7 @@
 <p>It is safe to use this feature even with code compiled without the feature. <a href="qsharedpointer.html">QSharedPointer</a> will ensure that the pointer is removed from the tracker even from code compiled without pointer tracking.</p>
 <p>Note, however, that the pointer tracking feature has limitations on multiple- or virtual-inheritance (that is, in cases where two different pointer addresses can refer to the same object). In that case, if a pointer is cast to a different type and its value changes, <a href="qsharedpointer.html">QSharedPointer</a>'s pointer tracking mechanism may fail to detect that the object being tracked is the same.</p>
 </div>
-<p><b>参见</b><a href="qshareddatapointer.html">QSharedDataPointer</a>, <a href="qweakpointer.html">QWeakPointer</a>, <a href="qscopedpointer.html">QScopedPointer</a>, and <a href="qenablesharedfromthis.html">QEnableSharedFromThis</a>.</p>
+<p><b> 参见 </b><a href="qshareddatapointer.html">QSharedDataPointer</a>, <a href="qweakpointer.html">QWeakPointer</a>, <a href="qscopedpointer.html">QScopedPointer</a>, and <a href="qenablesharedfromthis.html">QEnableSharedFromThis</a>.</p>
 <!-- @@@QSharedPointer -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -189,7 +189,7 @@
           <span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span><span class="operator">&lt;</span>MyObject<span class="operator">&gt;</span>(<span class="keyword">new</span> MyObject<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>deleteLater);
 
 </pre>
-<p><b>参见</b><a href="qsharedpointer.html#clear">clear</a>().</p>
+<p><b> 参见 </b><a href="qsharedpointer.html#clear">clear</a>().</p>
 <!-- @@@QSharedPointer -->
 <!-- $$$QSharedPointer$$$QSharedPointerstd::nullptr_t -->
 <h3 class="fn" id="QSharedPointer-3"><a name="QSharedPointer-3"></a>QSharedPointer::<span class="name">QSharedPointer</span>(<i>std::nullptr_t</i>)</h3>
@@ -211,7 +211,7 @@
 <h3 class="fn" id="QSharedPointer-6"><a name="QSharedPointer-6"></a>QSharedPointer::<span class="name">QSharedPointer</span>(const <span class="type"><a href="qweakpointer.html">QWeakPointer</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>)</h3>
 <p>Creates a <a href="qsharedpointer.html">QSharedPointer</a> by promoting the weak reference <i>other</i> to strong reference and sharing its pointer.</p>
 <p>If <code>T</code> is a derived type of the template parameter of this class, <a href="qsharedpointer.html">QSharedPointer</a> will perform an automatic cast. Otherwise, you will get a compiler error.</p>
-<p><b>参见</b><a href="qweakpointer.html#toStrongRef">QWeakPointer::toStrongRef</a>().</p>
+<p><b> 参见 </b><a href="qweakpointer.html#toStrongRef">QWeakPointer::toStrongRef</a>().</p>
 <!-- @@@QSharedPointer -->
 <!-- $$$~QSharedPointer[overload1]$$$~QSharedPointer -->
 <h3 class="fn" id="dtor.QSharedPointer"><a name="dtor.QSharedPointer"></a>QSharedPointer::<span class="name">~QSharedPointer</span>()</h3>
@@ -224,7 +224,7 @@
 <!-- $$$constCast[overload1]$$$constCast -->
 <h3 class="fn" id="constCast"><a name="constCast"></a><span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">X</span>&gt; QSharedPointer::<span class="name">constCast</span>() const</h3>
 <p>Performs a <code>const_cast</code> from this pointer's type to <code>X</code> and returns a <a href="qsharedpointer.html">QSharedPointer</a> that shares the reference. This function can be used for up- and for down-casting, but is more useful for up-casting.</p>
-<p><b>参见</b><a href="qsharedpointer.html#isNull">isNull</a>() and <a href="qsharedpointer.html#qSharedPointerConstCast">qSharedPointerConstCast</a>().</p>
+<p><b> 参见 </b><a href="qsharedpointer.html#isNull">isNull</a>() 和 <a href="qsharedpointer.html#qSharedPointerConstCast">qSharedPointerConstCast</a>().</p>
 <!-- @@@constCast -->
 <!-- $$$create[overload1]$$$create -->
 <h3 class="fn" id="create"><a name="create"></a><code>[static] </code><span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; QSharedPointer::<span class="name">create</span>()</h3>
@@ -250,7 +250,7 @@
 <h3 class="fn" id="dynamicCast"><a name="dynamicCast"></a><span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">X</span>&gt; QSharedPointer::<span class="name">dynamicCast</span>() const</h3>
 <p>Performs a dynamic cast from this pointer's type to <code>X</code> and returns a <a href="qsharedpointer.html">QSharedPointer</a> that shares the reference. If this function is used to up-cast, then <a href="qsharedpointer.html">QSharedPointer</a> will perform a <code>dynamic_cast</code>, which means that if the object being pointed by this <a href="qsharedpointer.html">QSharedPointer</a> is not of type <code>X</code>, the returned object will be null.</p>
 <p>Note: the template type <code>X</code> must have the same const and volatile qualifiers as the template of this object, or the cast will fail. Use <a href="qsharedpointer.html#constCast">constCast</a>() if you need to drop those qualifiers.</p>
-<p><b>参见</b><a href="qsharedpointer.html#qSharedPointerDynamicCast">qSharedPointerDynamicCast</a>().</p>
+<p><b> 参见 </b><a href="qsharedpointer.html#qSharedPointerDynamicCast">qSharedPointerDynamicCast</a>().</p>
 <!-- @@@dynamicCast -->
 <!-- $$$get[overload1]$$$get -->
 <h3 class="fn" id="get"><a name="get"></a><span class="type">T</span> *QSharedPointer::<span class="name">get</span>() const</h3>
@@ -267,7 +267,7 @@
 <p>Performs a <a href="qobject.html#qobject_cast">qobject_cast</a>() from this pointer's type to <code>X</code> and returns a <a href="qsharedpointer.html">QSharedPointer</a> that shares the reference. If this function is used to up-cast, then <a href="qsharedpointer.html">QSharedPointer</a> will perform a <code>qobject_cast</code>, which means that if the object being pointed by this <a href="qsharedpointer.html">QSharedPointer</a> is not of type <code>X</code>, the returned object will be null.</p>
 <p>Note: the template type <code>X</code> must have the same const and volatile qualifiers as the template of this object, or the cast will fail. Use <a href="qsharedpointer.html#constCast">constCast</a>() if you need to drop those qualifiers.</p>
 <p>这个函数是在Qt 4.6版本中新增引入的。</p>
-<p><b>参见</b><a href="qsharedpointer.html#qSharedPointerObjectCast">qSharedPointerObjectCast</a>().</p>
+<p><b> 参见 </b><a href="qsharedpointer.html#qSharedPointerObjectCast">qSharedPointerObjectCast</a>().</p>
 <!-- @@@objectCast -->
 <!-- $$$reset[overload1]$$$reset -->
 <h3 class="fn" id="reset"><a name="reset"></a><span class="type">void</span> QSharedPointer::<span class="name">reset</span>()</h3>
@@ -298,7 +298,7 @@
 <h3 class="fn" id="staticCast"><a name="staticCast"></a><span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">X</span>&gt; QSharedPointer::<span class="name">staticCast</span>() const</h3>
 <p>Performs a static cast from this pointer's type to <code>X</code> and returns a <a href="qsharedpointer.html">QSharedPointer</a> that shares the reference. This function can be used for up- and for down-casting, but is more useful for up-casting.</p>
 <p>Note: the template type <code>X</code> must have the same const and volatile qualifiers as the template of this object, or the cast will fail. Use <a href="qsharedpointer.html#constCast">constCast</a>() if you need to drop those qualifiers.</p>
-<p><b>参见</b><a href="qsharedpointer.html#dynamicCast">dynamicCast</a>(), <a href="qsharedpointer.html#constCast">constCast</a>(), and <a href="qsharedpointer.html#qSharedPointerCast">qSharedPointerCast</a>().</p>
+<p><b> 参见 </b><a href="qsharedpointer.html#dynamicCast">dynamicCast</a>(), <a href="qsharedpointer.html#constCast">constCast</a>(), 和 <a href="qsharedpointer.html#qSharedPointerCast">qSharedPointerCast</a>().</p>
 <!-- @@@staticCast -->
 <!-- $$$swap[overload1]$$$swapQSharedPointer<T>& -->
 <h3 class="fn" id="swap"><a name="swap"></a><span class="type">void</span> QSharedPointer::<span class="name">swap</span>(<span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>)</h3>
@@ -308,7 +308,7 @@
 <!-- $$$toWeakRef[overload1]$$$toWeakRef -->
 <h3 class="fn" id="toWeakRef"><a name="toWeakRef"></a><span class="type"><a href="qweakpointer.html">QWeakPointer</a></span>&lt;<span class="type">T</span>&gt; QSharedPointer::<span class="name">toWeakRef</span>() const</h3>
 <p>Returns a weak reference object that shares the pointer referenced by this object.</p>
-<p><b>参见</b><a href="qweakpointer.html#QWeakPointer">QWeakPointer::QWeakPointer</a>().</p>
+<p><b> 参见 </b><a href="qweakpointer.html#QWeakPointer">QWeakPointer::QWeakPointer</a>().</p>
 <!-- @@@toWeakRef -->
 <!-- $$$operator bool[overload1]$$$operator bool -->
 <h3 class="fn" id="operator-bool"><a name="operator-bool"></a><span class="type">bool</span> QSharedPointer::<span class="name">operator bool</span>() const</h3>
@@ -318,7 +318,7 @@
       <span class="keyword">if</span> (sharedptr) { <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span> }
 
 </pre>
-<p><b>参见</b><a href="qsharedpointer.html#isNull">isNull</a>().</p>
+<p><b> 参见 </b><a href="qsharedpointer.html#isNull">isNull</a>().</p>
 <!-- @@@operator bool -->
 <!-- $$$operator![overload1]$$$operator! -->
 <h3 class="fn" id="operator-not"><a name="operator-not"></a><span class="type">bool</span> QSharedPointer::<span class="name">operator!</span>() const</h3>
@@ -328,17 +328,17 @@
       <span class="keyword">if</span> (<span class="operator">!</span>sharedptr) { <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span> }
 
 </pre>
-<p><b>参见</b><a href="qsharedpointer.html#isNull">isNull</a>().</p>
+<p><b> 参见 </b><a href="qsharedpointer.html#isNull">isNull</a>().</p>
 <!-- @@@operator! -->
 <!-- $$$operator*[overload1]$$$operator* -->
 <h3 class="fn" id="operator-2a"><a name="operator-2a"></a><span class="type">T</span> &amp;QSharedPointer::<span class="name">operator*</span>() const</h3>
 <p>Provides access to the shared pointer's members.</p>
-<p><b>参见</b><a href="qsharedpointer.html#isNull">isNull</a>().</p>
+<p><b> 参见 </b><a href="qsharedpointer.html#isNull">isNull</a>().</p>
 <!-- @@@operator* -->
 <!-- $$$operator->[overload1]$$$operator-> -->
 <h3 class="fn" id="operator--gt"><a name="operator--gt"></a><span class="type">T</span> *QSharedPointer::<span class="name">operator-&gt;</span>() const</h3>
 <p>Provides access to the shared pointer's members.</p>
-<p><b>参见</b><a href="qsharedpointer.html#isNull">isNull</a>().</p>
+<p><b> 参见 </b><a href="qsharedpointer.html#isNull">isNull</a>().</p>
 <!-- @@@operator-> -->
 <!-- $$$operator=[overload1]$$$operator=constQSharedPointer<T>& -->
 <h3 class="fn" id="operator-eq"><a name="operator-eq"></a><span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp;QSharedPointer::<span class="name">operator=</span>(const <span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>)</h3>
@@ -360,18 +360,18 @@
 <h3 class="fn" id="qSharedPointerCast"><a name="qSharedPointerCast"></a><span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">X</span>&gt; <span class="name">qSharedPointerCast</span>(const <span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>)</h3>
 <p>Returns a shared pointer to the pointer held by <i>other</i>, cast to type <code>X</code>. The types <code>T</code> and <code>X</code> must belong to one hierarchy for the <code>static_cast</code> to succeed.</p>
 <p>Note that <code>X</code> must have the same cv-qualifiers (<code>const</code> and <code>volatile</code>) that <code>T</code> has, or the code will fail to compile. Use <a href="qsharedpointer.html#qSharedPointerConstCast">qSharedPointerConstCast</a> to cast away the constness.</p>
-<p><b>参见</b><a href="qsharedpointer.html#staticCast">QSharedPointer::staticCast</a>(), <a href="qsharedpointer.html#qSharedPointerDynamicCast">qSharedPointerDynamicCast</a>(), and <a href="qsharedpointer.html#qSharedPointerConstCast">qSharedPointerConstCast</a>().</p>
+<p><b> 参见 </b><a href="qsharedpointer.html#staticCast">QSharedPointer::staticCast</a>(), <a href="qsharedpointer.html#qSharedPointerDynamicCast">qSharedPointerDynamicCast</a>(), 和 <a href="qsharedpointer.html#qSharedPointerConstCast">qSharedPointerConstCast</a>().</p>
 <!-- @@@qSharedPointerCast -->
 <!-- $$$qSharedPointerConstCast[overload1]$$$qSharedPointerConstCastconstQSharedPointer<T>& -->
 <h3 class="fn" id="qSharedPointerConstCast"><a name="qSharedPointerConstCast"></a><span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">X</span>&gt; <span class="name">qSharedPointerConstCast</span>(const <span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>src</i>)</h3>
 <p>Returns a shared pointer to the pointer held by <i>src</i>, cast to type <code>X</code>. The types <code>T</code> and <code>X</code> must belong to one hierarchy for the <code>const_cast</code> to succeed. The <code>const</code> and <code>volatile</code> differences between <code>T</code> and <code>X</code> are ignored.</p>
-<p><b>参见</b><a href="qsharedpointer.html#constCast">QSharedPointer::constCast</a>(), <a href="qsharedpointer.html#qSharedPointerCast">qSharedPointerCast</a>(), and <a href="qsharedpointer.html#qSharedPointerDynamicCast">qSharedPointerDynamicCast</a>().</p>
+<p><b> 参见 </b><a href="qsharedpointer.html#constCast">QSharedPointer::constCast</a>(), <a href="qsharedpointer.html#qSharedPointerCast">qSharedPointerCast</a>(), 和 <a href="qsharedpointer.html#qSharedPointerDynamicCast">qSharedPointerDynamicCast</a>().</p>
 <!-- @@@qSharedPointerConstCast -->
 <!-- $$$qSharedPointerDynamicCast[overload1]$$$qSharedPointerDynamicCastconstQSharedPointer<T>& -->
 <h3 class="fn" id="qSharedPointerDynamicCast"><a name="qSharedPointerDynamicCast"></a><span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">X</span>&gt; <span class="name">qSharedPointerDynamicCast</span>(const <span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>src</i>)</h3>
 <p>Returns a shared pointer to the pointer held by <i>src</i>, using a dynamic cast to type <code>X</code> to obtain an internal pointer of the appropriate type. If the <code>dynamic_cast</code> fails, the object returned will be null.</p>
 <p>Note that <code>X</code> must have the same cv-qualifiers (<code>const</code> and <code>volatile</code>) that <code>T</code> has, or the code will fail to compile. Use <a href="qsharedpointer.html#qSharedPointerConstCast">qSharedPointerConstCast</a> to cast away the constness.</p>
-<p><b>参见</b><a href="qsharedpointer.html#dynamicCast">QSharedPointer::dynamicCast</a>(), <a href="qsharedpointer.html#qSharedPointerCast">qSharedPointerCast</a>(), and <a href="qsharedpointer.html#qSharedPointerConstCast">qSharedPointerConstCast</a>().</p>
+<p><b> 参见 </b><a href="qsharedpointer.html#dynamicCast">QSharedPointer::dynamicCast</a>(), <a href="qsharedpointer.html#qSharedPointerCast">qSharedPointerCast</a>(), 和 <a href="qsharedpointer.html#qSharedPointerConstCast">qSharedPointerConstCast</a>().</p>
 <!-- @@@qSharedPointerDynamicCast -->
 <!-- $$$qSharedPointerObjectCast[overload1]$$$qSharedPointerObjectCastconstQSharedPointer<T>& -->
 <h3 class="fn" id="qSharedPointerObjectCast"><a name="qSharedPointerObjectCast"></a><span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">X</span>&gt; <span class="name">qSharedPointerObjectCast</span>(const <span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>src</i>)</h3>
@@ -379,7 +379,7 @@
 <p>Returns a shared pointer to the pointer held by <i>src</i>, using a <a href="qobject.html#qobject_cast">qobject_cast</a>() to type <code>X</code> to obtain an internal pointer of the appropriate type. If the <code>qobject_cast</code> fails, the object returned will be null.</p>
 <p>Note that <code>X</code> must have the same cv-qualifiers (<code>const</code> and <code>volatile</code>) that <code>T</code> has, or the code will fail to compile. Use <a href="qsharedpointer.html#qSharedPointerConstCast">qSharedPointerConstCast</a> to cast away the constness.</p>
 <p>这个函数是在Qt 4.6版本中新增引入的。</p>
-<p><b>参见</b><a href="qsharedpointer.html#objectCast">QSharedPointer::objectCast</a>(), <a href="qsharedpointer.html#qSharedPointerCast">qSharedPointerCast</a>(), and <a href="qsharedpointer.html#qSharedPointerConstCast">qSharedPointerConstCast</a>().</p>
+<p><b> 参见 </b><a href="qsharedpointer.html#objectCast">QSharedPointer::objectCast</a>(), <a href="qsharedpointer.html#qSharedPointerCast">qSharedPointerCast</a>(), 和 <a href="qsharedpointer.html#qSharedPointerConstCast">qSharedPointerConstCast</a>().</p>
 <!-- @@@qSharedPointerObjectCast -->
 <!-- $$$operator!=[overload1]$$$operator!=constQSharedPointer<T>&constQSharedPointer<X>& -->
 <h3 class="fn" id="operator-not-eq"><a name="operator-not-eq"></a><span class="type">bool</span> <span class="name">operator!=</span>(const <span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>ptr1</i>, const <span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">X</span>&gt; &amp;<i>ptr2</i>)</h3>
@@ -400,19 +400,19 @@
 <h3 class="fn" id="operator-not-eq-3"><a name="operator-not-eq-3"></a><span class="type">bool</span> <span class="name">operator!=</span>(const <span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>lhs</i>, <i>std::nullptr_t</i>)</h3>
 <p>Returns <code>true</code> if the pointer referenced by <i>lhs</i> is a valid (i.e&#x2e; non-null) pointer.</p>
 <p>这个函数是在Qt 5.8版本中新增引入的。</p>
-<p><b>参见</b><a href="qsharedpointer.html#isNull">QSharedPointer::isNull</a>().</p>
+<p><b> 参见 </b><a href="qsharedpointer.html#isNull">QSharedPointer::isNull</a>().</p>
 <!-- @@@operator!= -->
 <!-- $$$operator!=$$$operator!=std::nullptr_tconstQSharedPointer<T>& -->
 <h3 class="fn" id="operator-not-eq-4"><a name="operator-not-eq-4"></a><span class="type">bool</span> <span class="name">operator!=</span>(<i>std::nullptr_t</i>, const <span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>rhs</i>)</h3>
 <p>Returns <code>true</code> if the pointer referenced by <i>rhs</i> is a valid (i.e&#x2e; non-null) pointer.</p>
 <p>这个函数是在Qt 5.8版本中新增引入的。</p>
-<p><b>参见</b><a href="qsharedpointer.html#isNull">QSharedPointer::isNull</a>().</p>
+<p><b> 参见 </b><a href="qsharedpointer.html#isNull">QSharedPointer::isNull</a>().</p>
 <!-- @@@operator!= -->
 <!-- $$$operator<<[overload1]$$$operator<<QDebugconstQSharedPointer<T>& -->
 <h3 class="fn" id="operator-lt-lt"><a name="operator-lt-lt"></a><span class="type"><a href="qdebug.html">QDebug</a></span> <span class="name">operator&lt;&lt;</span>(<span class="type"><a href="qdebug.html">QDebug</a></span> <i>debug</i>, const <span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>ptr</i>)</h3>
 <p>Writes the pointer tracked by <i>ptr</i> into the debug object <i>debug</i> for debugging purposes.</p>
 <p>这个函数是在Qt 5.7版本中新增引入的。</p>
-<p><b>参见</b><a href="../qtdoc/testing-and-debugging.html#debugging-techniques">Debugging Techniques</a>.</p>
+<p><b> 参见 </b><a href="../qtdoc/testing-and-debugging.html#debugging-techniques">Debugging Techniques</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator==[overload1]$$$operator==constQSharedPointer<T>&constQSharedPointer<X>& -->
 <h3 class="fn" id="operator-eq-eq"><a name="operator-eq-eq"></a><span class="type">bool</span> <span class="name">operator==</span>(const <span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>ptr1</i>, const <span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">X</span>&gt; &amp;<i>ptr2</i>)</h3>
@@ -433,13 +433,13 @@
 <h3 class="fn" id="operator-eq-eq-3"><a name="operator-eq-eq-3"></a><span class="type">bool</span> <span class="name">operator==</span>(const <span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>lhs</i>, <i>std::nullptr_t</i>)</h3>
 <p>Returns <code>true</code> if the pointer referenced by <i>lhs</i> is a null pointer.</p>
 <p>这个函数是在Qt 5.8版本中新增引入的。</p>
-<p><b>参见</b><a href="qsharedpointer.html#isNull">QSharedPointer::isNull</a>().</p>
+<p><b> 参见 </b><a href="qsharedpointer.html#isNull">QSharedPointer::isNull</a>().</p>
 <!-- @@@operator== -->
 <!-- $$$operator==$$$operator==std::nullptr_tconstQSharedPointer<T>& -->
 <h3 class="fn" id="operator-eq-eq-4"><a name="operator-eq-eq-4"></a><span class="type">bool</span> <span class="name">operator==</span>(<i>std::nullptr_t</i>, const <span class="type"><a href="qsharedpointer.html#QSharedPointer">QSharedPointer</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>rhs</i>)</h3>
 <p>Returns <code>true</code> if the pointer referenced by <i>rhs</i> is a null pointer.</p>
 <p>这个函数是在Qt 5.8版本中新增引入的。</p>
-<p><b>参见</b><a href="qsharedpointer.html#isNull">QSharedPointer::isNull</a>().</p>
+<p><b> 参见 </b><a href="qsharedpointer.html#isNull">QSharedPointer::isNull</a>().</p>
 <!-- @@@operator== -->
 </div>
 <div class="macros">

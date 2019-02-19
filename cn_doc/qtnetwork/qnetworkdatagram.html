@@ -54,7 +54,7 @@
 </td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += network</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign">  Qt 5.8</td></tr></table></div><ul>
 <li><a href="qnetworkdatagram-members.html">所有成员清单，包括继承而来的成员</a></li>
 </ul>
-<p><b>Note:</b> All functions in this class are <a href="../qtdoc/threads-reentrancy.html">reentrant</a>.</p>
+<p><b>注意：</b> 此类中的所有函数都是 <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
 <a name="public-types"></a>
 <h2 id="public-types">公共类型</h2>
 <div class="table"><table class="alignedsummary">
@@ -103,8 +103,8 @@
 <li>the network interface index the datagram was received on or to be sent on.</li>
 </ul>
 <p><a href="qudpsocket.html">QUdpSocket</a> will try to match a common behavior as much as possible on all operating systems, but not all of the metadata above can be obtained in some operating systems. Metadata that cannot be set on the datagram when sending with <a href="qudpsocket.html#writeDatagram">QUdpSocket::writeDatagram</a>() will be silently discarded.</p>
-<p>Upon reception, the <a href="qnetworkdatagram.html#senderAddress">senderAddress</a>() and <a href="qnetworkdatagram.html#senderPort">senderPort</a>() properties contain the address and port of the peer that sent the datagram, while <a href="qnetworkdatagram.html#destinationAddress">destinationAddress</a>() and <a href="qnetworkdatagram.html#destinationPort">destinationPort</a>() contain the target that was contained in the datagram. That is usually an address local to the current machine, but it can also be an IPv4 broadcast address (such as &quot;255.255.255.255&quot;) or an IPv4 or IPv6 multicast address. Applications may find it useful to determine if the datagram was sent specifically to this machine via unicast addressing or whether it was sent to multiple destinations.</p>
-<p>When sending, the <a href="qnetworkdatagram.html#senderAddress">senderAddress</a>() and <a href="qnetworkdatagram.html#senderPort">senderPort</a>() should contain the local address to be used when sending. The sender address must be an address that is assigned to this machine, which can be obtained using <a href="qnetworkinterface.html">QNetworkInterface</a>, and the port number must be the port number that the socket is bound to. Either field can be left unset and will be filled in by the operating system with default values. The <a href="qnetworkdatagram.html#destinationAddress">destinationAddress</a>() and <a href="qnetworkdatagram.html#destinationPort">destinationPort</a>() fields may be set to a target address different from the one the UDP socket is currently associated with.</p>
+<p>Upon reception, the <a href="qnetworkdatagram.html#senderAddress">senderAddress</a>() 和 <a href="qnetworkdatagram.html#senderPort">senderPort</a>() properties contain the address and port of the peer that sent the datagram, while <a href="qnetworkdatagram.html#destinationAddress">destinationAddress</a>() 和 <a href="qnetworkdatagram.html#destinationPort">destinationPort</a>() contain the target that was contained in the datagram. That is usually an address local to the current machine, but it can also be an IPv4 broadcast address (such as &quot;255.255.255.255&quot;) or an IPv4 or IPv6 multicast address. Applications may find it useful to determine if the datagram was sent specifically to this machine via unicast addressing or whether it was sent to multiple destinations.</p>
+<p>When sending, the <a href="qnetworkdatagram.html#senderAddress">senderAddress</a>() 和 <a href="qnetworkdatagram.html#senderPort">senderPort</a>() should contain the local address to be used when sending. The sender address must be an address that is assigned to this machine, which can be obtained using <a href="qnetworkinterface.html">QNetworkInterface</a>, and the port number must be the port number that the socket is bound to. Either field can be left unset and will be filled in by the operating system with default values. The <a href="qnetworkdatagram.html#destinationAddress">destinationAddress</a>() 和 <a href="qnetworkdatagram.html#destinationPort">destinationPort</a>() fields may be set to a target address different from the one the UDP socket is currently associated with.</p>
 <p>Usually, when sending a datagram in reply to a datagram previously received, one will set the <a href="qnetworkdatagram.html#destinationAddress">destinationAddress</a>() to be the <a href="qnetworkdatagram.html#senderAddress">senderAddress</a>() of the incoming datagram and similarly for the port numbers. To facilitate this common process, <a href="qnetworkdatagram.html">QNetworkDatagram</a> provides the function <a href="qnetworkdatagram.html#makeReply">makeReply</a>().</p>
 <p>The hopCount() function contains, for a received datagram, the remaining hop count limit for the packet. When sending, it contains the hop count limit to be set. Most protocols will leave this value set to the default and let the operating system decide on the best value to be used. Multicasting over IPv4 often uses this field to indicate the scope of the multicast group (link-local, local to an organization or global).</p>
 <p>The <a href="qnetworkdatagram.html#interfaceIndex">interfaceIndex</a>() function contains the index of the operating system's interface that received the packet. This value is the same one that can be set on a <a href="qhostaddress.html#scopeId">QHostAddress::scopeId</a>() property and matches the <a href="qnetworkinterface.html#index">QNetworkInterface::index</a>() property. When sending packets to global addresses, it is not necessary to set the interface index as the operating system will choose the correct one using the system routing table. This property is important when sending datagrams to link-local destinations, whether unicast or multicast.</p>
@@ -122,7 +122,7 @@
 <tr valign="top" class="even"><td >Windows RT</td><td >Not supported</td><td >Not supported</td><td >Not supported</td></tr>
 </table></div>
 </div>
-<p><b>参见</b><a href="qudpsocket.html">QUdpSocket</a> and <a href="qnetworkinterface.html">QNetworkInterface</a>.</p>
+<p><b> 参见 </b><a href="qudpsocket.html">QUdpSocket</a> 和 <a href="qnetworkinterface.html">QNetworkInterface</a>.</p>
 <!-- @@@QNetworkDatagram -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -193,33 +193,33 @@
 <h3 class="fn" id="data"><a name="data"></a><span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> QNetworkDatagram::<span class="name">data</span>() const</h3>
 <p>Returns the data payload of this datagram. For a datagram received from the network, it contains the payload of the datagram. For an outgoing datagram, it is the datagram to be sent.</p>
 <p>Note that datagrams can be transmitted with no data, so the returned <a href="../qtcore/qbytearray.html">QByteArray</a> may be empty.</p>
-<p><b>参见</b><a href="qnetworkdatagram.html#setData">setData</a>().</p>
+<p><b> 参见 </b><a href="qnetworkdatagram.html#setData">setData</a>().</p>
 <!-- @@@data -->
 <!-- $$$destinationAddress[overload1]$$$destinationAddress -->
 <h3 class="fn" id="destinationAddress"><a name="destinationAddress"></a><span class="type"><a href="qhostaddress.html">QHostAddress</a></span> QNetworkDatagram::<span class="name">destinationAddress</span>() const</h3>
 <p>Returns the destination address associated with this datagram. For a datagram received from the network, it is the address the peer node sent the datagram to, which can either be a local address of this machine or a multicast or broadcast address. For an outgoing datagrams, it is the address the datagram should be sent to.</p>
 <p>If no destination address was set on this datagram, the returned object will report true to <a href="qhostaddress.html#isNull">QHostAddress::isNull</a>().</p>
-<p><b>参见</b><a href="qnetworkdatagram.html#senderAddress">senderAddress</a>(), <a href="qnetworkdatagram.html#destinationPort">destinationPort</a>(), and <a href="qnetworkdatagram.html#setDestination">setDestination</a>().</p>
+<p><b> 参见 </b><a href="qnetworkdatagram.html#senderAddress">senderAddress</a>(), <a href="qnetworkdatagram.html#destinationPort">destinationPort</a>(), 和 <a href="qnetworkdatagram.html#setDestination">setDestination</a>().</p>
 <!-- @@@destinationAddress -->
 <!-- $$$destinationPort[overload1]$$$destinationPort -->
 <h3 class="fn" id="destinationPort"><a name="destinationPort"></a><span class="type">int</span> QNetworkDatagram::<span class="name">destinationPort</span>() const</h3>
 <p>Returns the port number of the destination associated with this datagram. For a datagram received from the network, it is the local port number that the peer node sent the datagram to. For an outgoing datagram, it is the peer port the datagram should be sent to.</p>
 <p>If no destination address was associated with this datagram, this function returns -1.</p>
-<p><b>参见</b><a href="qnetworkdatagram.html#destinationAddress">destinationAddress</a>(), <a href="qnetworkdatagram.html#senderPort">senderPort</a>(), and <a href="qnetworkdatagram.html#setDestination">setDestination</a>().</p>
+<p><b> 参见 </b><a href="qnetworkdatagram.html#destinationAddress">destinationAddress</a>(), <a href="qnetworkdatagram.html#senderPort">senderPort</a>(), 和 <a href="qnetworkdatagram.html#setDestination">setDestination</a>().</p>
 <!-- @@@destinationPort -->
 <!-- $$$hopLimit[overload1]$$$hopLimit -->
 <h3 class="fn" id="hopLimit"><a name="hopLimit"></a><span class="type">int</span> QNetworkDatagram::<span class="name">hopLimit</span>() const</h3>
 <p>Returns the hop count limit associated with this datagram. The hop count limit is the number of nodes that are allowed to forward the IP packet before it expires and an error is sent back to the sender of the datagram. In IPv4, this value is usually known as &quot;time to live&quot; (TTL).</p>
 <p>If this datagram was received from the network, this is the remaining hop count of the datagram after reception and was decremented by 1 by each node that forwarded the packet. A value of -1 indicates that the hop limit count not be obtained.</p>
 <p>If this is an outgoing datagram, this is the value to be set in the IP header upon sending. A value of -1 indicates the operating system should choose the value.</p>
-<p><b>参见</b><a href="qnetworkdatagram.html#setHopLimit">setHopLimit</a>().</p>
+<p><b> 参见 </b><a href="qnetworkdatagram.html#setHopLimit">setHopLimit</a>().</p>
 <!-- @@@hopLimit -->
 <!-- $$$interfaceIndex[overload1]$$$interfaceIndex -->
 <h3 class="fn" id="interfaceIndex"><a name="interfaceIndex"></a><span class="type"><a href="../qtcore/qtglobal.html#uint-typedef">uint</a></span> QNetworkDatagram::<span class="name">interfaceIndex</span>() const</h3>
 <p>Returns the interface index this datagram is associated with. The interface index is a positive number that uniquely identifies the network interface in the operating system. This number matches the value returned by <a href="qnetworkinterface.html#index">QNetworkInterface::index</a>() for the interface.</p>
 <p>If this datagram was received from the network, this is the index of the interface that the packet was received from. If this is an outgoing datagram, this is the index of the interface that the datagram should be sent on.</p>
 <p>A value of 0 indicates that the interface index is unknown.</p>
-<p><b>参见</b><a href="qnetworkdatagram.html#setInterfaceIndex">setInterfaceIndex</a>().</p>
+<p><b> 参见 </b><a href="qnetworkdatagram.html#setInterfaceIndex">setInterfaceIndex</a>().</p>
 <!-- @@@interfaceIndex -->
 <!-- $$$isNull[overload1]$$$isNull -->
 <h3 class="fn" id="isNull"><a name="isNull"></a><span class="type">bool</span> QNetworkDatagram::<span class="name">isNull</span>() const</h3>
@@ -233,32 +233,32 @@
 <h3 class="fn" id="senderAddress"><a name="senderAddress"></a><span class="type"><a href="qhostaddress.html">QHostAddress</a></span> QNetworkDatagram::<span class="name">senderAddress</span>() const</h3>
 <p>Returns the sender address associated with this datagram. For a datagram received from the network, it is the address of the peer node that sent the datagram. For an outgoing datagrams, it is the local address to be used when sending.</p>
 <p>If no sender address was set on this datagram, the returned object will report true to <a href="qhostaddress.html#isNull">QHostAddress::isNull</a>().</p>
-<p><b>参见</b><a href="qnetworkdatagram.html#destinationAddress">destinationAddress</a>(), <a href="qnetworkdatagram.html#senderPort">senderPort</a>(), and <a href="qnetworkdatagram.html#setSender">setSender</a>().</p>
+<p><b> 参见 </b><a href="qnetworkdatagram.html#destinationAddress">destinationAddress</a>(), <a href="qnetworkdatagram.html#senderPort">senderPort</a>(), 和 <a href="qnetworkdatagram.html#setSender">setSender</a>().</p>
 <!-- @@@senderAddress -->
 <!-- $$$senderPort[overload1]$$$senderPort -->
 <h3 class="fn" id="senderPort"><a name="senderPort"></a><span class="type">int</span> QNetworkDatagram::<span class="name">senderPort</span>() const</h3>
 <p>Returns the port number of the sender associated with this datagram. For a datagram received from the network, it is the port number that the peer node sent the datagram from. For an outgoing datagram, it is the local port the datagram should be sent from.</p>
 <p>If no sender address was associated with this datagram, this function returns -1.</p>
-<p><b>参见</b><a href="qnetworkdatagram.html#senderAddress">senderAddress</a>(), <a href="qnetworkdatagram.html#destinationPort">destinationPort</a>(), and <a href="qnetworkdatagram.html#setSender">setSender</a>().</p>
+<p><b> 参见 </b><a href="qnetworkdatagram.html#senderAddress">senderAddress</a>(), <a href="qnetworkdatagram.html#destinationPort">destinationPort</a>(), 和 <a href="qnetworkdatagram.html#setSender">setSender</a>().</p>
 <!-- @@@senderPort -->
 <!-- $$$setData[overload1]$$$setDataconstQByteArray& -->
 <h3 class="fn" id="setData"><a name="setData"></a><span class="type">void</span> QNetworkDatagram::<span class="name">setData</span>(const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>data</i>)</h3>
 <p>Sets the data payload of this datagram to <i>data</i>. It is usually not necessary to call this function on received datagrams. For outgoing datagrams, this function sets the data to be sent on the network.</p>
 <p>Since datagrams can empty, an empty <a href="../qtcore/qbytearray.html">QByteArray</a> is a valid value for <i>data</i>.</p>
-<p><b>参见</b><a href="qnetworkdatagram.html#data">data</a>().</p>
+<p><b> 参见 </b><a href="qnetworkdatagram.html#data">data</a>().</p>
 <!-- @@@setData -->
 <!-- $$$setDestination[overload1]$$$setDestinationconstQHostAddress&quint16 -->
 <h3 class="fn" id="setDestination"><a name="setDestination"></a><span class="type">void</span> QNetworkDatagram::<span class="name">setDestination</span>(const <span class="type"><a href="qhostaddress.html">QHostAddress</a></span> &amp;<i>address</i>, <span class="type"><a href="../qtcore/qtglobal.html#quint16-typedef">quint16</a></span> <i>port</i>)</h3>
 <p>Sets the destination address associated with this datagram to be the address <i>address</i> and port number <i>port</i>. The destination address and port numbers are usually set by <a href="qudpsocket.html">QUdpSocket</a> upon reception, so there's no need to call this function on a received datagram.</p>
 <p>For outgoing datagrams, this function can be used to set the address the datagram should be sent to. It can be the unicast address used to communicate with the peer or a broadcast or multicast address to send to a group of devices.</p>
-<p><b>参见</b><a href="qudpsocket.html#writeDatagram">QUdpSocket::writeDatagram</a>(), <a href="qnetworkdatagram.html#destinationAddress">destinationAddress</a>(), <a href="qnetworkdatagram.html#destinationPort">destinationPort</a>(), and <a href="qnetworkdatagram.html#setSender">setSender</a>().</p>
+<p><b> 参见 </b><a href="qudpsocket.html#writeDatagram">QUdpSocket::writeDatagram</a>(), <a href="qnetworkdatagram.html#destinationAddress">destinationAddress</a>(), <a href="qnetworkdatagram.html#destinationPort">destinationPort</a>(), 和 <a href="qnetworkdatagram.html#setSender">setSender</a>().</p>
 <!-- @@@setDestination -->
 <!-- $$$setHopLimit[overload1]$$$setHopLimitint -->
 <h3 class="fn" id="setHopLimit"><a name="setHopLimit"></a><span class="type">void</span> QNetworkDatagram::<span class="name">setHopLimit</span>(<span class="type">int</span> <i>count</i>)</h3>
 <p>Sets the hop count limit associated with this datagram to <i>count</i>. The hop count limit is the number of nodes that are allowed to forward the IP packet before it expires and an error is sent back to the sender of the datagram. In IPv4, this value is usually known as &quot;time to live&quot; (TTL).</p>
 <p>It is usually not necessary to call this function on datagrams received from the network.</p>
 <p>If this is an outgoing packet, this is the value to be set in the IP header upon sending. The valid range for the value is 1 to 255. This function also accepts a value of -1 to indicate that the operating system should choose the value.</p>
-<p><b>参见</b><a href="qnetworkdatagram.html#hopLimit">hopLimit</a>().</p>
+<p><b> 参见 </b><a href="qnetworkdatagram.html#hopLimit">hopLimit</a>().</p>
 <!-- @@@setHopLimit -->
 <!-- $$$setInterfaceIndex[overload1]$$$setInterfaceIndexuint -->
 <h3 class="fn" id="setInterfaceIndex"><a name="setInterfaceIndex"></a><span class="type">void</span> QNetworkDatagram::<span class="name">setInterfaceIndex</span>(<span class="type"><a href="../qtcore/qtglobal.html#uint-typedef">uint</a></span> <i>index</i>)</h3>
@@ -266,14 +266,14 @@
 <p>It is usually not necessary to call this function on datagrams received from the network.</p>
 <p>If this is an outgoing packet, this is the index of the interface the datagram should be sent on. A value of 0 indicates that the operating system should choose the interface based on other factors.</p>
 <p>Note that the interface index can also be set with <a href="qhostaddress.html#setScopeId">QHostAddress::setScopeId</a>() for IPv6 destination addresses and then with <a href="qnetworkdatagram.html#setDestination">setDestination</a>(). If the scope ID set in the destination address and <i>index</i> are different and neither is zero, it is undefined which interface the operating system will send the datagram on.</p>
-<p><b>参见</b><a href="qnetworkdatagram.html#interfaceIndex">interfaceIndex</a>() and setInterfaceIndex().</p>
+<p><b> 参见 </b><a href="qnetworkdatagram.html#interfaceIndex">interfaceIndex</a>() and setInterfaceIndex().</p>
 <!-- @@@setInterfaceIndex -->
 <!-- $$$setSender[overload1]$$$setSenderconstQHostAddress&quint16 -->
 <h3 class="fn" id="setSender"><a name="setSender"></a><span class="type">void</span> QNetworkDatagram::<span class="name">setSender</span>(const <span class="type"><a href="qhostaddress.html">QHostAddress</a></span> &amp;<i>address</i>, <span class="type"><a href="../qtcore/qtglobal.html#quint16-typedef">quint16</a></span> <i>port</i> = 0)</h3>
 <p>Sets the sender address associated with this datagram to be the address <i>address</i> and port number <i>port</i>. The sender address and port numbers are usually set by <a href="qudpsocket.html">QUdpSocket</a> upon reception, so there's no need to call this function on a received datagram.</p>
 <p>For outgoing datagrams, this function can be used to set the address the datagram should carry. The address <i>address</i> must usually be one of the local addresses assigned to this machine, which can be obtained using <a href="qnetworkinterface.html">QNetworkInterface</a>. If left unset, the operating system will choose the most appropriate address to use given the destination in question.</p>
 <p>The port number <i>port</i> must be the port number associated with the socket, if there is one. The value of 0 can be used to indicate that the operating system should choose the port number.</p>
-<p><b>参见</b><a href="qudpsocket.html#writeDatagram">QUdpSocket::writeDatagram</a>(), <a href="qnetworkdatagram.html#senderAddress">senderAddress</a>(), <a href="qnetworkdatagram.html#senderPort">senderPort</a>(), and <a href="qnetworkdatagram.html#setDestination">setDestination</a>().</p>
+<p><b> 参见 </b><a href="qudpsocket.html#writeDatagram">QUdpSocket::writeDatagram</a>(), <a href="qnetworkdatagram.html#senderAddress">senderAddress</a>(), <a href="qnetworkdatagram.html#senderPort">senderPort</a>(), 和 <a href="qnetworkdatagram.html#setDestination">setDestination</a>().</p>
 <!-- @@@setSender -->
 <!-- $$$swap[overload1]$$$swapQNetworkDatagram& -->
 <h3 class="fn" id="swap"><a name="swap"></a><span class="type">void</span> QNetworkDatagram::<span class="name">swap</span>(<span class="type"><a href="qnetworkdatagram.html#QNetworkDatagram">QNetworkDatagram</a></span> &amp;<i>other</i>)</h3>

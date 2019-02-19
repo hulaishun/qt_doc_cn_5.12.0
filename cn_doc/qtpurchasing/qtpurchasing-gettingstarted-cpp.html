@@ -84,12 +84,12 @@
   }
 
 </pre>
-<p>As you can see, there are <a href="qinappproduct.html#ProductType-enum">consumable products</a> and <a href="qinappproduct.html#ProductType-enum">unlockable products</a>. The former can be purchased any number of times by the same user, whereas the latter can only be purchased once.</p>
+<p>As you can see, there are <a href="qinappproduct.html#ProductType-enum">consumable products</a> 和 <a href="qinappproduct.html#ProductType-enum">unlockable products</a>. The former can be purchased any number of times by the same user, whereas the latter can only be purchased once.</p>
 <p>In our example, the <code>&quot;healthPotion&quot;</code> is a consumable product, because the user should be able to buy any number of health potions and add them to their in-game inventory.</p>
 <p>The <code>&quot;dlcForestOfFooBar&quot;</code> is downloadable content, which unlocks a new part of the game, and once it is bought, the purchase should be persistent across the user's devices and across reinstallations.</p>
 <a name="making-connections"></a>
 <h2 id="making-connections">Making Connections</h2>
-<p>Registering a product is an asynchronous operation, as are all operations supported by Qt Purchasing. Before you start registering a product, you must listen to the <a href="qinappstore.html#productRegistered">QInAppStore::productRegistered</a>() and <a href="qinappstore.html#productUnknown">QInAppStore::productUnknown</a>() signals in <a href="qinappstore.html">QInAppStore</a> to know the status of your registration.</p>
+<p>Registering a product is an asynchronous operation, as are all operations supported by Qt Purchasing. Before you start registering a product, you must listen to the <a href="qinappstore.html#productRegistered">QInAppStore::productRegistered</a>() 和 <a href="qinappstore.html#productUnknown">QInAppStore::productUnknown</a>() signals in <a href="qinappstore.html">QInAppStore</a> to know the status of your registration.</p>
 <p>If the application intends to allow users to purchase products, it also needs to listen for the <a href="qinappstore.html#transactionReady">QInAppStore::transactionReady</a>() signal to be notified when a transaction is pending.</p>
 <pre class="cpp">
 

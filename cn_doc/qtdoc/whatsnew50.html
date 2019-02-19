@@ -102,7 +102,7 @@
 <p>This change introduces <a href="../qtgui/qopenglcontext.html">QOpenGLContext</a> as a replacement for QGLContext. This replacement class is more generic and decoupled from <a href="../qtgui/qwindow.html">QWindow</a>, making it to support more use cases such as using the same context for multiple surfaces.</p>
 <a name="qopenglpaintdevice"></a>
 <h3 >QOpenGLPaintDevice</h3>
-<p>Instead of having <a href="../qtgui/qwindow.html">QWindow</a> and <a href="../qtgui/qopenglframebufferobject.html">QOpenGLFramebufferObject</a> be subclasses of <a href="../qtgui/qpaintdevice.html">QPaintDevice</a>, you can now use <a href="whatsnew50.html#qopenglpaintdevice">QOpenGLPaintDevice</a>. This new alternative can be created on the stack, makes it easier and flexible to render into the currently bound context using <a href="../qtgui/qpainter.html">QPainter</a>.</p>
+<p>Instead of having <a href="../qtgui/qwindow.html">QWindow</a> 和 <a href="../qtgui/qopenglframebufferobject.html">QOpenGLFramebufferObject</a> be subclasses of <a href="../qtgui/qpaintdevice.html">QPaintDevice</a>, you can now use <a href="whatsnew50.html#qopenglpaintdevice">QOpenGLPaintDevice</a>. This new alternative can be created on the stack, makes it easier and flexible to render into the currently bound context using <a href="../qtgui/qpainter.html">QPainter</a>.</p>
 <a name="qt-network-changes"></a>
 <h2 id="qt-network-changes">Qt Network Changes</h2>
 <a name="qdnslookup"></a>
@@ -110,7 +110,7 @@
 <p>It is now possible to lookup DNS records using the new <a href="whatsnew50.html#qdnslookup">QDnsLookup</a> API. This does not replace <a href="../qtnetwork/qhostinfo.html">QHostInfo</a>, which is still the API to be used for resolving a host name to an IP address. <a href="whatsnew50.html#qdnslookup">QDnsLookup</a> is mainly used for other types of DNS record, such as SRV, TXT and MX.</p>
 <p><b>Note: </b>This new class replaces the Q3Dns API, which is removed in Qt 5.</p><a name="better-support-for-ipv6-and-dual-mode-networks"></a>
 <h3 >Better Support for IPv6 and Dual-mode Networks</h3>
-<p>Most applications using host names and network layer transparent protocols, will now gain IPv6 support transparently. This means, <a href="../qtnetwork/qtcpserver.html">QTcpServer</a> and <a href="../qtnetwork/qudpsocket.html">QUdpSocket</a> bound to <a href="../qtnetwork/qhostaddress.html#SpecialAddress-enum">QHostAddress::Any</a> can now receive both IPv4 and IPv6 connections, although, <a href="../qtnetwork/qhostaddress.html#SpecialAddress-enum">QHostAddress::AnyIPv4</a> and <a href="../qtnetwork/qhostaddress.html#SpecialAddress-enum">QHostAddress::AnyIPv6</a> can be used to bind to only one protocol.</p>
+<p>Most applications using host names and network layer transparent protocols, will now gain IPv6 support transparently. This means, <a href="../qtnetwork/qtcpserver.html">QTcpServer</a> 和 <a href="../qtnetwork/qudpsocket.html">QUdpSocket</a> bound to <a href="../qtnetwork/qhostaddress.html#SpecialAddress-enum">QHostAddress::Any</a> can now receive both IPv4 and IPv6 connections, although, <a href="../qtnetwork/qhostaddress.html#SpecialAddress-enum">QHostAddress::AnyIPv4</a> 和 <a href="../qtnetwork/qhostaddress.html#SpecialAddress-enum">QHostAddress::AnyIPv6</a> can be used to bind to only one protocol.</p>
 <p>Outgoing http connections using <a href="../qtnetwork/qnetworkaccessmanager.html">QNetworkAccessManager</a> will now attempt both IPv4 and IPv6 connections in parallel, and use the one that succeeds first.</p>
 <a name="binding-tcp-sockets"></a>
 <h3 >Binding TCP Sockets</h3>
@@ -140,7 +140,7 @@
 <h3 >Type System</h3>
 <ul>
 <li>New <a href="../qtqml/qml-var.html">var</a> property type can hold JavaScript references.</li>
-<li>QML properties of type <a href="../qtqml/qml-var.html">var</a> and <a href="../qtlocation/qtlocation-attribution-mapboxgl-variant.html">variant</a> can now hold pixmaps.</li>
+<li>QML properties of type <a href="../qtqml/qml-var.html">var</a> 和 <a href="../qtlocation/qtlocation-attribution-mapboxgl-variant.html">variant</a> can now hold pixmaps.</li>
 <li>Value type improvements:<ul>
 <li><a href="../qtgui/qcolor.html">QColor</a> is now a value type. The red, green, blue and alpha channels of a “color” property can now be accessed using “r”, “g”, “b” and “a” properties.</li>
 <li>Improved support for <a href="../qtgui/qvector4d.html">QVector4D</a>, now constructible in QML using <a href="../qtqml/qml-qtqml-qt.html#vector4d-method">Qt.vector4d()</a>.</li>
@@ -176,16 +176,16 @@
 <h3 >Visual and Graphic Types</h3>
 <ul>
 <li>New Canvas type for drawing, provides a HTML5 canvas-like API along with the following additional features:<ul>
-<li>Two render targets: <a href="../qtquick/qml-qtquick-canvas.html#renderTarget-prop">Canvas.Image</a> and <a href="../qtquick/qml-qtquick-canvas.html#renderTarget-prop">Canvas.FramebufferObject</a>.</li>
+<li>Two render targets: <a href="../qtquick/qml-qtquick-canvas.html#renderTarget-prop">Canvas.Image</a> 和 <a href="../qtquick/qml-qtquick-canvas.html#renderTarget-prop">Canvas.FramebufferObject</a>.</li>
 <li>Background thread rendering.</li>
 <li>Tiled canvas rendering.</li>
 <li>Support for most of the HTML5 context2d APIs.</li>
 </ul>
 </li>
 <li>Image type now has:<ul>
-<li>New horizontal and vertical alignment properties, <a href="../qtquick/qml-qtquick-image.html#horizontalAlignment-prop">horizontalAlignment</a> and <a href="../qtquick/qml-qtquick-image.html#verticalAlignment-prop">verticalAlignment</a>.</li>
+<li>New horizontal and vertical alignment properties, <a href="../qtquick/qml-qtquick-image.html#horizontalAlignment-prop">horizontalAlignment</a> 和 <a href="../qtquick/qml-qtquick-image.html#verticalAlignment-prop">verticalAlignment</a>.</li>
 <li><a href="../qtquick/qml-qtquick-image.html#fillMode-prop">Image.Pad</a> enum value for <code>fillMode</code> property does not transform the image unlike the other <code>fillMode</code> enum values.</li>
-<li><a href="../qtquick/qml-qtquick-image.html#sourceSize-prop">sourceSize.width</a> and <a href="../qtquick/qml-qtquick-image.html#sourceSize-prop">sourceSize.height</a> now fits the image to size maintaining the aspect ratio.</li>
+<li><a href="../qtquick/qml-qtquick-image.html#sourceSize-prop">sourceSize.width</a> 和 <a href="../qtquick/qml-qtquick-image.html#sourceSize-prop">sourceSize.height</a> now fits the image to size maintaining the aspect ratio.</li>
 </ul>
 </li>
 </ul>
@@ -205,7 +205,7 @@
 <li><a href="../qtquick/qml-qtquick-text-obsolete.html#doLayout-method">doLayout()</a> method can now trigger the text layout from JavaScript.</li>
 <li><a href="../qtquick/qml-qtquick-text.html#elide-prop">ElideRight</a> to support text that spans multiple lines.</li>
 <li><a href="../qtquick/qml-qtquick-text.html#fontSizeMode-prop">fontSizeMode</a> property now supports wrapping the text to the item size.</li>
-<li><a href="../qtquick/qml-qtquick-text.html#minimumPixelSize-prop">minimumPixelSize</a> and <a href="../qtquick/qml-qtquick-text.html#minimumPointSize-prop">minimumPointSize</a> properties can be used to specify a lower bound when auto-fitting.</li>
+<li><a href="../qtquick/qml-qtquick-text.html#minimumPixelSize-prop">minimumPixelSize</a> 和 <a href="../qtquick/qml-qtquick-text.html#minimumPointSize-prop">minimumPointSize</a> properties can be used to specify a lower bound when auto-fitting.</li>
 </ul>
 </li>
 <li><a href="../qtquick/qml-qtquick-textedit.html#textFormat-prop">TextEdit.textFormat</a> property now defaults to <code>PlainText</code> instead of <code>AutoText</code>.</li>
@@ -246,7 +246,7 @@
 <a name="models-and-views"></a>
 <h3 >Models and Views</h3>
 <ul>
-<li><a href="../qtquick/qml-qtquick-listview.html">ListView</a> and <a href="../qtquick/qml-qtquick-gridview.html">GridView</a>:<ul>
+<li><a href="../qtquick/qml-qtquick-listview.html">ListView</a> 和 <a href="../qtquick/qml-qtquick-gridview.html">GridView</a>:<ul>
 <li>Transitions can be specified to animate the adding, removing and moving of items in a view. For details, see <a href="../qtquick/qml-qtquick-viewtransition.html">ViewTransition</a>, <a href="../qtquick/qml-qtquick-listview.html#add-prop">ListView.add</a>, <a href="../qtquick/qml-qtquick-listview.html#addDisplaced-prop">ListView.addDisplaced</a>, <a href="../qtquick/qml-qtquick-gridview.html#add-prop">GridView.add</a>, and <a href="../qtquick/qml-qtquick-gridview.html#addDisplaced-prop">GridView.addDisplaced</a>.</li>
 <li>New <code>verticalLayoutDirection</code> property enables items to be laid out from bottom-to-top using the <code>BottomToTop</code> enum value.</li>
 <li>The <code>cacheBuffer</code> property now has a non-zero default and delegates in the <code>cacheBuffer</code> are created asynchronously.</li>
@@ -263,7 +263,7 @@
 <a name="utility-types"></a>
 <h3 >Utility Types</h3>
 <ul>
-<li>New <a href="../qtquick/qml-qtquick-patharc.html">PathArc</a>, <a href="../qtquick/qml-qtquick-pathcurve.html">PathCurve</a> and <a href="../qtquick/qml-qtquick-pathsvg.html">PathSvg</a> types:<ul>
+<li>New <a href="../qtquick/qml-qtquick-patharc.html">PathArc</a>, <a href="../qtquick/qml-qtquick-pathcurve.html">PathCurve</a> 和 <a href="../qtquick/qml-qtquick-pathsvg.html">PathSvg</a> types:<ul>
 <li><code>PathArc</code> and <code>PathCurve</code> support the construction of arcs and catmull-rom curves, respectively. <a href="../qtquick/qml-qtquick-pathsvg.html">PathSvg</a> supports the construction of a path from an SVG string.</li>
 </ul>
 </li>
