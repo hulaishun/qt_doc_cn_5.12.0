@@ -237,7 +237,7 @@
 <p>Specifies project configuration and compiler options. The values are recognized internally by qmake and have special meaning.</p>
 <p>The following <code>CONFIG</code> values control compilation flags:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Option</th><th >描述</th></tr></thead>
+ <thead><tr class="qt-style"><th >选项</th><th >描述</th></tr></thead>
 <tr valign="top" class="odd"><td >release</td><td >The project is to be built in release mode. If <code>debug</code> is also specified, the last one takes effect.</td></tr>
 <tr valign="top" class="even"><td >debug</td><td >The project is to be built in debug mode.</td></tr>
 <tr valign="top" class="odd"><td >debug_and_release</td><td >The project is prepared to be built in <i>both</i> debug and release modes.</td></tr>
@@ -287,13 +287,13 @@
 </pre>
 <p><b>注意：</b>The details are slightly different when producing Visual Studio and Xcode projects.</p><p>When linking a library, qmake relies on the underlying platform to know what other libraries this library links against. However, if linking statically, qmake will not get this information unless we use the following <code>CONFIG</code> options:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Option</th><th >描述</th></tr></thead>
+ <thead><tr class="qt-style"><th >选项</th><th >描述</th></tr></thead>
 <tr valign="top" class="odd"><td >create_prl</td><td >This option enables qmake to track these dependencies. When this option is enabled, qmake will create a file with the extension <code>.prl</code> which will save meta-information about the library (see <a href="qmake-advanced-usage.html#libdepend">Library Dependencies</a> for more info).</td></tr>
 <tr valign="top" class="even"><td >link_prl</td><td >When this option is enabled, qmake will process all libraries linked to by the application and find their meta-information (see <a href="qmake-advanced-usage.html#libdepend">Library Dependencies</a> for more info).</td></tr>
 </table></div>
 <p><b>注意：</b>The <code>create_prl</code> option is required when <i>building</i> a static library, while <code>link_prl</code> is required when <i>using</i> a static library.</p><p>The following options define the application or library type:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Option</th><th >描述</th></tr></thead>
+ <thead><tr class="qt-style"><th >选项</th><th >描述</th></tr></thead>
 <tr valign="top" class="odd"><td >qt</td><td >The target is a Qt application or library and requires the Qt library and header files. The proper include and library paths for the Qt library will automatically be added to the project. This is defined by default, and can be fine-tuned with the <code>\l{#qt}{QT}</code> variable.</td></tr>
 <tr valign="top" class="even"><td >x11</td><td >The target is an X11 application or library. The proper include paths and libraries will automatically be added to the project.</td></tr>
 <tr valign="top" class="odd"><td >testcase</td><td >The target is an automated test. <a href="qmake-common-projects.html#building-a-testcase">A check target</a> will be added to the generated Makefile to run the test. Only relevant when generating Makefiles.</td></tr>
@@ -310,7 +310,7 @@
 </table></div>
 <p>These options define specific features on Windows only:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Option</th><th >描述</th></tr></thead>
+ <thead><tr class="qt-style"><th >选项</th><th >描述</th></tr></thead>
 <tr valign="top" class="odd"><td >flat</td><td >When using the vcapp template this will put all the source files into the source group and the header files into the header group regardless of what directory they reside in. Turning this option off will group the files within the source/header group depending on the directory they reside. This is turned on by default.</td></tr>
 <tr valign="top" class="even"><td >embed_manifest_dll</td><td >Embeds a manifest file in the DLL created as part of a library project.</td></tr>
 <tr valign="top" class="odd"><td >embed_manifest_exe</td><td >Embeds a manifest file in the EXE created as part of an application project.</td></tr>
@@ -318,14 +318,14 @@
 <p>See <a href="qmake-platform-notes.html#visual-studio-manifest-files">平台注意事项</a> for more information about the options for embedding manifest files.</p>
 <p>The following options take an effect only on <a href="../qtdoc/internationalization.html#macos">macOS</a>:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Option</th><th >描述</th></tr></thead>
+ <thead><tr class="qt-style"><th >选项</th><th >描述</th></tr></thead>
 <tr valign="top" class="odd"><td >app_bundle</td><td >Puts the executable into a bundle (this is the default).</td></tr>
 <tr valign="top" class="even"><td >lib_bundle</td><td >Puts the library into a library bundle.</td></tr>
 </table></div>
 <p>The build process for bundles is also influenced by the contents of the <a href="qmake-variable-reference.html#qmake-bundle-data">QMAKE_BUNDLE_DATA</a> variable.</p>
 <p>The following options take an effect only on Linux/Unix platforms:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Option</th><th >描述</th></tr></thead>
+ <thead><tr class="qt-style"><th >选项</th><th >描述</th></tr></thead>
 <tr valign="top" class="odd"><td >largefile</td><td >Includes support for large files.</td></tr>
 <tr valign="top" class="even"><td >separate_debug_info</td><td >Puts debugging information for libraries in separate files.</td></tr>
 </table></div>
@@ -1154,7 +1154,7 @@
 <h2 id="template">TEMPLATE</h2>
 <p>Specifies the name of the template to use when generating the project. The allowed values are:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Option</th><th >描述</th></tr></thead>
+ <thead><tr class="qt-style"><th >选项</th><th >描述</th></tr></thead>
 <tr valign="top" class="odd"><td >app</td><td >Creates a Makefile for building applications (the default). See <a href="qmake-common-projects.html#building-an-application">Building an Application</a> for more information.</td></tr>
 <tr valign="top" class="even"><td >lib</td><td >Creates a Makefile for building libraries. See <a href="qmake-common-projects.html#building-a-library">Building a Library</a> for more information.</td></tr>
 <tr valign="top" class="odd"><td >subdirs</td><td >Creates a Makefile for building targets in subdirectories. The subdirectories are specified using the <a href="qmake-variable-reference.html#subdirs">SUBDIRS</a> variable.</td></tr>
