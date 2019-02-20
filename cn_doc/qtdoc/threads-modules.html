@@ -60,11 +60,11 @@
 <p>In addition, the third party libraries used by the QSqlDrivers can impose further restrictions on using the SQL Module in a multithreaded program. Consult the manual of your database client for more information</p>
 <a name="painting-in-threads"></a>
 <h2 id="painting-in-threads">Painting in Threads</h2>
-<p><a href="../qtgui/qpainter.html">QPainter</a> can be used in a thread to paint onto <a href="../qtgui/qimage.html">QImage</a>, <a href="../qtprintsupport/qprinter.html">QPrinter</a>, and <a href="../qtgui/qpicture.html">QPicture</a> paint devices. Painting onto QPixmaps and QWidgets is <i>not</i> supported. On macOS the automatic progress dialog will not be displayed if you are printing from outside the GUI thread.</p>
+<p><a href="../qtgui/qpainter.html">QPainter</a> can be used in a thread to paint onto <a href="../qtgui/qimage.html">QImage</a>, <a href="../qtprintsupport/qprinter.html">QPrinter</a>, 和 <a href="../qtgui/qpicture.html">QPicture</a> paint devices. Painting onto QPixmaps and QWidgets is <i>not</i> supported. On macOS the automatic progress dialog will not be displayed if you are printing from outside the GUI thread.</p>
 <p>Any number of threads can paint at any given time, however only one thread at a time can paint on a given paint device. In other words, two threads can paint at the same time if each paints onto separate QImages, but the two threads cannot paint onto the same <a href="../qtgui/qimage.html">QImage</a> at the same time.</p>
 <a name="threads-and-rich-text-processing"></a>
 <h2 id="threads-and-rich-text-processing">Threads and Rich Text Processing</h2>
-<p>The <a href="../qtgui/qtextdocument.html">QTextDocument</a>, <a href="../qtgui/qtextcursor.html">QTextCursor</a>, and <a href="../qtgui/richtext.html">all related classes</a> are reentrant.</p>
+<p>The <a href="../qtgui/qtextdocument.html">QTextDocument</a>, <a href="../qtgui/qtextcursor.html">QTextCursor</a>, 和 <a href="../qtgui/richtext.html">all related classes</a> are reentrant.</p>
 <p>Note that a <a href="../qtgui/qtextdocument.html">QTextDocument</a> instance created in the GUI thread may contain <a href="../qtgui/qpixmap.html">QPixmap</a> image resources. Use <a href="../qtgui/qtextdocument.html#clone">QTextDocument::clone</a>() to create a copy of the document, and pass the copy to another thread for further processing (such as printing).</p>
 <a name="threads-and-the-svg-module"></a>
 <h2 id="threads-and-the-svg-module">Threads and the SVG Module</h2>

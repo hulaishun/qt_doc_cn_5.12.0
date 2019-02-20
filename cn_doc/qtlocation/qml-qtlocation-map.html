@@ -121,7 +121,7 @@
 <p>There are a variety of different ways to visualize the Earth's surface in a 2-dimensional manner, but all of them involve some kind of projection: a mathematical relationship between the 3D coordinates (latitude, longitude and altitude) and 2D coordinates (X and Y in pixels) on the screen.</p>
 <p>Different sources of map data can use different projections, and from the point of view of the Map type, we treat these as one replaceable unit: the Map plugin. A Map plugin consists of a data source, as well as all other details needed to display its data on-screen.</p>
 <p>The current Map plugin in use is contained in the <a href="location-places-qml.html#plugin">plugin</a> property of the Map item. In order to display any image in a Map item, you will need to set this property. See the <a href="location-places-qml.html#plugin">Plugin</a> type for a description of how to retrieve an appropriate plugin for use.</p>
-<p>The geographic region displayed in the Map item is referred to as its viewport, and this is defined by the properties <a href="qml-qtlocation-map.html#center-prop">center</a>, and <a href="qml-qtlocation-map.html#zoomLevel-prop">zoomLevel</a>. The <a href="qml-qtlocation-map.html#center-prop">center</a> property contains a <a href="../qtpositioning/qml-coordinate.html">coordinate</a> specifying the center of the viewport, while <a href="qml-qtlocation-map.html#zoomLevel-prop">zoomLevel</a> controls the scale of the map. See each of these properties for further details about their values.</p>
+<p>The geographic region displayed in the Map item is referred to as its viewport, and this is defined by the properties <a href="qml-qtlocation-map.html#center-prop">center</a>, 和 <a href="qml-qtlocation-map.html#zoomLevel-prop">zoomLevel</a>. The <a href="qml-qtlocation-map.html#center-prop">center</a> property contains a <a href="../qtpositioning/qml-coordinate.html">coordinate</a> specifying the center of the viewport, while <a href="qml-qtlocation-map.html#zoomLevel-prop">zoomLevel</a> controls the scale of the map. See each of these properties for further details about their values.</p>
 <p>When the map is displayed, each possible geographic coordinate that is visible will map to some pixel X and Y coordinate on the screen. To perform conversions between these two, Map provides the <a href="qml-qtlocation-map.html#toCoordinate-method">toCoordinate</a> 和 <a href="qml-qtlocation-map.html#fromCoordinate-method">fromCoordinate</a> functions, which are of general utility.</p>
 <a name="map-objects"></a>
 <h3 >Map Objects</h3>
@@ -289,7 +289,7 @@
 <a name="mapItems-prop"></a><span class="name">mapItems</span> : <span class="type"><a href="../qtqml/qml-list.html">list</a></span>&lt;<span class="type">MapItem</span>&gt;</p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>Returns the list of all map items in no particular order. These items include items that were declared statically as part of the type declaration, as well as dynamical items (<a href="qml-qtlocation-map.html#addMapItem-method">addMapItem</a>, <a href="qml-qtlocation-mapitemview.html">MapItemView</a>).</p>
-<p><b> 参见 </b><a href="qml-qtlocation-map.html#addMapItem-method">addMapItem</a>, <a href="qml-qtlocation-map.html#removeMapItem-method">removeMapItem</a>, and <a href="qml-qtlocation-map.html#clearMapItems-method">clearMapItems</a>.</p>
+<p><b> 参见 </b><a href="qml-qtlocation-map.html#addMapItem-method">addMapItem</a>, <a href="qml-qtlocation-map.html#removeMapItem-method">removeMapItem</a>, 和 <a href="qml-qtlocation-map.html#clearMapItems-method">clearMapItems</a>.</p>
 </div></div><!-- @@@mapItems -->
 <br/>
 <!-- $$$mapParameters -->
@@ -302,7 +302,7 @@
 </div><div class="qmldoc"><p>Returns the list of all map parameters in no particular order. These items include map parameters that were declared statically as part of the type declaration, as well as dynamical map parameters (<a href="qml-qtlocation-map.html#addMapParameter-method">addMapParameter</a>).</p>
 <p>The release of this API with Qt 5.9 is a Technology Preview.</p>
 <p>This property was introduced in  Qt 5.9.</p>
-<p><b> 参见 </b><a href="qml-qtlocation-mapparameter.html">MapParameter</a>, <a href="qml-qtlocation-map.html#addMapParameter-method">addMapParameter</a>, <a href="qml-qtlocation-map.html#removeMapParameter-method">removeMapParameter</a>, and <a href="qml-qtlocation-map.html#clearMapParameters-method">clearMapParameters</a>.</p>
+<p><b> 参见 </b><a href="qml-qtlocation-mapparameter.html">MapParameter</a>, <a href="qml-qtlocation-map.html#addMapParameter-method">addMapParameter</a>, <a href="qml-qtlocation-map.html#removeMapParameter-method">removeMapParameter</a>, 和 <a href="qml-qtlocation-map.html#clearMapParameters-method">clearMapParameters</a>.</p>
 </div></div><!-- @@@mapParameters -->
 <br/>
 <!-- $$$mapReady -->
@@ -508,7 +508,7 @@
   }
 
 </pre>
-<p><b>Note: </b>MapItemViews cannot be added with this method.</p><p><b> 参见 </b><a href="qml-qtlocation-map.html#mapItems-prop">mapItems</a>, <a href="qml-qtlocation-map.html#removeMapItem-method">removeMapItem</a>, and <a href="qml-qtlocation-map.html#clearMapItems-method">clearMapItems</a>.</p>
+<p><b>Note: </b>MapItemViews cannot be added with this method.</p><p><b> 参见 </b><a href="qml-qtlocation-map.html#mapItems-prop">mapItems</a>, <a href="qml-qtlocation-map.html#removeMapItem-method">removeMapItem</a>, 和 <a href="qml-qtlocation-map.html#clearMapItems-method">clearMapItems</a>.</p>
 </div></div><!-- @@@addMapItem -->
 <br/>
 <!-- $$$addMapItemGroup -->
@@ -545,7 +545,7 @@
 </div><div class="qmldoc"><p>Adds a MapParameter object to the map. The effect of this call is dependent on the combination of the content of the MapParameter and the type of underlying QGeoMap. If a MapParameter that is not supported by the underlying QGeoMap gets added, the call has no effect.</p>
 <p>The release of this API with Qt 5.9 is a Technology Preview.</p>
 <p>This method was introduced in  Qt 5.9.</p>
-<p><b> 参见 </b><a href="qml-qtlocation-mapparameter.html">MapParameter</a>, <a href="qml-qtlocation-map.html#removeMapParameter-method">removeMapParameter</a>, <a href="qml-qtlocation-map.html#mapParameters-prop">mapParameters</a>, and <a href="qml-qtlocation-map.html#clearMapParameters-method">clearMapParameters</a>.</p>
+<p><b> 参见 </b><a href="qml-qtlocation-mapparameter.html">MapParameter</a>, <a href="qml-qtlocation-map.html#removeMapParameter-method">removeMapParameter</a>, <a href="qml-qtlocation-map.html#mapParameters-prop">mapParameters</a>, 和 <a href="qml-qtlocation-map.html#clearMapParameters-method">clearMapParameters</a>.</p>
 </div></div><!-- @@@addMapParameter -->
 <br/>
 <!-- $$$alignCoordinateToPoint -->
@@ -581,7 +581,7 @@
 <a name="clearMapItems-method"></a><span class="type">void</span> <span class="name">clearMapItems</span>()</p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>Removes all items and item groups from the map.</p>
-<p><b> 参见 </b><a href="qml-qtlocation-map.html#mapItems-prop">mapItems</a>, <a href="qml-qtlocation-map.html#addMapItem-method">addMapItem</a>, <a href="qml-qtlocation-map.html#removeMapItem-method">removeMapItem</a>, <a href="qml-qtlocation-map.html#addMapItemGroup-method">addMapItemGroup</a>, and <a href="qml-qtlocation-map.html#removeMapItemGroup-method">removeMapItemGroup</a>.</p>
+<p><b> 参见 </b><a href="qml-qtlocation-map.html#mapItems-prop">mapItems</a>, <a href="qml-qtlocation-map.html#addMapItem-method">addMapItem</a>, <a href="qml-qtlocation-map.html#removeMapItem-method">removeMapItem</a>, <a href="qml-qtlocation-map.html#addMapItemGroup-method">addMapItemGroup</a>, 和 <a href="qml-qtlocation-map.html#removeMapItemGroup-method">removeMapItemGroup</a>.</p>
 </div></div><!-- @@@clearMapItems -->
 <br/>
 <!-- $$$clearMapParameters -->
@@ -639,7 +639,7 @@
 </table></div>
 </div><div class="qmldoc"><p>Starts panning the map by <i>dx</i> pixels along the x-axis and by <i>dy</i> pixels along the y-axis.</p>
 <p>Positive values for <i>dx</i> move the map right, negative values left. Positive values for <i>dy</i> move the map down, negative values up.</p>
-<p>During panning the <a href="qml-qtlocation-map.html#center-prop">center</a>, and <a href="qml-qtlocation-map.html#zoomLevel-prop">zoomLevel</a> may change.</p>
+<p>During panning the <a href="qml-qtlocation-map.html#center-prop">center</a>, 和 <a href="qml-qtlocation-map.html#zoomLevel-prop">zoomLevel</a> may change.</p>
 </div></div><!-- @@@pan -->
 <br/>
 <!-- $$$prefetchData -->
@@ -660,7 +660,7 @@
 <a name="removeMapItem-method"></a><span class="type">void</span> <span class="name">removeMapItem</span>(<span class="type">MapItem</span> <i>item</i>)</p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>Removes the given <i>item</i> from the Map (for example <a href="qml-qtlocation-mapquickitem.html">MapQuickItem</a>, <a href="qml-qtlocation-mapcircle.html">MapCircle</a>). If the MapItem does not exist or was not previously added to the map, the method does nothing.</p>
-<p><b> 参见 </b><a href="qml-qtlocation-map.html#mapItems-prop">mapItems</a>, <a href="qml-qtlocation-map.html#addMapItem-method">addMapItem</a>, and <a href="qml-qtlocation-map.html#clearMapItems-method">clearMapItems</a>.</p>
+<p><b> 参见 </b><a href="qml-qtlocation-map.html#mapItems-prop">mapItems</a>, <a href="qml-qtlocation-map.html#addMapItem-method">addMapItem</a>, 和 <a href="qml-qtlocation-map.html#clearMapItems-method">clearMapItems</a>.</p>
 </div></div><!-- @@@removeMapItem -->
 <br/>
 <!-- $$$removeMapItemGroup -->
@@ -697,7 +697,7 @@
 </div><div class="qmldoc"><p>Removes the given MapParameter object from the map.</p>
 <p>The release of this API with Qt 5.9 is a Technology Preview.</p>
 <p>This method was introduced in  Qt 5.9.</p>
-<p><b> 参见 </b><a href="qml-qtlocation-mapparameter.html">MapParameter</a>, <a href="qml-qtlocation-map.html#addMapParameter-method">addMapParameter</a>, <a href="qml-qtlocation-map.html#mapParameters-prop">mapParameters</a>, and <a href="qml-qtlocation-map.html#clearMapParameters-method">clearMapParameters</a>.</p>
+<p><b> 参见 </b><a href="qml-qtlocation-mapparameter.html">MapParameter</a>, <a href="qml-qtlocation-map.html#addMapParameter-method">addMapParameter</a>, <a href="qml-qtlocation-map.html#mapParameters-prop">mapParameters</a>, 和 <a href="qml-qtlocation-map.html#clearMapParameters-method">clearMapParameters</a>.</p>
 </div></div><!-- @@@removeMapParameter -->
 <br/>
 <!-- $$$setBearing -->

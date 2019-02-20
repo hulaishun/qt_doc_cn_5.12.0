@@ -56,7 +56,7 @@
 <!-- @@@QAbstractItemModel -->
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> 头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QAbstractItemModel&gt;</span>
-</td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += core</td></tr><tr><td class="memItemLeft rightAlign topAlign"> 继承的父类是：</td><td class="memItemRight bottomAlign"> <a href="qobject.html">QObject</a></td></tr><tr><td class="memItemLeft rightAlign topAlign"> 继承的子类有：</td><td class="memItemRight bottomAlign"> <p><a href="qabstractlistmodel.html">QAbstractListModel</a>, <a href="qabstractproxymodel.html">QAbstractProxyModel</a>, and <a href="qabstracttablemodel.html">QAbstractTableModel</a></p>
+</td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += core</td></tr><tr><td class="memItemLeft rightAlign topAlign"> 继承的父类是：</td><td class="memItemRight bottomAlign"> <a href="qobject.html">QObject</a></td></tr><tr><td class="memItemLeft rightAlign topAlign"> 继承的子类有：</td><td class="memItemRight bottomAlign"> <p><a href="qabstractlistmodel.html">QAbstractListModel</a>, <a href="qabstractproxymodel.html">QAbstractProxyModel</a>, 和 <a href="qabstracttablemodel.html">QAbstractTableModel</a></p>
 </td></tr></table></div><ul>
 <li><a href="qabstractitemmodel-members.html">所有成员清单，包括继承而来的成员</a></li>
 <li><a href="qabstractitemmodel-obsolete.html">过时的成员</a></li>
@@ -232,7 +232,7 @@
 <p>The <i>private</i> signals that these functions emit give attached components the chance to take action before any data becomes unavailable. The encapsulation of the insert and remove operations with these begin and end functions also enables the model to manage <a href="qpersistentmodelindex.html">persistent model indexes</a> correctly. <b>If you want selections to be handled properly, you must ensure that you call these functions.</b> If you insert or remove an item with children, you do not need to call these functions for the child items. In other words, the parent item will take care of its child items.</p>
 <p>To create models that populate incrementally, you can reimplement <a href="qabstractitemmodel.html#fetchMore">fetchMore</a>() 和 <a href="qabstractitemmodel.html#canFetchMore">canFetchMore</a>(). If the reimplementation of <a href="qabstractitemmodel.html#fetchMore">fetchMore</a>() adds rows to the model, <a href="qabstractitemmodel.html#beginInsertRows">beginInsertRows()</a> 和 <a href="qabstractitemmodel.html#endInsertRows">endInsertRows()</a> must be called.</p>
 </div>
-<p><b> 参见 </b><a href="../qtwidgets/model-view-programming.html#model-classes">Model Classes</a>, <a href="../qtwidgets/model-view-programming.html#model-subclassing-reference">Model Subclassing Reference</a>, <a href="qmodelindex.html">QModelIndex</a>, <a href="../qtwidgets/qabstractitemview.html">QAbstractItemView</a>, <a href="../qtwidgets/model-view-programming.html#using-drag-and-drop-with-item-views">Using drag and drop with item views</a>, <a href="../qtwidgets/qtwidgets-itemviews-simpledommodel-example.html">Simple DOM Model Example</a>, <a href="../qtwidgets/qtwidgets-itemviews-simpletreemodel-example.html">Simple Tree Model Example</a>, <a href="../qtwidgets/qtwidgets-itemviews-editabletreemodel-example.html">Editable Tree Model Example</a>, and <a href="../qtwidgets/qtwidgets-itemviews-fetchmore-example.html">Fetch More Example</a>.</p>
+<p><b> 参见 </b><a href="../qtwidgets/model-view-programming.html#model-classes">Model Classes</a>, <a href="../qtwidgets/model-view-programming.html#model-subclassing-reference">Model Subclassing Reference</a>, <a href="qmodelindex.html">QModelIndex</a>, <a href="../qtwidgets/qabstractitemview.html">QAbstractItemView</a>, <a href="../qtwidgets/model-view-programming.html#using-drag-and-drop-with-item-views">Using drag and drop with item views</a>, <a href="../qtwidgets/qtwidgets-itemviews-simpledommodel-example.html">Simple DOM Model Example</a>, <a href="../qtwidgets/qtwidgets-itemviews-simpletreemodel-example.html">Simple Tree Model Example</a>, <a href="../qtwidgets/qtwidgets-itemviews-editabletreemodel-example.html">Editable Tree Model Example</a>, 和 <a href="../qtwidgets/qtwidgets-itemviews-fetchmore-example.html">Fetch More Example</a>.</p>
 <!-- @@@QAbstractItemModel -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -693,7 +693,7 @@
 <h3 class="fn" id="itemData"><a name="itemData"></a><code>[virtual] </code><span class="type"><a href="qmap.html">QMap</a></span>&lt;<span class="type">int</span>, <span class="type"><a href="qvariant.html">QVariant</a></span>&gt; QAbstractItemModel::<span class="name">itemData</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>) const</h3>
 <p>Returns a map with values for all predefined roles in the model for the item at the given <i>index</i>.</p>
 <p>Reimplement this function if you want to extend the default behavior of this function to include custom roles in the map.</p>
-<p><b> 参见 </b><a href="qabstractitemmodel.html#setItemData">setItemData</a>(), <a href="qt.html#ItemDataRole-enum">Qt::ItemDataRole</a>, and <a href="qabstractitemmodel.html#data">data</a>().</p>
+<p><b> 参见 </b><a href="qabstractitemmodel.html#setItemData">setItemData</a>(), <a href="qt.html#ItemDataRole-enum">Qt::ItemDataRole</a>, 和 <a href="qabstractitemmodel.html#data">data</a>().</p>
 <!-- @@@itemData -->
 <!-- $$$layoutAboutToBeChanged[overload1]$$$layoutAboutToBeChangedconstQList<QPersistentModelIndex>&QAbstractItemModel::LayoutChangeHint -->
 <h3 class="fn" id="layoutAboutToBeChanged"><a name="layoutAboutToBeChanged"></a><code>[signal] </code><span class="type">void</span> QAbstractItemModel::<span class="name">layoutAboutToBeChanged</span>(const <span class="type"><a href="qlist.html">QList</a></span>&lt;<span class="type"><a href="qpersistentmodelindex.html">QPersistentModelIndex</a></span>&gt; &amp;<i>parents</i> = ..., <span class="type"><a href="qabstractitemmodel.html#LayoutChangeHint-enum">QAbstractItemModel::LayoutChangeHint</a></span> <i>hint</i> = ...)</h3>
@@ -983,14 +983,14 @@
 <p>Returns the actions supported by the data in this model.</p>
 <p>The default implementation returns <a href="qabstractitemmodel.html#supportedDropActions">supportedDropActions</a>(). Reimplement this function if you wish to support additional actions.</p>
 <p>supportedDragActions() is used by <a href="../qtwidgets/qabstractitemview.html#startDrag">QAbstractItemView::startDrag</a>() as the default values when a drag occurs.</p>
-<p><b> 参见 </b><a href="qabstractitemmodel-obsolete.html#setSupportedDragActions">setSupportedDragActions</a>(), <a href="qt.html#DropAction-enum">Qt::DropActions</a>, and <a href="../qtwidgets/model-view-programming.html#using-drag-and-drop-with-item-views">Using drag and drop with item views</a>.</p>
+<p><b> 参见 </b><a href="qabstractitemmodel-obsolete.html#setSupportedDragActions">setSupportedDragActions</a>(), <a href="qt.html#DropAction-enum">Qt::DropActions</a>, 和 <a href="../qtwidgets/model-view-programming.html#using-drag-and-drop-with-item-views">Using drag and drop with item views</a>.</p>
 <!-- @@@supportedDragActions -->
 <!-- $$$supportedDropActions[overload1]$$$supportedDropActions -->
 <h3 class="fn" id="supportedDropActions"><a name="supportedDropActions"></a><code>[virtual] </code><span class="type">Qt::DropActions</span> QAbstractItemModel::<span class="name">supportedDropActions</span>() const</h3>
 <p>Returns the drop actions supported by this model.</p>
 <p>The default implementation returns <a href="qt.html#DropAction-enum">Qt::CopyAction</a>. Reimplement this function if you wish to support additional actions. You must also reimplement the <a href="qabstractitemmodel.html#dropMimeData">dropMimeData</a>() function to handle the additional operations.</p>
 <p>这个函数是在Qt 4.2版本中新增引入的。</p>
-<p><b> 参见 </b><a href="qabstractitemmodel.html#dropMimeData">dropMimeData</a>(), <a href="qt.html#DropAction-enum">Qt::DropActions</a>, and <a href="../qtwidgets/model-view-programming.html#using-drag-and-drop-with-item-views">Using drag and drop with item views</a>.</p>
+<p><b> 参见 </b><a href="qabstractitemmodel.html#dropMimeData">dropMimeData</a>(), <a href="qt.html#DropAction-enum">Qt::DropActions</a>, 和 <a href="../qtwidgets/model-view-programming.html#using-drag-and-drop-with-item-views">Using drag and drop with item views</a>.</p>
 <!-- @@@supportedDropActions -->
 </div>
 <div class="vars">

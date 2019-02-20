@@ -157,7 +157,7 @@
 <p>The <a href="qsettings.html">QSettings</a> class provides persistent platform-independent application settings.</p>
 <p>Users normally expect an application to remember its settings (window sizes and positions, options, etc.) across sessions. This information is often stored in the system registry on Windows, and in property list files on <a href="../qtdoc/internationalization.html#macos">macOS</a> and iOS. On Unix systems, in the absence of a standard, many applications (including the KDE applications) use INI text files.</p>
 <p><a href="qsettings.html">QSettings</a> is an abstraction around these technologies, enabling you to save and restore application settings in a portable manner. It also supports <a href="qsettings.html#registerFormat">custom storage formats</a>.</p>
-<p><a href="qsettings.html">QSettings</a>'s API is based on <a href="qvariant.html">QVariant</a>, allowing you to save most value-based types, such as <a href="qstring.html">QString</a>, <a href="qrect.html">QRect</a>, and <a href="../qtgui/qimage.html">QImage</a>, with the minimum of effort.</p>
+<p><a href="qsettings.html">QSettings</a>'s API is based on <a href="qvariant.html">QVariant</a>, allowing you to save most value-based types, such as <a href="qstring.html">QString</a>, <a href="qrect.html">QRect</a>, 和 <a href="../qtgui/qimage.html">QImage</a>, with the minimum of effort.</p>
 <p>If all you need is a non-persistent memory-based structure, consider using <a href="qmap.html">QMap</a>&lt;<a href="qstring.html">QString</a>, <a href="qvariant.html">QVariant</a>&gt; instead.</p>
 <a name="basic-usage"></a>
 <h3 >Basic Usage</h3>
@@ -201,7 +201,7 @@
 <p>To test whether a given key exists, call <a href="qsettings.html#contains">contains</a>(). To remove the setting associated with a key, call <a href="qsettings.html#remove">remove</a>(). To obtain the list of all keys, call <a href="qsettings.html#allKeys">allKeys</a>(). To remove all keys, call <a href="qsettings.html#clear">clear</a>().</p>
 <a name="qvariant-and-gui-types"></a>
 <h3 >QVariant and GUI Types</h3>
-<p>Because <a href="qvariant.html">QVariant</a> is part of the Qt Core module, it cannot provide conversion functions to data types such as <a href="../qtgui/qcolor.html">QColor</a>, <a href="../qtgui/qimage.html">QImage</a>, and <a href="../qtgui/qpixmap.html">QPixmap</a>, which are part of Qt GUI. In other words, there is no <code>toColor()</code>, <code>toImage()</code>, or <code>toPixmap()</code> functions in <a href="qvariant.html">QVariant</a>.</p>
+<p>Because <a href="qvariant.html">QVariant</a> is part of the Qt Core module, it cannot provide conversion functions to data types such as <a href="../qtgui/qcolor.html">QColor</a>, <a href="../qtgui/qimage.html">QImage</a>, 和 <a href="../qtgui/qpixmap.html">QPixmap</a>, which are part of Qt GUI. In other words, there is no <code>toColor()</code>, <code>toImage()</code>, or <code>toPixmap()</code> functions in <a href="qvariant.html">QVariant</a>.</p>
 <p>Instead, you can use the <a href="qvariant.html#value">QVariant::value</a>() or the qVariantValue() template function. For example:</p>
 <pre class="cpp">
 
@@ -444,7 +444,7 @@
 <li>On <a href="../qtdoc/internationalization.html#macos">macOS</a>, permissions to access settings not belonging to the current user (i.e&#x2e; <a href="qsettings.html#Scope-enum">SystemScope</a>) have changed with 10.7 (Lion). Prior to that version, users having admin rights could access these. For 10.7 and 10.8 (Mountain Lion), only root can. However, 10.9 (Mavericks) changes that rule again but only for the native format (plist files).</li>
 </ul>
 </div>
-<p><b> 参见 </b><a href="qvariant.html">QVariant</a>, <a href="../qtgui/qsessionmanager.html">QSessionManager</a>, <a href="../qtwidgets/qtwidgets-tools-settingseditor-example.html">Settings Editor Example</a>, and <a href="../qtwidgets/qtwidgets-mainwindows-application-example.html">Application Example</a>.</p>
+<p><b> 参见 </b><a href="qvariant.html">QVariant</a>, <a href="../qtgui/qsessionmanager.html">QSessionManager</a>, <a href="../qtwidgets/qtwidgets-tools-settingseditor-example.html">Settings Editor Example</a>, 和 <a href="../qtwidgets/qtwidgets-mainwindows-application-example.html">Application Example</a>.</p>
 <!-- @@@QSettings -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -461,7 +461,7 @@
 <p>On Unix, NativeFormat and IniFormat mean the same thing, except that the file extension is different (<code>.conf</code> for NativeFormat, <code>.ini</code> for IniFormat).</p>
 <p>The INI file format is a Windows file format that Qt supports on all platforms. In the absence of an INI standard, we try to follow what Microsoft does, with the following exceptions:</p>
 <ul>
-<li>If you store types that <a href="qvariant.html">QVariant</a> can't convert to <a href="qstring.html">QString</a> (e.g&#x2e;, <a href="qpoint.html">QPoint</a>, <a href="qrect.html">QRect</a>, and <a href="qsize.html">QSize</a>), Qt uses an <code>@</code>-based syntax to encode the type. For example:<pre class="cpp">
+<li>If you store types that <a href="qvariant.html">QVariant</a> can't convert to <a href="qstring.html">QString</a> (e.g&#x2e;, <a href="qpoint.html">QPoint</a>, <a href="qrect.html">QRect</a>, 和 <a href="qsize.html">QSize</a>), Qt uses an <code>@</code>-based syntax to encode the type. For example:<pre class="cpp">
 
   pos <span class="operator">=</span> @Point(<span class="number">100</span> <span class="number">100</span>)
 

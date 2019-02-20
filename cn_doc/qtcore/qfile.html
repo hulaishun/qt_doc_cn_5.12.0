@@ -189,7 +189,7 @@
 
 </pre>
 <p><a href="qdatastream.html">QDataStream</a> is similar, in that you can use operator&lt;&lt;() to write data and operator&gt;&gt;() to read it back. See the class documentation for details.</p>
-<p>When you use <a href="qfile.html">QFile</a>, <a href="qfileinfo.html">QFileInfo</a>, and <a href="qdir.html">QDir</a> to access the file system with Qt, you can use Unicode file names. On Unix, these file names are converted to an 8-bit encoding. If you want to use standard C++ APIs (<code>&lt;cstdio&gt;</code> or <code>&lt;iostream&gt;</code>) or platform-specific APIs to access files instead of <a href="qfile.html">QFile</a>, you can use the <a href="qfile.html#encodeName">encodeName</a>() 和 <a href="qfile.html#decodeName">decodeName</a>() functions to convert between Unicode file names and 8-bit file names.</p>
+<p>When you use <a href="qfile.html">QFile</a>, <a href="qfileinfo.html">QFileInfo</a>, 和 <a href="qdir.html">QDir</a> to access the file system with Qt, you can use Unicode file names. On Unix, these file names are converted to an 8-bit encoding. If you want to use standard C++ APIs (<code>&lt;cstdio&gt;</code> or <code>&lt;iostream&gt;</code>) or platform-specific APIs to access files instead of <a href="qfile.html">QFile</a>, you can use the <a href="qfile.html#encodeName">encodeName</a>() 和 <a href="qfile.html#decodeName">decodeName</a>() functions to convert between Unicode file names and 8-bit file names.</p>
 <p>On Unix, there are some special system files (e.g&#x2e; in <code>/proc</code>) for which <a href="qfile.html#size">size</a>() will always return 0, yet you may still be able to read more data from such a file; the data is generated in direct response to you calling <a href="qiodevice.html#read">read</a>(). In this case, however, you cannot use <a href="qfiledevice.html#atEnd">atEnd</a>() to determine if there is more data to read (since <a href="qfiledevice.html#atEnd">atEnd</a>() will return true for a file that claims to have size 0). Instead, you should either call <a href="qiodevice.html#readAll">readAll</a>(), or call <a href="qiodevice.html#read">read</a>() or <a href="qiodevice.html#readLine">readLine</a>() repeatedly until no more data can be read. The next example uses <a href="qtextstream.html">QTextStream</a> to read <code>/proc/modules</code> line by line:</p>
 <pre class="cpp">
 
@@ -213,7 +213,7 @@
 <p>File permissions are handled differently on Unix-like systems and Windows. In a non <a href="qiodevice.html#isWritable">writable</a> directory on Unix-like systems, files cannot be created. This is not always the case on Windows, where, for instance, the 'My Documents' directory usually is not writable, but it is still possible to create files in it.</p>
 <p>Qt's understanding of file permissions is limited, which affects especially the <a href="qfile.html#setPermissions">QFile::setPermissions</a>() function. On Windows, Qt will set only the legacy read-only flag, and that only when none of the Write* flags are passed. Qt does not manipulate access control lists (ACLs), which makes this function mostly useless for NTFS volumes. It may still be of use for USB sticks that use VFAT file systems. POSIX ACLs are not manipulated, either.</p>
 </div>
-<p><b> 参见 </b><a href="qtextstream.html">QTextStream</a>, <a href="qdatastream.html">QDataStream</a>, <a href="qfileinfo.html">QFileInfo</a>, <a href="qdir.html">QDir</a>, and <a href="resources.html">Qt资源系统</a>.</p>
+<p><b> 参见 </b><a href="qtextstream.html">QTextStream</a>, <a href="qdatastream.html">QDataStream</a>, <a href="qfileinfo.html">QFileInfo</a>, <a href="qdir.html">QDir</a>, 和 <a href="resources.html">Qt资源系统</a>.</p>
 <!-- @@@QFile -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -425,7 +425,7 @@
 
 </pre>
 <p>Note that the directory separator &quot;/&quot; works for all operating systems supported by Qt.</p>
-<p><b> 参见 </b><a href="qfile.html#fileName">fileName</a>(), <a href="qfileinfo.html">QFileInfo</a>, and <a href="qdir.html">QDir</a>.</p>
+<p><b> 参见 </b><a href="qfile.html#fileName">fileName</a>(), <a href="qfileinfo.html">QFileInfo</a>, 和 <a href="qdir.html">QDir</a>.</p>
 <!-- @@@setFileName -->
 <!-- $$$setPermissions[overload1]$$$setPermissionsQFileDevice::Permissions -->
 <h3 class="fn" id="setPermissions"><a name="setPermissions"></a><code>[override virtual] </code><span class="type">bool</span> QFile::<span class="name">setPermissions</span>(<span class="type"><a href="qfiledevice.html#Permission-enum">QFileDevice::Permissions</a></span> <i>permissions</i>)</h3>

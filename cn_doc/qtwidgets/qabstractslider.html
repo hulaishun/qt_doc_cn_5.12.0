@@ -57,7 +57,7 @@
 <!-- @@@QAbstractSlider -->
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign">头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QAbstractSlider&gt;</span>
-</td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += widgets</td></tr><tr><td class="memItemLeft rightAlign topAlign"> 继承的父类是：</td><td class="memItemRight bottomAlign"> <a href="qwidget.html">QWidget</a></td></tr><tr><td class="memItemLeft rightAlign topAlign"> 继承的子类有：</td><td class="memItemRight bottomAlign"> <p><a href="qdial.html">QDial</a>, <a href="qscrollbar.html">QScrollBar</a>, and <a href="qslider.html">QSlider</a></p>
+</td></tr><tr><td class="memItemLeft rightAlign topAlign"> qmake:</td><td class="memItemRight bottomAlign"> QT += widgets</td></tr><tr><td class="memItemLeft rightAlign topAlign"> 继承的父类是：</td><td class="memItemRight bottomAlign"> <a href="qwidget.html">QWidget</a></td></tr><tr><td class="memItemLeft rightAlign topAlign"> 继承的子类有：</td><td class="memItemRight bottomAlign"> <p><a href="qdial.html">QDial</a>, <a href="qscrollbar.html">QScrollBar</a>, 和 <a href="qslider.html">QSlider</a></p>
 </td></tr></table></div><ul>
 <li><a href="qabstractslider-members.html">所有成员清单，包括继承而来的成员</a></li>
 <li><a href="qabstractslider-obsolete.html">过时的成员</a></li>
@@ -217,7 +217,7 @@
 </table></div>
 <p><a href="qabstractslider.html">QAbstractSlider</a> provides a virtual <a href="qabstractslider.html#sliderChange">sliderChange</a>() function that is well suited for updating the on-screen representation of sliders. By calling <a href="qabstractslider.html#triggerAction">triggerAction</a>(), subclasses trigger slider actions. Two helper functions <a href="qstyle.html#sliderPositionFromValue">QStyle::sliderPositionFromValue</a>() 和 <a href="qstyle.html#sliderValueFromPosition">QStyle::sliderValueFromPosition</a>() help subclasses and styles to map screen coordinates to logical range values.</p>
 </div>
-<p><b> 参见 </b><a href="qabstractspinbox.html">QAbstractSpinBox</a>, <a href="qslider.html">QSlider</a>, <a href="qdial.html">QDial</a>, <a href="qscrollbar.html">QScrollBar</a>, and <a href="qtwidgets-widgets-sliders-example.html">Sliders Example</a>.</p>
+<p><b> 参见 </b><a href="qabstractspinbox.html">QAbstractSpinBox</a>, <a href="qslider.html">QSlider</a>, <a href="qdial.html">QDial</a>, <a href="qscrollbar.html">QScrollBar</a>, 和 <a href="qtwidgets-widgets-sliders-example.html">Sliders Example</a>.</p>
 <!-- @@@QAbstractSlider -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -386,7 +386,7 @@
 <!-- @@@~QAbstractSlider -->
 <!-- $$$actionTriggered[overload1]$$$actionTriggeredint -->
 <h3 class="fn" id="actionTriggered"><a name="actionTriggered"></a><code>[signal] </code><span class="type">void</span> QAbstractSlider::<span class="name">actionTriggered</span>(<span class="type">int</span> <i>action</i>)</h3>
-<p>This signal is emitted when the slider action <i>action</i> is triggered. Actions are <a href="qabstractslider.html#SliderAction-enum">SliderSingleStepAdd</a>, <a href="qabstractslider.html#SliderAction-enum">SliderSingleStepSub</a>, <a href="qabstractslider.html#SliderAction-enum">SliderPageStepAdd</a>, <a href="qabstractslider.html#SliderAction-enum">SliderPageStepSub</a>, <a href="qabstractslider.html#SliderAction-enum">SliderToMinimum</a>, <a href="qabstractslider.html#SliderAction-enum">SliderToMaximum</a>, and <a href="qabstractslider.html#SliderAction-enum">SliderMove</a>.</p>
+<p>This signal is emitted when the slider action <i>action</i> is triggered. Actions are <a href="qabstractslider.html#SliderAction-enum">SliderSingleStepAdd</a>, <a href="qabstractslider.html#SliderAction-enum">SliderSingleStepSub</a>, <a href="qabstractslider.html#SliderAction-enum">SliderPageStepAdd</a>, <a href="qabstractslider.html#SliderAction-enum">SliderPageStepSub</a>, <a href="qabstractslider.html#SliderAction-enum">SliderToMinimum</a>, <a href="qabstractslider.html#SliderAction-enum">SliderToMaximum</a>, 和 <a href="qabstractslider.html#SliderAction-enum">SliderMove</a>.</p>
 <p>When the signal is emitted, the <a href="qabstractslider.html#sliderPosition-prop">sliderPosition</a> has been adjusted according to the action, but the <a href="qabstractslider.html#value-prop">value</a> has not yet been propagated (meaning the <a href="qabstractslider.html#valueChanged">valueChanged</a>() signal was not yet emitted), and the visual display has not been updated. In slots connected to this signal you can thus safely adjust any action by calling <a href="qabstractslider.html#sliderPosition-prop">setSliderPosition</a>() yourself, based on both the action and the slider's value.</p>
 <p><b> 参见 </b><a href="qabstractslider.html#triggerAction">triggerAction</a>().</p>
 <!-- @@@actionTriggered -->
@@ -449,7 +449,7 @@
 <!-- @@@timerEvent -->
 <!-- $$$triggerAction[overload1]$$$triggerActionQAbstractSlider::SliderAction -->
 <h3 class="fn" id="triggerAction"><a name="triggerAction"></a><span class="type">void</span> QAbstractSlider::<span class="name">triggerAction</span>(<span class="type"><a href="qabstractslider.html#SliderAction-enum">QAbstractSlider::SliderAction</a></span> <i>action</i>)</h3>
-<p>Triggers a slider <i>action</i>. Possible actions are <a href="qabstractslider.html#SliderAction-enum">SliderSingleStepAdd</a>, <a href="qabstractslider.html#SliderAction-enum">SliderSingleStepSub</a>, <a href="qabstractslider.html#SliderAction-enum">SliderPageStepAdd</a>, <a href="qabstractslider.html#SliderAction-enum">SliderPageStepSub</a>, <a href="qabstractslider.html#SliderAction-enum">SliderToMinimum</a>, <a href="qabstractslider.html#SliderAction-enum">SliderToMaximum</a>, and <a href="qabstractslider.html#SliderAction-enum">SliderMove</a>.</p>
+<p>Triggers a slider <i>action</i>. Possible actions are <a href="qabstractslider.html#SliderAction-enum">SliderSingleStepAdd</a>, <a href="qabstractslider.html#SliderAction-enum">SliderSingleStepSub</a>, <a href="qabstractslider.html#SliderAction-enum">SliderPageStepAdd</a>, <a href="qabstractslider.html#SliderAction-enum">SliderPageStepSub</a>, <a href="qabstractslider.html#SliderAction-enum">SliderToMinimum</a>, <a href="qabstractslider.html#SliderAction-enum">SliderToMaximum</a>, 和 <a href="qabstractslider.html#SliderAction-enum">SliderMove</a>.</p>
 <p><b> 参见 </b><a href="qabstractslider.html#actionTriggered">actionTriggered</a>().</p>
 <!-- @@@triggerAction -->
 <!-- $$$valueChanged -->

@@ -213,7 +213,7 @@
 <p>To get the effect of the <code>QBENCHMARK_ONCE</code> macro, prefix the test function name with &quot;benchmark_once_&quot;.</p>
 <a name="simulating-keyboard-and-mouse-events"></a>
 <h2 id="simulating-keyboard-and-mouse-events">Simulating Keyboard and Mouse Events</h2>
-<p>The <a href="qml-qttest-testcase.html#keyPress-method">keyPress()</a>, <a href="qml-qttest-testcase.html#keyRelease-method">keyRelease()</a>, and <a href="qml-qttest-testcase.html#keyClick-method">keyClick()</a> methods can be used to simulate keyboard events within unit tests. The events are delivered to the currently focused QML item. You can pass either a Qt.Key enum value or a latin1 char (string of length one)</p>
+<p>The <a href="qml-qttest-testcase.html#keyPress-method">keyPress()</a>, <a href="qml-qttest-testcase.html#keyRelease-method">keyRelease()</a>, 和 <a href="qml-qttest-testcase.html#keyClick-method">keyClick()</a> methods can be used to simulate keyboard events within unit tests. The events are delivered to the currently focused QML item. You can pass either a Qt.Key enum value or a latin1 char (string of length one)</p>
 <pre class="cpp">
 
   Rectangle {
@@ -674,7 +674,7 @@
 </div><div class="qmldoc"><p>Simulates typing of <i>keySequence</i>. The key sequence can be set to one of the <a href="../qtgui/qkeysequence.html#StandardKey-enum">standard keyboard shortcuts</a>, or it can be described with a string containing a sequence of up to four key presses.</p>
 <p>Each event shall be sent to the <a href="qml-qttest-testcase.html">TestCase</a> window or, in case of multiple windows, to the current active window. See <a href="../qtgui/qguiapplication.html#focusWindow">QGuiApplication::focusWindow()</a> for more details.</p>
 <p>This method was introduced in  Qt 5.10.</p>
-<p><b> 参见 </b><a href="qml-qttest-testcase.html#keyPress-method">keyPress()</a>, <a href="qml-qttest-testcase.html#keyRelease-method">keyRelease()</a>, <a href="../qtgui/qkeysequence.html#gnu-emacs-style-key-sequences">GNU Emacs Style Key Sequences</a>, and <a href="qml-qtquick-shortcut.html#sequence-prop">Shortcut.sequence</a>.</p>
+<p><b> 参见 </b><a href="qml-qttest-testcase.html#keyPress-method">keyPress()</a>, <a href="qml-qttest-testcase.html#keyRelease-method">keyRelease()</a>, <a href="../qtgui/qkeysequence.html#gnu-emacs-style-key-sequences">GNU Emacs Style Key Sequences</a>, 和 <a href="qml-qtquick-shortcut.html#sequence-prop">Shortcut.sequence</a>.</p>
 </div></div><!-- @@@keySequence -->
 <br/>
 <!-- $$$mouseClick -->
@@ -686,7 +686,7 @@
 </table></div>
 </div><div class="qmldoc"><p>Simulates clicking a mouse <i>button</i> with an optional <i>modifier</i> on an <i>item</i>. The position of the click is defined by <i>x</i> and <i>y</i>. If <i>x</i> and <i>y</i> are not defined the position will be the center of <i>item</i>. If <i>delay</i> is specified, the test will wait for the specified amount of milliseconds before pressing and before releasing the button.</p>
 <p>The position given by <i>x</i> and <i>y</i> is transformed from the co-ordinate system of <i>item</i> into window co-ordinates and then delivered. If <i>item</i> is obscured by another item, or a child of <i>item</i> occupies that position, then the event will be delivered to the other item instead.</p>
-<p><b> 参见 </b><a href="qml-qttest-testcase.html#mousePress-method">mousePress()</a>, <a href="qml-qttest-testcase.html#mouseRelease-method">mouseRelease()</a>, <a href="qml-qttest-testcase.html#mouseDoubleClick-method">mouseDoubleClick()</a>, <a href="qml-qttest-testcase.html#mouseDoubleClickSequence-method">mouseDoubleClickSequence()</a>, <a href="qml-qttest-testcase.html#mouseMove-method">mouseMove()</a>, <a href="qml-qttest-testcase.html#mouseDrag-method">mouseDrag()</a>, and <a href="qml-qttest-testcase.html#mouseWheel-method">mouseWheel()</a>.</p>
+<p><b> 参见 </b><a href="qml-qttest-testcase.html#mousePress-method">mousePress()</a>, <a href="qml-qttest-testcase.html#mouseRelease-method">mouseRelease()</a>, <a href="qml-qttest-testcase.html#mouseDoubleClick-method">mouseDoubleClick()</a>, <a href="qml-qttest-testcase.html#mouseDoubleClickSequence-method">mouseDoubleClickSequence()</a>, <a href="qml-qttest-testcase.html#mouseMove-method">mouseMove()</a>, <a href="qml-qttest-testcase.html#mouseDrag-method">mouseDrag()</a>, 和 <a href="qml-qttest-testcase.html#mouseWheel-method">mouseWheel()</a>.</p>
 </div></div><!-- @@@mouseClick -->
 <br/>
 <!-- $$$mouseDoubleClick -->
@@ -698,7 +698,7 @@
 </table></div>
 </div><div class="qmldoc"><p>Simulates double-clicking a mouse <i>button</i> with an optional <i>modifier</i> on an <i>item</i>. The position of the click is defined by <i>x</i> and <i>y</i>. If <i>x</i> and <i>y</i> are not defined the position will be the center of <i>item</i>. If <i>delay</i> is specified, the test will wait for the specified amount of milliseconds before pressing and before releasing the button.</p>
 <p>The position given by <i>x</i> and <i>y</i> is transformed from the co-ordinate system of <i>item</i> into window co-ordinates and then delivered. If <i>item</i> is obscured by another item, or a child of <i>item</i> occupies that position, then the event will be delivered to the other item instead.</p>
-<p><b> 参见 </b><a href="qml-qttest-testcase.html#mouseDoubleClickSequence-method">mouseDoubleClickSequence()</a>, <a href="qml-qttest-testcase.html#mousePress-method">mousePress()</a>, <a href="qml-qttest-testcase.html#mouseRelease-method">mouseRelease()</a>, <a href="qml-qttest-testcase.html#mouseClick-method">mouseClick()</a>, <a href="qml-qttest-testcase.html#mouseMove-method">mouseMove()</a>, <a href="qml-qttest-testcase.html#mouseDrag-method">mouseDrag()</a>, and <a href="qml-qttest-testcase.html#mouseWheel-method">mouseWheel()</a>.</p>
+<p><b> 参见 </b><a href="qml-qttest-testcase.html#mouseDoubleClickSequence-method">mouseDoubleClickSequence()</a>, <a href="qml-qttest-testcase.html#mousePress-method">mousePress()</a>, <a href="qml-qttest-testcase.html#mouseRelease-method">mouseRelease()</a>, <a href="qml-qttest-testcase.html#mouseClick-method">mouseClick()</a>, <a href="qml-qttest-testcase.html#mouseMove-method">mouseMove()</a>, <a href="qml-qttest-testcase.html#mouseDrag-method">mouseDrag()</a>, 和 <a href="qml-qttest-testcase.html#mouseWheel-method">mouseWheel()</a>.</p>
 </div></div><!-- @@@mouseDoubleClick -->
 <br/>
 <!-- $$$mouseDoubleClickSequence -->
@@ -713,7 +713,7 @@
 <p>The position of the click is defined by <i>x</i> and <i>y</i>. If <i>x</i> and <i>y</i> are not defined the position will be the center of <i>item</i>. If <i>delay</i> is specified, the test will wait for the specified amount of milliseconds before pressing and before releasing the button.</p>
 <p>The position given by <i>x</i> and <i>y</i> is transformed from the co-ordinate system of <i>item</i> into window co-ordinates and then delivered. If <i>item</i> is obscured by another item, or a child of <i>item</i> occupies that position, then the event will be delivered to the other item instead.</p>
 <p>This QML method was introduced in Qt 5.5&#x2e;</p>
-<p><b> 参见 </b><a href="qml-qttest-testcase.html#mouseDoubleClick-method">mouseDoubleClick()</a>, <a href="qml-qttest-testcase.html#mousePress-method">mousePress()</a>, <a href="qml-qttest-testcase.html#mouseRelease-method">mouseRelease()</a>, <a href="qml-qttest-testcase.html#mouseClick-method">mouseClick()</a>, <a href="qml-qttest-testcase.html#mouseMove-method">mouseMove()</a>, <a href="qml-qttest-testcase.html#mouseDrag-method">mouseDrag()</a>, and <a href="qml-qttest-testcase.html#mouseWheel-method">mouseWheel()</a>.</p>
+<p><b> 参见 </b><a href="qml-qttest-testcase.html#mouseDoubleClick-method">mouseDoubleClick()</a>, <a href="qml-qttest-testcase.html#mousePress-method">mousePress()</a>, <a href="qml-qttest-testcase.html#mouseRelease-method">mouseRelease()</a>, <a href="qml-qttest-testcase.html#mouseClick-method">mouseClick()</a>, <a href="qml-qttest-testcase.html#mouseMove-method">mouseMove()</a>, <a href="qml-qttest-testcase.html#mouseDrag-method">mouseDrag()</a>, 和 <a href="qml-qttest-testcase.html#mouseWheel-method">mouseWheel()</a>.</p>
 </div></div><!-- @@@mouseDoubleClickSequence -->
 <br/>
 <!-- $$$mouseDrag -->
@@ -726,7 +726,7 @@
 </div><div class="qmldoc"><p>Simulates dragging the mouse on an <i>item</i> with <i>button</i> pressed and an optional <i>modifier</i>. The initial drag position is defined by <i>x</i> and <i>y</i>, and drag distance is defined by <i>dx</i> and <i>dy</i>. If <i>delay</i> is specified, the test will wait for the specified amount of milliseconds before releasing the button.</p>
 <p>The position given by <i>x</i> and <i>y</i> is transformed from the co-ordinate system of <i>item</i> into window co-ordinates and then delivered. If <i>item</i> is obscured by another item, or a child of <i>item</i> occupies that position, then the event will be delivered to the other item instead.</p>
 <p>Note: this method does not imply a drop action, to make a drop, an additional <a href="qml-qttest-testcase.html#mouseRelease-method">mouseRelease</a>(item, x + dx, y + dy) is needed.</p>
-<p><b> 参见 </b><a href="qml-qttest-testcase.html#mousePress-method">mousePress()</a>, <a href="qml-qttest-testcase.html#mouseClick-method">mouseClick()</a>, <a href="qml-qttest-testcase.html#mouseDoubleClick-method">mouseDoubleClick()</a>, <a href="qml-qttest-testcase.html#mouseDoubleClickSequence-method">mouseDoubleClickSequence()</a>, <a href="qml-qttest-testcase.html#mouseMove-method">mouseMove()</a>, <a href="qml-qttest-testcase.html#mouseRelease-method">mouseRelease()</a>, and <a href="qml-qttest-testcase.html#mouseWheel-method">mouseWheel()</a>.</p>
+<p><b> 参见 </b><a href="qml-qttest-testcase.html#mousePress-method">mousePress()</a>, <a href="qml-qttest-testcase.html#mouseClick-method">mouseClick()</a>, <a href="qml-qttest-testcase.html#mouseDoubleClick-method">mouseDoubleClick()</a>, <a href="qml-qttest-testcase.html#mouseDoubleClickSequence-method">mouseDoubleClickSequence()</a>, <a href="qml-qttest-testcase.html#mouseMove-method">mouseMove()</a>, <a href="qml-qttest-testcase.html#mouseRelease-method">mouseRelease()</a>, 和 <a href="qml-qttest-testcase.html#mouseWheel-method">mouseWheel()</a>.</p>
 </div></div><!-- @@@mouseDrag -->
 <br/>
 <!-- $$$mouseMove -->
@@ -738,7 +738,7 @@
 </table></div>
 </div><div class="qmldoc"><p>Moves the mouse pointer to the position given by <i>x</i> and <i>y</i> within <i>item</i>. If a <i>delay</i> (in milliseconds) is given, the test will wait before moving the mouse pointer.</p>
 <p>The position given by <i>x</i> and <i>y</i> is transformed from the co-ordinate system of <i>item</i> into window co-ordinates and then delivered. If <i>item</i> is obscured by another item, or a child of <i>item</i> occupies that position, then the event will be delivered to the other item instead.</p>
-<p><b> 参见 </b><a href="qml-qttest-testcase.html#mousePress-method">mousePress()</a>, <a href="qml-qttest-testcase.html#mouseRelease-method">mouseRelease()</a>, <a href="qml-qttest-testcase.html#mouseClick-method">mouseClick()</a>, <a href="qml-qttest-testcase.html#mouseDoubleClick-method">mouseDoubleClick()</a>, <a href="qml-qttest-testcase.html#mouseDoubleClickSequence-method">mouseDoubleClickSequence()</a>, <a href="qml-qttest-testcase.html#mouseDrag-method">mouseDrag()</a>, and <a href="qml-qttest-testcase.html#mouseWheel-method">mouseWheel()</a>.</p>
+<p><b> 参见 </b><a href="qml-qttest-testcase.html#mousePress-method">mousePress()</a>, <a href="qml-qttest-testcase.html#mouseRelease-method">mouseRelease()</a>, <a href="qml-qttest-testcase.html#mouseClick-method">mouseClick()</a>, <a href="qml-qttest-testcase.html#mouseDoubleClick-method">mouseDoubleClick()</a>, <a href="qml-qttest-testcase.html#mouseDoubleClickSequence-method">mouseDoubleClickSequence()</a>, <a href="qml-qttest-testcase.html#mouseDrag-method">mouseDrag()</a>, 和 <a href="qml-qttest-testcase.html#mouseWheel-method">mouseWheel()</a>.</p>
 </div></div><!-- @@@mouseMove -->
 <br/>
 <!-- $$$mousePress -->
@@ -750,7 +750,7 @@
 </table></div>
 </div><div class="qmldoc"><p>Simulates pressing a mouse <i>button</i> with an optional <i>modifier</i> on an <i>item</i>. The position is defined by <i>x</i> and <i>y</i>. If <i>x</i> or <i>y</i> are not defined the position will be the center of <i>item</i>. If <i>delay</i> is specified, the test will wait for the specified amount of milliseconds before the press.</p>
 <p>The position given by <i>x</i> and <i>y</i> is transformed from the co-ordinate system of <i>item</i> into window co-ordinates and then delivered. If <i>item</i> is obscured by another item, or a child of <i>item</i> occupies that position, then the event will be delivered to the other item instead.</p>
-<p><b> 参见 </b><a href="qml-qttest-testcase.html#mouseRelease-method">mouseRelease()</a>, <a href="qml-qttest-testcase.html#mouseClick-method">mouseClick()</a>, <a href="qml-qttest-testcase.html#mouseDoubleClick-method">mouseDoubleClick()</a>, <a href="qml-qttest-testcase.html#mouseDoubleClickSequence-method">mouseDoubleClickSequence()</a>, <a href="qml-qttest-testcase.html#mouseMove-method">mouseMove()</a>, <a href="qml-qttest-testcase.html#mouseDrag-method">mouseDrag()</a>, and <a href="qml-qttest-testcase.html#mouseWheel-method">mouseWheel()</a>.</p>
+<p><b> 参见 </b><a href="qml-qttest-testcase.html#mouseRelease-method">mouseRelease()</a>, <a href="qml-qttest-testcase.html#mouseClick-method">mouseClick()</a>, <a href="qml-qttest-testcase.html#mouseDoubleClick-method">mouseDoubleClick()</a>, <a href="qml-qttest-testcase.html#mouseDoubleClickSequence-method">mouseDoubleClickSequence()</a>, <a href="qml-qttest-testcase.html#mouseMove-method">mouseMove()</a>, <a href="qml-qttest-testcase.html#mouseDrag-method">mouseDrag()</a>, 和 <a href="qml-qttest-testcase.html#mouseWheel-method">mouseWheel()</a>.</p>
 </div></div><!-- @@@mousePress -->
 <br/>
 <!-- $$$mouseRelease -->
@@ -762,7 +762,7 @@
 </table></div>
 </div><div class="qmldoc"><p>Simulates releasing a mouse <i>button</i> with an optional <i>modifier</i> on an <i>item</i>. The position of the release is defined by <i>x</i> and <i>y</i>. If <i>x</i> or <i>y</i> are not defined the position will be the center of <i>item</i>. If <i>delay</i> is specified, the test will wait for the specified amount of milliseconds before releasing the button.</p>
 <p>The position given by <i>x</i> and <i>y</i> is transformed from the co-ordinate system of <i>item</i> into window co-ordinates and then delivered. If <i>item</i> is obscured by another item, or a child of <i>item</i> occupies that position, then the event will be delivered to the other item instead.</p>
-<p><b> 参见 </b><a href="qml-qttest-testcase.html#mousePress-method">mousePress()</a>, <a href="qml-qttest-testcase.html#mouseClick-method">mouseClick()</a>, <a href="qml-qttest-testcase.html#mouseDoubleClick-method">mouseDoubleClick()</a>, <a href="qml-qttest-testcase.html#mouseDoubleClickSequence-method">mouseDoubleClickSequence()</a>, <a href="qml-qttest-testcase.html#mouseMove-method">mouseMove()</a>, <a href="qml-qttest-testcase.html#mouseDrag-method">mouseDrag()</a>, and <a href="qml-qttest-testcase.html#mouseWheel-method">mouseWheel()</a>.</p>
+<p><b> 参见 </b><a href="qml-qttest-testcase.html#mousePress-method">mousePress()</a>, <a href="qml-qttest-testcase.html#mouseClick-method">mouseClick()</a>, <a href="qml-qttest-testcase.html#mouseDoubleClick-method">mouseDoubleClick()</a>, <a href="qml-qttest-testcase.html#mouseDoubleClickSequence-method">mouseDoubleClickSequence()</a>, <a href="qml-qttest-testcase.html#mouseMove-method">mouseMove()</a>, <a href="qml-qttest-testcase.html#mouseDrag-method">mouseDrag()</a>, 和 <a href="qml-qttest-testcase.html#mouseWheel-method">mouseWheel()</a>.</p>
 </div></div><!-- @@@mouseRelease -->
 <br/>
 <!-- $$$mouseWheel -->
@@ -775,7 +775,7 @@
 </div><div class="qmldoc"><p>Simulates rotating the mouse wheel on an <i>item</i> with <i>button</i> pressed and an optional <i>modifier</i>. The position of the wheel event is defined by <i>x</i> and <i>y</i>. If <i>delay</i> is specified, the test will wait for the specified amount of milliseconds before releasing the button.</p>
 <p>The position given by <i>x</i> and <i>y</i> is transformed from the co-ordinate system of <i>item</i> into window co-ordinates and then delivered. If <i>item</i> is obscured by another item, or a child of <i>item</i> occupies that position, then the event will be delivered to the other item instead.</p>
 <p>The <i>xDelta</i> and <i>yDelta</i> contain the wheel rotation distance in eighths of a degree. see <a href="../qtgui/qwheelevent.html#angleDelta">QWheelEvent::angleDelta()</a> for more details.</p>
-<p><b> 参见 </b><a href="qml-qttest-testcase.html#mousePress-method">mousePress()</a>, <a href="qml-qttest-testcase.html#mouseClick-method">mouseClick()</a>, <a href="qml-qttest-testcase.html#mouseDoubleClick-method">mouseDoubleClick()</a>, <a href="qml-qttest-testcase.html#mouseDoubleClickSequence-method">mouseDoubleClickSequence()</a>, <a href="qml-qttest-testcase.html#mouseMove-method">mouseMove()</a>, <a href="qml-qttest-testcase.html#mouseRelease-method">mouseRelease()</a>, <a href="qml-qttest-testcase.html#mouseDrag-method">mouseDrag()</a>, and <a href="../qtgui/qwheelevent.html#angleDelta">QWheelEvent::angleDelta()</a>.</p>
+<p><b> 参见 </b><a href="qml-qttest-testcase.html#mousePress-method">mousePress()</a>, <a href="qml-qttest-testcase.html#mouseClick-method">mouseClick()</a>, <a href="qml-qttest-testcase.html#mouseDoubleClick-method">mouseDoubleClick()</a>, <a href="qml-qttest-testcase.html#mouseDoubleClickSequence-method">mouseDoubleClickSequence()</a>, <a href="qml-qttest-testcase.html#mouseMove-method">mouseMove()</a>, <a href="qml-qttest-testcase.html#mouseRelease-method">mouseRelease()</a>, <a href="qml-qttest-testcase.html#mouseDrag-method">mouseDrag()</a>, 和 <a href="../qtgui/qwheelevent.html#angleDelta">QWheelEvent::angleDelta()</a>.</p>
 </div></div><!-- @@@mouseWheel -->
 <br/>
 <!-- $$$skip -->
@@ -838,7 +838,7 @@
 
 </pre>
 <p>This method was introduced in  Qt 5.9.</p>
-<p><b> 参见 </b><a href="qml-qttest-toucheventsequence.html#press-method">TouchEventSequence::press()</a>, <a href="qml-qttest-toucheventsequence.html#move-method">TouchEventSequence::move()</a>, <a href="qml-qttest-toucheventsequence.html#release-method">TouchEventSequence::release()</a>, <a href="qml-qttest-toucheventsequence.html#stationary-method">TouchEventSequence::stationary()</a>, <a href="qml-qttest-toucheventsequence.html#commit-method">TouchEventSequence::commit()</a>, and <a href="../qtgui/qtouchdevice.html#DeviceType-enum">QTouchDevice::TouchScreen</a>.</p>
+<p><b> 参见 </b><a href="qml-qttest-toucheventsequence.html#press-method">TouchEventSequence::press()</a>, <a href="qml-qttest-toucheventsequence.html#move-method">TouchEventSequence::move()</a>, <a href="qml-qttest-toucheventsequence.html#release-method">TouchEventSequence::release()</a>, <a href="qml-qttest-toucheventsequence.html#stationary-method">TouchEventSequence::stationary()</a>, <a href="qml-qttest-toucheventsequence.html#commit-method">TouchEventSequence::commit()</a>, 和 <a href="../qtgui/qtouchdevice.html#DeviceType-enum">QTouchDevice::TouchScreen</a>.</p>
 </div></div><!-- @@@touchEvent -->
 <br/>
 <!-- $$$tryCompare -->
@@ -886,7 +886,7 @@
 
 </pre>
 <p>This method was introduced in  Qt 5.8.</p>
-<p><b> 参见 </b><a href="qml-qttest-testcase.html#verify-method">verify()</a>, <a href="qml-qttest-testcase.html#compare-method">compare()</a>, <a href="qml-qttest-testcase.html#tryCompare-method">tryCompare()</a>, and <a href="qml-qttest-signalspy.html#wait-method">SignalSpy::wait()</a>.</p>
+<p><b> 参见 </b><a href="qml-qttest-testcase.html#verify-method">verify()</a>, <a href="qml-qttest-testcase.html#compare-method">compare()</a>, <a href="qml-qttest-testcase.html#tryCompare-method">tryCompare()</a>, 和 <a href="qml-qttest-signalspy.html#wait-method">SignalSpy::wait()</a>.</p>
 </div></div><!-- @@@tryVerify -->
 <br/>
 <!-- $$$verify -->

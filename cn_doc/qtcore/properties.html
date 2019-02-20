@@ -51,7 +51,7 @@
 <span class="subtitle"></span>
 <!-- $$$properties.html-description -->
 <div class="descr"> <a name="details"></a>
-<p>Qt provides a sophisticated property system similar to the ones supplied by some compiler vendors. However, as a compiler- and platform-independent library, Qt does not rely on non-standard compiler features like <code>__property</code> or <code>[property]</code>. The Qt solution works with <i>any</i> standard C++ compiler on every platform Qt supports. It is based on the <a href="metaobjects.html">Meta-Object System</a> that also provides inter-object communication via <a href="signalsandslots.html">signals and slots</a>.</p>
+<p>Qt provides a sophisticated property system similar to the ones supplied by some compiler vendors. However, as a compiler- and platform-independent library, Qt does not rely on non-standard compiler features like <code>__property</code> or <code>[property]</code>. The Qt solution works with <i>any</i> standard C++ compiler on every platform Qt supports. It is based on the <a href="metaobjects.html">元对象系统</a> that also provides inter-object communication via <a href="signalsandslots.html">signals and slots</a>.</p>
 <a name="requirements-for-declaring-properties"></a>
 <h2 id="requirements-for-declaring-properties">Requirements for Declaring Properties</h2>
 <p>To declare a property, use the <a href="qobject.html#Q_PROPERTY">Q_PROPERTY()</a> macro in a class that inherits <a href="qobject.html">QObject</a>.</p>
@@ -97,7 +97,7 @@
       <span class="type"><a href="qstring.html">QString</a></span> m_text;
 
 </pre>
-<p>A property behaves like a class data member, but it has additional features accessible through the <a href="metaobjects.html">Meta-Object System</a>.</p>
+<p>A property behaves like a class data member, but it has additional features accessible through the <a href="metaobjects.html">元对象系统</a>.</p>
 <ul>
 <li>A <code>READ</code> accessor function is required if no <code>MEMBER</code> variable was specified. It is for reading the property value. Ideally, a const function is used for this purpose, and it must return either the property's type or a const reference to that type. e.g&#x2e;, <a href="../qtwidgets/qwidget.html#focus-prop">QWidget::focus</a> is a read-only property with <code>READ</code> function, <a href="../qtwidgets/qwidget.html#focus-prop">QWidget::hasFocus</a>().</li>
 <li>A <code>WRITE</code> accessor function is optional. It is for setting the property value. It must return void and must take exactly one argument, either of the property's type or a pointer or reference to that type. e.g&#x2e;, <a href="../qtwidgets/qwidget.html#enabled-prop">QWidget::enabled</a> has the <code>WRITE</code> function <a href="../qtwidgets/qwidget.html#enabled-prop">QWidget::setEnabled</a>(). Read-only properties do not need <code>WRITE</code> functions. e.g&#x2e;, <a href="../qtwidgets/qwidget.html#focus-prop">QWidget::focus</a> has no <code>WRITE</code> function.</li>
@@ -133,7 +133,7 @@
   object<span class="operator">-</span><span class="operator">&gt;</span>setProperty(<span class="string">&quot;down&quot;</span><span class="operator">,</span> <span class="keyword">true</span>);
 
 </pre>
-<p>Accessing a property through its <code>WRITE</code> accessor is the better of the two, because it is faster and gives better diagnostics at compile time, but setting the property this way requires that you know about the class at compile time. Accessing properties by name lets you access classes you don't know about at compile time. You can <i>discover</i> a class's properties at run time by querying its <a href="qobject.html">QObject</a>, <a href="qmetaobject.html">QMetaObject</a>, and <a href="qmetaproperty.html">QMetaProperties</a>.</p>
+<p>Accessing a property through its <code>WRITE</code> accessor is the better of the two, because it is faster and gives better diagnostics at compile time, but setting the property this way requires that you know about the class at compile time. Accessing properties by name lets you access classes you don't know about at compile time. You can <i>discover</i> a class's properties at run time by querying its <a href="qobject.html">QObject</a>, <a href="qmetaobject.html">QMetaObject</a>, 和 <a href="qmetaproperty.html">QMetaProperties</a>.</p>
 <pre class="cpp">
 
   <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>object <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
@@ -151,7 +151,7 @@
 <a name="a-simple-example"></a>
 <h2 id="a-simple-example">A Simple Example</h2>
 <p>Suppose we have a class MyClass, which is derived from <a href="qobject.html">QObject</a> and which uses the <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro in its private section. We want to declare a property in MyClass to keep track of a priority value. The name of the property will be <i>priority</i>, and its type will be an enumeration type named <i>Priority</i>, which is defined in MyClass.</p>
-<p>We declare the property with the <a href="qobject.html#Q_PROPERTY">Q_PROPERTY</a>() macro in the private section of the class. The required <code>READ</code> function is named <code>priority</code>, and we include a <code>WRITE</code> function named <code>setPriority</code>. The enumeration type must be registered with the <a href="metaobjects.html">Meta-Object System</a> using the <a href="qobject.html#Q_ENUM">Q_ENUM</a>() macro. Registering an enumeration type makes the enumerator names available for use in calls to <a href="qobject.html#setProperty">QObject::setProperty</a>(). We must also provide our own declarations for the <code>READ</code> and <code>WRITE</code> functions. The declaration of MyClass then might look like this:</p>
+<p>We declare the property with the <a href="qobject.html#Q_PROPERTY">Q_PROPERTY</a>() macro in the private section of the class. The required <code>READ</code> function is named <code>priority</code>, and we include a <code>WRITE</code> function named <code>setPriority</code>. The enumeration type must be registered with the <a href="metaobjects.html">元对象系统</a> using the <a href="qobject.html#Q_ENUM">Q_ENUM</a>() macro. Registering an enumeration type makes the enumerator names available for use in calls to <a href="qobject.html#setProperty">QObject::setProperty</a>(). We must also provide our own declarations for the <code>READ</code> and <code>WRITE</code> functions. The declaration of MyClass then might look like this:</p>
 <pre class="cpp">
 
   <span class="keyword">class</span> MyClass : <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span>
@@ -193,7 +193,7 @@
   object<span class="operator">-</span><span class="operator">&gt;</span>setProperty(<span class="string">&quot;priority&quot;</span><span class="operator">,</span> <span class="string">&quot;VeryHigh&quot;</span>);
 
 </pre>
-<p>In the example, the enumeration type that is the property type is declared in MyClass and registered with the <a href="metaobjects.html">Meta-Object System</a> using the <a href="qobject.html#Q_ENUM">Q_ENUM</a>() macro. This makes the enumeration values available as strings for use as in the call to <a href="qobject.html#setProperty">setProperty()</a>. Had the enumeration type been declared in another class, its fully qualified name (i.e&#x2e;, OtherClass::Priority) would be required, and that other class would also have to inherit <a href="qobject.html">QObject</a> and register the enumeration type there using the <a href="qobject.html#Q_ENUM">Q_ENUM</a>() macro.</p>
+<p>In the example, the enumeration type that is the property type is declared in MyClass and registered with the <a href="metaobjects.html">元对象系统</a> using the <a href="qobject.html#Q_ENUM">Q_ENUM</a>() macro. This makes the enumeration values available as strings for use as in the call to <a href="qobject.html#setProperty">setProperty()</a>. Had the enumeration type been declared in another class, its fully qualified name (i.e&#x2e;, OtherClass::Priority) would be required, and that other class would also have to inherit <a href="qobject.html">QObject</a> and register the enumeration type there using the <a href="qobject.html#Q_ENUM">Q_ENUM</a>() macro.</p>
 <p>A similar macro, <a href="qobject.html#Q_FLAG">Q_FLAG</a>(), is also available. Like <a href="qobject.html#Q_ENUM">Q_ENUM</a>(), it registers an enumeration type, but it marks the type as being a set of <i>flags</i>, i.e&#x2e; values that can be OR'd together. An I/O class might have enumeration values <code>Read</code> and <code>Write</code> and then <a href="qobject.html#setProperty">QObject::setProperty</a>() could accept <code>Read | Write</code>. <a href="qobject.html#Q_FLAG">Q_FLAG</a>() should be used to register this enumeration type.</p>
 <a name="dynamic-properties"></a>
 <h2 id="dynamic-properties">动态属性</h2>
@@ -213,7 +213,7 @@
 </pre>
 <p>Like other meta-data, class information is accessible at run-time through the meta-object; see <a href="qmetaobject.html#classInfo">QMetaObject::classInfo</a>() for details.</p>
 </div>
-<p><b> 参见 </b><a href="metaobjects.html">Meta-Object System</a>, <a href="signalsandslots.html">Signals and Slots</a>, <a href="qmetatype.html#Q_DECLARE_METATYPE">Q_DECLARE_METATYPE</a>(), <a href="qmetatype.html">QMetaType</a>, and <a href="qvariant.html">QVariant</a>.</p>
+<p><b> 参见 </b><a href="metaobjects.html">元对象系统</a>, <a href="signalsandslots.html">信号和槽函数</a>, <a href="qmetatype.html#Q_DECLARE_METATYPE">Q_DECLARE_METATYPE</a>(), <a href="qmetatype.html">QMetaType</a>, 和 <a href="qvariant.html">QVariant</a>.</p>
 <!-- @@@properties.html -->
         </div>
        </div>

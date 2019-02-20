@@ -68,7 +68,7 @@
   }
 
 </pre>
-<p>The parent, <code>window</code>, and the child, <code>quit</code>, are both <a href="qobject.html">QObjects</a> because <a href="../qtwidgets/qpushbutton.html">QPushButton</a> inherits <a href="../qtwidgets/qwidget.html">QWidget</a>, and <a href="../qtwidgets/qwidget.html">QWidget</a> inherits <a href="qobject.html">QObject</a>. This code is correct: the destructor of <code>quit</code> is <i>not</i> called twice because the C++ language standard <i>(ISO/IEC 14882:2003)</i> specifies that destructors of local objects are called in the reverse order of their constructors. Therefore, the destructor of the child, <code>quit</code>, is called first, and it removes itself from its parent, <code>window</code>, before the destructor of <code>window</code> is called.</p>
+<p>The parent, <code>window</code>, and the child, <code>quit</code>, are both <a href="qobject.html">QObjects</a> because <a href="../qtwidgets/qpushbutton.html">QPushButton</a> inherits <a href="../qtwidgets/qwidget.html">QWidget</a>, 和 <a href="../qtwidgets/qwidget.html">QWidget</a> inherits <a href="qobject.html">QObject</a>. This code is correct: the destructor of <code>quit</code> is <i>not</i> called twice because the C++ language standard <i>(ISO/IEC 14882:2003)</i> specifies that destructors of local objects are called in the reverse order of their constructors. Therefore, the destructor of the child, <code>quit</code>, is called first, and it removes itself from its parent, <code>window</code>, before the destructor of <code>window</code> is called.</p>
 <p>But now consider what happens if we swap the order of construction, as shown in this second snippet:</p>
 <pre class="cpp">
 

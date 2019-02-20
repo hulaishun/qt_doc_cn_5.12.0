@@ -201,7 +201,7 @@
 <p>With the addition of the <a href="bearer-management.html">Bearer Management</a> API to Qt 4.7 <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a> gained the ability to manage network connections. <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a> can start the network interface if the device is offline and terminates the interface if the current process is the last one to use the uplink. Note that some platforms utilize grace periods from when the last application stops using a uplink until the system actually terminates the connectivity link. Roaming is equally transparent. Any queued/pending network requests are automatically transferred to the new access point.</p>
 <p>Clients wanting to utilize this feature should not require any changes. In fact it is likely that existing platform specific connection code can simply be removed from the application.</p>
 <p><b>Note: </b>The network and roaming support in <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a> is conditional upon the platform supporting connection management. The <a href="qnetworkconfigurationmanager.html#Capability-enum">QNetworkConfigurationManager::NetworkSessionRequired</a> can be used to detect whether <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a> utilizes this feature.</p></div>
-<p><b> 参见 </b><a href="qnetworkrequest.html">QNetworkRequest</a>, <a href="qnetworkreply.html">QNetworkReply</a>, and <a href="qnetworkproxy.html">QNetworkProxy</a>.</p>
+<p><b> 参见 </b><a href="qnetworkrequest.html">QNetworkRequest</a>, <a href="qnetworkreply.html">QNetworkReply</a>, 和 <a href="qnetworkproxy.html">QNetworkProxy</a>.</p>
 <!-- @@@QNetworkAccessManager -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -413,7 +413,7 @@
 <p>Sends the contents of the <i>multiPart</i> message to the destination specified by <i>request</i>.</p>
 <p>This can be used for sending MIME multipart messages over HTTP.</p>
 <p>这个函数是在Qt 4.8版本中新增引入的。</p>
-<p><b> 参见 </b><a href="qhttpmultipart.html">QHttpMultiPart</a>, <a href="qhttppart.html">QHttpPart</a>, and <a href="qnetworkaccessmanager.html#put">put</a>().</p>
+<p><b> 参见 </b><a href="qhttpmultipart.html">QHttpMultiPart</a>, <a href="qhttppart.html">QHttpPart</a>, 和 <a href="qnetworkaccessmanager.html#put">put</a>().</p>
 <!-- @@@post -->
 <!-- $$$preSharedKeyAuthenticationRequired[overload1]$$$preSharedKeyAuthenticationRequiredQNetworkReply*QSslPreSharedKeyAuthenticator* -->
 <h3 class="fn" id="preSharedKeyAuthenticationRequired"><a name="preSharedKeyAuthenticationRequired"></a><code>[signal] </code><span class="type">void</span> QNetworkAccessManager::<span class="name">preSharedKeyAuthenticationRequired</span>(<span class="type"><a href="qnetworkreply.html">QNetworkReply</a></span> *<i>reply</i>, <span class="type"><a href="qsslpresharedkeyauthenticator.html">QSslPreSharedKeyAuthenticator</a></span> *<i>authenticator</i>)</h3>
@@ -459,7 +459,7 @@
 <p>Sends the contents of the <i>multiPart</i> message to the destination specified by <i>request</i>.</p>
 <p>This can be used for sending MIME multipart messages over HTTP.</p>
 <p>这个函数是在Qt 4.8版本中新增引入的。</p>
-<p><b> 参见 </b><a href="qhttpmultipart.html">QHttpMultiPart</a>, <a href="qhttppart.html">QHttpPart</a>, and <a href="qnetworkaccessmanager.html#post">post</a>().</p>
+<p><b> 参见 </b><a href="qhttpmultipart.html">QHttpMultiPart</a>, <a href="qhttppart.html">QHttpPart</a>, 和 <a href="qnetworkaccessmanager.html#post">post</a>().</p>
 <!-- @@@put -->
 <!-- $$$redirectPolicy[overload1]$$$redirectPolicy -->
 <h3 class="fn" id="redirectPolicy"><a name="redirectPolicy"></a><span class="type"><a href="qnetworkrequest.html#RedirectPolicy-enum">QNetworkRequest::RedirectPolicy</a></span> QNetworkAccessManager::<span class="name">redirectPolicy</span>() const</h3>
@@ -489,7 +489,7 @@
 <p>Sends the contents of the <i>multiPart</i> message to the destination specified by <i>request</i>.</p>
 <p>This can be used for sending MIME multipart messages for custom verbs.</p>
 <p>这个函数是在Qt 5.8版本中新增引入的。</p>
-<p><b> 参见 </b><a href="qhttpmultipart.html">QHttpMultiPart</a>, <a href="qhttppart.html">QHttpPart</a>, and <a href="qnetworkaccessmanager.html#put">put</a>().</p>
+<p><b> 参见 </b><a href="qhttpmultipart.html">QHttpMultiPart</a>, <a href="qhttppart.html">QHttpPart</a>, 和 <a href="qnetworkaccessmanager.html#put">put</a>().</p>
 <!-- @@@sendCustomRequest -->
 <!-- $$$setCache[overload1]$$$setCacheQAbstractNetworkCache* -->
 <h3 class="fn" id="setCache"><a name="setCache"></a><span class="type">void</span> QNetworkAccessManager::<span class="name">setCache</span>(<span class="type"><a href="qabstractnetworkcache.html">QAbstractNetworkCache</a></span> *<i>cache</i>)</h3>
@@ -561,7 +561,7 @@
 <p>Use this function to enable or disable HTTP redirects on the manager's level.</p>
 <p><b>Note: </b>When creating a request QNetworkRequest::RedirectAttributePolicy has the highest priority, next by priority is <a href="qnetworkrequest.html#Attribute-enum">QNetworkRequest::FollowRedirectsAttribute</a>. Finally, the manager's policy has the lowest priority.</p><p>For backwards compatibility the default value is <a href="qnetworkrequest.html#RedirectPolicy-enum">QNetworkRequest::ManualRedirectPolicy</a>. This may change in the future and some type of auto-redirect policy will become the default; clients relying on manual redirect handling are encouraged to set this policy explicitly in their code.</p>
 <p>这个函数是在Qt 5.9版本中新增引入的。</p>
-<p><b> 参见 </b><a href="qnetworkaccessmanager.html#redirectPolicy">redirectPolicy</a>(), <a href="qnetworkrequest.html#RedirectPolicy-enum">QNetworkRequest::RedirectPolicy</a>, and <a href="qnetworkrequest.html#Attribute-enum">QNetworkRequest::FollowRedirectsAttribute</a>.</p>
+<p><b> 参见 </b><a href="qnetworkaccessmanager.html#redirectPolicy">redirectPolicy</a>(), <a href="qnetworkrequest.html#RedirectPolicy-enum">QNetworkRequest::RedirectPolicy</a>, 和 <a href="qnetworkrequest.html#Attribute-enum">QNetworkRequest::FollowRedirectsAttribute</a>.</p>
 <!-- @@@setRedirectPolicy -->
 <!-- $$$setStrictTransportSecurityEnabled[overload1]$$$setStrictTransportSecurityEnabledbool -->
 <h3 class="fn" id="setStrictTransportSecurityEnabled"><a name="setStrictTransportSecurityEnabled"></a><span class="type">void</span> QNetworkAccessManager::<span class="name">setStrictTransportSecurityEnabled</span>(<span class="type">bool</span> <i>enabled</i>)</h3>
