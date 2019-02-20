@@ -347,7 +347,7 @@
 
 </pre>
 <p>The BSP tree has an optimal size when each segment contains between 0 and 10 items.</p>
-<p>This property was introduced in  Qt 4.3.</p>
+<p>这个属性是在Qt 4.3版本中新增引入的。</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>bspTreeDepth</b></span>() const</td></tr>
@@ -362,7 +362,7 @@
 <p>By default, <a href="qgraphicsscene.html">QGraphicsScene</a> also transfers focus when you touch on a trackpad or similar. If the operating system is configured to not generate a synthetic mouse click on tapping the trackpad, this is surprising. If the operating system does generate synthetic mouse clicks on tapping the trackpad, the focus transfer on starting a touch gesture is unnecessary.</p>
 <p>With focusOnTouch switched off, <a href="qgraphicsscene.html">QGraphicsScene</a> behaves as one would expect on <a href="../qtdoc/internationalization.html#macos">macOS</a>.</p>
 <p>The default value is <code>true</code>, ensuring that the default behavior is just as in Qt versions prior to 5.12. Set to <code>false</code> to prevent touch events from triggering focus changes.</p>
-<p>This property was introduced in  Qt 5.12.</p>
+<p>这个属性是在Qt 5.12版本中新增引入的。</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>focusOnTouch</b></span>() const</td></tr>
@@ -375,7 +375,7 @@
 <p>This property provides the scene's font. The scene font defaults to, and resolves all its entries from, <a href="qapplication.html#font">QApplication::font</a>.</p>
 <p>If the scene's font changes, either directly through setFont() or indirectly when the application font changes, <a href="qgraphicsscene.html">QGraphicsScene</a> first sends itself a <a href="../qtcore/qevent.html#Type-enum">FontChange</a> event, and it then sends <a href="../qtcore/qevent.html#Type-enum">FontChange</a> events to all top-level widget items in the scene. These items respond by resolving their own fonts to the scene, and they then notify their children, who again notify their children, and so on, until all widget items have updated their fonts.</p>
 <p>Changing the scene font, (directly or indirectly through <a href="qapplication.html#setFont">QApplication::setFont</a>(),) automatically schedules a redraw the entire scene.</p>
-<p>This property was introduced in  Qt 4.4.</p>
+<p>这个属性是在Qt 4.4版本中新增引入的。</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QFont </td><td class="memItemRight bottomAlign"><span class="name"><b>font</b></span>() const</td></tr>
@@ -427,7 +427,7 @@
 <p>When the scene is rendered, any item whose width or height, transformed to the target view, is smaller that minimumRenderSize(), will not be rendered. If an item is not rendered and it clips its children items they will also not be rendered. Set this value to speed up rendering of scenes with many objects rendered on a zoomed out view.</p>
 <p>The default value is 0. If unset, or if set to 0 or a negative value, all items will always be rendered.</p>
 <p>For example, setting this property can be especially useful if a scene is rendered by multiple views, one of which serves as an overview which always displays all items. In scenes with many items, such a view will use a high scaling factor so that all items can be shown. Due to the scaling, smaller items will only make an insignificant contribution to the final rendered scene. To avoid drawing these items and reduce the time necessary to render the scene, you can call setMinimumRenderSize() with a non-negative value.</p>
-<p><b>Note: </b>Items that are not drawn as a result of being too small, are still returned by methods such as <a href="qgraphicsscene.html#items">items</a>() 和 <a href="qgraphicsscene.html#itemAt">itemAt</a>(), and participate in collision detection and interactions. It is recommended that you set minimumRenderSize() to a value less than or equal to 1 in order to avoid large unrendered items that are interactive.</p><p>This property was introduced in  Qt 5.4.</p>
+<p><b>Note: </b>Items that are not drawn as a result of being too small, are still returned by methods such as <a href="qgraphicsscene.html#items">items</a>() 和 <a href="qgraphicsscene.html#itemAt">itemAt</a>(), and participate in collision detection and interactions. It is recommended that you set minimumRenderSize() to a value less than or equal to 1 in order to avoid large unrendered items that are interactive.</p><p>这个属性是在Qt 5.4版本中新增引入的。</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> qreal </td><td class="memItemRight bottomAlign"><span class="name"><b>minimumRenderSize</b></span>() const</td></tr>
@@ -441,7 +441,7 @@
 <p>This property provides the scene's palette. The scene palette defaults to, and resolves all its entries from, <a href="qapplication.html#palette">QApplication::palette</a>.</p>
 <p>If the scene's palette changes, either directly through setPalette() or indirectly when the application palette changes, <a href="qgraphicsscene.html">QGraphicsScene</a> first sends itself a <a href="../qtcore/qevent.html#Type-enum">PaletteChange</a> event, and it then sends <a href="../qtcore/qevent.html#Type-enum">PaletteChange</a> events to all top-level widget items in the scene. These items respond by resolving their own palettes to the scene, and they then notify their children, who again notify their children, and so on, until all widget items have updated their palettes.</p>
 <p>Changing the scene palette, (directly or indirectly through <a href="qapplication.html#setPalette">QApplication::setPalette</a>(),) automatically schedules a redraw the entire scene.</p>
-<p>This property was introduced in  Qt 4.4.</p>
+<p>这个属性是在Qt 4.4版本中新增引入的。</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QPalette </td><td class="memItemRight bottomAlign"><span class="name"><b>palette</b></span>() const</td></tr>
@@ -468,7 +468,7 @@
 <p>In a <a href="qgraphicsscene.html">QGraphicsScene</a> with stickyFocus set to true, focus will remain unchanged when the user clicks into the scene background or on an item that does not accept focus. Otherwise, focus will be cleared.</p>
 <p>By default, this property is <code>false</code>.</p>
 <p>Focus changes in response to a mouse press. You can reimplement <a href="qgraphicsscene.html#mousePressEvent">mousePressEvent</a>() in a subclass of <a href="qgraphicsscene.html">QGraphicsScene</a> to toggle this property based on where the user has clicked.</p>
-<p>This property was introduced in  Qt 4.6.</p>
+<p>这个属性是在Qt 4.6版本中新增引入的。</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>stickyFocus</b></span>() const</td></tr>
