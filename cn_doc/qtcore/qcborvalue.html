@@ -180,7 +180,7 @@
 <a name="extended-types-and-tagged-values"></a>
 <h3 >Extended types and tagged values</h3>
 <p>A tagged value is a normal <a href="qcborvalue.html">QCborValue</a> that is paired with a number that is its tag. See <a href="qtcborcommon.html#QCborKnownTags-enum">QCborKnownTags</a> for more information on what tags are in the API as well as the full, official list. Such combinations form extended types.</p>
-<p><a href="qcborvalue.html">QCborValue</a> has support for certain extended types in the API, like URL (with <a href="qurl.html">QUrl</a>) and UUID (with <a href="quuid.html">QUuid</a>). Other extended types not supported in the API are represented by a <a href="qcborvalue.html">QCborValue</a> of <a href="qcborvalue.html#Type-enum">Tag</a> type. The tag can later be retrieved by <a href="qcborvalue.html#tag">tag</a>() and the tagged value using <a href="qcborvalue.html#taggedValue">taggedValue</a>().</p>
+<p><a href="qcborvalue.html">QCborValue</a> has support for certain extended types in the API, like URL (with <a href="qurl.html">QUrl</a>) and UUID (with <a href="quuid.html">QUuid</a>). Other extended types not supported in the API are represented by a <a href="qcborvalue.html">QCborValue</a> of <a href="qcborvalue.html#Type-enum">标签</a> type. The tag can later be retrieved by <a href="qcborvalue.html#tag">tag</a>() and the tagged value using <a href="qcborvalue.html#taggedValue">taggedValue</a>().</p>
 <p>In order to support future compatibility, QCborValues containing extended Qt types compare equal to the tag type of the same contents. In other words, the following expression is true:</p>
 <pre class="cpp">
 
@@ -736,7 +736,7 @@
 <h6 >Special handling of tags and extended types</h6>
 <p>Some tags are handled specially and change the transformation of the tagged value from CBOR to JSON. The following table lists those special cases:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Tag</th><th >CBOR type</th><th >Transformation</th></tr></thead>
+ <thead><tr class="qt-style"><th >标签</th><th >CBOR type</th><th >Transformation</th></tr></thead>
 <tr valign="top" class="odd"><td ><a href="qtcborcommon.html#QCborKnownTags-enum">ExpectedBase64url</a></td><td >Byte array</td><td >Encodes the byte array as Base64url</td></tr>
 <tr valign="top" class="even"><td ><a href="qtcborcommon.html#QCborKnownTags-enum">ExpectedBase64</a></td><td >Byte array</td><td >Encodes the byte array as Base64</td></tr>
 <tr valign="top" class="odd"><td ><a href="qtcborcommon.html#QCborKnownTags-enum">ExpectedBase16</a></td><td >Byte array</td><td >Encodes the byte array as hex</td></tr>

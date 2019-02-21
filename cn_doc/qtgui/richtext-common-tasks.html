@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- richtext.qdoc -->
-  <title>Common Rich Text Editing Tasks | Qt GUI 5.12</title>
+  <title>常见的富文本编辑任务 | Qt GUI 5.12</title>
   <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
   <script type="text/javascript">
     document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtgui-index.html">Qt GUI</a></td><td >Common Rich Text Editing Tasks</td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtgui-index.html">Qt GUI</a></td><td >常见的富文本编辑任务</td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -37,28 +37,28 @@
   <link rel="prev" href="richtext-layouts.html" />
   <link rel="next" href="richtext-advanced-processing.html" />
 <p class="naviNextPrevious headerNavi">
-<a class="prevPage" href="richtext-layouts.html">Document Layouts</a>
+<a class="prevPage" href="richtext-layouts.html">文档布局</a>
 <span class="naviSeparator">  &#9702;  </span>
-<a class="nextPage" href="richtext-advanced-processing.html">Advanced Rich Text Processing</a>
+<a class="nextPage" href="richtext-advanced-processing.html">高级富文本处理</a>
 </p><p/>
 <div class="sidebar">
 <div class="toc">
 <h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#using-qtextedit">Using QTextEdit</a></li>
-<li class="level1"><a href="#selecting-text">Selecting Text</a></li>
-<li class="level1"><a href="#finding-text">Finding Text</a></li>
-<li class="level1"><a href="#printing-documents">Printing Documents</a></li>
+<li class="level1"><a href="#using-qtextedit">使用QTextEdit</a></li>
+<li class="level1"><a href="#selecting-text">选择文本</a></li>
+<li class="level1"><a href="#finding-text">查找文本</a></li>
+<li class="level1"><a href="#printing-documents">打印文档</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title">Common Rich Text Editing Tasks</h1>
+<h1 class="title">常见的富文本编辑任务</h1>
 <span class="subtitle"></span>
 <!-- $$$richtext-common-tasks.html-description -->
 <div class="descr"> <a name="details"></a>
 <p>There are a number of tasks that are often performed by developers when editing and processing text documents using Qt. These include the use of display widgets such as <a href="../qtwidgets/qtextbrowser.html">QTextBrowser</a> 和 <a href="../qtwidgets/qtextedit.html">QTextEdit</a>, creation of documents with <a href="qtextdocument.html">QTextDocument</a>, editing using a <a href="qtextcursor.html">QTextCursor</a>, and exporting the document structure. This document outlines some of the more common ways of using the rich text classes to perform these tasks, showing convenient patterns that can be reused in your own applications.</p>
 <a name="using-qtextedit"></a>
-<h2 id="using-qtextedit">Using QTextEdit</h2>
+<h2 id="using-qtextedit">使用QTextEdit</h2>
 <p>A text editor widget can be constructed and used to display HTML in the following way:</p>
 <pre class="cpp">
 
@@ -86,7 +86,7 @@
 
 </pre>
 <a name="selecting-text"></a>
-<h2 id="selecting-text">Selecting Text</h2>
+<h2 id="selecting-text">选择文本</h2>
 <p>Text is selected by moving the cursor using operations that are similar to those performed by a user in a text editor. To select text between two points in the document, we need to position the cursor at the first point then move it using a special mode (<a href="qtextcursor.html#MoveMode-enum">QTextCursor::MoveMode</a>) with a move operation (<a href="qtextcursor.html#MoveOperation-enum">QTextCursor::MoveOperation</a>). When we select the text, we leave the selection anchor at the old cursor position just as the user might do by holding down the Shift key when selecting text:</p>
 <pre class="cpp">
 
@@ -96,7 +96,7 @@
 </pre>
 <p>In the above code, a whole word is selected using this method. <a href="qtextcursor.html">QTextCursor</a> provides a number of common move operations for selecting individual characters, words, lines, and whole blocks.</p>
 <a name="finding-text"></a>
-<h2 id="finding-text">Finding Text</h2>
+<h2 id="finding-text">查找文本</h2>
 <p><a href="qtextdocument.html">QTextDocument</a> provides a cursor-based interface for searching, making it easy to find and modify text in the style of a text editor. The following code finds all the instances of a particular word in a document, and changes the color of each:</p>
 <pre class="cpp">
 
@@ -116,7 +116,7 @@
 </pre>
 <p>Note that the cursor does not have to be moved after each search and replace operation; it is always positioned at the end of the word that was just replaced.</p>
 <a name="printing-documents"></a>
-<h2 id="printing-documents">Printing Documents</h2>
+<h2 id="printing-documents">打印文档</h2>
 <p><a href="../qtwidgets/qtextedit.html">QTextEdit</a> is designed for the display of large rich text documents that are read on screen, rendering them in the same way as a web browser. As a result, it does not automatically break the contents of the document into page-sized pieces that are suitable for printing.</p>
 <p><a href="qtextdocument.html">QTextDocument</a> provides a <a href="qtextdocument.html#print">print()</a> function to allow documents to be printed using the QPrinter class. The following code shows how to prepare a document in a <a href="../qtwidgets/qtextedit.html">QTextEdit</a> for printing with a QPrinter:</p>
 <pre class="cpp">
@@ -135,9 +135,9 @@
 </div>
 <!-- @@@richtext-common-tasks.html -->
 <p class="naviNextPrevious footerNavi">
-<a class="prevPage" href="richtext-layouts.html">Document Layouts</a>
+<a class="prevPage" href="richtext-layouts.html">文档布局</a>
 <span class="naviSeparator">  &#9702;  </span>
-<a class="nextPage" href="richtext-advanced-processing.html">Advanced Rich Text Processing</a>
+<a class="nextPage" href="richtext-advanced-processing.html">高级富文本处理</a>
 </p>
         </div>
        </div>

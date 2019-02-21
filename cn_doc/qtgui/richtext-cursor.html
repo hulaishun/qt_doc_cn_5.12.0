@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtgui-index.html">Qt GUI</a></td><td >The QTextCursor Interface</td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtgui-index.html">Qt GUI</a></td><td >QTextCursor接口</td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -37,32 +37,32 @@
   <link rel="prev" href="richtext-structure.html" />
   <link rel="next" href="richtext-layouts.html" />
 <p class="naviNextPrevious headerNavi">
-<a class="prevPage" href="richtext-structure.html">Rich Text Document Structure</a>
+<a class="prevPage" href="richtext-structure.html">富文本文档结构</a>
 <span class="naviSeparator">  &#9702;  </span>
-<a class="nextPage" href="richtext-layouts.html">Document Layouts</a>
+<a class="nextPage" href="richtext-layouts.html">文档布局</a>
 </p><p/>
 <div class="sidebar">
 <div class="toc">
 <h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#cursor-based-editing">Cursor-Based Editing</a></li>
-<li class="level2"><a href="#using-a-cursor">Using a Cursor</a></li>
-<li class="level2"><a href="#grouping-cursor-operations">Grouping Cursor Operations</a></li>
-<li class="level2"><a href="#multiple-cursors">Multiple Cursors</a></li>
-<li class="level1"><a href="#inserting-document-elements">Inserting Document Elements</a></li>
-<li class="level2"><a href="#text-and-text-fragments">Text and Text Fragments</a></li>
+<li class="level1"><a href="#cursor-based-editing">基于光标编辑</a></li>
+<li class="level2"><a href="#using-a-cursor">使用光标</a></li>
+<li class="level2"><a href="#grouping-cursor-operations">分组光标操作</a></li>
+<li class="level2"><a href="#multiple-cursors">多个光标</a></li>
+<li class="level1"><a href="#inserting-document-elements">插入文档元素</a></li>
+<li class="level2"><a href="#text-and-text-fragments">文本和段落</a></li>
 <li class="level2"><a href="#blocks">Blocks</a></li>
-<li class="level2"><a href="#frames">Frames</a></li>
-<li class="level2"><a href="#tables">Tables</a></li>
-<li class="level2"><a href="#lists">Lists</a></li>
-<li class="level2"><a href="#images">Images</a></li>
+<li class="level2"><a href="#frames">帧</a></li>
+<li class="level2"><a href="#tables">表格</a></li>
+<li class="level2"><a href="#lists">列表</a></li>
+<li class="level2"><a href="#images">图片</a></li>
 <li class="level1"><a href="#examples">样例</a></li>
 <li class="level2"><a href="#manipulating-rich-text">Manipulating Rich Text</a></li>
 <li class="level2"><a href="#generating-a-calendar">Generating a Calendar</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title">The QTextCursor Interface</h1>
+<h1 class="title">QTextCursor接口</h1>
 <span class="subtitle"></span>
 <!-- $$$richtext-cursor.html-description -->
 <div class="descr"> <a name="details"></a>
@@ -71,11 +71,11 @@
 <p>Rich text documents can have multiple cursors associated with them, and each of these contains information about their position in the document and any selections that they may hold. This cursor-based paradigm makes common operations, such as cutting and pasting text, simple to implement programmatically, yet it also allows more complex editing operations to be performed on the document.</p>
 <p>This chapter describes most of the common editing operations that you will need to perform using a cursor, from basic insertion of text and document elements to more complex manipulation of document structures.</p>
 <a name="cursor-based-editing"></a>
-<h2 id="cursor-based-editing">Cursor-Based Editing</h2>
+<h2 id="cursor-based-editing">基于光标编辑</h2>
 <p>At the simplest level, text documents are made up of a string of characters, marked up in some way to represent the block structure of the text within the document. <a href="qtextcursor.html">QTextCursor</a> provides a cursor-based interface that allows the contents of a <a href="qtextdocument.html">QTextDocument</a> to be manipulated at the character level. Since the elements (blocks, frames, tables, etc.) are also encoded in the character stream, the document structure can itself be changed by the cursor.</p>
 <p>The cursor keeps track of its location within its parent document, and can report information about the surrounding structure, such as the enclosing text block, frame, table, or list. The formats of the enclosing structures can also be directly obtained through the cursor.</p>
 <a name="using-a-cursor"></a>
-<h3 >Using a Cursor</h3>
+<h3 >使用光标</h3>
 <p>The main use of a cursor is to insert or modify text within a block. We can use a text editor's cursor to do this:</p>
 <pre class="cpp">
 
@@ -92,7 +92,7 @@
 </pre>
 <p>The cursor is positioned at the start of the document so that we can write into the first (empty) block in the document.</p>
 <a name="grouping-cursor-operations"></a>
-<h3 >Grouping Cursor Operations</h3>
+<h3 >分组光标操作</h3>
 <p>A series of editing operations can be packaged together so that they can be replayed, or undone together in a single action. This is achieved by using the <code>beginEditBlock()</code> and <code>endEditBlock()</code> functions in the following way, as in the following example where we select the word that contains the cursor:</p>
 <pre class="cpp">
 
@@ -104,10 +104,10 @@
 </pre>
 <p>If editing operations are not grouped, the document automatically records the individual operations so that they can be undone later. Grouping operations into larger packages can make editing more efficient both for the user and for the application, but care has to be taken not to group too many operations together as the user may want find-grained control over the undo process.</p>
 <a name="multiple-cursors"></a>
-<h3 >Multiple Cursors</h3>
+<h3 >多个光标</h3>
 <p>Multiple cursors can be used to simultaneously edit the same document, although only one will be visible to the user in a <a href="../qtwidgets/qtextedit.html">QTextEdit</a> widget. The <a href="qtextdocument.html">QTextDocument</a> ensures that each cursor writes text correctly and does not interfere with any of the others.</p>
 <a name="inserting-document-elements"></a>
-<h2 id="inserting-document-elements">Inserting Document Elements</h2>
+<h2 id="inserting-document-elements">插入文档元素</h2>
 <p><a href="qtextcursor.html">QTextCursor</a> provides several functions that can be used to change the structure of a rich text document. Generally, these functions allow document elements to be created with relevant formatting information, and they are inserted into the document at the cursor's position.</p>
 <p>The first group of functions insert block-level elements, and update the cursor position, but they do not return the element that was inserted:</p>
 <ul>
@@ -125,7 +125,7 @@
 </ul>
 <p>These elements either contain or group together other elements in the document.</p>
 <a name="text-and-text-fragments"></a>
-<h3 >Text and Text Fragments</h3>
+<h3 >文本和段落</h3>
 <p>Text can be inserted into the current block in the current character format, or in a custom format that is specified with the text:</p>
 <pre class="cpp">
 
@@ -155,7 +155,7 @@
 </pre>
 <p>The cursor is positioned at the start of the new block.</p>
 <a name="frames"></a>
-<h3 >Frames</h3>
+<h3 >帧</h3>
 <p>Frames are inserted into a document using the cursor, and will be placed within the cursor's current frame <i>after</i> the current block. The following code shows how a frame can be inserted between two text blocks in a document's root frame. We begin by finding the cursor's current frame:</p>
 <pre class="cpp">
 
@@ -190,7 +190,7 @@
 </pre>
 <p>The text that we add last is inserted after the child frame in the document. Since each frame is padded with text blocks, this ensures that more elements can always be inserted with a cursor.</p>
 <a name="tables"></a>
-<h3 >Tables</h3>
+<h3 >表格</h3>
 <p>Tables are inserted into the document using the cursor, and will be placed within the cursor's current frame <i>after</i> the current block:</p>
 <pre class="cpp">
 
@@ -247,7 +247,7 @@
 
 </pre>
 <a name="lists"></a>
-<h3 >Lists</h3>
+<h3 >列表</h3>
 <p>Lists of block elements can be automatically created and inserted into the document at the current cursor position. Each list that is created in this way requires a list format to be specified:</p>
 <pre class="cpp">
 
@@ -263,7 +263,7 @@
 </pre>
 <p>The above code first checks whether the cursor is within an existing list and, if so, gives the list format for the new list a suitable level of indentation. This allows nested lists to be created with increasing levels of indentation. A more sophisticated implementation would also use different kinds of symbol for the bullet points in each level of the list.</p>
 <a name="images"></a>
-<h3 >Images</h3>
+<h3 >图片</h3>
 <p>Inline images are added to documents through the cursor in the usual manner. Unlike many other elements, all of the image properties are specified by the image's format. This means that a <a href="qtextimageformat.html">QTextImageFormat</a> object has to be created before an image can be inserted:</p>
 <pre class="cpp">
 
@@ -355,9 +355,9 @@
 </div>
 <!-- @@@richtext-cursor.html -->
 <p class="naviNextPrevious footerNavi">
-<a class="prevPage" href="richtext-structure.html">Rich Text Document Structure</a>
+<a class="prevPage" href="richtext-structure.html">富文本文档结构</a>
 <span class="naviSeparator">  &#9702;  </span>
-<a class="nextPage" href="richtext-layouts.html">Document Layouts</a>
+<a class="nextPage" href="richtext-layouts.html">文档布局</a>
 </p>
         </div>
        </div>

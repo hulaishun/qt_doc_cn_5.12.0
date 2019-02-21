@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- richtext.qdoc -->
-  <title>Rich Text Document Structure | Qt GUI 5.12</title>
+  <title>富文本文档结构 | Qt GUI 5.12</title>
   <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
   <script type="text/javascript">
     document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
@@ -26,7 +26,7 @@
     <div class="main-rounded">
       <div class="navigationbar">
         <table><tr>
-<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtgui-index.html">Qt GUI</a></td><td >Rich Text Document Structure</td></tr></table><table class="buildversion"><tr>
+<td ><a href="../qtdoc/index.html">Qt 5.12</a></td><td ><a href="qtgui-index.html">Qt GUI</a></td><td >富文本文档结构</td></tr></table><table class="buildversion"><tr>
 <td id="buildversion" width="100%" align="right">Qt5.12.0参考文档</td>
         </tr></table>
       </div>
@@ -37,25 +37,25 @@
   <link rel="prev" href="richtext.html" />
   <link rel="next" href="richtext-cursor.html" />
 <p class="naviNextPrevious headerNavi">
-<a class="prevPage" href="richtext.html">Rich Text Processing</a>
+<a class="prevPage" href="richtext.html">富文本处理</a>
 <span class="naviSeparator">  &#9702;  </span>
-<a class="nextPage" href="richtext-cursor.html">The QTextCursor Interface</a>
+<a class="nextPage" href="richtext-cursor.html">QTextCursor接口</a>
 </p><p/>
 <div class="sidebar">
 <div class="toc">
 <h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#rich-text-documents">Rich Text Documents</a></li>
-<li class="level1"><a href="#document-elements">Document Elements</a></li>
-<li class="level2"><a href="#text-blocks">Text Blocks</a></li>
-<li class="level2"><a href="#frames">Frames</a></li>
-<li class="level2"><a href="#tables">Tables</a></li>
-<li class="level2"><a href="#lists">Lists</a></li>
-<li class="level2"><a href="#images">Images</a></li>
+<li class="level1"><a href="#rich-text-documents">富文本文档</a></li>
+<li class="level1"><a href="#document-elements">文档元素</a></li>
+<li class="level2"><a href="#text-blocks">文本块</a></li>
+<li class="level2"><a href="#frames">帧</a></li>
+<li class="level2"><a href="#tables">表格</a></li>
+<li class="level2"><a href="#lists">列表</a></li>
+<li class="level2"><a href="#images">图片</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title">Rich Text Document Structure</h1>
+<h1 class="title">富文本文档结构</h1>
 <span class="subtitle"></span>
 <!-- $$$richtext-structure.html-description -->
 <div class="descr"> <a name="details"></a>
@@ -68,9 +68,9 @@
 <p>Sequences of frames and tables are always separated by text blocks in a document, even if the text blocks contain no information. This ensures that new elements can always be inserted between existing structures.</p>
 </td></tr>
 </table></div>
-<p>In this chapter, we look at each of the structural elements used in a rich text document, outline their features and uses, and show how to examine their contents. Document editing is described in <a href="richtext-cursor.html">The QTextCursor Interface</a>.</p>
+<p>In this chapter, we look at each of the structural elements used in a rich text document, outline their features and uses, and show how to examine their contents. Document editing is described in <a href="richtext-cursor.html">QTextCursor接口</a>.</p>
 <a name="rich-text-documents"></a>
-<h2 id="rich-text-documents">Rich Text Documents</h2>
+<h2 id="rich-text-documents">富文本文档</h2>
 <p><a href="qtextdocument.html">QTextDocument</a> objects contain all the information required to construct rich text documents. Text documents can be accessed in two complementary ways: as a linear buffer for editors to use, and as an object hierarchy that is useful to layout engines. In the hierarchical document model, objects generally correspond to visual elements such as frames, tables, and lists. At a lower level, these elements describe properties such as the text style and alignment. The linear representation of the document is used for editing and manipulation of the document's contents.</p>
 <p>Although <a href="../qtwidgets/qtextedit.html">QTextEdit</a> makes it easy to display and edit rich text, documents can also be used independently of any editor widget, for example:</p>
 <pre class="cpp">
@@ -98,12 +98,12 @@
 </pre>
 <p>When navigating the document structure, it is useful to begin at the root frame because it provides access to the entire document structure.</p>
 <a name="document-elements"></a>
-<h2 id="document-elements">Document Elements</h2>
+<h2 id="document-elements">文档元素</h2>
 <p>Rich text documents usually consist of common elements such as paragraphs, frames, tables, and lists. These are represented in a <a href="qtextdocument.html">QTextDocument</a> by the <a href="qtextblock.html">QTextBlock</a>, <a href="qtextframe.html">QTextFrame</a>, <a href="qtexttable.html">QTextTable</a>, 和 <a href="qtextlist.html">QTextList</a> classes. Unlike the other elements in a document, images are represented by specially formatted text fragments. This enables them to be placed formatted inline with the surrounding text.</p>
 <p>The basic structural building blocks in documents are <a href="qtextblock.html">QTextBlock</a> 和 <a href="qtextframe.html">QTextFrame</a>. Blocks themselves contain fragments of rich text (<a href="qtextfragment.html">QTextFragment</a>), but these do not directly influence the high level structure of a document.</p>
 <p>Elements which can group together other document elements are typically subclasses of <a href="qtextobject.html">QTextObject</a>, and fall into two categories: Elements that group together text blocks are subclasses of <a href="qtextblockgroup.html">QTextBlockGroup</a>, and those that group together frames and other elements are subclasses of <a href="qtextframe.html">QTextFrame</a>.</p>
 <a name="text-blocks"></a>
-<h3 >Text Blocks</h3>
+<h3 >文本块</h3>
 <p>Text blocks are provided by the <a href="qtextblock.html">QTextBlock</a> class.</p>
 <p>Text blocks group together fragments of text with different character formats, and are used to represent paragraphs in the document. Each block typically contains a number of text fragments with different styles. Fragments are created when text is inserted into the document, and more of them are added when the document is edited. The document splits, merges, and removes fragments to efficiently represent the different styles of text in the block.</p>
 <p>The fragments within a given block can be examined by using a <a href="qtextblock-iterator.html">QTextBlock::iterator</a> to traverse the block's internal structure:</p>
@@ -132,7 +132,7 @@
 <p>This method is useful for when you want to extract just the rich text from a document because it ignores frames, tables, and other types of structure.</p>
 <p><a href="qtextblock.html">QTextBlock</a> provides comparison operators that make it easier to manipulate blocks: <a href="qtextblock.html#operator-eq-eq">operator==</a>() 和 <a href="qtextblock.html#operator-not-eq">operator!=</a>() are used to test whether two blocks are the same, and <a href="qtextblock.html#operator-lt">operator&lt;</a>() is used to determine which one occurs first in a document.</p>
 <a name="frames"></a>
-<h3 >Frames</h3>
+<h3 >帧</h3>
 <p>Frames are provided by the <a href="qtextframe.html">QTextFrame</a> class.</p>
 <p>Text frames group together blocks of text and child frames, creating document structures that are larger than paragraphs. The format of a frame specifies how it is rendered and positioned on the page. Frames are either inserted into the text flow, or they float on the left or right hand side of the page. Each document contains a root frame that contains all the other document elements. As a result, all frames except the root frame have a parent frame.</p>
 <p>Since text blocks are used to separate other document elements, each frame will always contain at least one text block, and zero or more child frames. We can inspect the contents of a frame by using a <a href="qtextframe-iterator.html">QTextFrame::iterator</a> to traverse the frame's child elements:</p>
@@ -155,7 +155,7 @@
 </pre>
 <p>Note that the iterator selects both frames and blocks, so it is necessary to check which it is referring to. This allows us to navigate the document structure on a frame-by-frame basis yet still access text blocks if required. Both the <a href="qtextblock-iterator.html">QTextBlock::iterator</a> 和 <a href="qtextframe-iterator.html">QTextFrame::iterator</a> classes can be used in complementary ways to extract the required structure from a document.</p>
 <a name="tables"></a>
-<h3 >Tables</h3>
+<h3 >表格</h3>
 <p>Tables are provided by the <a href="qtexttable.html">QTextTable</a> class.</p>
 <p>Tables are collections of cells that are arranged in rows and columns. Each table cell is a document element with its own character format, but it can also contain other elements, such as frames and text blocks. Table cells are automatically created when the table is constructed, or when extra rows or columns are added. They can also be moved between tables.</p>
 <p><a href="qtexttable.html">QTextTable</a> is a subclass of <a href="qtextframe.html">QTextFrame</a>, so tables are treated like frames in the document structure. For each frame that we encounter in the document, we can test whether it represents a table, and deal with it in a different way:</p>
@@ -194,7 +194,7 @@
 
 </pre>
 <a name="lists"></a>
-<h3 >Lists</h3>
+<h3 >列表</h3>
 <p>Lists are provided by the <a href="qtextlist.html">QTextList</a> class.</p>
 <p>Lists are sequences of text blocks that are formatted in the usual way, but which also provide the standard list decorations such as bullet points and enumerated items. Lists can be nested, and will be indented if the list's format specifies a non-zero indentation.</p>
 <p>We can refer to each list item by its index in the list:</p>
@@ -227,7 +227,7 @@
 
 </pre>
 <a name="images"></a>
-<h3 >Images</h3>
+<h3 >图片</h3>
 <p>Images in <a href="qtextdocument.html">QTextDocument</a> are represented by text fragments that reference external images via the resource mechanism. Images are created using the cursor interface, and can be modified later by changing the character format of the image's text fragment:</p>
 <pre class="cpp">
 
@@ -250,9 +250,9 @@
 </div>
 <!-- @@@richtext-structure.html -->
 <p class="naviNextPrevious footerNavi">
-<a class="prevPage" href="richtext.html">Rich Text Processing</a>
+<a class="prevPage" href="richtext.html">富文本处理</a>
 <span class="naviSeparator">  &#9702;  </span>
-<a class="nextPage" href="richtext-cursor.html">The QTextCursor Interface</a>
+<a class="nextPage" href="richtext-cursor.html">QTextCursor接口</a>
 </p>
         </div>
        </div>
