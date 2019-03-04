@@ -181,11 +181,11 @@
 <p>Constructs a video surface with the given <i>parent</i>.</p>
 <!-- @@@QAbstractVideoSurface -->
 <!-- $$$~QAbstractVideoSurface[overload1]$$$~QAbstractVideoSurface -->
-<h3 class="fn" id="dtor.QAbstractVideoSurface"><a name="dtor.QAbstractVideoSurface"></a><code>[virtual] </code>QAbstractVideoSurface::<span class="name">~QAbstractVideoSurface</span>()</h3>
+<h3 class="fn" id="dtor.QAbstractVideoSurface"><a name="dtor.QAbstractVideoSurface"></a><code>[虚函数] </code>QAbstractVideoSurface::<span class="name">~QAbstractVideoSurface</span>()</h3>
 <p>Destroys a video surface.</p>
 <!-- @@@~QAbstractVideoSurface -->
 <!-- $$$activeChanged[overload1]$$$activeChangedbool -->
-<h3 class="fn" id="activeChanged"><a name="activeChanged"></a><code>[signal] </code><span class="type">void</span> QAbstractVideoSurface::<span class="name">activeChanged</span>(<span class="type">bool</span> <i>active</i>)</h3>
+<h3 class="fn" id="activeChanged"><a name="activeChanged"></a><code>[信号] </code><span class="type">void</span> QAbstractVideoSurface::<span class="name">activeChanged</span>(<span class="type">bool</span> <i>active</i>)</h3>
 <p>Signals that the <i>active</i> state of a video surface has changed.</p>
 <p><b> 参见 </b><a href="qabstractvideosurface.html#isActive">isActive</a>(), <a href="qabstractvideosurface.html#start">start</a>(), 和 <a href="qabstractvideosurface.html#stop">stop</a>().</p>
 <!-- @@@activeChanged -->
@@ -201,22 +201,22 @@
 <p>Returns true if the surface has been started, and false otherwise.</p>
 <!-- @@@isActive -->
 <!-- $$$isFormatSupported[overload1]$$$isFormatSupportedconstQVideoSurfaceFormat& -->
-<h3 class="fn" id="isFormatSupported"><a name="isFormatSupported"></a><code>[virtual] </code><span class="type">bool</span> QAbstractVideoSurface::<span class="name">isFormatSupported</span>(const <span class="type"><a href="qvideosurfaceformat.html">QVideoSurfaceFormat</a></span> &amp;<i>format</i>) const</h3>
+<h3 class="fn" id="isFormatSupported"><a name="isFormatSupported"></a><code>[虚函数] </code><span class="type">bool</span> QAbstractVideoSurface::<span class="name">isFormatSupported</span>(const <span class="type"><a href="qvideosurfaceformat.html">QVideoSurfaceFormat</a></span> &amp;<i>format</i>) const</h3>
 <p>Tests a video surface <i>format</i> to determine if a surface can accept it.</p>
 <p>Returns true if the format is supported by the surface, and false otherwise.</p>
 <!-- @@@isFormatSupported -->
 <!-- $$$nativeResolutionChanged -->
-<h3 class="fn" id="nativeResolutionChanged"><a name="nativeResolutionChanged"></a><code>[signal] </code><span class="type">void</span> QAbstractVideoSurface::<span class="name">nativeResolutionChanged</span>(const <span class="type"><a href="../qtcore/qsize.html">QSize</a></span> &amp;<i>resolution</i>)</h3>
+<h3 class="fn" id="nativeResolutionChanged"><a name="nativeResolutionChanged"></a><code>[信号] </code><span class="type">void</span> QAbstractVideoSurface::<span class="name">nativeResolutionChanged</span>(const <span class="type"><a href="../qtcore/qsize.html">QSize</a></span> &amp;<i>resolution</i>)</h3>
 <p>Signals the native <i>resolution</i> of video surface has changed.</p>
 <p><b>Note:</b> Notifier signal for property <a href="qabstractvideosurface.html#nativeResolution-prop">nativeResolution</a>. </p><!-- @@@nativeResolutionChanged -->
 <!-- $$$nearestFormat[overload1]$$$nearestFormatconstQVideoSurfaceFormat& -->
-<h3 class="fn" id="nearestFormat"><a name="nearestFormat"></a><code>[virtual] </code><span class="type"><a href="qvideosurfaceformat.html">QVideoSurfaceFormat</a></span> QAbstractVideoSurface::<span class="name">nearestFormat</span>(const <span class="type"><a href="qvideosurfaceformat.html">QVideoSurfaceFormat</a></span> &amp;<i>format</i>) const</h3>
+<h3 class="fn" id="nearestFormat"><a name="nearestFormat"></a><code>[虚函数] </code><span class="type"><a href="qvideosurfaceformat.html">QVideoSurfaceFormat</a></span> QAbstractVideoSurface::<span class="name">nearestFormat</span>(const <span class="type"><a href="qvideosurfaceformat.html">QVideoSurfaceFormat</a></span> &amp;<i>format</i>) const</h3>
 <p>Returns a supported video surface format that is similar to <i>format</i>.</p>
 <p>A similar surface format is one that has the same <a href="qvideosurfaceformat.html#pixelFormat">pixel format</a> 和 <a href="qvideosurfaceformat.html#handleType">handle type</a> but may differ in some of the other properties. For example, if there are restrictions on the <a href="qvideosurfaceformat.html#frameSize">frame sizes</a> a video surface can accept it may suggest a format with a larger frame size and a <a href="qvideosurfaceformat.html#viewport">viewport</a> the size of the original frame size.</p>
 <p>If the format is already supported it will be returned unchanged, or if there is no similar supported format an invalid format will be returned.</p>
 <!-- @@@nearestFormat -->
 <!-- $$$present[overload1]$$$presentconstQVideoFrame& -->
-<h3 class="fn" id="present"><a name="present"></a><code>[pure virtual] </code><span class="type">bool</span> QAbstractVideoSurface::<span class="name">present</span>(const <span class="type"><a href="qvideoframe.html">QVideoFrame</a></span> &amp;<i>frame</i>)</h3>
+<h3 class="fn" id="present"><a name="present"></a><code>[纯虚函数] </code><span class="type">bool</span> QAbstractVideoSurface::<span class="name">present</span>(const <span class="type"><a href="qvideoframe.html">QVideoFrame</a></span> &amp;<i>frame</i>)</h3>
 <p>Presents a video <i>frame</i>.</p>
 <p>Returns true if the frame was presented, and false if an error occurred.</p>
 <p>Not all surfaces will block until the presentation of a frame has completed. Calling present() on a non-blocking surface may fail if called before the presentation of a previous frame has completed. In such cases the surface may not return to a ready state until it has had an opportunity to process events.</p>
@@ -225,35 +225,35 @@
 <p><b> 参见 </b><a href="qabstractvideosurface.html#error">error</a>().</p>
 <!-- @@@present -->
 <!-- $$$setError[overload1]$$$setErrorQAbstractVideoSurface::Error -->
-<h3 class="fn" id="setError"><a name="setError"></a><code>[protected] </code><span class="type">void</span> QAbstractVideoSurface::<span class="name">setError</span>(<span class="type"><a href="qabstractvideosurface.html#Error-enum">QAbstractVideoSurface::Error</a></span> <i>error</i>)</h3>
+<h3 class="fn" id="setError"><a name="setError"></a><code>[保护函数] </code><span class="type">void</span> QAbstractVideoSurface::<span class="name">setError</span>(<span class="type"><a href="qabstractvideosurface.html#Error-enum">QAbstractVideoSurface::Error</a></span> <i>error</i>)</h3>
 <p>Sets the value of <a href="qabstractvideosurface.html#error">error</a>() to <i>error</i>.</p>
 <p>This can be called by implementors of this interface to communicate what the most recent error was.</p>
 <p><b> 参见 </b><a href="qabstractvideosurface.html#error">error</a>().</p>
 <!-- @@@setError -->
 <!-- $$$setNativeResolution[overload1]$$$setNativeResolutionconstQSize& -->
-<h3 class="fn" id="setNativeResolution"><a name="setNativeResolution"></a><code>[protected] </code><span class="type">void</span> QAbstractVideoSurface::<span class="name">setNativeResolution</span>(const <span class="type"><a href="../qtcore/qsize.html">QSize</a></span> &amp;<i>resolution</i>)</h3>
+<h3 class="fn" id="setNativeResolution"><a name="setNativeResolution"></a><code>[保护函数] </code><span class="type">void</span> QAbstractVideoSurface::<span class="name">setNativeResolution</span>(const <span class="type"><a href="../qtcore/qsize.html">QSize</a></span> &amp;<i>resolution</i>)</h3>
 <p>Set the video surface native <i>resolution</i>.</p>
 <p>This function can be called by implementors of this interface to specify to frame producers what the native resolution of this surface is.</p>
 <p><b> 参见 </b><a href="qabstractvideosurface.html#nativeResolution-prop">nativeResolution</a>().</p>
 <!-- @@@setNativeResolution -->
 <!-- $$$start[overload1]$$$startconstQVideoSurfaceFormat& -->
-<h3 class="fn" id="start"><a name="start"></a><code>[virtual] </code><span class="type">bool</span> QAbstractVideoSurface::<span class="name">start</span>(const <span class="type"><a href="qvideosurfaceformat.html">QVideoSurfaceFormat</a></span> &amp;<i>format</i>)</h3>
+<h3 class="fn" id="start"><a name="start"></a><code>[虚函数] </code><span class="type">bool</span> QAbstractVideoSurface::<span class="name">start</span>(const <span class="type"><a href="qvideosurfaceformat.html">QVideoSurfaceFormat</a></span> &amp;<i>format</i>)</h3>
 <p>Starts a video surface presenting <i>format</i> frames.</p>
 <p>Returns true if the surface was started, and false if an error occurred.</p>
 <p><b>Note: </b>You must call the base class implementation of start() at the end of your implementation.</p><p><b> 参见 </b><a href="qabstractvideosurface.html#isActive">isActive</a>() 和 <a href="qabstractvideosurface.html#stop">stop</a>().</p>
 <!-- @@@start -->
 <!-- $$$stop[overload1]$$$stop -->
-<h3 class="fn" id="stop"><a name="stop"></a><code>[virtual] </code><span class="type">void</span> QAbstractVideoSurface::<span class="name">stop</span>()</h3>
+<h3 class="fn" id="stop"><a name="stop"></a><code>[虚函数] </code><span class="type">void</span> QAbstractVideoSurface::<span class="name">stop</span>()</h3>
 <p>Stops a video surface presenting frames and releases any resources acquired in <a href="qabstractvideosurface.html#start">start</a>().</p>
 <p><b>Note: </b>You must call the base class implementation of stop() at the start of your implementation.</p><p><b> 参见 </b><a href="qabstractvideosurface.html#isActive">isActive</a>() 和 <a href="qabstractvideosurface.html#start">start</a>().</p>
 <!-- @@@stop -->
 <!-- $$$supportedFormatsChanged[overload1]$$$supportedFormatsChanged -->
-<h3 class="fn" id="supportedFormatsChanged"><a name="supportedFormatsChanged"></a><code>[signal] </code><span class="type">void</span> QAbstractVideoSurface::<span class="name">supportedFormatsChanged</span>()</h3>
+<h3 class="fn" id="supportedFormatsChanged"><a name="supportedFormatsChanged"></a><code>[信号] </code><span class="type">void</span> QAbstractVideoSurface::<span class="name">supportedFormatsChanged</span>()</h3>
 <p>Signals that the set of formats supported by a video surface has changed.</p>
 <p><b> 参见 </b><a href="qabstractvideosurface.html#supportedPixelFormats">supportedPixelFormats</a>() 和 <a href="qabstractvideosurface.html#isFormatSupported">isFormatSupported</a>().</p>
 <!-- @@@supportedFormatsChanged -->
 <!-- $$$supportedPixelFormats[overload1]$$$supportedPixelFormatsQAbstractVideoBuffer::HandleType -->
-<h3 class="fn" id="supportedPixelFormats"><a name="supportedPixelFormats"></a><code>[pure virtual] </code><span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qvideoframe.html#PixelFormat-enum">QVideoFrame::PixelFormat</a></span>&gt; QAbstractVideoSurface::<span class="name">supportedPixelFormats</span>(<span class="type"><a href="qabstractvideobuffer.html#HandleType-enum">QAbstractVideoBuffer::HandleType</a></span> <i>type</i> = QAbstractVideoBuffer::NoHandle) const</h3>
+<h3 class="fn" id="supportedPixelFormats"><a name="supportedPixelFormats"></a><code>[纯虚函数] </code><span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qvideoframe.html#PixelFormat-enum">QVideoFrame::PixelFormat</a></span>&gt; QAbstractVideoSurface::<span class="name">supportedPixelFormats</span>(<span class="type"><a href="qabstractvideobuffer.html#HandleType-enum">QAbstractVideoBuffer::HandleType</a></span> <i>type</i> = QAbstractVideoBuffer::NoHandle) const</h3>
 <p>Returns a list of pixel formats a video surface can present for a given handle <i>type</i>.</p>
 <p>The pixel formats returned for the <a href="qabstractvideobuffer.html#HandleType-enum">QAbstractVideoBuffer::NoHandle</a> type are valid for any buffer that can be mapped in read-only mode.</p>
 <p>Types that are first in the list can be assumed to be faster to render.</p>
@@ -263,7 +263,7 @@
 <p>Returns the format of a video surface.</p>
 <!-- @@@surfaceFormat -->
 <!-- $$$surfaceFormatChanged[overload1]$$$surfaceFormatChangedconstQVideoSurfaceFormat& -->
-<h3 class="fn" id="surfaceFormatChanged"><a name="surfaceFormatChanged"></a><code>[signal] </code><span class="type">void</span> QAbstractVideoSurface::<span class="name">surfaceFormatChanged</span>(const <span class="type"><a href="qvideosurfaceformat.html">QVideoSurfaceFormat</a></span> &amp;<i>format</i>)</h3>
+<h3 class="fn" id="surfaceFormatChanged"><a name="surfaceFormatChanged"></a><code>[信号] </code><span class="type">void</span> QAbstractVideoSurface::<span class="name">surfaceFormatChanged</span>(const <span class="type"><a href="qvideosurfaceformat.html">QVideoSurfaceFormat</a></span> &amp;<i>format</i>)</h3>
 <p>Signals that the configured <i>format</i> of a video surface has changed.</p>
 <p><b> 参见 </b><a href="qabstractvideosurface.html#surfaceFormat">surfaceFormat</a>() 和 <a href="qabstractvideosurface.html#start">start</a>().</p>
 <!-- @@@surfaceFormatChanged -->

@@ -137,7 +137,7 @@
 <h3>其他继承而来的成员</h3>
 <ul>
 <li class="fn">1 个公共变量继承于 <a href="../qtcore/qobject.html#public-variables">QObject</a></li>
-<li class="fn">1 protected slot inherited from <a href="qwidget.html#protected-slots">QWidget</a></li>
+<li class="fn">1 个保护槽函数继承于 <a href="qwidget.html#protected-slots">QWidget</a></li>
 <li class="fn">2 个保护变量继承于 <a href="../qtcore/qobject.html#protected-variables">QObject</a></li>
 <li class="fn">1 个保护类型继承于 <a href="../qtgui/qpaintdevice.html#protected-variables">QPaintDevice</a></li>
 </ul>
@@ -218,7 +218,7 @@
 <p><b> 参见 </b><a href="qstatusbar.html#sizeGripEnabled-prop">setSizeGripEnabled</a>().</p>
 <!-- @@@QStatusBar -->
 <!-- $$$~QStatusBar[overload1]$$$~QStatusBar -->
-<h3 class="fn" id="dtor.QStatusBar"><a name="dtor.QStatusBar"></a><code>[virtual] </code>QStatusBar::<span class="name">~QStatusBar</span>()</h3>
+<h3 class="fn" id="dtor.QStatusBar"><a name="dtor.QStatusBar"></a><code>[虚函数] </code>QStatusBar::<span class="name">~QStatusBar</span>()</h3>
 <p>Destroys this status bar and frees any allocated resources and child widgets.</p>
 <!-- @@@~QStatusBar -->
 <!-- $$$addPermanentWidget[overload1]$$$addPermanentWidgetQWidget*int -->
@@ -244,11 +244,11 @@
 <p><b> 参见 </b><a href="qstatusbar.html#showMessage">showMessage</a>().</p>
 <!-- @@@currentMessage -->
 <!-- $$$event[overload1]$$$eventQEvent* -->
-<h3 class="fn" id="event"><a name="event"></a><code>[override virtual protected] </code><span class="type">bool</span> QStatusBar::<span class="name">event</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>e</i>)</h3>
+<h3 class="fn" id="event"><a name="event"></a><code>[重载虚保护函数] </code><span class="type">bool</span> QStatusBar::<span class="name">event</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>e</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#event">QWidget::event</a>().</p>
 <!-- @@@event -->
 <!-- $$$hideOrShow[overload1]$$$hideOrShow -->
-<h3 class="fn" id="hideOrShow"><a name="hideOrShow"></a><code>[protected] </code><span class="type">void</span> QStatusBar::<span class="name">hideOrShow</span>()</h3>
+<h3 class="fn" id="hideOrShow"><a name="hideOrShow"></a><code>[保护函数] </code><span class="type">void</span> QStatusBar::<span class="name">hideOrShow</span>()</h3>
 <p>Ensures that the right widgets are visible.</p>
 <p>Used by the <a href="qstatusbar.html#showMessage">showMessage</a>() 和 <a href="qstatusbar.html#clearMessage">clearMessage</a>() functions.</p>
 <!-- @@@hideOrShow -->
@@ -269,17 +269,17 @@
 <p><b> 参见 </b><a href="qstatusbar.html#addWidget">addWidget</a>(), <a href="qstatusbar.html#removeWidget">removeWidget</a>(), 和 <a href="qstatusbar.html#addPermanentWidget">addPermanentWidget</a>().</p>
 <!-- @@@insertWidget -->
 <!-- $$$messageChanged[overload1]$$$messageChangedconstQString& -->
-<h3 class="fn" id="messageChanged"><a name="messageChanged"></a><code>[signal] </code><span class="type">void</span> QStatusBar::<span class="name">messageChanged</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>message</i>)</h3>
+<h3 class="fn" id="messageChanged"><a name="messageChanged"></a><code>[信号] </code><span class="type">void</span> QStatusBar::<span class="name">messageChanged</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>message</i>)</h3>
 <p>This signal is emitted whenever the temporary status message changes. The new temporary message is passed in the <i>message</i> parameter which is a null-string when the message has been removed.</p>
 <p><b> 参见 </b><a href="qstatusbar.html#showMessage">showMessage</a>() 和 <a href="qstatusbar.html#clearMessage">clearMessage</a>().</p>
 <!-- @@@messageChanged -->
 <!-- $$$paintEvent[overload1]$$$paintEventQPaintEvent* -->
-<h3 class="fn" id="paintEvent"><a name="paintEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QStatusBar::<span class="name">paintEvent</span>(<span class="type"><a href="../qtgui/qpaintevent.html">QPaintEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="paintEvent"><a name="paintEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QStatusBar::<span class="name">paintEvent</span>(<span class="type"><a href="../qtgui/qpaintevent.html">QPaintEvent</a></span> *<i>event</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#paintEvent">QWidget::paintEvent</a>().</p>
 <p>Shows the temporary message, if appropriate, in response to the paint <i>event</i>.</p>
 <!-- @@@paintEvent -->
 <!-- $$$reformat[overload1]$$$reformat -->
-<h3 class="fn" id="reformat"><a name="reformat"></a><code>[protected] </code><span class="type">void</span> QStatusBar::<span class="name">reformat</span>()</h3>
+<h3 class="fn" id="reformat"><a name="reformat"></a><code>[保护函数] </code><span class="type">void</span> QStatusBar::<span class="name">reformat</span>()</h3>
 <p>Changes the status bar's appearance to account for item changes.</p>
 <p>Special subclasses may need this function, but geometry management will usually take care of any necessary rearrangements.</p>
 <!-- @@@reformat -->
@@ -289,11 +289,11 @@
 <p><b>Note: </b>This function does not delete the widget but <i>hides</i> it. To add the widget again, you must call both the <a href="qstatusbar.html#addWidget">addWidget</a>() 和 <a href="qwidget.html#show">show</a>() functions.</p><p><b> 参见 </b><a href="qstatusbar.html#addWidget">addWidget</a>(), <a href="qstatusbar.html#addPermanentWidget">addPermanentWidget</a>(), 和 <a href="qstatusbar.html#clearMessage">clearMessage</a>().</p>
 <!-- @@@removeWidget -->
 <!-- $$$resizeEvent[overload1]$$$resizeEventQResizeEvent* -->
-<h3 class="fn" id="resizeEvent"><a name="resizeEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QStatusBar::<span class="name">resizeEvent</span>(<span class="type"><a href="../qtgui/qresizeevent.html">QResizeEvent</a></span> *<i>e</i>)</h3>
+<h3 class="fn" id="resizeEvent"><a name="resizeEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QStatusBar::<span class="name">resizeEvent</span>(<span class="type"><a href="../qtgui/qresizeevent.html">QResizeEvent</a></span> *<i>e</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#resizeEvent">QWidget::resizeEvent</a>().</p>
 <!-- @@@resizeEvent -->
 <!-- $$$showEvent[overload1]$$$showEventQShowEvent* -->
-<h3 class="fn" id="showEvent"><a name="showEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QStatusBar::<span class="name">showEvent</span>(<i>QShowEvent *</i>)</h3>
+<h3 class="fn" id="showEvent"><a name="showEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QStatusBar::<span class="name">showEvent</span>(<i>QShowEvent *</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#showEvent">QWidget::showEvent</a>().</p>
 <!-- @@@showEvent -->
 <!-- $$$showMessage[overload1]$$$showMessageconstQString&int -->

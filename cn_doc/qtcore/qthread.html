@@ -267,12 +267,12 @@
 <p><b> 参见 </b><a href="qthread.html#start">start</a>().</p>
 <!-- @@@QThread -->
 <!-- $$$~QThread[overload1]$$$~QThread -->
-<h3 class="fn" id="dtor.QThread"><a name="dtor.QThread"></a><code>[virtual] </code>QThread::<span class="name">~QThread</span>()</h3>
+<h3 class="fn" id="dtor.QThread"><a name="dtor.QThread"></a><code>[虚函数] </code>QThread::<span class="name">~QThread</span>()</h3>
 <p>Destroys the <a href="qthread.html">QThread</a>.</p>
 <p>Note that deleting a <a href="qthread.html">QThread</a> object will not stop the execution of the thread it manages. Deleting a running <a href="qthread.html">QThread</a> (i.e&#x2e; <a href="qthread.html#isFinished">isFinished</a>() returns <code>false</code>) will result in a program crash. Wait for the <a href="qthread.html#finished">finished</a>() signal before deleting the <a href="qthread.html">QThread</a>.</p>
 <!-- @@@~QThread -->
 <!-- $$$create[overload1]$$$createFunction&&Args&&... -->
-<h3 class="fn" id="create"><a name="create"></a><code>[static] </code><span class="type"><a href="qthread.html#QThread">QThread</a></span> *QThread::<span class="name">create</span>(<span class="type">函数</span> &amp;&amp;<i>f</i>, <span class="type">Args</span> &amp;&amp;... <i>args</i>)</h3>
+<h3 class="fn" id="create"><a name="create"></a><code>[静态函数] </code><span class="type"><a href="qthread.html#QThread">QThread</a></span> *QThread::<span class="name">create</span>(<span class="type">函数</span> &amp;&amp;<i>f</i>, <span class="type">Args</span> &amp;&amp;... <i>args</i>)</h3>
 <p>Creates a new <a href="qthread.html">QThread</a> object that will execute the function <i>f</i> with the arguments <i>args</i>.</p>
 <p>The new thread is not started -- it must be started by an explicit call to <a href="qthread.html#start">start</a>(). This allows you to connect to its signals, move QObjects to the thread, choose the new thread's priority and so on. The function <i>f</i> will be called in the new thread.</p>
 <p>Returns the newly created <a href="qthread.html">QThread</a> instance.</p>
@@ -281,7 +281,7 @@
 <p><b> 参见 </b><a href="qthread.html#start">start</a>().</p>
 <!-- @@@create -->
 <!-- $$$create$$$createFunction&& -->
-<h3 class="fn" id="create-1"><a name="create-1"></a><code>[static] </code><span class="type"><a href="qthread.html#QThread">QThread</a></span> *QThread::<span class="name">create</span>(<span class="type">函数</span> &amp;&amp;<i>f</i>)</h3>
+<h3 class="fn" id="create-1"><a name="create-1"></a><code>[静态函数] </code><span class="type"><a href="qthread.html#QThread">QThread</a></span> *QThread::<span class="name">create</span>(<span class="type">函数</span> &amp;&amp;<i>f</i>)</h3>
 <p>Creates a new <a href="qthread.html">QThread</a> object that will execute the function <i>f</i>.</p>
 <p>The new thread is not started -- it must be started by an explicit call to <a href="qthread.html#start">start</a>(). This allows you to connect to its signals, move QObjects to the thread, choose the new thread's priority and so on. The function <i>f</i> will be called in the new thread.</p>
 <p>Returns the newly created <a href="qthread.html">QThread</a> instance.</p>
@@ -290,16 +290,16 @@
 <p><b> 参见 </b><a href="qthread.html#start">start</a>().</p>
 <!-- @@@create -->
 <!-- $$$currentThread[overload1]$$$currentThread -->
-<h3 class="fn" id="currentThread"><a name="currentThread"></a><code>[static] </code><span class="type"><a href="qthread.html#QThread">QThread</a></span> *QThread::<span class="name">currentThread</span>()</h3>
+<h3 class="fn" id="currentThread"><a name="currentThread"></a><code>[静态函数] </code><span class="type"><a href="qthread.html#QThread">QThread</a></span> *QThread::<span class="name">currentThread</span>()</h3>
 <p>Returns a pointer to a <a href="qthread.html">QThread</a> which manages the currently executing thread.</p>
 <!-- @@@currentThread -->
 <!-- $$$currentThreadId[overload1]$$$currentThreadId -->
-<h3 class="fn" id="currentThreadId"><a name="currentThreadId"></a><code>[static] </code><span class="type">Qt::HANDLE</span> QThread::<span class="name">currentThreadId</span>()</h3>
+<h3 class="fn" id="currentThreadId"><a name="currentThreadId"></a><code>[静态函数] </code><span class="type">Qt::HANDLE</span> QThread::<span class="name">currentThreadId</span>()</h3>
 <p>Returns the thread handle of the currently executing thread.</p>
 <p><b>Warning:</b> The handle returned by this function is used for internal purposes and should not be used in any application code.</p>
 <p><b>Note: </b>On Windows, this function returns the DWORD (Windows-Thread ID) returned by the Win32 function GetCurrentThreadId(), not the pseudo-HANDLE (Windows-Thread HANDLE) returned by the Win32 function GetCurrentThread().</p><!-- @@@currentThreadId -->
 <!-- $$$event[overload1]$$$eventQEvent* -->
-<h3 class="fn" id="event"><a name="event"></a><code>[override virtual] </code><span class="type">bool</span> QThread::<span class="name">event</span>(<span class="type"><a href="qevent.html">QEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="event"><a name="event"></a><code>[重载虚函数] </code><span class="type">bool</span> QThread::<span class="name">event</span>(<span class="type"><a href="qevent.html">QEvent</a></span> *<i>event</i>)</h3>
 <p>Reimplemented from <a href="qobject.html#event">QObject::event</a>().</p>
 <!-- @@@event -->
 <!-- $$$eventDispatcher[overload1]$$$eventDispatcher -->
@@ -309,7 +309,7 @@
 <p><b> 参见 </b><a href="qthread.html#setEventDispatcher">setEventDispatcher</a>().</p>
 <!-- @@@eventDispatcher -->
 <!-- $$$exec[overload1]$$$exec -->
-<h3 class="fn" id="exec"><a name="exec"></a><code>[protected] </code><span class="type">int</span> QThread::<span class="name">exec</span>()</h3>
+<h3 class="fn" id="exec"><a name="exec"></a><code>[保护函数] </code><span class="type">int</span> QThread::<span class="name">exec</span>()</h3>
 <p>Enters the event loop and waits until <a href="qthread.html#exit">exit</a>() is called, returning the value that was passed to <a href="qthread.html#exit">exit</a>(). The value returned is 0 if <a href="qthread.html#exit">exit</a>() is called via <a href="qthread.html#quit">quit</a>().</p>
 <p>This function is meant to be called from within <a href="qthread.html#run">run</a>(). It is necessary to call this function to start event handling.</p>
 <p><b> 参见 </b><a href="qthread.html#quit">quit</a>() 和 <a href="qthread.html#exit">exit</a>().</p>
@@ -324,14 +324,14 @@
 <p><b> 参见 </b><a href="qthread.html#quit">quit</a>() 和 <a href="qeventloop.html">QEventLoop</a>.</p>
 <!-- @@@exit -->
 <!-- $$$finished[overload1]$$$finished -->
-<h3 class="fn" id="finished"><a name="finished"></a><code>[signal] </code><span class="type">void</span> QThread::<span class="name">finished</span>()</h3>
+<h3 class="fn" id="finished"><a name="finished"></a><code>[信号] </code><span class="type">void</span> QThread::<span class="name">finished</span>()</h3>
 <p>This signal is emitted from the associated thread right before it finishes executing.</p>
 <p>When this signal is emitted, the event loop has already stopped running. No more events will be processed in the thread, except for deferred deletion events. This signal can be connected to <a href="qobject.html#deleteLater">QObject::deleteLater</a>(), to free objects in that thread.</p>
 <p><b>Note: </b>If the associated thread was terminated using <a href="qthread.html#terminate">terminate</a>(), it is undefined from which thread this signal is emitted.</p><p><b>Note: </b>This is a private signal. It can be used in signal connections but cannot be emitted by the user.</p>
 <p><b> 参见 </b><a href="qthread.html#started">started</a>().</p>
 <!-- @@@finished -->
 <!-- $$$idealThreadCount[overload1]$$$idealThreadCount -->
-<h3 class="fn" id="idealThreadCount"><a name="idealThreadCount"></a><code>[static] </code><span class="type">int</span> QThread::<span class="name">idealThreadCount</span>()</h3>
+<h3 class="fn" id="idealThreadCount"><a name="idealThreadCount"></a><code>[静态函数] </code><span class="type">int</span> QThread::<span class="name">idealThreadCount</span>()</h3>
 <p>Returns the ideal number of threads that can be run on the system. This is done querying the number of processor cores, both real and logical, in the system. This function returns 1 if the number of processor cores could not be detected.</p>
 <!-- @@@idealThreadCount -->
 <!-- $$$isFinished[overload1]$$$isFinished -->
@@ -368,7 +368,7 @@
 <p><b>Note: </b>This can only be called within the thread itself, i.e&#x2e; when it is the current thread.</p><p>这个函数是在Qt 5.5版本中新增引入的。</p>
 <!-- @@@loopLevel -->
 <!-- $$$msleep[overload1]$$$msleepunsignedlong -->
-<h3 class="fn" id="msleep"><a name="msleep"></a><code>[static] </code><span class="type">void</span> QThread::<span class="name">msleep</span>(<span class="type">unsigned</span> <span class="type">long</span> <i>msecs</i>)</h3>
+<h3 class="fn" id="msleep"><a name="msleep"></a><code>[静态函数] </code><span class="type">void</span> QThread::<span class="name">msleep</span>(<span class="type">unsigned</span> <span class="type">long</span> <i>msecs</i>)</h3>
 <p>Forces the current thread to sleep for <i>msecs</i> milliseconds.</p>
 <p><b> 参见 </b><a href="qthread.html#sleep">sleep</a>() 和 <a href="qthread.html#usleep">usleep</a>().</p>
 <!-- @@@msleep -->
@@ -391,7 +391,7 @@
 <p><b> 参见 </b><a href="qthread.html#isInterruptionRequested">isInterruptionRequested</a>().</p>
 <!-- @@@requestInterruption -->
 <!-- $$$run[overload1]$$$run -->
-<h3 class="fn" id="run"><a name="run"></a><code>[virtual protected] </code><span class="type">void</span> QThread::<span class="name">run</span>()</h3>
+<h3 class="fn" id="run"><a name="run"></a><code>[虚保护函数] </code><span class="type">void</span> QThread::<span class="name">run</span>()</h3>
 <p>The starting point for the thread. After calling <a href="qthread.html#start">start</a>(), the newly created thread calls this function. The default implementation simply calls <a href="qthread.html#exec">exec</a>().</p>
 <p>You can reimplement this function to facilitate advanced thread management. Returning from this method will end the execution of the thread.</p>
 <p><b> 参见 </b><a href="qthread.html#start">start</a>() 和 <a href="qthread.html#wait">wait</a>().</p>
@@ -424,7 +424,7 @@
 <p><b> 参见 </b><a href="qthread.html#terminate">terminate</a>().</p>
 <!-- @@@setTerminationEnabled -->
 <!-- $$$sleep[overload1]$$$sleepunsignedlong -->
-<h3 class="fn" id="sleep"><a name="sleep"></a><code>[static] </code><span class="type">void</span> QThread::<span class="name">sleep</span>(<span class="type">unsigned</span> <span class="type">long</span> <i>secs</i>)</h3>
+<h3 class="fn" id="sleep"><a name="sleep"></a><code>[静态函数] </code><span class="type">void</span> QThread::<span class="name">sleep</span>(<span class="type">unsigned</span> <span class="type">long</span> <i>secs</i>)</h3>
 <p>Forces the current thread to sleep for <i>secs</i> seconds.</p>
 <p><b> 参见 </b><a href="qthread.html#msleep">msleep</a>() 和 <a href="qthread.html#usleep">usleep</a>().</p>
 <!-- @@@sleep -->
@@ -440,7 +440,7 @@
 <p><b> 参见 </b><a href="qthread.html#run">run</a>() 和 <a href="qthread.html#terminate">terminate</a>().</p>
 <!-- @@@start -->
 <!-- $$$started[overload1]$$$started -->
-<h3 class="fn" id="started"><a name="started"></a><code>[signal] </code><span class="type">void</span> QThread::<span class="name">started</span>()</h3>
+<h3 class="fn" id="started"><a name="started"></a><code>[信号] </code><span class="type">void</span> QThread::<span class="name">started</span>()</h3>
 <p>This signal is emitted from the associated thread when it starts executing, before the <a href="qthread.html#run">run</a>() function is called.</p>
 <p><b>Note: </b>This is a private signal. It can be used in signal connections but cannot be emitted by the user.</p>
 <p><b> 参见 </b><a href="qthread.html#finished">finished</a>().</p>
@@ -454,7 +454,7 @@
 <p><b> 参见 </b><a href="qthread.html#setTerminationEnabled">setTerminationEnabled</a>().</p>
 <!-- @@@terminate -->
 <!-- $$$usleep[overload1]$$$usleepunsignedlong -->
-<h3 class="fn" id="usleep"><a name="usleep"></a><code>[static] </code><span class="type">void</span> QThread::<span class="name">usleep</span>(<span class="type">unsigned</span> <span class="type">long</span> <i>usecs</i>)</h3>
+<h3 class="fn" id="usleep"><a name="usleep"></a><code>[静态函数] </code><span class="type">void</span> QThread::<span class="name">usleep</span>(<span class="type">unsigned</span> <span class="type">long</span> <i>usecs</i>)</h3>
 <p>Forces the current thread to sleep for <i>usecs</i> microseconds.</p>
 <p><b> 参见 </b><a href="qthread.html#sleep">sleep</a>() 和 <a href="qthread.html#msleep">msleep</a>().</p>
 <!-- @@@usleep -->
@@ -469,7 +469,7 @@
 <p><b> 参见 </b><a href="qthread.html#sleep">sleep</a>() 和 <a href="qthread.html#terminate">terminate</a>().</p>
 <!-- @@@wait -->
 <!-- $$$yieldCurrentThread[overload1]$$$yieldCurrentThread -->
-<h3 class="fn" id="yieldCurrentThread"><a name="yieldCurrentThread"></a><code>[static] </code><span class="type">void</span> QThread::<span class="name">yieldCurrentThread</span>()</h3>
+<h3 class="fn" id="yieldCurrentThread"><a name="yieldCurrentThread"></a><code>[静态函数] </code><span class="type">void</span> QThread::<span class="name">yieldCurrentThread</span>()</h3>
 <p>Yields execution of the current thread to another runnable thread, if any. Note that the operating system decides to which thread to switch.</p>
 <!-- @@@yieldCurrentThread -->
 </div>

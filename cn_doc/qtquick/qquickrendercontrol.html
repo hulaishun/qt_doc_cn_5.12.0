@@ -130,7 +130,7 @@
 <p>Constructs a <a href="qquickrendercontrol.html">QQuickRenderControl</a> object, with parent object <i>parent</i>.</p>
 <!-- @@@QQuickRenderControl -->
 <!-- $$$~QQuickRenderControl[overload1]$$$~QQuickRenderControl -->
-<h3 class="fn" id="dtor.QQuickRenderControl"><a name="dtor.QQuickRenderControl"></a><code>[override virtual] </code>QQuickRenderControl::<span class="name">~QQuickRenderControl</span>()</h3>
+<h3 class="fn" id="dtor.QQuickRenderControl"><a name="dtor.QQuickRenderControl"></a><code>[重载虚函数] </code>QQuickRenderControl::<span class="name">~QQuickRenderControl</span>()</h3>
 <p>Destroys the instance. Releases all scenegraph resources.</p>
 <p><b> 参见 </b><a href="qquickrendercontrol.html#invalidate">invalidate</a>().</p>
 <!-- @@@~QQuickRenderControl -->
@@ -163,21 +163,21 @@
 <p>Renders the scenegraph using the current context.</p>
 <!-- @@@render -->
 <!-- $$$renderRequested[overload1]$$$renderRequested -->
-<h3 class="fn" id="renderRequested"><a name="renderRequested"></a><code>[signal] </code><span class="type">void</span> QQuickRenderControl::<span class="name">renderRequested</span>()</h3>
+<h3 class="fn" id="renderRequested"><a name="renderRequested"></a><code>[信号] </code><span class="type">void</span> QQuickRenderControl::<span class="name">renderRequested</span>()</h3>
 <p>This signal is emitted when the scene graph needs to be rendered. It is not necessary to call <a href="qquickrendercontrol.html#sync">sync</a>().</p>
 <p><b>Note: </b>Avoid triggering rendering directly when this signal is emitted. Instead, prefer deferring it by using a timer for example. This will lead to better performance.</p><!-- @@@renderRequested -->
 <!-- $$$renderWindow[overload1]$$$renderWindowQPoint* -->
-<h3 class="fn" id="renderWindow"><a name="renderWindow"></a><code>[virtual] </code><span class="type"><a href="../qtgui/qwindow.html">QWindow</a></span> *QQuickRenderControl::<span class="name">renderWindow</span>(<span class="type"><a href="../qtcore/qpoint.html">QPoint</a></span> *<i>offset</i>)</h3>
+<h3 class="fn" id="renderWindow"><a name="renderWindow"></a><code>[虚函数] </code><span class="type"><a href="../qtgui/qwindow.html">QWindow</a></span> *QQuickRenderControl::<span class="name">renderWindow</span>(<span class="type"><a href="../qtcore/qpoint.html">QPoint</a></span> *<i>offset</i>)</h3>
 <p>Reimplemented in subclasses to return the real window this render control is rendering into.</p>
 <p>If <i>offset</i> in non-null, it is set to the offset of the control inside the window.</p>
 <p><b>Note: </b>While not mandatory, reimplementing this function becomes essential for supporting multiple screens with different device pixel ratios and properly positioning popup windows opened from QML. Therefore providing it in subclasses is highly recommended.</p><!-- @@@renderWindow -->
 <!-- $$$renderWindowFor[overload1]$$$renderWindowForQQuickWindow*QPoint* -->
-<h3 class="fn" id="renderWindowFor"><a name="renderWindowFor"></a><code>[static] </code><span class="type"><a href="../qtgui/qwindow.html">QWindow</a></span> *QQuickRenderControl::<span class="name">renderWindowFor</span>(<span class="type"><a href="qquickwindow.html">QQuickWindow</a></span> *<i>win</i>, <span class="type"><a href="../qtcore/qpoint.html">QPoint</a></span> *<i>offset</i> = nullptr)</h3>
+<h3 class="fn" id="renderWindowFor"><a name="renderWindowFor"></a><code>[静态函数] </code><span class="type"><a href="../qtgui/qwindow.html">QWindow</a></span> *QQuickRenderControl::<span class="name">renderWindowFor</span>(<span class="type"><a href="qquickwindow.html">QQuickWindow</a></span> *<i>win</i>, <span class="type"><a href="../qtcore/qpoint.html">QPoint</a></span> *<i>offset</i> = nullptr)</h3>
 <p>Returns the real window that <i>win</i> is being rendered to, if any.</p>
 <p>If <i>offset</i> in non-null, it is set to the offset of the rendering inside its window.</p>
 <!-- @@@renderWindowFor -->
 <!-- $$$sceneChanged[overload1]$$$sceneChanged -->
-<h3 class="fn" id="sceneChanged"><a name="sceneChanged"></a><code>[signal] </code><span class="type">void</span> QQuickRenderControl::<span class="name">sceneChanged</span>()</h3>
+<h3 class="fn" id="sceneChanged"><a name="sceneChanged"></a><code>[信号] </code><span class="type">void</span> QQuickRenderControl::<span class="name">sceneChanged</span>()</h3>
 <p>This signal is emitted when the scene graph is updated, meaning that <a href="qquickrendercontrol.html#polishItems">polishItems</a>() 和 <a href="qquickrendercontrol.html#sync">sync</a>() needs to be called. If <a href="qquickrendercontrol.html#sync">sync</a>() returns true, then <a href="qquickrendercontrol.html#render">render</a>() needs to be called.</p>
 <p><b>Note: </b>Avoid triggering polishing, synchronization and rendering directly when this signal is emitted. Instead, prefer deferring it by using a timer for example. This will lead to better performance.</p><!-- @@@sceneChanged -->
 <!-- $$$sync[overload1]$$$sync -->

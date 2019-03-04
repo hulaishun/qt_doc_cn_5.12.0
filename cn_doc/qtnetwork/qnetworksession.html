@@ -195,7 +195,7 @@
 <p><b> 参见 </b><a href="qnetworkconfiguration.html">QNetworkConfiguration</a>.</p>
 <!-- @@@QNetworkSession -->
 <!-- $$$~QNetworkSession[overload1]$$$~QNetworkSession -->
-<h3 class="fn" id="dtor.QNetworkSession"><a name="dtor.QNetworkSession"></a><code>[virtual] </code>QNetworkSession::<span class="name">~QNetworkSession</span>()</h3>
+<h3 class="fn" id="dtor.QNetworkSession"><a name="dtor.QNetworkSession"></a><code>[虚函数] </code>QNetworkSession::<span class="name">~QNetworkSession</span>()</h3>
 <p>Frees the resources associated with the <a href="qnetworksession.html">QNetworkSession</a> object.</p>
 <!-- @@@~QNetworkSession -->
 <!-- $$$accept[overload1]$$$accept -->
@@ -229,7 +229,7 @@
 <p><b> 参见 </b><a href="qnetworksession.html#open">open</a>(), <a href="qnetworksession.html#stop">stop</a>(), 和 <a href="qnetworksession.html#isOpen">isOpen</a>().</p>
 <!-- @@@close -->
 <!-- $$$closed[overload1]$$$closed -->
-<h3 class="fn" id="closed"><a name="closed"></a><code>[signal] </code><span class="type">void</span> QNetworkSession::<span class="name">closed</span>()</h3>
+<h3 class="fn" id="closed"><a name="closed"></a><code>[信号] </code><span class="type">void</span> QNetworkSession::<span class="name">closed</span>()</h3>
 <p>This signal is emitted when the network session has been closed.</p>
 <!-- @@@closed -->
 <!-- $$$configuration[overload1]$$$configuration -->
@@ -243,7 +243,7 @@
 <p><b> 参见 </b><a href="qnetworksession.html#state">state</a>() 和 <a href="qnetworksession.html#errorString">errorString</a>().</p>
 <!-- @@@error -->
 <!-- $$$error$$$errorQNetworkSession::SessionError -->
-<h3 class="fn" id="error-1"><a name="error-1"></a><code>[signal] </code><span class="type">void</span> QNetworkSession::<span class="name">error</span>(<span class="type"><a href="qnetworksession.html#SessionError-enum">QNetworkSession::SessionError</a></span> <i>error</i>)</h3>
+<h3 class="fn" id="error-1"><a name="error-1"></a><code>[信号] </code><span class="type">void</span> QNetworkSession::<span class="name">error</span>(<span class="type"><a href="qnetworksession.html#SessionError-enum">QNetworkSession::SessionError</a></span> <i>error</i>)</h3>
 <p>This signal is emitted after an error occurred. The <i>error</i> parameter describes the error that occurred.</p>
 <p><b>Note:</b> Signal <i>error</i> is overloaded in this class. To connect to this signal by using the function pointer syntax, Qt provides a convenient helper for obtaining the function pointer as shown in this example:<pre class="cpp">
 
@@ -282,7 +282,7 @@
 <p><b> 参见 </b><a href="qnetworksession.html#accept">accept</a>().</p>
 <!-- @@@migrate -->
 <!-- $$$newConfigurationActivated[overload1]$$$newConfigurationActivated -->
-<h3 class="fn" id="newConfigurationActivated"><a name="newConfigurationActivated"></a><code>[signal] </code><span class="type">void</span> QNetworkSession::<span class="name">newConfigurationActivated</span>()</h3>
+<h3 class="fn" id="newConfigurationActivated"><a name="newConfigurationActivated"></a><code>[信号] </code><span class="type">void</span> QNetworkSession::<span class="name">newConfigurationActivated</span>()</h3>
 <p>This signal is emitted once the session has roamed to the new access point. The application may reopen its socket and test the suitability of the new network link. Subsequently it must either <a href="qnetworksession.html#accept">accept</a>() or <a href="qnetworksession.html#reject">reject</a>() the new access point.</p>
 <p><b> 参见 </b><a href="qnetworksession.html#accept">accept</a>() 和 <a href="qnetworksession.html#reject">reject</a>().</p>
 <!-- @@@newConfigurationActivated -->
@@ -295,12 +295,12 @@
 <p><b> 参见 </b><a href="qnetworksession.html#close">close</a>(), <a href="qnetworksession.html#stop">stop</a>(), 和 <a href="qnetworksession.html#isOpen">isOpen</a>().</p>
 <!-- @@@open -->
 <!-- $$$opened[overload1]$$$opened -->
-<h3 class="fn" id="opened"><a name="opened"></a><code>[signal] </code><span class="type">void</span> QNetworkSession::<span class="name">opened</span>()</h3>
+<h3 class="fn" id="opened"><a name="opened"></a><code>[信号] </code><span class="type">void</span> QNetworkSession::<span class="name">opened</span>()</h3>
 <p>This signal is emitted when the network session has been opened.</p>
 <p>The underlying network interface will not be shut down as long as the session remains open. Note that this feature is dependent on <a href="qnetworkconfigurationmanager.html#Capability-enum">system wide session support</a>.</p>
 <!-- @@@opened -->
 <!-- $$$preferredConfigurationChanged[overload1]$$$preferredConfigurationChangedconstQNetworkConfiguration&bool -->
-<h3 class="fn" id="preferredConfigurationChanged"><a name="preferredConfigurationChanged"></a><code>[signal] </code><span class="type">void</span> QNetworkSession::<span class="name">preferredConfigurationChanged</span>(const <span class="type"><a href="qnetworkconfiguration.html">QNetworkConfiguration</a></span> &amp;<i>config</i>, <span class="type">bool</span> <i>isSeamless</i>)</h3>
+<h3 class="fn" id="preferredConfigurationChanged"><a name="preferredConfigurationChanged"></a><code>[信号] </code><span class="type">void</span> QNetworkSession::<span class="name">preferredConfigurationChanged</span>(const <span class="type"><a href="qnetworkconfiguration.html">QNetworkConfiguration</a></span> &amp;<i>config</i>, <span class="type">bool</span> <i>isSeamless</i>)</h3>
 <p>This signal is emitted when the preferred configuration/access point for the session changes. Only sessions which are based on service network configurations may emit this signal. <i>config</i> can be used to determine access point specific details such as proxy settings and <i>isSeamless</i> indicates whether roaming will break the sessions IP address.</p>
 <p>As a consequence to this signal the application must either start the roaming process by calling <a href="qnetworksession.html#migrate">migrate</a>() or choose to <a href="qnetworksession.html#ignore">ignore</a>() the new access point.</p>
 <p>If the roaming process is non-seamless the IP address will change which means that a socket becomes invalid. However seamless mobility can ensure that the local IP address does not change. This is achieved by using a virtual IP address which is bound to the actual link address. During the roaming process the virtual address is attached to the new link address.</p>
@@ -361,7 +361,7 @@
 <p><b> 参见 </b><a href="qnetworksession.html#error">error</a>() 和 <a href="qnetworksession.html#stateChanged">stateChanged</a>().</p>
 <!-- @@@state -->
 <!-- $$$stateChanged[overload1]$$$stateChangedQNetworkSession::State -->
-<h3 class="fn" id="stateChanged"><a name="stateChanged"></a><code>[signal] </code><span class="type">void</span> QNetworkSession::<span class="name">stateChanged</span>(<span class="type"><a href="qnetworksession.html#State-enum">QNetworkSession::State</a></span> <i>state</i>)</h3>
+<h3 class="fn" id="stateChanged"><a name="stateChanged"></a><code>[信号] </code><span class="type">void</span> QNetworkSession::<span class="name">stateChanged</span>(<span class="type"><a href="qnetworksession.html#State-enum">QNetworkSession::State</a></span> <i>state</i>)</h3>
 <p>This signal is emitted whenever the state of the network session changes. The <i>state</i> parameter is the new state.</p>
 <p><b> 参见 </b><a href="qnetworksession.html#state">state</a>().</p>
 <!-- @@@stateChanged -->
@@ -375,7 +375,7 @@
 <p>Returns the network usage policies currently in force by the system.</p>
 <!-- @@@usagePolicies -->
 <!-- $$$usagePoliciesChanged[overload1]$$$usagePoliciesChangedQNetworkSession::UsagePolicies -->
-<h3 class="fn" id="usagePoliciesChanged"><a name="usagePoliciesChanged"></a><code>[signal] </code><span class="type">void</span> QNetworkSession::<span class="name">usagePoliciesChanged</span>(<span class="type"><a href="qnetworksession.html#UsagePolicy-enum">QNetworkSession::UsagePolicies</a></span> <i>usagePolicies</i>)</h3>
+<h3 class="fn" id="usagePoliciesChanged"><a name="usagePoliciesChanged"></a><code>[信号] </code><span class="type">void</span> QNetworkSession::<span class="name">usagePoliciesChanged</span>(<span class="type"><a href="qnetworksession.html#UsagePolicy-enum">QNetworkSession::UsagePolicies</a></span> <i>usagePolicies</i>)</h3>
 <p>This signal is emitted when the <i>usagePolicies</i> in force are changed by the system.</p>
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <!-- @@@usagePoliciesChanged -->

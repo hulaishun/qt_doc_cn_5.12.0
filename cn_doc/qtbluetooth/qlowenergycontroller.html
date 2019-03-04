@@ -194,7 +194,7 @@
 <div class="func">
 <h2>成员函数文档</h2>
 <!-- $$$~QLowEnergyController[overload1]$$$~QLowEnergyController -->
-<h3 class="fn" id="dtor.QLowEnergyController"><a name="dtor.QLowEnergyController"></a><code>[virtual] </code>QLowEnergyController::<span class="name">~QLowEnergyController</span>()</h3>
+<h3 class="fn" id="dtor.QLowEnergyController"><a name="dtor.QLowEnergyController"></a><code>[虚函数] </code>QLowEnergyController::<span class="name">~QLowEnergyController</span>()</h3>
 <p>Destroys the <a href="qlowenergycontroller.html">QLowEnergyController</a> instance.</p>
 <!-- @@@~QLowEnergyController -->
 <!-- $$$addService[overload1]$$$addServiceconstQLowEnergyServiceData&QObject* -->
@@ -211,24 +211,24 @@
 <p><b> 参见 </b><a href="qlowenergycontroller.html#disconnectFromDevice">disconnectFromDevice</a>().</p>
 <!-- @@@connectToDevice -->
 <!-- $$$connected[overload1]$$$connected -->
-<h3 class="fn" id="connected"><a name="connected"></a><code>[signal] </code><span class="type">void</span> QLowEnergyController::<span class="name">connected</span>()</h3>
+<h3 class="fn" id="connected"><a name="connected"></a><code>[信号] </code><span class="type">void</span> QLowEnergyController::<span class="name">connected</span>()</h3>
 <p>This signal is emitted when the controller successfully connects to the remote Low Energy device (if the controller is in the <a href="qlowenergycontroller.html#Role-enum">CentralRole</a>) or if a remote Low Energy device connected to the controller (if the controller is in the <a href="qlowenergycontroller.html#Role-enum">PeripheralRole</a>). On iOS and OS X this signal is not reliable if the controller is in the <a href="qlowenergycontroller.html#Role-enum">PeripheralRole</a> - the controller only guesses that some central connected to our peripheral as soon as this central tries to write/read a characteristic/descriptor.</p>
 <!-- @@@connected -->
 <!-- $$$connectionUpdated[overload1]$$$connectionUpdatedconstQLowEnergyConnectionParameters& -->
-<h3 class="fn" id="connectionUpdated"><a name="connectionUpdated"></a><code>[signal] </code><span class="type">void</span> QLowEnergyController::<span class="name">connectionUpdated</span>(const <span class="type"><a href="qlowenergyconnectionparameters.html">QLowEnergyConnectionParameters</a></span> &amp;<i>newParameters</i>)</h3>
+<h3 class="fn" id="connectionUpdated"><a name="connectionUpdated"></a><code>[信号] </code><span class="type">void</span> QLowEnergyController::<span class="name">connectionUpdated</span>(const <span class="type"><a href="qlowenergyconnectionparameters.html">QLowEnergyConnectionParameters</a></span> &amp;<i>newParameters</i>)</h3>
 <p>This signal is emitted when the connection parameters change. This can happen as a result of calling <a href="qlowenergycontroller.html#requestConnectionUpdate">requestConnectionUpdate</a>() or due to other reasons, for instance because the other side of the connection requested new parameters. The new values can be retrieved from <i>newParameters</i>.</p>
 <p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qlowenergycontroller.html#requestConnectionUpdate">requestConnectionUpdate</a>().</p>
 <!-- @@@connectionUpdated -->
 <!-- $$$createCentral[overload1]$$$createCentralconstQBluetoothDeviceInfo&QObject* -->
-<h3 class="fn" id="createCentral"><a name="createCentral"></a><code>[static] </code><span class="type"><a href="qlowenergycontroller-obsolete.html#QLowEnergyController">QLowEnergyController</a></span> *QLowEnergyController::<span class="name">createCentral</span>(const <span class="type"><a href="qbluetoothdeviceinfo.html">QBluetoothDeviceInfo</a></span> &amp;<i>remoteDevice</i>, <span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
+<h3 class="fn" id="createCentral"><a name="createCentral"></a><code>[静态函数] </code><span class="type"><a href="qlowenergycontroller-obsolete.html#QLowEnergyController">QLowEnergyController</a></span> *QLowEnergyController::<span class="name">createCentral</span>(const <span class="type"><a href="qbluetoothdeviceinfo.html">QBluetoothDeviceInfo</a></span> &amp;<i>remoteDevice</i>, <span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
 <p>Returns a new object of this class that is in the <a href="qlowenergycontroller.html#Role-enum">CentralRole</a> and has the parent object <i>parent</i>. The <i>remoteDevice</i> refers to the device that a connection will be established to later.</p>
 <p>The controller uses the local default Bluetooth adapter for the connection management.</p>
 <p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qlowenergycontroller.html#Role-enum">QLowEnergyController::CentralRole</a>.</p>
 <!-- @@@createCentral -->
 <!-- $$$createPeripheral[overload1]$$$createPeripheralQObject* -->
-<h3 class="fn" id="createPeripheral"><a name="createPeripheral"></a><code>[static] </code><span class="type"><a href="qlowenergycontroller-obsolete.html#QLowEnergyController">QLowEnergyController</a></span> *QLowEnergyController::<span class="name">createPeripheral</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
+<h3 class="fn" id="createPeripheral"><a name="createPeripheral"></a><code>[静态函数] </code><span class="type"><a href="qlowenergycontroller-obsolete.html#QLowEnergyController">QLowEnergyController</a></span> *QLowEnergyController::<span class="name">createPeripheral</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
 <p>Returns a new object of this class that is in the <a href="qlowenergycontroller.html#Role-enum">PeripheralRole</a> and has the parent object <i>parent</i>. Typically, the next step is to call <a href="qlowenergycontroller.html#startAdvertising">startAdvertising</a>() on the returned object.</p>
 <p>The controller uses the local default Bluetooth adapter for the connection management.</p>
 <p>这个函数是在Qt 5.7版本中新增引入的。</p>
@@ -252,7 +252,7 @@
 <p><b> 参见 </b><a href="qlowenergycontroller.html#connectToDevice">connectToDevice</a>().</p>
 <!-- @@@disconnectFromDevice -->
 <!-- $$$disconnected[overload1]$$$disconnected -->
-<h3 class="fn" id="disconnected"><a name="disconnected"></a><code>[signal] </code><span class="type">void</span> QLowEnergyController::<span class="name">disconnected</span>()</h3>
+<h3 class="fn" id="disconnected"><a name="disconnected"></a><code>[信号] </code><span class="type">void</span> QLowEnergyController::<span class="name">disconnected</span>()</h3>
 <p>This signal is emitted when the controller disconnects from the remote Low Energy device or vice versa. On iOS and OS X this signal is unreliable if the controller is in the <a href="qlowenergycontroller.html#Role-enum">PeripheralRole</a>.</p>
 <!-- @@@disconnected -->
 <!-- $$$discoverServices[overload1]$$$discoverServices -->
@@ -262,7 +262,7 @@
 <p>If the controller instance is not connected or the controller has performed the service discovery already this function will do nothing.</p>
 <p><b>Note: </b>Some platforms internally cache the service list of a device which was discovered in the past. This can be problematic if the remote device changed its list of services or their inclusion tree. If this behavior is a problem, the best workaround is to temporarily turn Bluetooth off. This causes a reset of the cache data. Currently Android exhibits such a cache behavior.</p><!-- @@@discoverServices -->
 <!-- $$$discoveryFinished[overload1]$$$discoveryFinished -->
-<h3 class="fn" id="discoveryFinished"><a name="discoveryFinished"></a><code>[signal] </code><span class="type">void</span> QLowEnergyController::<span class="name">discoveryFinished</span>()</h3>
+<h3 class="fn" id="discoveryFinished"><a name="discoveryFinished"></a><code>[信号] </code><span class="type">void</span> QLowEnergyController::<span class="name">discoveryFinished</span>()</h3>
 <p>This signal is emitted when the running service discovery finishes. The signal is not emitted if the discovery process finishes with an error.</p>
 <p>This signal can only be emitted if the controller is in the <a href="qlowenergycontroller.html#Role-enum">CentralRole</a>.</p>
 <p><b> 参见 </b><a href="qlowenergycontroller.html#discoverServices">discoverServices</a>() 和 <a href="qlowenergycontroller.html#error">error</a>().</p>
@@ -272,7 +272,7 @@
 <p>Returns the last occurred error or <a href="qlowenergycontroller.html#Error-enum">NoError</a>.</p>
 <!-- @@@error -->
 <!-- $$$error$$$errorQLowEnergyController::Error -->
-<h3 class="fn" id="error-1"><a name="error-1"></a><code>[signal] </code><span class="type">void</span> QLowEnergyController::<span class="name">error</span>(<span class="type"><a href="qlowenergycontroller.html#Error-enum">QLowEnergyController::Error</a></span> <i>newError</i>)</h3>
+<h3 class="fn" id="error-1"><a name="error-1"></a><code>[信号] </code><span class="type">void</span> QLowEnergyController::<span class="name">error</span>(<span class="type"><a href="qlowenergycontroller.html#Error-enum">QLowEnergyController::Error</a></span> <i>newError</i>)</h3>
 <p>This signal is emitted when an error occurs. The <i>newError</i> parameter describes the error that occurred.</p>
 <p><b>Note:</b> Signal <i>error</i> is overloaded in this class. To connect to this signal by using the function pointer syntax, Qt provides a convenient helper for obtaining the function pointer as shown in this example:<pre class="cpp">
 
@@ -327,7 +327,7 @@
 <p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <!-- @@@role -->
 <!-- $$$serviceDiscovered[overload1]$$$serviceDiscoveredconstQBluetoothUuid& -->
-<h3 class="fn" id="serviceDiscovered"><a name="serviceDiscovered"></a><code>[signal] </code><span class="type">void</span> QLowEnergyController::<span class="name">serviceDiscovered</span>(const <span class="type"><a href="qbluetoothuuid.html">QBluetoothUuid</a></span> &amp;<i>newService</i>)</h3>
+<h3 class="fn" id="serviceDiscovered"><a name="serviceDiscovered"></a><code>[信号] </code><span class="type">void</span> QLowEnergyController::<span class="name">serviceDiscovered</span>(const <span class="type"><a href="qbluetoothuuid.html">QBluetoothUuid</a></span> &amp;<i>newService</i>)</h3>
 <p>This signal is emitted each time a new service is discovered. The <i>newService</i> parameter contains the UUID of the found service.</p>
 <p>This signal can only be emitted if the controller is in the <code>CentralRole</code>.</p>
 <p><b> 参见 </b><a href="qlowenergycontroller.html#discoverServices">discoverServices</a>() 和 <a href="qlowenergycontroller.html#discoveryFinished">discoveryFinished</a>().</p>
@@ -358,7 +358,7 @@
 <p><b> 参见 </b><a href="qlowenergycontroller.html#stateChanged">stateChanged</a>().</p>
 <!-- @@@state -->
 <!-- $$$stateChanged[overload1]$$$stateChangedQLowEnergyController::ControllerState -->
-<h3 class="fn" id="stateChanged"><a name="stateChanged"></a><code>[signal] </code><span class="type">void</span> QLowEnergyController::<span class="name">stateChanged</span>(<span class="type"><a href="qlowenergycontroller.html#ControllerState-enum">QLowEnergyController::ControllerState</a></span> <i>state</i>)</h3>
+<h3 class="fn" id="stateChanged"><a name="stateChanged"></a><code>[信号] </code><span class="type">void</span> QLowEnergyController::<span class="name">stateChanged</span>(<span class="type"><a href="qlowenergycontroller.html#ControllerState-enum">QLowEnergyController::ControllerState</a></span> <i>state</i>)</h3>
 <p>This signal is emitted when the controller's state changes. The new <i>state</i> can also be retrieved via <a href="qlowenergycontroller.html#state">state</a>().</p>
 <p><b> 参见 </b><a href="qlowenergycontroller.html#state">state</a>().</p>
 <!-- @@@stateChanged -->

@@ -122,43 +122,43 @@
 <p>The cookie jar is initialized to empty.</p>
 <!-- @@@QNetworkCookieJar -->
 <!-- $$$~QNetworkCookieJar[overload1]$$$~QNetworkCookieJar -->
-<h3 class="fn" id="dtor.QNetworkCookieJar"><a name="dtor.QNetworkCookieJar"></a><code>[virtual] </code>QNetworkCookieJar::<span class="name">~QNetworkCookieJar</span>()</h3>
+<h3 class="fn" id="dtor.QNetworkCookieJar"><a name="dtor.QNetworkCookieJar"></a><code>[虚函数] </code>QNetworkCookieJar::<span class="name">~QNetworkCookieJar</span>()</h3>
 <p>Destroys this cookie jar object and discards all cookies stored in it. Cookies are not saved to disk in the <a href="qnetworkcookiejar.html">QNetworkCookieJar</a> default implementation.</p>
 <p>If you need to save the cookies to disk, you have to derive from <a href="qnetworkcookiejar.html">QNetworkCookieJar</a> and save the cookies to disk yourself.</p>
 <!-- @@@~QNetworkCookieJar -->
 <!-- $$$allCookies[overload1]$$$allCookies -->
-<h3 class="fn" id="allCookies"><a name="allCookies"></a><code>[protected] </code><span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qnetworkcookie.html">QNetworkCookie</a></span>&gt; QNetworkCookieJar::<span class="name">allCookies</span>() const</h3>
+<h3 class="fn" id="allCookies"><a name="allCookies"></a><code>[保护函数] </code><span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qnetworkcookie.html">QNetworkCookie</a></span>&gt; QNetworkCookieJar::<span class="name">allCookies</span>() const</h3>
 <p>Returns all cookies stored in this cookie jar. This function is suitable for derived classes to save cookies to disk, as well as to implement cookie expiration and other policies.</p>
 <p><b> 参见 </b><a href="qnetworkcookiejar.html#setAllCookies">setAllCookies</a>() 和 <a href="qnetworkcookiejar.html#cookiesForUrl">cookiesForUrl</a>().</p>
 <!-- @@@allCookies -->
 <!-- $$$cookiesForUrl[overload1]$$$cookiesForUrlconstQUrl& -->
-<h3 class="fn" id="cookiesForUrl"><a name="cookiesForUrl"></a><code>[virtual] </code><span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qnetworkcookie.html">QNetworkCookie</a></span>&gt; QNetworkCookieJar::<span class="name">cookiesForUrl</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>) const</h3>
+<h3 class="fn" id="cookiesForUrl"><a name="cookiesForUrl"></a><code>[虚函数] </code><span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qnetworkcookie.html">QNetworkCookie</a></span>&gt; QNetworkCookieJar::<span class="name">cookiesForUrl</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>) const</h3>
 <p>Returns the cookies to be added to when a request is sent to <i>url</i>. This function is called by the default <a href="qnetworkaccessmanager.html#createRequest">QNetworkAccessManager::createRequest</a>(), which adds the cookies returned by this function to the request being sent.</p>
 <p>If more than one cookie with the same name is found, but with differing paths, the one with longer path is returned before the one with shorter path. In other words, this function returns cookies sorted decreasingly by path length.</p>
 <p>The default <a href="qnetworkcookiejar.html">QNetworkCookieJar</a> class implements only a very basic security policy (it makes sure that the cookies' domain and path match the reply's). To enhance the security policy with your own algorithms, override cookiesForUrl().</p>
 <p><b> 参见 </b><a href="qnetworkcookiejar.html#setCookiesFromUrl">setCookiesFromUrl</a>() 和 <a href="qnetworkaccessmanager.html#setCookieJar">QNetworkAccessManager::setCookieJar</a>().</p>
 <!-- @@@cookiesForUrl -->
 <!-- $$$deleteCookie[overload1]$$$deleteCookieconstQNetworkCookie& -->
-<h3 class="fn" id="deleteCookie"><a name="deleteCookie"></a><code>[virtual] </code><span class="type">bool</span> QNetworkCookieJar::<span class="name">deleteCookie</span>(const <span class="type"><a href="qnetworkcookie.html">QNetworkCookie</a></span> &amp;<i>cookie</i>)</h3>
+<h3 class="fn" id="deleteCookie"><a name="deleteCookie"></a><code>[虚函数] </code><span class="type">bool</span> QNetworkCookieJar::<span class="name">deleteCookie</span>(const <span class="type"><a href="qnetworkcookie.html">QNetworkCookie</a></span> &amp;<i>cookie</i>)</h3>
 <p>Deletes from cookie jar the cookie found to have the same identifier as <i>cookie</i>.</p>
 <p>Returns <code>true</code> if a cookie was deleted, false otherwise.</p>
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qnetworkcookie.html#hasSameIdentifier">QNetworkCookie::hasSameIdentifier</a>().</p>
 <!-- @@@deleteCookie -->
 <!-- $$$insertCookie[overload1]$$$insertCookieconstQNetworkCookie& -->
-<h3 class="fn" id="insertCookie"><a name="insertCookie"></a><code>[virtual] </code><span class="type">bool</span> QNetworkCookieJar::<span class="name">insertCookie</span>(const <span class="type"><a href="qnetworkcookie.html">QNetworkCookie</a></span> &amp;<i>cookie</i>)</h3>
+<h3 class="fn" id="insertCookie"><a name="insertCookie"></a><code>[虚函数] </code><span class="type">bool</span> QNetworkCookieJar::<span class="name">insertCookie</span>(const <span class="type"><a href="qnetworkcookie.html">QNetworkCookie</a></span> &amp;<i>cookie</i>)</h3>
 <p>Adds <i>cookie</i> to this cookie jar.</p>
 <p>Returns <code>true</code> if <i>cookie</i> was added, false otherwise.</p>
 <p>If a cookie with the same identifier already exists in the cookie jar, it will be overridden.</p>
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <!-- @@@insertCookie -->
 <!-- $$$setAllCookies[overload1]$$$setAllCookiesconstQList<QNetworkCookie>& -->
-<h3 class="fn" id="setAllCookies"><a name="setAllCookies"></a><code>[protected] </code><span class="type">void</span> QNetworkCookieJar::<span class="name">setAllCookies</span>(const <span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qnetworkcookie.html">QNetworkCookie</a></span>&gt; &amp;<i>cookieList</i>)</h3>
+<h3 class="fn" id="setAllCookies"><a name="setAllCookies"></a><code>[保护函数] </code><span class="type">void</span> QNetworkCookieJar::<span class="name">setAllCookies</span>(const <span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qnetworkcookie.html">QNetworkCookie</a></span>&gt; &amp;<i>cookieList</i>)</h3>
 <p>Sets the internal list of cookies held by this cookie jar to be <i>cookieList</i>. This function is suitable for derived classes to implement loading cookies from permanent storage, or their own cookie acceptance policies by reimplementing <a href="qnetworkcookiejar.html#setCookiesFromUrl">setCookiesFromUrl</a>().</p>
 <p><b> 参见 </b><a href="qnetworkcookiejar.html#allCookies">allCookies</a>() 和 <a href="qnetworkcookiejar.html#setCookiesFromUrl">setCookiesFromUrl</a>().</p>
 <!-- @@@setAllCookies -->
 <!-- $$$setCookiesFromUrl[overload1]$$$setCookiesFromUrlconstQList<QNetworkCookie>&constQUrl& -->
-<h3 class="fn" id="setCookiesFromUrl"><a name="setCookiesFromUrl"></a><code>[virtual] </code><span class="type">bool</span> QNetworkCookieJar::<span class="name">setCookiesFromUrl</span>(const <span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qnetworkcookie.html">QNetworkCookie</a></span>&gt; &amp;<i>cookieList</i>, const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
+<h3 class="fn" id="setCookiesFromUrl"><a name="setCookiesFromUrl"></a><code>[虚函数] </code><span class="type">bool</span> QNetworkCookieJar::<span class="name">setCookiesFromUrl</span>(const <span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qnetworkcookie.html">QNetworkCookie</a></span>&gt; &amp;<i>cookieList</i>, const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
 <p>Adds the cookies in the list <i>cookieList</i> to this cookie jar. Before being inserted cookies are normalized.</p>
 <p>Returns <code>true</code> if one or more cookies are set for <i>url</i>, otherwise false.</p>
 <p>If a cookie already exists in the cookie jar, it will be overridden by those in <i>cookieList</i>.</p>
@@ -167,14 +167,14 @@
 <p><b> 参见 </b><a href="qnetworkcookiejar.html#cookiesForUrl">cookiesForUrl</a>(), <a href="qnetworkaccessmanager.html#setCookieJar">QNetworkAccessManager::setCookieJar</a>(), 和 <a href="qnetworkcookie.html#normalize">QNetworkCookie::normalize</a>().</p>
 <!-- @@@setCookiesFromUrl -->
 <!-- $$$updateCookie[overload1]$$$updateCookieconstQNetworkCookie& -->
-<h3 class="fn" id="updateCookie"><a name="updateCookie"></a><code>[virtual] </code><span class="type">bool</span> QNetworkCookieJar::<span class="name">updateCookie</span>(const <span class="type"><a href="qnetworkcookie.html">QNetworkCookie</a></span> &amp;<i>cookie</i>)</h3>
+<h3 class="fn" id="updateCookie"><a name="updateCookie"></a><code>[虚函数] </code><span class="type">bool</span> QNetworkCookieJar::<span class="name">updateCookie</span>(const <span class="type"><a href="qnetworkcookie.html">QNetworkCookie</a></span> &amp;<i>cookie</i>)</h3>
 <p>If a cookie with the same identifier as <i>cookie</i> exists in this cookie jar it will be updated. This function uses <a href="qnetworkcookiejar.html#insertCookie">insertCookie</a>().</p>
 <p>Returns <code>true</code> if <i>cookie</i> was updated, false if no cookie in the jar matches the identifier of <i>cookie</i>.</p>
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qnetworkcookie.html#hasSameIdentifier">QNetworkCookie::hasSameIdentifier</a>().</p>
 <!-- @@@updateCookie -->
 <!-- $$$validateCookie[overload1]$$$validateCookieconstQNetworkCookie&constQUrl& -->
-<h3 class="fn" id="validateCookie"><a name="validateCookie"></a><code>[virtual protected] </code><span class="type">bool</span> QNetworkCookieJar::<span class="name">validateCookie</span>(const <span class="type"><a href="qnetworkcookie.html">QNetworkCookie</a></span> &amp;<i>cookie</i>, const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>) const</h3>
+<h3 class="fn" id="validateCookie"><a name="validateCookie"></a><code>[虚保护函数] </code><span class="type">bool</span> QNetworkCookieJar::<span class="name">validateCookie</span>(const <span class="type"><a href="qnetworkcookie.html">QNetworkCookie</a></span> &amp;<i>cookie</i>, const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>) const</h3>
 <p>Returns <code>true</code> if the domain and path of <i>cookie</i> are valid, false otherwise. The <i>url</i> parameter is used to determine if the domain specified in the cookie is allowed.</p>
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <!-- @@@validateCookie -->

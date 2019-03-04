@@ -216,7 +216,7 @@
 <p>We recommend omitting the file's suffix in <i>fileName</i>, since <a href="qlibrary.html">QLibrary</a> will automatically look for the file with the appropriate suffix in accordance with the platform, e.g&#x2e; &quot;.so&quot; on Unix, &quot;.dylib&quot; on <a href="../qtdoc/internationalization.html#macos">macOS</a> and iOS, and &quot;.dll&quot; on Windows. (See <a href="qlibrary.html#fileName-prop">fileName</a>.)</p>
 <!-- @@@QLibrary -->
 <!-- $$$~QLibrary[overload1]$$$~QLibrary -->
-<h3 class="fn" id="dtor.QLibrary"><a name="dtor.QLibrary"></a><code>[virtual] </code>QLibrary::<span class="name">~QLibrary</span>()</h3>
+<h3 class="fn" id="dtor.QLibrary"><a name="dtor.QLibrary"></a><code>[虚函数] </code>QLibrary::<span class="name">~QLibrary</span>()</h3>
 <p>Destroys the <a href="qlibrary.html">QLibrary</a> object.</p>
 <p>Unless <a href="qlibrary.html#unload">unload</a>() was called explicitly, the library stays in memory until the application terminates.</p>
 <p><b> 参见 </b><a href="qlibrary.html#isLoaded">isLoaded</a>() 和 <a href="qlibrary.html#unload">unload</a>().</p>
@@ -227,7 +227,7 @@
 <p>这个函数是在Qt 4.2版本中新增引入的。</p>
 <!-- @@@errorString -->
 <!-- $$$isLibrary[overload1]$$$isLibraryconstQString& -->
-<h3 class="fn" id="isLibrary"><a name="isLibrary"></a><code>[static] </code><span class="type">bool</span> QLibrary::<span class="name">isLibrary</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>)</h3>
+<h3 class="fn" id="isLibrary"><a name="isLibrary"></a><code>[静态函数] </code><span class="type">bool</span> QLibrary::<span class="name">isLibrary</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>)</h3>
 <p>Returns <code>true</code> if <i>fileName</i> has a valid suffix for a loadable library; otherwise returns <code>false</code>.</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th >Platform</th><th >Valid suffixes</th></tr></thead>
@@ -285,21 +285,21 @@
 </pre>
 <!-- @@@resolve -->
 <!-- $$$resolve$$$resolveconstQString&constchar* -->
-<h3 class="fn" id="resolve-1"><a name="resolve-1"></a><code>[static] </code><span class="type"><a href="qtglobal.html#QFunctionPointer-typedef">QFunctionPointer</a></span> QLibrary::<span class="name">resolve</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>, const <span class="type">char</span> *<i>symbol</i>)</h3>
+<h3 class="fn" id="resolve-1"><a name="resolve-1"></a><code>[静态函数] </code><span class="type"><a href="qtglobal.html#QFunctionPointer-typedef">QFunctionPointer</a></span> QLibrary::<span class="name">resolve</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>, const <span class="type">char</span> *<i>symbol</i>)</h3>
 <p>这是一个重载函数。</p>
 <p>Loads the library <i>fileName</i> and returns the address of the exported symbol <i>symbol</i>. Note that <i>fileName</i> should not include the platform-specific file suffix; (see <a href="qlibrary.html#fileName-prop">fileName</a>). The library remains loaded until the application exits.</p>
 <p>The function returns 0 if the symbol could not be resolved or if the library could not be loaded.</p>
 <p><b> 参见 </b><a href="qlibrary.html#resolve">resolve</a>().</p>
 <!-- @@@resolve -->
 <!-- $$$resolve$$$resolveconstQString&intconstchar* -->
-<h3 class="fn" id="resolve-2"><a name="resolve-2"></a><code>[static] </code><span class="type"><a href="qtglobal.html#QFunctionPointer-typedef">QFunctionPointer</a></span> QLibrary::<span class="name">resolve</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>, <span class="type">int</span> <i>verNum</i>, const <span class="type">char</span> *<i>symbol</i>)</h3>
+<h3 class="fn" id="resolve-2"><a name="resolve-2"></a><code>[静态函数] </code><span class="type"><a href="qtglobal.html#QFunctionPointer-typedef">QFunctionPointer</a></span> QLibrary::<span class="name">resolve</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>, <span class="type">int</span> <i>verNum</i>, const <span class="type">char</span> *<i>symbol</i>)</h3>
 <p>这是一个重载函数。</p>
 <p>Loads the library <i>fileName</i> with major version number <i>verNum</i> and returns the address of the exported symbol <i>symbol</i>. Note that <i>fileName</i> should not include the platform-specific file suffix; (see <a href="qlibrary.html#fileName-prop">fileName</a>). The library remains loaded until the application exits. <i>verNum</i> is ignored on Windows.</p>
 <p>The function returns 0 if the symbol could not be resolved or if the library could not be loaded.</p>
 <p><b> 参见 </b><a href="qlibrary.html#resolve">resolve</a>().</p>
 <!-- @@@resolve -->
 <!-- $$$resolve$$$resolveconstQString&constQString&constchar* -->
-<h3 class="fn" id="resolve-3"><a name="resolve-3"></a><code>[static] </code><span class="type"><a href="qtglobal.html#QFunctionPointer-typedef">QFunctionPointer</a></span> QLibrary::<span class="name">resolve</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>version</i>, const <span class="type">char</span> *<i>symbol</i>)</h3>
+<h3 class="fn" id="resolve-3"><a name="resolve-3"></a><code>[静态函数] </code><span class="type"><a href="qtglobal.html#QFunctionPointer-typedef">QFunctionPointer</a></span> QLibrary::<span class="name">resolve</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>version</i>, const <span class="type">char</span> *<i>symbol</i>)</h3>
 <p>这是一个重载函数。</p>
 <p>Loads the library <i>fileName</i> with full version number <i>version</i> and returns the address of the exported symbol <i>symbol</i>. Note that <i>fileName</i> should not include the platform-specific file suffix; (see <a href="qlibrary.html#fileName-prop">fileName</a>). The library remains loaded until the application exits. <i>version</i> is ignored on Windows.</p>
 <p>The function returns 0 if the symbol could not be resolved or if the library could not be loaded.</p>

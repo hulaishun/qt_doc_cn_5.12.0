@@ -88,11 +88,11 @@
 <p>Constructs an abstract planar video buffer of the given <i>type</i>.</p>
 <!-- @@@QAbstractPlanarVideoBuffer -->
 <!-- $$$~QAbstractPlanarVideoBuffer[overload1]$$$~QAbstractPlanarVideoBuffer -->
-<h3 class="fn" id="dtor.QAbstractPlanarVideoBuffer"><a name="dtor.QAbstractPlanarVideoBuffer"></a><code>[virtual] </code>QAbstractPlanarVideoBuffer::<span class="name">~QAbstractPlanarVideoBuffer</span>()</h3>
+<h3 class="fn" id="dtor.QAbstractPlanarVideoBuffer"><a name="dtor.QAbstractPlanarVideoBuffer"></a><code>[虚函数] </code>QAbstractPlanarVideoBuffer::<span class="name">~QAbstractPlanarVideoBuffer</span>()</h3>
 <p>Destroys an abstract planar video buffer.</p>
 <!-- @@@~QAbstractPlanarVideoBuffer -->
 <!-- $$$map[overload1]$$$mapQAbstractVideoBuffer::MapModeint*int[4]uchar*[4] -->
-<h3 class="fn" id="map"><a name="map"></a><code>[pure virtual] </code><span class="type">int</span> QAbstractPlanarVideoBuffer::<span class="name">map</span>(<span class="type"><a href="qabstractvideobuffer.html#MapMode-enum">QAbstractVideoBuffer::MapMode</a></span> <i>mode</i>, <span class="type">int</span> *<i>numBytes</i>, <span class="type">int</span> [<span class="type">4</span>] <i>bytesPerLine</i> = ..., <span class="type"><a href="../qtcore/qtglobal.html#uchar-typedef">uchar</a></span> *[<span class="type">4</span>] <i>data</i> = ...)</h3>
+<h3 class="fn" id="map"><a name="map"></a><code>[纯虚函数] </code><span class="type">int</span> QAbstractPlanarVideoBuffer::<span class="name">map</span>(<span class="type"><a href="qabstractvideobuffer.html#MapMode-enum">QAbstractVideoBuffer::MapMode</a></span> <i>mode</i>, <span class="type">int</span> *<i>numBytes</i>, <span class="type">int</span> [<span class="type">4</span>] <i>bytesPerLine</i> = ..., <span class="type"><a href="../qtcore/qtglobal.html#uchar-typedef">uchar</a></span> *[<span class="type">4</span>] <i>data</i> = ...)</h3>
 <p>Maps the contents of a video buffer to memory.</p>
 <p>The map <i>mode</i> indicates whether the contents of the mapped memory should be read from and/or written to the buffer. If the map mode includes the <code>QAbstractVideoBuffer::ReadOnly</code> flag the mapped memory will be populated with the content of the buffer when initially mapped. If the map mode includes the <code>QAbstractVideoBuffer::WriteOnly</code> flag the content of the possibly modified mapped memory will be written back to the buffer when unmapped.</p>
 <p>When access to the data is no longer needed be sure to call the <a href="qabstractvideobuffer.html#unmap">unmap</a>() function to release the mapped memory and possibly update the buffer contents.</p>

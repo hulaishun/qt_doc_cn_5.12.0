@@ -228,12 +228,12 @@
 <div class="func">
 <h2>成员函数文档</h2>
 <!-- $$$QNetworkReply[overload1]$$$QNetworkReplyQObject* -->
-<h3 class="fn" id="QNetworkReply"><a name="QNetworkReply"></a><code>[protected] </code>QNetworkReply::<span class="name">QNetworkReply</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
+<h3 class="fn" id="QNetworkReply"><a name="QNetworkReply"></a><code>[保护函数] </code>QNetworkReply::<span class="name">QNetworkReply</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
 <p>Creates a <a href="qnetworkreply.html">QNetworkReply</a> object with parent <i>parent</i>.</p>
 <p>You cannot directly instantiate <a href="qnetworkreply.html">QNetworkReply</a> objects. Use <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a> functions to do that.</p>
 <!-- @@@QNetworkReply -->
 <!-- $$$~QNetworkReply[overload1]$$$~QNetworkReply -->
-<h3 class="fn" id="dtor.QNetworkReply"><a name="dtor.QNetworkReply"></a><code>[virtual] </code>QNetworkReply::<span class="name">~QNetworkReply</span>()</h3>
+<h3 class="fn" id="dtor.QNetworkReply"><a name="dtor.QNetworkReply"></a><code>[虚函数] </code>QNetworkReply::<span class="name">~QNetworkReply</span>()</h3>
 <p>Disposes of this reply and frees any resources associated with it. If any network connections are still open, they will be closed.</p>
 <p><b> 参见 </b><a href="qnetworkreply.html#abort">abort</a>() 和 <a href="qnetworkreply.html#close">close</a>().</p>
 <!-- @@@~QNetworkReply -->
@@ -250,14 +250,14 @@
 <p><b> 参见 </b><a href="qnetworkreply.html#setAttribute">setAttribute</a>() 和 <a href="qnetworkrequest.html#Attribute-enum">QNetworkRequest::Attribute</a>.</p>
 <!-- @@@attribute -->
 <!-- $$$close[overload1]$$$close -->
-<h3 class="fn" id="close"><a name="close"></a><code>[override virtual] </code><span class="type">void</span> QNetworkReply::<span class="name">close</span>()</h3>
+<h3 class="fn" id="close"><a name="close"></a><code>[重载虚函数] </code><span class="type">void</span> QNetworkReply::<span class="name">close</span>()</h3>
 <p>Reimplemented from <a href="../qtcore/qiodevice.html#close">QIODevice::close</a>().</p>
 <p>Closes this device for reading. Unread data is discarded, but the network resources are not discarded until they are finished. In particular, if any upload is in progress, it will continue until it is done.</p>
 <p>The <a href="qnetworkreply.html#finished">finished</a>() signal is emitted when all operations are over and the network resources are freed.</p>
 <p><b> 参见 </b><a href="qnetworkreply.html#abort">abort</a>() 和 <a href="qnetworkreply.html#finished">finished</a>().</p>
 <!-- @@@close -->
 <!-- $$$downloadProgress[overload1]$$$downloadProgressqint64qint64 -->
-<h3 class="fn" id="downloadProgress"><a name="downloadProgress"></a><code>[signal] </code><span class="type">void</span> QNetworkReply::<span class="name">downloadProgress</span>(<span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> <i>bytesReceived</i>, <span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> <i>bytesTotal</i>)</h3>
+<h3 class="fn" id="downloadProgress"><a name="downloadProgress"></a><code>[信号] </code><span class="type">void</span> QNetworkReply::<span class="name">downloadProgress</span>(<span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> <i>bytesReceived</i>, <span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> <i>bytesTotal</i>)</h3>
 <p>This signal is emitted to indicate the progress of the download part of this network request, if there's any. If there's no download associated with this request, this signal will be emitted once with 0 as the value of both <i>bytesReceived</i> and <i>bytesTotal</i>.</p>
 <p>The <i>bytesReceived</i> parameter indicates the number of bytes received, while <i>bytesTotal</i> indicates the total number of bytes expected to be downloaded. If the number of bytes to be downloaded is not known, <i>bytesTotal</i> will be -1.</p>
 <p>The download is finished when <i>bytesReceived</i> is equal to <i>bytesTotal</i>. At that time, <i>bytesTotal</i> will not be -1.</p>
@@ -265,7 +265,7 @@
 <p><b> 参见 </b><a href="qnetworkreply.html#uploadProgress">uploadProgress</a>() 和 <a href="../qtcore/qiodevice.html#bytesAvailable">bytesAvailable</a>().</p>
 <!-- @@@downloadProgress -->
 <!-- $$$encrypted[overload1]$$$encrypted -->
-<h3 class="fn" id="encrypted"><a name="encrypted"></a><code>[signal] </code><span class="type">void</span> QNetworkReply::<span class="name">encrypted</span>()</h3>
+<h3 class="fn" id="encrypted"><a name="encrypted"></a><code>[信号] </code><span class="type">void</span> QNetworkReply::<span class="name">encrypted</span>()</h3>
 <p>This signal is emitted when an SSL/TLS session has successfully completed the initial handshake. At this point, no user data has been transmitted. The signal can be used to perform additional checks on the certificate chain, for example to notify users when the certificate for a website has changed. If the reply does not match the expected criteria then it should be aborted by calling <a href="qnetworkreply.html#abort">QNetworkReply::abort</a>() by a slot connected to this signal. The SSL configuration in use can be inspected using the <a href="qnetworkreply.html#sslConfiguration">QNetworkReply::sslConfiguration</a>() method.</p>
 <p>Internally, <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a> may open multiple connections to a server, in order to allow it process requests in parallel. These connections may be reused, which means that the encrypted() signal would not be emitted. This means that you are only guaranteed to receive this signal for the first connection to a site in the lifespan of the <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>.</p>
 <p>这个函数是在Qt 5.1版本中新增引入的。</p>
@@ -277,7 +277,7 @@
 <p><b> 参见 </b><a href="qnetworkreply.html#setError">setError</a>().</p>
 <!-- @@@error -->
 <!-- $$$error$$$errorQNetworkReply::NetworkError -->
-<h3 class="fn" id="error-1"><a name="error-1"></a><code>[signal] </code><span class="type">void</span> QNetworkReply::<span class="name">error</span>(<span class="type"><a href="qnetworkreply.html#NetworkError-enum">QNetworkReply::NetworkError</a></span> <i>code</i>)</h3>
+<h3 class="fn" id="error-1"><a name="error-1"></a><code>[信号] </code><span class="type">void</span> QNetworkReply::<span class="name">error</span>(<span class="type"><a href="qnetworkreply.html#NetworkError-enum">QNetworkReply::NetworkError</a></span> <i>code</i>)</h3>
 <p>This signal is emitted when the reply detects an error in processing. The <a href="qnetworkreply.html#finished">finished</a>() signal will probably follow, indicating that the connection is over.</p>
 <p>The <i>code</i> parameter contains the code of the error that was detected. Call <a href="../qtcore/qiodevice.html#errorString">errorString</a>() to obtain a textual representation of the error condition.</p>
 <p><b>Note: </b>Do not delete the object in the slot connected to this signal. Use <a href="../qtcore/qobject.html#deleteLater">deleteLater</a>().</p><p><b>Note:</b> Signal <i>error</i> is overloaded in this class. To connect to this signal by using the function pointer syntax, Qt provides a convenient helper for obtaining the function pointer as shown in this example:<pre class="cpp">
@@ -289,7 +289,7 @@
 <p><b> 参见 </b><a href="qnetworkreply.html#error">error</a>() 和 <a href="../qtcore/qiodevice.html#errorString">errorString</a>().</p>
 <!-- @@@error -->
 <!-- $$$finished[overload1]$$$finished -->
-<h3 class="fn" id="finished"><a name="finished"></a><code>[signal] </code><span class="type">void</span> QNetworkReply::<span class="name">finished</span>()</h3>
+<h3 class="fn" id="finished"><a name="finished"></a><code>[信号] </code><span class="type">void</span> QNetworkReply::<span class="name">finished</span>()</h3>
 <p>This signal is emitted when the reply has finished processing. After this signal is emitted, there will be no more updates to the reply's data or metadata.</p>
 <p>Unless <a href="qnetworkreply.html#close">close</a>() or <a href="qnetworkreply.html#abort">abort</a>() have been called, the reply will be still be opened for reading, so the data can be retrieved by calls to <a href="../qtcore/qiodevice.html#read-1">read</a>() or <a href="../qtcore/qiodevice.html#readAll">readAll</a>(). In particular, if no calls to <a href="../qtcore/qiodevice.html#read-1">read</a>() were made as a result of <a href="../qtcore/qiodevice.html#readyRead">readyRead</a>(), a call to <a href="../qtcore/qiodevice.html#readAll">readAll</a>() will retrieve the full contents in a <a href="../qtcore/qbytearray.html">QByteArray</a>.</p>
 <p>This signal is emitted in tandem with <a href="qnetworkaccessmanager.html#finished">QNetworkAccessManager::finished</a>() where that signal's reply parameter is this object.</p>
@@ -334,7 +334,7 @@
 <p><b> 参见 </b><a href="qnetworkreply.html#sslConfiguration">sslConfiguration</a>(), <a href="qnetworkreply.html#sslErrors">sslErrors</a>(), <a href="qsslsocket.html#ignoreSslErrors">QSslSocket::ignoreSslErrors</a>(), 和 <a href="qnetworkaccessmanager.html#setStrictTransportSecurityEnabled">QNetworkAccessManager::setStrictTransportSecurityEnabled</a>().</p>
 <!-- @@@ignoreSslErrors -->
 <!-- $$$ignoreSslErrorsImplementation[overload1]$$$ignoreSslErrorsImplementationconstQList<QSslError>& -->
-<h3 class="fn" id="ignoreSslErrorsImplementation"><a name="ignoreSslErrorsImplementation"></a><code>[virtual protected] </code><span class="type">void</span> QNetworkReply::<span class="name">ignoreSslErrorsImplementation</span>(const <span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qsslerror.html">QSslError</a></span>&gt; &amp;<i>errors</i>)</h3>
+<h3 class="fn" id="ignoreSslErrorsImplementation"><a name="ignoreSslErrorsImplementation"></a><code>[虚保护函数] </code><span class="type">void</span> QNetworkReply::<span class="name">ignoreSslErrorsImplementation</span>(const <span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qsslerror.html">QSslError</a></span>&gt; &amp;<i>errors</i>)</h3>
 <p>This virtual method is provided to enable overriding the behavior of <a href="qnetworkreply.html#ignoreSslErrors">ignoreSslErrors</a>(). <a href="qnetworkreply.html#ignoreSslErrors">ignoreSslErrors</a>() is a public wrapper for this method. <i>errors</i> contains the errors the user wishes ignored.</p>
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qnetworkreply.html#ignoreSslErrors">ignoreSslErrors</a>().</p>
@@ -356,7 +356,7 @@
 <p>Returns the <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a> that was used to create this <a href="qnetworkreply.html">QNetworkReply</a> object. Initially, it is also the parent object.</p>
 <!-- @@@manager -->
 <!-- $$$metaDataChanged[overload1]$$$metaDataChanged -->
-<h3 class="fn" id="metaDataChanged"><a name="metaDataChanged"></a><code>[signal] </code><span class="type">void</span> QNetworkReply::<span class="name">metaDataChanged</span>()</h3>
+<h3 class="fn" id="metaDataChanged"><a name="metaDataChanged"></a><code>[信号] </code><span class="type">void</span> QNetworkReply::<span class="name">metaDataChanged</span>()</h3>
 <p>This signal is emitted whenever the metadata in this reply changes. metadata is any information that is not the content (data) itself, including the network headers. In the majority of cases, the metadata will be known fully by the time the first byte of data is received. However, it is possible to receive updates of headers or other metadata during the processing of the data.</p>
 <p><b> 参见 </b><a href="qnetworkreply.html#header">header</a>(), <a href="qnetworkreply.html#rawHeaderList">rawHeaderList</a>(), <a href="qnetworkreply.html#rawHeader">rawHeader</a>(), 和 <a href="qnetworkreply.html#hasRawHeader">hasRawHeader</a>().</p>
 <!-- @@@metaDataChanged -->
@@ -366,7 +366,7 @@
 <p><b> 参见 </b><a href="qnetworkreply.html#setOperation">setOperation</a>().</p>
 <!-- @@@operation -->
 <!-- $$$preSharedKeyAuthenticationRequired[overload1]$$$preSharedKeyAuthenticationRequiredQSslPreSharedKeyAuthenticator* -->
-<h3 class="fn" id="preSharedKeyAuthenticationRequired"><a name="preSharedKeyAuthenticationRequired"></a><code>[signal] </code><span class="type">void</span> QNetworkReply::<span class="name">preSharedKeyAuthenticationRequired</span>(<span class="type"><a href="qsslpresharedkeyauthenticator.html">QSslPreSharedKeyAuthenticator</a></span> *<i>authenticator</i>)</h3>
+<h3 class="fn" id="preSharedKeyAuthenticationRequired"><a name="preSharedKeyAuthenticationRequired"></a><code>[信号] </code><span class="type">void</span> QNetworkReply::<span class="name">preSharedKeyAuthenticationRequired</span>(<span class="type"><a href="qsslpresharedkeyauthenticator.html">QSslPreSharedKeyAuthenticator</a></span> *<i>authenticator</i>)</h3>
 <p>This signal is emitted if the SSL/TLS handshake negotiates a PSK ciphersuite, and therefore a PSK authentication is then required.</p>
 <p>When using PSK, the client must send to the server a valid identity and a valid pre shared key, in order for the SSL handshake to continue. Applications can provide this information in a slot connected to this signal, by filling in the passed <i>authenticator</i> object according to their needs.</p>
 <p><b>Note: </b>Ignoring this signal, or failing to provide the required credentials, will cause the handshake to fail, and therefore the connection to be aborted.</p><p><b>Note: </b>The <i>authenticator</i> object is owned by the reply and must not be deleted by the application.</p><p>这个函数是在Qt 5.5版本中新增引入的。</p>
@@ -391,13 +391,13 @@
 <p><b> 参见 </b><a href="qnetworkreply.html#setReadBufferSize">setReadBufferSize</a>().</p>
 <!-- @@@readBufferSize -->
 <!-- $$$redirectAllowed[overload1]$$$redirectAllowed -->
-<h3 class="fn" id="redirectAllowed"><a name="redirectAllowed"></a><code>[signal] </code><span class="type">void</span> QNetworkReply::<span class="name">redirectAllowed</span>()</h3>
+<h3 class="fn" id="redirectAllowed"><a name="redirectAllowed"></a><code>[信号] </code><span class="type">void</span> QNetworkReply::<span class="name">redirectAllowed</span>()</h3>
 <p>When client code handling the <a href="qnetworkreply.html#redirected">redirected</a>() signal has verified the new URL, it emits this signal to allow the redirect to go ahead. This protocol applies to network requests whose redirects policy is set to <a href="qnetworkrequest.html#RedirectPolicy-enum">QNetworkRequest::UserVerifiedRedirectPolicy</a></p>
 <p>这个函数是在Qt 5.9版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qnetworkrequest.html#RedirectPolicy-enum">QNetworkRequest::UserVerifiedRedirectPolicy</a>, <a href="qnetworkaccessmanager.html#setRedirectPolicy">QNetworkAccessManager::setRedirectPolicy</a>(), 和 <a href="qnetworkrequest.html#Attribute-enum">QNetworkRequest::RedirectPolicyAttribute</a>.</p>
 <!-- @@@redirectAllowed -->
 <!-- $$$redirected[overload1]$$$redirectedconstQUrl& -->
-<h3 class="fn" id="redirected"><a name="redirected"></a><code>[signal] </code><span class="type">void</span> QNetworkReply::<span class="name">redirected</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
+<h3 class="fn" id="redirected"><a name="redirected"></a><code>[信号] </code><span class="type">void</span> QNetworkReply::<span class="name">redirected</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
 <p>This signal is emitted if the <a href="qnetworkrequest.html#Attribute-enum">QNetworkRequest::FollowRedirectsAttribute</a> was set in the request and the server responded with a 3xx status (specifically 301, 302, 303, 305, 307 or 308 status code) with a valid url in the location header, indicating a HTTP redirect. The <i>url</i> parameter contains the new redirect url as returned by the server in the location header.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qnetworkrequest.html#Attribute-enum">QNetworkRequest::FollowRedirectsAttribute</a>.</p>
@@ -408,48 +408,48 @@
 <p><b> 参见 </b><a href="qnetworkrequest.html#url">QNetworkRequest::url</a>(), <a href="qnetworkreply.html#url">url</a>(), 和 <a href="qnetworkreply.html#setRequest">setRequest</a>().</p>
 <!-- @@@request -->
 <!-- $$$setAttribute[overload1]$$$setAttributeQNetworkRequest::AttributeconstQVariant& -->
-<h3 class="fn" id="setAttribute"><a name="setAttribute"></a><code>[protected] </code><span class="type">void</span> QNetworkReply::<span class="name">setAttribute</span>(<span class="type"><a href="qnetworkrequest.html#Attribute-enum">QNetworkRequest::Attribute</a></span> <i>code</i>, const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>value</i>)</h3>
+<h3 class="fn" id="setAttribute"><a name="setAttribute"></a><code>[保护函数] </code><span class="type">void</span> QNetworkReply::<span class="name">setAttribute</span>(<span class="type"><a href="qnetworkrequest.html#Attribute-enum">QNetworkRequest::Attribute</a></span> <i>code</i>, const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>value</i>)</h3>
 <p>Sets the attribute <i>code</i> to have value <i>value</i>. If <i>code</i> was previously set, it will be overridden. If <i>value</i> is an invalid <a href="../qtcore/qvariant.html">QVariant</a>, the attribute will be unset.</p>
 <p><b> 参见 </b><a href="qnetworkreply.html#attribute">attribute</a>() 和 <a href="qnetworkrequest.html#setAttribute">QNetworkRequest::setAttribute</a>().</p>
 <!-- @@@setAttribute -->
 <!-- $$$setError[overload1]$$$setErrorQNetworkReply::NetworkErrorconstQString& -->
-<h3 class="fn" id="setError"><a name="setError"></a><code>[protected] </code><span class="type">void</span> QNetworkReply::<span class="name">setError</span>(<span class="type"><a href="qnetworkreply.html#NetworkError-enum">QNetworkReply::NetworkError</a></span> <i>errorCode</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>errorString</i>)</h3>
+<h3 class="fn" id="setError"><a name="setError"></a><code>[保护函数] </code><span class="type">void</span> QNetworkReply::<span class="name">setError</span>(<span class="type"><a href="qnetworkreply.html#NetworkError-enum">QNetworkReply::NetworkError</a></span> <i>errorCode</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>errorString</i>)</h3>
 <p>Sets the error condition to be <i>errorCode</i>. The human-readable message is set with <i>errorString</i>.</p>
 <p>Calling setError() does not emit the error(<a href="qnetworkreply.html#NetworkError-enum">QNetworkReply::NetworkError</a>) signal.</p>
 <p><b> 参见 </b><a href="qnetworkreply.html#error">error</a>() 和 <a href="../qtcore/qiodevice.html#errorString">errorString</a>().</p>
 <!-- @@@setError -->
 <!-- $$$setFinished[overload1]$$$setFinishedbool -->
-<h3 class="fn" id="setFinished"><a name="setFinished"></a><code>[protected] </code><span class="type">void</span> QNetworkReply::<span class="name">setFinished</span>(<span class="type">bool</span> <i>finished</i>)</h3>
+<h3 class="fn" id="setFinished"><a name="setFinished"></a><code>[保护函数] </code><span class="type">void</span> QNetworkReply::<span class="name">setFinished</span>(<span class="type">bool</span> <i>finished</i>)</h3>
 <p>Sets the reply as <i>finished</i>.</p>
 <p>After having this set the replies data must not change.</p>
 <p>这个函数是在Qt 4.8版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qnetworkreply.html#finished">finished</a>() 和 <a href="qnetworkreply.html#isFinished">isFinished</a>().</p>
 <!-- @@@setFinished -->
 <!-- $$$setHeader[overload1]$$$setHeaderQNetworkRequest::KnownHeadersconstQVariant& -->
-<h3 class="fn" id="setHeader"><a name="setHeader"></a><code>[protected] </code><span class="type">void</span> QNetworkReply::<span class="name">setHeader</span>(<span class="type"><a href="qnetworkrequest.html#KnownHeaders-enum">QNetworkRequest::KnownHeaders</a></span> <i>header</i>, const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>value</i>)</h3>
+<h3 class="fn" id="setHeader"><a name="setHeader"></a><code>[保护函数] </code><span class="type">void</span> QNetworkReply::<span class="name">setHeader</span>(<span class="type"><a href="qnetworkrequest.html#KnownHeaders-enum">QNetworkRequest::KnownHeaders</a></span> <i>header</i>, const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>value</i>)</h3>
 <p>Sets the known header <i>header</i> to be of value <i>value</i>. The corresponding raw form of the header will be set as well.</p>
 <p><b> 参见 </b><a href="qnetworkreply.html#header">header</a>(), <a href="qnetworkreply.html#setRawHeader">setRawHeader</a>(), 和 <a href="qnetworkrequest.html#setHeader">QNetworkRequest::setHeader</a>().</p>
 <!-- @@@setHeader -->
 <!-- $$$setOperation[overload1]$$$setOperationQNetworkAccessManager::Operation -->
-<h3 class="fn" id="setOperation"><a name="setOperation"></a><code>[protected] </code><span class="type">void</span> QNetworkReply::<span class="name">setOperation</span>(<span class="type"><a href="qnetworkaccessmanager.html#Operation-enum">QNetworkAccessManager::Operation</a></span> <i>operation</i>)</h3>
+<h3 class="fn" id="setOperation"><a name="setOperation"></a><code>[保护函数] </code><span class="type">void</span> QNetworkReply::<span class="name">setOperation</span>(<span class="type"><a href="qnetworkaccessmanager.html#Operation-enum">QNetworkAccessManager::Operation</a></span> <i>operation</i>)</h3>
 <p>Sets the associated operation for this object to be <i>operation</i>. This value will be returned by <a href="qnetworkreply.html#operation">operation</a>().</p>
 <p><b>Note: </b>The operation should be set when this object is created and not changed again.</p><p><b> 参见 </b><a href="qnetworkreply.html#operation">operation</a>() 和 <a href="qnetworkreply.html#setRequest">setRequest</a>().</p>
 <!-- @@@setOperation -->
 <!-- $$$setRawHeader[overload1]$$$setRawHeaderconstQByteArray&constQByteArray& -->
-<h3 class="fn" id="setRawHeader"><a name="setRawHeader"></a><code>[protected] </code><span class="type">void</span> QNetworkReply::<span class="name">setRawHeader</span>(const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>headerName</i>, const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>value</i>)</h3>
+<h3 class="fn" id="setRawHeader"><a name="setRawHeader"></a><code>[保护函数] </code><span class="type">void</span> QNetworkReply::<span class="name">setRawHeader</span>(const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>headerName</i>, const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>value</i>)</h3>
 <p>Sets the raw header <i>headerName</i> to be of value <i>value</i>. If <i>headerName</i> was previously set, it is overridden. Multiple HTTP headers of the same name are functionally equivalent to one single header with the values concatenated, separated by commas.</p>
 <p>If <i>headerName</i> matches a known header, the value <i>value</i> will be parsed and the corresponding parsed form will also be set.</p>
 <p><b> 参见 </b><a href="qnetworkreply.html#rawHeader">rawHeader</a>(), <a href="qnetworkreply.html#header">header</a>(), <a href="qnetworkreply.html#setHeader">setHeader</a>(), 和 <a href="qnetworkrequest.html#setRawHeader">QNetworkRequest::setRawHeader</a>().</p>
 <!-- @@@setRawHeader -->
 <!-- $$$setReadBufferSize[overload1]$$$setReadBufferSizeqint64 -->
-<h3 class="fn" id="setReadBufferSize"><a name="setReadBufferSize"></a><code>[virtual] </code><span class="type">void</span> QNetworkReply::<span class="name">setReadBufferSize</span>(<span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> <i>size</i>)</h3>
+<h3 class="fn" id="setReadBufferSize"><a name="setReadBufferSize"></a><code>[虚函数] </code><span class="type">void</span> QNetworkReply::<span class="name">setReadBufferSize</span>(<span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> <i>size</i>)</h3>
 <p>Sets the size of the read buffer to be <i>size</i> bytes. The read buffer is the buffer that holds data that is being downloaded off the network, before it is read with <a href="../qtcore/qiodevice.html#read-1">QIODevice::read</a>(). Setting the buffer size to 0 will make the buffer unlimited in size.</p>
 <p><a href="qnetworkreply.html">QNetworkReply</a> will try to stop reading from the network once this buffer is full (i.e&#x2e;, <a href="../qtcore/qiodevice.html#bytesAvailable">bytesAvailable</a>() returns <i>size</i> or more), thus causing the download to throttle down as well. If the buffer is not limited in size, <a href="qnetworkreply.html">QNetworkReply</a> will try to download as fast as possible from the network.</p>
 <p>Unlike <a href="qabstractsocket.html#setReadBufferSize">QAbstractSocket::setReadBufferSize</a>(), <a href="qnetworkreply.html">QNetworkReply</a> cannot guarantee precision in the read buffer size. That is, <a href="../qtcore/qiodevice.html#bytesAvailable">bytesAvailable</a>() can return more than <i>size</i>.</p>
 <p><b> 参见 </b><a href="qnetworkreply.html#readBufferSize">readBufferSize</a>().</p>
 <!-- @@@setReadBufferSize -->
 <!-- $$$setRequest[overload1]$$$setRequestconstQNetworkRequest& -->
-<h3 class="fn" id="setRequest"><a name="setRequest"></a><code>[protected] </code><span class="type">void</span> QNetworkReply::<span class="name">setRequest</span>(const <span class="type"><a href="qnetworkrequest.html">QNetworkRequest</a></span> &amp;<i>request</i>)</h3>
+<h3 class="fn" id="setRequest"><a name="setRequest"></a><code>[保护函数] </code><span class="type">void</span> QNetworkReply::<span class="name">setRequest</span>(const <span class="type"><a href="qnetworkrequest.html">QNetworkRequest</a></span> &amp;<i>request</i>)</h3>
 <p>Sets the associated request for this object to be <i>request</i>. This value will be returned by <a href="qnetworkreply.html#request">request</a>().</p>
 <p><b>Note: </b>The request should be set when this object is created and not changed again.</p><p><b> 参见 </b><a href="qnetworkreply.html#request">request</a>() 和 <a href="qnetworkreply.html#setOperation">setOperation</a>().</p>
 <!-- @@@setRequest -->
@@ -459,13 +459,13 @@
 <p><b> 参见 </b><a href="qnetworkreply.html#sslConfiguration">sslConfiguration</a>().</p>
 <!-- @@@setSslConfiguration -->
 <!-- $$$setSslConfigurationImplementation[overload1]$$$setSslConfigurationImplementationconstQSslConfiguration& -->
-<h3 class="fn" id="setSslConfigurationImplementation"><a name="setSslConfigurationImplementation"></a><code>[virtual protected] </code><span class="type">void</span> QNetworkReply::<span class="name">setSslConfigurationImplementation</span>(const <span class="type"><a href="qsslconfiguration.html">QSslConfiguration</a></span> &amp;<i>configuration</i>)</h3>
+<h3 class="fn" id="setSslConfigurationImplementation"><a name="setSslConfigurationImplementation"></a><code>[虚保护函数] </code><span class="type">void</span> QNetworkReply::<span class="name">setSslConfigurationImplementation</span>(const <span class="type"><a href="qsslconfiguration.html">QSslConfiguration</a></span> &amp;<i>configuration</i>)</h3>
 <p>This virtual method is provided to enable overriding the behavior of <a href="qnetworkreply.html#setSslConfiguration">setSslConfiguration</a>(). <a href="qnetworkreply.html#setSslConfiguration">setSslConfiguration</a>() is a public wrapper for this method. If you override this method use <i>configuration</i> to set the SSL configuration.</p>
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qnetworkreply.html#sslConfigurationImplementation">sslConfigurationImplementation</a>() 和 <a href="qnetworkreply.html#setSslConfiguration">setSslConfiguration</a>().</p>
 <!-- @@@setSslConfigurationImplementation -->
 <!-- $$$setUrl[overload1]$$$setUrlconstQUrl& -->
-<h3 class="fn" id="setUrl"><a name="setUrl"></a><code>[protected] </code><span class="type">void</span> QNetworkReply::<span class="name">setUrl</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
+<h3 class="fn" id="setUrl"><a name="setUrl"></a><code>[保护函数] </code><span class="type">void</span> QNetworkReply::<span class="name">setUrl</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
 <p>Sets the URL being processed to be <i>url</i>. Normally, the URL matches that of the request that was posted, but for a variety of reasons it can be different (for example, a file path being made absolute or canonical).</p>
 <p><b> 参见 </b><a href="qnetworkreply.html#url">url</a>(), <a href="qnetworkreply.html#request">request</a>(), 和 <a href="qnetworkrequest.html#url">QNetworkRequest::url</a>().</p>
 <!-- @@@setUrl -->
@@ -476,20 +476,20 @@
 <p><b> 参见 </b><a href="qnetworkreply.html#setSslConfiguration">setSslConfiguration</a>().</p>
 <!-- @@@sslConfiguration -->
 <!-- $$$sslConfigurationImplementation[overload1]$$$sslConfigurationImplementationQSslConfiguration& -->
-<h3 class="fn" id="sslConfigurationImplementation"><a name="sslConfigurationImplementation"></a><code>[virtual protected] </code><span class="type">void</span> QNetworkReply::<span class="name">sslConfigurationImplementation</span>(<span class="type"><a href="qsslconfiguration.html">QSslConfiguration</a></span> &amp;<i>configuration</i>) const</h3>
+<h3 class="fn" id="sslConfigurationImplementation"><a name="sslConfigurationImplementation"></a><code>[虚保护函数] </code><span class="type">void</span> QNetworkReply::<span class="name">sslConfigurationImplementation</span>(<span class="type"><a href="qsslconfiguration.html">QSslConfiguration</a></span> &amp;<i>configuration</i>) const</h3>
 <p>This virtual method is provided to enable overriding the behavior of <a href="qnetworkreply.html#sslConfiguration">sslConfiguration</a>(). <a href="qnetworkreply.html#sslConfiguration">sslConfiguration</a>() is a public wrapper for this method. The configuration will be returned in <i>configuration</i>.</p>
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qnetworkreply.html#setSslConfigurationImplementation">setSslConfigurationImplementation</a>() 和 <a href="qnetworkreply.html#sslConfiguration">sslConfiguration</a>().</p>
 <!-- @@@sslConfigurationImplementation -->
 <!-- $$$sslErrors[overload1]$$$sslErrorsconstQList<QSslError>& -->
-<h3 class="fn" id="sslErrors"><a name="sslErrors"></a><code>[signal] </code><span class="type">void</span> QNetworkReply::<span class="name">sslErrors</span>(const <span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qsslerror.html">QSslError</a></span>&gt; &amp;<i>errors</i>)</h3>
+<h3 class="fn" id="sslErrors"><a name="sslErrors"></a><code>[信号] </code><span class="type">void</span> QNetworkReply::<span class="name">sslErrors</span>(const <span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qsslerror.html">QSslError</a></span>&gt; &amp;<i>errors</i>)</h3>
 <p>This signal is emitted if the SSL/TLS session encountered errors during the set up, including certificate verification errors. The <i>errors</i> parameter contains the list of errors.</p>
 <p>To indicate that the errors are not fatal and that the connection should proceed, the <a href="qnetworkreply.html#ignoreSslErrors">ignoreSslErrors</a>() function should be called from the slot connected to this signal. If it is not called, the SSL session will be torn down before any data is exchanged (including the URL).</p>
 <p>This signal can be used to display an error message to the user indicating that security may be compromised and display the SSL settings (see <a href="qnetworkreply.html#sslConfiguration">sslConfiguration</a>() to obtain it). If the user decides to proceed after analyzing the remote certificate, the slot should call <a href="qnetworkreply.html#ignoreSslErrors">ignoreSslErrors</a>().</p>
 <p><b> 参见 </b><a href="qsslsocket.html#sslErrors">QSslSocket::sslErrors</a>(), <a href="qnetworkaccessmanager.html#sslErrors">QNetworkAccessManager::sslErrors</a>(), <a href="qnetworkreply.html#sslConfiguration">sslConfiguration</a>(), 和 <a href="qnetworkreply.html#ignoreSslErrors">ignoreSslErrors</a>().</p>
 <!-- @@@sslErrors -->
 <!-- $$$uploadProgress[overload1]$$$uploadProgressqint64qint64 -->
-<h3 class="fn" id="uploadProgress"><a name="uploadProgress"></a><code>[signal] </code><span class="type">void</span> QNetworkReply::<span class="name">uploadProgress</span>(<span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> <i>bytesSent</i>, <span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> <i>bytesTotal</i>)</h3>
+<h3 class="fn" id="uploadProgress"><a name="uploadProgress"></a><code>[信号] </code><span class="type">void</span> QNetworkReply::<span class="name">uploadProgress</span>(<span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> <i>bytesSent</i>, <span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> <i>bytesTotal</i>)</h3>
 <p>This signal is emitted to indicate the progress of the upload part of this network request, if there's any. If there's no upload associated with this request, this signal will not be emitted.</p>
 <p>The <i>bytesSent</i> parameter indicates the number of bytes uploaded, while <i>bytesTotal</i> indicates the total number of bytes to be uploaded. If the number of bytes to be uploaded could not be determined, <i>bytesTotal</i> will be -1.</p>
 <p>The upload is finished when <i>bytesSent</i> is equal to <i>bytesTotal</i>. At that time, <i>bytesTotal</i> will not be -1.</p>

@@ -284,11 +284,11 @@
 <p><b> 参见 </b><a href="qvariantanimation.html">QVariantAnimation</a> 和 <a href="qanimationgroup.html">QAnimationGroup</a>.</p>
 <!-- @@@QAbstractAnimation -->
 <!-- $$$~QAbstractAnimation[overload1]$$$~QAbstractAnimation -->
-<h3 class="fn" id="dtor.QAbstractAnimation"><a name="dtor.QAbstractAnimation"></a><code>[virtual] </code>QAbstractAnimation::<span class="name">~QAbstractAnimation</span>()</h3>
+<h3 class="fn" id="dtor.QAbstractAnimation"><a name="dtor.QAbstractAnimation"></a><code>[虚函数] </code>QAbstractAnimation::<span class="name">~QAbstractAnimation</span>()</h3>
 <p>Stops the animation if it's running, then destroys the <a href="qabstractanimation.html">QAbstractAnimation</a>. If the animation is part of a <a href="qanimationgroup.html">QAnimationGroup</a>, it is automatically removed before it's destroyed.</p>
 <!-- @@@~QAbstractAnimation -->
 <!-- $$$currentLoopChanged -->
-<h3 class="fn" id="currentLoopChanged"><a name="currentLoopChanged"></a><code>[signal] </code><span class="type">void</span> QAbstractAnimation::<span class="name">currentLoopChanged</span>(<span class="type">int</span> <i>currentLoop</i>)</h3>
+<h3 class="fn" id="currentLoopChanged"><a name="currentLoopChanged"></a><code>[信号] </code><span class="type">void</span> QAbstractAnimation::<span class="name">currentLoopChanged</span>(<span class="type">int</span> <i>currentLoop</i>)</h3>
 <p><a href="qabstractanimation.html">QAbstractAnimation</a> emits this signal whenever the current loop changes. <i>currentLoop</i> is the current loop.</p>
 <p><b>Note:</b> Notifier signal for property <a href="qabstractanimation.html#currentLoop-prop">currentLoop</a>. </p><p><b> 参见 </b><a href="qabstractanimation.html#currentLoop-prop">currentLoop</a>() 和 <a href="qabstractanimation.html#loopCount-prop">loopCount</a>().</p>
 <!-- @@@currentLoopChanged -->
@@ -298,23 +298,23 @@
 <p><b> 参见 </b><a href="qabstractanimation.html#duration">duration</a>() 和 <a href="qabstractanimation.html#currentTime-prop">currentTime</a>.</p>
 <!-- @@@currentLoopTime -->
 <!-- $$$directionChanged -->
-<h3 class="fn" id="directionChanged"><a name="directionChanged"></a><code>[signal] </code><span class="type">void</span> QAbstractAnimation::<span class="name">directionChanged</span>(<span class="type"><a href="qabstractanimation.html#Direction-enum">QAbstractAnimation::Direction</a></span> <i>newDirection</i>)</h3>
+<h3 class="fn" id="directionChanged"><a name="directionChanged"></a><code>[信号] </code><span class="type">void</span> QAbstractAnimation::<span class="name">directionChanged</span>(<span class="type"><a href="qabstractanimation.html#Direction-enum">QAbstractAnimation::Direction</a></span> <i>newDirection</i>)</h3>
 <p><a href="qabstractanimation.html">QAbstractAnimation</a> emits this signal whenever the direction has been changed. <i>newDirection</i> is the new direction.</p>
 <p><b>Note:</b> Notifier signal for property <a href="qabstractanimation.html#direction-prop">direction</a>. </p><p><b> 参见 </b><a href="qabstractanimation.html#direction-prop">direction</a>.</p>
 <!-- @@@directionChanged -->
 <!-- $$$duration -->
-<h3 class="fn" id="duration"><a name="duration"></a><code>[pure virtual] </code><span class="type">int</span> QAbstractAnimation::<span class="name">duration</span>() const</h3>
+<h3 class="fn" id="duration"><a name="duration"></a><code>[纯虚函数] </code><span class="type">int</span> QAbstractAnimation::<span class="name">duration</span>() const</h3>
 <p>This pure virtual function returns the duration of the animation, and defines for how long <a href="qabstractanimation.html">QAbstractAnimation</a> should update the current time. This duration is local, and does not include the loop count.</p>
 <p>A return value of -1 indicates that the animation has no defined duration; the animation should run forever until stopped. This is useful for animations that are not time driven, or where you cannot easily predict its duration (e.g&#x2e;, event driven audio playback in a game).</p>
 <p>If the animation is a parallel <a href="qanimationgroup.html">QAnimationGroup</a>, the duration will be the longest duration of all its animations. If the animation is a sequential <a href="qanimationgroup.html">QAnimationGroup</a>, the duration will be the sum of the duration of all its animations.</p>
 <p><b>Note:</b> Getter function for property <a href="qabstractanimation.html#duration-prop">duration</a>. </p><p><b> 参见 </b><a href="qabstractanimation.html#loopCount-prop">loopCount</a>.</p>
 <!-- @@@duration -->
 <!-- $$$event[overload1]$$$eventQEvent* -->
-<h3 class="fn" id="event"><a name="event"></a><code>[override virtual protected] </code><span class="type">bool</span> QAbstractAnimation::<span class="name">event</span>(<span class="type"><a href="qevent.html">QEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="event"><a name="event"></a><code>[重载虚保护函数] </code><span class="type">bool</span> QAbstractAnimation::<span class="name">event</span>(<span class="type"><a href="qevent.html">QEvent</a></span> *<i>event</i>)</h3>
 <p>Reimplemented from <a href="qobject.html#event">QObject::event</a>().</p>
 <!-- @@@event -->
 <!-- $$$finished[overload1]$$$finished -->
-<h3 class="fn" id="finished"><a name="finished"></a><code>[signal] </code><span class="type">void</span> QAbstractAnimation::<span class="name">finished</span>()</h3>
+<h3 class="fn" id="finished"><a name="finished"></a><code>[信号] </code><span class="type">void</span> QAbstractAnimation::<span class="name">finished</span>()</h3>
 <p><a href="qabstractanimation.html">QAbstractAnimation</a> emits this signal after the animation has stopped and has reached the end.</p>
 <p>This signal is emitted after <a href="qabstractanimation.html#stateChanged">stateChanged</a>().</p>
 <p><b> 参见 </b><a href="qabstractanimation.html#stateChanged">stateChanged</a>().</p>
@@ -347,7 +347,7 @@
 <p><b> 参见 </b><a href="qabstractanimation.html#stop">stop</a>() 和 <a href="qabstractanimation.html#state-prop">state</a>().</p>
 <!-- @@@start -->
 <!-- $$$stateChanged -->
-<h3 class="fn" id="stateChanged"><a name="stateChanged"></a><code>[signal] </code><span class="type">void</span> QAbstractAnimation::<span class="name">stateChanged</span>(<span class="type"><a href="qabstractanimation.html#State-enum">QAbstractAnimation::State</a></span> <i>newState</i>, <span class="type"><a href="qabstractanimation.html#State-enum">QAbstractAnimation::State</a></span> <i>oldState</i>)</h3>
+<h3 class="fn" id="stateChanged"><a name="stateChanged"></a><code>[信号] </code><span class="type">void</span> QAbstractAnimation::<span class="name">stateChanged</span>(<span class="type"><a href="qabstractanimation.html#State-enum">QAbstractAnimation::State</a></span> <i>newState</i>, <span class="type"><a href="qabstractanimation.html#State-enum">QAbstractAnimation::State</a></span> <i>oldState</i>)</h3>
 <p><a href="qabstractanimation.html">QAbstractAnimation</a> emits this signal whenever the state of the animation has changed from <i>oldState</i> to <i>newState</i>. This signal is emitted after the virtual <a href="qabstractanimation.html#updateState">updateState</a>() function is called.</p>
 <p><b>Note:</b> Notifier signal for property <a href="qabstractanimation.html#state-prop">state</a>. </p><p><b> 参见 </b><a href="qabstractanimation.html#updateState">updateState</a>().</p>
 <!-- @@@stateChanged -->
@@ -363,17 +363,17 @@
 <p><b> 参见 </b><a href="qabstractanimation.html#duration">duration</a>() 和 <a href="qabstractanimation.html#currentTime-prop">currentTime</a>.</p>
 <!-- @@@totalDuration -->
 <!-- $$$updateCurrentTime[overload1]$$$updateCurrentTimeint -->
-<h3 class="fn" id="updateCurrentTime"><a name="updateCurrentTime"></a><code>[pure virtual protected] </code><span class="type">void</span> QAbstractAnimation::<span class="name">updateCurrentTime</span>(<span class="type">int</span> <i>currentTime</i>)</h3>
+<h3 class="fn" id="updateCurrentTime"><a name="updateCurrentTime"></a><code>[纯虚保护函数] </code><span class="type">void</span> QAbstractAnimation::<span class="name">updateCurrentTime</span>(<span class="type">int</span> <i>currentTime</i>)</h3>
 <p>This pure virtual function is called every time the animation's <i>currentTime</i> changes.</p>
 <p><b> 参见 </b><a href="qabstractanimation.html#updateState">updateState</a>().</p>
 <!-- @@@updateCurrentTime -->
 <!-- $$$updateDirection[overload1]$$$updateDirectionQAbstractAnimation::Direction -->
-<h3 class="fn" id="updateDirection"><a name="updateDirection"></a><code>[virtual protected] </code><span class="type">void</span> QAbstractAnimation::<span class="name">updateDirection</span>(<span class="type"><a href="qabstractanimation.html#Direction-enum">QAbstractAnimation::Direction</a></span> <i>direction</i>)</h3>
+<h3 class="fn" id="updateDirection"><a name="updateDirection"></a><code>[虚保护函数] </code><span class="type">void</span> QAbstractAnimation::<span class="name">updateDirection</span>(<span class="type"><a href="qabstractanimation.html#Direction-enum">QAbstractAnimation::Direction</a></span> <i>direction</i>)</h3>
 <p>This virtual function is called by <a href="qabstractanimation.html">QAbstractAnimation</a> when the direction of the animation is changed. The <i>direction</i> argument is the new direction.</p>
 <p><b> 参见 </b><a href="qabstractanimation.html#direction-prop">setDirection</a>() 和 <a href="qabstractanimation.html#direction-prop">direction</a>().</p>
 <!-- @@@updateDirection -->
 <!-- $$$updateState[overload1]$$$updateStateQAbstractAnimation::StateQAbstractAnimation::State -->
-<h3 class="fn" id="updateState"><a name="updateState"></a><code>[virtual protected] </code><span class="type">void</span> QAbstractAnimation::<span class="name">updateState</span>(<span class="type"><a href="qabstractanimation.html#State-enum">QAbstractAnimation::State</a></span> <i>newState</i>, <span class="type"><a href="qabstractanimation.html#State-enum">QAbstractAnimation::State</a></span> <i>oldState</i>)</h3>
+<h3 class="fn" id="updateState"><a name="updateState"></a><code>[虚保护函数] </code><span class="type">void</span> QAbstractAnimation::<span class="name">updateState</span>(<span class="type"><a href="qabstractanimation.html#State-enum">QAbstractAnimation::State</a></span> <i>newState</i>, <span class="type"><a href="qabstractanimation.html#State-enum">QAbstractAnimation::State</a></span> <i>oldState</i>)</h3>
 <p>This virtual function is called by <a href="qabstractanimation.html">QAbstractAnimation</a> when the state of the animation is changed from <i>oldState</i> to <i>newState</i>.</p>
 <p><b> 参见 </b><a href="qabstractanimation.html#start">start</a>(), <a href="qabstractanimation.html#stop">stop</a>(), <a href="qabstractanimation.html#pause">pause</a>(), 和 <a href="qabstractanimation.html#resume">resume</a>().</p>
 <!-- @@@updateState -->

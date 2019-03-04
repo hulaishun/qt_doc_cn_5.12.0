@@ -241,7 +241,7 @@
 <p><b> 参见 </b><a href="qdtls.html#sslMode">sslMode</a>() 和 <a href="qsslsocket.html#SslMode-enum">QSslSocket::SslMode</a>.</p>
 <!-- @@@QDtls -->
 <!-- $$$~QDtls[overload1]$$$~QDtls -->
-<h3 class="fn" id="dtor.QDtls"><a name="dtor.QDtls"></a><code>[virtual] </code>QDtls::<span class="name">~QDtls</span>()</h3>
+<h3 class="fn" id="dtor.QDtls"><a name="dtor.QDtls"></a><code>[虚函数] </code>QDtls::<span class="name">~QDtls</span>()</h3>
 <p>Destroys the <a href="qdtls.html">QDtls</a> object.</p>
 <!-- @@@~QDtls -->
 <!-- $$$abortHandshake[overload1]$$$abortHandshakeQUdpSocket* -->
@@ -298,7 +298,7 @@
 <p><b> 参见 </b><a href="qdtls.html#doHandshake">doHandshake</a>() 和 <a href="qdtls.html#HandshakeState-enum">QDtls::HandshakeState</a>.</p>
 <!-- @@@handshakeState -->
 <!-- $$$handshakeTimeout[overload1]$$$handshakeTimeout -->
-<h3 class="fn" id="handshakeTimeout"><a name="handshakeTimeout"></a><code>[signal] </code><span class="type">void</span> QDtls::<span class="name">handshakeTimeout</span>()</h3>
+<h3 class="fn" id="handshakeTimeout"><a name="handshakeTimeout"></a><code>[信号] </code><span class="type">void</span> QDtls::<span class="name">handshakeTimeout</span>()</h3>
 <p>Packet loss can result in timeouts during the handshake phase. In this case <a href="qdtls.html">QDtls</a> emits a handshakeTimeout() signal. Call <a href="qdtls.html#handleTimeout">handleTimeout</a>() to retransmit the handshake messages:</p>
 <pre class="cpp">
 
@@ -367,7 +367,7 @@
 <p><b> 参见 </b><a href="qdtls.html#setPeerVerificationName">setPeerVerificationName</a>() 和 <a href="qdtls.html#setPeer">setPeer</a>().</p>
 <!-- @@@peerVerificationName -->
 <!-- $$$pskRequired[overload1]$$$pskRequiredQSslPreSharedKeyAuthenticator* -->
-<h3 class="fn" id="pskRequired"><a name="pskRequired"></a><code>[signal] </code><span class="type">void</span> QDtls::<span class="name">pskRequired</span>(<span class="type"><a href="qsslpresharedkeyauthenticator.html">QSslPreSharedKeyAuthenticator</a></span> *<i>authenticator</i>)</h3>
+<h3 class="fn" id="pskRequired"><a name="pskRequired"></a><code>[信号] </code><span class="type">void</span> QDtls::<span class="name">pskRequired</span>(<span class="type"><a href="qsslpresharedkeyauthenticator.html">QSslPreSharedKeyAuthenticator</a></span> *<i>authenticator</i>)</h3>
 <p><a href="qdtls.html">QDtls</a> emits this signal when it negotiates a PSK ciphersuite, and therefore a PSK authentication is then required.</p>
 <p>When using PSK, the client must send to the server a valid identity and a valid pre shared key, in order for the TLS handshake to continue. Applications can provide this information in a slot connected to this signal, by filling in the passed <i>authenticator</i> object according to their needs.</p>
 <p><b>Note: </b>Ignoring this signal, or failing to provide the required credentials, will cause the handshake to fail, and therefore the connection to be aborted.</p><p><b>Note: </b>The <i>authenticator</i> object is owned by <a href="qdtls.html">QDtls</a> and must not be deleted by the application.</p><p><b> 参见 </b><a href="qsslpresharedkeyauthenticator.html">QSslPreSharedKeyAuthenticator</a>.</p>

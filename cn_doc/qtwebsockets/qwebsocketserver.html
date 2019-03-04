@@ -163,12 +163,12 @@
 <p><i>parent</i> is passed to the <a href="../qtcore/qobject.html">QObject</a> constructor.</p>
 <!-- @@@QWebSocketServer -->
 <!-- $$$~QWebSocketServer[overload1]$$$~QWebSocketServer -->
-<h3 class="fn" id="dtor.QWebSocketServer"><a name="dtor.QWebSocketServer"></a><code>[override virtual] </code>QWebSocketServer::<span class="name">~QWebSocketServer</span>()</h3>
+<h3 class="fn" id="dtor.QWebSocketServer"><a name="dtor.QWebSocketServer"></a><code>[重载虚函数] </code>QWebSocketServer::<span class="name">~QWebSocketServer</span>()</h3>
 <p>Destroys the <a href="qwebsocketserver.html">QWebSocketServer</a> object. If the server is listening for connections, the socket is automatically closed. Any client <a href="qwebsocket.html">QWebSocket</a>s that are still queued are closed and deleted.</p>
 <p><b> 参见 </b><a href="qwebsocketserver.html#close">close</a>().</p>
 <!-- @@@~QWebSocketServer -->
 <!-- $$$acceptError[overload1]$$$acceptErrorQAbstractSocket::SocketError -->
-<h3 class="fn" id="acceptError"><a name="acceptError"></a><code>[signal] </code><span class="type">void</span> QWebSocketServer::<span class="name">acceptError</span>(<span class="type"><a href="../qtnetwork/qabstractsocket.html#SocketError-enum">QAbstractSocket::SocketError</a></span> <i>socketError</i>)</h3>
+<h3 class="fn" id="acceptError"><a name="acceptError"></a><code>[信号] </code><span class="type">void</span> QWebSocketServer::<span class="name">acceptError</span>(<span class="type"><a href="../qtnetwork/qabstractsocket.html#SocketError-enum">QAbstractSocket::SocketError</a></span> <i>socketError</i>)</h3>
 <p>This signal is emitted when the acceptance of a new connection results in an error. The <i>socketError</i> parameter describes the type of error that occurred.</p>
 <p><b> 参见 </b><a href="qwebsocketserver.html#pauseAccepting">pauseAccepting</a>() 和 <a href="qwebsocketserver.html#resumeAccepting">resumeAccepting</a>().</p>
 <!-- @@@acceptError -->
@@ -177,7 +177,7 @@
 <p>Closes the server. The server will no longer listen for incoming connections.</p>
 <!-- @@@close -->
 <!-- $$$closed[overload1]$$$closed -->
-<h3 class="fn" id="closed"><a name="closed"></a><code>[signal] </code><span class="type">void</span> QWebSocketServer::<span class="name">closed</span>()</h3>
+<h3 class="fn" id="closed"><a name="closed"></a><code>[信号] </code><span class="type">void</span> QWebSocketServer::<span class="name">closed</span>()</h3>
 <p>This signal is emitted when the server closed its connection.</p>
 <p><b> 参见 </b><a href="qwebsocketserver.html#close">close</a>().</p>
 <!-- @@@closed -->
@@ -225,18 +225,18 @@
 <p><b> 参见 </b><a href="qwebsocketserver.html#setNativeDescriptor">setNativeDescriptor</a>() 和 <a href="qwebsocketserver.html#isListening">isListening</a>().</p>
 <!-- @@@nativeDescriptor -->
 <!-- $$$newConnection[overload1]$$$newConnection -->
-<h3 class="fn" id="newConnection"><a name="newConnection"></a><code>[signal] </code><span class="type">void</span> QWebSocketServer::<span class="name">newConnection</span>()</h3>
+<h3 class="fn" id="newConnection"><a name="newConnection"></a><code>[信号] </code><span class="type">void</span> QWebSocketServer::<span class="name">newConnection</span>()</h3>
 <p>This signal is emitted every time a new connection is available.</p>
 <p><b> 参见 </b><a href="qwebsocketserver.html#hasPendingConnections">hasPendingConnections</a>() 和 <a href="qwebsocketserver.html#nextPendingConnection">nextPendingConnection</a>().</p>
 <!-- @@@newConnection -->
 <!-- $$$nextPendingConnection[overload1]$$$nextPendingConnection -->
-<h3 class="fn" id="nextPendingConnection"><a name="nextPendingConnection"></a><code>[virtual] </code><span class="type"><a href="qwebsocket.html">QWebSocket</a></span> *QWebSocketServer::<span class="name">nextPendingConnection</span>()</h3>
+<h3 class="fn" id="nextPendingConnection"><a name="nextPendingConnection"></a><code>[虚函数] </code><span class="type"><a href="qwebsocket.html">QWebSocket</a></span> *QWebSocketServer::<span class="name">nextPendingConnection</span>()</h3>
 <p>Returns the next pending connection as a connected <a href="qwebsocket.html">QWebSocket</a> object. <a href="qwebsocketserver.html">QWebSocketServer</a> does not take ownership of the returned <a href="qwebsocket.html">QWebSocket</a> object. It is up to the caller to delete the object explicitly when it will no longer be used, otherwise a memory leak will occur. nullptr is returned if this function is called when there are no pending connections.</p>
 <p>Note: The returned <a href="qwebsocket.html">QWebSocket</a> object cannot be used from another thread.</p>
 <p><b> 参见 </b><a href="qwebsocketserver.html#hasPendingConnections">hasPendingConnections</a>().</p>
 <!-- @@@nextPendingConnection -->
 <!-- $$$originAuthenticationRequired[overload1]$$$originAuthenticationRequiredQWebSocketCorsAuthenticator* -->
-<h3 class="fn" id="originAuthenticationRequired"><a name="originAuthenticationRequired"></a><code>[signal] </code><span class="type">void</span> QWebSocketServer::<span class="name">originAuthenticationRequired</span>(<span class="type"><a href="qwebsocketcorsauthenticator.html">QWebSocketCorsAuthenticator</a></span> *<i>authenticator</i>)</h3>
+<h3 class="fn" id="originAuthenticationRequired"><a name="originAuthenticationRequired"></a><code>[信号] </code><span class="type">void</span> QWebSocketServer::<span class="name">originAuthenticationRequired</span>(<span class="type"><a href="qwebsocketcorsauthenticator.html">QWebSocketCorsAuthenticator</a></span> *<i>authenticator</i>)</h3>
 <p>This signal is emitted when a new connection is requested. The slot connected to this signal should indicate whether the origin (which can be determined by the origin() call) is allowed in the <i>authenticator</i> object (by issuing <a href="qwebsocketcorsauthenticator.html#setAllowed">setAllowed()</a>).</p>
 <p>If no slot is connected to this signal, all origins will be accepted by default.</p>
 <p><b>Note: </b>It is not possible to use a QueuedConnection to connect to this signal, as the connection will always succeed.</p><!-- @@@originAuthenticationRequired -->
@@ -246,13 +246,13 @@
 <p><b> 参见 </b><a href="qwebsocketserver.html#resumeAccepting">resumeAccepting</a>().</p>
 <!-- @@@pauseAccepting -->
 <!-- $$$peerVerifyError[overload1]$$$peerVerifyErrorconstQSslError& -->
-<h3 class="fn" id="peerVerifyError"><a name="peerVerifyError"></a><code>[signal] </code><span class="type">void</span> QWebSocketServer::<span class="name">peerVerifyError</span>(const <span class="type"><a href="../qtnetwork/qsslerror.html">QSslError</a></span> &amp;<i>error</i>)</h3>
+<h3 class="fn" id="peerVerifyError"><a name="peerVerifyError"></a><code>[信号] </code><span class="type">void</span> QWebSocketServer::<span class="name">peerVerifyError</span>(const <span class="type"><a href="../qtnetwork/qsslerror.html">QSslError</a></span> &amp;<i>error</i>)</h3>
 <p><a href="qwebsocketserver.html">QWebSocketServer</a> can emit this signal several times during the SSL handshake, before encryption has been established, to indicate that an error has occurred while establishing the identity of the peer. The <i>error</i> is usually an indication that <a href="qwebsocketserver.html">QWebSocketServer</a> is unable to securely identify the peer.</p>
 <p>This signal provides you with an early indication when something is wrong. By connecting to this signal, you can manually choose to tear down the connection from inside the connected slot before the handshake has completed. If no action is taken, <a href="qwebsocketserver.html">QWebSocketServer</a> will proceed to emitting <a href="qwebsocketserver.html#sslErrors">QWebSocketServer::sslErrors</a>().</p>
 <p><b> 参见 </b><a href="qwebsocketserver.html#sslErrors">sslErrors</a>().</p>
 <!-- @@@peerVerifyError -->
 <!-- $$$preSharedKeyAuthenticationRequired[overload1]$$$preSharedKeyAuthenticationRequiredQSslPreSharedKeyAuthenticator* -->
-<h3 class="fn" id="preSharedKeyAuthenticationRequired"><a name="preSharedKeyAuthenticationRequired"></a><code>[signal] </code><span class="type">void</span> QWebSocketServer::<span class="name">preSharedKeyAuthenticationRequired</span>(<span class="type"><a href="../qtnetwork/qsslpresharedkeyauthenticator.html">QSslPreSharedKeyAuthenticator</a></span> *<i>authenticator</i>)</h3>
+<h3 class="fn" id="preSharedKeyAuthenticationRequired"><a name="preSharedKeyAuthenticationRequired"></a><code>[信号] </code><span class="type">void</span> QWebSocketServer::<span class="name">preSharedKeyAuthenticationRequired</span>(<span class="type"><a href="../qtnetwork/qsslpresharedkeyauthenticator.html">QSslPreSharedKeyAuthenticator</a></span> *<i>authenticator</i>)</h3>
 <p><a href="qwebsocketserver.html">QWebSocketServer</a> emits this signal when it negotiates a PSK ciphersuite, and therefore a PSK authentication is then required.</p>
 <p>When using PSK, the client must send to the server a valid identity and a valid pre shared key, in order for the SSL handshake to continue. Applications can provide this information in a slot connected to this signal, by filling in the passed <i>authenticator</i> object according to their needs.</p>
 <p><b>Note: </b>Ignoring this signal, or failing to provide the required credentials, will cause the handshake to fail, and therefore the connection to be aborted.</p><p><b>Note: </b>The <i>authenticator</i> object is owned by the socket and must not be deleted by the application.</p><p>这个函数是在Qt 5.8版本中新增引入的。</p>
@@ -279,7 +279,7 @@
 <p><b> 参见 </b><a href="qwebsocketserver.html#serverPort">serverPort</a>() 和 <a href="qwebsocketserver.html#listen">listen</a>().</p>
 <!-- @@@serverAddress -->
 <!-- $$$serverError[overload1]$$$serverErrorQWebSocketProtocol::CloseCode -->
-<h3 class="fn" id="serverError"><a name="serverError"></a><code>[signal] </code><span class="type">void</span> QWebSocketServer::<span class="name">serverError</span>(<span class="type">QWebSocketProtocol::CloseCode</span> <i>closeCode</i>)</h3>
+<h3 class="fn" id="serverError"><a name="serverError"></a><code>[信号] </code><span class="type">void</span> QWebSocketServer::<span class="name">serverError</span>(<span class="type">QWebSocketProtocol::CloseCode</span> <i>closeCode</i>)</h3>
 <p>This signal is emitted when an error occurs during the setup of a WebSocket connection. The <i>closeCode</i> parameter describes the type of error that occurred</p>
 <p><b> 参见 </b><a href="qwebsocketserver.html#errorString">errorString</a>().</p>
 <!-- @@@serverError -->
@@ -338,7 +338,7 @@
 <p><b> 参见 </b><a href="qwebsocketserver.html#setSslConfiguration">setSslConfiguration</a>(), <a href="qwebsocketserver.html#SslMode-enum">SslMode</a>, 和 <a href="../qtnetwork/qsslconfiguration.html#defaultConfiguration">QSslConfiguration::defaultConfiguration</a>().</p>
 <!-- @@@sslConfiguration -->
 <!-- $$$sslErrors[overload1]$$$sslErrorsconstQList<QSslError>& -->
-<h3 class="fn" id="sslErrors"><a name="sslErrors"></a><code>[signal] </code><span class="type">void</span> QWebSocketServer::<span class="name">sslErrors</span>(const <span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="../qtnetwork/qsslerror.html">QSslError</a></span>&gt; &amp;<i>errors</i>)</h3>
+<h3 class="fn" id="sslErrors"><a name="sslErrors"></a><code>[信号] </code><span class="type">void</span> QWebSocketServer::<span class="name">sslErrors</span>(const <span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="../qtnetwork/qsslerror.html">QSslError</a></span>&gt; &amp;<i>errors</i>)</h3>
 <p><a href="qwebsocketserver.html">QWebSocketServer</a> emits this signal after the SSL handshake to indicate that one or more errors have occurred while establishing the identity of the peer. The errors are usually an indication that <a href="qwebsocketserver.html">QWebSocketServer</a> is unable to securely identify the peer. Unless any action is taken, the connection will be dropped after this signal has been emitted.</p>
 <p><i>errors</i> contains one or more errors that prevent <a href="../qtnetwork/qsslsocket.html">QSslSocket</a> from verifying the identity of the peer.</p>
 <p><b> 参见 </b><a href="qwebsocketserver.html#peerVerifyError">peerVerifyError</a>().</p>

@@ -145,11 +145,11 @@
 <p>Constructs an empty message file object with parent <i>parent</i> that is not connected to any file.</p>
 <!-- @@@QTranslator -->
 <!-- $$$~QTranslator[overload1]$$$~QTranslator -->
-<h3 class="fn" id="dtor.QTranslator"><a name="dtor.QTranslator"></a><code>[virtual] </code>QTranslator::<span class="name">~QTranslator</span>()</h3>
+<h3 class="fn" id="dtor.QTranslator"><a name="dtor.QTranslator"></a><code>[虚函数] </code>QTranslator::<span class="name">~QTranslator</span>()</h3>
 <p>Destroys the object and frees any allocated resources.</p>
 <!-- @@@~QTranslator -->
 <!-- $$$isEmpty[overload1]$$$isEmpty -->
-<h3 class="fn" id="isEmpty"><a name="isEmpty"></a><code>[virtual] </code><span class="type">bool</span> QTranslator::<span class="name">isEmpty</span>() const</h3>
+<h3 class="fn" id="isEmpty"><a name="isEmpty"></a><code>[虚函数] </code><span class="type">bool</span> QTranslator::<span class="name">isEmpty</span>() const</h3>
 <p>Returns <code>true</code> if this translator is empty, otherwise returns <code>false</code>. This function works with stripped and unstripped translation files.</p>
 <!-- @@@isEmpty -->
 <!-- $$$load[overload1]$$$loadconstQString&constQString&constQString&constQString& -->
@@ -207,7 +207,7 @@
 <p><i>directory</i> is only used to specify the base directory when loading the dependencies of a QM file. If the file does not have dependencies, this argument is ignored.</p>
 <!-- @@@load -->
 <!-- $$$translate[overload1]$$$translateconstchar*constchar*constchar*int -->
-<h3 class="fn" id="translate"><a name="translate"></a><code>[virtual] </code><span class="type"><a href="qstring.html">QString</a></span> QTranslator::<span class="name">translate</span>(const <span class="type">char</span> *<i>context</i>, const <span class="type">char</span> *<i>sourceText</i>, const <span class="type">char</span> *<i>disambiguation</i> = nullptr, <span class="type">int</span> <i>n</i> = -1) const</h3>
+<h3 class="fn" id="translate"><a name="translate"></a><code>[虚函数] </code><span class="type"><a href="qstring.html">QString</a></span> QTranslator::<span class="name">translate</span>(const <span class="type">char</span> *<i>context</i>, const <span class="type">char</span> *<i>sourceText</i>, const <span class="type">char</span> *<i>disambiguation</i> = nullptr, <span class="type">int</span> <i>n</i> = -1) const</h3>
 <p>Returns the translation for the key (<i>context</i>, <i>sourceText</i>, <i>disambiguation</i>). If none is found, also tries (<i>context</i>, <i>sourceText</i>, &quot;&quot;). If that still fails, returns a null string.</p>
 <p><b>Note: </b>Incomplete translations may result in unexpected behavior: If no translation for (<i>context</i>, <i>sourceText</i>, &quot;&quot;) is provided, the method might in this case actually return a translation for a different <i>disambiguation</i>.</p><p>If <i>n</i> is not -1, it is used to choose an appropriate form for the translation (e.g&#x2e; &quot;%n file found&quot; vs. &quot;%n files found&quot;).</p>
 <p>If you need to programatically insert translations into a <a href="qtranslator.html">QTranslator</a>, this function can be reimplemented.</p>

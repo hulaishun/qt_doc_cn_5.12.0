@@ -173,7 +173,7 @@
 <p><b> 参见 </b><a href="qmodbusdataunit.html#RegisterType-enum">QModbusDataUnit::RegisterType</a> 和 <a href="qmodbusserver.html#setData">setData</a>().</p>
 <!-- @@@data -->
 <!-- $$$dataWritten[overload1]$$$dataWrittenQModbusDataUnit::RegisterTypeintint -->
-<h3 class="fn" id="dataWritten"><a name="dataWritten"></a><code>[signal] </code><span class="type">void</span> QModbusServer::<span class="name">dataWritten</span>(<span class="type"><a href="qmodbusdataunit.html#RegisterType-enum">QModbusDataUnit::RegisterType</a></span> <i>table</i>, <span class="type">int</span> <i>address</i>, <span class="type">int</span> <i>size</i>)</h3>
+<h3 class="fn" id="dataWritten"><a name="dataWritten"></a><code>[信号] </code><span class="type">void</span> QModbusServer::<span class="name">dataWritten</span>(<span class="type"><a href="qmodbusdataunit.html#RegisterType-enum">QModbusDataUnit::RegisterType</a></span> <i>table</i>, <span class="type">int</span> <i>address</i>, <span class="type">int</span> <i>size</i>)</h3>
 <p>This signal is emitted when a Modbus client has written one or more fields of data to the Modbus server. The signal contains information about the fields that were written:</p>
 <ul>
 <li>Register type (<i>table</i>) that was written,</li>
@@ -183,25 +183,25 @@
 <p>The signal is not emitted when the to-be-written fields have not changed due to no change in value.</p>
 <!-- @@@dataWritten -->
 <!-- $$$processPrivateRequest[overload1]$$$processPrivateRequestconstQModbusPdu& -->
-<h3 class="fn" id="processPrivateRequest"><a name="processPrivateRequest"></a><code>[virtual protected] </code><span class="type"><a href="qmodbusresponse.html">QModbusResponse</a></span> QModbusServer::<span class="name">processPrivateRequest</span>(const <span class="type"><a href="qmodbuspdu.html">QModbusPdu</a></span> &amp;<i>request</i>)</h3>
+<h3 class="fn" id="processPrivateRequest"><a name="processPrivateRequest"></a><code>[虚保护函数] </code><span class="type"><a href="qmodbusresponse.html">QModbusResponse</a></span> QModbusServer::<span class="name">processPrivateRequest</span>(const <span class="type"><a href="qmodbuspdu.html">QModbusPdu</a></span> &amp;<i>request</i>)</h3>
 <p>This function should be implemented by custom Modbus servers. It is called by <a href="qmodbusserver.html#processRequest">processRequest</a>() if the given <i>request</i> is not a standard Modbus request.</p>
 <p>Overwriting this function allows handling of additional function codes and subfunction-codes not specified in the Modbus Application Protocol Specification 1.1b. Reimplementations should call this function again to ensure an exception response is returned for all unknown function codes the custom Modbus implementation does not handle.</p>
 <p>This default implementation returns a <code>QModbusExceptionResponse</code> with the <i>request</i> function code and error code set to illegal function.</p>
 <p><b> 参见 </b><a href="qmodbusserver.html#processRequest">processRequest</a>().</p>
 <!-- @@@processPrivateRequest -->
 <!-- $$$processRequest[overload1]$$$processRequestconstQModbusPdu& -->
-<h3 class="fn" id="processRequest"><a name="processRequest"></a><code>[virtual protected] </code><span class="type"><a href="qmodbusresponse.html">QModbusResponse</a></span> QModbusServer::<span class="name">processRequest</span>(const <span class="type"><a href="qmodbuspdu.html">QModbusPdu</a></span> &amp;<i>request</i>)</h3>
+<h3 class="fn" id="processRequest"><a name="processRequest"></a><code>[虚保护函数] </code><span class="type"><a href="qmodbusresponse.html">QModbusResponse</a></span> QModbusServer::<span class="name">processRequest</span>(const <span class="type"><a href="qmodbuspdu.html">QModbusPdu</a></span> &amp;<i>request</i>)</h3>
 <p>Processes a Modbus client <i>request</i> and returns a Modbus response. This function returns a <a href="qmodbusresponse.html">QModbusResponse</a> or <a href="qmodbusexceptionresponse.html">QModbusExceptionResponse</a> depending on the nature of the request.</p>
 <p>The default implementation of this function handles all standard Modbus function codes as defined by the Modbus Application Protocol Specification 1.1b. All other Modbus function codes not included in the specification are forwarded to <a href="qmodbusserver.html#processPrivateRequest">processPrivateRequest</a>().</p>
 <p>The default handling of the standard Modbus function code requests can be overwritten by reimplementing this function. The override must handle the request type in question and return the appropriate <a href="qmodbusresponse.html">QModbusResponse</a>. A common reason might be to filter out function code requests for data values to limit read/write access and function codes not desired in particular implementations such as serial line diagnostics on ethernet or Modbus Plus transport layers. Every other request type should be forwarded to this default implementation.</p>
 <p><b>Note: </b>This function should not be overridden to provide a custom implementation for non-standard Modbus request types.</p><p><b> 参见 </b><a href="qmodbusserver.html#processPrivateRequest">processPrivateRequest</a>().</p>
 <!-- @@@processRequest -->
 <!-- $$$processesBroadcast[overload1]$$$processesBroadcast -->
-<h3 class="fn" id="processesBroadcast"><a name="processesBroadcast"></a><code>[virtual] </code><span class="type">bool</span> QModbusServer::<span class="name">processesBroadcast</span>() const</h3>
+<h3 class="fn" id="processesBroadcast"><a name="processesBroadcast"></a><code>[虚函数] </code><span class="type">bool</span> QModbusServer::<span class="name">processesBroadcast</span>() const</h3>
 <p>Subclasses should implement this function if the transport layer shall handle broadcasts. The implementation then should return <code>true</code> if the currently processed request is a broadcast request; otherwise <code>false</code>. The default implementation returns always <code>false</code>.</p>
 <p><b>Note: </b>The return value of this function only makes sense from within <a href="qmodbusserver.html#processRequest">processRequest</a>() or <a href="qmodbusserver.html#processPrivateRequest">processPrivateRequest</a>(), otherwise it can only tell that the last request processed was a broadcast request.</p><!-- @@@processesBroadcast -->
 <!-- $$$readData[overload1]$$$readDataQModbusDataUnit* -->
-<h3 class="fn" id="readData"><a name="readData"></a><code>[virtual protected] </code><span class="type">bool</span> QModbusServer::<span class="name">readData</span>(<span class="type"><a href="qmodbusdataunit.html">QModbusDataUnit</a></span> *<i>newData</i>) const</h3>
+<h3 class="fn" id="readData"><a name="readData"></a><code>[虚保护函数] </code><span class="type">bool</span> QModbusServer::<span class="name">readData</span>(<span class="type"><a href="qmodbusdataunit.html">QModbusDataUnit</a></span> *<i>newData</i>) const</h3>
 <p>Reads the values in the register range given by <i>newData</i> and writes the data back to <i>newData</i>. Returns <code>true</code> on success or <code>false</code> if <i>newData</i> is <code>0</code>, the <i>newData</i> range is outside of the map range or the registerType() does not exist.</p>
 <p><b>Note: </b>Sub-classes that implement reading from a different backing store then default one, also need to implement <a href="qmodbusserver.html#setMap">setMap</a>() 和 <a href="qmodbusserver.html#writeData">writeData</a>().</p><p><b> 参见 </b><a href="qmodbusserver.html#setMap">setMap</a>() 和 <a href="qmodbusserver.html#writeData">writeData</a>().</p>
 <!-- @@@readData -->
@@ -223,7 +223,7 @@
 <p><b> 参见 </b><a href="qmodbusdataunit.html#RegisterType-enum">QModbusDataUnit::RegisterType</a>, <a href="qmodbusserver.html#data">data</a>(), 和 <a href="qmodbusserver.html#dataWritten">dataWritten</a>().</p>
 <!-- @@@setData -->
 <!-- $$$setMap[overload1]$$$setMapconstQModbusDataUnitMap& -->
-<h3 class="fn" id="setMap"><a name="setMap"></a><code>[virtual] </code><span class="type">bool</span> QModbusServer::<span class="name">setMap</span>(const <span class="type"><a href="qmodbusdataunit.html#QModbusDataUnitMap-typedef">QModbusDataUnitMap</a></span> &amp;<i>map</i>)</h3>
+<h3 class="fn" id="setMap"><a name="setMap"></a><code>[虚函数] </code><span class="type">bool</span> QModbusServer::<span class="name">setMap</span>(const <span class="type"><a href="qmodbusdataunit.html#QModbusDataUnitMap-typedef">QModbusDataUnitMap</a></span> &amp;<i>map</i>)</h3>
 <p>Sets the registered map structure for requests from other ModBus clients to <i>map</i>. The register values are initialized with zero. Returns <code>true</code> on success; otherwise <code>false</code>.</p>
 <p>If this function is not called before connecting, a default register with zero entries is setup.</p>
 <p><b>Note: </b>Calling this function discards any register value that was previously set.</p><!-- @@@setMap -->
@@ -233,7 +233,7 @@
 <p><b> 参见 </b><a href="qmodbusserver.html#serverAddress">serverAddress</a>().</p>
 <!-- @@@setServerAddress -->
 <!-- $$$setValue[overload1]$$$setValueintconstQVariant& -->
-<h3 class="fn" id="setValue"><a name="setValue"></a><code>[virtual] </code><span class="type">bool</span> QModbusServer::<span class="name">setValue</span>(<span class="type">int</span> <i>option</i>, const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>newValue</i>)</h3>
+<h3 class="fn" id="setValue"><a name="setValue"></a><code>[虚函数] </code><span class="type">bool</span> QModbusServer::<span class="name">setValue</span>(<span class="type">int</span> <i>option</i>, const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>newValue</i>)</h3>
 <p>Sets the <i>newValue</i> for <i>option</i> and returns <code>true</code> on success; <code>false</code> otherwise.</p>
 <p><b>Note: </b>If the option's associated type is <code>quint8</code> or <code>quint16</code> and the type of <i>newValue</i> is larger, the data will be truncated or conversation will fail.</p><div class="table"><table class="generic">
  <thead><tr class="qt-style"><th >Key</th><th >描述</th></tr></thead>
@@ -252,7 +252,7 @@
 <p><b> 参见 </b><a href="qmodbusserver.html#value">value</a>().</p>
 <!-- @@@setValue -->
 <!-- $$$value[overload1]$$$valueint -->
-<h3 class="fn" id="value"><a name="value"></a><code>[virtual] </code><span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> QModbusServer::<span class="name">value</span>(<span class="type">int</span> <i>option</i>) const</h3>
+<h3 class="fn" id="value"><a name="value"></a><code>[虚函数] </code><span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> QModbusServer::<span class="name">value</span>(<span class="type">int</span> <i>option</i>) const</h3>
 <p>Returns the value for <i>option</i> or an invalid <code>QVariant</code> if the option is not set.</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th >选项</th><th >描述</th></tr></thead>
@@ -270,7 +270,7 @@
 <p><b> 参见 </b><a href="qmodbusserver.html#setValue">setValue</a>().</p>
 <!-- @@@value -->
 <!-- $$$writeData[overload1]$$$writeDataconstQModbusDataUnit& -->
-<h3 class="fn" id="writeData"><a name="writeData"></a><code>[virtual protected] </code><span class="type">bool</span> QModbusServer::<span class="name">writeData</span>(const <span class="type"><a href="qmodbusdataunit.html">QModbusDataUnit</a></span> &amp;<i>newData</i>)</h3>
+<h3 class="fn" id="writeData"><a name="writeData"></a><code>[虚保护函数] </code><span class="type">bool</span> QModbusServer::<span class="name">writeData</span>(const <span class="type"><a href="qmodbusdataunit.html">QModbusDataUnit</a></span> &amp;<i>newData</i>)</h3>
 <p>Writes <i>newData</i> to the Modbus server map. Returns <code>true</code> on success, or <code>false</code> if the <i>newData</i> range is outside of the map range or the registerType() does not exist.</p>
 <p><b>Note: </b>Sub-classes that implement writing to a different backing store then default one, also need to implement <a href="qmodbusserver.html#setMap">setMap</a>() 和 <a href="qmodbusserver.html#readData">readData</a>(). The <a href="qmodbusserver.html#dataWritten">dataWritten</a>() signal needs to be emitted from within the functions implementation as well.</p><p><b> 参见 </b><a href="qmodbusserver.html#setMap">setMap</a>(), <a href="qmodbusserver.html#readData">readData</a>(), 和 <a href="qmodbusserver.html#dataWritten">dataWritten</a>().</p>
 <!-- @@@writeData -->

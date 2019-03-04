@@ -108,7 +108,7 @@
 <p>Constructs a layout item with an <i>alignment</i>. Not all subclasses support alignment.</p>
 <!-- @@@QLayoutItem -->
 <!-- $$$~QLayoutItem[overload1]$$$~QLayoutItem -->
-<h3 class="fn" id="dtor.QLayoutItem"><a name="dtor.QLayoutItem"></a><code>[virtual] </code>QLayoutItem::<span class="name">~QLayoutItem</span>()</h3>
+<h3 class="fn" id="dtor.QLayoutItem"><a name="dtor.QLayoutItem"></a><code>[虚函数] </code>QLayoutItem::<span class="name">~QLayoutItem</span>()</h3>
 <p>Destroys the <a href="qlayoutitem.html">QLayoutItem</a>.</p>
 <!-- @@@~QLayoutItem -->
 <!-- $$$alignment[overload1]$$$alignment -->
@@ -117,27 +117,27 @@
 <p><b> 参见 </b><a href="qlayoutitem.html#setAlignment">setAlignment</a>().</p>
 <!-- @@@alignment -->
 <!-- $$$controlTypes[overload1]$$$controlTypes -->
-<h3 class="fn" id="controlTypes"><a name="controlTypes"></a><code>[virtual] </code><span class="type"><a href="qsizepolicy.html#ControlType-enum">QSizePolicy::ControlTypes</a></span> QLayoutItem::<span class="name">controlTypes</span>() const</h3>
+<h3 class="fn" id="controlTypes"><a name="controlTypes"></a><code>[虚函数] </code><span class="type"><a href="qsizepolicy.html#ControlType-enum">QSizePolicy::ControlTypes</a></span> QLayoutItem::<span class="name">controlTypes</span>() const</h3>
 <p>Returns the control type(s) for the layout item. For a <a href="qwidgetitem.html">QWidgetItem</a>, the control type comes from the widget's size policy; for a <a href="qlayoutitem.html">QLayoutItem</a>, the control types is derived from the layout's contents.</p>
 <p><b> 参见 </b><a href="qsizepolicy.html#controlType">QSizePolicy::controlType</a>().</p>
 <!-- @@@controlTypes -->
 <!-- $$$expandingDirections[overload1]$$$expandingDirections -->
-<h3 class="fn" id="expandingDirections"><a name="expandingDirections"></a><code>[pure virtual] </code><span class="type">Qt::Orientations</span> QLayoutItem::<span class="name">expandingDirections</span>() const</h3>
+<h3 class="fn" id="expandingDirections"><a name="expandingDirections"></a><code>[纯虚函数] </code><span class="type">Qt::Orientations</span> QLayoutItem::<span class="name">expandingDirections</span>() const</h3>
 <p>Returns whether this layout item can make use of more space than <a href="qlayoutitem.html#sizeHint">sizeHint</a>(). A value of <a href="../qtcore/qt.html#Orientation-enum">Qt::Vertical</a> or <a href="../qtcore/qt.html#Orientation-enum">Qt::Horizontal</a> means that it wants to grow in only one dimension, whereas <a href="../qtcore/qt.html#Orientation-enum">Qt::Vertical</a> | <a href="../qtcore/qt.html#Orientation-enum">Qt::Horizontal</a> means that it wants to grow in both dimensions.</p>
 <!-- @@@expandingDirections -->
 <!-- $$$geometry[overload1]$$$geometry -->
-<h3 class="fn" id="geometry"><a name="geometry"></a><code>[pure virtual] </code><span class="type"><a href="../qtcore/qrect.html">QRect</a></span> QLayoutItem::<span class="name">geometry</span>() const</h3>
+<h3 class="fn" id="geometry"><a name="geometry"></a><code>[纯虚函数] </code><span class="type"><a href="../qtcore/qrect.html">QRect</a></span> QLayoutItem::<span class="name">geometry</span>() const</h3>
 <p>Returns the rectangle covered by this layout item.</p>
 <p><b> 参见 </b><a href="qlayoutitem.html#setGeometry">setGeometry</a>().</p>
 <!-- @@@geometry -->
 <!-- $$$hasHeightForWidth[overload1]$$$hasHeightForWidth -->
-<h3 class="fn" id="hasHeightForWidth"><a name="hasHeightForWidth"></a><code>[virtual] </code><span class="type">bool</span> QLayoutItem::<span class="name">hasHeightForWidth</span>() const</h3>
+<h3 class="fn" id="hasHeightForWidth"><a name="hasHeightForWidth"></a><code>[虚函数] </code><span class="type">bool</span> QLayoutItem::<span class="name">hasHeightForWidth</span>() const</h3>
 <p>Returns <code>true</code> if this layout's preferred height depends on its width; otherwise returns <code>false</code>. The default implementation returns false.</p>
 <p>Reimplement this function in layout managers that support height for width.</p>
 <p><b> 参见 </b><a href="qlayoutitem.html#heightForWidth">heightForWidth</a>() 和 <a href="qwidget.html#heightForWidth">QWidget::heightForWidth</a>().</p>
 <!-- @@@hasHeightForWidth -->
 <!-- $$$heightForWidth[overload1]$$$heightForWidthint -->
-<h3 class="fn" id="heightForWidth"><a name="heightForWidth"></a><code>[virtual] </code><span class="type">int</span> QLayoutItem::<span class="name">heightForWidth</span>(<i>int</i>) const</h3>
+<h3 class="fn" id="heightForWidth"><a name="heightForWidth"></a><code>[虚函数] </code><span class="type">int</span> QLayoutItem::<span class="name">heightForWidth</span>(<i>int</i>) const</h3>
 <p>Returns the preferred height for this layout item, given the width, which is not used in this default implementation.</p>
 <p>The default implementation returns -1, indicating that the preferred height is independent of the width of the item. Using the function <a href="qlayoutitem.html#hasHeightForWidth">hasHeightForWidth</a>() will typically be much faster than calling this function and testing for -1.</p>
 <p>Reimplement this function in layout managers that support height for width. A typical implementation will look like this:</p>
@@ -160,28 +160,28 @@
 <p><b> 参见 </b><a href="qlayoutitem.html#hasHeightForWidth">hasHeightForWidth</a>().</p>
 <!-- @@@heightForWidth -->
 <!-- $$$invalidate[overload1]$$$invalidate -->
-<h3 class="fn" id="invalidate"><a name="invalidate"></a><code>[virtual] </code><span class="type">void</span> QLayoutItem::<span class="name">invalidate</span>()</h3>
+<h3 class="fn" id="invalidate"><a name="invalidate"></a><code>[虚函数] </code><span class="type">void</span> QLayoutItem::<span class="name">invalidate</span>()</h3>
 <p>Invalidates any cached information in this layout item.</p>
 <!-- @@@invalidate -->
 <!-- $$$isEmpty[overload1]$$$isEmpty -->
-<h3 class="fn" id="isEmpty"><a name="isEmpty"></a><code>[pure virtual] </code><span class="type">bool</span> QLayoutItem::<span class="name">isEmpty</span>() const</h3>
+<h3 class="fn" id="isEmpty"><a name="isEmpty"></a><code>[纯虚函数] </code><span class="type">bool</span> QLayoutItem::<span class="name">isEmpty</span>() const</h3>
 <p>Implemented in subclasses to return whether this item is empty, i.e&#x2e; whether it contains any widgets.</p>
 <!-- @@@isEmpty -->
 <!-- $$$layout[overload1]$$$layout -->
-<h3 class="fn" id="layout"><a name="layout"></a><code>[virtual] </code><span class="type"><a href="qlayout.html">QLayout</a></span> *QLayoutItem::<span class="name">layout</span>()</h3>
+<h3 class="fn" id="layout"><a name="layout"></a><code>[虚函数] </code><span class="type"><a href="qlayout.html">QLayout</a></span> *QLayoutItem::<span class="name">layout</span>()</h3>
 <p>If this item is a <a href="qlayout.html">QLayout</a>, it is returned as a <a href="qlayout.html">QLayout</a>; otherwise 0 is returned. This function provides type-safe casting.</p>
 <p><b> 参见 </b><a href="qlayoutitem.html#spacerItem">spacerItem</a>() 和 <a href="qlayoutitem.html#widget">widget</a>().</p>
 <!-- @@@layout -->
 <!-- $$$maximumSize[overload1]$$$maximumSize -->
-<h3 class="fn" id="maximumSize"><a name="maximumSize"></a><code>[pure virtual] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QLayoutItem::<span class="name">maximumSize</span>() const</h3>
+<h3 class="fn" id="maximumSize"><a name="maximumSize"></a><code>[纯虚函数] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QLayoutItem::<span class="name">maximumSize</span>() const</h3>
 <p>Implemented in subclasses to return the maximum size of this item.</p>
 <!-- @@@maximumSize -->
 <!-- $$$minimumHeightForWidth[overload1]$$$minimumHeightForWidthint -->
-<h3 class="fn" id="minimumHeightForWidth"><a name="minimumHeightForWidth"></a><code>[virtual] </code><span class="type">int</span> QLayoutItem::<span class="name">minimumHeightForWidth</span>(<span class="type">int</span> <i>w</i>) const</h3>
+<h3 class="fn" id="minimumHeightForWidth"><a name="minimumHeightForWidth"></a><code>[虚函数] </code><span class="type">int</span> QLayoutItem::<span class="name">minimumHeightForWidth</span>(<span class="type">int</span> <i>w</i>) const</h3>
 <p>Returns the minimum height this widget needs for the given width, <i>w</i>. The default implementation simply returns <a href="qlayoutitem.html#heightForWidth">heightForWidth</a>(<i>w</i>).</p>
 <!-- @@@minimumHeightForWidth -->
 <!-- $$$minimumSize[overload1]$$$minimumSize -->
-<h3 class="fn" id="minimumSize"><a name="minimumSize"></a><code>[pure virtual] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QLayoutItem::<span class="name">minimumSize</span>() const</h3>
+<h3 class="fn" id="minimumSize"><a name="minimumSize"></a><code>[纯虚函数] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QLayoutItem::<span class="name">minimumSize</span>() const</h3>
 <p>Implemented in subclasses to return the minimum size of this item.</p>
 <!-- @@@minimumSize -->
 <!-- $$$setAlignment[overload1]$$$setAlignmentQt::Alignment -->
@@ -191,21 +191,21 @@
 <p><b> 参见 </b><a href="qlayoutitem.html#alignment">alignment</a>().</p>
 <!-- @@@setAlignment -->
 <!-- $$$setGeometry[overload1]$$$setGeometryconstQRect& -->
-<h3 class="fn" id="setGeometry"><a name="setGeometry"></a><code>[pure virtual] </code><span class="type">void</span> QLayoutItem::<span class="name">setGeometry</span>(const <span class="type"><a href="../qtcore/qrect.html">QRect</a></span> &amp;<i>r</i>)</h3>
+<h3 class="fn" id="setGeometry"><a name="setGeometry"></a><code>[纯虚函数] </code><span class="type">void</span> QLayoutItem::<span class="name">setGeometry</span>(const <span class="type"><a href="../qtcore/qrect.html">QRect</a></span> &amp;<i>r</i>)</h3>
 <p>Implemented in subclasses to set this item's geometry to <i>r</i>.</p>
 <p><b> 参见 </b><a href="qlayoutitem.html#geometry">geometry</a>().</p>
 <!-- @@@setGeometry -->
 <!-- $$$sizeHint[overload1]$$$sizeHint -->
-<h3 class="fn" id="sizeHint"><a name="sizeHint"></a><code>[pure virtual] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QLayoutItem::<span class="name">sizeHint</span>() const</h3>
+<h3 class="fn" id="sizeHint"><a name="sizeHint"></a><code>[纯虚函数] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QLayoutItem::<span class="name">sizeHint</span>() const</h3>
 <p>Implemented in subclasses to return the preferred size of this item.</p>
 <!-- @@@sizeHint -->
 <!-- $$$spacerItem[overload1]$$$spacerItem -->
-<h3 class="fn" id="spacerItem"><a name="spacerItem"></a><code>[virtual] </code><span class="type"><a href="qspaceritem.html">QSpacerItem</a></span> *QLayoutItem::<span class="name">spacerItem</span>()</h3>
+<h3 class="fn" id="spacerItem"><a name="spacerItem"></a><code>[虚函数] </code><span class="type"><a href="qspaceritem.html">QSpacerItem</a></span> *QLayoutItem::<span class="name">spacerItem</span>()</h3>
 <p>If this item is a <a href="qspaceritem.html">QSpacerItem</a>, it is returned as a <a href="qspaceritem.html">QSpacerItem</a>; otherwise 0 is returned. This function provides type-safe casting.</p>
 <p><b> 参见 </b><a href="qlayoutitem.html#layout">layout</a>() 和 <a href="qlayoutitem.html#widget">widget</a>().</p>
 <!-- @@@spacerItem -->
 <!-- $$$widget[overload1]$$$widget -->
-<h3 class="fn" id="widget"><a name="widget"></a><code>[virtual] </code><span class="type"><a href="qwidget.html">QWidget</a></span> *QLayoutItem::<span class="name">widget</span>()</h3>
+<h3 class="fn" id="widget"><a name="widget"></a><code>[虚函数] </code><span class="type"><a href="qwidget.html">QWidget</a></span> *QLayoutItem::<span class="name">widget</span>()</h3>
 <p>If this item manages a <a href="qwidget.html">QWidget</a>, returns that widget. Otherwise, <code>nullptr</code> is returned.</p>
 <p><b>Note: </b>While the functions <a href="qlayoutitem.html#layout">layout</a>() 和 <a href="qlayoutitem.html#spacerItem">spacerItem</a>() perform casts, this function returns another object: <a href="qlayout.html">QLayout</a> 和 <a href="qspaceritem.html">QSpacerItem</a> inherit <a href="qlayoutitem.html">QLayoutItem</a>, while <a href="qwidget.html">QWidget</a> does not.</p><p><b> 参见 </b><a href="qlayoutitem.html#layout">layout</a>() 和 <a href="qlayoutitem.html#spacerItem">spacerItem</a>().</p>
 <!-- @@@widget -->

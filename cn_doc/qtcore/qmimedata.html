@@ -211,7 +211,7 @@
 <p>Constructs a new MIME data object with no data in it.</p>
 <!-- @@@QMimeData -->
 <!-- $$$~QMimeData[overload1]$$$~QMimeData -->
-<h3 class="fn" id="dtor.QMimeData"><a name="dtor.QMimeData"></a><code>[virtual] </code>QMimeData::<span class="name">~QMimeData</span>()</h3>
+<h3 class="fn" id="dtor.QMimeData"><a name="dtor.QMimeData"></a><code>[虚函数] </code>QMimeData::<span class="name">~QMimeData</span>()</h3>
 <p>Destroys the MIME data object.</p>
 <!-- @@@~QMimeData -->
 <!-- $$$clear[overload1]$$$clear -->
@@ -238,7 +238,7 @@
 <p><b> 参见 </b><a href="qmimedata.html#setData">setData</a>().</p>
 <!-- @@@data -->
 <!-- $$$formats[overload1]$$$formats -->
-<h3 class="fn" id="formats"><a name="formats"></a><code>[virtual] </code><span class="type"><a href="qstringlist.html">QStringList</a></span> QMimeData::<span class="name">formats</span>() const</h3>
+<h3 class="fn" id="formats"><a name="formats"></a><code>[虚函数] </code><span class="type"><a href="qstringlist.html">QStringList</a></span> QMimeData::<span class="name">formats</span>() const</h3>
 <p>Returns a list of formats supported by the object. This is a list of MIME types for which the object can return suitable data. The formats in the list are in a priority order.</p>
 <p>For the most common types of data, you can call the higher-level functions <a href="qmimedata.html#hasText">hasText</a>(), <a href="qmimedata.html#hasHtml">hasHtml</a>(), <a href="qmimedata.html#hasUrls">hasUrls</a>(), <a href="qmimedata.html#hasImage">hasImage</a>(), 和 <a href="qmimedata.html#hasColor">hasColor</a>() instead.</p>
 <p><b> 参见 </b><a href="qmimedata.html#hasFormat">hasFormat</a>(), <a href="qmimedata.html#setData">setData</a>(), 和 <a href="qmimedata.html#data">data</a>().</p>
@@ -249,7 +249,7 @@
 <p><b> 参见 </b><a href="qmimedata.html#setColorData">setColorData</a>(), <a href="qmimedata.html#colorData">colorData</a>(), 和 <a href="qmimedata.html#hasFormat">hasFormat</a>().</p>
 <!-- @@@hasColor -->
 <!-- $$$hasFormat[overload1]$$$hasFormatconstQString& -->
-<h3 class="fn" id="hasFormat"><a name="hasFormat"></a><code>[virtual] </code><span class="type">bool</span> QMimeData::<span class="name">hasFormat</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>mimeType</i>) const</h3>
+<h3 class="fn" id="hasFormat"><a name="hasFormat"></a><code>[虚函数] </code><span class="type">bool</span> QMimeData::<span class="name">hasFormat</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>mimeType</i>) const</h3>
 <p>Returns <code>true</code> if the object can return data for the MIME type specified by <i>mimeType</i>; otherwise returns <code>false</code>.</p>
 <p>For the most common types of data, you can call the higher-level functions <a href="qmimedata.html#hasText">hasText</a>(), <a href="qmimedata.html#hasHtml">hasHtml</a>(), <a href="qmimedata.html#hasUrls">hasUrls</a>(), <a href="qmimedata.html#hasImage">hasImage</a>(), 和 <a href="qmimedata.html#hasColor">hasColor</a>() instead.</p>
 <p><b> 参见 </b><a href="qmimedata.html#formats">formats</a>(), <a href="qmimedata.html#setData">setData</a>(), 和 <a href="qmimedata.html#data">data</a>().</p>
@@ -300,7 +300,7 @@
 <p>这个函数是在Qt 4.4版本中新增引入的。</p>
 <!-- @@@removeFormat -->
 <!-- $$$retrieveData[overload1]$$$retrieveDataconstQString&QVariant::Type -->
-<h3 class="fn" id="retrieveData"><a name="retrieveData"></a><code>[virtual protected] </code><span class="type"><a href="qvariant.html">QVariant</a></span> QMimeData::<span class="name">retrieveData</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>mimeType</i>, <span class="type"><a href="qvariant-obsolete.html#Type-enum">QVariant::Type</a></span> <i>type</i>) const</h3>
+<h3 class="fn" id="retrieveData"><a name="retrieveData"></a><code>[虚保护函数] </code><span class="type"><a href="qvariant.html">QVariant</a></span> QMimeData::<span class="name">retrieveData</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>mimeType</i>, <span class="type"><a href="qvariant-obsolete.html#Type-enum">QVariant::Type</a></span> <i>type</i>) const</h3>
 <p>Returns a variant with the given <i>type</i> containing data for the MIME type specified by <i>mimeType</i>. If the object does not support the MIME type or variant type given, a null variant is returned instead.</p>
 <p>This function is called by the general <a href="qmimedata.html#data">data</a>() getter and by the convenience getters (<a href="qmimedata.html#text">text</a>(), <a href="qmimedata.html#html">html</a>(), <a href="qmimedata.html#urls">urls</a>(), <a href="qmimedata.html#imageData">imageData</a>(), 和 <a href="qmimedata.html#colorData">colorData</a>()). You can reimplement it if you want to store your data using a custom data structure (instead of a <a href="qbytearray.html">QByteArray</a>, which is what <a href="qmimedata.html#setData">setData</a>() provides). You would then also need to reimplement <a href="qmimedata.html#hasFormat">hasFormat</a>() 和 <a href="qmimedata.html#formats">formats</a>().</p>
 <p><b> 参见 </b><a href="qmimedata.html#data">data</a>().</p>

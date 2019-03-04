@@ -144,7 +144,7 @@
 <p>Constructs the <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a> object. <i>parent</i> becomes the object's parent. If <i>isLayout</i> is true the item is a layout, otherwise <i>isLayout</i> is false.</p>
 <!-- @@@QGraphicsLayoutItem -->
 <!-- $$$~QGraphicsLayoutItem[overload1]$$$~QGraphicsLayoutItem -->
-<h3 class="fn" id="dtor.QGraphicsLayoutItem"><a name="dtor.QGraphicsLayoutItem"></a><code>[virtual] </code>QGraphicsLayoutItem::<span class="name">~QGraphicsLayoutItem</span>()</h3>
+<h3 class="fn" id="dtor.QGraphicsLayoutItem"><a name="dtor.QGraphicsLayoutItem"></a><code>[虚函数] </code>QGraphicsLayoutItem::<span class="name">~QGraphicsLayoutItem</span>()</h3>
 <p>Destroys the <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a> object.</p>
 <!-- @@@~QGraphicsLayoutItem -->
 <!-- $$$contentsRect[overload1]$$$contentsRect -->
@@ -169,7 +169,7 @@
 <p><b> 参见 </b><a href="qgraphicslayoutitem.html#setGeometry">setGeometry</a>().</p>
 <!-- @@@geometry -->
 <!-- $$$getContentsMargins[overload1]$$$getContentsMarginsqreal*qreal*qreal*qreal* -->
-<h3 class="fn" id="getContentsMargins"><a name="getContentsMargins"></a><code>[virtual] </code><span class="type">void</span> QGraphicsLayoutItem::<span class="name">getContentsMargins</span>(<span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> *<i>left</i>, <span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> *<i>top</i>, <span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> *<i>right</i>, <span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> *<i>bottom</i>) const</h3>
+<h3 class="fn" id="getContentsMargins"><a name="getContentsMargins"></a><code>[虚函数] </code><span class="type">void</span> QGraphicsLayoutItem::<span class="name">getContentsMargins</span>(<span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> *<i>left</i>, <span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> *<i>top</i>, <span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> *<i>right</i>, <span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> *<i>bottom</i>) const</h3>
 <p>This virtual function provides the <i>left</i>, <i>top</i>, <i>right</i> and <i>bottom</i> contents margins for this <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a>. The default implementation assumes all contents margins are 0. The parameters point to values stored in qreals. If any of the pointers is 0, that value will not be updated.</p>
 <p><b> 参见 </b><a href="qgraphicswidget.html#setContentsMargins">QGraphicsWidget::setContentsMargins</a>().</p>
 <!-- @@@getContentsMargins -->
@@ -242,14 +242,14 @@
 <p><b> 参见 </b><a href="qgraphicslayoutitem.html#setPreferredWidth">setPreferredWidth</a>(), <a href="qgraphicslayoutitem.html#setPreferredSize">setPreferredSize</a>(), 和 <a href="qgraphicslayoutitem.html#preferredSize">preferredSize</a>().</p>
 <!-- @@@preferredWidth -->
 <!-- $$$setGeometry[overload1]$$$setGeometryconstQRectF& -->
-<h3 class="fn" id="setGeometry"><a name="setGeometry"></a><code>[virtual] </code><span class="type">void</span> QGraphicsLayoutItem::<span class="name">setGeometry</span>(const <span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> &amp;<i>rect</i>)</h3>
+<h3 class="fn" id="setGeometry"><a name="setGeometry"></a><code>[虚函数] </code><span class="type">void</span> QGraphicsLayoutItem::<span class="name">setGeometry</span>(const <span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> &amp;<i>rect</i>)</h3>
 <p>This virtual function sets the geometry of the <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a> to <i>rect</i>, which is in parent coordinates (e.g&#x2e;, the top-left corner of <i>rect</i> is equivalent to the item's position in parent coordinates).</p>
 <p>You must reimplement this function in a subclass of <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a> to receive geometry updates. The layout will call this function when it does a rearrangement.</p>
 <p>If <i>rect</i> is outside of the bounds of <a href="qgraphicslayoutitem.html#minimumSize">minimumSize</a> 和 <a href="qgraphicslayoutitem.html#maximumSize">maximumSize</a>, it will be adjusted to its closest size so that it is within the legal bounds.</p>
 <p><b> 参见 </b><a href="qgraphicslayoutitem.html#geometry">geometry</a>().</p>
 <!-- @@@setGeometry -->
 <!-- $$$setGraphicsItem[overload1]$$$setGraphicsItemQGraphicsItem* -->
-<h3 class="fn" id="setGraphicsItem"><a name="setGraphicsItem"></a><code>[protected] </code><span class="type">void</span> QGraphicsLayoutItem::<span class="name">setGraphicsItem</span>(<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> *<i>item</i>)</h3>
+<h3 class="fn" id="setGraphicsItem"><a name="setGraphicsItem"></a><code>[保护函数] </code><span class="type">void</span> QGraphicsLayoutItem::<span class="name">setGraphicsItem</span>(<span class="type"><a href="qgraphicsitem.html">QGraphicsItem</a></span> *<i>item</i>)</h3>
 <p>If the <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a> represents a <a href="qgraphicsitem.html">QGraphicsItem</a>, and it wants to take advantage of the automatic reparenting capabilities of <a href="graphicsview.html#qgraphicslayout">QGraphicsLayout</a> it should set this value. Note that if you delete <i>item</i> and not delete the layout item, you are responsible of calling setGraphicsItem(0) in order to avoid having a dangling pointer.</p>
 <p><b> 参见 </b><a href="qgraphicslayoutitem.html#graphicsItem">graphicsItem</a>().</p>
 <!-- @@@setGraphicsItem -->
@@ -294,7 +294,7 @@
 <p><b> 参见 </b><a href="qgraphicslayoutitem.html#minimumWidth">minimumWidth</a>(), <a href="qgraphicslayoutitem.html#setMinimumSize">setMinimumSize</a>(), 和 <a href="qgraphicslayoutitem.html#minimumSize">minimumSize</a>().</p>
 <!-- @@@setMinimumWidth -->
 <!-- $$$setOwnedByLayout[overload1]$$$setOwnedByLayoutbool -->
-<h3 class="fn" id="setOwnedByLayout"><a name="setOwnedByLayout"></a><code>[protected] </code><span class="type">void</span> QGraphicsLayoutItem::<span class="name">setOwnedByLayout</span>(<span class="type">bool</span> <i>ownership</i>)</h3>
+<h3 class="fn" id="setOwnedByLayout"><a name="setOwnedByLayout"></a><code>[保护函数] </code><span class="type">void</span> QGraphicsLayoutItem::<span class="name">setOwnedByLayout</span>(<span class="type">bool</span> <i>ownership</i>)</h3>
 <p>Sets whether a layout should delete this item in its destructor or not. <i>ownership</i> must be true to in order for the layout to delete it.</p>
 <p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qgraphicslayoutitem.html#ownedByLayout">ownedByLayout</a>().</p>
@@ -337,7 +337,7 @@
 <p><b> 参见 </b><a href="qgraphicslayoutitem.html#sizePolicy">sizePolicy</a>() 和 <a href="qwidget.html#sizePolicy-prop">QWidget::sizePolicy</a>().</p>
 <!-- @@@setSizePolicy -->
 <!-- $$$sizeHint[overload1]$$$sizeHintQt::SizeHintconstQSizeF& -->
-<h3 class="fn" id="sizeHint"><a name="sizeHint"></a><code>[pure virtual protected] </code><span class="type"><a href="../qtcore/qsizef.html">QSizeF</a></span> QGraphicsLayoutItem::<span class="name">sizeHint</span>(<span class="type">Qt::SizeHint</span> <i>which</i>, const <span class="type"><a href="../qtcore/qsizef.html">QSizeF</a></span> &amp;<i>constraint</i> = QSizeF()) const</h3>
+<h3 class="fn" id="sizeHint"><a name="sizeHint"></a><code>[纯虚保护函数] </code><span class="type"><a href="../qtcore/qsizef.html">QSizeF</a></span> QGraphicsLayoutItem::<span class="name">sizeHint</span>(<span class="type">Qt::SizeHint</span> <i>which</i>, const <span class="type"><a href="../qtcore/qsizef.html">QSizeF</a></span> &amp;<i>constraint</i> = QSizeF()) const</h3>
 <p>This pure virtual function returns the size hint for <i>which</i> of the <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a>, using the width or height of <i>constraint</i> to constrain the output.</p>
 <p>Reimplement this function in a subclass of <a href="qgraphicslayoutitem.html">QGraphicsLayoutItem</a> to provide the necessary size hints for your items.</p>
 <p><b> 参见 </b><a href="qgraphicslayoutitem.html#effectiveSizeHint">effectiveSizeHint</a>().</p>
@@ -348,7 +348,7 @@
 <p><b> 参见 </b><a href="qgraphicslayoutitem.html#setSizePolicy">setSizePolicy</a>() 和 <a href="qwidget.html#sizePolicy-prop">QWidget::sizePolicy</a>().</p>
 <!-- @@@sizePolicy -->
 <!-- $$$updateGeometry[overload1]$$$updateGeometry -->
-<h3 class="fn" id="updateGeometry"><a name="updateGeometry"></a><code>[virtual] </code><span class="type">void</span> QGraphicsLayoutItem::<span class="name">updateGeometry</span>()</h3>
+<h3 class="fn" id="updateGeometry"><a name="updateGeometry"></a><code>[虚函数] </code><span class="type">void</span> QGraphicsLayoutItem::<span class="name">updateGeometry</span>()</h3>
 <p>This virtual function discards any cached size hint information. You should always call this function if you change the return value of the <a href="qgraphicslayoutitem.html#sizeHint">sizeHint</a>() function. Subclasses must always call the base implementation when reimplementing this function.</p>
 <p><b> 参见 </b><a href="qgraphicslayoutitem.html#effectiveSizeHint">effectiveSizeHint</a>().</p>
 <!-- @@@updateGeometry -->

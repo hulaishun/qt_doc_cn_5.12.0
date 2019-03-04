@@ -177,7 +177,7 @@
 <p><b> 参见 </b><a href="qtemporaryfile.html#open">open</a>() 和 <a href="qtemporaryfile.html#fileTemplate">fileTemplate</a>().</p>
 <!-- @@@QTemporaryFile -->
 <!-- $$$~QTemporaryFile[overload1]$$$~QTemporaryFile -->
-<h3 class="fn" id="dtor.QTemporaryFile"><a name="dtor.QTemporaryFile"></a><code>[virtual] </code>QTemporaryFile::<span class="name">~QTemporaryFile</span>()</h3>
+<h3 class="fn" id="dtor.QTemporaryFile"><a name="dtor.QTemporaryFile"></a><code>[虚函数] </code>QTemporaryFile::<span class="name">~QTemporaryFile</span>()</h3>
 <p>Destroys the temporary file object, the file is automatically closed if necessary and if in auto remove mode it will automatically delete the file.</p>
 <p><b> 参见 </b><a href="qtemporaryfile.html#autoRemove">autoRemove</a>().</p>
 <!-- @@@~QTemporaryFile -->
@@ -188,7 +188,7 @@
 <p><b> 参见 </b><a href="qtemporaryfile.html#setAutoRemove">setAutoRemove</a>() 和 <a href="qfile.html#remove">remove</a>().</p>
 <!-- @@@autoRemove -->
 <!-- $$$createNativeFile[overload1]$$$createNativeFileQFile& -->
-<h3 class="fn" id="createNativeFile"><a name="createNativeFile"></a><code>[static] </code><span class="type"><a href="qtemporaryfile.html#QTemporaryFile">QTemporaryFile</a></span> *QTemporaryFile::<span class="name">createNativeFile</span>(<span class="type"><a href="qfile.html#QFile">QFile</a></span> &amp;<i>file</i>)</h3>
+<h3 class="fn" id="createNativeFile"><a name="createNativeFile"></a><code>[静态函数] </code><span class="type"><a href="qtemporaryfile.html#QTemporaryFile">QTemporaryFile</a></span> *QTemporaryFile::<span class="name">createNativeFile</span>(<span class="type"><a href="qfile.html#QFile">QFile</a></span> &amp;<i>file</i>)</h3>
 <p>If <i>file</i> is not already a native file, then a <a href="qtemporaryfile.html">QTemporaryFile</a> is created in <a href="qdir.html#tempPath">QDir::tempPath</a>(), the contents of <i>file</i> is copied into it, and a pointer to the temporary file is returned. Does nothing and returns <code>0</code> if <i>file</i> is already a native file.</p>
 <p>样例如下：</p>
 <pre class="cpp">
@@ -203,12 +203,12 @@
 <p><b> 参见 </b><a href="qfileinfo.html#isNativePath">QFileInfo::isNativePath</a>().</p>
 <!-- @@@createNativeFile -->
 <!-- $$$createNativeFile$$$createNativeFileconstQString& -->
-<h3 class="fn" id="createNativeFile-1"><a name="createNativeFile-1"></a><code>[static] </code><span class="type"><a href="qtemporaryfile.html#QTemporaryFile">QTemporaryFile</a></span> *QTemporaryFile::<span class="name">createNativeFile</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>)</h3>
+<h3 class="fn" id="createNativeFile-1"><a name="createNativeFile-1"></a><code>[静态函数] </code><span class="type"><a href="qtemporaryfile.html#QTemporaryFile">QTemporaryFile</a></span> *QTemporaryFile::<span class="name">createNativeFile</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>)</h3>
 <p>这是一个重载函数。</p>
 <p>Works on the given <i>fileName</i> rather than an existing <a href="qfile.html">QFile</a> object.</p>
 <!-- @@@createNativeFile -->
 <!-- $$$fileName[overload1]$$$fileName -->
-<h3 class="fn" id="fileName"><a name="fileName"></a><code>[override virtual] </code><span class="type"><a href="qstring.html">QString</a></span> QTemporaryFile::<span class="name">fileName</span>() const</h3>
+<h3 class="fn" id="fileName"><a name="fileName"></a><code>[重载虚函数] </code><span class="type"><a href="qstring.html">QString</a></span> QTemporaryFile::<span class="name">fileName</span>() const</h3>
 <p>Reimplemented from <a href="qfile.html#fileName">QFile::fileName</a>().</p>
 <p>Returns the complete unique filename backing the <a href="qtemporaryfile.html">QTemporaryFile</a> object. This string is null before the <a href="qtemporaryfile.html">QTemporaryFile</a> is opened, afterwards it will contain the <a href="qtemporaryfile.html#fileTemplate">fileTemplate</a>() plus additional characters to make it unique.</p>
 <p><b> 参见 </b><a href="qtemporaryfile.html#fileTemplate">fileTemplate</a>().</p>
@@ -224,7 +224,7 @@
 <p><b> 参见 </b><a href="qtemporaryfile.html#fileName">fileName</a>().</p>
 <!-- @@@open -->
 <!-- $$$open$$$openQIODevice::OpenMode -->
-<h3 class="fn" id="open-1"><a name="open-1"></a><code>[override virtual protected] </code><span class="type">bool</span> QTemporaryFile::<span class="name">open</span>(<span class="type"><a href="qiodevice.html#OpenModeFlag-enum">QIODevice::OpenMode</a></span> <i>flags</i>)</h3>
+<h3 class="fn" id="open-1"><a name="open-1"></a><code>[重载虚保护函数] </code><span class="type">bool</span> QTemporaryFile::<span class="name">open</span>(<span class="type"><a href="qiodevice.html#OpenModeFlag-enum">QIODevice::OpenMode</a></span> <i>flags</i>)</h3>
 <p>Reimplemented from <a href="qfile.html#open">QFile::open</a>().</p>
 <p>Creates a unique file name for the temporary file, and opens it. You can get the unique name later by calling <a href="qtemporaryfile.html#fileName">fileName</a>(). The file is guaranteed to have been created by this function (i.e&#x2e;, it has never existed before).</p>
 <!-- @@@open -->

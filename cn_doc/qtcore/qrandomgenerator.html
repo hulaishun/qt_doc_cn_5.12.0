@@ -377,7 +377,7 @@
 <p><b> 参见 </b><a href="qrandomgenerator.html#generate">generate</a>(), <a href="qrandomgenerator.html#generate64">generate64</a>(), 和 <a href="qrandomgenerator.html#bounded">bounded</a>().</p>
 <!-- @@@generateDouble -->
 <!-- $$$global[overload1]$$$global -->
-<h3 class="fn" id="global"><a name="global"></a><code>[static] </code><span class="type"><a href="qrandomgenerator.html#QRandomGenerator">QRandomGenerator</a></span> *QRandomGenerator::<span class="name">global</span>()</h3>
+<h3 class="fn" id="global"><a name="global"></a><code>[静态函数] </code><span class="type"><a href="qrandomgenerator.html#QRandomGenerator">QRandomGenerator</a></span> *QRandomGenerator::<span class="name">global</span>()</h3>
 <p>Returns a pointer to a shared <a href="qrandomgenerator.html">QRandomGenerator</a> that was seeded using <a href="qrandomgenerator.html#securelySeeded">securelySeeded</a>(). This function should be used to create random data without the expensive creation of a securely-seeded <a href="qrandomgenerator.html">QRandomGenerator</a> for a specific use or storing the rather large <a href="qrandomgenerator.html">QRandomGenerator</a> object.</p>
 <p>For example, the following creates a random RGB color:</p>
 <pre class="cpp">
@@ -390,17 +390,17 @@
 <p><b> 参见 </b><a href="qrandomgenerator.html#securelySeeded">securelySeeded</a>() 和 <a href="qrandomgenerator.html#system">system</a>().</p>
 <!-- @@@global -->
 <!-- $$$max[overload1]$$$max -->
-<h3 class="fn" id="max"><a name="max"></a><code>[static] </code><span class="type"><a href="qrandomgenerator.html#result_type-typedef">QRandomGenerator::result_type</a></span> QRandomGenerator::<span class="name">max</span>()</h3>
+<h3 class="fn" id="max"><a name="max"></a><code>[静态函数] </code><span class="type"><a href="qrandomgenerator.html#result_type-typedef">QRandomGenerator::result_type</a></span> QRandomGenerator::<span class="name">max</span>()</h3>
 <p>Returns the maximum value that <a href="qrandomgenerator.html">QRandomGenerator</a> may ever generate. That is, <code>std::numeric_limits&lt;result_type&gt;::max()</code>.</p>
 <p><b> 参见 </b><a href="qrandomgenerator.html#min">min</a>() and QRandomGenerator64::max().</p>
 <!-- @@@max -->
 <!-- $$$min[overload1]$$$min -->
-<h3 class="fn" id="min"><a name="min"></a><code>[static] </code><span class="type"><a href="qrandomgenerator.html#result_type-typedef">QRandomGenerator::result_type</a></span> QRandomGenerator::<span class="name">min</span>()</h3>
+<h3 class="fn" id="min"><a name="min"></a><code>[静态函数] </code><span class="type"><a href="qrandomgenerator.html#result_type-typedef">QRandomGenerator::result_type</a></span> QRandomGenerator::<span class="name">min</span>()</h3>
 <p>Returns the minimum value that <a href="qrandomgenerator.html">QRandomGenerator</a> may ever generate. That is, 0.</p>
 <p><b> 参见 </b><a href="qrandomgenerator.html#max">max</a>() and QRandomGenerator64::min().</p>
 <!-- @@@min -->
 <!-- $$$securelySeeded[overload1]$$$securelySeeded -->
-<h3 class="fn" id="securelySeeded"><a name="securelySeeded"></a><code>[static] </code><span class="type"><a href="qrandomgenerator.html#QRandomGenerator">QRandomGenerator</a></span> QRandomGenerator::<span class="name">securelySeeded</span>()</h3>
+<h3 class="fn" id="securelySeeded"><a name="securelySeeded"></a><code>[静态函数] </code><span class="type"><a href="qrandomgenerator.html#QRandomGenerator">QRandomGenerator</a></span> QRandomGenerator::<span class="name">securelySeeded</span>()</h3>
 <p>Returns a new <a href="qrandomgenerator.html">QRandomGenerator</a> object that was securely seeded with <a href="qrandomgenerator.html#system">QRandomGenerator::system</a>(). This function will obtain the ideal seed size for the algorithm that <a href="qrandomgenerator.html">QRandomGenerator</a> uses and is therefore the recommended way for creating a new <a href="qrandomgenerator.html">QRandomGenerator</a> object that will be kept for some time.</p>
 <p>Given the amount of data required to securely seed the deterministic engine, this function is somewhat expensive and should not be used for short-term uses of <a href="qrandomgenerator.html">QRandomGenerator</a> (using it to generate fewer than 2600 bytes of random data is effectively a waste of resources). If the use doesn't require that much data, consider using <a href="qrandomgenerator.html#global">QRandomGenerator::global</a>() and not storing a <a href="qrandomgenerator.html">QRandomGenerator</a> object instead.</p>
 <p><b> 参见 </b><a href="qrandomgenerator.html#global">global</a>() 和 <a href="qrandomgenerator.html#system">system</a>().</p>
@@ -415,7 +415,7 @@
 <p>Reseeds this object using the seed sequence <i>seed</i> as the seed.</p>
 <!-- @@@seed -->
 <!-- $$$system[overload1]$$$system -->
-<h3 class="fn" id="system"><a name="system"></a><code>[static] </code><span class="type"><a href="qrandomgenerator.html#QRandomGenerator">QRandomGenerator</a></span> *QRandomGenerator::<span class="name">system</span>()</h3>
+<h3 class="fn" id="system"><a name="system"></a><code>[静态函数] </code><span class="type"><a href="qrandomgenerator.html#QRandomGenerator">QRandomGenerator</a></span> *QRandomGenerator::<span class="name">system</span>()</h3>
 <p>Returns a pointer to a shared <a href="qrandomgenerator.html">QRandomGenerator</a> that always uses the facilities provided by the operating system to generate random numbers. The system facilities are considered to be cryptographically safe on at least the following operating systems: Apple OSes (Darwin), BSDs, Linux, Windows. That may also be the case on other operating systems.</p>
 <p>They are also possibly backed by a true hardware random number generator. For that reason, the <a href="qrandomgenerator.html">QRandomGenerator</a> returned by this function should not be used for bulk data generation. Instead, use it to seed <a href="qrandomgenerator.html">QRandomGenerator</a> or a random engine from the &lt;random&gt; header.</p>
 <p>The object returned by this function is thread-safe and may be used in any thread without locks. It may also be copied and the resulting <a href="qrandomgenerator.html">QRandomGenerator</a> will also access the operating system facilities, but they will not generate the same sequence.</p>

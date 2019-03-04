@@ -154,7 +154,7 @@
 <p>Returns the reference of the anchor the given <i>position</i>, or an empty string if no anchor exists at that point.</p>
 <!-- @@@anchorAt -->
 <!-- $$$blockBoundingRect[overload1]$$$blockBoundingRectconstQTextBlock& -->
-<h3 class="fn" id="blockBoundingRect"><a name="blockBoundingRect"></a><code>[pure virtual] </code><span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> QAbstractTextDocumentLayout::<span class="name">blockBoundingRect</span>(const <span class="type"><a href="qtextblock.html">QTextBlock</a></span> &amp;<i>block</i>) const</h3>
+<h3 class="fn" id="blockBoundingRect"><a name="blockBoundingRect"></a><code>[纯虚函数] </code><span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> QAbstractTextDocumentLayout::<span class="name">blockBoundingRect</span>(const <span class="type"><a href="qtextblock.html">QTextBlock</a></span> &amp;<i>block</i>) const</h3>
 <p>Returns the bounding rectangle of <i>block</i>.</p>
 <!-- @@@blockBoundingRect -->
 <!-- $$$document[overload1]$$$document -->
@@ -162,7 +162,7 @@
 <p>Returns the text document that this layout is operating on.</p>
 <!-- @@@document -->
 <!-- $$$documentChanged[overload1]$$$documentChangedintintint -->
-<h3 class="fn" id="documentChanged"><a name="documentChanged"></a><code>[pure virtual protected] </code><span class="type">void</span> QAbstractTextDocumentLayout::<span class="name">documentChanged</span>(<span class="type">int</span> <i>position</i>, <span class="type">int</span> <i>charsRemoved</i>, <span class="type">int</span> <i>charsAdded</i>)</h3>
+<h3 class="fn" id="documentChanged"><a name="documentChanged"></a><code>[纯虚保护函数] </code><span class="type">void</span> QAbstractTextDocumentLayout::<span class="name">documentChanged</span>(<span class="type">int</span> <i>position</i>, <span class="type">int</span> <i>charsRemoved</i>, <span class="type">int</span> <i>charsAdded</i>)</h3>
 <p>This function is called whenever the contents of the document change. A change occurs when text is inserted, removed, or a combination of these two. The change is specified by <i>position</i>, <i>charsRemoved</i>, and <i>charsAdded</i> corresponding to the starting character position of the change, the number of characters removed from the document, and the number of characters added.</p>
 <p>For example, when inserting the text &quot;Hello&quot; into an empty document, <i>charsRemoved</i> would be 0 and <i>charsAdded</i> would be 5 (the length of the string).</p>
 <p>Replacing text is a combination of removing and inserting. For example, if the text &quot;Hello&quot; gets replaced by &quot;Hi&quot;, <i>charsRemoved</i> would be 5 and <i>charsAdded</i> would be 2.</p>
@@ -178,30 +178,30 @@
 <p><b> 参见 </b><a href="qtextlayout.html">QTextLayout</a>.</p>
 <!-- @@@documentChanged -->
 <!-- $$$documentSize[overload1]$$$documentSize -->
-<h3 class="fn" id="documentSize"><a name="documentSize"></a><code>[pure virtual] </code><span class="type"><a href="../qtcore/qsizef.html">QSizeF</a></span> QAbstractTextDocumentLayout::<span class="name">documentSize</span>() const</h3>
+<h3 class="fn" id="documentSize"><a name="documentSize"></a><code>[纯虚函数] </code><span class="type"><a href="../qtcore/qsizef.html">QSizeF</a></span> QAbstractTextDocumentLayout::<span class="name">documentSize</span>() const</h3>
 <p>Returns the total size of the document's layout.</p>
 <p>This information can be used by display widgets to update their scroll bars correctly.</p>
 <p><b> 参见 </b><a href="qabstracttextdocumentlayout.html#documentSizeChanged">documentSizeChanged</a>() 和 <a href="qtextdocument.html#pageSize-prop">QTextDocument::pageSize</a>.</p>
 <!-- @@@documentSize -->
 <!-- $$$documentSizeChanged[overload1]$$$documentSizeChangedconstQSizeF& -->
-<h3 class="fn" id="documentSizeChanged"><a name="documentSizeChanged"></a><code>[signal] </code><span class="type">void</span> QAbstractTextDocumentLayout::<span class="name">documentSizeChanged</span>(const <span class="type"><a href="../qtcore/qsizef.html">QSizeF</a></span> &amp;<i>newSize</i>)</h3>
+<h3 class="fn" id="documentSizeChanged"><a name="documentSizeChanged"></a><code>[信号] </code><span class="type">void</span> QAbstractTextDocumentLayout::<span class="name">documentSizeChanged</span>(const <span class="type"><a href="../qtcore/qsizef.html">QSizeF</a></span> &amp;<i>newSize</i>)</h3>
 <p>This signal is emitted when the size of the document layout changes to <i>newSize</i>.</p>
 <p>Subclasses of <a href="qabstracttextdocumentlayout.html">QAbstractTextDocumentLayout</a> should emit this signal when the document's entire layout size changes. This signal is useful for widgets that display text documents since it enables them to update their scroll bars correctly.</p>
 <p><b> 参见 </b><a href="qabstracttextdocumentlayout.html#documentSize">documentSize</a>().</p>
 <!-- @@@documentSizeChanged -->
 <!-- $$$draw[overload1]$$$drawQPainter*constQAbstractTextDocumentLayout::PaintContext& -->
-<h3 class="fn" id="draw"><a name="draw"></a><code>[pure virtual] </code><span class="type">void</span> QAbstractTextDocumentLayout::<span class="name">draw</span>(<span class="type"><a href="qpainter.html">QPainter</a></span> *<i>painter</i>, const <span class="type"><a href="qabstracttextdocumentlayout-paintcontext.html">QAbstractTextDocumentLayout::PaintContext</a></span> &amp;<i>context</i>)</h3>
+<h3 class="fn" id="draw"><a name="draw"></a><code>[纯虚函数] </code><span class="type">void</span> QAbstractTextDocumentLayout::<span class="name">draw</span>(<span class="type"><a href="qpainter.html">QPainter</a></span> *<i>painter</i>, const <span class="type"><a href="qabstracttextdocumentlayout-paintcontext.html">QAbstractTextDocumentLayout::PaintContext</a></span> &amp;<i>context</i>)</h3>
 <p>Draws the layout with the given <i>painter</i> using the given <i>context</i>.</p>
 <!-- @@@draw -->
 <!-- $$$drawInlineObject[overload1]$$$drawInlineObjectQPainter*constQRectF&QTextInlineObjectintconstQTextFormat& -->
-<h3 class="fn" id="drawInlineObject"><a name="drawInlineObject"></a><code>[virtual protected] </code><span class="type">void</span> QAbstractTextDocumentLayout::<span class="name">drawInlineObject</span>(<span class="type"><a href="qpainter.html">QPainter</a></span> *<i>painter</i>, const <span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> &amp;<i>rect</i>, <span class="type"><a href="qtextinlineobject.html">QTextInlineObject</a></span> <i>object</i>, <span class="type">int</span> <i>posInDocument</i>, const <span class="type"><a href="qtextformat.html">QTextFormat</a></span> &amp;<i>format</i>)</h3>
+<h3 class="fn" id="drawInlineObject"><a name="drawInlineObject"></a><code>[虚保护函数] </code><span class="type">void</span> QAbstractTextDocumentLayout::<span class="name">drawInlineObject</span>(<span class="type"><a href="qpainter.html">QPainter</a></span> *<i>painter</i>, const <span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> &amp;<i>rect</i>, <span class="type"><a href="qtextinlineobject.html">QTextInlineObject</a></span> <i>object</i>, <span class="type">int</span> <i>posInDocument</i>, const <span class="type"><a href="qtextformat.html">QTextFormat</a></span> &amp;<i>format</i>)</h3>
 <p>This function is called to draw the inline object, <i>object</i>, with the given <i>painter</i> within the rectangle specified by <i>rect</i> using the specified text <i>format</i>.</p>
 <p><i>posInDocument</i> specifies the position of the object within the document.</p>
 <p>The default implementation calls drawObject() on the object handlers. This function is called only within Qt. Subclasses can reimplement this function to customize the drawing of inline objects.</p>
 <p><b> 参见 </b><a href="qabstracttextdocumentlayout.html#draw">draw</a>().</p>
 <!-- @@@drawInlineObject -->
 <!-- $$$format[overload1]$$$formatint -->
-<h3 class="fn" id="format"><a name="format"></a><code>[protected] </code><span class="type"><a href="qtextcharformat.html">QTextCharFormat</a></span> QAbstractTextDocumentLayout::<span class="name">format</span>(<span class="type">int</span> <i>position</i>)</h3>
+<h3 class="fn" id="format"><a name="format"></a><code>[保护函数] </code><span class="type"><a href="qtextcharformat.html">QTextCharFormat</a></span> QAbstractTextDocumentLayout::<span class="name">format</span>(<span class="type">int</span> <i>position</i>)</h3>
 <p>Returns the character format that is applicable at the given <i>position</i>.</p>
 <!-- @@@format -->
 <!-- $$$formatAt[overload1]$$$formatAtconstQPointF& -->
@@ -210,7 +210,7 @@
 <p>这个函数是在Qt 5.8版本中新增引入的。</p>
 <!-- @@@formatAt -->
 <!-- $$$frameBoundingRect[overload1]$$$frameBoundingRectQTextFrame* -->
-<h3 class="fn" id="frameBoundingRect"><a name="frameBoundingRect"></a><code>[pure virtual] </code><span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> QAbstractTextDocumentLayout::<span class="name">frameBoundingRect</span>(<span class="type"><a href="qtextframe.html">QTextFrame</a></span> *<i>frame</i>) const</h3>
+<h3 class="fn" id="frameBoundingRect"><a name="frameBoundingRect"></a><code>[纯虚函数] </code><span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> QAbstractTextDocumentLayout::<span class="name">frameBoundingRect</span>(<span class="type"><a href="qtextframe.html">QTextFrame</a></span> *<i>frame</i>) const</h3>
 <p>Returns the bounding rectangle of <i>frame</i>.</p>
 <!-- @@@frameBoundingRect -->
 <!-- $$$handlerForObject[overload1]$$$handlerForObjectint -->
@@ -218,7 +218,7 @@
 <p>Returns a handler for objects of the given <i>objectType</i>.</p>
 <!-- @@@handlerForObject -->
 <!-- $$$hitTest[overload1]$$$hitTestconstQPointF&Qt::HitTestAccuracy -->
-<h3 class="fn" id="hitTest"><a name="hitTest"></a><code>[pure virtual] </code><span class="type">int</span> QAbstractTextDocumentLayout::<span class="name">hitTest</span>(const <span class="type"><a href="../qtcore/qpointf.html">QPointF</a></span> &amp;<i>point</i>, <span class="type">Qt::HitTestAccuracy</span> <i>accuracy</i>) const</h3>
+<h3 class="fn" id="hitTest"><a name="hitTest"></a><code>[纯虚函数] </code><span class="type">int</span> QAbstractTextDocumentLayout::<span class="name">hitTest</span>(const <span class="type"><a href="../qtcore/qpointf.html">QPointF</a></span> &amp;<i>point</i>, <span class="type">Qt::HitTestAccuracy</span> <i>accuracy</i>) const</h3>
 <p>Returns the cursor position for the given <i>point</i> with the specified <i>accuracy</i>. Returns -1 if no valid cursor position was found.</p>
 <!-- @@@hitTest -->
 <!-- $$$imageAt[overload1]$$$imageAtconstQPointF& -->
@@ -227,12 +227,12 @@
 <p>这个函数是在Qt 5.8版本中新增引入的。</p>
 <!-- @@@imageAt -->
 <!-- $$$pageCount[overload1]$$$pageCount -->
-<h3 class="fn" id="pageCount"><a name="pageCount"></a><code>[pure virtual] </code><span class="type">int</span> QAbstractTextDocumentLayout::<span class="name">pageCount</span>() const</h3>
+<h3 class="fn" id="pageCount"><a name="pageCount"></a><code>[纯虚函数] </code><span class="type">int</span> QAbstractTextDocumentLayout::<span class="name">pageCount</span>() const</h3>
 <p>Returns the number of pages contained in the layout.</p>
 <p><b> 参见 </b><a href="qabstracttextdocumentlayout.html#pageCountChanged">pageCountChanged</a>().</p>
 <!-- @@@pageCount -->
 <!-- $$$pageCountChanged[overload1]$$$pageCountChangedint -->
-<h3 class="fn" id="pageCountChanged"><a name="pageCountChanged"></a><code>[signal] </code><span class="type">void</span> QAbstractTextDocumentLayout::<span class="name">pageCountChanged</span>(<span class="type">int</span> <i>newPages</i>)</h3>
+<h3 class="fn" id="pageCountChanged"><a name="pageCountChanged"></a><code>[信号] </code><span class="type">void</span> QAbstractTextDocumentLayout::<span class="name">pageCountChanged</span>(<span class="type">int</span> <i>newPages</i>)</h3>
 <p>This signal is emitted when the number of pages in the layout changes; <i>newPages</i> is the updated page count.</p>
 <p>Subclasses of <a href="qabstracttextdocumentlayout.html">QAbstractTextDocumentLayout</a> should emit this signal when the number of pages in the layout has changed. Changes to the page count are caused by changes to the layout or the document content itself.</p>
 <p><b> 参见 </b><a href="qabstracttextdocumentlayout.html#pageCount">pageCount</a>().</p>
@@ -243,7 +243,7 @@
 <p><b> 参见 </b><a href="qabstracttextdocumentlayout.html#setPaintDevice">setPaintDevice</a>().</p>
 <!-- @@@paintDevice -->
 <!-- $$$positionInlineObject[overload1]$$$positionInlineObjectQTextInlineObjectintconstQTextFormat& -->
-<h3 class="fn" id="positionInlineObject"><a name="positionInlineObject"></a><code>[virtual protected] </code><span class="type">void</span> QAbstractTextDocumentLayout::<span class="name">positionInlineObject</span>(<span class="type"><a href="qtextinlineobject.html">QTextInlineObject</a></span> <i>item</i>, <span class="type">int</span> <i>posInDocument</i>, const <span class="type"><a href="qtextformat.html">QTextFormat</a></span> &amp;<i>format</i>)</h3>
+<h3 class="fn" id="positionInlineObject"><a name="positionInlineObject"></a><code>[虚保护函数] </code><span class="type">void</span> QAbstractTextDocumentLayout::<span class="name">positionInlineObject</span>(<span class="type"><a href="qtextinlineobject.html">QTextInlineObject</a></span> <i>item</i>, <span class="type">int</span> <i>posInDocument</i>, const <span class="type"><a href="qtextformat.html">QTextFormat</a></span> &amp;<i>format</i>)</h3>
 <p>Lays out the inline object <i>item</i> using the given text <i>format</i>.</p>
 <p><i>posInDocument</i> specifies the position of the object within the document.</p>
 <p>The default implementation does nothing. This function is called only within Qt. Subclasses can reimplement this function to customize the position of inline objects.</p>
@@ -255,7 +255,7 @@
 <p><b>Note: </b>registerHandler() has to be called once for each object type. This means that there is only one handler for multiple replacement characters of the same object type.</p><p>The text document layout does not take ownership of <code>component</code>.</p>
 <!-- @@@registerHandler -->
 <!-- $$$resizeInlineObject[overload1]$$$resizeInlineObjectQTextInlineObjectintconstQTextFormat& -->
-<h3 class="fn" id="resizeInlineObject"><a name="resizeInlineObject"></a><code>[virtual protected] </code><span class="type">void</span> QAbstractTextDocumentLayout::<span class="name">resizeInlineObject</span>(<span class="type"><a href="qtextinlineobject.html">QTextInlineObject</a></span> <i>item</i>, <span class="type">int</span> <i>posInDocument</i>, const <span class="type"><a href="qtextformat.html">QTextFormat</a></span> &amp;<i>format</i>)</h3>
+<h3 class="fn" id="resizeInlineObject"><a name="resizeInlineObject"></a><code>[虚保护函数] </code><span class="type">void</span> QAbstractTextDocumentLayout::<span class="name">resizeInlineObject</span>(<span class="type"><a href="qtextinlineobject.html">QTextInlineObject</a></span> <i>item</i>, <span class="type">int</span> <i>posInDocument</i>, const <span class="type"><a href="qtextformat.html">QTextFormat</a></span> &amp;<i>format</i>)</h3>
 <p>Sets the size of the inline object <i>item</i> corresponding to the text <i>format</i>.</p>
 <p><i>posInDocument</i> specifies the position of the object within the document.</p>
 <p>The default implementation resizes the <i>item</i> to the size returned by the object handler's intrinsicSize() function. This function is called only within Qt. Subclasses can reimplement this function to customize the resizing of inline objects.</p>
@@ -271,12 +271,12 @@
 <p>这个函数是在Qt 5.2版本中新增引入的。</p>
 <!-- @@@unregisterHandler -->
 <!-- $$$update[overload1]$$$updateconstQRectF& -->
-<h3 class="fn" id="update"><a name="update"></a><code>[signal] </code><span class="type">void</span> QAbstractTextDocumentLayout::<span class="name">update</span>(const <span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> &amp;<i>rect</i> = QRectF(0., 0., 1000000000., 1000000000.))</h3>
+<h3 class="fn" id="update"><a name="update"></a><code>[信号] </code><span class="type">void</span> QAbstractTextDocumentLayout::<span class="name">update</span>(const <span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> &amp;<i>rect</i> = QRectF(0., 0., 1000000000., 1000000000.))</h3>
 <p>This signal is emitted when the rectangle <i>rect</i> has been updated.</p>
 <p>Subclasses of <a href="qabstracttextdocumentlayout.html">QAbstractTextDocumentLayout</a> should emit this signal when the layout of the contents change in order to repaint.</p>
 <!-- @@@update -->
 <!-- $$$updateBlock[overload1]$$$updateBlockconstQTextBlock& -->
-<h3 class="fn" id="updateBlock"><a name="updateBlock"></a><code>[signal] </code><span class="type">void</span> QAbstractTextDocumentLayout::<span class="name">updateBlock</span>(const <span class="type"><a href="qtextblock.html">QTextBlock</a></span> &amp;<i>block</i>)</h3>
+<h3 class="fn" id="updateBlock"><a name="updateBlock"></a><code>[信号] </code><span class="type">void</span> QAbstractTextDocumentLayout::<span class="name">updateBlock</span>(const <span class="type"><a href="qtextblock.html">QTextBlock</a></span> &amp;<i>block</i>)</h3>
 <p>This signal is emitted when the specified <i>block</i> has been updated.</p>
 <p>Subclasses of <a href="qabstracttextdocumentlayout.html">QAbstractTextDocumentLayout</a> should emit this signal when the layout of <i>block</i> has changed in order to repaint.</p>
 <p>这个函数是在Qt 4.4版本中新增引入的。</p>

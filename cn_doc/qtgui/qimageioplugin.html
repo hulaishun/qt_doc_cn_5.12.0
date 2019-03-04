@@ -135,18 +135,18 @@
 <p>Constructs an image plugin with the given <i>parent</i>. This is invoked automatically by the moc generated code that exports the plugin.</p>
 <!-- @@@QImageIOPlugin -->
 <!-- $$$~QImageIOPlugin[overload1]$$$~QImageIOPlugin -->
-<h3 class="fn" id="dtor.QImageIOPlugin"><a name="dtor.QImageIOPlugin"></a><code>[virtual] </code>QImageIOPlugin::<span class="name">~QImageIOPlugin</span>()</h3>
+<h3 class="fn" id="dtor.QImageIOPlugin"><a name="dtor.QImageIOPlugin"></a><code>[虚函数] </code>QImageIOPlugin::<span class="name">~QImageIOPlugin</span>()</h3>
 <p>Destroys the picture format plugin.</p>
 <p>You never have to call this explicitly. Qt destroys a plugin automatically when it is no longer used.</p>
 <!-- @@@~QImageIOPlugin -->
 <!-- $$$capabilities[overload1]$$$capabilitiesQIODevice*constQByteArray& -->
-<h3 class="fn" id="capabilities"><a name="capabilities"></a><code>[pure virtual] </code><span class="type"><a href="qimageioplugin.html#Capability-enum">QImageIOPlugin::Capabilities</a></span> QImageIOPlugin::<span class="name">capabilities</span>(<span class="type"><a href="../qtcore/qiodevice.html">QIODevice</a></span> *<i>device</i>, const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>format</i>) const</h3>
+<h3 class="fn" id="capabilities"><a name="capabilities"></a><code>[纯虚函数] </code><span class="type"><a href="qimageioplugin.html#Capability-enum">QImageIOPlugin::Capabilities</a></span> QImageIOPlugin::<span class="name">capabilities</span>(<span class="type"><a href="../qtcore/qiodevice.html">QIODevice</a></span> *<i>device</i>, const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>format</i>) const</h3>
 <p>Returns the capabilities of the plugin, based on the data in <i>device</i> and the format <i>format</i>. If <i>device</i> is <code>0</code>, it should simply report whether the format can be read or written. Otherwise, it should attempt to determine whether the given format (or any format supported by the plugin if <i>format</i> is empty) can be read from or written to <i>device</i>. It should do this without changing the state of <i>device</i> (typically by using <a href="../qtcore/qiodevice.html#peek-1">QIODevice::peek</a>()).</p>
 <p>For example, if the <a href="qimageioplugin.html">QImageIOPlugin</a> supports the BMP format, <i>format</i> is either empty or <code>&quot;bmp&quot;</code>, and the data in the device starts with the characters <code>&quot;BM&quot;</code>, this function should return <a href="qimageioplugin.html#Capability-enum">CanRead</a>. If <i>format</i> is <code>&quot;bmp&quot;</code>, <i>device</i> is <code>0</code> and the handler supports both reading and writing, this function should return <a href="qimageioplugin.html#Capability-enum">CanRead</a> | <a href="qimageioplugin.html#Capability-enum">CanWrite</a>.</p>
 <p>Format names are always given in lower case.</p>
 <!-- @@@capabilities -->
 <!-- $$$create[overload1]$$$createQIODevice*constQByteArray& -->
-<h3 class="fn" id="create"><a name="create"></a><code>[pure virtual] </code><span class="type"><a href="qimageiohandler.html">QImageIOHandler</a></span> *QImageIOPlugin::<span class="name">create</span>(<span class="type"><a href="../qtcore/qiodevice.html">QIODevice</a></span> *<i>device</i>, const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>format</i> = QByteArray()) const</h3>
+<h3 class="fn" id="create"><a name="create"></a><code>[纯虚函数] </code><span class="type"><a href="qimageiohandler.html">QImageIOHandler</a></span> *QImageIOPlugin::<span class="name">create</span>(<span class="type"><a href="../qtcore/qiodevice.html">QIODevice</a></span> *<i>device</i>, const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>format</i> = QByteArray()) const</h3>
 <p>Creates and returns a <a href="qimageiohandler.html">QImageIOHandler</a> subclass, with <i>device</i> and <i>format</i> set. The <i>format</i> must come from the values listed in the <code>&quot;Keys&quot;</code> entry in the plugin metadata, or be empty. If it is empty, the data in <i>device</i> must have been recognized by the <a href="qimageioplugin.html#capabilities">capabilities</a>() method (with a likewise empty format).</p>
 <p>Format names are always given in lower case.</p>
 <!-- @@@create -->

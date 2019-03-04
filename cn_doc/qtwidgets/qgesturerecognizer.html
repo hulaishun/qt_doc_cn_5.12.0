@@ -127,35 +127,35 @@
 <p>Constructs a new gesture recognizer object.</p>
 <!-- @@@QGestureRecognizer -->
 <!-- $$$~QGestureRecognizer[overload1]$$$~QGestureRecognizer -->
-<h3 class="fn" id="dtor.QGestureRecognizer"><a name="dtor.QGestureRecognizer"></a><code>[virtual] </code>QGestureRecognizer::<span class="name">~QGestureRecognizer</span>()</h3>
+<h3 class="fn" id="dtor.QGestureRecognizer"><a name="dtor.QGestureRecognizer"></a><code>[虚函数] </code>QGestureRecognizer::<span class="name">~QGestureRecognizer</span>()</h3>
 <p>Destroys the gesture recognizer.</p>
 <!-- @@@~QGestureRecognizer -->
 <!-- $$$create[overload1]$$$createQObject* -->
-<h3 class="fn" id="create"><a name="create"></a><code>[virtual] </code><span class="type"><a href="qgesture.html">QGesture</a></span> *QGestureRecognizer::<span class="name">create</span>(<span class="type"><a href="../qtcore/qobject.html">QObject</a></span> *<i>target</i>)</h3>
+<h3 class="fn" id="create"><a name="create"></a><code>[虚函数] </code><span class="type"><a href="qgesture.html">QGesture</a></span> *QGestureRecognizer::<span class="name">create</span>(<span class="type"><a href="../qtcore/qobject.html">QObject</a></span> *<i>target</i>)</h3>
 <p>This function is called by Qt to create a new <a href="qgesture.html">QGesture</a> object for the given <i>target</i> (<a href="qwidget.html">QWidget</a> or <a href="qgraphicsobject.html">QGraphicsObject</a>).</p>
 <p>Reimplement this function to create a custom <a href="qgesture.html">QGesture</a>-derived gesture object if necessary.</p>
 <p>The application takes ownership of the created gesture object.</p>
 <!-- @@@create -->
 <!-- $$$recognize[overload1]$$$recognizeQGesture*QObject*QEvent* -->
-<h3 class="fn" id="recognize"><a name="recognize"></a><code>[pure virtual] </code><span class="type"><a href="qgesturerecognizer.html#ResultFlag-enum">QGestureRecognizer::Result</a></span> QGestureRecognizer::<span class="name">recognize</span>(<span class="type"><a href="qgesture.html">QGesture</a></span> *<i>gesture</i>, <span class="type"><a href="../qtcore/qobject.html">QObject</a></span> *<i>watched</i>, <span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="recognize"><a name="recognize"></a><code>[纯虚函数] </code><span class="type"><a href="qgesturerecognizer.html#ResultFlag-enum">QGestureRecognizer::Result</a></span> QGestureRecognizer::<span class="name">recognize</span>(<span class="type"><a href="qgesture.html">QGesture</a></span> *<i>gesture</i>, <span class="type"><a href="../qtcore/qobject.html">QObject</a></span> *<i>watched</i>, <span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>event</i>)</h3>
 <p>Handles the given <i>event</i> for the <i>watched</i> object, updating the state of the <i>gesture</i> object as required, and returns a suitable result for the current recognition step.</p>
 <p>This function is called by the framework to allow the recognizer to filter input events dispatched to <a href="qwidget.html">QWidget</a> or <a href="qgraphicsobject.html">QGraphicsObject</a> instances that it is monitoring.</p>
 <p>The result reflects how much of the gesture has been recognized. The state of the <i>gesture</i> object is set depending on the result.</p>
 <p><b> 参见 </b><a href="qgesturerecognizer.html#ResultFlag-enum">QGestureRecognizer::Result</a>.</p>
 <!-- @@@recognize -->
 <!-- $$$registerRecognizer[overload1]$$$registerRecognizerQGestureRecognizer* -->
-<h3 class="fn" id="registerRecognizer"><a name="registerRecognizer"></a><code>[static] </code><span class="type">Qt::GestureType</span> QGestureRecognizer::<span class="name">registerRecognizer</span>(<span class="type"><a href="qgesturerecognizer.html#QGestureRecognizer">QGestureRecognizer</a></span> *<i>recognizer</i>)</h3>
+<h3 class="fn" id="registerRecognizer"><a name="registerRecognizer"></a><code>[静态函数] </code><span class="type">Qt::GestureType</span> QGestureRecognizer::<span class="name">registerRecognizer</span>(<span class="type"><a href="qgesturerecognizer.html#QGestureRecognizer">QGestureRecognizer</a></span> *<i>recognizer</i>)</h3>
 <p>Registers the given <i>recognizer</i> in the gesture framework and returns a gesture ID for it.</p>
 <p>The application takes ownership of the <i>recognizer</i> and returns the gesture type ID associated with it. For gesture recognizers which handle custom <a href="qgesture.html">QGesture</a> objects (i.e&#x2e;, those which return <a href="../qtcore/qt.html#GestureType-enum">Qt::CustomGesture</a> in a <a href="qgesture.html#gestureType-prop">QGesture::gestureType</a>() function) the return value is a generated gesture ID with the <a href="../qtcore/qt.html#GestureType-enum">Qt::CustomGesture</a> flag set.</p>
 <p><b> 参见 </b><a href="qgesturerecognizer.html#unregisterRecognizer">unregisterRecognizer</a>(), <a href="qgesturerecognizer.html#create">QGestureRecognizer::create</a>(), 和 <a href="qgesture.html">QGesture</a>.</p>
 <!-- @@@registerRecognizer -->
 <!-- $$$reset[overload1]$$$resetQGesture* -->
-<h3 class="fn" id="reset"><a name="reset"></a><code>[virtual] </code><span class="type">void</span> QGestureRecognizer::<span class="name">reset</span>(<span class="type"><a href="qgesture.html">QGesture</a></span> *<i>gesture</i>)</h3>
+<h3 class="fn" id="reset"><a name="reset"></a><code>[虚函数] </code><span class="type">void</span> QGestureRecognizer::<span class="name">reset</span>(<span class="type"><a href="qgesture.html">QGesture</a></span> *<i>gesture</i>)</h3>
 <p>This function is called by the framework to reset a given <i>gesture</i>.</p>
 <p>Reimplement this function to implement additional requirements for custom <a href="qgesture.html">QGesture</a> objects. This may be necessary if you implement a custom <a href="qgesture.html">QGesture</a> whose properties need special handling when the gesture is reset.</p>
 <!-- @@@reset -->
 <!-- $$$unregisterRecognizer[overload1]$$$unregisterRecognizerQt::GestureType -->
-<h3 class="fn" id="unregisterRecognizer"><a name="unregisterRecognizer"></a><code>[static] </code><span class="type">void</span> QGestureRecognizer::<span class="name">unregisterRecognizer</span>(<span class="type">Qt::GestureType</span> <i>type</i>)</h3>
+<h3 class="fn" id="unregisterRecognizer"><a name="unregisterRecognizer"></a><code>[静态函数] </code><span class="type">void</span> QGestureRecognizer::<span class="name">unregisterRecognizer</span>(<span class="type">Qt::GestureType</span> <i>type</i>)</h3>
 <p>Unregisters all gesture recognizers of the specified <i>type</i>.</p>
 <p><b> 参见 </b><a href="qgesturerecognizer.html#registerRecognizer">registerRecognizer</a>().</p>
 <!-- @@@unregisterRecognizer -->

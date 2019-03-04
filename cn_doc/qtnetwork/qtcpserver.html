@@ -148,19 +148,19 @@
 <p><b> 参见 </b><a href="qtcpserver.html#listen">listen</a>() 和 <a href="qtcpserver.html#setSocketDescriptor">setSocketDescriptor</a>().</p>
 <!-- @@@QTcpServer -->
 <!-- $$$~QTcpServer[overload1]$$$~QTcpServer -->
-<h3 class="fn" id="dtor.QTcpServer"><a name="dtor.QTcpServer"></a><code>[virtual] </code>QTcpServer::<span class="name">~QTcpServer</span>()</h3>
+<h3 class="fn" id="dtor.QTcpServer"><a name="dtor.QTcpServer"></a><code>[虚函数] </code>QTcpServer::<span class="name">~QTcpServer</span>()</h3>
 <p>Destroys the <a href="qtcpserver.html">QTcpServer</a> object. If the server is listening for connections, the socket is automatically closed.</p>
 <p>Any client <a href="qtcpsocket.html">QTcpSocket</a>s that are still connected must either disconnect or be reparented before the server is deleted.</p>
 <p><b> 参见 </b><a href="qtcpserver.html#close">close</a>().</p>
 <!-- @@@~QTcpServer -->
 <!-- $$$acceptError[overload1]$$$acceptErrorQAbstractSocket::SocketError -->
-<h3 class="fn" id="acceptError"><a name="acceptError"></a><code>[signal] </code><span class="type">void</span> QTcpServer::<span class="name">acceptError</span>(<span class="type"><a href="qabstractsocket.html#SocketError-enum">QAbstractSocket::SocketError</a></span> <i>socketError</i>)</h3>
+<h3 class="fn" id="acceptError"><a name="acceptError"></a><code>[信号] </code><span class="type">void</span> QTcpServer::<span class="name">acceptError</span>(<span class="type"><a href="qabstractsocket.html#SocketError-enum">QAbstractSocket::SocketError</a></span> <i>socketError</i>)</h3>
 <p>This signal is emitted when accepting a new connection results in an error. The <i>socketError</i> parameter describes the type of error that occurred.</p>
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qtcpserver.html#pauseAccepting">pauseAccepting</a>() 和 <a href="qtcpserver.html#resumeAccepting">resumeAccepting</a>().</p>
 <!-- @@@acceptError -->
 <!-- $$$addPendingConnection[overload1]$$$addPendingConnectionQTcpSocket* -->
-<h3 class="fn" id="addPendingConnection"><a name="addPendingConnection"></a><code>[protected] </code><span class="type">void</span> QTcpServer::<span class="name">addPendingConnection</span>(<span class="type"><a href="qtcpsocket.html">QTcpSocket</a></span> *<i>socket</i>)</h3>
+<h3 class="fn" id="addPendingConnection"><a name="addPendingConnection"></a><code>[保护函数] </code><span class="type">void</span> QTcpServer::<span class="name">addPendingConnection</span>(<span class="type"><a href="qtcpsocket.html">QTcpSocket</a></span> *<i>socket</i>)</h3>
 <p>This function is called by <a href="qtcpserver.html#incomingConnection">QTcpServer::incomingConnection</a>() to add the <i>socket</i> to the list of pending incoming connections.</p>
 <p><b>Note: </b>Don't forget to call this member from reimplemented <a href="qtcpserver.html#incomingConnection">incomingConnection</a>() if you do not want to break the Pending Connections mechanism.</p><p>这个函数是在Qt 4.7版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qtcpserver.html#incomingConnection">incomingConnection</a>().</p>
@@ -176,12 +176,12 @@
 <p><b> 参见 </b><a href="qtcpserver.html#serverError">serverError</a>().</p>
 <!-- @@@errorString -->
 <!-- $$$hasPendingConnections[overload1]$$$hasPendingConnections -->
-<h3 class="fn" id="hasPendingConnections"><a name="hasPendingConnections"></a><code>[virtual] </code><span class="type">bool</span> QTcpServer::<span class="name">hasPendingConnections</span>() const</h3>
+<h3 class="fn" id="hasPendingConnections"><a name="hasPendingConnections"></a><code>[虚函数] </code><span class="type">bool</span> QTcpServer::<span class="name">hasPendingConnections</span>() const</h3>
 <p>Returns <code>true</code> if the server has a pending connection; otherwise returns <code>false</code>.</p>
 <p><b> 参见 </b><a href="qtcpserver.html#nextPendingConnection">nextPendingConnection</a>() 和 <a href="qtcpserver.html#setMaxPendingConnections">setMaxPendingConnections</a>().</p>
 <!-- @@@hasPendingConnections -->
 <!-- $$$incomingConnection[overload1]$$$incomingConnectionqintptr -->
-<h3 class="fn" id="incomingConnection"><a name="incomingConnection"></a><code>[virtual protected] </code><span class="type">void</span> QTcpServer::<span class="name">incomingConnection</span>(<span class="type"><a href="../qtcore/qtglobal.html#qintptr-typedef">qintptr</a></span> <i>socketDescriptor</i>)</h3>
+<h3 class="fn" id="incomingConnection"><a name="incomingConnection"></a><code>[虚保护函数] </code><span class="type">void</span> QTcpServer::<span class="name">incomingConnection</span>(<span class="type"><a href="../qtcore/qtglobal.html#qintptr-typedef">qintptr</a></span> <i>socketDescriptor</i>)</h3>
 <p>This virtual function is called by <a href="qtcpserver.html">QTcpServer</a> when a new connection is available. The <i>socketDescriptor</i> argument is the native socket descriptor for the accepted connection.</p>
 <p>The base implementation creates a <a href="qtcpsocket.html">QTcpSocket</a>, sets the socket descriptor and then stores the <a href="qtcpsocket.html">QTcpSocket</a> in an internal list of pending connections. Finally <a href="qtcpserver.html#newConnection">newConnection</a>() is emitted.</p>
 <p>Reimplement this function to alter the server's behavior when a connection is available.</p>
@@ -205,12 +205,12 @@
 <p><b> 参见 </b><a href="qtcpserver.html#setMaxPendingConnections">setMaxPendingConnections</a>() 和 <a href="qtcpserver.html#hasPendingConnections">hasPendingConnections</a>().</p>
 <!-- @@@maxPendingConnections -->
 <!-- $$$newConnection[overload1]$$$newConnection -->
-<h3 class="fn" id="newConnection"><a name="newConnection"></a><code>[signal] </code><span class="type">void</span> QTcpServer::<span class="name">newConnection</span>()</h3>
+<h3 class="fn" id="newConnection"><a name="newConnection"></a><code>[信号] </code><span class="type">void</span> QTcpServer::<span class="name">newConnection</span>()</h3>
 <p>This signal is emitted every time a new connection is available.</p>
 <p><b> 参见 </b><a href="qtcpserver.html#hasPendingConnections">hasPendingConnections</a>() 和 <a href="qtcpserver.html#nextPendingConnection">nextPendingConnection</a>().</p>
 <!-- @@@newConnection -->
 <!-- $$$nextPendingConnection[overload1]$$$nextPendingConnection -->
-<h3 class="fn" id="nextPendingConnection"><a name="nextPendingConnection"></a><code>[virtual] </code><span class="type"><a href="qtcpsocket.html">QTcpSocket</a></span> *QTcpServer::<span class="name">nextPendingConnection</span>()</h3>
+<h3 class="fn" id="nextPendingConnection"><a name="nextPendingConnection"></a><code>[虚函数] </code><span class="type"><a href="qtcpsocket.html">QTcpSocket</a></span> *QTcpServer::<span class="name">nextPendingConnection</span>()</h3>
 <p>Returns the next pending connection as a connected <a href="qtcpsocket.html">QTcpSocket</a> object.</p>
 <p>The socket is created as a child of the server, which means that it is automatically deleted when the <a href="qtcpserver.html">QTcpServer</a> object is destroyed. It is still a good idea to delete the object explicitly when you are done with it, to avoid wasting memory.</p>
 <p>0 is returned if this function is called when there are no pending connections.</p>

@@ -134,7 +134,7 @@
 <p>Returns the error state of this reply.</p>
 <!-- @@@error -->
 <!-- $$$errorOccurred[overload1]$$$errorOccurredQModbusDevice::Error -->
-<h3 class="fn" id="errorOccurred"><a name="errorOccurred"></a><code>[signal] </code><span class="type">void</span> QModbusReply::<span class="name">errorOccurred</span>(<span class="type"><a href="qmodbusdevice.html#Error-enum">QModbusDevice::Error</a></span> <i>error</i>)</h3>
+<h3 class="fn" id="errorOccurred"><a name="errorOccurred"></a><code>[信号] </code><span class="type">void</span> QModbusReply::<span class="name">errorOccurred</span>(<span class="type"><a href="qmodbusdevice.html#Error-enum">QModbusDevice::Error</a></span> <i>error</i>)</h3>
 <p>This signal is emitted when an error has been detected in the processing of this reply. The <a href="qmodbusreply.html#finished">finished</a>() signal will probably follow.</p>
 <p>The error will be described by the error code <i>error</i>. If <a href="qmodbusreply.html#errorString">errorString</a> is not empty it will contain a textual description of the error. In case of a <a href="qmodbusdevice.html#Error-enum">QModbusDevice::ProtocolError</a> the <a href="qmodbusreply.html#rawResult">rawResult</a>() function can be used to obtain the original Modbus exception response to get the exception code.</p>
 <p>Note: Do not delete this reply object in the slot connected to this signal. Use <a href="../qtcore/qobject.html#deleteLater">deleteLater</a>() instead.</p>
@@ -146,7 +146,7 @@
 <p><b> 参见 </b><a href="qmodbusreply.html#error">error</a>() 和 <a href="qmodbusreply.html#errorOccurred">errorOccurred</a>().</p>
 <!-- @@@errorString -->
 <!-- $$$finished[overload1]$$$finished -->
-<h3 class="fn" id="finished"><a name="finished"></a><code>[signal] </code><span class="type">void</span> QModbusReply::<span class="name">finished</span>()</h3>
+<h3 class="fn" id="finished"><a name="finished"></a><code>[信号] </code><span class="type">void</span> QModbusReply::<span class="name">finished</span>()</h3>
 <p>This signal is emitted when the reply has finished processing. The reply may still have returned with an error.</p>
 <p>After this signal is emitted, there will be no more updates to the reply's data.</p>
 <p><b>Note: </b>Do not delete the object in the slot connected to this signal. Use <a href="../qtcore/qobject.html#deleteLater">deleteLater</a>().</p><p>You can also use <a href="qmodbusreply.html#isFinished">isFinished</a>() to check if a QNetworkReply has finished even before you receive the finished() signal.</p>

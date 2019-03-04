@@ -143,16 +143,16 @@
 <p>Constructs a <a href="qmodbusrequest.html">QModbusRequest</a> with function code set to <i>code</i> and payload set to <i>data</i>. The data is converted and stored in big-endian byte order.</p>
 <p><b>Note: </b>Usage is limited <code>quint8</code> and <code>quint16</code> only. This is because <code>QDataStream</code> stream operators will not only append raw data, but also e.g&#x2e; size, count etc. for complex types.</p><!-- @@@QModbusRequest -->
 <!-- $$$calculateDataSize[overload1]$$$calculateDataSizeconstQModbusRequest& -->
-<h3 class="fn" id="calculateDataSize"><a name="calculateDataSize"></a><code>[static] </code><span class="type">int</span> QModbusRequest::<span class="name">calculateDataSize</span>(const <span class="type"><a href="qmodbusrequest.html#QModbusRequest">QModbusRequest</a></span> &amp;<i>request</i>)</h3>
+<h3 class="fn" id="calculateDataSize"><a name="calculateDataSize"></a><code>[静态函数] </code><span class="type">int</span> QModbusRequest::<span class="name">calculateDataSize</span>(const <span class="type"><a href="qmodbusrequest.html#QModbusRequest">QModbusRequest</a></span> &amp;<i>request</i>)</h3>
 <p>Calculates the expected data size for <i>request</i> based on the request's function code and data. Returns the full size of the request's data part; <code>-1</code> if the size could not be properly calculated.</p>
 <p><b> 参见 </b><a href="qmodbusrequest.html#minimumDataSize">minimumDataSize</a> 和 <a href="qmodbusrequest.html#registerDataSizeCalculator">registerDataSizeCalculator</a>.</p>
 <!-- @@@calculateDataSize -->
 <!-- $$$minimumDataSize[overload1]$$$minimumDataSizeconstQModbusRequest& -->
-<h3 class="fn" id="minimumDataSize"><a name="minimumDataSize"></a><code>[static] </code><span class="type">int</span> QModbusRequest::<span class="name">minimumDataSize</span>(const <span class="type"><a href="qmodbusrequest.html#QModbusRequest">QModbusRequest</a></span> &amp;<i>request</i>)</h3>
+<h3 class="fn" id="minimumDataSize"><a name="minimumDataSize"></a><code>[静态函数] </code><span class="type">int</span> QModbusRequest::<span class="name">minimumDataSize</span>(const <span class="type"><a href="qmodbusrequest.html#QModbusRequest">QModbusRequest</a></span> &amp;<i>request</i>)</h3>
 <p>Returns the expected minimum data size for <i>request</i> based on the request's function code; <code>-1</code> if the function code is not known.</p>
 <!-- @@@minimumDataSize -->
 <!-- $$$registerDataSizeCalculator[overload1]$$$registerDataSizeCalculatorQModbusPdu::FunctionCodeQModbusRequest::CalcFuncPtr -->
-<h3 class="fn" id="registerDataSizeCalculator"><a name="registerDataSizeCalculator"></a><code>[static] </code><span class="type">void</span> QModbusRequest::<span class="name">registerDataSizeCalculator</span>(<span class="type"><a href="qmodbuspdu.html#FunctionCode-enum">QModbusPdu::FunctionCode</a></span> <i>fc</i>, <span class="type"><a href="qmodbusrequest.html#CalcFuncPtr-typedef">QModbusRequest::CalcFuncPtr</a></span> <i>calculator</i>)</h3>
+<h3 class="fn" id="registerDataSizeCalculator"><a name="registerDataSizeCalculator"></a><code>[静态函数] </code><span class="type">void</span> QModbusRequest::<span class="name">registerDataSizeCalculator</span>(<span class="type"><a href="qmodbuspdu.html#FunctionCode-enum">QModbusPdu::FunctionCode</a></span> <i>fc</i>, <span class="type"><a href="qmodbusrequest.html#CalcFuncPtr-typedef">QModbusRequest::CalcFuncPtr</a></span> <i>calculator</i>)</h3>
 <p>This function registers a user-defined implementation to calculate the request data size for function code <i>fc</i>. It can be used to extend or override the implementation inside <a href="qmodbusrequest.html#calculateDataSize">QModbusRequest::calculateDataSize</a>().</p>
 <p>The <code>CalcFuncPtr</code> is a typedef for a pointer to a custom <i>calculator</i> function with the following signature:</p>
 <pre class="cpp">

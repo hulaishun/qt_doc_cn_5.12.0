@@ -161,7 +161,7 @@
 <li class="fn">19 个公共槽函数继承于 <a href="qwidget.html#public-slots">QWidget</a></li>
 <li class="fn">1 个公共槽函数继承于 <a href="../qtcore/qobject.html#public-slots">QObject</a></li>
 <li class="fn">1 个公共变量继承于 <a href="../qtcore/qobject.html#public-variables">QObject</a></li>
-<li class="fn">1 protected slot inherited from <a href="qwidget.html#protected-slots">QWidget</a></li>
+<li class="fn">1 个保护槽函数继承于 <a href="qwidget.html#protected-slots">QWidget</a></li>
 <li class="fn">2 个保护变量继承于 <a href="../qtcore/qobject.html#protected-variables">QObject</a></li>
 <li class="fn">1 个保护类型继承于 <a href="../qtgui/qpaintdevice.html#protected-variables">QPaintDevice</a></li>
 </ul>
@@ -255,7 +255,7 @@
 <p><b> 参见 </b><a href="qsplitter.html#orientation-prop">setOrientation</a>().</p>
 <!-- @@@QSplitter -->
 <!-- $$$~QSplitter[overload1]$$$~QSplitter -->
-<h3 class="fn" id="dtor.QSplitter"><a name="dtor.QSplitter"></a><code>[virtual] </code>QSplitter::<span class="name">~QSplitter</span>()</h3>
+<h3 class="fn" id="dtor.QSplitter"><a name="dtor.QSplitter"></a><code>[虚函数] </code>QSplitter::<span class="name">~QSplitter</span>()</h3>
 <p>Destroys the splitter. All children are deleted.</p>
 <!-- @@@~QSplitter -->
 <!-- $$$addWidget[overload1]$$$addWidgetQWidget* -->
@@ -265,18 +265,18 @@
 <p><b>Note: </b>The splitter takes ownership of the widget.</p><p><b> 参见 </b><a href="qsplitter.html#insertWidget">insertWidget</a>(), <a href="qsplitter.html#widget">widget</a>(), 和 <a href="qsplitter.html#indexOf">indexOf</a>().</p>
 <!-- @@@addWidget -->
 <!-- $$$changeEvent[overload1]$$$changeEventQEvent* -->
-<h3 class="fn" id="changeEvent"><a name="changeEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QSplitter::<span class="name">changeEvent</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>ev</i>)</h3>
+<h3 class="fn" id="changeEvent"><a name="changeEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QSplitter::<span class="name">changeEvent</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>ev</i>)</h3>
 <p>Reimplemented from <a href="qframe.html#changeEvent">QFrame::changeEvent</a>().</p>
 <!-- @@@changeEvent -->
 <!-- $$$childEvent[overload1]$$$childEventQChildEvent* -->
-<h3 class="fn" id="childEvent"><a name="childEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QSplitter::<span class="name">childEvent</span>(<span class="type"><a href="../qtcore/qchildevent.html">QChildEvent</a></span> *<i>c</i>)</h3>
+<h3 class="fn" id="childEvent"><a name="childEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QSplitter::<span class="name">childEvent</span>(<span class="type"><a href="../qtcore/qchildevent.html">QChildEvent</a></span> *<i>c</i>)</h3>
 <p>Reimplemented from <a href="../qtcore/qobject.html#childEvent">QObject::childEvent</a>().</p>
 <p>Tells the splitter that the child widget described by <i>c</i> has been inserted or removed.</p>
 <p>This method is also used to handle the situation where a widget is created with the splitter as a parent but not explicitly added with <a href="qsplitter.html#insertWidget">insertWidget</a>() or <a href="qsplitter.html#addWidget">addWidget</a>(). This is for compatibility and not the recommended way of putting widgets into a splitter in new code. Please use <a href="qsplitter.html#insertWidget">insertWidget</a>() or <a href="qsplitter.html#addWidget">addWidget</a>() in new code.</p>
 <p><b> 参见 </b><a href="qsplitter.html#addWidget">addWidget</a>() 和 <a href="qsplitter.html#insertWidget">insertWidget</a>().</p>
 <!-- @@@childEvent -->
 <!-- $$$closestLegalPosition[overload1]$$$closestLegalPositionintint -->
-<h3 class="fn" id="closestLegalPosition"><a name="closestLegalPosition"></a><code>[protected] </code><span class="type">int</span> QSplitter::<span class="name">closestLegalPosition</span>(<span class="type">int</span> <i>pos</i>, <span class="type">int</span> <i>index</i>)</h3>
+<h3 class="fn" id="closestLegalPosition"><a name="closestLegalPosition"></a><code>[保护函数] </code><span class="type">int</span> QSplitter::<span class="name">closestLegalPosition</span>(<span class="type">int</span> <i>pos</i>, <span class="type">int</span> <i>index</i>)</h3>
 <p>Returns the closest legal position to <i>pos</i> of the widget at <i>index</i>.</p>
 <p>For right-to-left languages such as Arabic and Hebrew, the layout of horizontal splitters is reversed. Positions are then measured from the right edge of the widget.</p>
 <p><b> 参见 </b><a href="qsplitter.html#getRange">getRange</a>().</p>
@@ -287,12 +287,12 @@
 <p><b> 参见 </b><a href="qsplitter.html#widget">widget</a>() 和 <a href="qsplitter.html#handle">handle</a>().</p>
 <!-- @@@count -->
 <!-- $$$createHandle[overload1]$$$createHandle -->
-<h3 class="fn" id="createHandle"><a name="createHandle"></a><code>[virtual protected] </code><span class="type"><a href="qsplitterhandle.html">QSplitterHandle</a></span> *QSplitter::<span class="name">createHandle</span>()</h3>
+<h3 class="fn" id="createHandle"><a name="createHandle"></a><code>[虚保护函数] </code><span class="type"><a href="qsplitterhandle.html">QSplitterHandle</a></span> *QSplitter::<span class="name">createHandle</span>()</h3>
 <p>Returns a new splitter handle as a child widget of this splitter. This function can be reimplemented in subclasses to provide support for custom handles.</p>
 <p><b> 参见 </b><a href="qsplitter.html#handle">handle</a>() 和 <a href="qsplitter.html#indexOf">indexOf</a>().</p>
 <!-- @@@createHandle -->
 <!-- $$$event[overload1]$$$eventQEvent* -->
-<h3 class="fn" id="event"><a name="event"></a><code>[override virtual protected] </code><span class="type">bool</span> QSplitter::<span class="name">event</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>e</i>)</h3>
+<h3 class="fn" id="event"><a name="event"></a><code>[重载虚保护函数] </code><span class="type">bool</span> QSplitter::<span class="name">event</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>e</i>)</h3>
 <p>Reimplemented from <a href="qframe.html#event">QFrame::event</a>().</p>
 <!-- @@@event -->
 <!-- $$$getRange[overload1]$$$getRangeintint*int* -->
@@ -323,11 +323,11 @@
 <p>Returns <code>true</code> if the widget at <i>index</i> is collapsible, otherwise returns <code>false</code>.</p>
 <!-- @@@isCollapsible -->
 <!-- $$$minimumSizeHint[overload1]$$$minimumSizeHint -->
-<h3 class="fn" id="minimumSizeHint"><a name="minimumSizeHint"></a><code>[override virtual] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QSplitter::<span class="name">minimumSizeHint</span>() const</h3>
+<h3 class="fn" id="minimumSizeHint"><a name="minimumSizeHint"></a><code>[重载虚函数] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QSplitter::<span class="name">minimumSizeHint</span>() const</h3>
 <p>Reimplemented from <a href="qwidget.html#minimumSizeHint-prop">QWidget::minimumSizeHint</a>().</p>
 <!-- @@@minimumSizeHint -->
 <!-- $$$moveSplitter[overload1]$$$moveSplitterintint -->
-<h3 class="fn" id="moveSplitter"><a name="moveSplitter"></a><code>[protected] </code><span class="type">void</span> QSplitter::<span class="name">moveSplitter</span>(<span class="type">int</span> <i>pos</i>, <span class="type">int</span> <i>index</i>)</h3>
+<h3 class="fn" id="moveSplitter"><a name="moveSplitter"></a><code>[保护函数] </code><span class="type">void</span> QSplitter::<span class="name">moveSplitter</span>(<span class="type">int</span> <i>pos</i>, <span class="type">int</span> <i>index</i>)</h3>
 <p>Moves the left or top edge of the splitter handle at <i>index</i> as close as possible to position <i>pos</i>, which is the distance from the left or top edge of the widget.</p>
 <p>For right-to-left languages such as Arabic and Hebrew, the layout of horizontal splitters is reversed. <i>pos</i> is then the distance from the right edge of the widget.</p>
 <p><b> 参见 </b><a href="qsplitter.html#splitterMoved">splitterMoved</a>(), <a href="qsplitter.html#closestLegalPosition">closestLegalPosition</a>(), 和 <a href="qsplitter.html#getRange">getRange</a>().</p>
@@ -345,7 +345,7 @@
 <p><b> 参见 </b><a href="qsplitter.html#insertWidget">insertWidget</a>() 和 <a href="qsplitter.html#indexOf">indexOf</a>().</p>
 <!-- @@@replaceWidget -->
 <!-- $$$resizeEvent[overload1]$$$resizeEventQResizeEvent* -->
-<h3 class="fn" id="resizeEvent"><a name="resizeEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QSplitter::<span class="name">resizeEvent</span>(<i>QResizeEvent *</i>)</h3>
+<h3 class="fn" id="resizeEvent"><a name="resizeEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QSplitter::<span class="name">resizeEvent</span>(<i>QResizeEvent *</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#resizeEvent">QWidget::resizeEvent</a>().</p>
 <!-- @@@resizeEvent -->
 <!-- $$$restoreState[overload1]$$$restoreStateconstQByteArray& -->
@@ -381,7 +381,7 @@
 <p><b> 参见 </b><a href="qsplitter.html#isCollapsible">isCollapsible</a>() 和 <a href="qsplitter.html#childrenCollapsible-prop">childrenCollapsible</a>.</p>
 <!-- @@@setCollapsible -->
 <!-- $$$setRubberBand[overload1]$$$setRubberBandint -->
-<h3 class="fn" id="setRubberBand"><a name="setRubberBand"></a><code>[protected] </code><span class="type">void</span> QSplitter::<span class="name">setRubberBand</span>(<span class="type">int</span> <i>pos</i>)</h3>
+<h3 class="fn" id="setRubberBand"><a name="setRubberBand"></a><code>[保护函数] </code><span class="type">void</span> QSplitter::<span class="name">setRubberBand</span>(<span class="type">int</span> <i>pos</i>)</h3>
 <p>Displays a rubber band at position <i>pos</i>. If <i>pos</i> is negative, the rubber band is removed.</p>
 <!-- @@@setRubberBand -->
 <!-- $$$setSizes[overload1]$$$setSizesconstQList<int>& -->
@@ -410,7 +410,7 @@
 <p><b> 参见 </b><a href="qsplitter.html#setSizes">setSizes</a>() 和 <a href="qsplitter.html#widget">widget</a>().</p>
 <!-- @@@setStretchFactor -->
 <!-- $$$sizeHint[overload1]$$$sizeHint -->
-<h3 class="fn" id="sizeHint"><a name="sizeHint"></a><code>[override virtual] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QSplitter::<span class="name">sizeHint</span>() const</h3>
+<h3 class="fn" id="sizeHint"><a name="sizeHint"></a><code>[重载虚函数] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QSplitter::<span class="name">sizeHint</span>() const</h3>
 <p>Reimplemented from <a href="qframe.html#sizeHint">QFrame::sizeHint</a>().</p>
 <!-- @@@sizeHint -->
 <!-- $$$sizes[overload1]$$$sizes -->
@@ -422,7 +422,7 @@
 <p><b> 参见 </b><a href="qsplitter.html#setSizes">setSizes</a>().</p>
 <!-- @@@sizes -->
 <!-- $$$splitterMoved[overload1]$$$splitterMovedintint -->
-<h3 class="fn" id="splitterMoved"><a name="splitterMoved"></a><code>[signal] </code><span class="type">void</span> QSplitter::<span class="name">splitterMoved</span>(<span class="type">int</span> <i>pos</i>, <span class="type">int</span> <i>index</i>)</h3>
+<h3 class="fn" id="splitterMoved"><a name="splitterMoved"></a><code>[信号] </code><span class="type">void</span> QSplitter::<span class="name">splitterMoved</span>(<span class="type">int</span> <i>pos</i>, <span class="type">int</span> <i>index</i>)</h3>
 <p>This signal is emitted when the splitter handle at a particular <i>index</i> has been moved to position <i>pos</i>.</p>
 <p>For right-to-left languages such as Arabic and Hebrew, the layout of horizontal splitters is reversed. <i>pos</i> is then the distance from the right edge of the widget.</p>
 <p><b> 参见 </b><a href="qsplitter.html#moveSplitter">moveSplitter</a>().</p>

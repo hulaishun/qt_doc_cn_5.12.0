@@ -285,7 +285,7 @@
 <h3>其他继承而来的成员</h3>
 <ul>
 <li class="fn">1 个公共变量继承于 <a href="../qtcore/qobject.html#public-variables">QObject</a></li>
-<li class="fn">1 protected slot inherited from <a href="qwidget.html#protected-slots">QWidget</a></li>
+<li class="fn">1 个保护槽函数继承于 <a href="qwidget.html#protected-slots">QWidget</a></li>
 <li class="fn">2 个保护变量继承于 <a href="../qtcore/qobject.html#protected-variables">QObject</a></li>
 <li class="fn">1 个保护类型继承于 <a href="../qtgui/qpaintdevice.html#protected-variables">QPaintDevice</a></li>
 </ul>
@@ -633,7 +633,7 @@
 <p>Constructs a <a href="qtextedit.html">QTextEdit</a> with parent <i>parent</i>. The text edit will display the text <i>text</i>. The text is interpreted as html.</p>
 <!-- @@@QTextEdit -->
 <!-- $$$~QTextEdit[overload1]$$$~QTextEdit -->
-<h3 class="fn" id="dtor.QTextEdit"><a name="dtor.QTextEdit"></a><code>[virtual] </code>QTextEdit::<span class="name">~QTextEdit</span>()</h3>
+<h3 class="fn" id="dtor.QTextEdit"><a name="dtor.QTextEdit"></a><code>[虚函数] </code>QTextEdit::<span class="name">~QTextEdit</span>()</h3>
 <p>析构函数。</p>
 <!-- @@@~QTextEdit -->
 <!-- $$$alignment[overload1]$$$alignment -->
@@ -651,7 +651,7 @@
 <p><b>Note: </b>The new paragraph appended will have the same character format and block format as the current paragraph, determined by the position of the cursor.</p><p><b> 参见 </b><a href="qtextedit.html#currentCharFormat">currentCharFormat</a>() 和 <a href="../qtgui/qtextcursor.html#blockFormat">QTextCursor::blockFormat</a>().</p>
 <!-- @@@append -->
 <!-- $$$canInsertFromMimeData[overload1]$$$canInsertFromMimeDataconstQMimeData* -->
-<h3 class="fn" id="canInsertFromMimeData"><a name="canInsertFromMimeData"></a><code>[virtual protected] </code><span class="type">bool</span> QTextEdit::<span class="name">canInsertFromMimeData</span>(const <span class="type"><a href="../qtcore/qmimedata.html">QMimeData</a></span> *<i>source</i>) const</h3>
+<h3 class="fn" id="canInsertFromMimeData"><a name="canInsertFromMimeData"></a><code>[虚保护函数] </code><span class="type">bool</span> QTextEdit::<span class="name">canInsertFromMimeData</span>(const <span class="type"><a href="../qtcore/qmimedata.html">QMimeData</a></span> *<i>source</i>) const</h3>
 <p>This function returns <code>true</code> if the contents of the MIME data object, specified by <i>source</i>, can be decoded and inserted into the document. It is called for example when during a drag operation the mouse enters this widget and it is necessary to determine whether it is possible to accept the drag and drop operation.</p>
 <p>Reimplement this function to enable drag and drop support for additional MIME types.</p>
 <!-- @@@canInsertFromMimeData -->
@@ -661,7 +661,7 @@
 <p>这个函数是在Qt 4.2版本中新增引入的。</p>
 <!-- @@@canPaste -->
 <!-- $$$changeEvent[overload1]$$$changeEventQEvent* -->
-<h3 class="fn" id="changeEvent"><a name="changeEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTextEdit::<span class="name">changeEvent</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>e</i>)</h3>
+<h3 class="fn" id="changeEvent"><a name="changeEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTextEdit::<span class="name">changeEvent</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>e</i>)</h3>
 <p>Reimplemented from <a href="qframe.html#changeEvent">QFrame::changeEvent</a>().</p>
 <!-- @@@changeEvent -->
 <!-- $$$clear[overload1]$$$clear -->
@@ -671,7 +671,7 @@
 <p><b> 参见 </b><a href="qtextedit.html#cut">cut</a>(), <a href="qtextedit.html#setPlainText">setPlainText</a>(), 和 <a href="qtextedit.html#html-prop">setHtml</a>().</p>
 <!-- @@@clear -->
 <!-- $$$contextMenuEvent[overload1]$$$contextMenuEventQContextMenuEvent* -->
-<h3 class="fn" id="contextMenuEvent"><a name="contextMenuEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTextEdit::<span class="name">contextMenuEvent</span>(<span class="type"><a href="../qtgui/qcontextmenuevent.html">QContextMenuEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="contextMenuEvent"><a name="contextMenuEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTextEdit::<span class="name">contextMenuEvent</span>(<span class="type"><a href="../qtgui/qcontextmenuevent.html">QContextMenuEvent</a></span> *<i>event</i>)</h3>
 <p>Reimplemented from <a href="qabstractscrollarea.html#contextMenuEvent">QAbstractScrollArea::contextMenuEvent</a>().</p>
 <p>Shows the standard context menu created with <a href="qtextedit.html#createStandardContextMenu">createStandardContextMenu</a>().</p>
 <p>If you do not want the text edit to have a context menu, you can set its <a href="qwidget.html#contextMenuPolicy-prop">contextMenuPolicy</a> to <a href="../qtcore/qt.html#ContextMenuPolicy-enum">Qt::NoContextMenu</a>. If you want to customize the context menu, reimplement this function. If you want to extend the standard context menu, reimplement this function, call <a href="qtextedit.html#createStandardContextMenu">createStandardContextMenu</a>() and extend the menu returned.</p>
@@ -695,14 +695,14 @@
 <p><b> 参见 </b><a href="qtextedit.html#copyAvailable">copyAvailable</a>().</p>
 <!-- @@@copy -->
 <!-- $$$copyAvailable[overload1]$$$copyAvailablebool -->
-<h3 class="fn" id="copyAvailable"><a name="copyAvailable"></a><code>[signal] </code><span class="type">void</span> QTextEdit::<span class="name">copyAvailable</span>(<span class="type">bool</span> <i>yes</i>)</h3>
+<h3 class="fn" id="copyAvailable"><a name="copyAvailable"></a><code>[信号] </code><span class="type">void</span> QTextEdit::<span class="name">copyAvailable</span>(<span class="type">bool</span> <i>yes</i>)</h3>
 <p>This signal is emitted when text is selected or de-selected in the text edit.</p>
 <p>When text is selected this signal will be emitted with <i>yes</i> set to true. If no text has been selected or if the selected text is de-selected this signal is emitted with <i>yes</i> set to false.</p>
 <p>If <i>yes</i> is true then <a href="qtextedit.html#copy">copy</a>() can be used to copy the selection to the clipboard. If <i>yes</i> is false then <a href="qtextedit.html#copy">copy</a>() does nothing.</p>
 <p><b> 参见 </b><a href="qtextedit.html#selectionChanged">selectionChanged</a>().</p>
 <!-- @@@copyAvailable -->
 <!-- $$$createMimeDataFromSelection[overload1]$$$createMimeDataFromSelection -->
-<h3 class="fn" id="createMimeDataFromSelection"><a name="createMimeDataFromSelection"></a><code>[virtual protected] </code><span class="type"><a href="../qtcore/qmimedata.html">QMimeData</a></span> *QTextEdit::<span class="name">createMimeDataFromSelection</span>() const</h3>
+<h3 class="fn" id="createMimeDataFromSelection"><a name="createMimeDataFromSelection"></a><code>[虚保护函数] </code><span class="type"><a href="../qtcore/qmimedata.html">QMimeData</a></span> *QTextEdit::<span class="name">createMimeDataFromSelection</span>() const</h3>
 <p>This function returns a new MIME data object to represent the contents of the text edit's current selection. It is called when the selection needs to be encapsulated into a new <a href="../qtcore/qmimedata.html">QMimeData</a> object; for example, when a drag and drop operation is started, or when data is copied to the clipboard.</p>
 <p>If you reimplement this function, note that the ownership of the returned <a href="../qtcore/qmimedata.html">QMimeData</a> object is passed to the caller. The selection can be retrieved by using the <a href="qtextedit.html#textCursor">textCursor</a>() function.</p>
 <!-- @@@createMimeDataFromSelection -->
@@ -722,7 +722,7 @@
 <p><b> 参见 </b><a href="qtextedit.html#setCurrentCharFormat">setCurrentCharFormat</a>().</p>
 <!-- @@@currentCharFormat -->
 <!-- $$$currentCharFormatChanged[overload1]$$$currentCharFormatChangedconstQTextCharFormat& -->
-<h3 class="fn" id="currentCharFormatChanged"><a name="currentCharFormatChanged"></a><code>[signal] </code><span class="type">void</span> QTextEdit::<span class="name">currentCharFormatChanged</span>(const <span class="type"><a href="../qtgui/qtextcharformat.html">QTextCharFormat</a></span> &amp;<i>f</i>)</h3>
+<h3 class="fn" id="currentCharFormatChanged"><a name="currentCharFormatChanged"></a><code>[信号] </code><span class="type">void</span> QTextEdit::<span class="name">currentCharFormatChanged</span>(const <span class="type"><a href="../qtgui/qtextcharformat.html">QTextCharFormat</a></span> &amp;<i>f</i>)</h3>
 <p>This signal is emitted if the current character format has changed, for example caused by a change of the cursor position.</p>
 <p>The new format is <i>f</i>.</p>
 <p><b> 参见 </b><a href="qtextedit.html#setCurrentCharFormat">setCurrentCharFormat</a>().</p>
@@ -737,7 +737,7 @@
 <p>returns a <a href="../qtgui/qtextcursor.html">QTextCursor</a> at position <i>pos</i> (in viewport coordinates).</p>
 <!-- @@@cursorForPosition -->
 <!-- $$$cursorPositionChanged[overload1]$$$cursorPositionChanged -->
-<h3 class="fn" id="cursorPositionChanged"><a name="cursorPositionChanged"></a><code>[signal] </code><span class="type">void</span> QTextEdit::<span class="name">cursorPositionChanged</span>()</h3>
+<h3 class="fn" id="cursorPositionChanged"><a name="cursorPositionChanged"></a><code>[信号] </code><span class="type">void</span> QTextEdit::<span class="name">cursorPositionChanged</span>()</h3>
 <p>This signal is emitted whenever the position of the cursor changed.</p>
 <!-- @@@cursorPositionChanged -->
 <!-- $$$cursorRect[overload1]$$$cursorRectconstQTextCursor& -->
@@ -755,19 +755,19 @@
 <p><b> 参见 </b><a href="qtextedit.html#copy">copy</a>() 和 <a href="qtextedit.html#paste">paste</a>().</p>
 <!-- @@@cut -->
 <!-- $$$dragEnterEvent[overload1]$$$dragEnterEventQDragEnterEvent* -->
-<h3 class="fn" id="dragEnterEvent"><a name="dragEnterEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTextEdit::<span class="name">dragEnterEvent</span>(<span class="type"><a href="../qtgui/qdragenterevent.html">QDragEnterEvent</a></span> *<i>e</i>)</h3>
+<h3 class="fn" id="dragEnterEvent"><a name="dragEnterEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTextEdit::<span class="name">dragEnterEvent</span>(<span class="type"><a href="../qtgui/qdragenterevent.html">QDragEnterEvent</a></span> *<i>e</i>)</h3>
 <p>Reimplemented from <a href="qabstractscrollarea.html#dragEnterEvent">QAbstractScrollArea::dragEnterEvent</a>().</p>
 <!-- @@@dragEnterEvent -->
 <!-- $$$dragLeaveEvent[overload1]$$$dragLeaveEventQDragLeaveEvent* -->
-<h3 class="fn" id="dragLeaveEvent"><a name="dragLeaveEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTextEdit::<span class="name">dragLeaveEvent</span>(<span class="type"><a href="../qtgui/qdragleaveevent.html">QDragLeaveEvent</a></span> *<i>e</i>)</h3>
+<h3 class="fn" id="dragLeaveEvent"><a name="dragLeaveEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTextEdit::<span class="name">dragLeaveEvent</span>(<span class="type"><a href="../qtgui/qdragleaveevent.html">QDragLeaveEvent</a></span> *<i>e</i>)</h3>
 <p>Reimplemented from <a href="qabstractscrollarea.html#dragLeaveEvent">QAbstractScrollArea::dragLeaveEvent</a>().</p>
 <!-- @@@dragLeaveEvent -->
 <!-- $$$dragMoveEvent[overload1]$$$dragMoveEventQDragMoveEvent* -->
-<h3 class="fn" id="dragMoveEvent"><a name="dragMoveEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTextEdit::<span class="name">dragMoveEvent</span>(<span class="type"><a href="../qtgui/qdragmoveevent.html">QDragMoveEvent</a></span> *<i>e</i>)</h3>
+<h3 class="fn" id="dragMoveEvent"><a name="dragMoveEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTextEdit::<span class="name">dragMoveEvent</span>(<span class="type"><a href="../qtgui/qdragmoveevent.html">QDragMoveEvent</a></span> *<i>e</i>)</h3>
 <p>Reimplemented from <a href="qabstractscrollarea.html#dragMoveEvent">QAbstractScrollArea::dragMoveEvent</a>().</p>
 <!-- @@@dragMoveEvent -->
 <!-- $$$dropEvent[overload1]$$$dropEventQDropEvent* -->
-<h3 class="fn" id="dropEvent"><a name="dropEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTextEdit::<span class="name">dropEvent</span>(<span class="type"><a href="../qtgui/qdropevent.html">QDropEvent</a></span> *<i>e</i>)</h3>
+<h3 class="fn" id="dropEvent"><a name="dropEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTextEdit::<span class="name">dropEvent</span>(<span class="type"><a href="../qtgui/qdropevent.html">QDropEvent</a></span> *<i>e</i>)</h3>
 <p>Reimplemented from <a href="qabstractscrollarea.html#dropEvent">QAbstractScrollArea::dropEvent</a>().</p>
 <!-- @@@dropEvent -->
 <!-- $$$ensureCursorVisible[overload1]$$$ensureCursorVisible -->
@@ -792,15 +792,15 @@
 <p>这个函数是在Qt 5.3版本中新增引入的。</p>
 <!-- @@@find -->
 <!-- $$$focusInEvent[overload1]$$$focusInEventQFocusEvent* -->
-<h3 class="fn" id="focusInEvent"><a name="focusInEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTextEdit::<span class="name">focusInEvent</span>(<span class="type"><a href="../qtgui/qfocusevent.html">QFocusEvent</a></span> *<i>e</i>)</h3>
+<h3 class="fn" id="focusInEvent"><a name="focusInEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTextEdit::<span class="name">focusInEvent</span>(<span class="type"><a href="../qtgui/qfocusevent.html">QFocusEvent</a></span> *<i>e</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#focusInEvent">QWidget::focusInEvent</a>().</p>
 <!-- @@@focusInEvent -->
 <!-- $$$focusNextPrevChild[overload1]$$$focusNextPrevChildbool -->
-<h3 class="fn" id="focusNextPrevChild"><a name="focusNextPrevChild"></a><code>[override virtual protected] </code><span class="type">bool</span> QTextEdit::<span class="name">focusNextPrevChild</span>(<span class="type">bool</span> <i>next</i>)</h3>
+<h3 class="fn" id="focusNextPrevChild"><a name="focusNextPrevChild"></a><code>[重载虚保护函数] </code><span class="type">bool</span> QTextEdit::<span class="name">focusNextPrevChild</span>(<span class="type">bool</span> <i>next</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#focusNextPrevChild">QWidget::focusNextPrevChild</a>().</p>
 <!-- @@@focusNextPrevChild -->
 <!-- $$$focusOutEvent[overload1]$$$focusOutEventQFocusEvent* -->
-<h3 class="fn" id="focusOutEvent"><a name="focusOutEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTextEdit::<span class="name">focusOutEvent</span>(<span class="type"><a href="../qtgui/qfocusevent.html">QFocusEvent</a></span> *<i>e</i>)</h3>
+<h3 class="fn" id="focusOutEvent"><a name="focusOutEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTextEdit::<span class="name">focusOutEvent</span>(<span class="type"><a href="../qtgui/qfocusevent.html">QFocusEvent</a></span> *<i>e</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#focusOutEvent">QWidget::focusOutEvent</a>().</p>
 <!-- @@@focusOutEvent -->
 <!-- $$$fontFamily[overload1]$$$fontFamily -->
@@ -829,15 +829,15 @@
 <p><b> 参见 </b><a href="qtextedit.html#setFontWeight">setFontWeight</a>(), <a href="qtextedit.html#setCurrentFont">setCurrentFont</a>(), <a href="qtextedit.html#setFontPointSize">setFontPointSize</a>(), 和 <a href="../qtgui/qfont.html#Weight-enum">QFont::Weight</a>.</p>
 <!-- @@@fontWeight -->
 <!-- $$$inputMethodEvent[overload1]$$$inputMethodEventQInputMethodEvent* -->
-<h3 class="fn" id="inputMethodEvent"><a name="inputMethodEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTextEdit::<span class="name">inputMethodEvent</span>(<span class="type"><a href="../qtgui/qinputmethodevent.html">QInputMethodEvent</a></span> *<i>e</i>)</h3>
+<h3 class="fn" id="inputMethodEvent"><a name="inputMethodEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTextEdit::<span class="name">inputMethodEvent</span>(<span class="type"><a href="../qtgui/qinputmethodevent.html">QInputMethodEvent</a></span> *<i>e</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#inputMethodEvent">QWidget::inputMethodEvent</a>().</p>
 <!-- @@@inputMethodEvent -->
 <!-- $$$inputMethodQuery[overload1]$$$inputMethodQueryQt::InputMethodQuery -->
-<h3 class="fn" id="inputMethodQuery"><a name="inputMethodQuery"></a><code>[override virtual] </code><span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> QTextEdit::<span class="name">inputMethodQuery</span>(<span class="type">Qt::InputMethodQuery</span> <i>property</i>) const</h3>
+<h3 class="fn" id="inputMethodQuery"><a name="inputMethodQuery"></a><code>[重载虚函数] </code><span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> QTextEdit::<span class="name">inputMethodQuery</span>(<span class="type">Qt::InputMethodQuery</span> <i>property</i>) const</h3>
 <p>Reimplemented from <a href="qwidget.html#inputMethodQuery">QWidget::inputMethodQuery</a>().</p>
 <!-- @@@inputMethodQuery -->
 <!-- $$$insertFromMimeData[overload1]$$$insertFromMimeDataconstQMimeData* -->
-<h3 class="fn" id="insertFromMimeData"><a name="insertFromMimeData"></a><code>[virtual protected] </code><span class="type">void</span> QTextEdit::<span class="name">insertFromMimeData</span>(const <span class="type"><a href="../qtcore/qmimedata.html">QMimeData</a></span> *<i>source</i>)</h3>
+<h3 class="fn" id="insertFromMimeData"><a name="insertFromMimeData"></a><code>[虚保护函数] </code><span class="type">void</span> QTextEdit::<span class="name">insertFromMimeData</span>(const <span class="type"><a href="../qtcore/qmimedata.html">QMimeData</a></span> *<i>source</i>)</h3>
 <p>This function inserts the contents of the MIME data object, specified by <i>source</i>, into the text edit at the current cursor position. It is called whenever text is inserted as the result of a clipboard paste operation, or when the text edit accepts data from a drag and drop operation.</p>
 <p>Reimplement this function to enable drag and drop support for additional MIME types.</p>
 <!-- @@@insertFromMimeData -->
@@ -862,15 +862,15 @@
 </pre>
 <!-- @@@insertPlainText -->
 <!-- $$$keyPressEvent[overload1]$$$keyPressEventQKeyEvent* -->
-<h3 class="fn" id="keyPressEvent"><a name="keyPressEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTextEdit::<span class="name">keyPressEvent</span>(<span class="type"><a href="../qtgui/qkeyevent.html">QKeyEvent</a></span> *<i>e</i>)</h3>
+<h3 class="fn" id="keyPressEvent"><a name="keyPressEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTextEdit::<span class="name">keyPressEvent</span>(<span class="type"><a href="../qtgui/qkeyevent.html">QKeyEvent</a></span> *<i>e</i>)</h3>
 <p>Reimplemented from <a href="qabstractscrollarea.html#keyPressEvent">QAbstractScrollArea::keyPressEvent</a>().</p>
 <!-- @@@keyPressEvent -->
 <!-- $$$keyReleaseEvent[overload1]$$$keyReleaseEventQKeyEvent* -->
-<h3 class="fn" id="keyReleaseEvent"><a name="keyReleaseEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTextEdit::<span class="name">keyReleaseEvent</span>(<span class="type"><a href="../qtgui/qkeyevent.html">QKeyEvent</a></span> *<i>e</i>)</h3>
+<h3 class="fn" id="keyReleaseEvent"><a name="keyReleaseEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTextEdit::<span class="name">keyReleaseEvent</span>(<span class="type"><a href="../qtgui/qkeyevent.html">QKeyEvent</a></span> *<i>e</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#keyReleaseEvent">QWidget::keyReleaseEvent</a>().</p>
 <!-- @@@keyReleaseEvent -->
 <!-- $$$loadResource[overload1]$$$loadResourceintconstQUrl& -->
-<h3 class="fn" id="loadResource"><a name="loadResource"></a><code>[virtual] </code><span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> QTextEdit::<span class="name">loadResource</span>(<span class="type">int</span> <i>type</i>, const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>name</i>)</h3>
+<h3 class="fn" id="loadResource"><a name="loadResource"></a><code>[虚函数] </code><span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> QTextEdit::<span class="name">loadResource</span>(<span class="type">int</span> <i>type</i>, const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>name</i>)</h3>
 <p>Loads the resource specified by the given <i>type</i> and <i>name</i>.</p>
 <p>This function is an extension of <a href="../qtgui/qtextdocument.html#loadResource">QTextDocument::loadResource</a>().</p>
 <p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
@@ -882,19 +882,19 @@
 <p><b> 参见 </b><a href="../qtgui/qtextcursor.html#mergeCharFormat">QTextCursor::mergeCharFormat</a>().</p>
 <!-- @@@mergeCurrentCharFormat -->
 <!-- $$$mouseDoubleClickEvent[overload1]$$$mouseDoubleClickEventQMouseEvent* -->
-<h3 class="fn" id="mouseDoubleClickEvent"><a name="mouseDoubleClickEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTextEdit::<span class="name">mouseDoubleClickEvent</span>(<span class="type"><a href="../qtgui/qmouseevent.html">QMouseEvent</a></span> *<i>e</i>)</h3>
+<h3 class="fn" id="mouseDoubleClickEvent"><a name="mouseDoubleClickEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTextEdit::<span class="name">mouseDoubleClickEvent</span>(<span class="type"><a href="../qtgui/qmouseevent.html">QMouseEvent</a></span> *<i>e</i>)</h3>
 <p>Reimplemented from <a href="qabstractscrollarea.html#mouseDoubleClickEvent">QAbstractScrollArea::mouseDoubleClickEvent</a>().</p>
 <!-- @@@mouseDoubleClickEvent -->
 <!-- $$$mouseMoveEvent[overload1]$$$mouseMoveEventQMouseEvent* -->
-<h3 class="fn" id="mouseMoveEvent"><a name="mouseMoveEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTextEdit::<span class="name">mouseMoveEvent</span>(<span class="type"><a href="../qtgui/qmouseevent.html">QMouseEvent</a></span> *<i>e</i>)</h3>
+<h3 class="fn" id="mouseMoveEvent"><a name="mouseMoveEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTextEdit::<span class="name">mouseMoveEvent</span>(<span class="type"><a href="../qtgui/qmouseevent.html">QMouseEvent</a></span> *<i>e</i>)</h3>
 <p>Reimplemented from <a href="qabstractscrollarea.html#mouseMoveEvent">QAbstractScrollArea::mouseMoveEvent</a>().</p>
 <!-- @@@mouseMoveEvent -->
 <!-- $$$mousePressEvent[overload1]$$$mousePressEventQMouseEvent* -->
-<h3 class="fn" id="mousePressEvent"><a name="mousePressEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTextEdit::<span class="name">mousePressEvent</span>(<span class="type"><a href="../qtgui/qmouseevent.html">QMouseEvent</a></span> *<i>e</i>)</h3>
+<h3 class="fn" id="mousePressEvent"><a name="mousePressEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTextEdit::<span class="name">mousePressEvent</span>(<span class="type"><a href="../qtgui/qmouseevent.html">QMouseEvent</a></span> *<i>e</i>)</h3>
 <p>Reimplemented from <a href="qabstractscrollarea.html#mousePressEvent">QAbstractScrollArea::mousePressEvent</a>().</p>
 <!-- @@@mousePressEvent -->
 <!-- $$$mouseReleaseEvent[overload1]$$$mouseReleaseEventQMouseEvent* -->
-<h3 class="fn" id="mouseReleaseEvent"><a name="mouseReleaseEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTextEdit::<span class="name">mouseReleaseEvent</span>(<span class="type"><a href="../qtgui/qmouseevent.html">QMouseEvent</a></span> *<i>e</i>)</h3>
+<h3 class="fn" id="mouseReleaseEvent"><a name="mouseReleaseEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTextEdit::<span class="name">mouseReleaseEvent</span>(<span class="type"><a href="../qtgui/qmouseevent.html">QMouseEvent</a></span> *<i>e</i>)</h3>
 <p>Reimplemented from <a href="qabstractscrollarea.html#mouseReleaseEvent">QAbstractScrollArea::mouseReleaseEvent</a>().</p>
 <!-- @@@mouseReleaseEvent -->
 <!-- $$$moveCursor[overload1]$$$moveCursorQTextCursor::MoveOperationQTextCursor::MoveMode -->
@@ -905,7 +905,7 @@
 <p><b> 参见 </b><a href="../qtgui/qtextcursor.html#movePosition">QTextCursor::movePosition</a>().</p>
 <!-- @@@moveCursor -->
 <!-- $$$paintEvent[overload1]$$$paintEventQPaintEvent* -->
-<h3 class="fn" id="paintEvent"><a name="paintEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTextEdit::<span class="name">paintEvent</span>(<span class="type"><a href="../qtgui/qpaintevent.html">QPaintEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="paintEvent"><a name="paintEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTextEdit::<span class="name">paintEvent</span>(<span class="type"><a href="../qtgui/qpaintevent.html">QPaintEvent</a></span> *<i>event</i>)</h3>
 <p>Reimplemented from <a href="qabstractscrollarea.html#paintEvent">QAbstractScrollArea::paintEvent</a>().</p>
 <p>This event handler can be reimplemented in a subclass to receive paint events passed in <i>event</i>. It is usually unnecessary to reimplement this function in a subclass of <a href="qtextedit.html">QTextEdit</a>.</p>
 <p><b>Warning:</b> The underlying text document must not be modified from within a reimplementation of this function.</p>
@@ -931,15 +931,15 @@
 <p><b> 参见 </b><a href="qtextedit.html#undo">undo</a>().</p>
 <!-- @@@redo -->
 <!-- $$$redoAvailable[overload1]$$$redoAvailablebool -->
-<h3 class="fn" id="redoAvailable"><a name="redoAvailable"></a><code>[signal] </code><span class="type">void</span> QTextEdit::<span class="name">redoAvailable</span>(<span class="type">bool</span> <i>available</i>)</h3>
+<h3 class="fn" id="redoAvailable"><a name="redoAvailable"></a><code>[信号] </code><span class="type">void</span> QTextEdit::<span class="name">redoAvailable</span>(<span class="type">bool</span> <i>available</i>)</h3>
 <p>This signal is emitted whenever redo operations become available (<i>available</i> is true) or unavailable (<i>available</i> is false).</p>
 <!-- @@@redoAvailable -->
 <!-- $$$resizeEvent[overload1]$$$resizeEventQResizeEvent* -->
-<h3 class="fn" id="resizeEvent"><a name="resizeEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTextEdit::<span class="name">resizeEvent</span>(<span class="type"><a href="../qtgui/qresizeevent.html">QResizeEvent</a></span> *<i>e</i>)</h3>
+<h3 class="fn" id="resizeEvent"><a name="resizeEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTextEdit::<span class="name">resizeEvent</span>(<span class="type"><a href="../qtgui/qresizeevent.html">QResizeEvent</a></span> *<i>e</i>)</h3>
 <p>Reimplemented from <a href="qabstractscrollarea.html#resizeEvent">QAbstractScrollArea::resizeEvent</a>().</p>
 <!-- @@@resizeEvent -->
 <!-- $$$scrollContentsBy[overload1]$$$scrollContentsByintint -->
-<h3 class="fn" id="scrollContentsBy"><a name="scrollContentsBy"></a><code>[override virtual protected] </code><span class="type">void</span> QTextEdit::<span class="name">scrollContentsBy</span>(<span class="type">int</span> <i>dx</i>, <span class="type">int</span> <i>dy</i>)</h3>
+<h3 class="fn" id="scrollContentsBy"><a name="scrollContentsBy"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTextEdit::<span class="name">scrollContentsBy</span>(<span class="type">int</span> <i>dx</i>, <span class="type">int</span> <i>dy</i>)</h3>
 <p>Reimplemented from <a href="qabstractscrollarea.html#scrollContentsBy">QAbstractScrollArea::scrollContentsBy</a>().</p>
 <!-- @@@scrollContentsBy -->
 <!-- $$$scrollToAnchor[overload1]$$$scrollToAnchorconstQString& -->
@@ -952,7 +952,7 @@
 <p><b> 参见 </b><a href="qtextedit.html#copy">copy</a>(), <a href="qtextedit.html#cut">cut</a>(), 和 <a href="qtextedit.html#textCursor">textCursor</a>().</p>
 <!-- @@@selectAll -->
 <!-- $$$selectionChanged[overload1]$$$selectionChanged -->
-<h3 class="fn" id="selectionChanged"><a name="selectionChanged"></a><code>[signal] </code><span class="type">void</span> QTextEdit::<span class="name">selectionChanged</span>()</h3>
+<h3 class="fn" id="selectionChanged"><a name="selectionChanged"></a><code>[信号] </code><span class="type">void</span> QTextEdit::<span class="name">selectionChanged</span>()</h3>
 <p>This signal is emitted whenever the selection changes.</p>
 <p><b> 参见 </b><a href="qtextedit.html#copyAvailable">copyAvailable</a>().</p>
 <!-- @@@selectionChanged -->
@@ -1034,7 +1034,7 @@
 <p><b> 参见 </b><a href="qtextedit.html#textCursor">textCursor</a>().</p>
 <!-- @@@setTextCursor -->
 <!-- $$$showEvent[overload1]$$$showEventQShowEvent* -->
-<h3 class="fn" id="showEvent"><a name="showEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTextEdit::<span class="name">showEvent</span>(<i>QShowEvent *</i>)</h3>
+<h3 class="fn" id="showEvent"><a name="showEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTextEdit::<span class="name">showEvent</span>(<i>QShowEvent *</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#showEvent">QWidget::showEvent</a>().</p>
 <!-- @@@showEvent -->
 <!-- $$$textBackgroundColor[overload1]$$$textBackgroundColor -->
@@ -1044,7 +1044,7 @@
 <p><b> 参见 </b><a href="qtextedit.html#setTextBackgroundColor">setTextBackgroundColor</a>().</p>
 <!-- @@@textBackgroundColor -->
 <!-- $$$textChanged -->
-<h3 class="fn" id="textChanged"><a name="textChanged"></a><code>[signal] </code><span class="type">void</span> QTextEdit::<span class="name">textChanged</span>()</h3>
+<h3 class="fn" id="textChanged"><a name="textChanged"></a><code>[信号] </code><span class="type">void</span> QTextEdit::<span class="name">textChanged</span>()</h3>
 <p>This signal is emitted whenever the document's content changes; for example, when text is inserted or deleted, or when formatting is applied.</p>
 <p><b>Note:</b> Notifier signal for property <a href="qtextedit.html#html-prop">html</a>. </p><!-- @@@textChanged -->
 <!-- $$$textColor[overload1]$$$textColor -->
@@ -1071,11 +1071,11 @@
 <p><b> 参见 </b><a href="qtextedit.html#redo">redo</a>().</p>
 <!-- @@@undo -->
 <!-- $$$undoAvailable[overload1]$$$undoAvailablebool -->
-<h3 class="fn" id="undoAvailable"><a name="undoAvailable"></a><code>[signal] </code><span class="type">void</span> QTextEdit::<span class="name">undoAvailable</span>(<span class="type">bool</span> <i>available</i>)</h3>
+<h3 class="fn" id="undoAvailable"><a name="undoAvailable"></a><code>[信号] </code><span class="type">void</span> QTextEdit::<span class="name">undoAvailable</span>(<span class="type">bool</span> <i>available</i>)</h3>
 <p>This signal is emitted whenever undo operations become available (<i>available</i> is true) or unavailable (<i>available</i> is false).</p>
 <!-- @@@undoAvailable -->
 <!-- $$$wheelEvent[overload1]$$$wheelEventQWheelEvent* -->
-<h3 class="fn" id="wheelEvent"><a name="wheelEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTextEdit::<span class="name">wheelEvent</span>(<span class="type"><a href="../qtgui/qwheelevent.html">QWheelEvent</a></span> *<i>e</i>)</h3>
+<h3 class="fn" id="wheelEvent"><a name="wheelEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTextEdit::<span class="name">wheelEvent</span>(<span class="type"><a href="../qtgui/qwheelevent.html">QWheelEvent</a></span> *<i>e</i>)</h3>
 <p>Reimplemented from <a href="qabstractscrollarea.html#wheelEvent">QAbstractScrollArea::wheelEvent</a>().</p>
 <!-- @@@wheelEvent -->
 <!-- $$$zoomIn[overload1]$$$zoomInint -->

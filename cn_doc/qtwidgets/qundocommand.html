@@ -149,7 +149,7 @@
 <p><b> 参见 </b><a href="qundocommand.html#dtor.QUndoCommand">~QUndoCommand</a>().</p>
 <!-- @@@QUndoCommand -->
 <!-- $$$~QUndoCommand[overload1]$$$~QUndoCommand -->
-<h3 class="fn" id="dtor.QUndoCommand"><a name="dtor.QUndoCommand"></a><code>[virtual] </code>QUndoCommand::<span class="name">~QUndoCommand</span>()</h3>
+<h3 class="fn" id="dtor.QUndoCommand"><a name="dtor.QUndoCommand"></a><code>[虚函数] </code>QUndoCommand::<span class="name">~QUndoCommand</span>()</h3>
 <p>Destroys the <a href="qundocommand.html">QUndoCommand</a> object and all child commands.</p>
 <p><b> 参见 </b><a href="qundocommand.html#QUndoCommand">QUndoCommand</a>().</p>
 <!-- @@@~QUndoCommand -->
@@ -173,7 +173,7 @@
 <p><b> 参见 </b><a href="qundocommand.html#child">child</a>().</p>
 <!-- @@@childCount -->
 <!-- $$$id[overload1]$$$id -->
-<h3 class="fn" id="id"><a name="id"></a><code>[virtual] </code><span class="type">int</span> QUndoCommand::<span class="name">id</span>() const</h3>
+<h3 class="fn" id="id"><a name="id"></a><code>[虚函数] </code><span class="type">int</span> QUndoCommand::<span class="name">id</span>() const</h3>
 <p>Returns the ID of this command.</p>
 <p>A command ID is used in command compression. It must be an integer unique to this command's class, or -1 if the command doesn't support compression.</p>
 <p>If the command supports compression this function must be overridden in the derived class to return the correct ID. The base implementation returns -1.</p>
@@ -188,7 +188,7 @@
 <p><b> 参见 </b><a href="qundocommand.html#setObsolete">setObsolete</a>(), <a href="qundocommand.html#mergeWith">mergeWith</a>(), <a href="qundostack.html#push">QUndoStack::push</a>(), <a href="qundostack.html#undo">QUndoStack::undo</a>(), 和 <a href="qundostack.html#redo">QUndoStack::redo</a>().</p>
 <!-- @@@isObsolete -->
 <!-- $$$mergeWith[overload1]$$$mergeWithconstQUndoCommand* -->
-<h3 class="fn" id="mergeWith"><a name="mergeWith"></a><code>[virtual] </code><span class="type">bool</span> QUndoCommand::<span class="name">mergeWith</span>(const <span class="type"><a href="qundocommand.html#QUndoCommand">QUndoCommand</a></span> *<i>command</i>)</h3>
+<h3 class="fn" id="mergeWith"><a name="mergeWith"></a><code>[虚函数] </code><span class="type">bool</span> QUndoCommand::<span class="name">mergeWith</span>(const <span class="type"><a href="qundocommand.html#QUndoCommand">QUndoCommand</a></span> *<i>command</i>)</h3>
 <p>Attempts to merge this command with <i>command</i>. Returns <code>true</code> on success; otherwise returns <code>false</code>.</p>
 <p>If this function returns <code>true</code>, calling this command's <a href="qundocommand.html#redo">redo</a>() must have the same effect as redoing both this command and <i>command</i>. Similarly, calling this command's <a href="qundocommand.html#undo">undo</a>() must have the same effect as undoing <i>command</i> and this command.</p>
 <p><a href="qundostack.html">QUndoStack</a> will only try to merge two commands if they have the same id, and the id is not -1.</p>
@@ -207,7 +207,7 @@
 <p><b> 参见 </b><a href="qundocommand.html#id">id</a>() 和 <a href="qundostack.html#push">QUndoStack::push</a>().</p>
 <!-- @@@mergeWith -->
 <!-- $$$redo[overload1]$$$redo -->
-<h3 class="fn" id="redo"><a name="redo"></a><code>[virtual] </code><span class="type">void</span> QUndoCommand::<span class="name">redo</span>()</h3>
+<h3 class="fn" id="redo"><a name="redo"></a><code>[虚函数] </code><span class="type">void</span> QUndoCommand::<span class="name">redo</span>()</h3>
 <p>Applies a change to the document. This function must be implemented in the derived class. Calling <a href="qundostack.html#push">QUndoStack::push</a>(), <a href="qundostack.html#undo">QUndoStack::undo</a>() or <a href="qundostack.html#redo">QUndoStack::redo</a>() from this function leads to undefined beahavior.</p>
 <p>The default implementation calls redo() on all child commands.</p>
 <p><b> 参见 </b><a href="qundocommand.html#undo">undo</a>().</p>
@@ -232,7 +232,7 @@
 <p><b> 参见 </b><a href="qundocommand.html#actionText">actionText</a>(), <a href="qundocommand.html#setText">setText</a>(), <a href="qundostack.html#createUndoAction">QUndoStack::createUndoAction</a>(), 和 <a href="qundostack.html#createRedoAction">QUndoStack::createRedoAction</a>().</p>
 <!-- @@@text -->
 <!-- $$$undo[overload1]$$$undo -->
-<h3 class="fn" id="undo"><a name="undo"></a><code>[virtual] </code><span class="type">void</span> QUndoCommand::<span class="name">undo</span>()</h3>
+<h3 class="fn" id="undo"><a name="undo"></a><code>[虚函数] </code><span class="type">void</span> QUndoCommand::<span class="name">undo</span>()</h3>
 <p>Reverts a change to the document. After undo() is called, the state of the document should be the same as before <a href="qundocommand.html#redo">redo</a>() was called. This function must be implemented in the derived class. Calling <a href="qundostack.html#push">QUndoStack::push</a>(), <a href="qundostack.html#undo">QUndoStack::undo</a>() or <a href="qundostack.html#redo">QUndoStack::redo</a>() from this function leads to undefined beahavior.</p>
 <p>The default implementation calls undo() on all child commands in reverse order.</p>
 <p><b> 参见 </b><a href="qundocommand.html#redo">redo</a>().</p>

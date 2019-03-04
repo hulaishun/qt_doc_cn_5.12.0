@@ -289,7 +289,7 @@
 <p><b> 参见 </b><a href="qundostack.html#push">push</a>().</p>
 <!-- @@@QUndoStack -->
 <!-- $$$~QUndoStack[overload1]$$$~QUndoStack -->
-<h3 class="fn" id="dtor.QUndoStack"><a name="dtor.QUndoStack"></a><code>[virtual] </code>QUndoStack::<span class="name">~QUndoStack</span>()</h3>
+<h3 class="fn" id="dtor.QUndoStack"><a name="dtor.QUndoStack"></a><code>[虚函数] </code>QUndoStack::<span class="name">~QUndoStack</span>()</h3>
 <p>Destroys the undo stack, deleting any commands that are on it. If the stack is in a <a href="qundogroup.html">QUndoGroup</a>, the stack is automatically removed from the group.</p>
 <p><b> 参见 </b><a href="qundostack.html#QUndoStack">QUndoStack</a>().</p>
 <!-- @@@~QUndoStack -->
@@ -336,7 +336,7 @@
 <p><b>Note:</b> Getter function for property <a href="qundostack.html#canRedo-prop">canRedo</a>. </p><p><b> 参见 </b><a href="qundostack.html#index">index</a>() 和 <a href="qundostack.html#canUndo">canUndo</a>().</p>
 <!-- @@@canRedo -->
 <!-- $$$canRedoChanged -->
-<h3 class="fn" id="canRedoChanged"><a name="canRedoChanged"></a><code>[signal] </code><span class="type">void</span> QUndoStack::<span class="name">canRedoChanged</span>(<span class="type">bool</span> <i>canRedo</i>)</h3>
+<h3 class="fn" id="canRedoChanged"><a name="canRedoChanged"></a><code>[信号] </code><span class="type">void</span> QUndoStack::<span class="name">canRedoChanged</span>(<span class="type">bool</span> <i>canRedo</i>)</h3>
 <p>This signal is emitted whenever the value of <a href="qundostack.html#canRedo">canRedo</a>() changes. It is used to enable or disable the redo action returned by <a href="qundostack.html#createRedoAction">createRedoAction</a>(). <i>canRedo</i> specifies the new value.</p>
 <p><b>Note:</b> Notifier signal for property <a href="qundostack.html#canRedo-prop">canRedo</a>. </p><!-- @@@canRedoChanged -->
 <!-- $$$canUndo -->
@@ -347,11 +347,11 @@
 <p><b>Note:</b> Getter function for property <a href="qundostack.html#canUndo-prop">canUndo</a>. </p><p><b> 参见 </b><a href="qundostack.html#index">index</a>() 和 <a href="qundostack.html#canRedo">canRedo</a>().</p>
 <!-- @@@canUndo -->
 <!-- $$$canUndoChanged -->
-<h3 class="fn" id="canUndoChanged"><a name="canUndoChanged"></a><code>[signal] </code><span class="type">void</span> QUndoStack::<span class="name">canUndoChanged</span>(<span class="type">bool</span> <i>canUndo</i>)</h3>
+<h3 class="fn" id="canUndoChanged"><a name="canUndoChanged"></a><code>[信号] </code><span class="type">void</span> QUndoStack::<span class="name">canUndoChanged</span>(<span class="type">bool</span> <i>canUndo</i>)</h3>
 <p>This signal is emitted whenever the value of <a href="qundostack.html#canUndo">canUndo</a>() changes. It is used to enable or disable the undo action returned by <a href="qundostack.html#createUndoAction">createUndoAction</a>(). <i>canUndo</i> specifies the new value.</p>
 <p><b>Note:</b> Notifier signal for property <a href="qundostack.html#canUndo-prop">canUndo</a>. </p><!-- @@@canUndoChanged -->
 <!-- $$$cleanChanged -->
-<h3 class="fn" id="cleanChanged"><a name="cleanChanged"></a><code>[signal] </code><span class="type">void</span> QUndoStack::<span class="name">cleanChanged</span>(<span class="type">bool</span> <i>clean</i>)</h3>
+<h3 class="fn" id="cleanChanged"><a name="cleanChanged"></a><code>[信号] </code><span class="type">void</span> QUndoStack::<span class="name">cleanChanged</span>(<span class="type">bool</span> <i>clean</i>)</h3>
 <p>This signal is emitted whenever the stack enters or leaves the clean state. If <i>clean</i> is true, the stack is in a clean state; otherwise this signal indicates that it has left the clean state.</p>
 <p><b>Note:</b> Notifier signal for property <a href="qundostack.html#clean-prop">clean</a>. </p><p><b> 参见 </b><a href="qundostack.html#isClean">isClean</a>() 和 <a href="qundostack.html#setClean">setClean</a>().</p>
 <!-- @@@cleanChanged -->
@@ -406,7 +406,7 @@
 <p><b> 参见 </b><a href="qundostack.html#setIndex">setIndex</a>(), <a href="qundostack.html#undo">undo</a>(), <a href="qundostack.html#redo">redo</a>(), 和 <a href="qundostack.html#count">count</a>().</p>
 <!-- @@@index -->
 <!-- $$$indexChanged[overload1]$$$indexChangedint -->
-<h3 class="fn" id="indexChanged"><a name="indexChanged"></a><code>[signal] </code><span class="type">void</span> QUndoStack::<span class="name">indexChanged</span>(<span class="type">int</span> <i>idx</i>)</h3>
+<h3 class="fn" id="indexChanged"><a name="indexChanged"></a><code>[信号] </code><span class="type">void</span> QUndoStack::<span class="name">indexChanged</span>(<span class="type">int</span> <i>idx</i>)</h3>
 <p>This signal is emitted whenever a command modifies the state of the document. This happens when a command is undone or redone. When a macro command is undone or redone, or <a href="qundostack.html#setIndex">setIndex</a>() is called, this signal is emitted only once.</p>
 <p><i>idx</i> specifies the index of the current command, ie. the command which will be executed on the next call to <a href="qundostack.html#redo">redo</a>().</p>
 <p><b> 参见 </b><a href="qundostack.html#index">index</a>() 和 <a href="qundostack.html#setIndex">setIndex</a>().</p>
@@ -439,7 +439,7 @@
 <p><b>Note:</b> Getter function for property <a href="qundostack.html#redoText-prop">redoText</a>. </p><p><b> 参见 </b><a href="qundocommand.html#actionText">QUndoCommand::actionText</a>() 和 <a href="qundostack.html#undoText">undoText</a>().</p>
 <!-- @@@redoText -->
 <!-- $$$redoTextChanged -->
-<h3 class="fn" id="redoTextChanged"><a name="redoTextChanged"></a><code>[signal] </code><span class="type">void</span> QUndoStack::<span class="name">redoTextChanged</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>redoText</i>)</h3>
+<h3 class="fn" id="redoTextChanged"><a name="redoTextChanged"></a><code>[信号] </code><span class="type">void</span> QUndoStack::<span class="name">redoTextChanged</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>redoText</i>)</h3>
 <p>This signal is emitted whenever the value of <a href="qundostack.html#redoText">redoText</a>() changes. It is used to update the text property of the redo action returned by <a href="qundostack.html#createRedoAction">createRedoAction</a>(). <i>redoText</i> specifies the new text.</p>
 <p><b>Note:</b> Notifier signal for property <a href="qundostack.html#redoText-prop">redoText</a>. </p><!-- @@@redoTextChanged -->
 <!-- $$$resetClean[overload1]$$$resetClean -->
@@ -484,7 +484,7 @@
 <p><b>Note:</b> Getter function for property <a href="qundostack.html#undoText-prop">undoText</a>. </p><p><b> 参见 </b><a href="qundocommand.html#actionText">QUndoCommand::actionText</a>() 和 <a href="qundostack.html#redoText">redoText</a>().</p>
 <!-- @@@undoText -->
 <!-- $$$undoTextChanged -->
-<h3 class="fn" id="undoTextChanged"><a name="undoTextChanged"></a><code>[signal] </code><span class="type">void</span> QUndoStack::<span class="name">undoTextChanged</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>undoText</i>)</h3>
+<h3 class="fn" id="undoTextChanged"><a name="undoTextChanged"></a><code>[信号] </code><span class="type">void</span> QUndoStack::<span class="name">undoTextChanged</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>undoText</i>)</h3>
 <p>This signal is emitted whenever the value of <a href="qundostack.html#undoText">undoText</a>() changes. It is used to update the text property of the undo action returned by <a href="qundostack.html#createUndoAction">createUndoAction</a>(). <i>undoText</i> specifies the new text.</p>
 <p><b>Note:</b> Notifier signal for property <a href="qundostack.html#undoText-prop">undoText</a>. </p><!-- @@@undoTextChanged -->
 </div>

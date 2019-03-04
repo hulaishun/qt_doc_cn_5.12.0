@@ -190,30 +190,30 @@
 <p>Creates a satellite source with the specified <i>parent</i>.</p>
 <!-- @@@QGeoSatelliteInfoSource -->
 <!-- $$$~QGeoSatelliteInfoSource[overload1]$$$~QGeoSatelliteInfoSource -->
-<h3 class="fn" id="dtor.QGeoSatelliteInfoSource"><a name="dtor.QGeoSatelliteInfoSource"></a><code>[virtual] </code>QGeoSatelliteInfoSource::<span class="name">~QGeoSatelliteInfoSource</span>()</h3>
+<h3 class="fn" id="dtor.QGeoSatelliteInfoSource"><a name="dtor.QGeoSatelliteInfoSource"></a><code>[虚函数] </code>QGeoSatelliteInfoSource::<span class="name">~QGeoSatelliteInfoSource</span>()</h3>
 <p>Destroys the satellite source.</p>
 <!-- @@@~QGeoSatelliteInfoSource -->
 <!-- $$$availableSources[overload1]$$$availableSources -->
-<h3 class="fn" id="availableSources"><a name="availableSources"></a><code>[static] </code><span class="type"><a href="../qtcore/qstringlist.html">QStringList</a></span> QGeoSatelliteInfoSource::<span class="name">availableSources</span>()</h3>
+<h3 class="fn" id="availableSources"><a name="availableSources"></a><code>[静态函数] </code><span class="type"><a href="../qtcore/qstringlist.html">QStringList</a></span> QGeoSatelliteInfoSource::<span class="name">availableSources</span>()</h3>
 <p>Returns a list of available source plugins, including the default system backend if one is available.</p>
 <!-- @@@availableSources -->
 <!-- $$$createDefaultSource[overload1]$$$createDefaultSourceQObject* -->
-<h3 class="fn" id="createDefaultSource"><a name="createDefaultSource"></a><code>[static] </code><span class="type"><a href="qgeosatelliteinfosource.html#QGeoSatelliteInfoSource">QGeoSatelliteInfoSource</a></span> *QGeoSatelliteInfoSource::<span class="name">createDefaultSource</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i>)</h3>
+<h3 class="fn" id="createDefaultSource"><a name="createDefaultSource"></a><code>[静态函数] </code><span class="type"><a href="qgeosatelliteinfosource.html#QGeoSatelliteInfoSource">QGeoSatelliteInfoSource</a></span> *QGeoSatelliteInfoSource::<span class="name">createDefaultSource</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i>)</h3>
 <p>Creates and returns a source with the specified <i>parent</i> that reads from the system's default source of satellite update information, or the highest priority available plugin.</p>
 <p>Returns 0 if the system has no default satellite source, no valid plugins could be found or the user does not have the permission to access the satellite data.</p>
 <!-- @@@createDefaultSource -->
 <!-- $$$createSource[overload1]$$$createSourceconstQString&QObject* -->
-<h3 class="fn" id="createSource"><a name="createSource"></a><code>[static] </code><span class="type"><a href="qgeosatelliteinfosource.html#QGeoSatelliteInfoSource">QGeoSatelliteInfoSource</a></span> *QGeoSatelliteInfoSource::<span class="name">createSource</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>sourceName</i>, <span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i>)</h3>
+<h3 class="fn" id="createSource"><a name="createSource"></a><code>[静态函数] </code><span class="type"><a href="qgeosatelliteinfosource.html#QGeoSatelliteInfoSource">QGeoSatelliteInfoSource</a></span> *QGeoSatelliteInfoSource::<span class="name">createSource</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>sourceName</i>, <span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i>)</h3>
 <p>Creates and returns a source with the given <i>parent</i>, by loading the plugin named <i>sourceName</i>.</p>
 <p>Returns 0 if the plugin cannot be found.</p>
 <!-- @@@createSource -->
 <!-- $$$error[overload1]$$$error -->
-<h3 class="fn" id="error"><a name="error"></a><code>[pure virtual] </code><span class="type"><a href="qgeosatelliteinfosource.html#Error-enum">QGeoSatelliteInfoSource::Error</a></span> QGeoSatelliteInfoSource::<span class="name">error</span>() const</h3>
+<h3 class="fn" id="error"><a name="error"></a><code>[纯虚函数] </code><span class="type"><a href="qgeosatelliteinfosource.html#Error-enum">QGeoSatelliteInfoSource::Error</a></span> QGeoSatelliteInfoSource::<span class="name">error</span>() const</h3>
 <p>Returns the last error that occurred.</p>
 <p>This signal is not emitted when a <a href="qgeosatelliteinfosource.html#requestTimeout">requestTimeout</a>() has occurred.</p>
 <!-- @@@error -->
 <!-- $$$error$$$errorQGeoSatelliteInfoSource::Error -->
-<h3 class="fn" id="error-1"><a name="error-1"></a><code>[signal] </code><span class="type">void</span> QGeoSatelliteInfoSource::<span class="name">error</span>(<span class="type"><a href="qgeosatelliteinfosource.html#Error-enum">QGeoSatelliteInfoSource::Error</a></span> <i>satelliteError</i>)</h3>
+<h3 class="fn" id="error-1"><a name="error-1"></a><code>[信号] </code><span class="type">void</span> QGeoSatelliteInfoSource::<span class="name">error</span>(<span class="type"><a href="qgeosatelliteinfosource.html#Error-enum">QGeoSatelliteInfoSource::Error</a></span> <i>satelliteError</i>)</h3>
 <p>This signal is emitted after an error occurred. The <i>satelliteError</i> parameter describes the type of error that occurred.</p>
 <p><b>Note:</b> Signal <i>error</i> is overloaded in this class. To connect to this signal by using the function pointer syntax, Qt provides a convenient helper for obtaining the function pointer as shown in this example:<pre class="cpp">
 
@@ -223,7 +223,7 @@
 </pre>
 <!-- @@@error -->
 <!-- $$$requestTimeout[overload1]$$$requestTimeout -->
-<h3 class="fn" id="requestTimeout"><a name="requestTimeout"></a><code>[signal] </code><span class="type">void</span> QGeoSatelliteInfoSource::<span class="name">requestTimeout</span>()</h3>
+<h3 class="fn" id="requestTimeout"><a name="requestTimeout"></a><code>[信号] </code><span class="type">void</span> QGeoSatelliteInfoSource::<span class="name">requestTimeout</span>()</h3>
 <p>Emitted if <a href="qgeosatelliteinfosource.html#requestUpdate">requestUpdate</a>() was called and the current satellite information could not be retrieved within the specified timeout.</p>
 <p>While the triggering of this signal may be considered an error condition, it does not imply the emission of the <code>error()</code> signal. Only the emission of <code>requestTimeout()</code> is required to indicate a timeout.</p>
 <!-- @@@requestTimeout -->
@@ -234,13 +234,13 @@
 <p>This does nothing if another update request is in progress. However it can be called even if <a href="qgeosatelliteinfosource.html#startUpdates">startUpdates</a>() has already been called and regular updates are in progress.</p>
 <!-- @@@requestUpdate -->
 <!-- $$$satellitesInUseUpdated[overload1]$$$satellitesInUseUpdatedconstQList<QGeoSatelliteInfo>& -->
-<h3 class="fn" id="satellitesInUseUpdated"><a name="satellitesInUseUpdated"></a><code>[signal] </code><span class="type">void</span> QGeoSatelliteInfoSource::<span class="name">satellitesInUseUpdated</span>(const <span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qgeosatelliteinfo.html">QGeoSatelliteInfo</a></span>&gt; &amp;<i>satellites</i>)</h3>
+<h3 class="fn" id="satellitesInUseUpdated"><a name="satellitesInUseUpdated"></a><code>[信号] </code><span class="type">void</span> QGeoSatelliteInfoSource::<span class="name">satellitesInUseUpdated</span>(const <span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qgeosatelliteinfo.html">QGeoSatelliteInfo</a></span>&gt; &amp;<i>satellites</i>)</h3>
 <p>If <a href="qgeosatelliteinfosource.html#startUpdates">startUpdates</a>() or <a href="qgeosatelliteinfosource.html#requestUpdate">requestUpdate</a>() is called, this signal is emitted when an update is available on the number of satellites that are currently in use.</p>
 <p>These are the satellites that are used to get a &quot;fix&quot; - that is, those used to determine the current position.</p>
 <p>The <i>satellites</i> parameter holds the satellites currently in use.</p>
 <!-- @@@satellitesInUseUpdated -->
 <!-- $$$satellitesInViewUpdated[overload1]$$$satellitesInViewUpdatedconstQList<QGeoSatelliteInfo>& -->
-<h3 class="fn" id="satellitesInViewUpdated"><a name="satellitesInViewUpdated"></a><code>[signal] </code><span class="type">void</span> QGeoSatelliteInfoSource::<span class="name">satellitesInViewUpdated</span>(const <span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qgeosatelliteinfo.html">QGeoSatelliteInfo</a></span>&gt; &amp;<i>satellites</i>)</h3>
+<h3 class="fn" id="satellitesInViewUpdated"><a name="satellitesInViewUpdated"></a><code>[信号] </code><span class="type">void</span> QGeoSatelliteInfoSource::<span class="name">satellitesInViewUpdated</span>(const <span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qgeosatelliteinfo.html">QGeoSatelliteInfo</a></span>&gt; &amp;<i>satellites</i>)</h3>
 <p>If <a href="qgeosatelliteinfosource.html#startUpdates">startUpdates</a>() or <a href="qgeosatelliteinfosource.html#requestUpdate">requestUpdate</a>() is called, this signal is emitted when an update is available on the satellites that are currently in view.</p>
 <p>The <i>satellites</i> parameter holds the satellites currently in view.</p>
 <!-- @@@satellitesInViewUpdated -->

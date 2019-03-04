@@ -142,15 +142,15 @@
 <p>Sets up the validator. The <i>parent</i> parameter is passed on to the <a href="../qtcore/qobject.html">QObject</a> constructor.</p>
 <!-- @@@QValidator -->
 <!-- $$$~QValidator[overload1]$$$~QValidator -->
-<h3 class="fn" id="dtor.QValidator"><a name="dtor.QValidator"></a><code>[virtual] </code>QValidator::<span class="name">~QValidator</span>()</h3>
+<h3 class="fn" id="dtor.QValidator"><a name="dtor.QValidator"></a><code>[虚函数] </code>QValidator::<span class="name">~QValidator</span>()</h3>
 <p>Destroys the validator, freeing any storage and other resources used.</p>
 <!-- @@@~QValidator -->
 <!-- $$$changed[overload1]$$$changed -->
-<h3 class="fn" id="changed"><a name="changed"></a><code>[signal] </code><span class="type">void</span> QValidator::<span class="name">changed</span>()</h3>
+<h3 class="fn" id="changed"><a name="changed"></a><code>[信号] </code><span class="type">void</span> QValidator::<span class="name">changed</span>()</h3>
 <p>This signal is emitted when any property that may affect the validity of a string has changed.</p>
 <!-- @@@changed -->
 <!-- $$$fixup[overload1]$$$fixupQString& -->
-<h3 class="fn" id="fixup"><a name="fixup"></a><code>[virtual] </code><span class="type">void</span> QValidator::<span class="name">fixup</span>(<span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>input</i>) const</h3>
+<h3 class="fn" id="fixup"><a name="fixup"></a><code>[虚函数] </code><span class="type">void</span> QValidator::<span class="name">fixup</span>(<span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>input</i>) const</h3>
 <p>This function attempts to change <i>input</i> to be valid according to this validator's rules. It need not result in a valid string: callers of this function must re-test afterwards; the default does nothing.</p>
 <p>Reimplementations of this function can change <i>input</i> even if they do not produce a valid string. For example, an ISBN validator might want to delete every character except digits and &quot;-&quot;, even if the result is still not a valid ISBN; a surname validator might want to remove whitespace from the start and end of the string, even if the resulting string is not in the list of accepted surnames.</p>
 <!-- @@@fixup -->
@@ -165,7 +165,7 @@
 <p><b> 参见 </b><a href="qvalidator.html#locale">locale</a>() 和 <a href="../qtcore/qlocale.html#setDefault">QLocale::setDefault</a>().</p>
 <!-- @@@setLocale -->
 <!-- $$$validate[overload1]$$$validateQString&int& -->
-<h3 class="fn" id="validate"><a name="validate"></a><code>[pure virtual] </code><span class="type"><a href="qvalidator.html#State-enum">QValidator::State</a></span> QValidator::<span class="name">validate</span>(<span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>input</i>, <span class="type">int</span> &amp;<i>pos</i>) const</h3>
+<h3 class="fn" id="validate"><a name="validate"></a><code>[纯虚函数] </code><span class="type"><a href="qvalidator.html#State-enum">QValidator::State</a></span> QValidator::<span class="name">validate</span>(<span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>input</i>, <span class="type">int</span> &amp;<i>pos</i>) const</h3>
 <p>This virtual function returns <a href="qvalidator.html#State-enum">Invalid</a> if <i>input</i> is invalid according to this validator's rules, <a href="qvalidator.html#State-enum">Intermediate</a> if it is likely that a little more editing will make the input acceptable (e.g&#x2e; the user types &quot;4&quot; into a widget which accepts integers between 10 and 99), and <a href="qvalidator.html#State-enum">Acceptable</a> if the input is valid.</p>
 <p>The function can change both <i>input</i> and <i>pos</i> (the cursor position) if required.</p>
 <!-- @@@validate -->

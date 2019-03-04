@@ -68,34 +68,34 @@
 <div class="func">
 <h2>成员函数文档</h2>
 <!-- $$$clipRegion[overload1]$$$clipRegion -->
-<h3 class="fn" id="clipRegion"><a name="clipRegion"></a><code>[pure virtual] </code>const <span class="type"><a href="../qtgui/qregion.html">QRegion</a></span> *RenderState::<span class="name">clipRegion</span>() const</h3>
+<h3 class="fn" id="clipRegion"><a name="clipRegion"></a><code>[纯虚函数] </code>const <span class="type"><a href="../qtgui/qregion.html">QRegion</a></span> *RenderState::<span class="name">clipRegion</span>() const</h3>
 <p>Returns the current clip region or null for backends where clipping is implemented via stencil or scissoring.</p>
 <p>The software backend uses no projection, scissor or stencil, meaning most of the render state is not in use. However, the clip region that can be set on the <a href="../qtgui/qpainter.html">QPainter</a> still has to be communicated since reconstructing this manually in <a href="qsgrendernode.html#render">render</a>() is not reasonable. It can therefore be queried via this function. The region is in world coordinates and can be passed to <a href="../qtgui/qpainter.html#setClipRegion">QPainter::setClipRegion</a>() with <a href="../qtcore/qt.html#ClipOperation-enum">Qt::ReplaceClip</a>. This must be done before calling <a href="../qtgui/qpainter.html#setTransform">QPainter::setTransform</a>() since the clip region is already mapped to the transform provided in <a href="qsgrendernode.html#matrix">QSGRenderNode::matrix</a>().</p>
 <!-- @@@clipRegion -->
 <!-- $$$get[overload1]$$$getconstchar* -->
-<h3 class="fn" id="get"><a name="get"></a><code>[virtual] </code><span class="type">void</span> *RenderState::<span class="name">get</span>(const <span class="type">char</span> *<i>state</i>) const</h3>
+<h3 class="fn" id="get"><a name="get"></a><code>[虚函数] </code><span class="type">void</span> *RenderState::<span class="name">get</span>(const <span class="type">char</span> *<i>state</i>) const</h3>
 <p>Returns pointer to a <i>state</i> value.</p>
 <p>Reserved for future use.</p>
 <!-- @@@get -->
 <!-- $$$projectionMatrix[overload1]$$$projectionMatrix -->
-<h3 class="fn" id="projectionMatrix"><a name="projectionMatrix"></a><code>[pure virtual] </code>const <span class="type"><a href="../qtgui/qmatrix4x4.html">QMatrix4x4</a></span> *RenderState::<span class="name">projectionMatrix</span>() const</h3>
+<h3 class="fn" id="projectionMatrix"><a name="projectionMatrix"></a><code>[纯虚函数] </code>const <span class="type"><a href="../qtgui/qmatrix4x4.html">QMatrix4x4</a></span> *RenderState::<span class="name">projectionMatrix</span>() const</h3>
 <p>Returns pointer to the current projection matrix.</p>
 <p>The model-view matrix can be retrieved with <a href="qsgrendernode.html#matrix">QSGRenderNode::matrix</a>(). Typically <code>projection * modelview</code> is the matrix that is then used in the vertex shader to transform the vertices.</p>
 <!-- @@@projectionMatrix -->
 <!-- $$$scissorEnabled[overload1]$$$scissorEnabled -->
-<h3 class="fn" id="scissorEnabled"><a name="scissorEnabled"></a><code>[pure virtual] </code><span class="type">bool</span> RenderState::<span class="name">scissorEnabled</span>() const</h3>
+<h3 class="fn" id="scissorEnabled"><a name="scissorEnabled"></a><code>[纯虚函数] </code><span class="type">bool</span> RenderState::<span class="name">scissorEnabled</span>() const</h3>
 <p>Returns the current state of scissoring.</p>
 <p><b>Note: </b>Only relevant for graphics APIs that have a dedicated on/off state of scissoring.</p><!-- @@@scissorEnabled -->
 <!-- $$$scissorRect[overload1]$$$scissorRect -->
-<h3 class="fn" id="scissorRect"><a name="scissorRect"></a><code>[pure virtual] </code><span class="type"><a href="../qtcore/qrect.html">QRect</a></span> RenderState::<span class="name">scissorRect</span>() const</h3>
+<h3 class="fn" id="scissorRect"><a name="scissorRect"></a><code>[纯虚函数] </code><span class="type"><a href="../qtcore/qrect.html">QRect</a></span> RenderState::<span class="name">scissorRect</span>() const</h3>
 <p>Returns the current scissor rectangle when clipping is active.</p>
 <p><b>Note: </b>Be aware of the differences between graphics APIs: for some the scissor rect is only active when scissoring is enabled (for example, OpenGL), while for others the scissor rect is equal to the viewport rect when there is no need to scissor away anything (for example, Direct3D 12).</p><!-- @@@scissorRect -->
 <!-- $$$stencilEnabled[overload1]$$$stencilEnabled -->
-<h3 class="fn" id="stencilEnabled"><a name="stencilEnabled"></a><code>[pure virtual] </code><span class="type">bool</span> RenderState::<span class="name">stencilEnabled</span>() const</h3>
+<h3 class="fn" id="stencilEnabled"><a name="stencilEnabled"></a><code>[纯虚函数] </code><span class="type">bool</span> RenderState::<span class="name">stencilEnabled</span>() const</h3>
 <p>Returns the current state of stencil testing.</p>
 <p><b>Note: </b>With graphics APIs where stencil testing is enabled in pipeline state objects, instead of individual state-setting commands, it is up to the implementation of <a href="qsgrendernode.html#render">render</a>() to enable stencil testing with operations <code>KEEP</code>, comparison function <code>EQUAL</code>, and a read and write mask of <code>0xFF</code>.</p><!-- @@@stencilEnabled -->
 <!-- $$$stencilValue[overload1]$$$stencilValue -->
-<h3 class="fn" id="stencilValue"><a name="stencilValue"></a><code>[pure virtual] </code><span class="type">int</span> RenderState::<span class="name">stencilValue</span>() const</h3>
+<h3 class="fn" id="stencilValue"><a name="stencilValue"></a><code>[纯虚函数] </code><span class="type">int</span> RenderState::<span class="name">stencilValue</span>() const</h3>
 <p>Returns the current stencil reference value when clipping is active.</p>
 <!-- @@@stencilValue -->
 </div>

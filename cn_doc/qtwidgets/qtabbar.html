@@ -228,7 +228,7 @@
 <h3>其他继承而来的成员</h3>
 <ul>
 <li class="fn">1 个公共变量继承于 <a href="../qtcore/qobject.html#public-variables">QObject</a></li>
-<li class="fn">1 protected slot inherited from <a href="qwidget.html#protected-slots">QWidget</a></li>
+<li class="fn">1 个保护槽函数继承于 <a href="qwidget.html#protected-slots">QWidget</a></li>
 <li class="fn">2 个保护变量继承于 <a href="../qtcore/qobject.html#protected-variables">QObject</a></li>
 <li class="fn">1 个保护类型继承于 <a href="../qtgui/qpaintdevice.html#protected-variables">QPaintDevice</a></li>
 </ul>
@@ -470,7 +470,7 @@
 <p>Creates a new tab bar with the given <i>parent</i>.</p>
 <!-- @@@QTabBar -->
 <!-- $$$~QTabBar[overload1]$$$~QTabBar -->
-<h3 class="fn" id="dtor.QTabBar"><a name="dtor.QTabBar"></a><code>[virtual] </code>QTabBar::<span class="name">~QTabBar</span>()</h3>
+<h3 class="fn" id="dtor.QTabBar"><a name="dtor.QTabBar"></a><code>[虚函数] </code>QTabBar::<span class="name">~QTabBar</span>()</h3>
 <p>Destroys the tab bar.</p>
 <!-- @@@~QTabBar -->
 <!-- $$$accessibleTabName[overload1]$$$accessibleTabNameint -->
@@ -488,23 +488,23 @@
 <p>Adds a new tab with icon <i>icon</i> and text <i>text</i>. Returns the new tab's index.</p>
 <!-- @@@addTab -->
 <!-- $$$changeEvent[overload1]$$$changeEventQEvent* -->
-<h3 class="fn" id="changeEvent"><a name="changeEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTabBar::<span class="name">changeEvent</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="changeEvent"><a name="changeEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTabBar::<span class="name">changeEvent</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>event</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#changeEvent">QWidget::changeEvent</a>().</p>
 <!-- @@@changeEvent -->
 <!-- $$$currentChanged -->
-<h3 class="fn" id="currentChanged"><a name="currentChanged"></a><code>[signal] </code><span class="type">void</span> QTabBar::<span class="name">currentChanged</span>(<span class="type">int</span> <i>index</i>)</h3>
+<h3 class="fn" id="currentChanged"><a name="currentChanged"></a><code>[信号] </code><span class="type">void</span> QTabBar::<span class="name">currentChanged</span>(<span class="type">int</span> <i>index</i>)</h3>
 <p>This signal is emitted when the tab bar's current tab changes. The new current has the given <i>index</i>, or -1 if there isn't a new one (for example, if there are no tab in the <a href="qtabbar.html">QTabBar</a>)</p>
 <p><b>Note:</b> Notifier signal for property <a href="qtabbar.html#currentIndex-prop">currentIndex</a>. </p><!-- @@@currentChanged -->
 <!-- $$$event[overload1]$$$eventQEvent* -->
-<h3 class="fn" id="event"><a name="event"></a><code>[override virtual protected] </code><span class="type">bool</span> QTabBar::<span class="name">event</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="event"><a name="event"></a><code>[重载虚保护函数] </code><span class="type">bool</span> QTabBar::<span class="name">event</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>event</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#event">QWidget::event</a>().</p>
 <!-- @@@event -->
 <!-- $$$hideEvent[overload1]$$$hideEventQHideEvent* -->
-<h3 class="fn" id="hideEvent"><a name="hideEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTabBar::<span class="name">hideEvent</span>(<i>QHideEvent *</i>)</h3>
+<h3 class="fn" id="hideEvent"><a name="hideEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTabBar::<span class="name">hideEvent</span>(<i>QHideEvent *</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#hideEvent">QWidget::hideEvent</a>().</p>
 <!-- @@@hideEvent -->
 <!-- $$$initStyleOption[overload1]$$$initStyleOptionQStyleOptionTab*int -->
-<h3 class="fn" id="initStyleOption"><a name="initStyleOption"></a><code>[protected] </code><span class="type">void</span> QTabBar::<span class="name">initStyleOption</span>(<span class="type"><a href="qstyleoptiontab.html">QStyleOptionTab</a></span> *<i>option</i>, <span class="type">int</span> <i>tabIndex</i>) const</h3>
+<h3 class="fn" id="initStyleOption"><a name="initStyleOption"></a><code>[保护函数] </code><span class="type">void</span> QTabBar::<span class="name">initStyleOption</span>(<span class="type"><a href="qstyleoptiontab.html">QStyleOptionTab</a></span> *<i>option</i>, <span class="type">int</span> <i>tabIndex</i>) const</h3>
 <p>Initialize <i>option</i> with the values from the tab at <i>tabIndex</i>. This method is useful for subclasses when they need a <a href="qstyleoptiontab.html">QStyleOptionTab</a>, but don't want to fill in all the information themselves.</p>
 <p><b> 参见 </b><a href="qstyleoption.html#initFrom">QStyleOption::initFrom</a>() 和 <a href="qtabwidget.html#initStyleOption">QTabWidget::initStyleOption</a>().</p>
 <!-- @@@initStyleOption -->
@@ -524,28 +524,28 @@
 <p>Returns <code>true</code> if the tab at position <i>index</i> is enabled; otherwise returns <code>false</code>.</p>
 <!-- @@@isTabEnabled -->
 <!-- $$$keyPressEvent[overload1]$$$keyPressEventQKeyEvent* -->
-<h3 class="fn" id="keyPressEvent"><a name="keyPressEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTabBar::<span class="name">keyPressEvent</span>(<span class="type"><a href="../qtgui/qkeyevent.html">QKeyEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="keyPressEvent"><a name="keyPressEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTabBar::<span class="name">keyPressEvent</span>(<span class="type"><a href="../qtgui/qkeyevent.html">QKeyEvent</a></span> *<i>event</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#keyPressEvent">QWidget::keyPressEvent</a>().</p>
 <!-- @@@keyPressEvent -->
 <!-- $$$minimumSizeHint[overload1]$$$minimumSizeHint -->
-<h3 class="fn" id="minimumSizeHint"><a name="minimumSizeHint"></a><code>[override virtual] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QTabBar::<span class="name">minimumSizeHint</span>() const</h3>
+<h3 class="fn" id="minimumSizeHint"><a name="minimumSizeHint"></a><code>[重载虚函数] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QTabBar::<span class="name">minimumSizeHint</span>() const</h3>
 <p>Reimplemented from <a href="qwidget.html#minimumSizeHint-prop">QWidget::minimumSizeHint</a>().</p>
 <!-- @@@minimumSizeHint -->
 <!-- $$$minimumTabSizeHint[overload1]$$$minimumTabSizeHintint -->
-<h3 class="fn" id="minimumTabSizeHint"><a name="minimumTabSizeHint"></a><code>[virtual protected] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QTabBar::<span class="name">minimumTabSizeHint</span>(<span class="type">int</span> <i>index</i>) const</h3>
+<h3 class="fn" id="minimumTabSizeHint"><a name="minimumTabSizeHint"></a><code>[虚保护函数] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QTabBar::<span class="name">minimumTabSizeHint</span>(<span class="type">int</span> <i>index</i>) const</h3>
 <p>Returns the minimum tab size hint for the tab at position <i>index</i>.</p>
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <!-- @@@minimumTabSizeHint -->
 <!-- $$$mouseMoveEvent[overload1]$$$mouseMoveEventQMouseEvent* -->
-<h3 class="fn" id="mouseMoveEvent"><a name="mouseMoveEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTabBar::<span class="name">mouseMoveEvent</span>(<span class="type"><a href="../qtgui/qmouseevent.html">QMouseEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="mouseMoveEvent"><a name="mouseMoveEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTabBar::<span class="name">mouseMoveEvent</span>(<span class="type"><a href="../qtgui/qmouseevent.html">QMouseEvent</a></span> *<i>event</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#mouseMoveEvent">QWidget::mouseMoveEvent</a>().</p>
 <!-- @@@mouseMoveEvent -->
 <!-- $$$mousePressEvent[overload1]$$$mousePressEventQMouseEvent* -->
-<h3 class="fn" id="mousePressEvent"><a name="mousePressEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTabBar::<span class="name">mousePressEvent</span>(<span class="type"><a href="../qtgui/qmouseevent.html">QMouseEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="mousePressEvent"><a name="mousePressEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTabBar::<span class="name">mousePressEvent</span>(<span class="type"><a href="../qtgui/qmouseevent.html">QMouseEvent</a></span> *<i>event</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#mousePressEvent">QWidget::mousePressEvent</a>().</p>
 <!-- @@@mousePressEvent -->
 <!-- $$$mouseReleaseEvent[overload1]$$$mouseReleaseEventQMouseEvent* -->
-<h3 class="fn" id="mouseReleaseEvent"><a name="mouseReleaseEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTabBar::<span class="name">mouseReleaseEvent</span>(<span class="type"><a href="../qtgui/qmouseevent.html">QMouseEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="mouseReleaseEvent"><a name="mouseReleaseEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTabBar::<span class="name">mouseReleaseEvent</span>(<span class="type"><a href="../qtgui/qmouseevent.html">QMouseEvent</a></span> *<i>event</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#mouseReleaseEvent">QWidget::mouseReleaseEvent</a>().</p>
 <!-- @@@mouseReleaseEvent -->
 <!-- $$$moveTab[overload1]$$$moveTabintint -->
@@ -555,7 +555,7 @@
 <p><b> 参见 </b><a href="qtabbar.html#tabMoved">tabMoved</a>() 和 <a href="qtabbar.html#tabLayoutChange">tabLayoutChange</a>().</p>
 <!-- @@@moveTab -->
 <!-- $$$paintEvent[overload1]$$$paintEventQPaintEvent* -->
-<h3 class="fn" id="paintEvent"><a name="paintEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTabBar::<span class="name">paintEvent</span>(<i>QPaintEvent *</i>)</h3>
+<h3 class="fn" id="paintEvent"><a name="paintEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTabBar::<span class="name">paintEvent</span>(<i>QPaintEvent *</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#paintEvent">QWidget::paintEvent</a>().</p>
 <!-- @@@paintEvent -->
 <!-- $$$removeTab[overload1]$$$removeTabint -->
@@ -564,7 +564,7 @@
 <p><b> 参见 </b><a href="qtabbar.html#SelectionBehavior-enum">SelectionBehavior</a>.</p>
 <!-- @@@removeTab -->
 <!-- $$$resizeEvent[overload1]$$$resizeEventQResizeEvent* -->
-<h3 class="fn" id="resizeEvent"><a name="resizeEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTabBar::<span class="name">resizeEvent</span>(<i>QResizeEvent *</i>)</h3>
+<h3 class="fn" id="resizeEvent"><a name="resizeEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTabBar::<span class="name">resizeEvent</span>(<i>QResizeEvent *</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#resizeEvent">QWidget::resizeEvent</a>().</p>
 <!-- @@@resizeEvent -->
 <!-- $$$setAccessibleTabName[overload1]$$$setAccessibleTabNameintconstQString& -->
@@ -618,11 +618,11 @@
 <p><b> 参见 </b><a href="qtabbar.html#tabWhatsThis">tabWhatsThis</a>().</p>
 <!-- @@@setTabWhatsThis -->
 <!-- $$$showEvent[overload1]$$$showEventQShowEvent* -->
-<h3 class="fn" id="showEvent"><a name="showEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTabBar::<span class="name">showEvent</span>(<i>QShowEvent *</i>)</h3>
+<h3 class="fn" id="showEvent"><a name="showEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTabBar::<span class="name">showEvent</span>(<i>QShowEvent *</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#showEvent">QWidget::showEvent</a>().</p>
 <!-- @@@showEvent -->
 <!-- $$$sizeHint[overload1]$$$sizeHint -->
-<h3 class="fn" id="sizeHint"><a name="sizeHint"></a><code>[override virtual] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QTabBar::<span class="name">sizeHint</span>() const</h3>
+<h3 class="fn" id="sizeHint"><a name="sizeHint"></a><code>[重载虚函数] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QTabBar::<span class="name">sizeHint</span>() const</h3>
 <p>Reimplemented from <a href="qwidget.html#sizeHint-prop">QWidget::sizeHint</a>().</p>
 <!-- @@@sizeHint -->
 <!-- $$$tabAt[overload1]$$$tabAtconstQPoint& -->
@@ -631,13 +631,13 @@
 <p>这个函数是在Qt 4.3版本中新增引入的。</p>
 <!-- @@@tabAt -->
 <!-- $$$tabBarClicked[overload1]$$$tabBarClickedint -->
-<h3 class="fn" id="tabBarClicked"><a name="tabBarClicked"></a><code>[signal] </code><span class="type">void</span> QTabBar::<span class="name">tabBarClicked</span>(<span class="type">int</span> <i>index</i>)</h3>
+<h3 class="fn" id="tabBarClicked"><a name="tabBarClicked"></a><code>[信号] </code><span class="type">void</span> QTabBar::<span class="name">tabBarClicked</span>(<span class="type">int</span> <i>index</i>)</h3>
 <p>This signal is emitted when user clicks on a tab at an <i>index</i>.</p>
 <p><i>index</i> is the index of a clicked tab, or -1 if no tab is under the cursor.</p>
 <p>这个函数是在Qt 5.2版本中新增引入的。</p>
 <!-- @@@tabBarClicked -->
 <!-- $$$tabBarDoubleClicked[overload1]$$$tabBarDoubleClickedint -->
-<h3 class="fn" id="tabBarDoubleClicked"><a name="tabBarDoubleClicked"></a><code>[signal] </code><span class="type">void</span> QTabBar::<span class="name">tabBarDoubleClicked</span>(<span class="type">int</span> <i>index</i>)</h3>
+<h3 class="fn" id="tabBarDoubleClicked"><a name="tabBarDoubleClicked"></a><code>[信号] </code><span class="type">void</span> QTabBar::<span class="name">tabBarDoubleClicked</span>(<span class="type">int</span> <i>index</i>)</h3>
 <p>This signal is emitted when the user double clicks on a tab at <i>index</i>.</p>
 <p><i>index</i> refers to the tab clicked, or -1 if no tab is under the cursor.</p>
 <p>这个函数是在Qt 5.2版本中新增引入的。</p>
@@ -648,7 +648,7 @@
 <p><b> 参见 </b><a href="qtabbar.html#setTabButton">setTabButton</a>().</p>
 <!-- @@@tabButton -->
 <!-- $$$tabCloseRequested[overload1]$$$tabCloseRequestedint -->
-<h3 class="fn" id="tabCloseRequested"><a name="tabCloseRequested"></a><code>[signal] </code><span class="type">void</span> QTabBar::<span class="name">tabCloseRequested</span>(<span class="type">int</span> <i>index</i>)</h3>
+<h3 class="fn" id="tabCloseRequested"><a name="tabCloseRequested"></a><code>[信号] </code><span class="type">void</span> QTabBar::<span class="name">tabCloseRequested</span>(<span class="type">int</span> <i>index</i>)</h3>
 <p>This signal is emitted when the close button on a tab is clicked. The <i>index</i> is the index that should be removed.</p>
 <p>这个函数是在Qt 4.5版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qtabbar.html#tabsClosable-prop">setTabsClosable</a>().</p>
@@ -664,17 +664,17 @@
 <p><b> 参见 </b><a href="qtabbar.html#setTabIcon">setTabIcon</a>().</p>
 <!-- @@@tabIcon -->
 <!-- $$$tabInserted[overload1]$$$tabInsertedint -->
-<h3 class="fn" id="tabInserted"><a name="tabInserted"></a><code>[virtual protected] </code><span class="type">void</span> QTabBar::<span class="name">tabInserted</span>(<span class="type">int</span> <i>index</i>)</h3>
+<h3 class="fn" id="tabInserted"><a name="tabInserted"></a><code>[虚保护函数] </code><span class="type">void</span> QTabBar::<span class="name">tabInserted</span>(<span class="type">int</span> <i>index</i>)</h3>
 <p>This virtual handler is called after a new tab was added or inserted at position <i>index</i>.</p>
 <p><b> 参见 </b><a href="qtabbar.html#tabRemoved">tabRemoved</a>().</p>
 <!-- @@@tabInserted -->
 <!-- $$$tabLayoutChange[overload1]$$$tabLayoutChange -->
-<h3 class="fn" id="tabLayoutChange"><a name="tabLayoutChange"></a><code>[virtual protected] </code><span class="type">void</span> QTabBar::<span class="name">tabLayoutChange</span>()</h3>
+<h3 class="fn" id="tabLayoutChange"><a name="tabLayoutChange"></a><code>[虚保护函数] </code><span class="type">void</span> QTabBar::<span class="name">tabLayoutChange</span>()</h3>
 <p>This virtual handler is called whenever the tab layout changes.</p>
 <p><b> 参见 </b><a href="qtabbar.html#tabRect">tabRect</a>().</p>
 <!-- @@@tabLayoutChange -->
 <!-- $$$tabMoved[overload1]$$$tabMovedintint -->
-<h3 class="fn" id="tabMoved"><a name="tabMoved"></a><code>[signal] </code><span class="type">void</span> QTabBar::<span class="name">tabMoved</span>(<span class="type">int</span> <i>from</i>, <span class="type">int</span> <i>to</i>)</h3>
+<h3 class="fn" id="tabMoved"><a name="tabMoved"></a><code>[信号] </code><span class="type">void</span> QTabBar::<span class="name">tabMoved</span>(<span class="type">int</span> <i>from</i>, <span class="type">int</span> <i>to</i>)</h3>
 <p>This signal is emitted when the tab has moved the tab at index position <i>from</i> to index position <i>to</i>.</p>
 <p>note: <a href="qtabwidget.html">QTabWidget</a> will automatically move the page when this signal is emitted from its tab bar.</p>
 <p>这个函数是在Qt 4.5版本中新增引入的。</p>
@@ -685,12 +685,12 @@
 <p>Returns the visual rectangle of the tab at position <i>index</i>, or a null rectangle if <i>index</i> is out of range.</p>
 <!-- @@@tabRect -->
 <!-- $$$tabRemoved[overload1]$$$tabRemovedint -->
-<h3 class="fn" id="tabRemoved"><a name="tabRemoved"></a><code>[virtual protected] </code><span class="type">void</span> QTabBar::<span class="name">tabRemoved</span>(<span class="type">int</span> <i>index</i>)</h3>
+<h3 class="fn" id="tabRemoved"><a name="tabRemoved"></a><code>[虚保护函数] </code><span class="type">void</span> QTabBar::<span class="name">tabRemoved</span>(<span class="type">int</span> <i>index</i>)</h3>
 <p>This virtual handler is called after a tab was removed from position <i>index</i>.</p>
 <p><b> 参见 </b><a href="qtabbar.html#tabInserted">tabInserted</a>().</p>
 <!-- @@@tabRemoved -->
 <!-- $$$tabSizeHint[overload1]$$$tabSizeHintint -->
-<h3 class="fn" id="tabSizeHint"><a name="tabSizeHint"></a><code>[virtual protected] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QTabBar::<span class="name">tabSizeHint</span>(<span class="type">int</span> <i>index</i>) const</h3>
+<h3 class="fn" id="tabSizeHint"><a name="tabSizeHint"></a><code>[虚保护函数] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QTabBar::<span class="name">tabSizeHint</span>(<span class="type">int</span> <i>index</i>) const</h3>
 <p>Returns the size hint for the tab at position <i>index</i>.</p>
 <!-- @@@tabSizeHint -->
 <!-- $$$tabText[overload1]$$$tabTextint -->
@@ -715,11 +715,11 @@
 <p><b> 参见 </b><a href="qtabbar.html#setTabWhatsThis">setTabWhatsThis</a>().</p>
 <!-- @@@tabWhatsThis -->
 <!-- $$$timerEvent[overload1]$$$timerEventQTimerEvent* -->
-<h3 class="fn" id="timerEvent"><a name="timerEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTabBar::<span class="name">timerEvent</span>(<span class="type"><a href="../qtcore/qtimerevent.html">QTimerEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="timerEvent"><a name="timerEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTabBar::<span class="name">timerEvent</span>(<span class="type"><a href="../qtcore/qtimerevent.html">QTimerEvent</a></span> *<i>event</i>)</h3>
 <p>Reimplemented from <a href="../qtcore/qobject.html#timerEvent">QObject::timerEvent</a>().</p>
 <!-- @@@timerEvent -->
 <!-- $$$wheelEvent[overload1]$$$wheelEventQWheelEvent* -->
-<h3 class="fn" id="wheelEvent"><a name="wheelEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QTabBar::<span class="name">wheelEvent</span>(<span class="type"><a href="../qtgui/qwheelevent.html">QWheelEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="wheelEvent"><a name="wheelEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QTabBar::<span class="name">wheelEvent</span>(<span class="type"><a href="../qtgui/qwheelevent.html">QWheelEvent</a></span> *<i>event</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#wheelEvent">QWidget::wheelEvent</a>().</p>
 <!-- @@@wheelEvent -->
 </div>

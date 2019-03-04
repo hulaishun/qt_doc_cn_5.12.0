@@ -292,25 +292,25 @@
 <p><b>Warning:</b> The data referred to by <i>argc</i> and <i>argv</i> must stay valid for the entire lifetime of the <a href="qcoreapplication.html">QCoreApplication</a> object. In addition, <i>argc</i> must be greater than zero and <i>argv</i> must contain at least one valid character string.</p>
 <!-- @@@QCoreApplication -->
 <!-- $$$~QCoreApplication[overload1]$$$~QCoreApplication -->
-<h3 class="fn" id="dtor.QCoreApplication"><a name="dtor.QCoreApplication"></a><code>[virtual] </code>QCoreApplication::<span class="name">~QCoreApplication</span>()</h3>
+<h3 class="fn" id="dtor.QCoreApplication"><a name="dtor.QCoreApplication"></a><code>[虚函数] </code>QCoreApplication::<span class="name">~QCoreApplication</span>()</h3>
 <p>Destroys the <a href="qcoreapplication.html">QCoreApplication</a> object.</p>
 <!-- @@@~QCoreApplication -->
 <!-- $$$aboutToQuit[overload1]$$$aboutToQuit -->
-<h3 class="fn" id="aboutToQuit"><a name="aboutToQuit"></a><code>[signal] </code><span class="type">void</span> QCoreApplication::<span class="name">aboutToQuit</span>()</h3>
+<h3 class="fn" id="aboutToQuit"><a name="aboutToQuit"></a><code>[信号] </code><span class="type">void</span> QCoreApplication::<span class="name">aboutToQuit</span>()</h3>
 <p>This signal is emitted when the application is about to quit the main event loop, e.g&#x2e; when the event loop level drops to zero. This may happen either after a call to <a href="qcoreapplication.html#quit">quit</a>() from inside the application or when the user shuts down the entire desktop session.</p>
 <p>The signal is particularly useful if your application has to do some last-second cleanup. Note that no user interaction is possible in this state.</p>
 <p><b>Note: </b>This is a private signal. It can be used in signal connections but cannot be emitted by the user.</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#quit">quit</a>().</p>
 <!-- @@@aboutToQuit -->
 <!-- $$$addLibraryPath[overload1]$$$addLibraryPathconstQString& -->
-<h3 class="fn" id="addLibraryPath"><a name="addLibraryPath"></a><code>[static] </code><span class="type">void</span> QCoreApplication::<span class="name">addLibraryPath</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>path</i>)</h3>
+<h3 class="fn" id="addLibraryPath"><a name="addLibraryPath"></a><code>[静态函数] </code><span class="type">void</span> QCoreApplication::<span class="name">addLibraryPath</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>path</i>)</h3>
 <p>Prepends <i>path</i> to the beginning of the library path list, ensuring that it is searched for libraries first. If <i>path</i> is empty or already in the path list, the path list is not changed.</p>
 <p>The default path list consists of a single entry, the installation directory for plugins. The default installation directory for plugins is <code>INSTALL/plugins</code>, where <code>INSTALL</code> is the directory where Qt was installed.</p>
 <p>The library paths are reset to the default when an instance of <a href="qcoreapplication.html">QCoreApplication</a> is destructed.</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#removeLibraryPath">removeLibraryPath</a>(), <a href="qcoreapplication.html#libraryPaths">libraryPaths</a>(), 和 <a href="qcoreapplication.html#setLibraryPaths">setLibraryPaths</a>().</p>
 <!-- @@@addLibraryPath -->
 <!-- $$$applicationDirPath[overload1]$$$applicationDirPath -->
-<h3 class="fn" id="applicationDirPath"><a name="applicationDirPath"></a><code>[static] </code><span class="type"><a href="qstring.html">QString</a></span> QCoreApplication::<span class="name">applicationDirPath</span>()</h3>
+<h3 class="fn" id="applicationDirPath"><a name="applicationDirPath"></a><code>[静态函数] </code><span class="type"><a href="qstring.html">QString</a></span> QCoreApplication::<span class="name">applicationDirPath</span>()</h3>
 <p>Returns the directory that contains the application executable.</p>
 <p>For example, if you have installed Qt in the <code>C:\Qt</code> directory, and you run the <code>regexp</code> example, this function will return &quot;C:/Qt/examples/tools/regexp&quot;.</p>
 <p>On <a href="../qtdoc/internationalization.html#macos">macOS</a> and iOS this will point to the directory actually containing the executable, which may be inside an application bundle (if the application is bundled).</p>
@@ -318,19 +318,19 @@
 <p><b> 参见 </b><a href="qcoreapplication.html#applicationFilePath">applicationFilePath</a>().</p>
 <!-- @@@applicationDirPath -->
 <!-- $$$applicationFilePath[overload1]$$$applicationFilePath -->
-<h3 class="fn" id="applicationFilePath"><a name="applicationFilePath"></a><code>[static] </code><span class="type"><a href="qstring.html">QString</a></span> QCoreApplication::<span class="name">applicationFilePath</span>()</h3>
+<h3 class="fn" id="applicationFilePath"><a name="applicationFilePath"></a><code>[静态函数] </code><span class="type"><a href="qstring.html">QString</a></span> QCoreApplication::<span class="name">applicationFilePath</span>()</h3>
 <p>Returns the file path of the application executable.</p>
 <p>For example, if you have installed Qt in the <code>/usr/local/qt</code> directory, and you run the <code>regexp</code> example, this function will return &quot;/usr/local/qt/examples/tools/regexp/regexp&quot;.</p>
 <p><b>Warning:</b> On Linux, this function will try to get the path from the <code>/proc</code> file system. If that fails, it assumes that <code>argv[0]</code> contains the absolute file name of the executable. The function also assumes that the current directory has not been changed by the application.</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#applicationDirPath">applicationDirPath</a>().</p>
 <!-- @@@applicationFilePath -->
 <!-- $$$applicationPid[overload1]$$$applicationPid -->
-<h3 class="fn" id="applicationPid"><a name="applicationPid"></a><code>[static] </code><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> QCoreApplication::<span class="name">applicationPid</span>()</h3>
+<h3 class="fn" id="applicationPid"><a name="applicationPid"></a><code>[静态函数] </code><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> QCoreApplication::<span class="name">applicationPid</span>()</h3>
 <p>Returns the current process ID for the application.</p>
 <p>这个函数是在Qt 4.4版本中新增引入的。</p>
 <!-- @@@applicationPid -->
 <!-- $$$arguments[overload1]$$$arguments -->
-<h3 class="fn" id="arguments"><a name="arguments"></a><code>[static] </code><span class="type"><a href="qstringlist.html">QStringList</a></span> QCoreApplication::<span class="name">arguments</span>()</h3>
+<h3 class="fn" id="arguments"><a name="arguments"></a><code>[静态函数] </code><span class="type"><a href="qstringlist.html">QStringList</a></span> QCoreApplication::<span class="name">arguments</span>()</h3>
 <p>Returns the list of command-line arguments.</p>
 <p>Usually arguments().at(0) is the program name, arguments().at(1) is the first argument, and arguments().last() is the last argument. See the note below about Windows.</p>
 <p>Calling this function is slow - you should store the result in a variable when parsing the command line.</p>
@@ -341,21 +341,21 @@
 <p><b> 参见 </b><a href="qcoreapplication.html#applicationFilePath">applicationFilePath</a>() 和 <a href="qcommandlineparser.html">QCommandLineParser</a>.</p>
 <!-- @@@arguments -->
 <!-- $$$closingDown[overload1]$$$closingDown -->
-<h3 class="fn" id="closingDown"><a name="closingDown"></a><code>[static] </code><span class="type">bool</span> QCoreApplication::<span class="name">closingDown</span>()</h3>
+<h3 class="fn" id="closingDown"><a name="closingDown"></a><code>[静态函数] </code><span class="type">bool</span> QCoreApplication::<span class="name">closingDown</span>()</h3>
 <p>Returns <code>true</code> if the application objects are being destroyed; otherwise returns <code>false</code>.</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#startingUp">startingUp</a>().</p>
 <!-- @@@closingDown -->
 <!-- $$$event[overload1]$$$eventQEvent* -->
-<h3 class="fn" id="event"><a name="event"></a><code>[override virtual protected] </code><span class="type">bool</span> QCoreApplication::<span class="name">event</span>(<span class="type"><a href="qevent.html">QEvent</a></span> *<i>e</i>)</h3>
+<h3 class="fn" id="event"><a name="event"></a><code>[重载虚保护函数] </code><span class="type">bool</span> QCoreApplication::<span class="name">event</span>(<span class="type"><a href="qevent.html">QEvent</a></span> *<i>e</i>)</h3>
 <p>Reimplemented from <a href="qobject.html#event">QObject::event</a>().</p>
 <!-- @@@event -->
 <!-- $$$eventDispatcher[overload1]$$$eventDispatcher -->
-<h3 class="fn" id="eventDispatcher"><a name="eventDispatcher"></a><code>[static] </code><span class="type"><a href="qabstracteventdispatcher.html">QAbstractEventDispatcher</a></span> *QCoreApplication::<span class="name">eventDispatcher</span>()</h3>
+<h3 class="fn" id="eventDispatcher"><a name="eventDispatcher"></a><code>[静态函数] </code><span class="type"><a href="qabstracteventdispatcher.html">QAbstractEventDispatcher</a></span> *QCoreApplication::<span class="name">eventDispatcher</span>()</h3>
 <p>Returns a pointer to the event dispatcher object for the main thread. If no event dispatcher exists for the thread, this function returns 0.</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#setEventDispatcher">setEventDispatcher</a>().</p>
 <!-- @@@eventDispatcher -->
 <!-- $$$exec[overload1]$$$exec -->
-<h3 class="fn" id="exec"><a name="exec"></a><code>[static] </code><span class="type">int</span> QCoreApplication::<span class="name">exec</span>()</h3>
+<h3 class="fn" id="exec"><a name="exec"></a><code>[静态函数] </code><span class="type">int</span> QCoreApplication::<span class="name">exec</span>()</h3>
 <p>Enters the main event loop and waits until <a href="qcoreapplication.html#exit">exit</a>() is called. Returns the value that was passed to <a href="qcoreapplication.html#exit">exit</a>() (which is 0 if <a href="qcoreapplication.html#exit">exit</a>() is called via <a href="qcoreapplication.html#quit">quit</a>()).</p>
 <p>It is necessary to call this function to start event handling. The main event loop receives events from the window system and dispatches these to the application widgets.</p>
 <p>To make your application perform idle processing (by executing a special function whenever there are no pending events), use a <a href="qtimer.html">QTimer</a> with 0 timeout. More advanced idle processing schemes can be achieved using <a href="qcoreapplication.html#processEvents">processEvents</a>().</p>
@@ -363,7 +363,7 @@
 <p><b> 参见 </b><a href="qcoreapplication.html#quit">quit</a>(), <a href="qcoreapplication.html#exit">exit</a>(), <a href="qcoreapplication.html#processEvents">processEvents</a>(), 和 <a href="../qtwidgets/qapplication.html#exec">QApplication::exec</a>().</p>
 <!-- @@@exec -->
 <!-- $$$exit[overload1]$$$exitint -->
-<h3 class="fn" id="exit"><a name="exit"></a><code>[static] </code><span class="type">void</span> QCoreApplication::<span class="name">exit</span>(<span class="type">int</span> <i>returnCode</i> = 0)</h3>
+<h3 class="fn" id="exit"><a name="exit"></a><code>[静态函数] </code><span class="type">void</span> QCoreApplication::<span class="name">exit</span>(<span class="type">int</span> <i>returnCode</i> = 0)</h3>
 <p>Tells the application to exit with a return code.</p>
 <p>After this function has been called, the application leaves the main event loop and returns from the call to <a href="qcoreapplication.html#exec">exec</a>(). The <a href="qcoreapplication.html#exec">exec</a>() function returns <i>returnCode</i>. If the event loop is not running, this function does nothing.</p>
 <p>By convention, a <i>returnCode</i> of 0 means success, and any non-zero value indicates an error.</p>
@@ -382,7 +382,7 @@
 <p><b> 参见 </b><a href="qobject.html#installEventFilter">QObject::installEventFilter</a>().</p>
 <!-- @@@installNativeEventFilter -->
 <!-- $$$installTranslator[overload1]$$$installTranslatorQTranslator* -->
-<h3 class="fn" id="installTranslator"><a name="installTranslator"></a><code>[static] </code><span class="type">bool</span> QCoreApplication::<span class="name">installTranslator</span>(<span class="type"><a href="qtranslator.html">QTranslator</a></span> *<i>translationFile</i>)</h3>
+<h3 class="fn" id="installTranslator"><a name="installTranslator"></a><code>[静态函数] </code><span class="type">bool</span> QCoreApplication::<span class="name">installTranslator</span>(<span class="type"><a href="qtranslator.html">QTranslator</a></span> *<i>translationFile</i>)</h3>
 <p>Adds the translation file <i>translationFile</i> to the list of translation files to be used for translations.</p>
 <p>Multiple translation files can be installed. Translations are searched for in the reverse order in which they were installed, so the most recently installed translation file is searched first and the first translation file installed is searched last. The search stops as soon as a translation containing a matching string is found.</p>
 <p>Installing or removing a <a href="qtranslator.html">QTranslator</a>, or changing an installed <a href="qtranslator.html">QTranslator</a> generates a <a href="qevent.html#Type-enum">LanguageChange</a> event for the <a href="qcoreapplication.html">QCoreApplication</a> instance. A <a href="../qtwidgets/qapplication.html">QApplication</a> instance will propagate the event to all toplevel widgets, where a reimplementation of changeEvent can re-translate the user interface by passing user-visible strings via the <a href="qcoreapplication.html#tr">tr</a>() function to the respective property setters. User-interface classes generated by Qt Designer provide a <code>retranslateUi()</code> function that can be called.</p>
@@ -390,18 +390,18 @@
 <p><b> 参见 </b><a href="qcoreapplication.html#removeTranslator">removeTranslator</a>(), <a href="qcoreapplication.html#translate">translate</a>(), <a href="qtranslator.html#load">QTranslator::load</a>(), 和 <a href="../qtdoc/internationalization.html#dynamic-translation">Dynamic Translation</a>.</p>
 <!-- @@@installTranslator -->
 <!-- $$$instance[overload1]$$$instance -->
-<h3 class="fn" id="instance"><a name="instance"></a><code>[static] </code><span class="type"><a href="qcoreapplication.html#QCoreApplication">QCoreApplication</a></span> *QCoreApplication::<span class="name">instance</span>()</h3>
+<h3 class="fn" id="instance"><a name="instance"></a><code>[静态函数] </code><span class="type"><a href="qcoreapplication.html#QCoreApplication">QCoreApplication</a></span> *QCoreApplication::<span class="name">instance</span>()</h3>
 <p>Returns a pointer to the application's <a href="qcoreapplication.html">QCoreApplication</a> (or <a href="../qtgui/qguiapplication.html">QGuiApplication</a>/<a href="../qtwidgets/qapplication.html">QApplication</a>) instance.</p>
 <p>If no instance has been allocated, <code>null</code> is returned.</p>
 <!-- @@@instance -->
 <!-- $$$isSetuidAllowed[overload1]$$$isSetuidAllowed -->
-<h3 class="fn" id="isSetuidAllowed"><a name="isSetuidAllowed"></a><code>[static] </code><span class="type">bool</span> QCoreApplication::<span class="name">isSetuidAllowed</span>()</h3>
+<h3 class="fn" id="isSetuidAllowed"><a name="isSetuidAllowed"></a><code>[静态函数] </code><span class="type">bool</span> QCoreApplication::<span class="name">isSetuidAllowed</span>()</h3>
 <p>Returns true if the application is allowed to run setuid on UNIX platforms.</p>
 <p>这个函数是在Qt 5.3版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#setSetuidAllowed">QCoreApplication::setSetuidAllowed</a>().</p>
 <!-- @@@isSetuidAllowed -->
 <!-- $$$libraryPaths[overload1]$$$libraryPaths -->
-<h3 class="fn" id="libraryPaths"><a name="libraryPaths"></a><code>[static] </code><span class="type"><a href="qstringlist.html">QStringList</a></span> QCoreApplication::<span class="name">libraryPaths</span>()</h3>
+<h3 class="fn" id="libraryPaths"><a name="libraryPaths"></a><code>[静态函数] </code><span class="type"><a href="qstringlist.html">QStringList</a></span> QCoreApplication::<span class="name">libraryPaths</span>()</h3>
 <p>Returns a list of paths that the application will search when dynamically loading libraries.</p>
 <p>The return value of this function may change when a <a href="qcoreapplication.html">QCoreApplication</a> is created. It is not recommended to call it before creating a <a href="qcoreapplication.html">QCoreApplication</a>. The directory of the application executable (<b>not</b> the working directory) is part of the list if it is known. In order to make it known a <a href="qcoreapplication.html">QCoreApplication</a> has to be constructed as it will use <code>argv[0]</code> to find it.</p>
 <p>Qt provides default library paths, but they can also be set using a <a href="../qtdoc/qt-conf.html">qt.conf</a> file. Paths specified in this file will override default values. Note that if the qt.conf file is in the directory of the application executable, it may not be found until a <a href="qcoreapplication.html">QCoreApplication</a> is created. If it is not found when calling this function, the default library paths will be used.</p>
@@ -416,7 +416,7 @@
 <p><b> 参见 </b><a href="qcoreapplication.html#setLibraryPaths">setLibraryPaths</a>(), <a href="qcoreapplication.html#addLibraryPath">addLibraryPath</a>(), <a href="qcoreapplication.html#removeLibraryPath">removeLibraryPath</a>(), <a href="qlibrary.html">QLibrary</a>, 和 <a href="../qtdoc/plugins-howto.html">如何创建Qt插件</a>.</p>
 <!-- @@@libraryPaths -->
 <!-- $$$notify[overload1]$$$notifyQObject*QEvent* -->
-<h3 class="fn" id="notify"><a name="notify"></a><code>[virtual] </code><span class="type">bool</span> QCoreApplication::<span class="name">notify</span>(<span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, <span class="type"><a href="qevent.html">QEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="notify"><a name="notify"></a><code>[虚函数] </code><span class="type">bool</span> QCoreApplication::<span class="name">notify</span>(<span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, <span class="type"><a href="qevent.html">QEvent</a></span> *<i>event</i>)</h3>
 <p>Sends <i>event</i> to <i>receiver</i>: <i>receiver</i>-&gt;event(<i>event</i>). Returns the value that is returned from the receiver's event handler. Note that this function is called for all events sent to any object in any thread.</p>
 <p>For certain types of events (e.g&#x2e; mouse and key events), the event will be propagated to the receiver's parent and so on up to the top-level object if the receiver is not interested in the event (i.e&#x2e;, it returns <code>false</code>).</p>
 <p>There are five different ways that events can be processed; reimplementing this virtual function is just one of them. All five approaches are listed below:</p>
@@ -431,7 +431,7 @@
 <p><b> 参见 </b><a href="qobject.html#event">QObject::event</a>() 和 <a href="qcoreapplication.html#installNativeEventFilter">installNativeEventFilter</a>().</p>
 <!-- @@@notify -->
 <!-- $$$postEvent[overload1]$$$postEventQObject*QEvent*int -->
-<h3 class="fn" id="postEvent"><a name="postEvent"></a><code>[static] </code><span class="type">void</span> QCoreApplication::<span class="name">postEvent</span>(<span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, <span class="type"><a href="qevent.html">QEvent</a></span> *<i>event</i>, <span class="type">int</span> <i>priority</i> = Qt::NormalEventPriority)</h3>
+<h3 class="fn" id="postEvent"><a name="postEvent"></a><code>[静态函数] </code><span class="type">void</span> QCoreApplication::<span class="name">postEvent</span>(<span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, <span class="type"><a href="qevent.html">QEvent</a></span> *<i>event</i>, <span class="type">int</span> <i>priority</i> = Qt::NormalEventPriority)</h3>
 <p>Adds the event <i>event</i>, with the object <i>receiver</i> as the receiver of the event, to an event queue and returns immediately.</p>
 <p>The event must be allocated on the heap since the post event queue will take ownership of the event and delete it once it has been posted. It is <i>not safe</i> to access the event after it has been posted.</p>
 <p>When control returns to the main event loop, all events that are stored in the queue will be sent using the <a href="qcoreapplication.html#notify">notify</a>() function.</p>
@@ -441,7 +441,7 @@
 <p><b> 参见 </b><a href="qcoreapplication.html#sendEvent">sendEvent</a>(), <a href="qcoreapplication.html#notify">notify</a>(), <a href="qcoreapplication.html#sendPostedEvents">sendPostedEvents</a>(), 和 <a href="qt.html#EventPriority-enum">Qt::EventPriority</a>.</p>
 <!-- @@@postEvent -->
 <!-- $$$processEvents[overload1]$$$processEventsQEventLoop::ProcessEventsFlags -->
-<h3 class="fn" id="processEvents"><a name="processEvents"></a><code>[static] </code><span class="type">void</span> QCoreApplication::<span class="name">processEvents</span>(<span class="type"><a href="qeventloop.html#ProcessEventsFlag-enum">QEventLoop::ProcessEventsFlags</a></span> <i>flags</i> = QEventLoop::AllEvents)</h3>
+<h3 class="fn" id="processEvents"><a name="processEvents"></a><code>[静态函数] </code><span class="type">void</span> QCoreApplication::<span class="name">processEvents</span>(<span class="type"><a href="qeventloop.html#ProcessEventsFlag-enum">QEventLoop::ProcessEventsFlags</a></span> <i>flags</i> = QEventLoop::AllEvents)</h3>
 <p>Processes all pending events for the calling thread according to the specified <i>flags</i> until there are no more events to process.</p>
 <p>You can call this function occasionally when your program is busy performing a long operation (e.g&#x2e; copying a file).</p>
 <p>In the event that you are running a local loop which calls this function continuously, without an event loop, the <a href="qevent.html#Type-enum">DeferredDelete</a> events will not be processed. This can affect the behaviour of widgets, e.g&#x2e; <a href="../qtwidgets/qtooltip.html">QToolTip</a>, that rely on <a href="qevent.html#Type-enum">DeferredDelete</a> events to function properly. An alternative would be to call <a href="qcoreapplication.html#sendPostedEvents">sendPostedEvents()</a> from within that local loop.</p>
@@ -450,7 +450,7 @@
 <p><b> 参见 </b><a href="qcoreapplication.html#exec">exec</a>(), <a href="qtimer.html">QTimer</a>, <a href="qeventloop.html#processEvents">QEventLoop::processEvents</a>(), <a href="qcoreapplication-obsolete.html#flush">flush</a>(), 和 <a href="qcoreapplication.html#sendPostedEvents">sendPostedEvents</a>().</p>
 <!-- @@@processEvents -->
 <!-- $$$processEvents$$$processEventsQEventLoop::ProcessEventsFlagsint -->
-<h3 class="fn" id="processEvents-1"><a name="processEvents-1"></a><code>[static] </code><span class="type">void</span> QCoreApplication::<span class="name">processEvents</span>(<span class="type"><a href="qeventloop.html#ProcessEventsFlag-enum">QEventLoop::ProcessEventsFlags</a></span> <i>flags</i>, <span class="type">int</span> <i>maxtime</i>)</h3>
+<h3 class="fn" id="processEvents-1"><a name="processEvents-1"></a><code>[静态函数] </code><span class="type">void</span> QCoreApplication::<span class="name">processEvents</span>(<span class="type"><a href="qeventloop.html#ProcessEventsFlag-enum">QEventLoop::ProcessEventsFlags</a></span> <i>flags</i>, <span class="type">int</span> <i>maxtime</i>)</h3>
 <p>This function overloads <a href="qcoreapplication.html#processEvents">processEvents</a>().</p>
 <p>Processes pending events for the calling thread for <i>maxtime</i> milliseconds or until there are no more events to process, whichever is shorter.</p>
 <p>You can call this function occasionally when your program is busy doing a long operation (e.g&#x2e; copying a file).</p>
@@ -473,7 +473,7 @@
 <p><b> 参见 </b><a href="qcoreapplication.html#exit">exit</a>(), <a href="qcoreapplication.html#aboutToQuit">aboutToQuit</a>(), 和 <a href="../qtgui/qguiapplication.html#lastWindowClosed">QGuiApplication::lastWindowClosed</a>().</p>
 <!-- @@@quit -->
 <!-- $$$removeLibraryPath[overload1]$$$removeLibraryPathconstQString& -->
-<h3 class="fn" id="removeLibraryPath"><a name="removeLibraryPath"></a><code>[static] </code><span class="type">void</span> QCoreApplication::<span class="name">removeLibraryPath</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>path</i>)</h3>
+<h3 class="fn" id="removeLibraryPath"><a name="removeLibraryPath"></a><code>[静态函数] </code><span class="type">void</span> QCoreApplication::<span class="name">removeLibraryPath</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>path</i>)</h3>
 <p>Removes <i>path</i> from the library path list. If <i>path</i> is empty or not in the path list, the list is not changed.</p>
 <p>The library paths are reset to the default when an instance of <a href="qcoreapplication.html">QCoreApplication</a> is destructed.</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#addLibraryPath">addLibraryPath</a>(), <a href="qcoreapplication.html#libraryPaths">libraryPaths</a>(), 和 <a href="qcoreapplication.html#setLibraryPaths">setLibraryPaths</a>().</p>
@@ -487,7 +487,7 @@
 <p><b> 参见 </b><a href="qcoreapplication.html#installNativeEventFilter">installNativeEventFilter</a>().</p>
 <!-- @@@removeNativeEventFilter -->
 <!-- $$$removePostedEvents[overload1]$$$removePostedEventsQObject*int -->
-<h3 class="fn" id="removePostedEvents"><a name="removePostedEvents"></a><code>[static] </code><span class="type">void</span> QCoreApplication::<span class="name">removePostedEvents</span>(<span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, <span class="type">int</span> <i>eventType</i> = 0)</h3>
+<h3 class="fn" id="removePostedEvents"><a name="removePostedEvents"></a><code>[静态函数] </code><span class="type">void</span> QCoreApplication::<span class="name">removePostedEvents</span>(<span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, <span class="type">int</span> <i>eventType</i> = 0)</h3>
 <p>Removes all events of the given <i>eventType</i> that were posted using <a href="qcoreapplication.html#postEvent">postEvent</a>() for <i>receiver</i>.</p>
 <p>The events are <i>not</i> dispatched, instead they are removed from the queue. You should never need to call this function. If you do call it, be aware that killing events may cause <i>receiver</i> to break one or more invariants.</p>
 <p>If <i>receiver</i> is null, the events of <i>eventType</i> are removed for all objects. If <i>eventType</i> is 0, all the events are removed for <i>receiver</i>. You should never call this function with <i>eventType</i> of 0.</p>
@@ -495,13 +495,13 @@
 <p>这个函数是在Qt 4.3版本中新增引入的。</p>
 <!-- @@@removePostedEvents -->
 <!-- $$$removeTranslator[overload1]$$$removeTranslatorQTranslator* -->
-<h3 class="fn" id="removeTranslator"><a name="removeTranslator"></a><code>[static] </code><span class="type">bool</span> QCoreApplication::<span class="name">removeTranslator</span>(<span class="type"><a href="qtranslator.html">QTranslator</a></span> *<i>translationFile</i>)</h3>
+<h3 class="fn" id="removeTranslator"><a name="removeTranslator"></a><code>[静态函数] </code><span class="type">bool</span> QCoreApplication::<span class="name">removeTranslator</span>(<span class="type"><a href="qtranslator.html">QTranslator</a></span> *<i>translationFile</i>)</h3>
 <p>Removes the translation file <i>translationFile</i> from the list of translation files used by this application. (It does not delete the translation file from the file system.)</p>
 <p>The function returns <code>true</code> on success and false on failure.</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#installTranslator">installTranslator</a>(), <a href="qcoreapplication.html#translate">translate</a>(), 和 <a href="qobject.html#tr">QObject::tr</a>().</p>
 <!-- @@@removeTranslator -->
 <!-- $$$sendEvent[overload1]$$$sendEventQObject*QEvent* -->
-<h3 class="fn" id="sendEvent"><a name="sendEvent"></a><code>[static] </code><span class="type">bool</span> QCoreApplication::<span class="name">sendEvent</span>(<span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, <span class="type"><a href="qevent.html">QEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="sendEvent"><a name="sendEvent"></a><code>[静态函数] </code><span class="type">bool</span> QCoreApplication::<span class="name">sendEvent</span>(<span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, <span class="type"><a href="qevent.html">QEvent</a></span> *<i>event</i>)</h3>
 <p>Sends event <i>event</i> directly to receiver <i>receiver</i>, using the <a href="qcoreapplication.html#notify">notify</a>() function. Returns the value that was returned from the event handler.</p>
 <p>The event is <i>not</i> deleted when the event has been sent. The normal approach is to create the event on the stack, for example:</p>
 <pre class="cpp">
@@ -513,30 +513,30 @@
 <p><b> 参见 </b><a href="qcoreapplication.html#postEvent">postEvent</a>() 和 <a href="qcoreapplication.html#notify">notify</a>().</p>
 <!-- @@@sendEvent -->
 <!-- $$$sendPostedEvents[overload1]$$$sendPostedEventsQObject*int -->
-<h3 class="fn" id="sendPostedEvents"><a name="sendPostedEvents"></a><code>[static] </code><span class="type">void</span> QCoreApplication::<span class="name">sendPostedEvents</span>(<span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i> = nullptr, <span class="type">int</span> <i>event_type</i> = 0)</h3>
+<h3 class="fn" id="sendPostedEvents"><a name="sendPostedEvents"></a><code>[静态函数] </code><span class="type">void</span> QCoreApplication::<span class="name">sendPostedEvents</span>(<span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i> = nullptr, <span class="type">int</span> <i>event_type</i> = 0)</h3>
 <p>Immediately dispatches all events which have been previously queued with <a href="qcoreapplication.html#postEvent">QCoreApplication::postEvent</a>() and which are for the object <i>receiver</i> and have the event type <i>event_type</i>.</p>
 <p>Events from the window system are <i>not</i> dispatched by this function, but by <a href="qcoreapplication.html#processEvents">processEvents</a>().</p>
 <p>If <i>receiver</i> is null, the events of <i>event_type</i> are sent for all objects. If <i>event_type</i> is 0, all the events are sent for <i>receiver</i>.</p>
 <p><b>Note: </b>This method must be called from the thread in which its <a href="qobject.html">QObject</a> parameter, <i>receiver</i>, lives.</p><p><b> 参见 </b><a href="qcoreapplication-obsolete.html#flush">flush</a>() 和 <a href="qcoreapplication.html#postEvent">postEvent</a>().</p>
 <!-- @@@sendPostedEvents -->
 <!-- $$$setAttribute[overload1]$$$setAttributeQt::ApplicationAttributebool -->
-<h3 class="fn" id="setAttribute"><a name="setAttribute"></a><code>[static] </code><span class="type">void</span> QCoreApplication::<span class="name">setAttribute</span>(<span class="type">Qt::ApplicationAttribute</span> <i>attribute</i>, <span class="type">bool</span> <i>on</i> = true)</h3>
+<h3 class="fn" id="setAttribute"><a name="setAttribute"></a><code>[静态函数] </code><span class="type">void</span> QCoreApplication::<span class="name">setAttribute</span>(<span class="type">Qt::ApplicationAttribute</span> <i>attribute</i>, <span class="type">bool</span> <i>on</i> = true)</h3>
 <p>Sets the attribute <i>attribute</i> if <i>on</i> is true; otherwise clears the attribute.</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#testAttribute">testAttribute</a>().</p>
 <!-- @@@setAttribute -->
 <!-- $$$setEventDispatcher[overload1]$$$setEventDispatcherQAbstractEventDispatcher* -->
-<h3 class="fn" id="setEventDispatcher"><a name="setEventDispatcher"></a><code>[static] </code><span class="type">void</span> QCoreApplication::<span class="name">setEventDispatcher</span>(<span class="type"><a href="qabstracteventdispatcher.html">QAbstractEventDispatcher</a></span> *<i>eventDispatcher</i>)</h3>
+<h3 class="fn" id="setEventDispatcher"><a name="setEventDispatcher"></a><code>[静态函数] </code><span class="type">void</span> QCoreApplication::<span class="name">setEventDispatcher</span>(<span class="type"><a href="qabstracteventdispatcher.html">QAbstractEventDispatcher</a></span> *<i>eventDispatcher</i>)</h3>
 <p>Sets the event dispatcher for the main thread to <i>eventDispatcher</i>. This is only possible as long as there is no event dispatcher installed yet. That is, before <a href="qcoreapplication.html">QCoreApplication</a> has been instantiated. This method takes ownership of the object.</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#eventDispatcher">eventDispatcher</a>().</p>
 <!-- @@@setEventDispatcher -->
 <!-- $$$setLibraryPaths[overload1]$$$setLibraryPathsconstQStringList& -->
-<h3 class="fn" id="setLibraryPaths"><a name="setLibraryPaths"></a><code>[static] </code><span class="type">void</span> QCoreApplication::<span class="name">setLibraryPaths</span>(const <span class="type"><a href="qstringlist.html">QStringList</a></span> &amp;<i>paths</i>)</h3>
+<h3 class="fn" id="setLibraryPaths"><a name="setLibraryPaths"></a><code>[静态函数] </code><span class="type">void</span> QCoreApplication::<span class="name">setLibraryPaths</span>(const <span class="type"><a href="qstringlist.html">QStringList</a></span> &amp;<i>paths</i>)</h3>
 <p>Sets the list of directories to search when loading libraries to <i>paths</i>. All existing paths will be deleted and the path list will consist of the paths given in <i>paths</i>.</p>
 <p>The library paths are reset to the default when an instance of <a href="qcoreapplication.html">QCoreApplication</a> is destructed.</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#libraryPaths">libraryPaths</a>(), <a href="qcoreapplication.html#addLibraryPath">addLibraryPath</a>(), <a href="qcoreapplication.html#removeLibraryPath">removeLibraryPath</a>(), 和 <a href="qlibrary.html">QLibrary</a>.</p>
 <!-- @@@setLibraryPaths -->
 <!-- $$$setSetuidAllowed[overload1]$$$setSetuidAllowedbool -->
-<h3 class="fn" id="setSetuidAllowed"><a name="setSetuidAllowed"></a><code>[static] </code><span class="type">void</span> QCoreApplication::<span class="name">setSetuidAllowed</span>(<span class="type">bool</span> <i>allow</i>)</h3>
+<h3 class="fn" id="setSetuidAllowed"><a name="setSetuidAllowed"></a><code>[静态函数] </code><span class="type">void</span> QCoreApplication::<span class="name">setSetuidAllowed</span>(<span class="type">bool</span> <i>allow</i>)</h3>
 <p>Allows the application to run setuid on UNIX platforms if <i>allow</i> is true.</p>
 <p>If <i>allow</i> is false (the default) and Qt detects the application is running with an effective user id different than the real user id, the application will be aborted when a <a href="qcoreapplication.html">QCoreApplication</a> instance is created.</p>
 <p>Qt is not an appropriate solution for setuid programs due to its large attack surface. However some applications may be required to run in this manner for historical reasons. This flag will prevent Qt from aborting the application when this is detected, and must be set before a <a href="qcoreapplication.html">QCoreApplication</a> instance is created.</p>
@@ -544,17 +544,17 @@
 <p><b> 参见 </b><a href="qcoreapplication.html#isSetuidAllowed">isSetuidAllowed</a>().</p>
 <!-- @@@setSetuidAllowed -->
 <!-- $$$startingUp[overload1]$$$startingUp -->
-<h3 class="fn" id="startingUp"><a name="startingUp"></a><code>[static] </code><span class="type">bool</span> QCoreApplication::<span class="name">startingUp</span>()</h3>
+<h3 class="fn" id="startingUp"><a name="startingUp"></a><code>[静态函数] </code><span class="type">bool</span> QCoreApplication::<span class="name">startingUp</span>()</h3>
 <p>Returns <code>true</code> if an application object has not been created yet; otherwise returns <code>false</code>.</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#closingDown">closingDown</a>().</p>
 <!-- @@@startingUp -->
 <!-- $$$testAttribute[overload1]$$$testAttributeQt::ApplicationAttribute -->
-<h3 class="fn" id="testAttribute"><a name="testAttribute"></a><code>[static] </code><span class="type">bool</span> QCoreApplication::<span class="name">testAttribute</span>(<span class="type">Qt::ApplicationAttribute</span> <i>attribute</i>)</h3>
+<h3 class="fn" id="testAttribute"><a name="testAttribute"></a><code>[静态函数] </code><span class="type">bool</span> QCoreApplication::<span class="name">testAttribute</span>(<span class="type">Qt::ApplicationAttribute</span> <i>attribute</i>)</h3>
 <p>Returns <code>true</code> if attribute <i>attribute</i> is set; otherwise returns <code>false</code>.</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#setAttribute">setAttribute</a>().</p>
 <!-- @@@testAttribute -->
 <!-- $$$translate[overload1]$$$translateconstchar*constchar*constchar*int -->
-<h3 class="fn" id="translate"><a name="translate"></a><code>[static] </code><span class="type"><a href="qstring.html">QString</a></span> QCoreApplication::<span class="name">translate</span>(const <span class="type">char</span> *<i>context</i>, const <span class="type">char</span> *<i>sourceText</i>, const <span class="type">char</span> *<i>disambiguation</i> = nullptr, <span class="type">int</span> <i>n</i> = -1)</h3>
+<h3 class="fn" id="translate"><a name="translate"></a><code>[静态函数] </code><span class="type"><a href="qstring.html">QString</a></span> QCoreApplication::<span class="name">translate</span>(const <span class="type">char</span> *<i>context</i>, const <span class="type">char</span> *<i>sourceText</i>, const <span class="type">char</span> *<i>disambiguation</i> = nullptr, <span class="type">int</span> <i>n</i> = -1)</h3>
 <p>Returns the translation text for <i>sourceText</i>, by querying the installed translation files. The translation files are searched from the most recently installed file back to the first installed file.</p>
 <p><a href="qobject.html#tr">QObject::tr</a>() provides this functionality more conveniently.</p>
 <p><i>context</i> is typically a class name (e.g&#x2e;, &quot;MyDialog&quot;) and <i>sourceText</i> is either English text or a short identifying text.</p>

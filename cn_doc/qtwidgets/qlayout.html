@@ -229,18 +229,18 @@
 <p><b> 参见 </b><a href="qlayout.html#update">update</a>() 和 <a href="qwidget.html#updateGeometry">QWidget::updateGeometry</a>().</p>
 <!-- @@@activate -->
 <!-- $$$addChildLayout[overload1]$$$addChildLayoutQLayout* -->
-<h3 class="fn" id="addChildLayout"><a name="addChildLayout"></a><code>[protected] </code><span class="type">void</span> QLayout::<span class="name">addChildLayout</span>(<span class="type"><a href="qlayout.html#QLayout">QLayout</a></span> *<i>l</i>)</h3>
+<h3 class="fn" id="addChildLayout"><a name="addChildLayout"></a><code>[保护函数] </code><span class="type">void</span> QLayout::<span class="name">addChildLayout</span>(<span class="type"><a href="qlayout.html#QLayout">QLayout</a></span> *<i>l</i>)</h3>
 <p>This function is called from <code>addLayout()</code> or <code>insertLayout()</code> functions in subclasses to add layout <i>l</i> as a sub-layout.</p>
 <p>The only scenario in which you need to call it directly is if you implement a custom layout that supports nested layouts.</p>
 <p><b> 参见 </b><a href="qboxlayout.html#addLayout">QBoxLayout::addLayout</a>(), <a href="qboxlayout.html#insertLayout">QBoxLayout::insertLayout</a>(), 和 <a href="qgridlayout.html#addLayout">QGridLayout::addLayout</a>().</p>
 <!-- @@@addChildLayout -->
 <!-- $$$addChildWidget[overload1]$$$addChildWidgetQWidget* -->
-<h3 class="fn" id="addChildWidget"><a name="addChildWidget"></a><code>[protected] </code><span class="type">void</span> QLayout::<span class="name">addChildWidget</span>(<span class="type"><a href="qwidget.html">QWidget</a></span> *<i>w</i>)</h3>
+<h3 class="fn" id="addChildWidget"><a name="addChildWidget"></a><code>[保护函数] </code><span class="type">void</span> QLayout::<span class="name">addChildWidget</span>(<span class="type"><a href="qwidget.html">QWidget</a></span> *<i>w</i>)</h3>
 <p>This function is called from <code>addWidget()</code> functions in subclasses to add <i>w</i> as a managed widget of a layout.</p>
 <p>If <i>w</i> is already managed by a layout, this function will give a warning and remove <i>w</i> from that layout. This function must therefore be called before adding <i>w</i> to the layout's data structure.</p>
 <!-- @@@addChildWidget -->
 <!-- $$$addItem[overload1]$$$addItemQLayoutItem* -->
-<h3 class="fn" id="addItem"><a name="addItem"></a><code>[pure virtual] </code><span class="type">void</span> QLayout::<span class="name">addItem</span>(<span class="type"><a href="qlayoutitem.html#QLayoutItem">QLayoutItem</a></span> *<i>item</i>)</h3>
+<h3 class="fn" id="addItem"><a name="addItem"></a><code>[纯虚函数] </code><span class="type">void</span> QLayout::<span class="name">addItem</span>(<span class="type"><a href="qlayoutitem.html#QLayoutItem">QLayoutItem</a></span> *<i>item</i>)</h3>
 <p>Implemented in subclasses to add an <i>item</i>. How it is added is specific to each subclass.</p>
 <p>This function is not usually called in application code. To add a widget to a layout, use the <a href="qlayout.html#addWidget">addWidget</a>() function; to add a child layout, use the addLayout() function provided by the relevant <a href="qlayout.html">QLayout</a> subclass.</p>
 <p><b>Note:</b> The ownership of <i>item</i> is transferred to the layout, and it's the layout's responsibility to delete it.</p>
@@ -251,16 +251,16 @@
 <p>Adds widget <i>w</i> to this layout in a manner specific to the layout. This function uses <a href="qlayout.html#addItem">addItem</a>().</p>
 <!-- @@@addWidget -->
 <!-- $$$alignmentRect[overload1]$$$alignmentRectconstQRect& -->
-<h3 class="fn" id="alignmentRect"><a name="alignmentRect"></a><code>[protected] </code><span class="type"><a href="../qtcore/qrect.html">QRect</a></span> QLayout::<span class="name">alignmentRect</span>(const <span class="type"><a href="../qtcore/qrect.html">QRect</a></span> &amp;<i>r</i>) const</h3>
+<h3 class="fn" id="alignmentRect"><a name="alignmentRect"></a><code>[保护函数] </code><span class="type"><a href="../qtcore/qrect.html">QRect</a></span> QLayout::<span class="name">alignmentRect</span>(const <span class="type"><a href="../qtcore/qrect.html">QRect</a></span> &amp;<i>r</i>) const</h3>
 <p>Returns the rectangle that should be covered when the geometry of this layout is set to <i>r</i>, provided that this layout supports <a href="qlayout.html#setAlignment">setAlignment</a>().</p>
 <p>The result is derived from <a href="qlayoutitem.html#sizeHint">sizeHint</a>() and expanding(). It is never larger than <i>r</i>.</p>
 <!-- @@@alignmentRect -->
 <!-- $$$childEvent[overload1]$$$childEventQChildEvent* -->
-<h3 class="fn" id="childEvent"><a name="childEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QLayout::<span class="name">childEvent</span>(<span class="type"><a href="../qtcore/qchildevent.html">QChildEvent</a></span> *<i>e</i>)</h3>
+<h3 class="fn" id="childEvent"><a name="childEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QLayout::<span class="name">childEvent</span>(<span class="type"><a href="../qtcore/qchildevent.html">QChildEvent</a></span> *<i>e</i>)</h3>
 <p>Reimplemented from <a href="../qtcore/qobject.html#childEvent">QObject::childEvent</a>().</p>
 <!-- @@@childEvent -->
 <!-- $$$closestAcceptableSize[overload1]$$$closestAcceptableSizeconstQWidget*constQSize& -->
-<h3 class="fn" id="closestAcceptableSize"><a name="closestAcceptableSize"></a><code>[static] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QLayout::<span class="name">closestAcceptableSize</span>(const <span class="type"><a href="qwidget.html">QWidget</a></span> *<i>widget</i>, const <span class="type"><a href="../qtcore/qsize.html">QSize</a></span> &amp;<i>size</i>)</h3>
+<h3 class="fn" id="closestAcceptableSize"><a name="closestAcceptableSize"></a><code>[静态函数] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QLayout::<span class="name">closestAcceptableSize</span>(const <span class="type"><a href="qwidget.html">QWidget</a></span> *<i>widget</i>, const <span class="type"><a href="../qtcore/qsize.html">QSize</a></span> &amp;<i>size</i>)</h3>
 <p>Returns a size that satisfies all size constraints on <i>widget</i>, including <a href="qlayoutitem.html#heightForWidth">heightForWidth</a>() and that is as close as possible to <i>size</i>.</p>
 <!-- @@@closestAcceptableSize -->
 <!-- $$$contentsMargins[overload1]$$$contentsMargins -->
@@ -277,23 +277,23 @@
 <p><b> 参见 </b><a href="qlayout.html#setContentsMargins">setContentsMargins</a>() 和 <a href="qlayout.html#getContentsMargins">getContentsMargins</a>().</p>
 <!-- @@@contentsRect -->
 <!-- $$$controlTypes[overload1]$$$controlTypes -->
-<h3 class="fn" id="controlTypes"><a name="controlTypes"></a><code>[override virtual] </code><span class="type"><a href="qsizepolicy.html#ControlType-enum">QSizePolicy::ControlTypes</a></span> QLayout::<span class="name">controlTypes</span>() const</h3>
+<h3 class="fn" id="controlTypes"><a name="controlTypes"></a><code>[重载虚函数] </code><span class="type"><a href="qsizepolicy.html#ControlType-enum">QSizePolicy::ControlTypes</a></span> QLayout::<span class="name">controlTypes</span>() const</h3>
 <p>Reimplemented from <a href="qlayoutitem.html#controlTypes">QLayoutItem::controlTypes</a>().</p>
 <!-- @@@controlTypes -->
 <!-- $$$count[overload1]$$$count -->
-<h3 class="fn" id="count"><a name="count"></a><code>[pure virtual] </code><span class="type">int</span> QLayout::<span class="name">count</span>() const</h3>
+<h3 class="fn" id="count"><a name="count"></a><code>[纯虚函数] </code><span class="type">int</span> QLayout::<span class="name">count</span>() const</h3>
 <p>Must be implemented in subclasses to return the number of items in the layout.</p>
 <p><b> 参见 </b><a href="qlayout.html#itemAt">itemAt</a>().</p>
 <!-- @@@count -->
 <!-- $$$expandingDirections[overload1]$$$expandingDirections -->
-<h3 class="fn" id="expandingDirections"><a name="expandingDirections"></a><code>[override virtual] </code><span class="type">Qt::Orientations</span> QLayout::<span class="name">expandingDirections</span>() const</h3>
+<h3 class="fn" id="expandingDirections"><a name="expandingDirections"></a><code>[重载虚函数] </code><span class="type">Qt::Orientations</span> QLayout::<span class="name">expandingDirections</span>() const</h3>
 <p>Reimplemented from <a href="qlayoutitem.html#expandingDirections">QLayoutItem::expandingDirections</a>().</p>
 <p>Returns whether this layout can make use of more space than <a href="qlayoutitem.html#sizeHint">sizeHint</a>(). A value of <a href="../qtcore/qt.html#Orientation-enum">Qt::Vertical</a> or <a href="../qtcore/qt.html#Orientation-enum">Qt::Horizontal</a> means that it wants to grow in only one dimension, whereas <a href="../qtcore/qt.html#Orientation-enum">Qt::Vertical</a> | <a href="../qtcore/qt.html#Orientation-enum">Qt::Horizontal</a> means that it wants to grow in both dimensions.</p>
 <p>The default implementation returns <a href="../qtcore/qt.html#Orientation-enum">Qt::Horizontal</a> | <a href="../qtcore/qt.html#Orientation-enum">Qt::Vertical</a>. Subclasses reimplement it to return a meaningful value based on their child widgets's <a href="qsizepolicy.html">size policies</a>.</p>
 <p><b> 参见 </b><a href="qlayoutitem.html#sizeHint">sizeHint</a>().</p>
 <!-- @@@expandingDirections -->
 <!-- $$$geometry[overload1]$$$geometry -->
-<h3 class="fn" id="geometry"><a name="geometry"></a><code>[override virtual] </code><span class="type"><a href="../qtcore/qrect.html">QRect</a></span> QLayout::<span class="name">geometry</span>() const</h3>
+<h3 class="fn" id="geometry"><a name="geometry"></a><code>[重载虚函数] </code><span class="type"><a href="../qtcore/qrect.html">QRect</a></span> QLayout::<span class="name">geometry</span>() const</h3>
 <p>Reimplemented from <a href="qlayoutitem.html#geometry">QLayoutItem::geometry</a>().</p>
 <p><b> 参见 </b><a href="qlayout.html#setGeometry">setGeometry</a>().</p>
 <!-- @@@geometry -->
@@ -305,7 +305,7 @@
 <p><b> 参见 </b><a href="qlayout.html#setContentsMargins">setContentsMargins</a>(), <a href="qstyle.html#pixelMetric">QStyle::pixelMetric</a>(), <a href="qstyle.html#PixelMetric-enum">PM_LayoutLeftMargin</a>, <a href="qstyle.html#PixelMetric-enum">PM_LayoutTopMargin</a>, <a href="qstyle.html#PixelMetric-enum">PM_LayoutRightMargin</a>, 和 <a href="qstyle.html#PixelMetric-enum">PM_LayoutBottomMargin</a>.</p>
 <!-- @@@getContentsMargins -->
 <!-- $$$indexOf[overload1]$$$indexOfQWidget* -->
-<h3 class="fn" id="indexOf"><a name="indexOf"></a><code>[virtual] </code><span class="type">int</span> QLayout::<span class="name">indexOf</span>(<span class="type"><a href="qwidget.html">QWidget</a></span> *<i>widget</i>) const</h3>
+<h3 class="fn" id="indexOf"><a name="indexOf"></a><code>[虚函数] </code><span class="type">int</span> QLayout::<span class="name">indexOf</span>(<span class="type"><a href="qwidget.html">QWidget</a></span> *<i>widget</i>) const</h3>
 <p>Searches for widget <i>widget</i> in this layout (not including child layouts).</p>
 <p>Returns the index of <i>widget</i>, or -1 if <i>widget</i> is not found.</p>
 <p>The default implementation iterates over all items using <a href="qlayout.html#itemAt">itemAt</a>()</p>
@@ -317,11 +317,11 @@
 <p>这个函数是在Qt 5.12版本中新增引入的。</p>
 <!-- @@@indexOf -->
 <!-- $$$invalidate[overload1]$$$invalidate -->
-<h3 class="fn" id="invalidate"><a name="invalidate"></a><code>[override virtual] </code><span class="type">void</span> QLayout::<span class="name">invalidate</span>()</h3>
+<h3 class="fn" id="invalidate"><a name="invalidate"></a><code>[重载虚函数] </code><span class="type">void</span> QLayout::<span class="name">invalidate</span>()</h3>
 <p>Reimplemented from <a href="qlayoutitem.html#invalidate">QLayoutItem::invalidate</a>().</p>
 <!-- @@@invalidate -->
 <!-- $$$isEmpty[overload1]$$$isEmpty -->
-<h3 class="fn" id="isEmpty"><a name="isEmpty"></a><code>[override virtual] </code><span class="type">bool</span> QLayout::<span class="name">isEmpty</span>() const</h3>
+<h3 class="fn" id="isEmpty"><a name="isEmpty"></a><code>[重载虚函数] </code><span class="type">bool</span> QLayout::<span class="name">isEmpty</span>() const</h3>
 <p>Reimplemented from <a href="qlayoutitem.html#isEmpty">QLayoutItem::isEmpty</a>().</p>
 <!-- @@@isEmpty -->
 <!-- $$$isEnabled[overload1]$$$isEnabled -->
@@ -330,7 +330,7 @@
 <p><b> 参见 </b><a href="qlayout.html#setEnabled">setEnabled</a>().</p>
 <!-- @@@isEnabled -->
 <!-- $$$itemAt[overload1]$$$itemAtint -->
-<h3 class="fn" id="itemAt"><a name="itemAt"></a><code>[pure virtual] </code><span class="type"><a href="qlayoutitem.html#QLayoutItem">QLayoutItem</a></span> *QLayout::<span class="name">itemAt</span>(<span class="type">int</span> <i>index</i>) const</h3>
+<h3 class="fn" id="itemAt"><a name="itemAt"></a><code>[纯虚函数] </code><span class="type"><a href="qlayoutitem.html#QLayoutItem">QLayoutItem</a></span> *QLayout::<span class="name">itemAt</span>(<span class="type">int</span> <i>index</i>) const</h3>
 <p>Must be implemented in subclasses to return the layout item at <i>index</i>. If there is no such item, the function must return 0. Items are numbered consecutively from 0. If an item is deleted, other items will be renumbered.</p>
 <p>This function can be used to iterate over a layout. The following code will draw a rectangle for each layout item in the layout structure of the widget.</p>
 <pre class="cpp">
@@ -356,11 +356,11 @@
 <p><b> 参见 </b><a href="qlayout.html#count">count</a>() 和 <a href="qlayout.html#takeAt">takeAt</a>().</p>
 <!-- @@@itemAt -->
 <!-- $$$layout[overload1]$$$layout -->
-<h3 class="fn" id="layout"><a name="layout"></a><code>[override virtual] </code><span class="type"><a href="qlayout.html#QLayout">QLayout</a></span> *QLayout::<span class="name">layout</span>()</h3>
+<h3 class="fn" id="layout"><a name="layout"></a><code>[重载虚函数] </code><span class="type"><a href="qlayout.html#QLayout">QLayout</a></span> *QLayout::<span class="name">layout</span>()</h3>
 <p>Reimplemented from <a href="qlayoutitem.html#layout">QLayoutItem::layout</a>().</p>
 <!-- @@@layout -->
 <!-- $$$maximumSize[overload1]$$$maximumSize -->
-<h3 class="fn" id="maximumSize"><a name="maximumSize"></a><code>[override virtual] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QLayout::<span class="name">maximumSize</span>() const</h3>
+<h3 class="fn" id="maximumSize"><a name="maximumSize"></a><code>[重载虚函数] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QLayout::<span class="name">maximumSize</span>() const</h3>
 <p>Reimplemented from <a href="qlayoutitem.html#maximumSize">QLayoutItem::maximumSize</a>().</p>
 <p>Returns the maximum size of this layout. This is the largest size that the layout can have while still respecting the specifications.</p>
 <p>The returned value doesn't include the space required by <a href="qwidget.html#setContentsMargins">QWidget::setContentsMargins</a>() or <a href="qlayout.html#menuBar">menuBar</a>().</p>
@@ -372,7 +372,7 @@
 <p><b> 参见 </b><a href="qlayout.html#setMenuBar">setMenuBar</a>().</p>
 <!-- @@@menuBar -->
 <!-- $$$minimumSize[overload1]$$$minimumSize -->
-<h3 class="fn" id="minimumSize"><a name="minimumSize"></a><code>[override virtual] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QLayout::<span class="name">minimumSize</span>() const</h3>
+<h3 class="fn" id="minimumSize"><a name="minimumSize"></a><code>[重载虚函数] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QLayout::<span class="name">minimumSize</span>() const</h3>
 <p>Reimplemented from <a href="qlayoutitem.html#minimumSize">QLayoutItem::minimumSize</a>().</p>
 <p>Returns the minimum size of this layout. This is the smallest size that the layout can have while still respecting the specifications.</p>
 <p>The returned value doesn't include the space required by <a href="qwidget.html#setContentsMargins">QWidget::setContentsMargins</a>() or <a href="qlayout.html#menuBar">menuBar</a>().</p>
@@ -436,7 +436,7 @@
 <p><b> 参见 </b><a href="qlayout.html#isEnabled">isEnabled</a>().</p>
 <!-- @@@setEnabled -->
 <!-- $$$setGeometry[overload1]$$$setGeometryconstQRect& -->
-<h3 class="fn" id="setGeometry"><a name="setGeometry"></a><code>[override virtual] </code><span class="type">void</span> QLayout::<span class="name">setGeometry</span>(const <span class="type"><a href="../qtcore/qrect.html">QRect</a></span> &amp;<i>r</i>)</h3>
+<h3 class="fn" id="setGeometry"><a name="setGeometry"></a><code>[重载虚函数] </code><span class="type">void</span> QLayout::<span class="name">setGeometry</span>(const <span class="type"><a href="../qtcore/qrect.html">QRect</a></span> &amp;<i>r</i>)</h3>
 <p>Reimplemented from <a href="qlayoutitem.html#setGeometry">QLayoutItem::setGeometry</a>().</p>
 <p><b> 参见 </b><a href="qlayout.html#geometry">geometry</a>().</p>
 <!-- @@@setGeometry -->
@@ -446,7 +446,7 @@
 <p><b> 参见 </b><a href="qlayout.html#menuBar">menuBar</a>().</p>
 <!-- @@@setMenuBar -->
 <!-- $$$takeAt[overload1]$$$takeAtint -->
-<h3 class="fn" id="takeAt"><a name="takeAt"></a><code>[pure virtual] </code><span class="type"><a href="qlayoutitem.html#QLayoutItem">QLayoutItem</a></span> *QLayout::<span class="name">takeAt</span>(<span class="type">int</span> <i>index</i>)</h3>
+<h3 class="fn" id="takeAt"><a name="takeAt"></a><code>[纯虚函数] </code><span class="type"><a href="qlayoutitem.html#QLayoutItem">QLayoutItem</a></span> *QLayout::<span class="name">takeAt</span>(<span class="type">int</span> <i>index</i>)</h3>
 <p>Must be implemented in subclasses to remove the layout item at <i>index</i> from the layout, and return the item. If there is no such item, the function must do nothing and return 0. Items are numbered consecutively from 0. If an item is removed, other items will be renumbered.</p>
 <p>The following code fragment shows a safe way to remove all items from a layout:</p>
 <pre class="cpp">

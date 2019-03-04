@@ -79,15 +79,15 @@
 <div class="func">
 <h2>成员函数文档</h2>
 <!-- $$$~QXmlEntityResolver[overload1]$$$~QXmlEntityResolver -->
-<h3 class="fn" id="dtor.QXmlEntityResolver"><a name="dtor.QXmlEntityResolver"></a><code>[virtual] </code>QXmlEntityResolver::<span class="name">~QXmlEntityResolver</span>()</h3>
+<h3 class="fn" id="dtor.QXmlEntityResolver"><a name="dtor.QXmlEntityResolver"></a><code>[虚函数] </code>QXmlEntityResolver::<span class="name">~QXmlEntityResolver</span>()</h3>
 <p>Destroys the entity resolver.</p>
 <!-- @@@~QXmlEntityResolver -->
 <!-- $$$errorString[overload1]$$$errorString -->
-<h3 class="fn" id="errorString"><a name="errorString"></a><code>[pure virtual] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QXmlEntityResolver::<span class="name">errorString</span>() const</h3>
+<h3 class="fn" id="errorString"><a name="errorString"></a><code>[纯虚函数] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QXmlEntityResolver::<span class="name">errorString</span>() const</h3>
 <p>The reader calls this function to get an error string if any of the handler functions returns <code>false</code>.</p>
 <!-- @@@errorString -->
 <!-- $$$resolveEntity[overload1]$$$resolveEntityconstQString&constQString&QXmlInputSource*& -->
-<h3 class="fn" id="resolveEntity"><a name="resolveEntity"></a><code>[pure virtual] </code><span class="type">bool</span> QXmlEntityResolver::<span class="name">resolveEntity</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>publicId</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>systemId</i>, <span class="type"><a href="qxmlinputsource.html">QXmlInputSource</a></span> *&amp;<i>ret</i>)</h3>
+<h3 class="fn" id="resolveEntity"><a name="resolveEntity"></a><code>[纯虚函数] </code><span class="type">bool</span> QXmlEntityResolver::<span class="name">resolveEntity</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>publicId</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>systemId</i>, <span class="type"><a href="qxmlinputsource.html">QXmlInputSource</a></span> *&amp;<i>ret</i>)</h3>
 <p>The reader calls this function before it opens any external entity, except the top-level document entity. The application may request the reader to resolve the entity itself (<i>ret</i> is 0) or to use an entirely different input source (<i>ret</i> points to the input source).</p>
 <p>The reader deletes the input source <i>ret</i> when it no longer needs it, so you should allocate it on the heap with <code>new</code>.</p>
 <p>The argument <i>publicId</i> is the public identifier of the external entity, <i>systemId</i> is the system identifier of the external entity and <i>ret</i> is the return value of this function. If <i>ret</i> is 0 the reader should resolve the entity itself, if it is non-zero it must point to an input source which the reader uses instead.</p>

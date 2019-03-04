@@ -128,13 +128,13 @@
 <h3 class="fn" id="QSGRenderNode"><a name="QSGRenderNode"></a>QSGRenderNode::<span class="name">QSGRenderNode</span>()</h3>
 <p>Default constructs an instance of QSGRenderNode.</p><!-- @@@QSGRenderNode -->
 <!-- $$$~QSGRenderNode[overload1]$$$~QSGRenderNode -->
-<h3 class="fn" id="dtor.QSGRenderNode"><a name="dtor.QSGRenderNode"></a><code>[override virtual] </code>QSGRenderNode::<span class="name">~QSGRenderNode</span>()</h3>
+<h3 class="fn" id="dtor.QSGRenderNode"><a name="dtor.QSGRenderNode"></a><code>[重载虚函数] </code>QSGRenderNode::<span class="name">~QSGRenderNode</span>()</h3>
 <p>Destructs the render node. Derived classes are expected to perform cleanup similar to <a href="qsgrendernode.html#releaseResources">releaseResources</a>() in here.</p>
 <p>When a low-level graphics API is in use, the scenegraph will make sure there is a CPU-side wait for the GPU to complete all work submitted to the scenegraph's graphics command queue before the scenegraph's nodes are deleted. Therefore there is no need to issue additional waits here, unless the <a href="qsgrendernode.html#render">render</a>() implementation is using additional command queues.</p>
 <p><b> 参见 </b><a href="qsgrendernode.html#releaseResources">releaseResources</a>().</p>
 <!-- @@@~QSGRenderNode -->
 <!-- $$$changedStates[overload1]$$$changedStates -->
-<h3 class="fn" id="changedStates"><a name="changedStates"></a><code>[virtual] </code><span class="type"><a href="qsgrendernode.html#StateFlag-enum">QSGRenderNode::StateFlags</a></span> QSGRenderNode::<span class="name">changedStates</span>() const</h3>
+<h3 class="fn" id="changedStates"><a name="changedStates"></a><code>[虚函数] </code><span class="type"><a href="qsgrendernode.html#StateFlag-enum">QSGRenderNode::StateFlags</a></span> QSGRenderNode::<span class="name">changedStates</span>() const</h3>
 <p>This function should return a mask where each bit represents graphics states changed by the <a href="qsgrendernode.html#render">render</a>() function:</p>
 <ul>
 <li><a href="qsgrendernode.html#StateFlag-enum">DepthState</a> - depth write mask, depth test enabled, depth comparison function</li>
@@ -156,7 +156,7 @@
 <p>Returns the current clip list.</p>
 <!-- @@@clipList -->
 <!-- $$$flags[overload1]$$$flags -->
-<h3 class="fn" id="flags"><a name="flags"></a><code>[virtual] </code><span class="type"><a href="qsgrendernode.html#RenderingFlag-enum">QSGRenderNode::RenderingFlags</a></span> QSGRenderNode::<span class="name">flags</span>() const</h3>
+<h3 class="fn" id="flags"><a name="flags"></a><code>[虚函数] </code><span class="type"><a href="qsgrendernode.html#RenderingFlag-enum">QSGRenderNode::RenderingFlags</a></span> QSGRenderNode::<span class="name">flags</span>() const</h3>
 <p>Returns flags describing the behavior of this render node.</p>
 <p>The default implementation returns 0.</p>
 <p><b> 参见 </b><a href="qsgrendernode.html#RenderingFlag-enum">RenderingFlag</a> 和 <a href="qsgrendernode.html#rect">rect</a>().</p>
@@ -170,21 +170,21 @@
 <p>Returns pointer to the current model-view matrix.</p>
 <!-- @@@matrix -->
 <!-- $$$rect[overload1]$$$rect -->
-<h3 class="fn" id="rect"><a name="rect"></a><code>[virtual] </code><span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> QSGRenderNode::<span class="name">rect</span>() const</h3>
+<h3 class="fn" id="rect"><a name="rect"></a><code>[虚函数] </code><span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> QSGRenderNode::<span class="name">rect</span>() const</h3>
 <p>Returns the bounding rectangle in item coordinates for the area <a href="qsgrendernode.html#render">render</a>() touches. The value is only in use when <a href="qsgrendernode.html#flags">flags</a>() includes <a href="qsgrendernode.html#RenderingFlag-enum">BoundedRectRendering</a>, ignored otherwise.</p>
 <p>Reporting the rectangle in combination with <a href="qsgrendernode.html#RenderingFlag-enum">BoundedRectRendering</a> is particularly important with the <code>software</code> backend because otherwise having a rendernode in the scene would trigger fullscreen updates, skipping all partial update optimizations.</p>
 <p>For rendernodes covering the entire area of a corresponding <a href="qquickitem.html">QQuickItem</a> the return value will be (0, 0, item-&gt;width(), item-&gt;height()).</p>
 <p><b>Note: </b>Nodes are also free to render outside the boundaries specified by the item's width and height, since the scenegraph nodes are not bounded by the <a href="qquickitem.html">QQuickItem</a> geometry, as long as this is reported correctly from this function.</p><p><b> 参见 </b><a href="qsgrendernode.html#flags">flags</a>().</p>
 <!-- @@@rect -->
 <!-- $$$releaseResources[overload1]$$$releaseResources -->
-<h3 class="fn" id="releaseResources"><a name="releaseResources"></a><code>[virtual] </code><span class="type">void</span> QSGRenderNode::<span class="name">releaseResources</span>()</h3>
+<h3 class="fn" id="releaseResources"><a name="releaseResources"></a><code>[虚函数] </code><span class="type">void</span> QSGRenderNode::<span class="name">releaseResources</span>()</h3>
 <p>This function is called when all custom graphics resources allocated by this node have to be freed immediately. In case the node does not directly allocate graphics resources (buffers, textures, render targets, fences, etc.) through the graphics API that is in use, there is nothing to do here.</p>
 <p>Failing to release all custom resources can lead to incorrect behavior in graphics device loss scenarios on some systems since subsequent reinitialization of the graphics system may fail.</p>
 <p><b>Note: </b>Some scenegraph backends may choose not to call this function. Therefore it is expected that <a href="qsgrendernode.html">QSGRenderNode</a> implementations perform cleanup both in their destructor and in releaseResources().</p><p>Unlike with the destructor, it is expected that <a href="qsgrendernode.html#render">render</a>() can reinitialize all resources it needs when called after a call to releaseResources().</p>
 <p>With OpenGL, the scenegraph's OpenGL context will be current both when calling the destructor and this function.</p>
 <!-- @@@releaseResources -->
 <!-- $$$render[overload1]$$$renderconstQSGRenderNode::RenderState* -->
-<h3 class="fn" id="render"><a name="render"></a><code>[pure virtual] </code><span class="type">void</span> QSGRenderNode::<span class="name">render</span>(const <span class="type"><a href="qsgrendernode-renderstate.html">QSGRenderNode::RenderState</a></span> *<i>state</i>)</h3>
+<h3 class="fn" id="render"><a name="render"></a><code>[纯虚函数] </code><span class="type">void</span> QSGRenderNode::<span class="name">render</span>(const <span class="type"><a href="qsgrendernode-renderstate.html">QSGRenderNode::RenderState</a></span> *<i>state</i>)</h3>
 <p>This function is called by the renderer and should paint this node with directly invoking commands in the graphics API (OpenGL, Direct3D, etc.) currently in use.</p>
 <p>The effective opacity can be retrieved with <a href="qsgrendernode.html#inheritedOpacity">inheritedOpacity</a>().</p>
 <p>The projection matrix is available through <i>state</i>, while the model-view matrix can be fetched with <a href="qsgrendernode.html#matrix">matrix</a>(). The combined matrix is then the projection matrix times the model-view matrix. The correct stacking of the items in the scene is ensured by the projection matrix.</p>

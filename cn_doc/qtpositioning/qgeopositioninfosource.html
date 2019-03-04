@@ -218,29 +218,29 @@
 <p>Creates a position source with the specified <i>parent</i>.</p>
 <!-- @@@QGeoPositionInfoSource -->
 <!-- $$$~QGeoPositionInfoSource[overload1]$$$~QGeoPositionInfoSource -->
-<h3 class="fn" id="dtor.QGeoPositionInfoSource"><a name="dtor.QGeoPositionInfoSource"></a><code>[virtual] </code>QGeoPositionInfoSource::<span class="name">~QGeoPositionInfoSource</span>()</h3>
+<h3 class="fn" id="dtor.QGeoPositionInfoSource"><a name="dtor.QGeoPositionInfoSource"></a><code>[虚函数] </code>QGeoPositionInfoSource::<span class="name">~QGeoPositionInfoSource</span>()</h3>
 <p>Destroys the position source.</p>
 <!-- @@@~QGeoPositionInfoSource -->
 <!-- $$$availableSources[overload1]$$$availableSources -->
-<h3 class="fn" id="availableSources"><a name="availableSources"></a><code>[static] </code><span class="type"><a href="../qtcore/qstringlist.html">QStringList</a></span> QGeoPositionInfoSource::<span class="name">availableSources</span>()</h3>
+<h3 class="fn" id="availableSources"><a name="availableSources"></a><code>[静态函数] </code><span class="type"><a href="../qtcore/qstringlist.html">QStringList</a></span> QGeoPositionInfoSource::<span class="name">availableSources</span>()</h3>
 <p>Returns a list of available source plugins. This includes any default backend plugin for the current platform.</p>
 <!-- @@@availableSources -->
 <!-- $$$createDefaultSource[overload1]$$$createDefaultSourceQObject* -->
-<h3 class="fn" id="createDefaultSource"><a name="createDefaultSource"></a><code>[static] </code><span class="type"><a href="qgeopositioninfosource.html#QGeoPositionInfoSource">QGeoPositionInfoSource</a></span> *QGeoPositionInfoSource::<span class="name">createDefaultSource</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i>)</h3>
+<h3 class="fn" id="createDefaultSource"><a name="createDefaultSource"></a><code>[静态函数] </code><span class="type"><a href="qgeopositioninfosource.html#QGeoPositionInfoSource">QGeoPositionInfoSource</a></span> *QGeoPositionInfoSource::<span class="name">createDefaultSource</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i>)</h3>
 <p>Creates and returns a position source with the given <i>parent</i> that reads from the system's default sources of location data, or the plugin with the highest available priority.</p>
 <p>Returns 0 if the system has no default position source, no valid plugins could be found or the user does not have the permission to access the current position.</p>
 <!-- @@@createDefaultSource -->
 <!-- $$$createSource[overload1]$$$createSourceconstQString&QObject* -->
-<h3 class="fn" id="createSource"><a name="createSource"></a><code>[static] </code><span class="type"><a href="qgeopositioninfosource.html#QGeoPositionInfoSource">QGeoPositionInfoSource</a></span> *QGeoPositionInfoSource::<span class="name">createSource</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>sourceName</i>, <span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i>)</h3>
+<h3 class="fn" id="createSource"><a name="createSource"></a><code>[静态函数] </code><span class="type"><a href="qgeopositioninfosource.html#QGeoPositionInfoSource">QGeoPositionInfoSource</a></span> *QGeoPositionInfoSource::<span class="name">createSource</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>sourceName</i>, <span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i>)</h3>
 <p>Creates and returns a position source with the given <i>parent</i>, by loading the plugin named <i>sourceName</i>.</p>
 <p>Returns 0 if the plugin cannot be found.</p>
 <!-- @@@createSource -->
 <!-- $$$error[overload1]$$$error -->
-<h3 class="fn" id="error"><a name="error"></a><code>[pure virtual] </code><span class="type"><a href="qgeopositioninfosource.html#Error-enum">QGeoPositionInfoSource::Error</a></span> QGeoPositionInfoSource::<span class="name">error</span>() const</h3>
+<h3 class="fn" id="error"><a name="error"></a><code>[纯虚函数] </code><span class="type"><a href="qgeopositioninfosource.html#Error-enum">QGeoPositionInfoSource::Error</a></span> QGeoPositionInfoSource::<span class="name">error</span>() const</h3>
 <p>Returns the type of error that last occurred.</p>
 <!-- @@@error -->
 <!-- $$$error$$$errorQGeoPositionInfoSource::Error -->
-<h3 class="fn" id="error-1"><a name="error-1"></a><code>[signal] </code><span class="type">void</span> QGeoPositionInfoSource::<span class="name">error</span>(<span class="type"><a href="qgeopositioninfosource.html#Error-enum">QGeoPositionInfoSource::Error</a></span> <i>positioningError</i>)</h3>
+<h3 class="fn" id="error-1"><a name="error-1"></a><code>[信号] </code><span class="type">void</span> QGeoPositionInfoSource::<span class="name">error</span>(<span class="type"><a href="qgeopositioninfosource.html#Error-enum">QGeoPositionInfoSource::Error</a></span> <i>positioningError</i>)</h3>
 <p>This signal is emitted after an error occurred. The <i>positioningError</i> parameter describes the type of error that occurred.</p>
 <p>This signal is not emitted when an <a href="qgeopositioninfosource.html#updateTimeout">updateTimeout</a>() has occurred.</p>
 <p><b>Note:</b> Signal <i>error</i> is overloaded in this class. To connect to this signal by using the function pointer syntax, Qt provides a convenient helper for obtaining the function pointer as shown in this example:<pre class="cpp">
@@ -251,12 +251,12 @@
 </pre>
 <!-- @@@error -->
 <!-- $$$lastKnownPosition[overload1]$$$lastKnownPositionbool -->
-<h3 class="fn" id="lastKnownPosition"><a name="lastKnownPosition"></a><code>[pure virtual] </code><span class="type"><a href="qgeopositioninfo.html">QGeoPositionInfo</a></span> QGeoPositionInfoSource::<span class="name">lastKnownPosition</span>(<span class="type">bool</span> <i>fromSatellitePositioningMethodsOnly</i> = ...) const</h3>
+<h3 class="fn" id="lastKnownPosition"><a name="lastKnownPosition"></a><code>[纯虚函数] </code><span class="type"><a href="qgeopositioninfo.html">QGeoPositionInfo</a></span> QGeoPositionInfoSource::<span class="name">lastKnownPosition</span>(<span class="type">bool</span> <i>fromSatellitePositioningMethodsOnly</i> = ...) const</h3>
 <p>Returns an update containing the last known position, or a null update if none is available.</p>
 <p>If <i>fromSatellitePositioningMethodsOnly</i> is true, this returns the last known position received from a satellite positioning method; if none is available, a null update is returned.</p>
 <!-- @@@lastKnownPosition -->
 <!-- $$$positionUpdated[overload1]$$$positionUpdatedconstQGeoPositionInfo& -->
-<h3 class="fn" id="positionUpdated"><a name="positionUpdated"></a><code>[signal] </code><span class="type">void</span> QGeoPositionInfoSource::<span class="name">positionUpdated</span>(const <span class="type"><a href="qgeopositioninfo.html">QGeoPositionInfo</a></span> &amp;<i>update</i>)</h3>
+<h3 class="fn" id="positionUpdated"><a name="positionUpdated"></a><code>[信号] </code><span class="type">void</span> QGeoPositionInfoSource::<span class="name">positionUpdated</span>(const <span class="type"><a href="qgeopositioninfo.html">QGeoPositionInfo</a></span> &amp;<i>update</i>)</h3>
 <p>If <a href="qgeopositioninfosource.html#startUpdates">startUpdates</a>() or <a href="qgeopositioninfosource.html#requestUpdate">requestUpdate</a>() is called, this signal is emitted when an update becomes available.</p>
 <p>The <i>update</i> value holds the value of the new update.</p>
 <!-- @@@positionUpdated -->
@@ -273,7 +273,7 @@
 <p>If the source uses multiple positioning methods, it tries to get the current position from the most accurate positioning method within the given timeout.</p>
 <!-- @@@requestUpdate -->
 <!-- $$$setPreferredPositioningMethods[overload1]$$$setPreferredPositioningMethodsQGeoPositionInfoSource::PositioningMethods -->
-<h3 class="fn" id="setPreferredPositioningMethods"><a name="setPreferredPositioningMethods"></a><code>[virtual] </code><span class="type">void</span> QGeoPositionInfoSource::<span class="name">setPreferredPositioningMethods</span>(<span class="type"><a href="qgeopositioninfosource.html#PositioningMethod-enum">QGeoPositionInfoSource::PositioningMethods</a></span> <i>methods</i>)</h3>
+<h3 class="fn" id="setPreferredPositioningMethods"><a name="setPreferredPositioningMethods"></a><code>[虚函数] </code><span class="type">void</span> QGeoPositionInfoSource::<span class="name">setPreferredPositioningMethods</span>(<span class="type"><a href="qgeopositioninfosource.html#PositioningMethod-enum">QGeoPositionInfoSource::PositioningMethods</a></span> <i>methods</i>)</h3>
 <p>Sets the preferred positioning methods for this source to <i>methods</i>.</p>
 <p>If <i>methods</i> includes a method that is not supported by the source, the unsupported method will be ignored.</p>
 <p>If <i>methods</i> does not include any methods supported by the source, the preferred methods will be set to the set of methods which the source supports.</p>
@@ -292,17 +292,17 @@
 <p>Stops emitting updates at regular intervals.</p>
 <!-- @@@stopUpdates -->
 <!-- $$$supportedPositioningMethods[overload1]$$$supportedPositioningMethods -->
-<h3 class="fn" id="supportedPositioningMethods"><a name="supportedPositioningMethods"></a><code>[pure virtual] </code><span class="type"><a href="qgeopositioninfosource.html#PositioningMethod-enum">QGeoPositionInfoSource::PositioningMethods</a></span> QGeoPositionInfoSource::<span class="name">supportedPositioningMethods</span>() const</h3>
+<h3 class="fn" id="supportedPositioningMethods"><a name="supportedPositioningMethods"></a><code>[纯虚函数] </code><span class="type"><a href="qgeopositioninfosource.html#PositioningMethod-enum">QGeoPositionInfoSource::PositioningMethods</a></span> QGeoPositionInfoSource::<span class="name">supportedPositioningMethods</span>() const</h3>
 <p>Returns the positioning methods available to this source.</p>
 <p><b> 参见 </b><a href="qgeopositioninfosource.html#setPreferredPositioningMethods">setPreferredPositioningMethods</a>().</p>
 <!-- @@@supportedPositioningMethods -->
 <!-- $$$supportedPositioningMethodsChanged[overload1]$$$supportedPositioningMethodsChanged -->
-<h3 class="fn" id="supportedPositioningMethodsChanged"><a name="supportedPositioningMethodsChanged"></a><code>[signal] </code><span class="type">void</span> QGeoPositionInfoSource::<span class="name">supportedPositioningMethodsChanged</span>()</h3>
+<h3 class="fn" id="supportedPositioningMethodsChanged"><a name="supportedPositioningMethodsChanged"></a><code>[信号] </code><span class="type">void</span> QGeoPositionInfoSource::<span class="name">supportedPositioningMethodsChanged</span>()</h3>
 <p>This signal is emitted after the <a href="qgeopositioninfosource.html#supportedPositioningMethods">supportedPositioningMethods</a> change.</p>
 <p>这个函数是在Qt 5.12版本中新增引入的。</p>
 <!-- @@@supportedPositioningMethodsChanged -->
 <!-- $$$updateTimeout[overload1]$$$updateTimeout -->
-<h3 class="fn" id="updateTimeout"><a name="updateTimeout"></a><code>[signal] </code><span class="type">void</span> QGeoPositionInfoSource::<span class="name">updateTimeout</span>()</h3>
+<h3 class="fn" id="updateTimeout"><a name="updateTimeout"></a><code>[信号] </code><span class="type">void</span> QGeoPositionInfoSource::<span class="name">updateTimeout</span>()</h3>
 <p>If <a href="qgeopositioninfosource.html#requestUpdate">requestUpdate</a>() was called, this signal will be emitted if the current position could not be retrieved within the specified timeout.</p>
 <p>If <a href="qgeopositioninfosource.html#startUpdates">startUpdates</a>() has been called, this signal will be emitted if this <a href="qgeopositioninfosource.html">QGeoPositionInfoSource</a> subclass determines that it will not be able to provide further regular updates. This signal will not be emitted again until after the regular updates resume.</p>
 <p>While the triggering of this signal may be considered an error condition, it does not imply the emission of the <code>error()</code> signal. Only the emission of <code>updateTimeout()</code> is required to indicate a timeout.</p>

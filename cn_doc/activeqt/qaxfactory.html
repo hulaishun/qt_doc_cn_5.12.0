@@ -238,45 +238,45 @@
 <p>Constructs a <a href="qaxfactory.html">QAxFactory</a> object that returns <i>libid</i> and <i>appid</i> in the implementation of the respective interface functions.</p>
 <!-- @@@QAxFactory -->
 <!-- $$$~QAxFactory[overload1]$$$~QAxFactory -->
-<h3 class="fn" id="dtor.QAxFactory"><a name="dtor.QAxFactory"></a><code>[override virtual] </code>QAxFactory::<span class="name">~QAxFactory</span>()</h3>
+<h3 class="fn" id="dtor.QAxFactory"><a name="dtor.QAxFactory"></a><code>[重载虚函数] </code>QAxFactory::<span class="name">~QAxFactory</span>()</h3>
 <p>Destroys the <a href="qaxfactory.html">QAxFactory</a> object.</p>
 <!-- @@@~QAxFactory -->
 <!-- $$$appID[overload1]$$$appID -->
-<h3 class="fn" id="appID"><a name="appID"></a><code>[virtual] </code><span class="type"><a href="../qtcore/quuid.html">QUuid</a></span> QAxFactory::<span class="name">appID</span>() const</h3>
+<h3 class="fn" id="appID"><a name="appID"></a><code>[虚函数] </code><span class="type"><a href="../qtcore/quuid.html">QUuid</a></span> QAxFactory::<span class="name">appID</span>() const</h3>
 <p>Reimplement this function to return the ActiveX server's application identifier.</p>
 <!-- @@@appID -->
 <!-- $$$classID[overload1]$$$classIDconstQString& -->
-<h3 class="fn" id="classID"><a name="classID"></a><code>[virtual] </code><span class="type"><a href="../qtcore/quuid.html">QUuid</a></span> QAxFactory::<span class="name">classID</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i>) const</h3>
+<h3 class="fn" id="classID"><a name="classID"></a><code>[虚函数] </code><span class="type"><a href="../qtcore/quuid.html">QUuid</a></span> QAxFactory::<span class="name">classID</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i>) const</h3>
 <p>Reimplement this function to return the class identifier for each <i>key</i> returned by the <a href="qaxfactory.html#featureList">featureList</a>() implementation, or an empty <a href="../qtcore/quuid.html">QUuid</a> if this factory doesn't support the value of <i>key</i>.</p>
 <p>The default implementation interprets <i>key</i> as the class name, and returns the value of the <a href="../qtcore/qobject.html#Q_CLASSINFO">Q_CLASSINFO</a>() entry &quot;ClassID&quot;.</p>
 <!-- @@@classID -->
 <!-- $$$createObject[overload1]$$$createObjectconstQString& -->
-<h3 class="fn" id="createObject"><a name="createObject"></a><code>[pure virtual] </code><span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *QAxFactory::<span class="name">createObject</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i>)</h3>
+<h3 class="fn" id="createObject"><a name="createObject"></a><code>[纯虚函数] </code><span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *QAxFactory::<span class="name">createObject</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i>)</h3>
 <p>Reimplement this function to return a new object for <i>key</i>, or 0 if this factory doesn't support the value of <i>key</i>.</p>
 <p>If the object returned is a <a href="../qtwidgets/qwidget.html">QWidget</a> it will be exposed as an ActiveX control, otherwise the returned object will be exposed as a simple COM object.</p>
 <!-- @@@createObject -->
 <!-- $$$createObjectWrapper[overload1]$$$createObjectWrapperQObject*IDispatch** -->
-<h3 class="fn" id="createObjectWrapper"><a name="createObjectWrapper"></a><code>[virtual] </code><span class="type">bool</span> QAxFactory::<span class="name">createObjectWrapper</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>object</i>, <span class="type">IDispatch</span> **<i>wrapper</i>)</h3>
+<h3 class="fn" id="createObjectWrapper"><a name="createObjectWrapper"></a><code>[虚函数] </code><span class="type">bool</span> QAxFactory::<span class="name">createObjectWrapper</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>object</i>, <span class="type">IDispatch</span> **<i>wrapper</i>)</h3>
 <p>Reimplement this function to provide the COM object for <i>object</i> in <i>wrapper</i>. Return true if the function was successful; otherwise return false.</p>
 <p>The default implementation creates a generic automation wrapper based on the meta object information of <i>object</i>.</p>
 <!-- @@@createObjectWrapper -->
 <!-- $$$eventsID[overload1]$$$eventsIDconstQString& -->
-<h3 class="fn" id="eventsID"><a name="eventsID"></a><code>[virtual] </code><span class="type"><a href="../qtcore/quuid.html">QUuid</a></span> QAxFactory::<span class="name">eventsID</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i>) const</h3>
+<h3 class="fn" id="eventsID"><a name="eventsID"></a><code>[虚函数] </code><span class="type"><a href="../qtcore/quuid.html">QUuid</a></span> QAxFactory::<span class="name">eventsID</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i>) const</h3>
 <p>Reimplement this function to return the identifier of the event interface for each <i>key</i> returned by the <a href="qaxfactory.html#featureList">featureList</a>() implementation, or an empty <a href="../qtcore/quuid.html">QUuid</a> if this factory doesn't support the value of <i>key</i>.</p>
 <p>The default implementation interprets <i>key</i> as the class name, and returns the value of the <a href="../qtcore/qobject.html#Q_CLASSINFO">Q_CLASSINFO</a>() entry &quot;EventsID&quot;.</p>
 <!-- @@@eventsID -->
 <!-- $$$exposeToSuperClass[overload1]$$$exposeToSuperClassconstQString& -->
-<h3 class="fn" id="exposeToSuperClass"><a name="exposeToSuperClass"></a><code>[virtual] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QAxFactory::<span class="name">exposeToSuperClass</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i>) const</h3>
+<h3 class="fn" id="exposeToSuperClass"><a name="exposeToSuperClass"></a><code>[虚函数] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QAxFactory::<span class="name">exposeToSuperClass</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i>) const</h3>
 <p>Reimplement this function to return the name of the super class of <i>key</i> up to which methods and properties should be exposed by the ActiveX control.</p>
 <p>The default implementation interprets <i>key</i> as the class name, and returns the value of the <code>Q_CLASSINFO()</code> entry &quot;ToSuperClass&quot;. If no such value is set the null-string is returned, and the functions and properties of all the super classes including <a href="../qtwidgets/qwidget.html">QWidget</a> will be exposed.</p>
 <p>To only expose the functions and properties of the class itself, reimplement this function to return <i>key</i>.</p>
 <!-- @@@exposeToSuperClass -->
 <!-- $$$featureList[overload1]$$$featureList -->
-<h3 class="fn" id="featureList"><a name="featureList"></a><code>[pure virtual] </code><span class="type"><a href="../qtcore/qstringlist.html">QStringList</a></span> QAxFactory::<span class="name">featureList</span>() const</h3>
+<h3 class="fn" id="featureList"><a name="featureList"></a><code>[纯虚函数] </code><span class="type"><a href="../qtcore/qstringlist.html">QStringList</a></span> QAxFactory::<span class="name">featureList</span>() const</h3>
 <p>Reimplement this function to return a list of the widgets (class names) supported by this factory.</p>
 <!-- @@@featureList -->
 <!-- $$$hasStockEvents[overload1]$$$hasStockEventsconstQString& -->
-<h3 class="fn" id="hasStockEvents"><a name="hasStockEvents"></a><code>[virtual] </code><span class="type">bool</span> QAxFactory::<span class="name">hasStockEvents</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i>) const</h3>
+<h3 class="fn" id="hasStockEvents"><a name="hasStockEvents"></a><code>[虚函数] </code><span class="type">bool</span> QAxFactory::<span class="name">hasStockEvents</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i>) const</h3>
 <p>Reimplement this function to return true if the ActiveX control <i>key</i> should support the standard ActiveX events</p>
 <ul>
 <li>Click</li>
@@ -291,12 +291,12 @@
 <p>The default implementation interprets <i>key</i> as the class name, and returns true if the value of the <code>Q_CLASSINFO()</code> entry &quot;StockEvents&quot; is &quot;yes&quot;. Otherwise this function returns false.</p>
 <!-- @@@hasStockEvents -->
 <!-- $$$interfaceID[overload1]$$$interfaceIDconstQString& -->
-<h3 class="fn" id="interfaceID"><a name="interfaceID"></a><code>[virtual] </code><span class="type"><a href="../qtcore/quuid.html">QUuid</a></span> QAxFactory::<span class="name">interfaceID</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i>) const</h3>
+<h3 class="fn" id="interfaceID"><a name="interfaceID"></a><code>[虚函数] </code><span class="type"><a href="../qtcore/quuid.html">QUuid</a></span> QAxFactory::<span class="name">interfaceID</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i>) const</h3>
 <p>Reimplement this function to return the interface identifier for each <i>key</i> returned by the <a href="qaxfactory.html#featureList">featureList</a>() implementation, or an empty <a href="../qtcore/quuid.html">QUuid</a> if this factory doesn't support the value of <i>key</i>.</p>
 <p>The default implementation interprets <i>key</i> as the class name, and returns the value of the <a href="../qtcore/qobject.html#Q_CLASSINFO">Q_CLASSINFO</a>() entry &quot;InterfaceID&quot;.</p>
 <!-- @@@interfaceID -->
 <!-- $$$isServer[overload1]$$$isServer -->
-<h3 class="fn" id="isServer"><a name="isServer"></a><code>[static] </code><span class="type">bool</span> QAxFactory::<span class="name">isServer</span>()</h3>
+<h3 class="fn" id="isServer"><a name="isServer"></a><code>[静态函数] </code><span class="type">bool</span> QAxFactory::<span class="name">isServer</span>()</h3>
 <p>Returns true if the application has been started (by COM) as an ActiveX server, otherwise returns false.</p>
 <pre class="cpp">
 
@@ -312,22 +312,22 @@
 </pre>
 <!-- @@@isServer -->
 <!-- $$$isService[overload1]$$$isService -->
-<h3 class="fn" id="isService"><a name="isService"></a><code>[virtual] </code><span class="type">bool</span> QAxFactory::<span class="name">isService</span>() const</h3>
+<h3 class="fn" id="isService"><a name="isService"></a><code>[虚函数] </code><span class="type">bool</span> QAxFactory::<span class="name">isService</span>() const</h3>
 <p>Reimplement this function to return true if the server is running as a persistent service (e.g&#x2e; an NT service) and should not terminate even when all objects provided have been released.</p>
 <p>The default implementation returns false.</p>
 <!-- @@@isService -->
 <!-- $$$metaObject[overload1]$$$metaObjectconstQString& -->
-<h3 class="fn" id="metaObject"><a name="metaObject"></a><code>[pure virtual] </code>const <span class="type"><a href="../qtcore/qmetaobject.html">QMetaObject</a></span> *QAxFactory::<span class="name">metaObject</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i>) const</h3>
+<h3 class="fn" id="metaObject"><a name="metaObject"></a><code>[纯虚函数] </code>const <span class="type"><a href="../qtcore/qmetaobject.html">QMetaObject</a></span> *QAxFactory::<span class="name">metaObject</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i>) const</h3>
 <p>Reimplement this function to return the <a href="../qtcore/qmetaobject.html">QMetaObject</a> corresponding to <i>key</i>, or 0 if this factory doesn't support the value of <i>key</i>.</p>
 <!-- @@@metaObject -->
 <!-- $$$registerActiveObject[overload1]$$$registerActiveObjectQObject* -->
-<h3 class="fn" id="registerActiveObject"><a name="registerActiveObject"></a><code>[static] </code><span class="type">bool</span> QAxFactory::<span class="name">registerActiveObject</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>object</i>)</h3>
+<h3 class="fn" id="registerActiveObject"><a name="registerActiveObject"></a><code>[静态函数] </code><span class="type">bool</span> QAxFactory::<span class="name">registerActiveObject</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>object</i>)</h3>
 <p>Registers the <a href="../qtcore/qobject.html">QObject</a> <i>object</i> with COM as a running object, and returns true if the registration succeeded, otherwise returns false. The object is unregistered automatically when it is destroyed.</p>
 <p>This function should only be called if the application has been started by the user (i.e&#x2e; not by COM to respond to a request), and only for one object, usually the toplevel object of the application's object hierarchy.</p>
 <p>This function does nothing and returns false if the object's class info for &quot;RegisterObject&quot; is not set to &quot;yes&quot;, or if the server is an in-process server.</p>
 <!-- @@@registerActiveObject -->
 <!-- $$$registerClass[overload1]$$$registerClassconstQString&QSettings* -->
-<h3 class="fn" id="registerClass"><a name="registerClass"></a><code>[virtual] </code><span class="type">void</span> QAxFactory::<span class="name">registerClass</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i>, <span class="type"><a href="../qtcore/qsettings.html">QSettings</a></span> *<i>settings</i>) const</h3>
+<h3 class="fn" id="registerClass"><a name="registerClass"></a><code>[虚函数] </code><span class="type">void</span> QAxFactory::<span class="name">registerClass</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i>, <span class="type"><a href="../qtcore/qsettings.html">QSettings</a></span> *<i>settings</i>) const</h3>
 <p>Registers additional values for the class <i>key</i> in the system registry using the <i>settings</i> object. The standard values have already been registered by the framework, but additional values, e.g&#x2e; implemented categories, can be added in an implementation of this function.</p>
 <pre class="cpp">
 
@@ -341,17 +341,17 @@
 <p><b> 参见 </b><a href="../qtcore/qsettings.html">QSettings</a>.</p>
 <!-- @@@registerClass -->
 <!-- $$$serverDirPath[overload1]$$$serverDirPath -->
-<h3 class="fn" id="serverDirPath"><a name="serverDirPath"></a><code>[static] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QAxFactory::<span class="name">serverDirPath</span>()</h3>
+<h3 class="fn" id="serverDirPath"><a name="serverDirPath"></a><code>[静态函数] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QAxFactory::<span class="name">serverDirPath</span>()</h3>
 <p>Returns the directory that contains the server binary.</p>
 <p>For out-of-process servers this is the same as <a href="../qtcore/qcoreapplication.html#applicationDirPath">QCoreApplication::applicationDirPath</a>(). For in-process servers that function returns the directory that contains the hosting application.</p>
 <!-- @@@serverDirPath -->
 <!-- $$$serverFilePath[overload1]$$$serverFilePath -->
-<h3 class="fn" id="serverFilePath"><a name="serverFilePath"></a><code>[static] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QAxFactory::<span class="name">serverFilePath</span>()</h3>
+<h3 class="fn" id="serverFilePath"><a name="serverFilePath"></a><code>[静态函数] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QAxFactory::<span class="name">serverFilePath</span>()</h3>
 <p>Returns the file path of the server binary.</p>
 <p>For out-of-process servers this is the same as <a href="../qtcore/qcoreapplication.html#applicationFilePath">QCoreApplication::applicationFilePath</a>(). For in-process servers that function returns the file path of the hosting application.</p>
 <!-- @@@serverFilePath -->
 <!-- $$$startServer[overload1]$$$startServerQAxFactory::ServerType -->
-<h3 class="fn" id="startServer"><a name="startServer"></a><code>[static] </code><span class="type">bool</span> QAxFactory::<span class="name">startServer</span>(<span class="type"><a href="qaxfactory.html#ServerType-enum">QAxFactory::ServerType</a></span> <i>type</i> = MultipleInstances)</h3>
+<h3 class="fn" id="startServer"><a name="startServer"></a><code>[静态函数] </code><span class="type">bool</span> QAxFactory::<span class="name">startServer</span>(<span class="type"><a href="qaxfactory.html#ServerType-enum">QAxFactory::ServerType</a></span> <i>type</i> = MultipleInstances)</h3>
 <p>Starts the COM server with <i>type</i> and returns true if successful, otherwise returns false.</p>
 <p>Calling this function if the server is already running (or for an in-process server) does nothing and returns true.</p>
 <p>The server is started automatically with <i>type</i> set to <code>MultipleInstances</code> if the server executable has been started with the <code>-activex</code> command line parameter. To switch to <a href="qaxfactory.html#ServerType-enum">SingleInstance</a>, call</p>
@@ -366,22 +366,22 @@
 <p>in your own main() entry point function.</p>
 <!-- @@@startServer -->
 <!-- $$$stayTopLevel[overload1]$$$stayTopLevelconstQString& -->
-<h3 class="fn" id="stayTopLevel"><a name="stayTopLevel"></a><code>[virtual] </code><span class="type">bool</span> QAxFactory::<span class="name">stayTopLevel</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i>) const</h3>
+<h3 class="fn" id="stayTopLevel"><a name="stayTopLevel"></a><code>[虚函数] </code><span class="type">bool</span> QAxFactory::<span class="name">stayTopLevel</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i>) const</h3>
 <p>Reimplement this function to return true if the ActiveX control <i>key</i> should be a top level window, e.g&#x2e; a dialog. The default implementation returns false.</p>
 <!-- @@@stayTopLevel -->
 <!-- $$$stopServer[overload1]$$$stopServer -->
-<h3 class="fn" id="stopServer"><a name="stopServer"></a><code>[static] </code><span class="type">bool</span> QAxFactory::<span class="name">stopServer</span>()</h3>
+<h3 class="fn" id="stopServer"><a name="stopServer"></a><code>[静态函数] </code><span class="type">bool</span> QAxFactory::<span class="name">stopServer</span>()</h3>
 <p>Stops the COM server and returns true if successful, otherwise returns false.</p>
 <p>Calling this function if the server is not running (or for an in-process server) does nothing and returns true.</p>
 <p>Stopping the server will not invalidate existing objects, but no new objects can be created from the existing server process. Usually COM will start a new server process if additional objects are requested.</p>
 <p>The server is stopped automatically when the main() function returns.</p>
 <!-- @@@stopServer -->
 <!-- $$$typeLibID[overload1]$$$typeLibID -->
-<h3 class="fn" id="typeLibID"><a name="typeLibID"></a><code>[virtual] </code><span class="type"><a href="../qtcore/quuid.html">QUuid</a></span> QAxFactory::<span class="name">typeLibID</span>() const</h3>
+<h3 class="fn" id="typeLibID"><a name="typeLibID"></a><code>[虚函数] </code><span class="type"><a href="../qtcore/quuid.html">QUuid</a></span> QAxFactory::<span class="name">typeLibID</span>() const</h3>
 <p>Reimplement this function to return the ActiveX server's type library identifier.</p>
 <!-- @@@typeLibID -->
 <!-- $$$unregisterClass[overload1]$$$unregisterClassconstQString&QSettings* -->
-<h3 class="fn" id="unregisterClass"><a name="unregisterClass"></a><code>[virtual] </code><span class="type">void</span> QAxFactory::<span class="name">unregisterClass</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i>, <span class="type"><a href="../qtcore/qsettings.html">QSettings</a></span> *<i>settings</i>) const</h3>
+<h3 class="fn" id="unregisterClass"><a name="unregisterClass"></a><code>[虚函数] </code><span class="type">void</span> QAxFactory::<span class="name">unregisterClass</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i>, <span class="type"><a href="../qtcore/qsettings.html">QSettings</a></span> *<i>settings</i>) const</h3>
 <p>Unregisters any additional values for the class <i>key</i> from the system registry using the <i>settings</i> object.</p>
 <pre class="cpp">
 
@@ -393,7 +393,7 @@
 <p><b> 参见 </b><a href="qaxfactory.html#registerClass">registerClass</a>() 和 <a href="../qtcore/qsettings.html">QSettings</a>.</p>
 <!-- @@@unregisterClass -->
 <!-- $$$validateLicenseKey[overload1]$$$validateLicenseKeyconstQString&constQString& -->
-<h3 class="fn" id="validateLicenseKey"><a name="validateLicenseKey"></a><code>[virtual] </code><span class="type">bool</span> QAxFactory::<span class="name">validateLicenseKey</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>licenseKey</i>) const</h3>
+<h3 class="fn" id="validateLicenseKey"><a name="validateLicenseKey"></a><code>[虚函数] </code><span class="type">bool</span> QAxFactory::<span class="name">validateLicenseKey</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>key</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>licenseKey</i>) const</h3>
 <p>Reimplement this function to return true if <i>licenseKey</i> is a valid license for the class <i>key</i>, or if the current machine is licensed.</p>
 <p>The default implementation returns true if the class <i>key</i> is not licensed (ie. no <code>Q_CLASSINFO()</code> attribute &quot;LicenseKey&quot;), or if <i>licenseKey</i> matches the value of the &quot;LicenseKey&quot; attribute, or if the machine is licensed through a .LIC file with the same filename as this COM server.</p>
 <!-- @@@validateLicenseKey -->

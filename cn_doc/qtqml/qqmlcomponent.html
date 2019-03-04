@@ -294,11 +294,11 @@
 <p><b> 参见 </b><a href="qqmlcomponent.html#loadUrl">loadUrl</a>().</p>
 <!-- @@@QQmlComponent -->
 <!-- $$$~QQmlComponent[overload1]$$$~QQmlComponent -->
-<h3 class="fn" id="dtor.QQmlComponent"><a name="dtor.QQmlComponent"></a><code>[override virtual] </code>QQmlComponent::<span class="name">~QQmlComponent</span>()</h3>
+<h3 class="fn" id="dtor.QQmlComponent"><a name="dtor.QQmlComponent"></a><code>[重载虚函数] </code>QQmlComponent::<span class="name">~QQmlComponent</span>()</h3>
 <p>Destruct the <a href="qqmlcomponent.html">QQmlComponent</a>.</p>
 <!-- @@@~QQmlComponent -->
 <!-- $$$beginCreate[overload1]$$$beginCreateQQmlContext* -->
-<h3 class="fn" id="beginCreate"><a name="beginCreate"></a><code>[virtual] </code><span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *QQmlComponent::<span class="name">beginCreate</span>(<span class="type"><a href="qqmlcontext.html">QQmlContext</a></span> *<i>publicContext</i>)</h3>
+<h3 class="fn" id="beginCreate"><a name="beginCreate"></a><code>[虚函数] </code><span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *QQmlComponent::<span class="name">beginCreate</span>(<span class="type"><a href="qqmlcontext.html">QQmlContext</a></span> *<i>publicContext</i>)</h3>
 <p>This method provides advanced control over component instance creation. In general, programmers should use <a href="qqmlcomponent.html#create">QQmlComponent::create</a>() to create object instances.</p>
 <p>Create an object instance from this component. Returns 0 if creation failed. <i>publicContext</i> specifies the context within which to create the object instance.</p>
 <p>When <a href="qqmlcomponent.html">QQmlComponent</a> constructs an instance, it occurs in three steps:</p>
@@ -312,13 +312,13 @@
 <p><b> 参见 </b><a href="qqmlcomponent.html#completeCreate">completeCreate</a>() 和 <a href="qqmlengine.html#ObjectOwnership-enum">QQmlEngine::ObjectOwnership</a>.</p>
 <!-- @@@beginCreate -->
 <!-- $$$completeCreate[overload1]$$$completeCreate -->
-<h3 class="fn" id="completeCreate"><a name="completeCreate"></a><code>[virtual] </code><span class="type">void</span> QQmlComponent::<span class="name">completeCreate</span>()</h3>
+<h3 class="fn" id="completeCreate"><a name="completeCreate"></a><code>[虚函数] </code><span class="type">void</span> QQmlComponent::<span class="name">completeCreate</span>()</h3>
 <p>This method provides advanced control over component instance creation. In general, programmers should use <a href="qqmlcomponent.html#create">QQmlComponent::create</a>() to create a component.</p>
 <p>This function completes the component creation begun with <a href="qqmlcomponent.html#beginCreate">QQmlComponent::beginCreate</a>() and must be called afterwards.</p>
 <p><b> 参见 </b><a href="qqmlcomponent.html#beginCreate">beginCreate</a>().</p>
 <!-- @@@completeCreate -->
 <!-- $$$create[overload1]$$$createQQmlContext* -->
-<h3 class="fn" id="create"><a name="create"></a><code>[virtual] </code><span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *QQmlComponent::<span class="name">create</span>(<span class="type"><a href="qqmlcontext.html">QQmlContext</a></span> *<i>context</i> = nullptr)</h3>
+<h3 class="fn" id="create"><a name="create"></a><code>[虚函数] </code><span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *QQmlComponent::<span class="name">create</span>(<span class="type"><a href="qqmlcontext.html">QQmlContext</a></span> *<i>context</i> = nullptr)</h3>
 <p>Create an object instance from this component. Returns 0 if creation failed. <i>context</i> specifies the context within which to create the object instance.</p>
 <p>If <i>context</i> is 0 (the default), it will create the instance in the engine' s <a href="qqmlengine.html#rootContext">root context</a>.</p>
 <p>The ownership of the returned object instance is transferred to the caller.</p>
@@ -375,7 +375,7 @@
 <p>Relative paths will be resolved against <a href="qqmlengine.html#baseUrl">QQmlEngine::baseUrl()</a>, which is the current working directory unless specified.</p>
 <!-- @@@loadUrl -->
 <!-- $$$progressChanged -->
-<h3 class="fn" id="progressChanged"><a name="progressChanged"></a><code>[signal] </code><span class="type">void</span> QQmlComponent::<span class="name">progressChanged</span>(<span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> <i>progress</i>)</h3>
+<h3 class="fn" id="progressChanged"><a name="progressChanged"></a><code>[信号] </code><span class="type">void</span> QQmlComponent::<span class="name">progressChanged</span>(<span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> <i>progress</i>)</h3>
 <p>Emitted whenever the component's loading progress changes. <i>progress</i> will be the current progress between 0.0 (nothing loaded) and 1.0 (finished).</p>
 <p><b>Note:</b> Notifier signal for property <a href="qqmlcomponent.html#progress-prop">progress</a>. </p><!-- @@@progressChanged -->
 <!-- $$$setData[overload1]$$$setDataconstQByteArray&constQUrl& -->
@@ -383,7 +383,7 @@
 <p>Sets the <a href="qqmlcomponent.html">QQmlComponent</a> to use the given QML <i>data</i>. If <i>url</i> is provided, it is used to set the component name and to provide a base path for items resolved by this component.</p>
 <!-- @@@setData -->
 <!-- $$$statusChanged -->
-<h3 class="fn" id="statusChanged"><a name="statusChanged"></a><code>[signal] </code><span class="type">void</span> QQmlComponent::<span class="name">statusChanged</span>(<span class="type"><a href="qqmlcomponent.html#Status-enum">QQmlComponent::Status</a></span> <i>status</i>)</h3>
+<h3 class="fn" id="statusChanged"><a name="statusChanged"></a><code>[信号] </code><span class="type">void</span> QQmlComponent::<span class="name">statusChanged</span>(<span class="type"><a href="qqmlcomponent.html#Status-enum">QQmlComponent::Status</a></span> <i>status</i>)</h3>
 <p>Emitted whenever the component's status changes. <i>status</i> will be the new status.</p>
 <p><b>Note:</b> Notifier signal for property <a href="qqmlcomponent.html#status-prop">status</a>. </p><!-- @@@statusChanged -->
 </div>

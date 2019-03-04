@@ -179,11 +179,11 @@
 <p>Constructs a Modbus device with the specified <i>parent</i>.</p>
 <!-- @@@QModbusDevice -->
 <!-- $$$~QModbusDevice[overload1]$$$~QModbusDevice -->
-<h3 class="fn" id="dtor.QModbusDevice"><a name="dtor.QModbusDevice"></a><code>[virtual] </code>QModbusDevice::<span class="name">~QModbusDevice</span>()</h3>
+<h3 class="fn" id="dtor.QModbusDevice"><a name="dtor.QModbusDevice"></a><code>[虚函数] </code>QModbusDevice::<span class="name">~QModbusDevice</span>()</h3>
 <p>Destroys the <a href="qmodbusdevice.html">QModbusDevice</a> instance</p>
 <!-- @@@~QModbusDevice -->
 <!-- $$$close[overload1]$$$close -->
-<h3 class="fn" id="close"><a name="close"></a><code>[pure virtual protected] </code><span class="type">void</span> QModbusDevice::<span class="name">close</span>()</h3>
+<h3 class="fn" id="close"><a name="close"></a><code>[纯虚保护函数] </code><span class="type">void</span> QModbusDevice::<span class="name">close</span>()</h3>
 <p>This function is responsible for closing the Modbus connection. The implementation must ensure that the instance's <a href="qmodbusdevice.html#state">state</a>() is set to <a href="qmodbusdevice.html#State-enum">QModbusDevice::UnconnectedState</a>.</p>
 <p><b> 参见 </b><a href="qmodbusdevice.html#disconnectDevice">disconnectDevice</a>().</p>
 <!-- @@@close -->
@@ -209,7 +209,7 @@
 <p><b> 参见 </b><a href="qmodbusdevice.html#setError">setError</a>() 和 <a href="qmodbusdevice.html#Error-enum">QModbusDevice::Error</a>.</p>
 <!-- @@@error -->
 <!-- $$$errorOccurred[overload1]$$$errorOccurredQModbusDevice::Error -->
-<h3 class="fn" id="errorOccurred"><a name="errorOccurred"></a><code>[signal] </code><span class="type">void</span> QModbusDevice::<span class="name">errorOccurred</span>(<span class="type"><a href="qmodbusdevice.html#Error-enum">QModbusDevice::Error</a></span> <i>error</i>)</h3>
+<h3 class="fn" id="errorOccurred"><a name="errorOccurred"></a><code>[信号] </code><span class="type">void</span> QModbusDevice::<span class="name">errorOccurred</span>(<span class="type"><a href="qmodbusdevice.html#Error-enum">QModbusDevice::Error</a></span> <i>error</i>)</h3>
 <p>This signal is emitted when an error of the type, <i>error</i>, occurs.</p>
 <!-- @@@errorOccurred -->
 <!-- $$$errorString[overload1]$$$errorString -->
@@ -218,7 +218,7 @@
 <p><b> 参见 </b><a href="qmodbusdevice.html#Error-enum">QModbusDevice::Error</a>.</p>
 <!-- @@@errorString -->
 <!-- $$$open[overload1]$$$open -->
-<h3 class="fn" id="open"><a name="open"></a><code>[pure virtual protected] </code><span class="type">bool</span> QModbusDevice::<span class="name">open</span>()</h3>
+<h3 class="fn" id="open"><a name="open"></a><code>[纯虚保护函数] </code><span class="type">bool</span> QModbusDevice::<span class="name">open</span>()</h3>
 <p>This function is called by <a href="qmodbusdevice.html#connectDevice">connectDevice</a>(). Subclasses must provide an implementation that returns <code>true</code> on successful Modbus connection or <code>false</code> otherwise.</p>
 <p>The implementation must ensure that the instance's <a href="qmodbusdevice.html#state">state</a>() is set to <a href="qmodbusdevice.html#State-enum">QModbusDevice::ConnectedState</a> upon success; otherwise <a href="qmodbusdevice.html#State-enum">QModbusDevice::UnconnectedState</a>.</p>
 <p><b> 参见 </b><a href="qmodbusdevice.html#connectDevice">connectDevice</a>().</p>
@@ -229,12 +229,12 @@
 <p><b> 参见 </b><a href="qmodbusdevice.html#ConnectionParameter-enum">ConnectionParameter</a> 和 <a href="qmodbusdevice.html#connectionParameter">connectionParameter</a>().</p>
 <!-- @@@setConnectionParameter -->
 <!-- $$$setError[overload1]$$$setErrorconstQString&QModbusDevice::Error -->
-<h3 class="fn" id="setError"><a name="setError"></a><code>[protected] </code><span class="type">void</span> QModbusDevice::<span class="name">setError</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>errorText</i>, <span class="type"><a href="qmodbusdevice.html#Error-enum">QModbusDevice::Error</a></span> <i>error</i>)</h3>
+<h3 class="fn" id="setError"><a name="setError"></a><code>[保护函数] </code><span class="type">void</span> QModbusDevice::<span class="name">setError</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>errorText</i>, <span class="type"><a href="qmodbusdevice.html#Error-enum">QModbusDevice::Error</a></span> <i>error</i>)</h3>
 <p>Sets the error state of the device. ModBus device implementations must use this function in case of an error to set the <i>error</i> type and a descriptive <i>errorText</i>.</p>
 <p><b> 参见 </b><a href="qmodbusdevice.html#error">error</a>() 和 <a href="qmodbusdevice.html#Error-enum">QModbusDevice::Error</a>.</p>
 <!-- @@@setError -->
 <!-- $$$setState[overload1]$$$setStateQModbusDevice::State -->
-<h3 class="fn" id="setState"><a name="setState"></a><code>[protected] </code><span class="type">void</span> QModbusDevice::<span class="name">setState</span>(<span class="type"><a href="qmodbusdevice.html#State-enum">QModbusDevice::State</a></span> <i>newState</i>)</h3>
+<h3 class="fn" id="setState"><a name="setState"></a><code>[保护函数] </code><span class="type">void</span> QModbusDevice::<span class="name">setState</span>(<span class="type"><a href="qmodbusdevice.html#State-enum">QModbusDevice::State</a></span> <i>newState</i>)</h3>
 <p>Sets the state of the device to <i>newState</i>. Modbus device implementations must use this function to update the device state.</p>
 <p><b> 参见 </b><a href="qmodbusdevice.html#state">state</a>().</p>
 <!-- @@@setState -->
@@ -244,7 +244,7 @@
 <p><b> 参见 </b><a href="qmodbusdevice.html#setState">setState</a>() 和 <a href="qmodbusdevice.html#stateChanged">stateChanged</a>().</p>
 <!-- @@@state -->
 <!-- $$$stateChanged[overload1]$$$stateChangedQModbusDevice::State -->
-<h3 class="fn" id="stateChanged"><a name="stateChanged"></a><code>[signal] </code><span class="type">void</span> QModbusDevice::<span class="name">stateChanged</span>(<span class="type"><a href="qmodbusdevice.html#State-enum">QModbusDevice::State</a></span> <i>state</i>)</h3>
+<h3 class="fn" id="stateChanged"><a name="stateChanged"></a><code>[信号] </code><span class="type">void</span> QModbusDevice::<span class="name">stateChanged</span>(<span class="type"><a href="qmodbusdevice.html#State-enum">QModbusDevice::State</a></span> <i>state</i>)</h3>
 <p>This signal is emitted every time the state of the device changes. The new state is represented by <i>state</i>.</p>
 <p><b> 参见 </b><a href="qmodbusdevice.html#setState">setState</a>() 和 <a href="qmodbusdevice.html#state">state</a>().</p>
 <!-- @@@stateChanged -->

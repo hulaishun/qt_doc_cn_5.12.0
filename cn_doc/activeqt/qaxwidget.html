@@ -120,7 +120,7 @@
 <li class="fn">2 个信号继承于 <a href="../qtcore/qobject.html#signals">QObject</a></li>
 <li class="fn">1 个公共变量继承于 <a href="../qtwidgets/qwidget.html#public-variables">QWidget</a></li>
 <li class="fn">1 个公共变量继承于 <a href="../qtcore/qobject.html#public-variables">QObject</a></li>
-<li class="fn">1 protected slot inherited from <a href="../qtwidgets/qwidget.html#protected-slots">QWidget</a></li>
+<li class="fn">1 个保护槽函数继承于 <a href="../qtwidgets/qwidget.html#protected-slots">QWidget</a></li>
 <li class="fn">2 个保护变量继承于 <a href="../qtcore/qobject.html#protected-variables">QObject</a></li>
 <li class="fn">2 个静态保护成员继承于 <a href="qaxbase.html#static-protected-members">QAxBase</a></li>
 </ul>
@@ -159,35 +159,35 @@
 <p>Creates a <a href="qaxwidget.html">QAxWidget</a> that wraps the COM object referenced by <i>iface</i>. <i>parent</i> and <i>f</i> are propagated to the <a href="../qtwidgets/qwidget.html">QWidget</a> contructor.</p>
 <!-- @@@QAxWidget -->
 <!-- $$$~QAxWidget[overload1]$$$~QAxWidget -->
-<h3 class="fn" id="dtor.QAxWidget"><a name="dtor.QAxWidget"></a><code>[override virtual] </code>QAxWidget::<span class="name">~QAxWidget</span>()</h3>
+<h3 class="fn" id="dtor.QAxWidget"><a name="dtor.QAxWidget"></a><code>[重载虚函数] </code>QAxWidget::<span class="name">~QAxWidget</span>()</h3>
 <p>Shuts down the ActiveX control and destroys the <a href="qaxwidget.html">QAxWidget</a> widget, cleaning up all allocated resources.</p>
 <p><b> 参见 </b><a href="qaxwidget.html#clear">clear</a>().</p>
 <!-- @@@~QAxWidget -->
 <!-- $$$changeEvent[overload1]$$$changeEventQEvent* -->
-<h3 class="fn" id="changeEvent"><a name="changeEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QAxWidget::<span class="name">changeEvent</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>e</i>)</h3>
+<h3 class="fn" id="changeEvent"><a name="changeEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QAxWidget::<span class="name">changeEvent</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>e</i>)</h3>
 <p>Reimplemented from <a href="../qtwidgets/qwidget.html#changeEvent">QWidget::changeEvent</a>().</p>
 <!-- @@@changeEvent -->
 <!-- $$$clear[overload1]$$$clear -->
-<h3 class="fn" id="clear"><a name="clear"></a><code>[override virtual] </code><span class="type">void</span> QAxWidget::<span class="name">clear</span>()</h3>
+<h3 class="fn" id="clear"><a name="clear"></a><code>[重载虚函数] </code><span class="type">void</span> QAxWidget::<span class="name">clear</span>()</h3>
 <p>Reimplemented from <a href="qaxbase.html#clear">QAxBase::clear</a>().</p>
 <p>Shuts down the ActiveX control.</p>
 <!-- @@@clear -->
 <!-- $$$connectNotify[overload1]$$$connectNotifyconstQMetaMethod& -->
-<h3 class="fn" id="connectNotify"><a name="connectNotify"></a><code>[override virtual protected] </code><span class="type">void</span> QAxWidget::<span class="name">connectNotify</span>(const <span class="type"><a href="../qtcore/qmetamethod.html">QMetaMethod</a></span> &amp;<i>signal</i>)</h3>
+<h3 class="fn" id="connectNotify"><a name="connectNotify"></a><code>[重载虚保护函数] </code><span class="type">void</span> QAxWidget::<span class="name">connectNotify</span>(const <span class="type"><a href="../qtcore/qmetamethod.html">QMetaMethod</a></span> &amp;<i>signal</i>)</h3>
 <p>Reimplemented from <a href="../qtcore/qobject.html#connectNotify">QObject::connectNotify</a>().</p>
 <!-- @@@connectNotify -->
 <!-- $$$createAggregate[overload1]$$$createAggregate -->
-<h3 class="fn" id="createAggregate"><a name="createAggregate"></a><code>[virtual] </code><span class="type"><a href="qaxaggregated.html">QAxAggregated</a></span> *QAxWidget::<span class="name">createAggregate</span>()</h3>
+<h3 class="fn" id="createAggregate"><a name="createAggregate"></a><code>[虚函数] </code><span class="type"><a href="qaxaggregated.html">QAxAggregated</a></span> *QAxWidget::<span class="name">createAggregate</span>()</h3>
 <p>Reimplement this function when you want to implement additional COM interfaces for the client site of the ActiveX control, or when you want to provide alternative implementations of COM interfaces. Return a new object of a <a href="qaxaggregated.html">QAxAggregated</a> subclass.</p>
 <p>The default implementation returns the null pointer.</p>
 <!-- @@@createAggregate -->
 <!-- $$$createHostWindow[overload1]$$$createHostWindowbool -->
-<h3 class="fn" id="createHostWindow"><a name="createHostWindow"></a><code>[virtual protected] </code><span class="type">bool</span> QAxWidget::<span class="name">createHostWindow</span>(<span class="type">bool</span> <i>initialized</i>)</h3>
+<h3 class="fn" id="createHostWindow"><a name="createHostWindow"></a><code>[虚保护函数] </code><span class="type">bool</span> QAxWidget::<span class="name">createHostWindow</span>(<span class="type">bool</span> <i>initialized</i>)</h3>
 <p>Creates the client site for the ActiveX control, and returns true if the control could be embedded successfully, otherwise returns false. If <i>initialized</i> is true the control has already been initialized.</p>
 <p>This function is called by <a href="qaxwidget.html#initialize">initialize</a>(). If you reimplement initialize to customize the actual control instantiation, call this function in your reimplementation to have the control embedded by the default client side. Creates the client site for the ActiveX control, and returns true if the control could be embedded successfully, otherwise returns false.</p>
 <!-- @@@createHostWindow -->
 <!-- $$$createHostWindow$$$createHostWindowboolconstQByteArray& -->
-<h3 class="fn" id="createHostWindow-1"><a name="createHostWindow-1"></a><code>[protected] </code><span class="type">bool</span> QAxWidget::<span class="name">createHostWindow</span>(<span class="type">bool</span> <i>initialized</i>, const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>data</i>)</h3>
+<h3 class="fn" id="createHostWindow-1"><a name="createHostWindow-1"></a><code>[保护函数] </code><span class="type">bool</span> QAxWidget::<span class="name">createHostWindow</span>(<span class="type">bool</span> <i>initialized</i>, const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>data</i>)</h3>
 <p>Creates the client site for the ActiveX control, and returns true if the control could be embedded successfully, otherwise returns false. If <i>initialized</i> is false the control will be initialized using the <i>data</i>. The control will be initialized through either IPersistStreamInit or IPersistStorage interface.</p>
 <p>If the control needs to be initialized using custom data, call this function in your reimplementation of <a href="qaxwidget.html#initialize">initialize</a>(). This function is not called by the default implementation of <a href="qaxwidget.html#initialize">initialize</a>().</p>
 <p>这个函数是在Qt 4.4版本中新增引入的。</p>
@@ -199,26 +199,26 @@
 <p>这个函数是在Qt 4.1版本中新增引入的。</p>
 <!-- @@@doVerb -->
 <!-- $$$initialize[overload1]$$$initializeIUnknown** -->
-<h3 class="fn" id="initialize"><a name="initialize"></a><code>[override virtual protected] </code><span class="type">bool</span> QAxWidget::<span class="name">initialize</span>(<span class="type">IUnknown</span> **<i>ptr</i>)</h3>
+<h3 class="fn" id="initialize"><a name="initialize"></a><code>[重载虚保护函数] </code><span class="type">bool</span> QAxWidget::<span class="name">initialize</span>(<span class="type">IUnknown</span> **<i>ptr</i>)</h3>
 <p>Reimplemented from <a href="qaxbase.html#initialize">QAxBase::initialize</a>().</p>
 <p>Calls <a href="qaxbase.html#initialize">QAxBase::initialize</a>(<i>ptr</i>), and embeds the control in this widget by calling <a href="qaxwidget.html#createHostWindow">createHostWindow</a>(false) if successful.</p>
 <p>To initialize the control before it is activated, reimplement this function and add your initialization code before you call <a href="qaxwidget.html#createHostWindow">createHostWindow</a>(true).</p>
 <p>这个函数是在Qt 4.2版本中新增引入的。</p>
 <!-- @@@initialize -->
 <!-- $$$minimumSizeHint[overload1]$$$minimumSizeHint -->
-<h3 class="fn" id="minimumSizeHint"><a name="minimumSizeHint"></a><code>[override virtual] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QAxWidget::<span class="name">minimumSizeHint</span>() const</h3>
+<h3 class="fn" id="minimumSizeHint"><a name="minimumSizeHint"></a><code>[重载虚函数] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QAxWidget::<span class="name">minimumSizeHint</span>() const</h3>
 <p>Reimplemented from <a href="../qtwidgets/qwidget.html#minimumSizeHint-prop">QWidget::minimumSizeHint</a>().</p>
 <!-- @@@minimumSizeHint -->
 <!-- $$$resizeEvent[overload1]$$$resizeEventQResizeEvent* -->
-<h3 class="fn" id="resizeEvent"><a name="resizeEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QAxWidget::<span class="name">resizeEvent</span>(<i>QResizeEvent *</i>)</h3>
+<h3 class="fn" id="resizeEvent"><a name="resizeEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QAxWidget::<span class="name">resizeEvent</span>(<i>QResizeEvent *</i>)</h3>
 <p>Reimplemented from <a href="../qtwidgets/qwidget.html#resizeEvent">QWidget::resizeEvent</a>().</p>
 <!-- @@@resizeEvent -->
 <!-- $$$sizeHint[overload1]$$$sizeHint -->
-<h3 class="fn" id="sizeHint"><a name="sizeHint"></a><code>[override virtual] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QAxWidget::<span class="name">sizeHint</span>() const</h3>
+<h3 class="fn" id="sizeHint"><a name="sizeHint"></a><code>[重载虚函数] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QAxWidget::<span class="name">sizeHint</span>() const</h3>
 <p>Reimplemented from <a href="../qtwidgets/qwidget.html#sizeHint-prop">QWidget::sizeHint</a>().</p>
 <!-- @@@sizeHint -->
 <!-- $$$translateKeyEvent[overload1]$$$translateKeyEventintint -->
-<h3 class="fn" id="translateKeyEvent"><a name="translateKeyEvent"></a><code>[virtual protected] </code><span class="type">bool</span> QAxWidget::<span class="name">translateKeyEvent</span>(<span class="type">int</span> <i>message</i>, <span class="type">int</span> <i>keycode</i>) const</h3>
+<h3 class="fn" id="translateKeyEvent"><a name="translateKeyEvent"></a><code>[虚保护函数] </code><span class="type">bool</span> QAxWidget::<span class="name">translateKeyEvent</span>(<span class="type">int</span> <i>message</i>, <span class="type">int</span> <i>keycode</i>) const</h3>
 <p>Reimplement this function to pass certain key events to the ActiveX control. <i>message</i> is the Window message identifier specifying the message type (ie. WM_KEYDOWN), and <i>keycode</i> is the virtual keycode (ie. VK_TAB).</p>
 <p>If the function returns true the key event is passed on to the ActiveX control, which then either processes the event or passes the event on to Qt.</p>
 <p>If the function returns false the processing of the key event is ignored by <a href="activeqt-index.html">ActiveQt</a>, ie. the ActiveX control might handle it or not.</p>

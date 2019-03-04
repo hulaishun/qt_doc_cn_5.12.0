@@ -231,12 +231,12 @@
 <p>Constructs an item with <i>rows</i> rows and <i>columns</i> columns of child items.</p>
 <!-- @@@QStandardItem -->
 <!-- $$$QStandardItem$$$QStandardItemconstQStandardItem& -->
-<h3 class="fn" id="QStandardItem-4"><a name="QStandardItem-4"></a><code>[protected] </code>QStandardItem::<span class="name">QStandardItem</span>(const <span class="type"><a href="qstandarditem.html#QStandardItem">QStandardItem</a></span> &amp;<i>other</i>)</h3>
+<h3 class="fn" id="QStandardItem-4"><a name="QStandardItem-4"></a><code>[保护函数] </code>QStandardItem::<span class="name">QStandardItem</span>(const <span class="type"><a href="qstandarditem.html#QStandardItem">QStandardItem</a></span> &amp;<i>other</i>)</h3>
 <p>Constructs a copy of <i>other</i>. Note that <a href="qstandarditem.html#model">model</a>() is not copied.</p>
 <p>This function is useful when reimplementing <a href="qstandarditem.html#clone">clone</a>().</p>
 <!-- @@@QStandardItem -->
 <!-- $$$~QStandardItem[overload1]$$$~QStandardItem -->
-<h3 class="fn" id="dtor.QStandardItem"><a name="dtor.QStandardItem"></a><code>[virtual] </code>QStandardItem::<span class="name">~QStandardItem</span>()</h3>
+<h3 class="fn" id="dtor.QStandardItem"><a name="dtor.QStandardItem"></a><code>[虚函数] </code>QStandardItem::<span class="name">~QStandardItem</span>()</h3>
 <p>Destructs the item. This causes the item's children to be destructed as well.</p>
 <!-- @@@~QStandardItem -->
 <!-- $$$accessibleDescription[overload1]$$$accessibleDescription -->
@@ -294,7 +294,7 @@
 <p><b> 参见 </b><a href="qstandarditem.html#data">data</a>() 和 <a href="qstandarditem.html#setData">setData</a>().</p>
 <!-- @@@clearData -->
 <!-- $$$clone[overload1]$$$clone -->
-<h3 class="fn" id="clone"><a name="clone"></a><code>[virtual] </code><span class="type"><a href="qstandarditem.html#QStandardItem">QStandardItem</a></span> *QStandardItem::<span class="name">clone</span>() const</h3>
+<h3 class="fn" id="clone"><a name="clone"></a><code>[虚函数] </code><span class="type"><a href="qstandarditem.html#QStandardItem">QStandardItem</a></span> *QStandardItem::<span class="name">clone</span>() const</h3>
 <p>Returns a copy of this item. The item's children are not copied.</p>
 <p>When subclassing <a href="qstandarditem.html">QStandardItem</a>, you can reimplement this function to provide <a href="qstandarditemmodel.html">QStandardItemModel</a> with a factory that it can use to create new items on demand.</p>
 <p><b> 参见 </b><a href="qstandarditemmodel.html#setItemPrototype">QStandardItemModel::setItemPrototype</a>() 和 <a href="qstandarditem.html#operator-eq">operator=</a>().</p>
@@ -310,12 +310,12 @@
 <p><b> 参见 </b><a href="qstandarditem.html#setColumnCount">setColumnCount</a>() 和 <a href="qstandarditem.html#rowCount">rowCount</a>().</p>
 <!-- @@@columnCount -->
 <!-- $$$data[overload1]$$$dataint -->
-<h3 class="fn" id="data"><a name="data"></a><code>[virtual] </code><span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> QStandardItem::<span class="name">data</span>(<span class="type">int</span> <i>role</i> = Qt::UserRole + 1) const</h3>
+<h3 class="fn" id="data"><a name="data"></a><code>[虚函数] </code><span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> QStandardItem::<span class="name">data</span>(<span class="type">int</span> <i>role</i> = Qt::UserRole + 1) const</h3>
 <p>Returns the item's data for the given <i>role</i>, or an invalid <a href="../qtcore/qvariant.html">QVariant</a> if there is no data for the role.</p>
 <p><b>Note: </b>The default implementation treats <a href="../qtcore/qt.html#ItemDataRole-enum">Qt::EditRole</a> 和 <a href="../qtcore/qt.html#ItemDataRole-enum">Qt::DisplayRole</a> as referring to the same data.</p><p><b> 参见 </b><a href="qstandarditem.html#setData">setData</a>().</p>
 <!-- @@@data -->
 <!-- $$$emitDataChanged[overload1]$$$emitDataChanged -->
-<h3 class="fn" id="emitDataChanged"><a name="emitDataChanged"></a><code>[protected] </code><span class="type">void</span> QStandardItem::<span class="name">emitDataChanged</span>()</h3>
+<h3 class="fn" id="emitDataChanged"><a name="emitDataChanged"></a><code>[保护函数] </code><span class="type">void</span> QStandardItem::<span class="name">emitDataChanged</span>()</h3>
 <p>Causes the model associated with this item to emit a <a href="../qtcore/qabstractitemmodel.html#dataChanged">dataChanged</a>() signal for this item.</p>
 <p>You normally only need to call this function if you have subclassed <a href="qstandarditem.html">QStandardItem</a> and reimplemented <a href="qstandarditem.html#data">data</a>() and/or <a href="qstandarditem.html#setData">setData</a>().</p>
 <p>这个函数是在Qt 4.4版本中新增引入的。</p>
@@ -451,7 +451,7 @@
 <p><b>Note: </b>For toplevel items parent() returns 0. To receive toplevel item's parent use <a href="qstandarditemmodel.html#invisibleRootItem">QStandardItemModel::invisibleRootItem</a>() instead.</p><p><b> 参见 </b><a href="qstandarditem.html#child">child</a>() 和 <a href="qstandarditemmodel.html#invisibleRootItem">QStandardItemModel::invisibleRootItem</a>().</p>
 <!-- @@@parent -->
 <!-- $$$read[overload1]$$$readQDataStream& -->
-<h3 class="fn" id="read"><a name="read"></a><code>[virtual] </code><span class="type">void</span> QStandardItem::<span class="name">read</span>(<span class="type"><a href="../qtcore/qdatastream.html">QDataStream</a></span> &amp;<i>in</i>)</h3>
+<h3 class="fn" id="read"><a name="read"></a><code>[虚函数] </code><span class="type">void</span> QStandardItem::<span class="name">read</span>(<span class="type"><a href="../qtcore/qdatastream.html">QDataStream</a></span> &amp;<i>in</i>)</h3>
 <p>Reads the item from stream <i>in</i>. Only the data and flags of the item are read, not the child items.</p>
 <p><b> 参见 </b><a href="qstandarditem.html#write">write</a>().</p>
 <!-- @@@read -->
@@ -535,7 +535,7 @@
 <p><b> 参见 </b><a href="qstandarditem.html#columnCount">columnCount</a>() 和 <a href="qstandarditem.html#setRowCount">setRowCount</a>().</p>
 <!-- @@@setColumnCount -->
 <!-- $$$setData[overload1]$$$setDataconstQVariant&int -->
-<h3 class="fn" id="setData"><a name="setData"></a><code>[virtual] </code><span class="type">void</span> QStandardItem::<span class="name">setData</span>(const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>value</i>, <span class="type">int</span> <i>role</i> = Qt::UserRole + 1)</h3>
+<h3 class="fn" id="setData"><a name="setData"></a><code>[虚函数] </code><span class="type">void</span> QStandardItem::<span class="name">setData</span>(const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>value</i>, <span class="type">int</span> <i>role</i> = Qt::UserRole + 1)</h3>
 <p>Sets the item's data for the given <i>role</i> to the specified <i>value</i>.</p>
 <p>If you subclass <a href="qstandarditem.html">QStandardItem</a> and reimplement this function, your reimplementation should call <a href="qstandarditem.html#emitDataChanged">emitDataChanged</a>() if you do not call the base implementation of setData(). This will ensure that e.g&#x2e; views using the model are notified of the changes.</p>
 <p><b>Note: </b>The default implementation treats <a href="../qtcore/qt.html#ItemDataRole-enum">Qt::EditRole</a> 和 <a href="../qtcore/qt.html#ItemDataRole-enum">Qt::DisplayRole</a> as referring to the same data.</p><p><b> 参见 </b><a href="../qtcore/qt.html#ItemDataRole-enum">Qt::ItemDataRole</a>, <a href="qstandarditem.html#data">data</a>(), 和 <a href="qstandarditem.html#setFlags">setFlags</a>().</p>
@@ -680,7 +680,7 @@
 <p><b> 参见 </b><a href="qstandarditem.html#setToolTip">setToolTip</a>(), <a href="qstandarditem.html#statusTip">statusTip</a>(), 和 <a href="qstandarditem.html#whatsThis">whatsThis</a>().</p>
 <!-- @@@toolTip -->
 <!-- $$$type[overload1]$$$type -->
-<h3 class="fn" id="type"><a name="type"></a><code>[virtual] </code><span class="type">int</span> QStandardItem::<span class="name">type</span>() const</h3>
+<h3 class="fn" id="type"><a name="type"></a><code>[虚函数] </code><span class="type">int</span> QStandardItem::<span class="name">type</span>() const</h3>
 <p>Returns the type of this item. The type is used to distinguish custom items from the base class. When subclassing <a href="qstandarditem.html">QStandardItem</a>, you should reimplement this function and return a new value greater than or equal to <a href="qstandarditem.html#ItemType-enum">UserType</a>.</p>
 <p><b> 参见 </b><a href="qstandarditem.html#ItemType-enum">QStandardItem::Type</a>.</p>
 <!-- @@@type -->
@@ -690,18 +690,18 @@
 <p><b> 参见 </b><a href="qstandarditem.html#setWhatsThis">setWhatsThis</a>(), <a href="qstandarditem.html#toolTip">toolTip</a>(), 和 <a href="qstandarditem.html#statusTip">statusTip</a>().</p>
 <!-- @@@whatsThis -->
 <!-- $$$write[overload1]$$$writeQDataStream& -->
-<h3 class="fn" id="write"><a name="write"></a><code>[virtual] </code><span class="type">void</span> QStandardItem::<span class="name">write</span>(<span class="type"><a href="../qtcore/qdatastream.html">QDataStream</a></span> &amp;<i>out</i>) const</h3>
+<h3 class="fn" id="write"><a name="write"></a><code>[虚函数] </code><span class="type">void</span> QStandardItem::<span class="name">write</span>(<span class="type"><a href="../qtcore/qdatastream.html">QDataStream</a></span> &amp;<i>out</i>) const</h3>
 <p>Writes the item to stream <i>out</i>. Only the data and flags of the item are written, not the child items.</p>
 <p><b> 参见 </b><a href="qstandarditem.html#read">read</a>().</p>
 <!-- @@@write -->
 <!-- $$$operator<[overload1]$$$operator<constQStandardItem& -->
-<h3 class="fn" id="operator-lt"><a name="operator-lt"></a><code>[virtual] </code><span class="type">bool</span> QStandardItem::<span class="name">operator&lt;</span>(const <span class="type"><a href="qstandarditem.html#QStandardItem">QStandardItem</a></span> &amp;<i>other</i>) const</h3>
+<h3 class="fn" id="operator-lt"><a name="operator-lt"></a><code>[虚函数] </code><span class="type">bool</span> QStandardItem::<span class="name">operator&lt;</span>(const <span class="type"><a href="qstandarditem.html#QStandardItem">QStandardItem</a></span> &amp;<i>other</i>) const</h3>
 <p>Returns <code>true</code> if this item is less than <i>other</i>; otherwise returns <code>false</code>.</p>
 <p>The default implementation uses the data for the item's sort role (see <a href="qstandarditemmodel.html#sortRole-prop">QStandardItemModel::sortRole</a>) to perform the comparison if the item belongs to a model; otherwise, the data for the item's <a href="../qtcore/qt.html#ItemDataRole-enum">Qt::DisplayRole</a> (<a href="qstandarditem.html#text">text</a>()) is used to perform the comparison.</p>
 <p><a href="qstandarditem.html#sortChildren">sortChildren</a>() 和 <a href="qstandarditemmodel.html#sort">QStandardItemModel::sort</a>() use this function when sorting items. If you want custom sorting, you can subclass <a href="qstandarditem.html">QStandardItem</a> and reimplement this function.</p>
 <!-- @@@operator< -->
 <!-- $$$operator=[overload1]$$$operator=constQStandardItem& -->
-<h3 class="fn" id="operator-eq"><a name="operator-eq"></a><code>[protected] </code><span class="type"><a href="qstandarditem.html#QStandardItem">QStandardItem</a></span> &amp;QStandardItem::<span class="name">operator=</span>(const <span class="type"><a href="qstandarditem.html#QStandardItem">QStandardItem</a></span> &amp;<i>other</i>)</h3>
+<h3 class="fn" id="operator-eq"><a name="operator-eq"></a><code>[保护函数] </code><span class="type"><a href="qstandarditem.html#QStandardItem">QStandardItem</a></span> &amp;QStandardItem::<span class="name">operator=</span>(const <span class="type"><a href="qstandarditem.html#QStandardItem">QStandardItem</a></span> &amp;<i>other</i>)</h3>
 <p>Assigns <i>other</i>'s data and flags to this item. Note that <a href="qstandarditem.html#type">type</a>() 和 <a href="qstandarditem.html#model">model</a>() are not copied.</p>
 <p>This function is useful when reimplementing <a href="qstandarditem.html#clone">clone</a>().</p>
 <!-- @@@operator= -->

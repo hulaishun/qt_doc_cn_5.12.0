@@ -180,7 +180,7 @@
 <p>Constructs a reply object with a given <i>parent</i>.</p>
 <!-- @@@QPlaceReply -->
 <!-- $$$~QPlaceReply[overload1]$$$~QPlaceReply -->
-<h3 class="fn" id="dtor.QPlaceReply"><a name="dtor.QPlaceReply"></a><code>[virtual] </code>QPlaceReply::<span class="name">~QPlaceReply</span>()</h3>
+<h3 class="fn" id="dtor.QPlaceReply"><a name="dtor.QPlaceReply"></a><code>[虚函数] </code>QPlaceReply::<span class="name">~QPlaceReply</span>()</h3>
 <p>Destroys the reply object.</p>
 <!-- @@@~QPlaceReply -->
 <!-- $$$abort[overload1]$$$abort -->
@@ -189,13 +189,13 @@
 <p><b> 参见 </b><a href="qplacereply.html#aborted">aborted</a>().</p>
 <!-- @@@abort -->
 <!-- $$$aborted[overload1]$$$aborted -->
-<h3 class="fn" id="aborted"><a name="aborted"></a><code>[signal] </code><span class="type">void</span> QPlaceReply::<span class="name">aborted</span>()</h3>
+<h3 class="fn" id="aborted"><a name="aborted"></a><code>[信号] </code><span class="type">void</span> QPlaceReply::<span class="name">aborted</span>()</h3>
 <p>This signal is emitted when the operation has been cancelled.</p>
 <p>这个函数是在Qt 5.9版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qplacereply.html#abort">abort</a>().</p>
 <!-- @@@aborted -->
 <!-- $$$contentUpdated[overload1]$$$contentUpdated -->
-<h3 class="fn" id="contentUpdated"><a name="contentUpdated"></a><code>[signal] </code><span class="type">void</span> QPlaceReply::<span class="name">contentUpdated</span>()</h3>
+<h3 class="fn" id="contentUpdated"><a name="contentUpdated"></a><code>[信号] </code><span class="type">void</span> QPlaceReply::<span class="name">contentUpdated</span>()</h3>
 <p>This signal is emitted when this reply has updated content available. Depending on the plugin, this signal may never be emitted or emitted multiple times before <a href="qplacereply.html#finished">QPlaceReply::finished</a>() is emitted, as some backends are able to return the requested content asynchronously and incrementally.</p>
 <p><b>Note: </b>Do not delete or <a href="../qtcore/qobject.html#deleteLater">deleteLater</a> this reply object in the slot connected to this signal. Do it only upon <a href="qplacereply.html#finished">QPlaceReply::finished</a>.</p><!-- @@@contentUpdated -->
 <!-- $$$error[overload1]$$$error -->
@@ -204,7 +204,7 @@
 <p><b> 参见 </b><a href="qplacereply.html#setError">setError</a>().</p>
 <!-- @@@error -->
 <!-- $$$error$$$errorQPlaceReply::ErrorconstQString& -->
-<h3 class="fn" id="error-1"><a name="error-1"></a><code>[signal] </code><span class="type">void</span> QPlaceReply::<span class="name">error</span>(<span class="type"><a href="qplacereply.html#Error-enum">QPlaceReply::Error</a></span> <i>error</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>errorString</i> = QString())</h3>
+<h3 class="fn" id="error-1"><a name="error-1"></a><code>[信号] </code><span class="type">void</span> QPlaceReply::<span class="name">error</span>(<span class="type"><a href="qplacereply.html#Error-enum">QPlaceReply::Error</a></span> <i>error</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>errorString</i> = QString())</h3>
 <p>This signal is emitted when an error has been detected in the processing of this reply. The <a href="qplacereply.html#finished">finished</a>() signal will probably follow.</p>
 <p>The error will be described by the error code <i>error</i>. If <i>errorString</i> is not empty it will contain a textual description of the error meant for developers and not end users.</p>
 <p>This signal and <a href="qplacemanager.html#error">QPlaceManager::error</a>() will be emitted at the same time.</p>
@@ -221,7 +221,7 @@
 <p>If no error has occurred, the string is empty.</p>
 <!-- @@@errorString -->
 <!-- $$$finished[overload1]$$$finished -->
-<h3 class="fn" id="finished"><a name="finished"></a><code>[signal] </code><span class="type">void</span> QPlaceReply::<span class="name">finished</span>()</h3>
+<h3 class="fn" id="finished"><a name="finished"></a><code>[信号] </code><span class="type">void</span> QPlaceReply::<span class="name">finished</span>()</h3>
 <p>This signal is emitted when this reply has finished processing.</p>
 <p>If <a href="qplacereply.html#error">error</a>() equals <a href="qplacereply.html#Error-enum">QPlaceReply::NoError</a> then the processing finished successfully.</p>
 <p>This signal and <a href="qplacemanager.html#finished">QPlaceManager::finished</a>() will be emitted at the same time.</p>
@@ -232,17 +232,17 @@
 <p>Return true if the reply has completed.</p>
 <!-- @@@isFinished -->
 <!-- $$$setError[overload1]$$$setErrorQPlaceReply::ErrorconstQString& -->
-<h3 class="fn" id="setError"><a name="setError"></a><code>[protected] </code><span class="type">void</span> QPlaceReply::<span class="name">setError</span>(<span class="type"><a href="qplacereply.html#Error-enum">QPlaceReply::Error</a></span> <i>error</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>errorString</i>)</h3>
+<h3 class="fn" id="setError"><a name="setError"></a><code>[保护函数] </code><span class="type">void</span> QPlaceReply::<span class="name">setError</span>(<span class="type"><a href="qplacereply.html#Error-enum">QPlaceReply::Error</a></span> <i>error</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>errorString</i>)</h3>
 <p>Sets the <i>error</i> and <i>errorString</i> of the reply. This function does not cause the <a href="qplacereply.html#error">QPlaceReply::error</a>(<a href="qplacereply.html#Error-enum">QPlaceReply::Error</a>, const <a href="../qtcore/qstring.html">QString</a> &amp;<a href="qplacereply.html#errorString">errorString</a>) signal to be emitted.</p>
 <p><b> 参见 </b><a href="qplacereply.html#error">error</a>().</p>
 <!-- @@@setError -->
 <!-- $$$setFinished[overload1]$$$setFinishedbool -->
-<h3 class="fn" id="setFinished"><a name="setFinished"></a><code>[protected] </code><span class="type">void</span> QPlaceReply::<span class="name">setFinished</span>(<span class="type">bool</span> <i>finished</i>)</h3>
+<h3 class="fn" id="setFinished"><a name="setFinished"></a><code>[保护函数] </code><span class="type">void</span> QPlaceReply::<span class="name">setFinished</span>(<span class="type">bool</span> <i>finished</i>)</h3>
 <p>Sets the status of whether the reply is <i>finished</i> or not. This function does not cause the <a href="qplacereply.html#finished">finished</a>() signal to be emitted.</p>
 <p><b> 参见 </b><a href="qplacereply.html#finished">finished</a>().</p>
 <!-- @@@setFinished -->
 <!-- $$$type[overload1]$$$type -->
-<h3 class="fn" id="type"><a name="type"></a><code>[virtual] </code><span class="type"><a href="qplacereply.html#Type-enum">QPlaceReply::Type</a></span> QPlaceReply::<span class="name">type</span>() const</h3>
+<h3 class="fn" id="type"><a name="type"></a><code>[虚函数] </code><span class="type"><a href="qplacereply.html#Type-enum">QPlaceReply::Type</a></span> QPlaceReply::<span class="name">type</span>() const</h3>
 <p>Returns the type of the reply.</p>
 <!-- @@@type -->
 </div>

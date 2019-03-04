@@ -111,27 +111,27 @@
 <p>Constructs an empty <a href="qaxbindable.html">QAxBindable</a> object.</p>
 <!-- @@@QAxBindable -->
 <!-- $$$~QAxBindable[overload1]$$$~QAxBindable -->
-<h3 class="fn" id="dtor.QAxBindable"><a name="dtor.QAxBindable"></a><code>[virtual] </code>QAxBindable::<span class="name">~QAxBindable</span>()</h3>
+<h3 class="fn" id="dtor.QAxBindable"><a name="dtor.QAxBindable"></a><code>[虚函数] </code>QAxBindable::<span class="name">~QAxBindable</span>()</h3>
 <p>Destroys the <a href="qaxbindable.html">QAxBindable</a> object.</p>
 <!-- @@@~QAxBindable -->
 <!-- $$$clientSite[overload1]$$$clientSite -->
-<h3 class="fn" id="clientSite"><a name="clientSite"></a><code>[protected] </code><span class="type">IUnknown</span> *QAxBindable::<span class="name">clientSite</span>() const</h3>
+<h3 class="fn" id="clientSite"><a name="clientSite"></a><code>[保护函数] </code><span class="type">IUnknown</span> *QAxBindable::<span class="name">clientSite</span>() const</h3>
 <p>Returns a pointer to the client site interface for this ActiveX object, or null if no client site has been set.</p>
 <p>Call <code>QueryInterface()</code> on the returned interface to get the interface you want to call.</p>
 <!-- @@@clientSite -->
 <!-- $$$createAggregate[overload1]$$$createAggregate -->
-<h3 class="fn" id="createAggregate"><a name="createAggregate"></a><code>[virtual] </code><span class="type"><a href="qaxaggregated.html">QAxAggregated</a></span> *QAxBindable::<span class="name">createAggregate</span>()</h3>
+<h3 class="fn" id="createAggregate"><a name="createAggregate"></a><code>[虚函数] </code><span class="type"><a href="qaxaggregated.html">QAxAggregated</a></span> *QAxBindable::<span class="name">createAggregate</span>()</h3>
 <p>Reimplement this function when you want to implement additional COM interfaces in the ActiveX control, or when you want to provide alternative implementations of COM interfaces. Return a new object of a <a href="qaxaggregated.html">QAxAggregated</a> subclass.</p>
 <p>The default implementation returns the null pointer.</p>
 <!-- @@@createAggregate -->
 <!-- $$$propertyChanged[overload1]$$$propertyChangedconstchar* -->
-<h3 class="fn" id="propertyChanged"><a name="propertyChanged"></a><code>[protected] </code><span class="type">void</span> QAxBindable::<span class="name">propertyChanged</span>(const <span class="type">char</span> *<i>property</i>)</h3>
+<h3 class="fn" id="propertyChanged"><a name="propertyChanged"></a><code>[保护函数] </code><span class="type">void</span> QAxBindable::<span class="name">propertyChanged</span>(const <span class="type">char</span> *<i>property</i>)</h3>
 <p>Call this function to notify the client that is hosting this ActiveX control that the property <i>property</i> has been changed.</p>
 <p>This function is usually called at the end of the property's write function.</p>
 <p><b> 参见 </b><a href="qaxbindable.html#requestPropertyChange">requestPropertyChange</a>().</p>
 <!-- @@@propertyChanged -->
 <!-- $$$readData[overload1]$$$readDataQIODevice*constQString& -->
-<h3 class="fn" id="readData"><a name="readData"></a><code>[virtual] </code><span class="type">bool</span> QAxBindable::<span class="name">readData</span>(<span class="type"><a href="../qtcore/qiodevice.html">QIODevice</a></span> *<i>source</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>format</i>)</h3>
+<h3 class="fn" id="readData"><a name="readData"></a><code>[虚函数] </code><span class="type">bool</span> QAxBindable::<span class="name">readData</span>(<span class="type"><a href="../qtcore/qiodevice.html">QIODevice</a></span> *<i>source</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>format</i>)</h3>
 <p>If the COM object supports a MIME type then this function is called to initialize the COM object from the data <i>source</i> in <i>format</i>. You have to open <i>source</i> for reading before you can read from it.</p>
 <p>Returns true to indicate success. If the function returns false, then <a href="activeqt-index.html">ActiveQt</a> will process the data by setting the properties through the meta object system.</p>
 <p>If you reimplement this function you also have to implement <a href="qaxbindable.html#writeData">writeData</a>(). The default implementation does nothing and returns false.</p>
@@ -144,7 +144,7 @@
 <p>Reports an error to the client application. <i>code</i> is a control-defined error code. <i>desc</i> is a human-readable description of the error intended for the application user. <i>src</i> is the name of the source for the error, typically the ActiveX server name. <i>context</i> can be the location of a help file with more information about the error. If <i>context</i> ends with a number in brackets, e.g&#x2e; [12], this number will be interpreted as the context ID in the help file.</p>
 <!-- @@@reportError -->
 <!-- $$$requestPropertyChange[overload1]$$$requestPropertyChangeconstchar* -->
-<h3 class="fn" id="requestPropertyChange"><a name="requestPropertyChange"></a><code>[protected] </code><span class="type">bool</span> QAxBindable::<span class="name">requestPropertyChange</span>(const <span class="type">char</span> *<i>property</i>)</h3>
+<h3 class="fn" id="requestPropertyChange"><a name="requestPropertyChange"></a><code>[保护函数] </code><span class="type">bool</span> QAxBindable::<span class="name">requestPropertyChange</span>(const <span class="type">char</span> *<i>property</i>)</h3>
 <p>Call this function to request permission to change the property <i>property</i> from the client that is hosting this ActiveX control. Returns true if the client allows the change; otherwise returns false.</p>
 <p>This function is usually called first in the write function for <i>property</i>, and writing is abandoned if the function returns false.</p>
 <pre class="cpp">
@@ -163,7 +163,7 @@
 <p><b> 参见 </b><a href="qaxbindable.html#propertyChanged">propertyChanged</a>().</p>
 <!-- @@@requestPropertyChange -->
 <!-- $$$writeData[overload1]$$$writeDataQIODevice* -->
-<h3 class="fn" id="writeData"><a name="writeData"></a><code>[virtual] </code><span class="type">bool</span> QAxBindable::<span class="name">writeData</span>(<span class="type"><a href="../qtcore/qiodevice.html">QIODevice</a></span> *<i>sink</i>)</h3>
+<h3 class="fn" id="writeData"><a name="writeData"></a><code>[虚函数] </code><span class="type">bool</span> QAxBindable::<span class="name">writeData</span>(<span class="type"><a href="../qtcore/qiodevice.html">QIODevice</a></span> *<i>sink</i>)</h3>
 <p>If the COM object supports a MIME type then this function is called to store the COM object into <i>sink</i>. You have to open <i>sink</i> for writing before you can write to it.</p>
 <p>Returns true to indicate success. If the function returns false, then <a href="activeqt-index.html">ActiveQt</a> will serialize the object by storing the property values.</p>
 <p>If you reimplement this function you also have to implement <a href="qaxbindable.html#readData">readData</a>(). The default implementation does nothing and returns false.</p>

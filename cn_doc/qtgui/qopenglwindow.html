@@ -187,7 +187,7 @@
 <p><b> 参见 </b><a href="qopenglwindow.html#UpdateBehavior-enum">QOpenGLWindow::UpdateBehavior</a> 和 <a href="qopenglwindow.html#shareContext">shareContext</a>.</p>
 <!-- @@@QOpenGLWindow -->
 <!-- $$$~QOpenGLWindow[overload1]$$$~QOpenGLWindow -->
-<h3 class="fn" id="dtor.QOpenGLWindow"><a name="dtor.QOpenGLWindow"></a><code>[virtual] </code>QOpenGLWindow::<span class="name">~QOpenGLWindow</span>()</h3>
+<h3 class="fn" id="dtor.QOpenGLWindow"><a name="dtor.QOpenGLWindow"></a><code>[虚函数] </code>QOpenGLWindow::<span class="name">~QOpenGLWindow</span>()</h3>
 <p>Destroys the <a href="qopenglwindow.html">QOpenGLWindow</a> instance, freeing its resources.</p>
 <p>The OpenGLWindow's context is made current in the destructor, allowing for safe destruction of any child object that may need to release OpenGL resources belonging to the context provided by this window.</p>
 <p><b>Warning:</b> if you have objects wrapping OpenGL resources (such as <a href="qopenglbuffer.html">QOpenGLBuffer</a>, <a href="qopenglshaderprogram.html">QOpenGLShaderProgram</a>, etc.) as members of a <a href="qopenglwindow.html">QOpenGLWindow</a> subclass, you may need to add a call to <a href="qopenglwindow.html#makeCurrent">makeCurrent</a>() in that subclass' destructor as well. Due to the rules of C++ object destruction, those objects will be destroyed <i>before</i> calling this function (but after that the destructor of the subclass has run), therefore making the OpenGL context current in this function happens too late for their safe disposal.</p>
@@ -211,7 +211,7 @@
 <p><b> 参见 </b><a href="qopenglwindow.html#makeCurrent">makeCurrent</a>().</p>
 <!-- @@@doneCurrent -->
 <!-- $$$frameSwapped[overload1]$$$frameSwapped -->
-<h3 class="fn" id="frameSwapped"><a name="frameSwapped"></a><code>[signal] </code><span class="type">void</span> QOpenGLWindow::<span class="name">frameSwapped</span>()</h3>
+<h3 class="fn" id="frameSwapped"><a name="frameSwapped"></a><code>[信号] </code><span class="type">void</span> QOpenGLWindow::<span class="name">frameSwapped</span>()</h3>
 <p>This signal is emitted after the potentially blocking <a href="qopenglcontext.html#swapBuffers">buffer swap</a> has been done. Applications that wish to continuously repaint synchronized to the vertical refresh, should issue an <a href="qpaintdevicewindow.html#update-2">update</a>() upon this signal. This allows for a much smoother experience compared to the traditional usage of timers.</p>
 <!-- @@@frameSwapped -->
 <!-- $$$grabFramebuffer[overload1]$$$grabFramebuffer -->
@@ -219,7 +219,7 @@
 <p>Returns a copy of the framebuffer.</p>
 <p><b>Note: </b>This is a potentially expensive operation because it relies on glReadPixels() to read back the pixels. This may be slow and can stall the GPU pipeline.</p><p><b>Note: </b>When used together with update behavior <code>NoPartialUpdate</code>, the returned image may not contain the desired content when called after the front and back buffers have been swapped (unless preserved swap is enabled in the underlying windowing system interface). In this mode the function reads from the back buffer and the contents of that may not match the content on the screen (the front buffer). In this case the only place where this function can safely be used is <a href="qopenglwindow.html#paintGL">paintGL</a>() or <a href="qopenglwindow.html#paintOverGL">paintOverGL</a>().</p><!-- @@@grabFramebuffer -->
 <!-- $$$initializeGL[overload1]$$$initializeGL -->
-<h3 class="fn" id="initializeGL"><a name="initializeGL"></a><code>[virtual protected] </code><span class="type">void</span> QOpenGLWindow::<span class="name">initializeGL</span>()</h3>
+<h3 class="fn" id="initializeGL"><a name="initializeGL"></a><code>[虚保护函数] </code><span class="type">void</span> QOpenGLWindow::<span class="name">initializeGL</span>()</h3>
 <p>This virtual function is called once before the first call to <a href="qopenglwindow.html#paintGL">paintGL</a>() or <a href="qopenglwindow.html#resizeGL">resizeGL</a>(). Reimplement it in a subclass.</p>
 <p>This function should set up any required OpenGL resources and state.</p>
 <p>There is no need to call <a href="qopenglwindow.html#makeCurrent">makeCurrent</a>() because this has already been done when this function is called. Note however that the framebuffer, in case partial update mode is used, is not yet available at this stage, so avoid issuing draw calls from here. Defer such calls to <a href="qopenglwindow.html#paintGL">paintGL</a>() instead.</p>
@@ -237,40 +237,40 @@
 <p><b> 参见 </b><a href="qopenglcontext.html">QOpenGLContext</a>, <a href="qopenglwindow.html#context">context</a>(), <a href="qopenglwindow.html#paintGL">paintGL</a>(), 和 <a href="qopenglwindow.html#doneCurrent">doneCurrent</a>().</p>
 <!-- @@@makeCurrent -->
 <!-- $$$paintEvent[overload1]$$$paintEventQPaintEvent* -->
-<h3 class="fn" id="paintEvent"><a name="paintEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QOpenGLWindow::<span class="name">paintEvent</span>(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="paintEvent"><a name="paintEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QOpenGLWindow::<span class="name">paintEvent</span>(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> *<i>event</i>)</h3>
 <p>Reimplemented from <a href="qpaintdevicewindow.html#paintEvent">QPaintDeviceWindow::paintEvent</a>().</p>
 <p>Paint <i>event</i> handler. Calls <a href="qopenglwindow.html#paintGL">paintGL</a>().</p>
 <p><b> 参见 </b><a href="qopenglwindow.html#paintGL">paintGL</a>().</p>
 <!-- @@@paintEvent -->
 <!-- $$$paintGL[overload1]$$$paintGL -->
-<h3 class="fn" id="paintGL"><a name="paintGL"></a><code>[virtual protected] </code><span class="type">void</span> QOpenGLWindow::<span class="name">paintGL</span>()</h3>
+<h3 class="fn" id="paintGL"><a name="paintGL"></a><code>[虚保护函数] </code><span class="type">void</span> QOpenGLWindow::<span class="name">paintGL</span>()</h3>
 <p>This virtual function is called whenever the window contents needs to be painted. Reimplement it in a subclass.</p>
 <p>There is no need to call <a href="qopenglwindow.html#makeCurrent">makeCurrent</a>() because this has already been done when this function is called.</p>
 <p>Before invoking this function, the context and the framebuffer, if there is one, are bound, and the viewport is set up by a call to glViewport(). No other state is set and no clearing or drawing is performed by the framework.</p>
 <p><b>Note: </b>When using a partial update behavior, like <code>PartialUpdateBlend</code>, the output of the previous paintGL() call is preserved and, after the additional drawing perfomed in the current invocation of the function, the content is blitted or blended over the content drawn directly to the window in <a href="qopenglwindow.html#paintUnderGL">paintUnderGL</a>().</p><p><b> 参见 </b><a href="qopenglwindow.html#initializeGL">initializeGL</a>(), <a href="qopenglwindow.html#resizeGL">resizeGL</a>(), <a href="qopenglwindow.html#paintUnderGL">paintUnderGL</a>(), <a href="qopenglwindow.html#paintOverGL">paintOverGL</a>(), 和 <a href="qopenglwindow.html#UpdateBehavior-enum">UpdateBehavior</a>.</p>
 <!-- @@@paintGL -->
 <!-- $$$paintOverGL[overload1]$$$paintOverGL -->
-<h3 class="fn" id="paintOverGL"><a name="paintOverGL"></a><code>[virtual protected] </code><span class="type">void</span> QOpenGLWindow::<span class="name">paintOverGL</span>()</h3>
+<h3 class="fn" id="paintOverGL"><a name="paintOverGL"></a><code>[虚保护函数] </code><span class="type">void</span> QOpenGLWindow::<span class="name">paintOverGL</span>()</h3>
 <p>This virtual function is called after each invocation of <a href="qopenglwindow.html#paintGL">paintGL</a>().</p>
 <p>When the update mode is set to <a href="qopenglwindow.html#UpdateBehavior-enum">NoPartialUpdate</a>, there is no difference between this function and <a href="qopenglwindow.html#paintGL">paintGL</a>(), performing rendering in either of them leads to the same result.</p>
 <p>Like <a href="qopenglwindow.html#paintUnderGL">paintUnderGL</a>(), rendering in this function targets the default framebuffer of the window, regardless of the update behavior. It gets called after <a href="qopenglwindow.html#paintGL">paintGL</a>() has returned and the blit (<a href="qopenglwindow.html#UpdateBehavior-enum">PartialUpdateBlit</a>) or quad drawing (<a href="qopenglwindow.html#UpdateBehavior-enum">PartialUpdateBlend</a>) has been done.</p>
 <p><b> 参见 </b><a href="qopenglwindow.html#paintGL">paintGL</a>(), <a href="qopenglwindow.html#paintUnderGL">paintUnderGL</a>(), 和 <a href="qopenglwindow.html#UpdateBehavior-enum">UpdateBehavior</a>.</p>
 <!-- @@@paintOverGL -->
 <!-- $$$paintUnderGL[overload1]$$$paintUnderGL -->
-<h3 class="fn" id="paintUnderGL"><a name="paintUnderGL"></a><code>[virtual protected] </code><span class="type">void</span> QOpenGLWindow::<span class="name">paintUnderGL</span>()</h3>
+<h3 class="fn" id="paintUnderGL"><a name="paintUnderGL"></a><code>[虚保护函数] </code><span class="type">void</span> QOpenGLWindow::<span class="name">paintUnderGL</span>()</h3>
 <p>The virtual function is called before each invocation of <a href="qopenglwindow.html#paintGL">paintGL</a>().</p>
 <p>When the update mode is set to <code>NoPartialUpdate</code>, there is no difference between this function and <a href="qopenglwindow.html#paintGL">paintGL</a>(), performing rendering in either of them leads to the same result.</p>
 <p>The difference becomes significant when using <code>PartialUpdateBlend</code>, where an extra framebuffer object is used. There, <a href="qopenglwindow.html#paintGL">paintGL</a>() targets this additional framebuffer object, which preserves its contents, while paintUnderGL() and <a href="qopenglwindow.html#paintOverGL">paintOverGL</a>() target the default framebuffer, i.e&#x2e; directly the window surface, the contents of which is lost after each displayed frame.</p>
 <p><b>Note: </b>Avoid relying on this function when the update behavior is <code>PartialUpdateBlit</code>. This mode involves blitting the extra framebuffer used by <a href="qopenglwindow.html#paintGL">paintGL</a>() onto the default framebuffer after each invocation of <a href="qopenglwindow.html#paintGL">paintGL</a>(), thus overwriting all drawing generated in this function.</p><p><b> 参见 </b><a href="qopenglwindow.html#paintGL">paintGL</a>(), <a href="qopenglwindow.html#paintOverGL">paintOverGL</a>(), 和 <a href="qopenglwindow.html#UpdateBehavior-enum">UpdateBehavior</a>.</p>
 <!-- @@@paintUnderGL -->
 <!-- $$$resizeEvent[overload1]$$$resizeEventQResizeEvent* -->
-<h3 class="fn" id="resizeEvent"><a name="resizeEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QOpenGLWindow::<span class="name">resizeEvent</span>(<span class="type"><a href="qresizeevent.html">QResizeEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="resizeEvent"><a name="resizeEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QOpenGLWindow::<span class="name">resizeEvent</span>(<span class="type"><a href="qresizeevent.html">QResizeEvent</a></span> *<i>event</i>)</h3>
 <p>Reimplemented from <a href="qwindow.html#resizeEvent">QWindow::resizeEvent</a>().</p>
 <p>Resize <i>event</i> handler. Calls <a href="qopenglwindow.html#resizeGL">resizeGL</a>().</p>
 <p><b> 参见 </b><a href="qopenglwindow.html#resizeGL">resizeGL</a>().</p>
 <!-- @@@resizeEvent -->
 <!-- $$$resizeGL[overload1]$$$resizeGLintint -->
-<h3 class="fn" id="resizeGL"><a name="resizeGL"></a><code>[virtual protected] </code><span class="type">void</span> QOpenGLWindow::<span class="name">resizeGL</span>(<span class="type">int</span> <i>w</i>, <span class="type">int</span> <i>h</i>)</h3>
+<h3 class="fn" id="resizeGL"><a name="resizeGL"></a><code>[虚保护函数] </code><span class="type">void</span> QOpenGLWindow::<span class="name">resizeGL</span>(<span class="type">int</span> <i>w</i>, <span class="type">int</span> <i>h</i>)</h3>
 <p>This virtual function is called whenever the widget has been resized. Reimplement it in a subclass. The new size is passed in <i>w</i> and <i>h</i>.</p>
 <p><b>Note: </b>This is merely a convenience function in order to provide an API that is compatible with <a href="../qtwidgets/qopenglwidget.html">QOpenGLWidget</a>. Unlike with <a href="../qtwidgets/qopenglwidget.html">QOpenGLWidget</a>, derived classes are free to choose to override <a href="qopenglwindow.html#resizeEvent">resizeEvent</a>() instead of this function.</p><p><b>Note: </b>Avoid issuing OpenGL commands from this function as there may not be a context current when it is invoked. If it cannot be avoided, call <a href="qopenglwindow.html#makeCurrent">makeCurrent</a>().</p><p><b>Note: </b>Scheduling updates from here is not necessary. The windowing systems will send expose events that trigger an update automatically.</p><p><b> 参见 </b><a href="qopenglwindow.html#initializeGL">initializeGL</a>() 和 <a href="qopenglwindow.html#paintGL">paintGL</a>().</p>
 <!-- @@@resizeGL -->

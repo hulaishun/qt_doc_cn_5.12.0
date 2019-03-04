@@ -594,7 +594,7 @@
 <p><b> 参见 </b><a href="qwindow.html#setParent">setParent</a>().</p>
 <!-- @@@QWindow -->
 <!-- $$$~QWindow[overload1]$$$~QWindow -->
-<h3 class="fn" id="dtor.QWindow"><a name="dtor.QWindow"></a><code>[virtual] </code>QWindow::<span class="name">~QWindow</span>()</h3>
+<h3 class="fn" id="dtor.QWindow"><a name="dtor.QWindow"></a><code>[虚函数] </code>QWindow::<span class="name">~QWindow</span>()</h3>
 <p>Destroys the window.</p>
 <!-- @@@~QWindow -->
 <!-- $$$alert[overload1]$$$alertint -->
@@ -639,13 +639,13 @@
 <p><b>Note: </b>For windows not backed by a platform window, meaning that <a href="qwindow.html#create">create</a>() was not called, the function will fall back to the associated <a href="qscreen.html">QScreen</a>'s device pixel ratio.</p><p><b> 参见 </b><a href="qscreen.html#devicePixelRatio-prop">QScreen::devicePixelRatio</a>().</p>
 <!-- @@@devicePixelRatio -->
 <!-- $$$event[overload1]$$$eventQEvent* -->
-<h3 class="fn" id="event"><a name="event"></a><code>[override virtual protected] </code><span class="type">bool</span> QWindow::<span class="name">event</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>ev</i>)</h3>
+<h3 class="fn" id="event"><a name="event"></a><code>[重载虚保护函数] </code><span class="type">bool</span> QWindow::<span class="name">event</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>ev</i>)</h3>
 <p>Reimplemented from <a href="../qtcore/qobject.html#event">QObject::event</a>().</p>
 <p>Override this to handle any event (<i>ev</i>) sent to the window. Return <code>true</code> if the event was recognized and processed.</p>
 <p>Remember to call the base class version if you wish for mouse events, key events, resize events, etc to be dispatched as usual.</p>
 <!-- @@@event -->
 <!-- $$$exposeEvent[overload1]$$$exposeEventQExposeEvent* -->
-<h3 class="fn" id="exposeEvent"><a name="exposeEvent"></a><code>[virtual protected] </code><span class="type">void</span> QWindow::<span class="name">exposeEvent</span>(<span class="type"><a href="qexposeevent.html">QExposeEvent</a></span> *<i>ev</i>)</h3>
+<h3 class="fn" id="exposeEvent"><a name="exposeEvent"></a><code>[虚保护函数] </code><span class="type">void</span> QWindow::<span class="name">exposeEvent</span>(<span class="type"><a href="qexposeevent.html">QExposeEvent</a></span> *<i>ev</i>)</h3>
 <p>The expose event (<i>ev</i>) is sent by the window system whenever an area of the window is invalidated, for example due to the exposure in the windowing system changing.</p>
 <p>The application can start rendering into the window with <a href="qbackingstore.html">QBackingStore</a> 和 <a href="qopenglcontext.html">QOpenGLContext</a> as soon as it gets an exposeEvent() such that <a href="qwindow.html#isExposed">isExposed</a>() is true.</p>
 <p>If the window is moved off screen, is made totally obscured by another window, iconified or similar, this function might be called and the value of <a href="qwindow.html#isExposed">isExposed</a>() might change to false. When this happens, an application should stop its rendering as it is no longer visible to the user.</p>
@@ -658,28 +658,28 @@
 <p><b> 参见 </b><a href="qwindow.html#setFilePath">setFilePath</a>().</p>
 <!-- @@@filePath -->
 <!-- $$$focusInEvent[overload1]$$$focusInEventQFocusEvent* -->
-<h3 class="fn" id="focusInEvent"><a name="focusInEvent"></a><code>[virtual protected] </code><span class="type">void</span> QWindow::<span class="name">focusInEvent</span>(<span class="type"><a href="qfocusevent.html">QFocusEvent</a></span> *<i>ev</i>)</h3>
+<h3 class="fn" id="focusInEvent"><a name="focusInEvent"></a><code>[虚保护函数] </code><span class="type">void</span> QWindow::<span class="name">focusInEvent</span>(<span class="type"><a href="qfocusevent.html">QFocusEvent</a></span> *<i>ev</i>)</h3>
 <p>Override this to handle focus in events (<i>ev</i>).</p>
 <p>Focus in events are sent when the window receives keyboard focus.</p>
 <p><b> 参见 </b><a href="qwindow.html#focusOutEvent">focusOutEvent</a>().</p>
 <!-- @@@focusInEvent -->
 <!-- $$$focusObject[overload1]$$$focusObject -->
-<h3 class="fn" id="focusObject"><a name="focusObject"></a><code>[virtual] </code><span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *QWindow::<span class="name">focusObject</span>() const</h3>
+<h3 class="fn" id="focusObject"><a name="focusObject"></a><code>[虚函数] </code><span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *QWindow::<span class="name">focusObject</span>() const</h3>
 <p>Returns the <a href="../qtcore/qobject.html">QObject</a> that will be the final receiver of events tied focus, such as key events.</p>
 <!-- @@@focusObject -->
 <!-- $$$focusObjectChanged[overload1]$$$focusObjectChangedQObject* -->
-<h3 class="fn" id="focusObjectChanged"><a name="focusObjectChanged"></a><code>[signal] </code><span class="type">void</span> QWindow::<span class="name">focusObjectChanged</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>object</i>)</h3>
+<h3 class="fn" id="focusObjectChanged"><a name="focusObjectChanged"></a><code>[信号] </code><span class="type">void</span> QWindow::<span class="name">focusObjectChanged</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>object</i>)</h3>
 <p>This signal is emitted when the final receiver of events tied to focus is changed to <i>object</i>.</p>
 <p><b> 参见 </b><a href="qwindow.html#focusObject">focusObject</a>().</p>
 <!-- @@@focusObjectChanged -->
 <!-- $$$focusOutEvent[overload1]$$$focusOutEventQFocusEvent* -->
-<h3 class="fn" id="focusOutEvent"><a name="focusOutEvent"></a><code>[virtual protected] </code><span class="type">void</span> QWindow::<span class="name">focusOutEvent</span>(<span class="type"><a href="qfocusevent.html">QFocusEvent</a></span> *<i>ev</i>)</h3>
+<h3 class="fn" id="focusOutEvent"><a name="focusOutEvent"></a><code>[虚保护函数] </code><span class="type">void</span> QWindow::<span class="name">focusOutEvent</span>(<span class="type"><a href="qfocusevent.html">QFocusEvent</a></span> *<i>ev</i>)</h3>
 <p>Override this to handle focus out events (<i>ev</i>).</p>
 <p>Focus out events are sent when the window loses keyboard focus.</p>
 <p><b> 参见 </b><a href="qwindow.html#focusInEvent">focusInEvent</a>().</p>
 <!-- @@@focusOutEvent -->
 <!-- $$$format[overload1]$$$format -->
-<h3 class="fn" id="format"><a name="format"></a><code>[override virtual] </code><span class="type"><a href="qsurfaceformat.html">QSurfaceFormat</a></span> QWindow::<span class="name">format</span>() const</h3>
+<h3 class="fn" id="format"><a name="format"></a><code>[重载虚函数] </code><span class="type"><a href="qsurfaceformat.html">QSurfaceFormat</a></span> QWindow::<span class="name">format</span>() const</h3>
 <p>Reimplemented from <a href="qsurface.html#format">QSurface::format</a>().</p>
 <p>Returns the actual format of this window.</p>
 <p>After the window has been created, this function will return the actual surface format of the window. It might differ from the requested format if the requested format could not be fulfilled by the platform. It might also be a superset, for example certain buffer sizes may be larger than requested.</p>
@@ -703,7 +703,7 @@
 <p><b> 参见 </b><a href="qwindow.html#setFramePosition">setFramePosition</a>(), <a href="qwindow.html#geometry">geometry</a>(), 和 <a href="qwindow.html#frameGeometry">frameGeometry</a>().</p>
 <!-- @@@framePosition -->
 <!-- $$$fromWinId[overload1]$$$fromWinIdWId -->
-<h3 class="fn" id="fromWinId"><a name="fromWinId"></a><code>[static] </code><span class="type"><a href="qwindow.html#QWindow">QWindow</a></span> *QWindow::<span class="name">fromWinId</span>(<span class="type">WId</span> <i>id</i>)</h3>
+<h3 class="fn" id="fromWinId"><a name="fromWinId"></a><code>[静态函数] </code><span class="type"><a href="qwindow.html#QWindow">QWindow</a></span> *QWindow::<span class="name">fromWinId</span>(<span class="type">WId</span> <i>id</i>)</h3>
 <p>Creates a local representation of a window created by another process or by using native libraries below Qt.</p>
 <p>Given the handle <i>id</i> to a native window, this method creates a <a href="qwindow.html">QWindow</a> object which can be used to represent the window when invoking methods like <a href="qwindow.html#setParent">setParent</a>() 和 <a href="qwindow.html#setTransientParent">setTransientParent</a>().</p>
 <p>This can be used, on platforms which support it, to embed a <a href="qwindow.html">QWindow</a> inside a native window, or to embed a native window inside a <a href="qwindow.html">QWindow</a>.</p>
@@ -723,7 +723,7 @@
 <p><b> 参见 </b><a href="qwindow.html#show">show</a>() 和 <a href="qwindow.html#visible-prop">setVisible</a>().</p>
 <!-- @@@hide -->
 <!-- $$$hideEvent[overload1]$$$hideEventQHideEvent* -->
-<h3 class="fn" id="hideEvent"><a name="hideEvent"></a><code>[virtual protected] </code><span class="type">void</span> QWindow::<span class="name">hideEvent</span>(<span class="type"><a href="qhideevent.html">QHideEvent</a></span> *<i>ev</i>)</h3>
+<h3 class="fn" id="hideEvent"><a name="hideEvent"></a><code>[虚保护函数] </code><span class="type">void</span> QWindow::<span class="name">hideEvent</span>(<span class="type"><a href="qhideevent.html">QHideEvent</a></span> *<i>ev</i>)</h3>
 <p>Override this to handle hide events (<i>ev</i>).</p>
 <p>The function is called when the window has requested being hidden in the windowing system.</p>
 <!-- @@@hideEvent -->
@@ -760,12 +760,12 @@
 <p>Returns whether the window is top level, i.e&#x2e; has no parent window.</p>
 <!-- @@@isTopLevel -->
 <!-- $$$keyPressEvent[overload1]$$$keyPressEventQKeyEvent* -->
-<h3 class="fn" id="keyPressEvent"><a name="keyPressEvent"></a><code>[virtual protected] </code><span class="type">void</span> QWindow::<span class="name">keyPressEvent</span>(<span class="type"><a href="qkeyevent.html">QKeyEvent</a></span> *<i>ev</i>)</h3>
+<h3 class="fn" id="keyPressEvent"><a name="keyPressEvent"></a><code>[虚保护函数] </code><span class="type">void</span> QWindow::<span class="name">keyPressEvent</span>(<span class="type"><a href="qkeyevent.html">QKeyEvent</a></span> *<i>ev</i>)</h3>
 <p>Override this to handle key press events (<i>ev</i>).</p>
 <p><b> 参见 </b><a href="qwindow.html#keyReleaseEvent">keyReleaseEvent</a>().</p>
 <!-- @@@keyPressEvent -->
 <!-- $$$keyReleaseEvent[overload1]$$$keyReleaseEventQKeyEvent* -->
-<h3 class="fn" id="keyReleaseEvent"><a name="keyReleaseEvent"></a><code>[virtual protected] </code><span class="type">void</span> QWindow::<span class="name">keyReleaseEvent</span>(<span class="type"><a href="qkeyevent.html">QKeyEvent</a></span> *<i>ev</i>)</h3>
+<h3 class="fn" id="keyReleaseEvent"><a name="keyReleaseEvent"></a><code>[虚保护函数] </code><span class="type">void</span> QWindow::<span class="name">keyReleaseEvent</span>(<span class="type"><a href="qkeyevent.html">QKeyEvent</a></span> *<i>ev</i>)</h3>
 <p>Override this to handle key release events (<i>ev</i>).</p>
 <p><b> 参见 </b><a href="qwindow.html#keyPressEvent">keyPressEvent</a>().</p>
 <!-- @@@keyReleaseEvent -->
@@ -801,34 +801,34 @@
 <p><b> 参见 </b><a href="qwindow.html#setMinimumSize">setMinimumSize</a>().</p>
 <!-- @@@minimumSize -->
 <!-- $$$modalityChanged -->
-<h3 class="fn" id="modalityChanged"><a name="modalityChanged"></a><code>[signal] </code><span class="type">void</span> QWindow::<span class="name">modalityChanged</span>(<span class="type">Qt::WindowModality</span> <i>modality</i>)</h3>
+<h3 class="fn" id="modalityChanged"><a name="modalityChanged"></a><code>[信号] </code><span class="type">void</span> QWindow::<span class="name">modalityChanged</span>(<span class="type">Qt::WindowModality</span> <i>modality</i>)</h3>
 <p>This signal is emitted when the Qwindow::modality property changes to <i>modality</i>.</p>
 <p><b>Note:</b> Notifier signal for property <a href="qwindow.html#modality-prop">modality</a>. </p><!-- @@@modalityChanged -->
 <!-- $$$mouseDoubleClickEvent[overload1]$$$mouseDoubleClickEventQMouseEvent* -->
-<h3 class="fn" id="mouseDoubleClickEvent"><a name="mouseDoubleClickEvent"></a><code>[virtual protected] </code><span class="type">void</span> QWindow::<span class="name">mouseDoubleClickEvent</span>(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> *<i>ev</i>)</h3>
+<h3 class="fn" id="mouseDoubleClickEvent"><a name="mouseDoubleClickEvent"></a><code>[虚保护函数] </code><span class="type">void</span> QWindow::<span class="name">mouseDoubleClickEvent</span>(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> *<i>ev</i>)</h3>
 <p>Override this to handle mouse double click events (<i>ev</i>).</p>
 <p><b> 参见 </b><a href="qwindow.html#mousePressEvent">mousePressEvent</a>() 和 <a href="qstylehints.html#mouseDoubleClickInterval-prop">QStyleHints::mouseDoubleClickInterval</a>().</p>
 <!-- @@@mouseDoubleClickEvent -->
 <!-- $$$mouseMoveEvent[overload1]$$$mouseMoveEventQMouseEvent* -->
-<h3 class="fn" id="mouseMoveEvent"><a name="mouseMoveEvent"></a><code>[virtual protected] </code><span class="type">void</span> QWindow::<span class="name">mouseMoveEvent</span>(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> *<i>ev</i>)</h3>
+<h3 class="fn" id="mouseMoveEvent"><a name="mouseMoveEvent"></a><code>[虚保护函数] </code><span class="type">void</span> QWindow::<span class="name">mouseMoveEvent</span>(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> *<i>ev</i>)</h3>
 <p>Override this to handle mouse move events (<i>ev</i>).</p>
 <!-- @@@mouseMoveEvent -->
 <!-- $$$mousePressEvent[overload1]$$$mousePressEventQMouseEvent* -->
-<h3 class="fn" id="mousePressEvent"><a name="mousePressEvent"></a><code>[virtual protected] </code><span class="type">void</span> QWindow::<span class="name">mousePressEvent</span>(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> *<i>ev</i>)</h3>
+<h3 class="fn" id="mousePressEvent"><a name="mousePressEvent"></a><code>[虚保护函数] </code><span class="type">void</span> QWindow::<span class="name">mousePressEvent</span>(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> *<i>ev</i>)</h3>
 <p>Override this to handle mouse press events (<i>ev</i>).</p>
 <p><b> 参见 </b><a href="qwindow.html#mouseReleaseEvent">mouseReleaseEvent</a>().</p>
 <!-- @@@mousePressEvent -->
 <!-- $$$mouseReleaseEvent[overload1]$$$mouseReleaseEventQMouseEvent* -->
-<h3 class="fn" id="mouseReleaseEvent"><a name="mouseReleaseEvent"></a><code>[virtual protected] </code><span class="type">void</span> QWindow::<span class="name">mouseReleaseEvent</span>(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> *<i>ev</i>)</h3>
+<h3 class="fn" id="mouseReleaseEvent"><a name="mouseReleaseEvent"></a><code>[虚保护函数] </code><span class="type">void</span> QWindow::<span class="name">mouseReleaseEvent</span>(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> *<i>ev</i>)</h3>
 <p>Override this to handle mouse release events (<i>ev</i>).</p>
 <p><b> 参见 </b><a href="qwindow.html#mousePressEvent">mousePressEvent</a>().</p>
 <!-- @@@mouseReleaseEvent -->
 <!-- $$$moveEvent[overload1]$$$moveEventQMoveEvent* -->
-<h3 class="fn" id="moveEvent"><a name="moveEvent"></a><code>[virtual protected] </code><span class="type">void</span> QWindow::<span class="name">moveEvent</span>(<span class="type"><a href="qmoveevent.html">QMoveEvent</a></span> *<i>ev</i>)</h3>
+<h3 class="fn" id="moveEvent"><a name="moveEvent"></a><code>[虚保护函数] </code><span class="type">void</span> QWindow::<span class="name">moveEvent</span>(<span class="type"><a href="qmoveevent.html">QMoveEvent</a></span> *<i>ev</i>)</h3>
 <p>Override this to handle window move events (<i>ev</i>).</p>
 <!-- @@@moveEvent -->
 <!-- $$$nativeEvent[overload1]$$$nativeEventconstQByteArray&void*long* -->
-<h3 class="fn" id="nativeEvent"><a name="nativeEvent"></a><code>[virtual protected] </code><span class="type">bool</span> QWindow::<span class="name">nativeEvent</span>(const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>eventType</i>, <span class="type">void</span> *<i>message</i>, <span class="type">long</span> *<i>result</i>)</h3>
+<h3 class="fn" id="nativeEvent"><a name="nativeEvent"></a><code>[虚保护函数] </code><span class="type">bool</span> QWindow::<span class="name">nativeEvent</span>(const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>eventType</i>, <span class="type">void</span> *<i>message</i>, <span class="type">long</span> *<i>result</i>)</h3>
 <p>Override this to handle platform dependent events. Will be given <i>eventType</i>, <i>message</i> and <i>result</i>.</p>
 <p>This might make your application non-portable.</p>
 <p>Should return true only if the event was handled.</p>
@@ -887,7 +887,7 @@
 <p><b> 参见 </b><a href="qwindow.html#size">size</a>() 和 <a href="qwindow.html#geometry">geometry</a>().</p>
 <!-- @@@resize -->
 <!-- $$$resizeEvent[overload1]$$$resizeEventQResizeEvent* -->
-<h3 class="fn" id="resizeEvent"><a name="resizeEvent"></a><code>[virtual protected] </code><span class="type">void</span> QWindow::<span class="name">resizeEvent</span>(<span class="type"><a href="qresizeevent.html">QResizeEvent</a></span> *<i>ev</i>)</h3>
+<h3 class="fn" id="resizeEvent"><a name="resizeEvent"></a><code>[虚保护函数] </code><span class="type">void</span> QWindow::<span class="name">resizeEvent</span>(<span class="type"><a href="qresizeevent.html">QResizeEvent</a></span> *<i>ev</i>)</h3>
 <p>Override this to handle resize events (<i>ev</i>).</p>
 <p>The resize event is called whenever the window is resized in the windowing system, either directly through the windowing system acknowledging a <a href="qwindow.html#setGeometry">setGeometry</a>() or <a href="qwindow.html#resize">resize</a>() request, or indirectly through the user resizing the window manually.</p>
 <!-- @@@resizeEvent -->
@@ -898,7 +898,7 @@
 <p><b> 参见 </b><a href="qwindow.html#setScreen">setScreen</a>() 和 <a href="qscreen.html#virtualSiblings">QScreen::virtualSiblings</a>().</p>
 <!-- @@@screen -->
 <!-- $$$screenChanged[overload1]$$$screenChangedQScreen* -->
-<h3 class="fn" id="screenChanged"><a name="screenChanged"></a><code>[signal] </code><span class="type">void</span> QWindow::<span class="name">screenChanged</span>(<span class="type"><a href="qscreen.html">QScreen</a></span> *<i>screen</i>)</h3>
+<h3 class="fn" id="screenChanged"><a name="screenChanged"></a><code>[信号] </code><span class="type">void</span> QWindow::<span class="name">screenChanged</span>(<span class="type"><a href="qscreen.html">QScreen</a></span> *<i>screen</i>)</h3>
 <p>This signal is emitted when a window's <i>screen</i> changes, either by being set explicitly with <a href="qwindow.html#setScreen">setScreen</a>(), or automatically when the window's screen is removed.</p>
 <!-- @@@screenChanged -->
 <!-- $$$setBaseSize[overload1]$$$setBaseSizeconstQSize& -->
@@ -1075,7 +1075,7 @@
 <p><b> 参见 </b><a href="qwindow.html#showFullScreen">showFullScreen</a>(), <a href="qwindow.html#showMaximized">showMaximized</a>(), <a href="qwindow.html#showNormal">showNormal</a>(), <a href="qwindow.html#hide">hide</a>(), <a href="qstylehints.html#showIsFullScreen-prop">QStyleHints::showIsFullScreen</a>(), 和 <a href="qwindow.html#flags-prop">flags</a>().</p>
 <!-- @@@show -->
 <!-- $$$showEvent[overload1]$$$showEventQShowEvent* -->
-<h3 class="fn" id="showEvent"><a name="showEvent"></a><code>[virtual protected] </code><span class="type">void</span> QWindow::<span class="name">showEvent</span>(<span class="type"><a href="qshowevent.html">QShowEvent</a></span> *<i>ev</i>)</h3>
+<h3 class="fn" id="showEvent"><a name="showEvent"></a><code>[虚保护函数] </code><span class="type">void</span> QWindow::<span class="name">showEvent</span>(<span class="type"><a href="qshowevent.html">QShowEvent</a></span> *<i>ev</i>)</h3>
 <p>Override this to handle show events (<i>ev</i>).</p>
 <p>The function is called when the window has requested becoming visible.</p>
 <p>If the window is successfully shown by the windowing system, this will be followed by a resize and an expose event.</p>
@@ -1105,7 +1105,7 @@
 <p><b> 参见 </b><a href="qwindow.html#setWindowStates">setWindowStates</a>() 和 <a href="qwindow.html#visible-prop">setVisible</a>().</p>
 <!-- @@@showNormal -->
 <!-- $$$size[overload1]$$$size -->
-<h3 class="fn" id="size"><a name="size"></a><code>[override virtual] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QWindow::<span class="name">size</span>() const</h3>
+<h3 class="fn" id="size"><a name="size"></a><code>[重载虚函数] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QWindow::<span class="name">size</span>() const</h3>
 <p>Reimplemented from <a href="qsurface.html#size">QSurface::size</a>().</p>
 <p>Returns the size of the window excluding any window frame</p>
 <p><b> 参见 </b><a href="qwindow.html#resize">resize</a>().</p>
@@ -1116,18 +1116,18 @@
 <p><b> 参见 </b><a href="qwindow.html#setSizeIncrement">setSizeIncrement</a>().</p>
 <!-- @@@sizeIncrement -->
 <!-- $$$surfaceType[overload1]$$$surfaceType -->
-<h3 class="fn" id="surfaceType"><a name="surfaceType"></a><code>[override virtual] </code><span class="type"><a href="qsurface.html#SurfaceType-enum">QSurface::SurfaceType</a></span> QWindow::<span class="name">surfaceType</span>() const</h3>
+<h3 class="fn" id="surfaceType"><a name="surfaceType"></a><code>[重载虚函数] </code><span class="type"><a href="qsurface.html#SurfaceType-enum">QSurface::SurfaceType</a></span> QWindow::<span class="name">surfaceType</span>() const</h3>
 <p>Reimplemented from <a href="qsurface.html#surfaceType">QSurface::surfaceType</a>().</p>
 <p>Returns the surface type of the window.</p>
 <p><b> 参见 </b><a href="qwindow.html#setSurfaceType">setSurfaceType</a>().</p>
 <!-- @@@surfaceType -->
 <!-- $$$tabletEvent[overload1]$$$tabletEventQTabletEvent* -->
-<h3 class="fn" id="tabletEvent"><a name="tabletEvent"></a><code>[virtual protected] </code><span class="type">void</span> QWindow::<span class="name">tabletEvent</span>(<span class="type"><a href="qtabletevent.html">QTabletEvent</a></span> *<i>ev</i>)</h3>
+<h3 class="fn" id="tabletEvent"><a name="tabletEvent"></a><code>[虚保护函数] </code><span class="type">void</span> QWindow::<span class="name">tabletEvent</span>(<span class="type"><a href="qtabletevent.html">QTabletEvent</a></span> *<i>ev</i>)</h3>
 <p>Override this to handle tablet press, move, and release events (<i>ev</i>).</p>
 <p>Proximity enter and leave events are not sent to windows, they are delivered to the application instance.</p>
 <!-- @@@tabletEvent -->
 <!-- $$$touchEvent[overload1]$$$touchEventQTouchEvent* -->
-<h3 class="fn" id="touchEvent"><a name="touchEvent"></a><code>[virtual protected] </code><span class="type">void</span> QWindow::<span class="name">touchEvent</span>(<span class="type"><a href="qtouchevent.html">QTouchEvent</a></span> *<i>ev</i>)</h3>
+<h3 class="fn" id="touchEvent"><a name="touchEvent"></a><code>[虚保护函数] </code><span class="type">void</span> QWindow::<span class="name">touchEvent</span>(<span class="type"><a href="qtouchevent.html">QTouchEvent</a></span> *<i>ev</i>)</h3>
 <p>Override this to handle touch events (<i>ev</i>).</p>
 <!-- @@@touchEvent -->
 <!-- $$$transientParent[overload1]$$$transientParent -->
@@ -1151,7 +1151,7 @@
 <p><b> 参见 </b><a href="qwindow.html#setVulkanInstance">setVulkanInstance</a>().</p>
 <!-- @@@vulkanInstance -->
 <!-- $$$wheelEvent[overload1]$$$wheelEventQWheelEvent* -->
-<h3 class="fn" id="wheelEvent"><a name="wheelEvent"></a><code>[virtual protected] </code><span class="type">void</span> QWindow::<span class="name">wheelEvent</span>(<span class="type"><a href="qwheelevent.html">QWheelEvent</a></span> *<i>ev</i>)</h3>
+<h3 class="fn" id="wheelEvent"><a name="wheelEvent"></a><code>[虚保护函数] </code><span class="type">void</span> QWindow::<span class="name">wheelEvent</span>(<span class="type"><a href="qwheelevent.html">QWheelEvent</a></span> *<i>ev</i>)</h3>
 <p>Override this to handle mouse wheel or other wheel events (<i>ev</i>).</p>
 <!-- @@@wheelEvent -->
 <!-- $$$winId[overload1]$$$winId -->
@@ -1166,7 +1166,7 @@
 <p><b> 参见 </b><a href="qwindow.html#setWindowState">setWindowState</a>() 和 <a href="qwindow.html#windowStates">windowStates</a>().</p>
 <!-- @@@windowState -->
 <!-- $$$windowStateChanged[overload1]$$$windowStateChangedQt::WindowState -->
-<h3 class="fn" id="windowStateChanged"><a name="windowStateChanged"></a><code>[signal] </code><span class="type">void</span> QWindow::<span class="name">windowStateChanged</span>(<span class="type">Qt::WindowState</span> <i>windowState</i>)</h3>
+<h3 class="fn" id="windowStateChanged"><a name="windowStateChanged"></a><code>[信号] </code><span class="type">void</span> QWindow::<span class="name">windowStateChanged</span>(<span class="type">Qt::WindowState</span> <i>windowState</i>)</h3>
 <p>This signal is emitted when the <i>windowState</i> changes, either by being set explicitly with <a href="qwindow.html#setWindowStates">setWindowStates</a>(), or automatically when the user clicks one of the titlebar buttons or by other means.</p>
 <!-- @@@windowStateChanged -->
 <!-- $$$windowStates[overload1]$$$windowStates -->

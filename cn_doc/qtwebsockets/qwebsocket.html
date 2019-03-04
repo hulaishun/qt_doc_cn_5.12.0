@@ -174,7 +174,7 @@
 <p>The <i>origin</i> of the client is as specified in <a href="http://tools.ietf.org/html/rfc6454">RFC 6454</a>. (The <i>origin</i> is not required for non-web browser clients (see <a href="http://tools.ietf.org/html/rfc6455">RFC 6455</a>)). The <i>origin</i> may not contain new line characters, otherwise the connection will be aborted immediately during the handshake phase.</p>
 <p><b>Note: </b>Currently only V13 (<a href="http://tools.ietf.org/html/rfc6455">RFC 6455</a>) is supported</p><!-- @@@QWebSocket -->
 <!-- $$$~QWebSocket[overload1]$$$~QWebSocket -->
-<h3 class="fn" id="dtor.QWebSocket"><a name="dtor.QWebSocket"></a><code>[override virtual] </code>QWebSocket::<span class="name">~QWebSocket</span>()</h3>
+<h3 class="fn" id="dtor.QWebSocket"><a name="dtor.QWebSocket"></a><code>[重载虚函数] </code>QWebSocket::<span class="name">~QWebSocket</span>()</h3>
 <p>Destroys the <a href="qwebsocket.html">QWebSocket</a>. Closes the socket if it is still open, and releases any used resources.</p>
 <!-- @@@~QWebSocket -->
 <!-- $$$abort[overload1]$$$abort -->
@@ -182,18 +182,18 @@
 <p>Aborts the current socket and resets the socket. Unlike <a href="qwebsocket.html#close">close</a>(), this function immediately closes the socket, discarding any pending data in the write buffer.</p>
 <!-- @@@abort -->
 <!-- $$$aboutToClose[overload1]$$$aboutToClose -->
-<h3 class="fn" id="aboutToClose"><a name="aboutToClose"></a><code>[signal] </code><span class="type">void</span> QWebSocket::<span class="name">aboutToClose</span>()</h3>
+<h3 class="fn" id="aboutToClose"><a name="aboutToClose"></a><code>[信号] </code><span class="type">void</span> QWebSocket::<span class="name">aboutToClose</span>()</h3>
 <p>This signal is emitted when the socket is about to close. Connect this signal if you have operations that need to be performed before the socket closes (e.g&#x2e;, if you have data in a separate buffer that needs to be written to the device).</p>
 <p><b> 参见 </b><a href="qwebsocket.html#close">close</a>().</p>
 <!-- @@@aboutToClose -->
 <!-- $$$binaryFrameReceived[overload1]$$$binaryFrameReceivedconstQByteArray&bool -->
-<h3 class="fn" id="binaryFrameReceived"><a name="binaryFrameReceived"></a><code>[signal] </code><span class="type">void</span> QWebSocket::<span class="name">binaryFrameReceived</span>(const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>frame</i>, <span class="type">bool</span> <i>isLastFrame</i>)</h3>
+<h3 class="fn" id="binaryFrameReceived"><a name="binaryFrameReceived"></a><code>[信号] </code><span class="type">void</span> QWebSocket::<span class="name">binaryFrameReceived</span>(const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>frame</i>, <span class="type">bool</span> <i>isLastFrame</i>)</h3>
 <p>This signal is emitted whenever a binary frame is received. The <i>frame</i> contains the data and <i>isLastFrame</i> indicates whether this is the last frame of the complete message.</p>
 <p>This signal can be used to process large messages frame by frame, instead of waiting for the complete message to arrive.</p>
 <p><b> 参见 </b><a href="qwebsocket.html#textFrameReceived">textFrameReceived</a>().</p>
 <!-- @@@binaryFrameReceived -->
 <!-- $$$binaryMessageReceived[overload1]$$$binaryMessageReceivedconstQByteArray& -->
-<h3 class="fn" id="binaryMessageReceived"><a name="binaryMessageReceived"></a><code>[signal] </code><span class="type">void</span> QWebSocket::<span class="name">binaryMessageReceived</span>(const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>message</i>)</h3>
+<h3 class="fn" id="binaryMessageReceived"><a name="binaryMessageReceived"></a><code>[信号] </code><span class="type">void</span> QWebSocket::<span class="name">binaryMessageReceived</span>(const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>message</i>)</h3>
 <p>This signal is emitted whenever a binary message is received. The <i>message</i> contains the received bytes.</p>
 <p><b> 参见 </b><a href="qwebsocket.html#textMessageReceived">textMessageReceived</a>().</p>
 <!-- @@@binaryMessageReceived -->
@@ -204,7 +204,7 @@
 <p><b> 参见 </b><a href="qwebsocket.html#flush">flush</a>.</p>
 <!-- @@@bytesToWrite -->
 <!-- $$$bytesWritten[overload1]$$$bytesWrittenqint64 -->
-<h3 class="fn" id="bytesWritten"><a name="bytesWritten"></a><code>[signal] </code><span class="type">void</span> QWebSocket::<span class="name">bytesWritten</span>(<span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> <i>bytes</i>)</h3>
+<h3 class="fn" id="bytesWritten"><a name="bytesWritten"></a><code>[信号] </code><span class="type">void</span> QWebSocket::<span class="name">bytesWritten</span>(<span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> <i>bytes</i>)</h3>
 <p>This signal is emitted every time a payload of data has been written to the socket. The <i>bytes</i> argument is set to the number of bytes that were written in this payload.</p>
 <p><b>Note: </b>This signal has the same meaning both for secure and non-secure WebSockets. As opposed to <a href="../qtnetwork/qsslsocket.html">QSslSocket</a>, bytesWritten() is only emitted when encrypted data is effectively written (see <a href="../qtnetwork/qsslsocket.html#encryptedBytesWritten">QSslSocket::encryptedBytesWritten</a>()).</p><p><b> 参见 </b><a href="qwebsocket.html#close">close</a>().</p>
 <!-- @@@bytesWritten -->
@@ -224,12 +224,12 @@
 <p><b> 参见 </b><a href="qwebsocket.html#closeCode">closeCode</a>().</p>
 <!-- @@@closeReason -->
 <!-- $$$connected[overload1]$$$connected -->
-<h3 class="fn" id="connected"><a name="connected"></a><code>[signal] </code><span class="type">void</span> QWebSocket::<span class="name">connected</span>()</h3>
+<h3 class="fn" id="connected"><a name="connected"></a><code>[信号] </code><span class="type">void</span> QWebSocket::<span class="name">connected</span>()</h3>
 <p>Emitted when a connection is successfully established. A connection is successfully established when the socket is connected and the handshake was successful.</p>
 <p><b> 参见 </b><a href="qwebsocket.html#open">open</a>() 和 <a href="qwebsocket.html#disconnected">disconnected</a>().</p>
 <!-- @@@connected -->
 <!-- $$$disconnected[overload1]$$$disconnected -->
-<h3 class="fn" id="disconnected"><a name="disconnected"></a><code>[signal] </code><span class="type">void</span> QWebSocket::<span class="name">disconnected</span>()</h3>
+<h3 class="fn" id="disconnected"><a name="disconnected"></a><code>[信号] </code><span class="type">void</span> QWebSocket::<span class="name">disconnected</span>()</h3>
 <p>Emitted when the socket is disconnected.</p>
 <p><b> 参见 </b><a href="qwebsocket.html#close">close</a>() 和 <a href="qwebsocket.html#connected">connected</a>().</p>
 <!-- @@@disconnected -->
@@ -239,7 +239,7 @@
 <p><b> 参见 </b><a href="qwebsocket.html#errorString">errorString</a>().</p>
 <!-- @@@error -->
 <!-- $$$error$$$errorQAbstractSocket::SocketError -->
-<h3 class="fn" id="error-1"><a name="error-1"></a><code>[signal] </code><span class="type">void</span> QWebSocket::<span class="name">error</span>(<span class="type"><a href="../qtnetwork/qabstractsocket.html#SocketError-enum">QAbstractSocket::SocketError</a></span> <i>error</i>)</h3>
+<h3 class="fn" id="error-1"><a name="error-1"></a><code>[信号] </code><span class="type">void</span> QWebSocket::<span class="name">error</span>(<span class="type"><a href="../qtnetwork/qabstractsocket.html#SocketError-enum">QAbstractSocket::SocketError</a></span> <i>error</i>)</h3>
 <p>This signal is emitted after an error occurred. The <i>error</i> parameter describes the type of error that occurred.</p>
 <p><a href="../qtnetwork/qabstractsocket.html#SocketError-enum">QAbstractSocket::SocketError</a> is not a registered metatype, so for queued connections, you will have to register it with <a href="../qtcore/qmetatype.html#Q_DECLARE_METATYPE">Q_DECLARE_METATYPE</a>() 和 <a href="../qtcore/qmetatype.html#qRegisterMetaType-1">qRegisterMetaType</a>().</p>
 <p><b>Note:</b> Signal <i>error</i> is overloaded in this class. To connect to this signal by using the function pointer syntax, Qt provides a convenient helper for obtaining the function pointer as shown in this example:<pre class="cpp">
@@ -341,12 +341,12 @@
 <p><b> 参见 </b><a href="qwebsocket.html#pong">pong</a>().</p>
 <!-- @@@ping -->
 <!-- $$$pong[overload1]$$$pongquint64constQByteArray& -->
-<h3 class="fn" id="pong"><a name="pong"></a><code>[signal] </code><span class="type">void</span> QWebSocket::<span class="name">pong</span>(<span class="type"><a href="../qtcore/qtglobal.html#quint64-typedef">quint64</a></span> <i>elapsedTime</i>, const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>payload</i>)</h3>
+<h3 class="fn" id="pong"><a name="pong"></a><code>[信号] </code><span class="type">void</span> QWebSocket::<span class="name">pong</span>(<span class="type"><a href="../qtcore/qtglobal.html#quint64-typedef">quint64</a></span> <i>elapsedTime</i>, const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>payload</i>)</h3>
 <p>Emitted when a pong message is received in reply to a previous ping. <i>elapsedTime</i> contains the roundtrip time in milliseconds and <i>payload</i> contains an optional payload that was sent with the ping.</p>
 <p><b> 参见 </b><a href="qwebsocket.html#ping">ping</a>().</p>
 <!-- @@@pong -->
 <!-- $$$preSharedKeyAuthenticationRequired[overload1]$$$preSharedKeyAuthenticationRequiredQSslPreSharedKeyAuthenticator* -->
-<h3 class="fn" id="preSharedKeyAuthenticationRequired"><a name="preSharedKeyAuthenticationRequired"></a><code>[signal] </code><span class="type">void</span> QWebSocket::<span class="name">preSharedKeyAuthenticationRequired</span>(<span class="type"><a href="../qtnetwork/qsslpresharedkeyauthenticator.html">QSslPreSharedKeyAuthenticator</a></span> *<i>authenticator</i>)</h3>
+<h3 class="fn" id="preSharedKeyAuthenticationRequired"><a name="preSharedKeyAuthenticationRequired"></a><code>[信号] </code><span class="type">void</span> QWebSocket::<span class="name">preSharedKeyAuthenticationRequired</span>(<span class="type"><a href="../qtnetwork/qsslpresharedkeyauthenticator.html">QSslPreSharedKeyAuthenticator</a></span> *<i>authenticator</i>)</h3>
 <p>This signal is emitted if the SSL/TLS handshake negotiates a PSK ciphersuite, and therefore a PSK authentication is then required.</p>
 <p>When using PSK, the client must send to the server a valid identity and a valid pre shared key, in order for the SSL handshake to continue. Applications can provide this information in a slot connected to this signal, by filling in the passed <i>authenticator</i> object according to their needs.</p>
 <p><b>Note: </b>Ignoring this signal, or failing to provide the required credentials, will cause the handshake to fail, and therefore the connection to be aborted.</p><p><b>Note: </b>The <i>authenticator</i> object is owned by the websocket and must not be deleted by the application.</p><p>这个函数是在Qt 5.8版本中新增引入的。</p>
@@ -358,7 +358,7 @@
 <p><b> 参见 </b><a href="qwebsocket.html#setProxy">setProxy</a>().</p>
 <!-- @@@proxy -->
 <!-- $$$proxyAuthenticationRequired[overload1]$$$proxyAuthenticationRequiredconstQNetworkProxy&QAuthenticator* -->
-<h3 class="fn" id="proxyAuthenticationRequired"><a name="proxyAuthenticationRequired"></a><code>[signal] </code><span class="type">void</span> QWebSocket::<span class="name">proxyAuthenticationRequired</span>(const <span class="type"><a href="../qtnetwork/qnetworkproxy.html">QNetworkProxy</a></span> &amp;<i>proxy</i>, <span class="type"><a href="../qtnetwork/qauthenticator.html">QAuthenticator</a></span> *<i>authenticator</i>)</h3>
+<h3 class="fn" id="proxyAuthenticationRequired"><a name="proxyAuthenticationRequired"></a><code>[信号] </code><span class="type">void</span> QWebSocket::<span class="name">proxyAuthenticationRequired</span>(const <span class="type"><a href="../qtnetwork/qnetworkproxy.html">QNetworkProxy</a></span> &amp;<i>proxy</i>, <span class="type"><a href="../qtnetwork/qauthenticator.html">QAuthenticator</a></span> *<i>authenticator</i>)</h3>
 <p>This signal can be emitted when a <i>proxy</i> that requires authentication is used. The <i>authenticator</i> object can then be filled in with the required details to allow authentication and continue the connection.</p>
 <p><b>Note: </b>It is not possible to use a QueuedConnection to connect to this signal, as the connection will fail if the authenticator has not been filled in with new information when the signal returns.</p><p><b> 参见 </b><a href="../qtnetwork/qauthenticator.html">QAuthenticator</a> 和 <a href="../qtnetwork/qnetworkproxy.html">QNetworkProxy</a>.</p>
 <!-- @@@proxyAuthenticationRequired -->
@@ -368,7 +368,7 @@
 <p><b> 参见 </b><a href="qwebsocket.html#setReadBufferSize">setReadBufferSize</a>().</p>
 <!-- @@@readBufferSize -->
 <!-- $$$readChannelFinished[overload1]$$$readChannelFinished -->
-<h3 class="fn" id="readChannelFinished"><a name="readChannelFinished"></a><code>[signal] </code><span class="type">void</span> QWebSocket::<span class="name">readChannelFinished</span>()</h3>
+<h3 class="fn" id="readChannelFinished"><a name="readChannelFinished"></a><code>[信号] </code><span class="type">void</span> QWebSocket::<span class="name">readChannelFinished</span>()</h3>
 <p>This signal is emitted when the input (reading) stream is closed in this device. It is emitted as soon as the closing is detected.</p>
 <p><b> 参见 </b><a href="qwebsocket.html#close">close</a>().</p>
 <!-- @@@readChannelFinished -->
@@ -434,7 +434,7 @@
 <p><b> 参见 </b><a href="qwebsocket.html#setSslConfiguration">setSslConfiguration</a>().</p>
 <!-- @@@sslConfiguration -->
 <!-- $$$sslErrors[overload1]$$$sslErrorsconstQList<QSslError>& -->
-<h3 class="fn" id="sslErrors"><a name="sslErrors"></a><code>[signal] </code><span class="type">void</span> QWebSocket::<span class="name">sslErrors</span>(const <span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="../qtnetwork/qsslerror.html">QSslError</a></span>&gt; &amp;<i>errors</i>)</h3>
+<h3 class="fn" id="sslErrors"><a name="sslErrors"></a><code>[信号] </code><span class="type">void</span> QWebSocket::<span class="name">sslErrors</span>(const <span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="../qtnetwork/qsslerror.html">QSslError</a></span>&gt; &amp;<i>errors</i>)</h3>
 <p><a href="qwebsocket.html">QWebSocket</a> emits this signal after the SSL handshake to indicate that one or more errors have occurred while establishing the identity of the peer. The errors are usually an indication that <a href="qwebsocket.html">QWebSocket</a> is unable to securely identify the peer. Unless any action is taken, the connection will be dropped after this signal has been emitted. If you want to continue connecting despite the errors that have occurred, you must call <a href="qwebsocket.html#ignoreSslErrors">QWebSocket::ignoreSslErrors</a>() from inside a slot connected to this signal. If you need to access the error list at a later point, you can call sslErrors() (without arguments).</p>
 <p><i>errors</i> contains one or more errors that prevent <a href="qwebsocket.html">QWebSocket</a> from verifying the identity of the peer.</p>
 <p><b>Note: </b>You cannot use <a href="../qtcore/qt.html#ConnectionType-enum">Qt::QueuedConnection</a> when connecting to this signal, or calling <a href="qwebsocket.html#ignoreSslErrors">QWebSocket::ignoreSslErrors</a>() will have no effect.</p><!-- @@@sslErrors -->
@@ -443,19 +443,19 @@
 <p>Returns the current state of the socket.</p>
 <!-- @@@state -->
 <!-- $$$stateChanged[overload1]$$$stateChangedQAbstractSocket::SocketState -->
-<h3 class="fn" id="stateChanged"><a name="stateChanged"></a><code>[signal] </code><span class="type">void</span> QWebSocket::<span class="name">stateChanged</span>(<span class="type"><a href="../qtnetwork/qabstractsocket.html#SocketState-enum">QAbstractSocket::SocketState</a></span> <i>state</i>)</h3>
+<h3 class="fn" id="stateChanged"><a name="stateChanged"></a><code>[信号] </code><span class="type">void</span> QWebSocket::<span class="name">stateChanged</span>(<span class="type"><a href="../qtnetwork/qabstractsocket.html#SocketState-enum">QAbstractSocket::SocketState</a></span> <i>state</i>)</h3>
 <p>This signal is emitted whenever <a href="qwebsocket.html">QWebSocket</a>'s state changes. The <i>state</i> parameter is the new state.</p>
 <p><b>Note: </b><a href="../qtnetwork/qabstractsocket.html#SocketState-enum">QAbstractSocket::ConnectedState</a> is emitted after the handshake with the server has succeeded.</p><p><a href="../qtnetwork/qabstractsocket.html#SocketState-enum">QAbstractSocket::SocketState</a> is not a registered metatype, so for queued connections, you will have to register it with Q_REGISTER_METATYPE() and <a href="../qtcore/qmetatype.html#qRegisterMetaType-1">qRegisterMetaType</a>().</p>
 <p><b> 参见 </b><a href="qwebsocket.html#state">state</a>().</p>
 <!-- @@@stateChanged -->
 <!-- $$$textFrameReceived[overload1]$$$textFrameReceivedconstQString&bool -->
-<h3 class="fn" id="textFrameReceived"><a name="textFrameReceived"></a><code>[signal] </code><span class="type">void</span> QWebSocket::<span class="name">textFrameReceived</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>frame</i>, <span class="type">bool</span> <i>isLastFrame</i>)</h3>
+<h3 class="fn" id="textFrameReceived"><a name="textFrameReceived"></a><code>[信号] </code><span class="type">void</span> QWebSocket::<span class="name">textFrameReceived</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>frame</i>, <span class="type">bool</span> <i>isLastFrame</i>)</h3>
 <p>This signal is emitted whenever a text frame is received. The <i>frame</i> contains the data and <i>isLastFrame</i> indicates whether this is the last frame of the complete message.</p>
 <p>This signal can be used to process large messages frame by frame, instead of waiting for the complete message to arrive.</p>
 <p><b> 参见 </b><a href="qwebsocket.html#binaryFrameReceived">binaryFrameReceived</a>().</p>
 <!-- @@@textFrameReceived -->
 <!-- $$$textMessageReceived[overload1]$$$textMessageReceivedconstQString& -->
-<h3 class="fn" id="textMessageReceived"><a name="textMessageReceived"></a><code>[signal] </code><span class="type">void</span> QWebSocket::<span class="name">textMessageReceived</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>message</i>)</h3>
+<h3 class="fn" id="textMessageReceived"><a name="textMessageReceived"></a><code>[信号] </code><span class="type">void</span> QWebSocket::<span class="name">textMessageReceived</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>message</i>)</h3>
 <p>This signal is emitted whenever a text message is received. The <i>message</i> contains the received text.</p>
 <p><b> 参见 </b><a href="qwebsocket.html#binaryMessageReceived">binaryMessageReceived</a>().</p>
 <!-- @@@textMessageReceived -->

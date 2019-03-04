@@ -597,13 +597,13 @@
 <p><b>Note: </b>converting QVariants that are null due to not being initialized or having failed a previous conversion will always fail, changing the type, remaining null, and returning <code>false</code>.</p><p><b> 参见 </b><a href="qvariant.html#canConvert">canConvert</a>(int targetTypeId) and <a href="qvariant.html#clear">clear</a>().</p>
 <!-- @@@convert -->
 <!-- $$$fromStdVariant[overload1]$$$fromStdVariantconstint& -->
-<h3 class="fn" id="fromStdVariant"><a name="fromStdVariant"></a><code>[static] </code><span class="type"><a href="qvariant.html#QVariant">QVariant</a></span> QVariant::<span class="name">fromStdVariant</span>(const <span class="type">int</span> &amp;<i>value</i>)</h3>
+<h3 class="fn" id="fromStdVariant"><a name="fromStdVariant"></a><code>[静态函数] </code><span class="type"><a href="qvariant.html#QVariant">QVariant</a></span> QVariant::<span class="name">fromStdVariant</span>(const <span class="type">int</span> &amp;<i>value</i>)</h3>
 <p>Returns a <a href="qvariant.html">QVariant</a> with the type and value of the active variant of <i>value</i>. If the active type is std::monostate a default <a href="qvariant.html">QVariant</a> is returned.</p>
 <p><b>Note: </b>With this method you do not need to register the variant as a Qt metatype, since the std::variant is resolved before being stored. The component types should be registered however.</p><p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qvariant.html#fromValue">fromValue</a>().</p>
 <!-- @@@fromStdVariant -->
 <!-- $$$fromValue[overload1]$$$fromValueconstT& -->
-<h3 class="fn" id="fromValue"><a name="fromValue"></a><code>[static] </code><span class="type"><a href="qvariant.html#QVariant">QVariant</a></span> QVariant::<span class="name">fromValue</span>(const <span class="type">T</span> &amp;<i>value</i>)</h3>
+<h3 class="fn" id="fromValue"><a name="fromValue"></a><code>[静态函数] </code><span class="type"><a href="qvariant.html#QVariant">QVariant</a></span> QVariant::<span class="name">fromValue</span>(const <span class="type">T</span> &amp;<i>value</i>)</h3>
 <p>Returns a <a href="qvariant.html">QVariant</a> containing a copy of <i>value</i>. Behaves exactly like <a href="qvariant.html#setValue">setValue</a>() otherwise.</p>
 <p>样例：</p>
 <pre class="cpp">
@@ -625,7 +625,7 @@
 <p>Returns <code>true</code> if the storage type of this variant is not <a href="qmetatype.html#Type-enum">QMetaType::UnknownType</a>; otherwise returns <code>false</code>.</p>
 <!-- @@@isValid -->
 <!-- $$$nameToType[overload1]$$$nameToTypeconstchar* -->
-<h3 class="fn" id="nameToType"><a name="nameToType"></a><code>[static] </code><span class="type"><a href="qvariant-obsolete.html#Type-enum">QVariant::Type</a></span> QVariant::<span class="name">nameToType</span>(const <span class="type">char</span> *<i>name</i>)</h3>
+<h3 class="fn" id="nameToType"><a name="nameToType"></a><code>[静态函数] </code><span class="type"><a href="qvariant-obsolete.html#Type-enum">QVariant::Type</a></span> QVariant::<span class="name">nameToType</span>(const <span class="type">char</span> *<i>name</i>)</h3>
 <p>Converts the string representation of the storage type given in <i>name</i>, to its enum representation.</p>
 <p>If the string representation cannot be converted to any enum representation, the variant is set to <code>Invalid</code>.</p>
 <!-- @@@nameToType -->
@@ -891,7 +891,7 @@
 <p>Returns the name of the type stored in the variant. The returned strings describe the C++ datatype used to store the data: for example, &quot;<a href="../qtgui/qfont.html">QFont</a>&quot;, &quot;<a href="qstring.html">QString</a>&quot;, or &quot;<a href="qvariant.html#QVariantList-typedef">QVariantList</a>&quot;. An Invalid variant returns 0.</p>
 <!-- @@@typeName -->
 <!-- $$$typeToName[overload1]$$$typeToNameint -->
-<h3 class="fn" id="typeToName"><a name="typeToName"></a><code>[static] </code>const <span class="type">char</span> *QVariant::<span class="name">typeToName</span>(<span class="type">int</span> <i>typeId</i>)</h3>
+<h3 class="fn" id="typeToName"><a name="typeToName"></a><code>[静态函数] </code>const <span class="type">char</span> *QVariant::<span class="name">typeToName</span>(<span class="type">int</span> <i>typeId</i>)</h3>
 <p>Converts the int representation of the storage type, <i>typeId</i>, to its string representation.</p>
 <p>Returns a null pointer if the type is <a href="qmetatype.html#Type-enum">QMetaType::UnknownType</a> or doesn't exist.</p>
 <!-- @@@typeToName -->

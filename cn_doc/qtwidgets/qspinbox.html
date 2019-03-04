@@ -164,7 +164,7 @@
 <h3>其他继承而来的成员</h3>
 <ul>
 <li class="fn">1 个公共变量继承于 <a href="../qtcore/qobject.html#public-variables">QObject</a></li>
-<li class="fn">1 protected slot inherited from <a href="qwidget.html#protected-slots">QWidget</a></li>
+<li class="fn">1 个保护槽函数继承于 <a href="qwidget.html#protected-slots">QWidget</a></li>
 <li class="fn">2 个保护变量继承于 <a href="../qtcore/qobject.html#protected-variables">QObject</a></li>
 <li class="fn">1 个保护类型继承于 <a href="../qtgui/qpaintdevice.html#protected-variables">QPaintDevice</a></li>
 </ul>
@@ -336,15 +336,15 @@
 <p><b> 参见 </b><a href="qspinbox.html#minimum-prop">setMinimum</a>(), <a href="qspinbox.html#maximum-prop">setMaximum</a>(), 和 <a href="qspinbox.html#singleStep-prop">setSingleStep</a>().</p>
 <!-- @@@QSpinBox -->
 <!-- $$$~QSpinBox[overload1]$$$~QSpinBox -->
-<h3 class="fn" id="dtor.QSpinBox"><a name="dtor.QSpinBox"></a><code>[virtual] </code>QSpinBox::<span class="name">~QSpinBox</span>()</h3>
+<h3 class="fn" id="dtor.QSpinBox"><a name="dtor.QSpinBox"></a><code>[虚函数] </code>QSpinBox::<span class="name">~QSpinBox</span>()</h3>
 <p>析构函数。</p>
 <!-- @@@~QSpinBox -->
 <!-- $$$event[overload1]$$$eventQEvent* -->
-<h3 class="fn" id="event"><a name="event"></a><code>[override virtual protected] </code><span class="type">bool</span> QSpinBox::<span class="name">event</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="event"><a name="event"></a><code>[重载虚保护函数] </code><span class="type">bool</span> QSpinBox::<span class="name">event</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>event</i>)</h3>
 <p>Reimplemented from <a href="qabstractspinbox.html#event">QAbstractSpinBox::event</a>().</p>
 <!-- @@@event -->
 <!-- $$$fixup[overload1]$$$fixupQString& -->
-<h3 class="fn" id="fixup"><a name="fixup"></a><code>[override virtual protected] </code><span class="type">void</span> QSpinBox::<span class="name">fixup</span>(<span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>input</i>) const</h3>
+<h3 class="fn" id="fixup"><a name="fixup"></a><code>[重载虚保护函数] </code><span class="type">void</span> QSpinBox::<span class="name">fixup</span>(<span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>input</i>) const</h3>
 <p>Reimplemented from <a href="qabstractspinbox.html#fixup">QAbstractSpinBox::fixup</a>().</p>
 <!-- @@@fixup -->
 <!-- $$$setRange[overload1]$$$setRangeintint -->
@@ -374,18 +374,18 @@
 <p><b>Note:</b> Setter function for property <a href="qspinbox.html#stepType-prop">stepType</a>. </p><p><b> 参见 </b><a href="qspinbox.html#stepType-prop">stepType</a>().</p>
 <!-- @@@setStepType -->
 <!-- $$$textFromValue[overload1]$$$textFromValueint -->
-<h3 class="fn" id="textFromValue"><a name="textFromValue"></a><code>[virtual protected] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QSpinBox::<span class="name">textFromValue</span>(<span class="type">int</span> <i>value</i>) const</h3>
+<h3 class="fn" id="textFromValue"><a name="textFromValue"></a><code>[虚保护函数] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QSpinBox::<span class="name">textFromValue</span>(<span class="type">int</span> <i>value</i>) const</h3>
 <p>This virtual function is used by the spin box whenever it needs to display the given <i>value</i>. The default implementation returns a string containing <i>value</i> printed in the standard way using <a href="qwidget.html#locale-prop">QWidget::locale</a>().toString(), but with the thousand separator removed unless <a href="qabstractspinbox.html#showGroupSeparator-prop">setGroupSeparatorShown</a>() is set. Reimplementations may return anything. (See the example in the detailed description.)</p>
 <p>Note: <a href="qspinbox.html">QSpinBox</a> does not call this function for <a href="qabstractspinbox.html#specialValueText-prop">specialValueText</a>() and that neither <a href="qspinbox.html#prefix-prop">prefix</a>() nor <a href="qspinbox.html#suffix-prop">suffix</a>() should be included in the return value.</p>
 <p>If you reimplement this, you may also need to reimplement <a href="qspinbox.html#valueFromText">valueFromText</a>() 和 <a href="qspinbox.html#validate">validate</a>()</p>
 <p><b> 参见 </b><a href="qspinbox.html#valueFromText">valueFromText</a>(), <a href="qspinbox.html#validate">validate</a>(), 和 <a href="../qtcore/qlocale.html#groupSeparator">QLocale::groupSeparator</a>().</p>
 <!-- @@@textFromValue -->
 <!-- $$$validate[overload1]$$$validateQString&int& -->
-<h3 class="fn" id="validate"><a name="validate"></a><code>[override virtual protected] </code><span class="type"><a href="../qtgui/qvalidator.html#State-enum">QValidator::State</a></span> QSpinBox::<span class="name">validate</span>(<span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>text</i>, <span class="type">int</span> &amp;<i>pos</i>) const</h3>
+<h3 class="fn" id="validate"><a name="validate"></a><code>[重载虚保护函数] </code><span class="type"><a href="../qtgui/qvalidator.html#State-enum">QValidator::State</a></span> QSpinBox::<span class="name">validate</span>(<span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>text</i>, <span class="type">int</span> &amp;<i>pos</i>) const</h3>
 <p>Reimplemented from <a href="qabstractspinbox.html#validate">QAbstractSpinBox::validate</a>().</p>
 <!-- @@@validate -->
 <!-- $$$valueChanged -->
-<h3 class="fn" id="valueChanged"><a name="valueChanged"></a><code>[signal] </code><span class="type">void</span> QSpinBox::<span class="name">valueChanged</span>(<span class="type">int</span> <i>i</i>)</h3>
+<h3 class="fn" id="valueChanged"><a name="valueChanged"></a><code>[信号] </code><span class="type">void</span> QSpinBox::<span class="name">valueChanged</span>(<span class="type">int</span> <i>i</i>)</h3>
 <p>This signal is emitted whenever the spin box's value is changed. The new value's integer value is passed in <i>i</i>.</p>
 <p><b>Note:</b> Signal <i>valueChanged</i> is overloaded in this class. To connect to this signal by using the function pointer syntax, Qt provides a convenient helper for obtaining the function pointer as shown in this example:<pre class="cpp">
 
@@ -395,7 +395,7 @@
 </pre>
 <p><b>Note:</b> Notifier signal for property <a href="qspinbox.html#value-prop">value</a>. </p><!-- @@@valueChanged -->
 <!-- $$$valueChanged -->
-<h3 class="fn" id="valueChanged-1"><a name="valueChanged-1"></a><code>[signal] </code><span class="type">void</span> QSpinBox::<span class="name">valueChanged</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>text</i>)</h3>
+<h3 class="fn" id="valueChanged-1"><a name="valueChanged-1"></a><code>[信号] </code><span class="type">void</span> QSpinBox::<span class="name">valueChanged</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>text</i>)</h3>
 <p>这是一个重载函数。</p>
 <p>The new value is passed in <i>text</i> with <a href="qspinbox.html#prefix-prop">prefix</a>() 和 <a href="qspinbox.html#suffix-prop">suffix</a>().</p>
 <p><b>Note:</b> Signal <i>valueChanged</i> is overloaded in this class. To connect to this signal by using the function pointer syntax, Qt provides a convenient helper for obtaining the function pointer as shown in this example:<pre class="cpp">
@@ -406,7 +406,7 @@
 </pre>
 <p><b>Note:</b> Notifier signal for property <a href="qspinbox.html#value-prop">value</a>. </p><!-- @@@valueChanged -->
 <!-- $$$valueFromText[overload1]$$$valueFromTextconstQString& -->
-<h3 class="fn" id="valueFromText"><a name="valueFromText"></a><code>[virtual protected] </code><span class="type">int</span> QSpinBox::<span class="name">valueFromText</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>text</i>) const</h3>
+<h3 class="fn" id="valueFromText"><a name="valueFromText"></a><code>[虚保护函数] </code><span class="type">int</span> QSpinBox::<span class="name">valueFromText</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>text</i>) const</h3>
 <p>This virtual function is used by the spin box whenever it needs to interpret <i>text</i> entered by the user as a value.</p>
 <p>Subclasses that need to display spin box values in a non-numeric way need to reimplement this function.</p>
 <p>Note: <a href="qspinbox.html">QSpinBox</a> handles <a href="qabstractspinbox.html#specialValueText-prop">specialValueText</a>() separately; this function is only concerned with the other values.</p>

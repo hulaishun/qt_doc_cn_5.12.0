@@ -160,7 +160,7 @@
 <p>Constructs a new node</p>
 <!-- @@@QSGNode -->
 <!-- $$$~QSGNode[overload1]$$$~QSGNode -->
-<h3 class="fn" id="dtor.QSGNode"><a name="dtor.QSGNode"></a><code>[virtual] </code>QSGNode::<span class="name">~QSGNode</span>()</h3>
+<h3 class="fn" id="dtor.QSGNode"><a name="dtor.QSGNode"></a><code>[虚函数] </code>QSGNode::<span class="name">~QSGNode</span>()</h3>
 <p>Destroys the node.</p>
 <p>Every child of this node that has the flag <a href="qsgnode.html#Flag-enum">QSGNode::OwnedByParent</a> set, will also be deleted.</p>
 <!-- @@@~QSGNode -->
@@ -199,7 +199,7 @@
 <p>Ordering of nodes is important as geometry nodes will be rendered in the order they are added to the scene graph.</p>
 <!-- @@@insertChildNodeBefore -->
 <!-- $$$isSubtreeBlocked[overload1]$$$isSubtreeBlocked -->
-<h3 class="fn" id="isSubtreeBlocked"><a name="isSubtreeBlocked"></a><code>[virtual] </code><span class="type">bool</span> QSGNode::<span class="name">isSubtreeBlocked</span>() const</h3>
+<h3 class="fn" id="isSubtreeBlocked"><a name="isSubtreeBlocked"></a><code>[虚函数] </code><span class="type">bool</span> QSGNode::<span class="name">isSubtreeBlocked</span>() const</h3>
 <p>Returns whether this node and its subtree is available for use.</p>
 <p>Blocked subtrees will not get their dirty states updated and they will not be rendered.</p>
 <p>The <a href="qsgopacitynode.html">QSGOpacityNode</a> will return a blocked subtree when accumulated opacity is 0, for instance.</p>
@@ -228,7 +228,7 @@
 <p>Ordering of nodes is important as geometry nodes will be rendered in the order they are added to the scene graph.</p>
 <!-- @@@prependChildNode -->
 <!-- $$$preprocess[overload1]$$$preprocess -->
-<h3 class="fn" id="preprocess"><a name="preprocess"></a><code>[virtual] </code><span class="type">void</span> QSGNode::<span class="name">preprocess</span>()</h3>
+<h3 class="fn" id="preprocess"><a name="preprocess"></a><code>[虚函数] </code><span class="type">void</span> QSGNode::<span class="name">preprocess</span>()</h3>
 <p>Override this function to do processing on the node before it is rendered.</p>
 <p>Preprocessing needs to be explicitly enabled by setting the flag <a href="qsgnode.html#Flag-enum">QSGNode::UsePreprocess</a>. The flag needs to be set before the node is added to the scene graph and will cause the preprocess() function to be called for every frame the node is rendered.</p>
 <p><b>Warning:</b> Beware of deleting nodes while they are being preprocessed. It is possible, with a small performance hit, to delete a single node during its own preprocess call. Deleting a subtree which has nodes that also use preprocessing may result in a segmentation fault. This is done for performance reasons.</p>

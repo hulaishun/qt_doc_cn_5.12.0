@@ -208,7 +208,7 @@
 <h3>其他继承而来的成员</h3>
 <ul>
 <li class="fn">1 个公共变量继承于 <a href="../qtcore/qobject.html#public-variables">QObject</a></li>
-<li class="fn">1 protected slot inherited from <a href="qwidget.html#protected-slots">QWidget</a></li>
+<li class="fn">1 个保护槽函数继承于 <a href="qwidget.html#protected-slots">QWidget</a></li>
 <li class="fn">2 个保护变量继承于 <a href="../qtcore/qobject.html#protected-variables">QObject</a></li>
 <li class="fn">1 个保护类型继承于 <a href="../qtgui/qpaintdevice.html#protected-variables">QPaintDevice</a></li>
 </ul>
@@ -666,7 +666,7 @@
 <p><b> 参见 </b><a href="../qtcore/qobject.html#parent">parent</a>() 和 <a href="qwidget.html#windowFlags-prop">windowFlags</a>().</p>
 <!-- @@@QWizard -->
 <!-- $$$~QWizard[overload1]$$$~QWizard -->
-<h3 class="fn" id="dtor.QWizard"><a name="dtor.QWizard"></a><code>[virtual] </code>QWizard::<span class="name">~QWizard</span>()</h3>
+<h3 class="fn" id="dtor.QWizard"><a name="dtor.QWizard"></a><code>[虚函数] </code>QWizard::<span class="name">~QWizard</span>()</h3>
 <p>Destroys the wizard and its pages, releasing any allocated resources.</p>
 <!-- @@@~QWizard -->
 <!-- $$$addPage[overload1]$$$addPageQWizardPage* -->
@@ -694,13 +694,13 @@
 <p><b> 参见 </b><a href="qwizard.html#button">button</a>(), <a href="qwizard.html#setButton">setButton</a>(), <a href="qwizard.html#setButtonText">setButtonText</a>(), <a href="qwizardpage.html#buttonText">QWizardPage::buttonText</a>(), 和 <a href="qwizardpage.html#setButtonText">QWizardPage::setButtonText</a>().</p>
 <!-- @@@buttonText -->
 <!-- $$$cleanupPage[overload1]$$$cleanupPageint -->
-<h3 class="fn" id="cleanupPage"><a name="cleanupPage"></a><code>[virtual protected] </code><span class="type">void</span> QWizard::<span class="name">cleanupPage</span>(<span class="type">int</span> <i>id</i>)</h3>
+<h3 class="fn" id="cleanupPage"><a name="cleanupPage"></a><code>[虚保护函数] </code><span class="type">void</span> QWizard::<span class="name">cleanupPage</span>(<span class="type">int</span> <i>id</i>)</h3>
 <p>This virtual function is called by <a href="qwizard.html">QWizard</a> to clean up page <i>id</i> just before the user leaves it by clicking <b>Back</b> (unless the <a href="qwizard.html#WizardOption-enum">QWizard::IndependentPages</a> option is set).</p>
 <p>The default implementation calls <a href="qwizardpage.html#cleanupPage">QWizardPage::cleanupPage</a>() on page(<i>id</i>).</p>
 <p><b> 参见 </b><a href="qwizardpage.html#cleanupPage">QWizardPage::cleanupPage</a>() 和 <a href="qwizard.html#initializePage">initializePage</a>().</p>
 <!-- @@@cleanupPage -->
 <!-- $$$currentIdChanged -->
-<h3 class="fn" id="currentIdChanged"><a name="currentIdChanged"></a><code>[signal] </code><span class="type">void</span> QWizard::<span class="name">currentIdChanged</span>(<span class="type">int</span> <i>id</i>)</h3>
+<h3 class="fn" id="currentIdChanged"><a name="currentIdChanged"></a><code>[信号] </code><span class="type">void</span> QWizard::<span class="name">currentIdChanged</span>(<span class="type">int</span> <i>id</i>)</h3>
 <p>This signal is emitted when the current page changes, with the new current <i>id</i>.</p>
 <p><b>Note:</b> Notifier signal for property <a href="qwizard.html#currentId-prop">currentId</a>. </p><p><b> 参见 </b><a href="qwizard.html#currentId-prop">currentId</a>() 和 <a href="qwizard.html#currentPage">currentPage</a>().</p>
 <!-- @@@currentIdChanged -->
@@ -711,17 +711,17 @@
 <p><b> 参见 </b><a href="qwizard.html#page">page</a>(), <a href="qwizard.html#currentId-prop">currentId</a>(), 和 <a href="qwizard.html#restart">restart</a>().</p>
 <!-- @@@currentPage -->
 <!-- $$$customButtonClicked[overload1]$$$customButtonClickedint -->
-<h3 class="fn" id="customButtonClicked"><a name="customButtonClicked"></a><code>[signal] </code><span class="type">void</span> QWizard::<span class="name">customButtonClicked</span>(<span class="type">int</span> <i>which</i>)</h3>
+<h3 class="fn" id="customButtonClicked"><a name="customButtonClicked"></a><code>[信号] </code><span class="type">void</span> QWizard::<span class="name">customButtonClicked</span>(<span class="type">int</span> <i>which</i>)</h3>
 <p>This signal is emitted when the user clicks a custom button. <i>which</i> can be <a href="qwizard.html#WizardButton-enum">CustomButton1</a>, <a href="qwizard.html#WizardButton-enum">CustomButton2</a>, or <a href="qwizard.html#WizardButton-enum">CustomButton3</a>.</p>
 <p>By default, no custom button is shown. Call <a href="qwizard.html#setOption">setOption</a>() with <a href="qwizard.html#WizardOption-enum">HaveCustomButton1</a>, <a href="qwizard.html#WizardOption-enum">HaveCustomButton2</a>, or <a href="qwizard.html#WizardOption-enum">HaveCustomButton3</a> to have one, and use <a href="qwizard.html#setButtonText">setButtonText</a>() or <a href="qwizard.html#setButton">setButton</a>() to configure it.</p>
 <p><b> 参见 </b><a href="qwizard.html#helpRequested">helpRequested</a>().</p>
 <!-- @@@customButtonClicked -->
 <!-- $$$done[overload1]$$$doneint -->
-<h3 class="fn" id="done"><a name="done"></a><code>[override virtual protected] </code><span class="type">void</span> QWizard::<span class="name">done</span>(<span class="type">int</span> <i>result</i>)</h3>
+<h3 class="fn" id="done"><a name="done"></a><code>[重载虚保护函数] </code><span class="type">void</span> QWizard::<span class="name">done</span>(<span class="type">int</span> <i>result</i>)</h3>
 <p>Reimplemented from <a href="qdialog.html#done">QDialog::done</a>().</p>
 <!-- @@@done -->
 <!-- $$$event[overload1]$$$eventQEvent* -->
-<h3 class="fn" id="event"><a name="event"></a><code>[override virtual protected] </code><span class="type">bool</span> QWizard::<span class="name">event</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="event"><a name="event"></a><code>[重载虚保护函数] </code><span class="type">bool</span> QWizard::<span class="name">event</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>event</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#event">QWidget::event</a>().</p>
 <!-- @@@event -->
 <!-- $$$field[overload1]$$$fieldconstQString& -->
@@ -737,7 +737,7 @@
 <p><b> 参见 </b><a href="qwizard.html#visitedPages">visitedPages</a>().</p>
 <!-- @@@hasVisitedPage -->
 <!-- $$$helpRequested[overload1]$$$helpRequested -->
-<h3 class="fn" id="helpRequested"><a name="helpRequested"></a><code>[signal] </code><span class="type">void</span> QWizard::<span class="name">helpRequested</span>()</h3>
+<h3 class="fn" id="helpRequested"><a name="helpRequested"></a><code>[信号] </code><span class="type">void</span> QWizard::<span class="name">helpRequested</span>()</h3>
 <p>This signal is emitted when the user clicks the <b>Help</b> button.</p>
 <p>By default, no <b>Help</b> button is shown. Call <a href="qwizard.html#setOption">setOption</a>(<a href="qwizard.html#WizardOption-enum">HaveHelpButton</a>, true) to have one.</p>
 <p>样例：</p>
@@ -776,14 +776,14 @@
 <p><b> 参见 </b><a href="qwizard.html#customButtonClicked">customButtonClicked</a>().</p>
 <!-- @@@helpRequested -->
 <!-- $$$initializePage[overload1]$$$initializePageint -->
-<h3 class="fn" id="initializePage"><a name="initializePage"></a><code>[virtual protected] </code><span class="type">void</span> QWizard::<span class="name">initializePage</span>(<span class="type">int</span> <i>id</i>)</h3>
+<h3 class="fn" id="initializePage"><a name="initializePage"></a><code>[虚保护函数] </code><span class="type">void</span> QWizard::<span class="name">initializePage</span>(<span class="type">int</span> <i>id</i>)</h3>
 <p>This virtual function is called by <a href="qwizard.html">QWizard</a> to prepare page <i>id</i> just before it is shown either as a result of <a href="qwizard.html#restart">QWizard::restart</a>() being called, or as a result of the user clicking <b>Next</b>. (However, if the <a href="qwizard.html#WizardOption-enum">QWizard::IndependentPages</a> option is set, this function is only called the first time the page is shown.)</p>
 <p>By reimplementing this function, you can ensure that the page's fields are properly initialized based on fields from previous pages.</p>
 <p>The default implementation calls <a href="qwizardpage.html#initializePage">QWizardPage::initializePage</a>() on page(<i>id</i>).</p>
 <p><b> 参见 </b><a href="qwizardpage.html#initializePage">QWizardPage::initializePage</a>() 和 <a href="qwizard.html#cleanupPage">cleanupPage</a>().</p>
 <!-- @@@initializePage -->
 <!-- $$$nativeEvent[overload1]$$$nativeEventconstQByteArray&void*long* -->
-<h3 class="fn" id="nativeEvent"><a name="nativeEvent"></a><code>[override virtual protected] </code><span class="type">bool</span> QWizard::<span class="name">nativeEvent</span>(const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>eventType</i>, <span class="type">void</span> *<i>message</i>, <span class="type">long</span> *<i>result</i>)</h3>
+<h3 class="fn" id="nativeEvent"><a name="nativeEvent"></a><code>[重载虚保护函数] </code><span class="type">bool</span> QWizard::<span class="name">nativeEvent</span>(const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>eventType</i>, <span class="type">void</span> *<i>message</i>, <span class="type">long</span> *<i>result</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#nativeEvent">QWidget::nativeEvent</a>().</p>
 <!-- @@@nativeEvent -->
 <!-- $$$next[overload1]$$$next -->
@@ -793,7 +793,7 @@
 <p><b> 参见 </b><a href="qwizard.html#nextId">nextId</a>(), <a href="qwizard.html#back">back</a>(), <a href="qdialog.html#accept">accept</a>(), <a href="qdialog.html#reject">reject</a>(), 和 <a href="qwizard.html#restart">restart</a>().</p>
 <!-- @@@next -->
 <!-- $$$nextId[overload1]$$$nextId -->
-<h3 class="fn" id="nextId"><a name="nextId"></a><code>[virtual] </code><span class="type">int</span> QWizard::<span class="name">nextId</span>() const</h3>
+<h3 class="fn" id="nextId"><a name="nextId"></a><code>[虚函数] </code><span class="type">int</span> QWizard::<span class="name">nextId</span>() const</h3>
 <p>This virtual function is called by <a href="qwizard.html">QWizard</a> to find out which page to show when the user clicks the <b>Next</b> button.</p>
 <p>The return value is the ID of the next page, or -1 if no page follows.</p>
 <p>The default implementation calls <a href="qwizardpage.html#nextId">QWizardPage::nextId</a>() on the <a href="qwizard.html#currentPage">currentPage</a>().</p>
@@ -806,7 +806,7 @@
 <p><b> 参见 </b><a href="qwizard.html#addPage">addPage</a>() 和 <a href="qwizard.html#setPage">setPage</a>().</p>
 <!-- @@@page -->
 <!-- $$$pageAdded[overload1]$$$pageAddedint -->
-<h3 class="fn" id="pageAdded"><a name="pageAdded"></a><code>[signal] </code><span class="type">void</span> QWizard::<span class="name">pageAdded</span>(<span class="type">int</span> <i>id</i>)</h3>
+<h3 class="fn" id="pageAdded"><a name="pageAdded"></a><code>[信号] </code><span class="type">void</span> QWizard::<span class="name">pageAdded</span>(<span class="type">int</span> <i>id</i>)</h3>
 <p>This signal is emitted whenever a page is added to the wizard. The page's <i>id</i> is passed as parameter.</p>
 <p>这个函数是在Qt 4.7版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qwizard.html#addPage">addPage</a>(), <a href="qwizard.html#setPage">setPage</a>(), 和 <a href="qwizard.html#startId-prop">startId</a>().</p>
@@ -817,13 +817,13 @@
 <p>这个函数是在Qt 4.5版本中新增引入的。</p>
 <!-- @@@pageIds -->
 <!-- $$$pageRemoved[overload1]$$$pageRemovedint -->
-<h3 class="fn" id="pageRemoved"><a name="pageRemoved"></a><code>[signal] </code><span class="type">void</span> QWizard::<span class="name">pageRemoved</span>(<span class="type">int</span> <i>id</i>)</h3>
+<h3 class="fn" id="pageRemoved"><a name="pageRemoved"></a><code>[信号] </code><span class="type">void</span> QWizard::<span class="name">pageRemoved</span>(<span class="type">int</span> <i>id</i>)</h3>
 <p>This signal is emitted whenever a page is removed from the wizard. The page's <i>id</i> is passed as parameter.</p>
 <p>这个函数是在Qt 4.7版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qwizard.html#removePage">removePage</a>() 和 <a href="qwizard.html#startId-prop">startId</a>().</p>
 <!-- @@@pageRemoved -->
 <!-- $$$paintEvent[overload1]$$$paintEventQPaintEvent* -->
-<h3 class="fn" id="paintEvent"><a name="paintEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QWizard::<span class="name">paintEvent</span>(<span class="type"><a href="../qtgui/qpaintevent.html">QPaintEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="paintEvent"><a name="paintEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QWizard::<span class="name">paintEvent</span>(<span class="type"><a href="../qtgui/qpaintevent.html">QPaintEvent</a></span> *<i>event</i>)</h3>
 <p>Reimplemented from <a href="qwidget.html#paintEvent">QWidget::paintEvent</a>().</p>
 <!-- @@@paintEvent -->
 <!-- $$$pixmap[overload1]$$$pixmapQWizard::WizardPixmap -->
@@ -839,7 +839,7 @@
 <p><b> 参见 </b><a href="qwizard.html#addPage">addPage</a>(), <a href="qwizard.html#setPage">setPage</a>(), <a href="qwizard.html#pageRemoved">pageRemoved</a>(), 和 <a href="qwizard.html#startId-prop">startId</a>().</p>
 <!-- @@@removePage -->
 <!-- $$$resizeEvent[overload1]$$$resizeEventQResizeEvent* -->
-<h3 class="fn" id="resizeEvent"><a name="resizeEvent"></a><code>[override virtual protected] </code><span class="type">void</span> QWizard::<span class="name">resizeEvent</span>(<span class="type"><a href="../qtgui/qresizeevent.html">QResizeEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="resizeEvent"><a name="resizeEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QWizard::<span class="name">resizeEvent</span>(<span class="type"><a href="../qtgui/qresizeevent.html">QResizeEvent</a></span> *<i>event</i>)</h3>
 <p>Reimplemented from <a href="qdialog.html#resizeEvent">QDialog::resizeEvent</a>().</p>
 <!-- @@@resizeEvent -->
 <!-- $$$restart[overload1]$$$restart -->
@@ -936,7 +936,7 @@
 <p><b> 参见 </b><a href="qwizard.html#sideWidget">sideWidget</a>().</p>
 <!-- @@@setSideWidget -->
 <!-- $$$setVisible[overload1]$$$setVisiblebool -->
-<h3 class="fn" id="setVisible"><a name="setVisible"></a><code>[override virtual] </code><span class="type">void</span> QWizard::<span class="name">setVisible</span>(<span class="type">bool</span> <i>visible</i>)</h3>
+<h3 class="fn" id="setVisible"><a name="setVisible"></a><code>[重载虚函数] </code><span class="type">void</span> QWizard::<span class="name">setVisible</span>(<span class="type">bool</span> <i>visible</i>)</h3>
 <p>Reimplemented from <a href="qdialog.html#setVisible">QDialog::setVisible</a>().</p>
 <!-- @@@setVisible -->
 <!-- $$$sideWidget[overload1]$$$sideWidget -->
@@ -947,7 +947,7 @@
 <p><b> 参见 </b><a href="qwizard.html#setSideWidget">setSideWidget</a>().</p>
 <!-- @@@sideWidget -->
 <!-- $$$sizeHint[overload1]$$$sizeHint -->
-<h3 class="fn" id="sizeHint"><a name="sizeHint"></a><code>[override virtual] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QWizard::<span class="name">sizeHint</span>() const</h3>
+<h3 class="fn" id="sizeHint"><a name="sizeHint"></a><code>[重载虚函数] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QWizard::<span class="name">sizeHint</span>() const</h3>
 <p>Reimplemented from <a href="qdialog.html#sizeHint">QDialog::sizeHint</a>().</p>
 <!-- @@@sizeHint -->
 <!-- $$$testOption[overload1]$$$testOptionQWizard::WizardOption -->
@@ -956,7 +956,7 @@
 <p><b> 参见 </b><a href="qwizard.html#options-prop">options</a>, <a href="qwizard.html#setOption">setOption</a>(), 和 <a href="qwizard.html#wizardStyle-prop">setWizardStyle</a>().</p>
 <!-- @@@testOption -->
 <!-- $$$validateCurrentPage[overload1]$$$validateCurrentPage -->
-<h3 class="fn" id="validateCurrentPage"><a name="validateCurrentPage"></a><code>[virtual] </code><span class="type">bool</span> QWizard::<span class="name">validateCurrentPage</span>()</h3>
+<h3 class="fn" id="validateCurrentPage"><a name="validateCurrentPage"></a><code>[虚函数] </code><span class="type">bool</span> QWizard::<span class="name">validateCurrentPage</span>()</h3>
 <p>This virtual function is called by <a href="qwizard.html">QWizard</a> when the user clicks <b>Next</b> or <b>Finish</b> to perform some last-minute validation. If it returns <code>true</code>, the next page is shown (or the wizard finishes); otherwise, the current page stays up.</p>
 <p>The default implementation calls <a href="qwizardpage.html#validatePage">QWizardPage::validatePage</a>() on the <a href="qwizard.html#currentPage">currentPage</a>().</p>
 <p>When possible, it is usually better style to disable the <b>Next</b> or <b>Finish</b> button (by specifying <a href="qwizard.html#mandatory-fields">mandatory fields</a> or by reimplementing <a href="qwizardpage.html#isComplete">QWizardPage::isComplete</a>()) than to reimplement validateCurrentPage().</p>

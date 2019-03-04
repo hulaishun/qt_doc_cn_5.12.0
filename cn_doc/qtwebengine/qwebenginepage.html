@@ -573,11 +573,11 @@
 <p>这个函数是在Qt 5.5版本中新增引入的。</p>
 <!-- @@@QWebEnginePage -->
 <!-- $$$~QWebEnginePage[overload1]$$$~QWebEnginePage -->
-<h3 class="fn" id="dtor.QWebEnginePage"><a name="dtor.QWebEnginePage"></a><code>[virtual] </code>QWebEnginePage::<span class="name">~QWebEnginePage</span>()</h3>
+<h3 class="fn" id="dtor.QWebEnginePage"><a name="dtor.QWebEnginePage"></a><code>[虚函数] </code>QWebEnginePage::<span class="name">~QWebEnginePage</span>()</h3>
 <p>Destroys the web page.</p>
 <!-- @@@~QWebEnginePage -->
 <!-- $$$acceptNavigationRequest[overload1]$$$acceptNavigationRequestconstQUrl&QWebEnginePage::NavigationTypebool -->
-<h3 class="fn" id="acceptNavigationRequest"><a name="acceptNavigationRequest"></a><code>[virtual protected] </code><span class="type">bool</span> QWebEnginePage::<span class="name">acceptNavigationRequest</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, <span class="type"><a href="qwebenginepage.html#NavigationType-enum">QWebEnginePage::NavigationType</a></span> <i>type</i>, <span class="type">bool</span> <i>isMainFrame</i>)</h3>
+<h3 class="fn" id="acceptNavigationRequest"><a name="acceptNavigationRequest"></a><code>[虚保护函数] </code><span class="type">bool</span> QWebEnginePage::<span class="name">acceptNavigationRequest</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>, <span class="type"><a href="qwebenginepage.html#NavigationType-enum">QWebEnginePage::NavigationType</a></span> <i>type</i>, <span class="type">bool</span> <i>isMainFrame</i>)</h3>
 <p>This function is called upon receiving a request to navigate to the specified <i>url</i> by means of the specified navigation type <i>type</i>. <i>isMainFrame</i> indicates whether the request corresponds to the main frame or a child frame. If the function returns <code>true</code>, the navigation request is accepted and <code>url</code> is loaded. The default implementation accepts all navigation requests.</p>
 <p>This function is called for absolute URLs that are prefixed with <code>http://</code> or <code>https://</code> and for unrecognized schemes, such as <code>mailto:</code>, which will be handled by <a href="../qtgui/qdesktopservices.html">QDesktopServices</a> if accepted. To have this function called also upon receiving navigation requests to local URLs, prefix the URLs with <code>http://</code>.</p>
 <p>Navigation requests can be delegated to the Qt application instead of having the HTML handler engine process them by overloading this function. This is necessary when an HTML document is used as part of the user interface, and not to display external data, for example, when displaying a list of results.</p>
@@ -592,23 +592,23 @@
 <p><b> 参见 </b><a href="qwebenginepage.html#triggerAction">triggerAction</a>().</p>
 <!-- @@@action -->
 <!-- $$$audioMutedChanged -->
-<h3 class="fn" id="audioMutedChanged"><a name="audioMutedChanged"></a><code>[signal] </code><span class="type">void</span> QWebEnginePage::<span class="name">audioMutedChanged</span>(<span class="type">bool</span> <i>muted</i>)</h3>
+<h3 class="fn" id="audioMutedChanged"><a name="audioMutedChanged"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">audioMutedChanged</span>(<span class="type">bool</span> <i>muted</i>)</h3>
 <p>This signal is emitted when the page's <i>muted</i> state changes.</p>
 <p><b>Note: </b>Not to be confused with a specific HTML5 audio or video element being muted.</p><p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b>Note:</b> Notifier signal for property <a href="qwebenginepage.html#audioMuted-prop">audioMuted</a>. </p><!-- @@@audioMutedChanged -->
 <!-- $$$authenticationRequired[overload1]$$$authenticationRequiredconstQUrl&QAuthenticator* -->
-<h3 class="fn" id="authenticationRequired"><a name="authenticationRequired"></a><code>[signal] </code><span class="type">void</span> QWebEnginePage::<span class="name">authenticationRequired</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>requestUrl</i>, <span class="type"><a href="../qtnetwork/qauthenticator.html">QAuthenticator</a></span> *<i>authenticator</i>)</h3>
+<h3 class="fn" id="authenticationRequired"><a name="authenticationRequired"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">authenticationRequired</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>requestUrl</i>, <span class="type"><a href="../qtnetwork/qauthenticator.html">QAuthenticator</a></span> *<i>authenticator</i>)</h3>
 <p>This signal is emitted when access to <i>requestUrl</i> requires authentication. <i>authenticator</i> should be used to pass the user name and password for the connection.</p>
 <!-- @@@authenticationRequired -->
 <!-- $$$certificateError[overload1]$$$certificateErrorconstQWebEngineCertificateError& -->
-<h3 class="fn" id="certificateError"><a name="certificateError"></a><code>[virtual protected] </code><span class="type">bool</span> QWebEnginePage::<span class="name">certificateError</span>(const <span class="type"><a href="qwebenginecertificateerror.html">QWebEngineCertificateError</a></span> &amp;<i>certificateError</i>)</h3>
+<h3 class="fn" id="certificateError"><a name="certificateError"></a><code>[虚保护函数] </code><span class="type">bool</span> QWebEnginePage::<span class="name">certificateError</span>(const <span class="type"><a href="qwebenginecertificateerror.html">QWebEngineCertificateError</a></span> &amp;<i>certificateError</i>)</h3>
 <p>This function is called when an invalid certificate error is raised while loading a given request.</p>
 <p>The <i>certificateError</i> parameter contains information about the certificate and details of the error.</p>
 <p>Return <code>true</code> to ignore the error and complete the request. Return <code>false</code> to stop loading the request.</p>
 <p><b> 参见 </b><a href="qwebenginecertificateerror.html">QWebEngineCertificateError</a>.</p>
 <!-- @@@certificateError -->
 <!-- $$$chooseFiles[overload1]$$$chooseFilesQWebEnginePage::FileSelectionModeconstQStringList&constQStringList& -->
-<h3 class="fn" id="chooseFiles"><a name="chooseFiles"></a><code>[virtual protected] </code><span class="type"><a href="../qtcore/qstringlist.html">QStringList</a></span> QWebEnginePage::<span class="name">chooseFiles</span>(<span class="type"><a href="qwebenginepage.html#FileSelectionMode-enum">QWebEnginePage::FileSelectionMode</a></span> <i>mode</i>, const <span class="type"><a href="../qtcore/qstringlist.html">QStringList</a></span> &amp;<i>oldFiles</i>, const <span class="type"><a href="../qtcore/qstringlist.html">QStringList</a></span> &amp;<i>acceptedMimeTypes</i>)</h3>
+<h3 class="fn" id="chooseFiles"><a name="chooseFiles"></a><code>[虚保护函数] </code><span class="type"><a href="../qtcore/qstringlist.html">QStringList</a></span> QWebEnginePage::<span class="name">chooseFiles</span>(<span class="type"><a href="qwebenginepage.html#FileSelectionMode-enum">QWebEnginePage::FileSelectionMode</a></span> <i>mode</i>, const <span class="type"><a href="../qtcore/qstringlist.html">QStringList</a></span> &amp;<i>oldFiles</i>, const <span class="type"><a href="../qtcore/qstringlist.html">QStringList</a></span> &amp;<i>acceptedMimeTypes</i>)</h3>
 <p>This function is called when the web content requests a file name, for example as a result of the user clicking on a file upload button in an HTML form.</p>
 <p><i>mode</i> indicates whether only one file or multiple files are expected to be returned.</p>
 <p>A suggested filename may be provided as the first entry of <i>oldFiles</i>. <i>acceptedMimeTypes</i> is ignored by the default implementation, but might be used by overrides.</p>
@@ -625,7 +625,7 @@
 <p>Returns <code>nullptr</code> if the context menu data is not initialized, for example when it is called when there is actually no context menu requested.</p>
 <!-- @@@createStandardContextMenu -->
 <!-- $$$createWindow[overload1]$$$createWindowQWebEnginePage::WebWindowType -->
-<h3 class="fn" id="createWindow"><a name="createWindow"></a><code>[virtual protected] </code><span class="type"><a href="qwebenginepage.html#QWebEnginePage">QWebEnginePage</a></span> *QWebEnginePage::<span class="name">createWindow</span>(<span class="type"><a href="qwebenginepage.html#WebWindowType-enum">QWebEnginePage::WebWindowType</a></span> <i>type</i>)</h3>
+<h3 class="fn" id="createWindow"><a name="createWindow"></a><code>[虚保护函数] </code><span class="type"><a href="qwebenginepage.html#QWebEnginePage">QWebEnginePage</a></span> *QWebEnginePage::<span class="name">createWindow</span>(<span class="type"><a href="qwebenginepage.html#WebWindowType-enum">QWebEnginePage::WebWindowType</a></span> <i>type</i>)</h3>
 <p>This function is called to create a new window of the specified <i>type</i>. For example, when a JavaScript program requests to open a document in a new window.</p>
 <p>If the new window can be created, the new window's <a href="qwebenginepage.html">QWebEnginePage</a> is returned; otherwise a null pointer is returned.</p>
 <p>If the view associated with the web page is a <a href="qwebengineview.html">QWebEngineView</a> object, then the default implementation forwards the request to <a href="qwebengineview.html#createWindow">QWebEngineView::createWindow</a>(); otherwise it returns a null pointer.</p>
@@ -646,16 +646,16 @@
 <p>这个函数是在Qt 5.10版本中新增引入的。</p>
 <!-- @@@download -->
 <!-- $$$event[overload1]$$$eventQEvent* -->
-<h3 class="fn" id="event"><a name="event"></a><code>[virtual] </code><span class="type">bool</span> QWebEnginePage::<span class="name">event</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>e</i>)</h3>
+<h3 class="fn" id="event"><a name="event"></a><code>[虚函数] </code><span class="type">bool</span> QWebEnginePage::<span class="name">event</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>e</i>)</h3>
 <p>Reimplemented from <a href="../qtcore/qobject.html#event">QObject::event</a>().</p>
 <!-- @@@event -->
 <!-- $$$featurePermissionRequestCanceled[overload1]$$$featurePermissionRequestCanceledconstQUrl&QWebEnginePage::Feature -->
-<h3 class="fn" id="featurePermissionRequestCanceled"><a name="featurePermissionRequestCanceled"></a><code>[signal] </code><span class="type">void</span> QWebEnginePage::<span class="name">featurePermissionRequestCanceled</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>securityOrigin</i>, <span class="type"><a href="qwebenginepage.html#Feature-enum">QWebEnginePage::Feature</a></span> <i>feature</i>)</h3>
+<h3 class="fn" id="featurePermissionRequestCanceled"><a name="featurePermissionRequestCanceled"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">featurePermissionRequestCanceled</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>securityOrigin</i>, <span class="type"><a href="qwebenginepage.html#Feature-enum">QWebEnginePage::Feature</a></span> <i>feature</i>)</h3>
 <p>This signal is emitted when the web site identified by <i>securityOrigin</i> cancels a previously issued request to make use of <i>feature</i>.</p>
 <p><b> 参见 </b><a href="qwebenginepage.html#featurePermissionRequested">featurePermissionRequested</a>() 和 <a href="qwebenginepage.html#setFeaturePermission">setFeaturePermission</a>().</p>
 <!-- @@@featurePermissionRequestCanceled -->
 <!-- $$$featurePermissionRequested[overload1]$$$featurePermissionRequestedconstQUrl&QWebEnginePage::Feature -->
-<h3 class="fn" id="featurePermissionRequested"><a name="featurePermissionRequested"></a><code>[signal] </code><span class="type">void</span> QWebEnginePage::<span class="name">featurePermissionRequested</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>securityOrigin</i>, <span class="type"><a href="qwebenginepage.html#Feature-enum">QWebEnginePage::Feature</a></span> <i>feature</i>)</h3>
+<h3 class="fn" id="featurePermissionRequested"><a name="featurePermissionRequested"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">featurePermissionRequested</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>securityOrigin</i>, <span class="type"><a href="qwebenginepage.html#Feature-enum">QWebEnginePage::Feature</a></span> <i>feature</i>)</h3>
 <p>This signal is emitted when the web site identified by <i>securityOrigin</i> requests to make use of the resource or device identified by <i>feature</i>.</p>
 <p><b> 参见 </b><a href="qwebenginepage.html#featurePermissionRequestCanceled">featurePermissionRequestCanceled</a>() 和 <a href="qwebenginepage.html#setFeaturePermission">setFeaturePermission</a>().</p>
 <!-- @@@featurePermissionRequested -->
@@ -674,14 +674,14 @@
 </pre>
 <!-- @@@findText -->
 <!-- $$$fullScreenRequested[overload1]$$$fullScreenRequestedQWebEngineFullScreenRequest -->
-<h3 class="fn" id="fullScreenRequested"><a name="fullScreenRequested"></a><code>[signal] </code><span class="type">void</span> QWebEnginePage::<span class="name">fullScreenRequested</span>(<span class="type"><a href="qwebenginefullscreenrequest.html">QWebEngineFullScreenRequest</a></span> <i>fullScreenRequest</i>)</h3>
+<h3 class="fn" id="fullScreenRequested"><a name="fullScreenRequested"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">fullScreenRequested</span>(<span class="type"><a href="qwebenginefullscreenrequest.html">QWebEngineFullScreenRequest</a></span> <i>fullScreenRequest</i>)</h3>
 <p>This signal is emitted when the web page issues the request to enter fullscreen mode for a web-element, usually a video element.</p>
 <p>The request object <i>fullScreenRequest</i> can be used to accept or reject the request.</p>
 <p>If the request is accepted the element requesting fullscreen will fill the viewport, but it is up to the application to make the view fullscreen or move the page to a view that is fullscreen.</p>
 <p><b> 参见 </b><a href="qwebenginesettings.html#WebAttribute-enum">QWebEngineSettings::FullScreenSupportEnabled</a>.</p>
 <!-- @@@fullScreenRequested -->
 <!-- $$$geometryChangeRequested[overload1]$$$geometryChangeRequestedconstQRect& -->
-<h3 class="fn" id="geometryChangeRequested"><a name="geometryChangeRequested"></a><code>[signal] </code><span class="type">void</span> QWebEnginePage::<span class="name">geometryChangeRequested</span>(const <span class="type"><a href="../qtcore/qrect.html">QRect</a></span> &amp;<i>geom</i>)</h3>
+<h3 class="fn" id="geometryChangeRequested"><a name="geometryChangeRequested"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">geometryChangeRequested</span>(const <span class="type"><a href="../qtcore/qrect.html">QRect</a></span> &amp;<i>geom</i>)</h3>
 <p>This signal is emitted whenever the document wants to change the position and size of the page to <i>geom</i>. This can happen for example through JavaScript.</p>
 <p><b>Note: </b><a href="../qtgui/qwindow.html#setGeometry-1">setGeometry()</a> expects a size excluding the window decoration, while <i>geom</i> includes it. You have to remove the size of the frame margins from <i>geom</i> to handle this signal correctly.</p><pre class="cpp">
 
@@ -694,13 +694,13 @@
 <p>Returns a pointer to the view's history of navigated web pages.</p>
 <!-- @@@history -->
 <!-- $$$iconChanged -->
-<h3 class="fn" id="iconChanged"><a name="iconChanged"></a><code>[signal] </code><span class="type">void</span> QWebEnginePage::<span class="name">iconChanged</span>(const <span class="type"><a href="../qtgui/qicon.html">QIcon</a></span> &amp;<i>icon</i>)</h3>
+<h3 class="fn" id="iconChanged"><a name="iconChanged"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">iconChanged</span>(const <span class="type"><a href="../qtgui/qicon.html">QIcon</a></span> &amp;<i>icon</i>)</h3>
 <p>This signal is emitted when the icon (&quot;favicon&quot;) associated with the page is changed. The new icon is specified by <i>icon</i>.</p>
 <p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b>Note:</b> Notifier signal for property <a href="qwebenginepage.html#icon-prop">icon</a>. </p><p><b> 参见 </b><a href="qwebenginepage.html#icon-prop">icon</a>(), <a href="qwebenginepage.html#iconUrl-prop">iconUrl</a>(), 和 <a href="qwebenginepage.html#iconUrlChanged">iconUrlChanged</a>().</p>
 <!-- @@@iconChanged -->
 <!-- $$$iconUrlChanged -->
-<h3 class="fn" id="iconUrlChanged"><a name="iconUrlChanged"></a><code>[signal] </code><span class="type">void</span> QWebEnginePage::<span class="name">iconUrlChanged</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
+<h3 class="fn" id="iconUrlChanged"><a name="iconUrlChanged"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">iconUrlChanged</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
 <p>This signal is emitted when the URL of the icon (&quot;favicon&quot;) associated with the page is changed. The new URL is specified by <i>url</i>.</p>
 <p><b>Note:</b> Notifier signal for property <a href="qwebenginepage.html#iconUrl-prop">iconUrl</a>. </p><p><b> 参见 </b><a href="qwebenginepage.html#iconUrl-prop">iconUrl</a>(), <a href="qwebenginepage.html#icon-prop">icon</a>(), 和 <a href="qwebenginepage.html#iconChanged">iconChanged</a>().</p>
 <!-- @@@iconUrlChanged -->
@@ -712,18 +712,18 @@
 <p><b> 参见 </b><a href="qwebenginepage.html#setInspectedPage">setInspectedPage</a>() 和 <a href="qwebenginepage.html#devToolsPage">devToolsPage</a>().</p>
 <!-- @@@inspectedPage -->
 <!-- $$$javaScriptAlert[overload1]$$$javaScriptAlertconstQUrl&constQString& -->
-<h3 class="fn" id="javaScriptAlert"><a name="javaScriptAlert"></a><code>[virtual protected] </code><span class="type">void</span> QWebEnginePage::<span class="name">javaScriptAlert</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>securityOrigin</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>msg</i>)</h3>
+<h3 class="fn" id="javaScriptAlert"><a name="javaScriptAlert"></a><code>[虚保护函数] </code><span class="type">void</span> QWebEnginePage::<span class="name">javaScriptAlert</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>securityOrigin</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>msg</i>)</h3>
 <p>This function is called whenever a JavaScript program running in a frame affiliated with <i>securityOrigin</i> calls the <code>alert()</code> function with the message <i>msg</i>.</p>
 <p>The default implementation shows the message, <i>msg</i>, with <a href="../qtwidgets/qmessagebox.html#information-3">QMessageBox::information</a>.</p>
 <!-- @@@javaScriptAlert -->
 <!-- $$$javaScriptConfirm[overload1]$$$javaScriptConfirmconstQUrl&constQString& -->
-<h3 class="fn" id="javaScriptConfirm"><a name="javaScriptConfirm"></a><code>[virtual protected] </code><span class="type">bool</span> QWebEnginePage::<span class="name">javaScriptConfirm</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>securityOrigin</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>msg</i>)</h3>
+<h3 class="fn" id="javaScriptConfirm"><a name="javaScriptConfirm"></a><code>[虚保护函数] </code><span class="type">bool</span> QWebEnginePage::<span class="name">javaScriptConfirm</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>securityOrigin</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>msg</i>)</h3>
 <p>This function is called whenever a JavaScript program running in a frame affiliated with <i>securityOrigin</i> calls the <code>confirm()</code> function with the message <i>msg</i>. Returns <code>true</code> if the user confirms the message; otherwise returns <code>false</code>.</p>
 <p>It is also called when the <code>onbeforeunload</code> handler is requesting a confirmation before leaving a page.</p>
 <p>The default implementation executes the query using <a href="../qtwidgets/qmessagebox.html#information-3">QMessageBox::information</a> with <a href="../qtwidgets/qmessagebox.html#StandardButton-enum">QMessageBox::Ok</a> 和 <a href="../qtwidgets/qmessagebox.html#StandardButton-enum">QMessageBox::Cancel</a> buttons.</p>
 <!-- @@@javaScriptConfirm -->
 <!-- $$$javaScriptConsoleMessage[overload1]$$$javaScriptConsoleMessageQWebEnginePage::JavaScriptConsoleMessageLevelconstQString&intconstQString& -->
-<h3 class="fn" id="javaScriptConsoleMessage"><a name="javaScriptConsoleMessage"></a><code>[virtual protected] </code><span class="type">void</span> QWebEnginePage::<span class="name">javaScriptConsoleMessage</span>(<span class="type"><a href="qwebenginepage.html#JavaScriptConsoleMessageLevel-enum">QWebEnginePage::JavaScriptConsoleMessageLevel</a></span> <i>level</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>message</i>, <span class="type">int</span> <i>lineNumber</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>sourceID</i>)</h3>
+<h3 class="fn" id="javaScriptConsoleMessage"><a name="javaScriptConsoleMessage"></a><code>[虚保护函数] </code><span class="type">void</span> QWebEnginePage::<span class="name">javaScriptConsoleMessage</span>(<span class="type"><a href="qwebenginepage.html#JavaScriptConsoleMessageLevel-enum">QWebEnginePage::JavaScriptConsoleMessageLevel</a></span> <i>level</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>message</i>, <span class="type">int</span> <i>lineNumber</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>sourceID</i>)</h3>
 <p>This function is called when a JavaScript program tries to print the <i>message</i> to the web browser's console.</p>
 <p>For example, in case of evaluation errors the source URL may be provided in <i>sourceID</i> as well as the <i>lineNumber</i>.</p>
 <p><i>level</i> indicates the severity of the event that triggered the message. That is, whether it was triggered by an error or a less severe event.</p>
@@ -731,13 +731,13 @@
 <p><b> 参见 </b><a href="qtwebengine-debugging.html#console-logging">Console Logging</a>.</p>
 <!-- @@@javaScriptConsoleMessage -->
 <!-- $$$javaScriptPrompt[overload1]$$$javaScriptPromptconstQUrl&constQString&constQString&QString* -->
-<h3 class="fn" id="javaScriptPrompt"><a name="javaScriptPrompt"></a><code>[virtual protected] </code><span class="type">bool</span> QWebEnginePage::<span class="name">javaScriptPrompt</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>securityOrigin</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>msg</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>defaultValue</i>, <span class="type"><a href="../qtcore/qstring.html">QString</a></span> *<i>result</i>)</h3>
+<h3 class="fn" id="javaScriptPrompt"><a name="javaScriptPrompt"></a><code>[虚保护函数] </code><span class="type">bool</span> QWebEnginePage::<span class="name">javaScriptPrompt</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>securityOrigin</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>msg</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>defaultValue</i>, <span class="type"><a href="../qtcore/qstring.html">QString</a></span> *<i>result</i>)</h3>
 <p>This function is called whenever a JavaScript program running in a frame affiliated with <i>securityOrigin</i> tries to prompt the user for input. The program may provide an optional message, <i>msg</i>, as well as a default value for the input in <i>defaultValue</i>.</p>
 <p>If the prompt was cancelled by the user, the implementation should return <code>false</code>; otherwise the result should be written to <i>result</i> and <code>true</code> should be returned. If the prompt was not cancelled by the user, the implementation should return <code>true</code> and the result string must not be null.</p>
 <p>The default implementation uses <a href="../qtwidgets/qinputdialog.html#getText">QInputDialog::getText</a>().</p>
 <!-- @@@javaScriptPrompt -->
 <!-- $$$linkHovered[overload1]$$$linkHoveredconstQString& -->
-<h3 class="fn" id="linkHovered"><a name="linkHovered"></a><code>[signal] </code><span class="type">void</span> QWebEnginePage::<span class="name">linkHovered</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>url</i>)</h3>
+<h3 class="fn" id="linkHovered"><a name="linkHovered"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">linkHovered</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>url</i>)</h3>
 <p>This signal is emitted when the mouse hovers over a link. <i>url</i> contains the target URL of the link.</p>
 <!-- @@@linkHovered -->
 <!-- $$$load[overload1]$$$loadconstQUrl& -->
@@ -752,21 +752,21 @@
 <p><b> 参见 </b><a href="qwebenginepage.html#load">load</a>(), <a href="qwebenginepage.html#url-prop">setUrl</a>(), <a href="qwebenginepage.html#url-prop">url</a>(), <a href="qwebenginepage.html#urlChanged">urlChanged</a>(), 和 <a href="../qtcore/qurl.html#fromUserInput">QUrl::fromUserInput</a>().</p>
 <!-- @@@load -->
 <!-- $$$loadFinished[overload1]$$$loadFinishedbool -->
-<h3 class="fn" id="loadFinished"><a name="loadFinished"></a><code>[signal] </code><span class="type">void</span> QWebEnginePage::<span class="name">loadFinished</span>(<span class="type">bool</span> <i>ok</i>)</h3>
+<h3 class="fn" id="loadFinished"><a name="loadFinished"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">loadFinished</span>(<span class="type">bool</span> <i>ok</i>)</h3>
 <p>This signal is emitted when the page finishes loading content. This signal is independent of script execution or page rendering. <i>ok</i> will indicate whether the load was successful or any error occurred.</p>
 <p><b> 参见 </b><a href="qwebenginepage.html#loadStarted">loadStarted</a>().</p>
 <!-- @@@loadFinished -->
 <!-- $$$loadProgress[overload1]$$$loadProgressint -->
-<h3 class="fn" id="loadProgress"><a name="loadProgress"></a><code>[signal] </code><span class="type">void</span> QWebEnginePage::<span class="name">loadProgress</span>(<span class="type">int</span> <i>progress</i>)</h3>
+<h3 class="fn" id="loadProgress"><a name="loadProgress"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">loadProgress</span>(<span class="type">int</span> <i>progress</i>)</h3>
 <p>This signal is emitted when the global progress status changes. The current value is provided by <i>progress</i> and scales from 0 to 100, which is the default range of <a href="../qtwidgets/qprogressbar.html">QProgressBar</a>. It accumulates changes from all the child frames.</p>
 <!-- @@@loadProgress -->
 <!-- $$$loadStarted[overload1]$$$loadStarted -->
-<h3 class="fn" id="loadStarted"><a name="loadStarted"></a><code>[signal] </code><span class="type">void</span> QWebEnginePage::<span class="name">loadStarted</span>()</h3>
+<h3 class="fn" id="loadStarted"><a name="loadStarted"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">loadStarted</span>()</h3>
 <p>This signal is emitted when a page starts loading content.</p>
 <p><b> 参见 </b><a href="qwebenginepage.html#loadFinished">loadFinished</a>().</p>
 <!-- @@@loadStarted -->
 <!-- $$$pdfPrintingFinished[overload1]$$$pdfPrintingFinishedconstQString&bool -->
-<h3 class="fn" id="pdfPrintingFinished"><a name="pdfPrintingFinished"></a><code>[signal] </code><span class="type">void</span> QWebEnginePage::<span class="name">pdfPrintingFinished</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>filePath</i>, <span class="type">bool</span> <i>success</i>)</h3>
+<h3 class="fn" id="pdfPrintingFinished"><a name="pdfPrintingFinished"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">pdfPrintingFinished</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>filePath</i>, <span class="type">bool</span> <i>success</i>)</h3>
 <p>This signal is emitted when printing the web page into a PDF file has finished. <i>filePath</i> will contain the path the file was requested to be created at, and <i>success</i> will be <code>true</code> if the file was successfully created and <code>false</code> otherwise.</p>
 <p>这个函数是在Qt 5.9版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qwebenginepage.html#printToPdf">printToPdf</a>().</p>
@@ -779,7 +779,7 @@
 <p>这个函数是在Qt 5.8版本中新增引入的。</p>
 <!-- @@@print -->
 <!-- $$$printRequested[overload1]$$$printRequested -->
-<h3 class="fn" id="printRequested"><a name="printRequested"></a><code>[signal] </code><span class="type">void</span> QWebEnginePage::<span class="name">printRequested</span>()</h3>
+<h3 class="fn" id="printRequested"><a name="printRequested"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">printRequested</span>()</h3>
 <p>This signal is emitted when the JavaScript <code>window.print()</code> method is called. Typically, the signal handler can simply call <a href="qwebenginepage.html#printToPdf">printToPdf</a>().</p>
 <p>这个函数是在Qt 5.12版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qwebenginepage.html#printToPdf">printToPdf</a>().</p>
@@ -804,22 +804,22 @@
 <p>这个函数是在Qt 5.5版本中新增引入的。</p>
 <!-- @@@profile -->
 <!-- $$$proxyAuthenticationRequired[overload1]$$$proxyAuthenticationRequiredconstQUrl&QAuthenticator*constQString& -->
-<h3 class="fn" id="proxyAuthenticationRequired"><a name="proxyAuthenticationRequired"></a><code>[signal] </code><span class="type">void</span> QWebEnginePage::<span class="name">proxyAuthenticationRequired</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>requestUrl</i>, <span class="type"><a href="../qtnetwork/qauthenticator.html">QAuthenticator</a></span> *<i>authenticator</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>proxyHost</i>)</h3>
+<h3 class="fn" id="proxyAuthenticationRequired"><a name="proxyAuthenticationRequired"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">proxyAuthenticationRequired</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>requestUrl</i>, <span class="type"><a href="../qtnetwork/qauthenticator.html">QAuthenticator</a></span> *<i>authenticator</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>proxyHost</i>)</h3>
 <p>This signal is emitted when access to <i>requestUrl</i> via <i>proxyHost</i> requires authentication for the proxy. <i>authenticator</i> should be used to pass the user name and password for the connection.</p>
 <!-- @@@proxyAuthenticationRequired -->
 <!-- $$$quotaRequested[overload1]$$$quotaRequestedQWebEngineQuotaRequest -->
-<h3 class="fn" id="quotaRequested"><a name="quotaRequested"></a><code>[signal] </code><span class="type">void</span> QWebEnginePage::<span class="name">quotaRequested</span>(<span class="type"><a href="qwebenginequotarequest.html">QWebEngineQuotaRequest</a></span> <i>quotaRequest</i>)</h3>
+<h3 class="fn" id="quotaRequested"><a name="quotaRequested"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">quotaRequested</span>(<span class="type"><a href="qwebenginequotarequest.html">QWebEngineQuotaRequest</a></span> <i>quotaRequest</i>)</h3>
 <p>This signal is emitted when the web page requests larger persistent storage than the application's current allocation in File System API. The default quota is 0 bytes.</p>
 <p>The request object <i>quotaRequest</i> can be used to accept or reject the request.</p>
 <p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <!-- @@@quotaRequested -->
 <!-- $$$recentlyAudibleChanged -->
-<h3 class="fn" id="recentlyAudibleChanged"><a name="recentlyAudibleChanged"></a><code>[signal] </code><span class="type">void</span> QWebEnginePage::<span class="name">recentlyAudibleChanged</span>(<span class="type">bool</span> <i>recentlyAudible</i>)</h3>
+<h3 class="fn" id="recentlyAudibleChanged"><a name="recentlyAudibleChanged"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">recentlyAudibleChanged</span>(<span class="type">bool</span> <i>recentlyAudible</i>)</h3>
 <p>This signal is emitted when the page's audible state, <i>recentlyAudible</i>, changes, because the audio is played or stopped.</p>
 <p><b>Note: </b>The signal is also emitted when calling the <a href="qwebenginepage.html#audioMuted-prop">setAudioMuted</a>() method. Also, if the audio is paused, this signal is emitted with an approximate <b>two-second delay</b>, from the moment the audio is paused.</p><p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b>Note:</b> Notifier signal for property <a href="qwebenginepage.html#recentlyAudible-prop">recentlyAudible</a>. </p><!-- @@@recentlyAudibleChanged -->
 <!-- $$$registerProtocolHandlerRequested[overload1]$$$registerProtocolHandlerRequestedQWebEngineRegisterProtocolHandlerRequest -->
-<h3 class="fn" id="registerProtocolHandlerRequested"><a name="registerProtocolHandlerRequested"></a><code>[signal] </code><span class="type">void</span> QWebEnginePage::<span class="name">registerProtocolHandlerRequested</span>(<span class="type"><a href="qwebengineregisterprotocolhandlerrequest.html">QWebEngineRegisterProtocolHandlerRequest</a></span> <i>request</i>)</h3>
+<h3 class="fn" id="registerProtocolHandlerRequested"><a name="registerProtocolHandlerRequested"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">registerProtocolHandlerRequested</span>(<span class="type"><a href="qwebengineregisterprotocolhandlerrequest.html">QWebEngineRegisterProtocolHandlerRequest</a></span> <i>request</i>)</h3>
 <p>This signal is emitted when the web page tries to register a custom protocol using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler">registerProtocolHandler</a> API.</p>
 <p>The request object <i>request</i> can be used to accept or reject the request:</p>
 <pre class="cpp">
@@ -842,7 +842,7 @@
 <p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <!-- @@@registerProtocolHandlerRequested -->
 <!-- $$$renderProcessTerminated[overload1]$$$renderProcessTerminatedQWebEnginePage::RenderProcessTerminationStatusint -->
-<h3 class="fn" id="renderProcessTerminated"><a name="renderProcessTerminated"></a><code>[signal] </code><span class="type">void</span> QWebEnginePage::<span class="name">renderProcessTerminated</span>(<span class="type"><a href="qwebenginepage.html#RenderProcessTerminationStatus-enum">QWebEnginePage::RenderProcessTerminationStatus</a></span> <i>terminationStatus</i>, <span class="type">int</span> <i>exitCode</i>)</h3>
+<h3 class="fn" id="renderProcessTerminated"><a name="renderProcessTerminated"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">renderProcessTerminated</span>(<span class="type"><a href="qwebenginepage.html#RenderProcessTerminationStatus-enum">QWebEnginePage::RenderProcessTerminationStatus</a></span> <i>terminationStatus</i>, <span class="type">int</span> <i>exitCode</i>)</h3>
 <p>This signal is emitted when the render process is terminated with a non-zero exit status. <i>terminationStatus</i> is the termination status of the process and <i>exitCode</i> is the status code with which the process terminated.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <!-- @@@renderProcessTerminated -->
@@ -873,7 +873,7 @@
 <p><b> 参见 </b><a href="qwebenginescriptcollection.html">QWebEngineScriptCollection</a> 和 <a href="qwebenginescript.html">QWebEngineScript</a>.</p>
 <!-- @@@scripts -->
 <!-- $$$selectClientCertificate[overload1]$$$selectClientCertificateQWebEngineClientCertificateSelection -->
-<h3 class="fn" id="selectClientCertificate"><a name="selectClientCertificate"></a><code>[signal] </code><span class="type">void</span> QWebEnginePage::<span class="name">selectClientCertificate</span>(<span class="type"><a href="qwebengineclientcertificateselection.html">QWebEngineClientCertificateSelection</a></span> <i>clientCertificateSelection</i>)</h3>
+<h3 class="fn" id="selectClientCertificate"><a name="selectClientCertificate"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">selectClientCertificate</span>(<span class="type"><a href="qwebengineclientcertificateselection.html">QWebEngineClientCertificateSelection</a></span> <i>clientCertificateSelection</i>)</h3>
 <p>This signal is emitted when a web site requests an SSL client certificate, and one or more were found in system's client certificate store.</p>
 <p>Handling the signal is asynchronous, and loading will be waiting until a certificate is selected, or the last copy of <i>clientCertificateSelection</i> is destroyed.</p>
 <p>If the signal is not handled, <i>clientCertificateSelection</i> is automatically destroyed, and loading will continue without a client certificate.</p>
@@ -881,7 +881,7 @@
 <p><b> 参见 </b><a href="qwebengineclientcertificateselection.html">QWebEngineClientCertificateSelection</a>.</p>
 <!-- @@@selectClientCertificate -->
 <!-- $$$selectionChanged[overload1]$$$selectionChanged -->
-<h3 class="fn" id="selectionChanged"><a name="selectionChanged"></a><code>[signal] </code><span class="type">void</span> QWebEnginePage::<span class="name">selectionChanged</span>()</h3>
+<h3 class="fn" id="selectionChanged"><a name="selectionChanged"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">selectionChanged</span>()</h3>
 <p>This signal is emitted whenever the selection changes, either interactively or programmatically. For example, by calling <a href="qwebenginepage.html#triggerAction">triggerAction</a>() with a selection action.</p>
 <p><b>Note: </b>When using the mouse to select text by left-clicking and dragging, the signal will be emitted for each new character selected, and not upon releasing the left mouse button.</p><p><b> 参见 </b><a href="qwebenginepage.html#selectedText-prop">selectedText</a>().</p>
 <!-- @@@selectionChanged -->
@@ -948,7 +948,7 @@
 <p><b> 参见 </b><a href="qwebenginesettings-obsolete.html#globalSettings">QWebEngineSettings::globalSettings</a>().</p>
 <!-- @@@settings -->
 <!-- $$$titleChanged[overload1]$$$titleChangedconstQString& -->
-<h3 class="fn" id="titleChanged"><a name="titleChanged"></a><code>[signal] </code><span class="type">void</span> QWebEnginePage::<span class="name">titleChanged</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>title</i>)</h3>
+<h3 class="fn" id="titleChanged"><a name="titleChanged"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">titleChanged</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>title</i>)</h3>
 <p>This signal is emitted whenever the title of the page changes. The <i>title</i> string specifies the new title.</p>
 <p><b> 参见 </b><a href="qwebenginepage.html#title-prop">title</a>().</p>
 <!-- @@@titleChanged -->
@@ -963,13 +963,13 @@
 <p><b>Note: </b><i>resultCallback</i> can be any of a function pointer, a functor or a lambda, and it is expected to take a <a href="../qtcore/qstring.html">QString</a> parameter.</p><p><b> 参见 </b><a href="qwebenginepage.html#toHtml">toHtml</a>().</p>
 <!-- @@@toPlainText -->
 <!-- $$$triggerAction[overload1]$$$triggerActionQWebEnginePage::WebActionbool -->
-<h3 class="fn" id="triggerAction"><a name="triggerAction"></a><code>[virtual] </code><span class="type">void</span> QWebEnginePage::<span class="name">triggerAction</span>(<span class="type"><a href="qwebenginepage.html#WebAction-enum">QWebEnginePage::WebAction</a></span> <i>action</i>, <span class="type">bool</span> <i>checked</i> = ...)</h3>
+<h3 class="fn" id="triggerAction"><a name="triggerAction"></a><code>[虚函数] </code><span class="type">void</span> QWebEnginePage::<span class="name">triggerAction</span>(<span class="type"><a href="qwebenginepage.html#WebAction-enum">QWebEnginePage::WebAction</a></span> <i>action</i>, <span class="type">bool</span> <i>checked</i> = ...)</h3>
 <p>This function can be called to trigger the specified <i>action</i>. It is also called by Qt WebEngine if the user triggers the action, for example through a context menu item.</p>
 <p>If <i>action</i> is a checkable action, then <i>checked</i> specifies whether the action is toggled or not.</p>
 <p><b> 参见 </b><a href="qwebenginepage.html#action">action</a>().</p>
 <!-- @@@triggerAction -->
 <!-- $$$urlChanged[overload1]$$$urlChangedconstQUrl& -->
-<h3 class="fn" id="urlChanged"><a name="urlChanged"></a><code>[signal] </code><span class="type">void</span> QWebEnginePage::<span class="name">urlChanged</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
+<h3 class="fn" id="urlChanged"><a name="urlChanged"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">urlChanged</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
 <p>This signal is emitted with the URL of the page when the page title is received. The new URL is specified by <i>url</i>.</p>
 <p><b> 参见 </b><a href="qwebenginepage.html#url-prop">url</a>().</p>
 <!-- @@@urlChanged -->
@@ -985,7 +985,7 @@
 <p><b> 参见 </b><a href="qwebenginepage.html#setWebChannel">setWebChannel</a>().</p>
 <!-- @@@webChannel -->
 <!-- $$$windowCloseRequested[overload1]$$$windowCloseRequested -->
-<h3 class="fn" id="windowCloseRequested"><a name="windowCloseRequested"></a><code>[signal] </code><span class="type">void</span> QWebEnginePage::<span class="name">windowCloseRequested</span>()</h3>
+<h3 class="fn" id="windowCloseRequested"><a name="windowCloseRequested"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">windowCloseRequested</span>()</h3>
 <p>This signal is emitted whenever the page requests the web browser window to be closed, for example through the JavaScript <code>window.close()</code> call.</p>
 <p><b> 参见 </b><a href="qwebenginepage.html#WebAction-enum">RequestClose</a>.</p>
 <!-- @@@windowCloseRequested -->

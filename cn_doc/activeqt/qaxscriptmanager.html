@@ -124,7 +124,7 @@
 <p>It is usual to create one <a href="qaxscriptmanager.html">QAxScriptManager</a> for each document in an application.</p>
 <!-- @@@QAxScriptManager -->
 <!-- $$$~QAxScriptManager[overload1]$$$~QAxScriptManager -->
-<h3 class="fn" id="dtor.QAxScriptManager"><a name="dtor.QAxScriptManager"></a><code>[override virtual] </code>QAxScriptManager::<span class="name">~QAxScriptManager</span>()</h3>
+<h3 class="fn" id="dtor.QAxScriptManager"><a name="dtor.QAxScriptManager"></a><code>[重载虚函数] </code>QAxScriptManager::<span class="name">~QAxScriptManager</span>()</h3>
 <p>Destroys the objects, releasing all allocated resources.</p>
 <!-- @@@~QAxScriptManager -->
 <!-- $$$addObject[overload1]$$$addObjectQAxBase* -->
@@ -173,7 +173,7 @@
 <p>Calls <i>function</i> passing <i>arguments</i> as parameters, and returns the result. Returns when the script's execution has finished.</p>
 <!-- @@@call -->
 <!-- $$$error[overload1]$$$errorQAxScript*intconstQString&intconstQString& -->
-<h3 class="fn" id="error"><a name="error"></a><code>[signal] </code><span class="type">void</span> QAxScriptManager::<span class="name">error</span>(<span class="type"><a href="qaxscript.html">QAxScript</a></span> *<i>script</i>, <span class="type">int</span> <i>code</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>description</i>, <span class="type">int</span> <i>sourcePosition</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>sourceText</i>)</h3>
+<h3 class="fn" id="error"><a name="error"></a><code>[信号] </code><span class="type">void</span> QAxScriptManager::<span class="name">error</span>(<span class="type"><a href="qaxscript.html">QAxScript</a></span> *<i>script</i>, <span class="type">int</span> <i>code</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>description</i>, <span class="type">int</span> <i>sourcePosition</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>sourceText</i>)</h3>
 <p>This signal is emitted when an execution error occurred while running <i>script</i>.</p>
 <p><i>code</i>, <i>description</i>, <i>sourcePosition</i> and <i>sourceText</i> contain information about the execution error.</p>
 <p><b>Warning:</b> Do not delete <i>script</i> in a slot connected to this signal. Use <a href="../qtcore/qobject.html#deleteLater">deleteLater</a>() instead.</p>
@@ -198,7 +198,7 @@
 <p>The script engine used is determined from the file's extension. By default &quot;.js&quot; files are interpreted as JScript files, and &quot;.vbs&quot; and &quot;.dsm&quot; files are interpreted as VBScript. Additional script engines can be registered using <a href="qaxscriptmanager.html#registerEngine">registerEngine</a>().</p>
 <!-- @@@load -->
 <!-- $$$registerEngine[overload1]$$$registerEngineconstQString&constQString&constQString& -->
-<h3 class="fn" id="registerEngine"><a name="registerEngine"></a><code>[static] </code><span class="type">bool</span> QAxScriptManager::<span class="name">registerEngine</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>name</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>extension</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>code</i> = QString())</h3>
+<h3 class="fn" id="registerEngine"><a name="registerEngine"></a><code>[静态函数] </code><span class="type">bool</span> QAxScriptManager::<span class="name">registerEngine</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>name</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>extension</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>code</i> = QString())</h3>
 <p>Registers the script engine called <i>name</i> and returns true if the engine was found; otherwise does nothing and returns false.</p>
 <p>The script engine will be used when loading files with the given <i>extension</i>, or when loading source code that contains the string <i>code</i>.</p>
 <!-- @@@registerEngine -->
@@ -208,7 +208,7 @@
 <p>You can use the returned pointer to call functions directly through <a href="qaxscript.html#call">QAxScript::call</a>(), to access the script engine directly, or to delete and thus unload the script.</p>
 <!-- @@@script -->
 <!-- $$$scriptFileFilter[overload1]$$$scriptFileFilter -->
-<h3 class="fn" id="scriptFileFilter"><a name="scriptFileFilter"></a><code>[static] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QAxScriptManager::<span class="name">scriptFileFilter</span>()</h3>
+<h3 class="fn" id="scriptFileFilter"><a name="scriptFileFilter"></a><code>[静态函数] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QAxScriptManager::<span class="name">scriptFileFilter</span>()</h3>
 <p>Returns a file filter listing all the supported script languages. This filter string is convenient for use with <a href="../qtwidgets/qfiledialog.html">QFileDialog</a>.</p>
 <!-- @@@scriptFileFilter -->
 <!-- $$$scriptNames[overload1]$$$scriptNames -->

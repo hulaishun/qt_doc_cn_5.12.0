@@ -158,31 +158,31 @@
 <p>Creates a new <a href="qsgmaterialshader.html">QSGMaterialShader</a>.</p>
 <!-- @@@QSGMaterialShader -->
 <!-- $$$activate[overload1]$$$activate -->
-<h3 class="fn" id="activate"><a name="activate"></a><code>[virtual] </code><span class="type">void</span> QSGMaterialShader::<span class="name">activate</span>()</h3>
+<h3 class="fn" id="activate"><a name="activate"></a><code>[虚函数] </code><span class="type">void</span> QSGMaterialShader::<span class="name">activate</span>()</h3>
 <p>This function is called by the scene graph to indicate that geometry is about to be rendered using this shader.</p>
 <p>State that is global for all uses of the shader, independent of the geometry that is being drawn, can be setup in this function.</p>
 <!-- @@@activate -->
 <!-- $$$attributeNames[overload1]$$$attributeNames -->
-<h3 class="fn" id="attributeNames"><a name="attributeNames"></a><code>[pure virtual] </code>const <span class="type">char</span> *const *QSGMaterialShader::<span class="name">attributeNames</span>() const</h3>
+<h3 class="fn" id="attributeNames"><a name="attributeNames"></a><code>[纯虚函数] </code>const <span class="type">char</span> *const *QSGMaterialShader::<span class="name">attributeNames</span>() const</h3>
 <p>Returns a zero-terminated array describing the names of the attributes used in the vertex shader.</p>
 <p>This function is called when the shader is compiled to specify which attributes exist. The order of the attribute names defines the attribute register position in the vertex shader.</p>
 <!-- @@@attributeNames -->
 <!-- $$$compile[overload1]$$$compile -->
-<h3 class="fn" id="compile"><a name="compile"></a><code>[virtual protected] </code><span class="type">void</span> QSGMaterialShader::<span class="name">compile</span>()</h3>
+<h3 class="fn" id="compile"><a name="compile"></a><code>[虚保护函数] </code><span class="type">void</span> QSGMaterialShader::<span class="name">compile</span>()</h3>
 <p>This function is called when the shader is initialized to compile the actual <a href="../qtgui/qopenglshaderprogram.html">QOpenGLShaderProgram</a>. Do not call it explicitly.</p>
 <p>The default implementation will extract the <a href="qsgmaterialshader.html#vertexShader">vertexShader</a>() 和 <a href="qsgmaterialshader.html#fragmentShader">fragmentShader</a>() and bind the names returned from <a href="qsgmaterialshader.html#attributeNames">attributeNames</a>() to consecutive vertex attribute registers starting at 0.</p>
 <!-- @@@compile -->
 <!-- $$$deactivate[overload1]$$$deactivate -->
-<h3 class="fn" id="deactivate"><a name="deactivate"></a><code>[virtual] </code><span class="type">void</span> QSGMaterialShader::<span class="name">deactivate</span>()</h3>
+<h3 class="fn" id="deactivate"><a name="deactivate"></a><code>[虚函数] </code><span class="type">void</span> QSGMaterialShader::<span class="name">deactivate</span>()</h3>
 <p>This function is called by the scene graph to indicate that geometry will no longer to be rendered using this shader.</p>
 <!-- @@@deactivate -->
 <!-- $$$fragmentShader[overload1]$$$fragmentShader -->
-<h3 class="fn" id="fragmentShader"><a name="fragmentShader"></a><code>[virtual protected] </code>const <span class="type">char</span> *QSGMaterialShader::<span class="name">fragmentShader</span>() const</h3>
+<h3 class="fn" id="fragmentShader"><a name="fragmentShader"></a><code>[虚保护函数] </code>const <span class="type">char</span> *QSGMaterialShader::<span class="name">fragmentShader</span>() const</h3>
 <p>Called when the shader is being initialized to get the fragment shader source code.</p>
 <p>The contents returned from this function should never change.</p>
 <!-- @@@fragmentShader -->
 <!-- $$$initialize[overload1]$$$initialize -->
-<h3 class="fn" id="initialize"><a name="initialize"></a><code>[virtual protected] </code><span class="type">void</span> QSGMaterialShader::<span class="name">initialize</span>()</h3>
+<h3 class="fn" id="initialize"><a name="initialize"></a><code>[虚保护函数] </code><span class="type">void</span> QSGMaterialShader::<span class="name">initialize</span>()</h3>
 <p>Reimplement this function to do one-time initialization when the shader program is compiled. The OpenGL shader program is compiled and linked, but not bound, when this function is called.</p>
 <!-- @@@initialize -->
 <!-- $$$program[overload1]$$$program -->
@@ -190,18 +190,18 @@
 <p>Returns the shader program used by this <a href="qsgmaterialshader.html">QSGMaterialShader</a>.</p>
 <!-- @@@program -->
 <!-- $$$setShaderSourceFile[overload1]$$$setShaderSourceFileQOpenGLShader::ShaderTypeconstQString& -->
-<h3 class="fn" id="setShaderSourceFile"><a name="setShaderSourceFile"></a><code>[protected] </code><span class="type">void</span> QSGMaterialShader::<span class="name">setShaderSourceFile</span>(<span class="type"><a href="../qtgui/qopenglshader.html#ShaderTypeBit-enum">QOpenGLShader::ShaderType</a></span> <i>type</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>sourceFile</i>)</h3>
+<h3 class="fn" id="setShaderSourceFile"><a name="setShaderSourceFile"></a><code>[保护函数] </code><span class="type">void</span> QSGMaterialShader::<span class="name">setShaderSourceFile</span>(<span class="type"><a href="../qtgui/qopenglshader.html#ShaderTypeBit-enum">QOpenGLShader::ShaderType</a></span> <i>type</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>sourceFile</i>)</h3>
 <p>Sets the GLSL source file for the shader stage <i>type</i> to <i>sourceFile</i>. The default implementation of the <a href="qsgmaterialshader.html#vertexShader">vertexShader</a>() 和 <a href="qsgmaterialshader.html#fragmentShader">fragmentShader</a>() functions will load the source files set by this function.</p>
 <p>This function is useful when you have a single source file for a given shader stage. If your shader consists of multiple source files then use <a href="qsgmaterialshader.html#setShaderSourceFiles">setShaderSourceFiles</a>()</p>
 <p><b> 参见 </b><a href="qsgmaterialshader.html#setShaderSourceFiles">setShaderSourceFiles</a>(), <a href="qsgmaterialshader.html#vertexShader">vertexShader</a>(), 和 <a href="qsgmaterialshader.html#fragmentShader">fragmentShader</a>().</p>
 <!-- @@@setShaderSourceFile -->
 <!-- $$$setShaderSourceFiles[overload1]$$$setShaderSourceFilesQOpenGLShader::ShaderTypeconstQStringList& -->
-<h3 class="fn" id="setShaderSourceFiles"><a name="setShaderSourceFiles"></a><code>[protected] </code><span class="type">void</span> QSGMaterialShader::<span class="name">setShaderSourceFiles</span>(<span class="type"><a href="../qtgui/qopenglshader.html#ShaderTypeBit-enum">QOpenGLShader::ShaderType</a></span> <i>type</i>, const <span class="type"><a href="../qtcore/qstringlist.html">QStringList</a></span> &amp;<i>sourceFiles</i>)</h3>
+<h3 class="fn" id="setShaderSourceFiles"><a name="setShaderSourceFiles"></a><code>[保护函数] </code><span class="type">void</span> QSGMaterialShader::<span class="name">setShaderSourceFiles</span>(<span class="type"><a href="../qtgui/qopenglshader.html#ShaderTypeBit-enum">QOpenGLShader::ShaderType</a></span> <i>type</i>, const <span class="type"><a href="../qtcore/qstringlist.html">QStringList</a></span> &amp;<i>sourceFiles</i>)</h3>
 <p>Sets the GLSL source files for the shader stage <i>type</i> to <i>sourceFiles</i>. The default implementation of the <a href="qsgmaterialshader.html#vertexShader">vertexShader</a>() 和 <a href="qsgmaterialshader.html#fragmentShader">fragmentShader</a>() functions will load the source files set by this function in the order given.</p>
 <p><b> 参见 </b><a href="qsgmaterialshader.html#setShaderSourceFile">setShaderSourceFile</a>(), <a href="qsgmaterialshader.html#vertexShader">vertexShader</a>(), 和 <a href="qsgmaterialshader.html#fragmentShader">fragmentShader</a>().</p>
 <!-- @@@setShaderSourceFiles -->
 <!-- $$$updateState[overload1]$$$updateStateconstQSGMaterialShader::RenderState&QSGMaterial*QSGMaterial* -->
-<h3 class="fn" id="updateState"><a name="updateState"></a><code>[virtual] </code><span class="type">void</span> QSGMaterialShader::<span class="name">updateState</span>(const <span class="type"><a href="qsgmaterialshader-renderstate.html">QSGMaterialShader::RenderState</a></span> &amp;<i>state</i>, <span class="type"><a href="qsgmaterial.html">QSGMaterial</a></span> *<i>newMaterial</i>, <span class="type"><a href="qsgmaterial.html">QSGMaterial</a></span> *<i>oldMaterial</i>)</h3>
+<h3 class="fn" id="updateState"><a name="updateState"></a><code>[虚函数] </code><span class="type">void</span> QSGMaterialShader::<span class="name">updateState</span>(const <span class="type"><a href="qsgmaterialshader-renderstate.html">QSGMaterialShader::RenderState</a></span> &amp;<i>state</i>, <span class="type"><a href="qsgmaterial.html">QSGMaterial</a></span> *<i>newMaterial</i>, <span class="type"><a href="qsgmaterial.html">QSGMaterial</a></span> *<i>oldMaterial</i>)</h3>
 <p>This function is called by the scene graph before geometry is rendered to make sure the shader is in the right state.</p>
 <p>The current rendering <i>state</i> is passed from the scene graph. If the state indicates that any state is dirty, the updateState implementation must update accordingly for the geometry to render correctly.</p>
 <p>The subclass specific state, such as the color of a flat color material, should be extracted from <i>newMaterial</i> to update the color uniforms accordingly.</p>
@@ -209,7 +209,7 @@
 <p><b> 参见 </b><a href="qsgmaterialshader.html#activate">activate</a>() 和 <a href="qsgmaterialshader.html#deactivate">deactivate</a>().</p>
 <!-- @@@updateState -->
 <!-- $$$vertexShader[overload1]$$$vertexShader -->
-<h3 class="fn" id="vertexShader"><a name="vertexShader"></a><code>[virtual protected] </code>const <span class="type">char</span> *QSGMaterialShader::<span class="name">vertexShader</span>() const</h3>
+<h3 class="fn" id="vertexShader"><a name="vertexShader"></a><code>[虚保护函数] </code>const <span class="type">char</span> *QSGMaterialShader::<span class="name">vertexShader</span>() const</h3>
 <p>Called when the shader is being initialized to get the vertex shader source code.</p>
 <p>The contents returned from this function should never change.</p>
 <!-- @@@vertexShader -->

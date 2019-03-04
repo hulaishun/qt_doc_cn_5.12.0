@@ -290,7 +290,7 @@
 <p><b> 参见 </b><a href="qobject.html#parent">parent</a>(), <a href="qobject.html#findChild">findChild</a>(), 和 <a href="qobject.html#findChildren">findChildren</a>().</p>
 <!-- @@@QObject -->
 <!-- $$$~QObject[overload1]$$$~QObject -->
-<h3 class="fn" id="dtor.QObject"><a name="dtor.QObject"></a><code>[virtual] </code>QObject::<span class="name">~QObject</span>()</h3>
+<h3 class="fn" id="dtor.QObject"><a name="dtor.QObject"></a><code>[虚函数] </code>QObject::<span class="name">~QObject</span>()</h3>
 <p>Destroys the object, deleting all its child objects.</p>
 <p>All signals to and from the object are automatically disconnected, and any pending posted events for the object are removed from the event queue. However, it is often safer to use <a href="qobject.html#deleteLater">deleteLater</a>() rather than deleting a <a href="qobject.html">QObject</a> subclass directly.</p>
 <p><b>Warning:</b> All child objects are deleted. If any of these objects are on the stack or global, sooner or later your program will crash. We do not recommend holding pointers to child objects from outside the parent. If you still do, the <a href="qobject.html#destroyed">destroyed</a>() signal gives you an opportunity to detect when an object is destroyed.</p>
@@ -306,7 +306,7 @@
 <p><b> 参见 </b><a href="qobject.html#signalsBlocked">signalsBlocked</a>() 和 <a href="qsignalblocker.html">QSignalBlocker</a>.</p>
 <!-- @@@blockSignals -->
 <!-- $$$childEvent[overload1]$$$childEventQChildEvent* -->
-<h3 class="fn" id="childEvent"><a name="childEvent"></a><code>[virtual protected] </code><span class="type">void</span> QObject::<span class="name">childEvent</span>(<span class="type"><a href="qchildevent.html">QChildEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="childEvent"><a name="childEvent"></a><code>[虚保护函数] </code><span class="type">void</span> QObject::<span class="name">childEvent</span>(<span class="type"><a href="qchildevent.html">QChildEvent</a></span> *<i>event</i>)</h3>
 <p>This event handler can be reimplemented in a subclass to receive child events. The event is passed in the <i>event</i> parameter.</p>
 <p><a href="qevent.html#Type-enum">QEvent::ChildAdded</a> 和 <a href="qevent.html#Type-enum">QEvent::ChildRemoved</a> events are sent to objects when children are added or removed. In both cases you can only rely on the child being a <a href="qobject.html">QObject</a>, or if <a href="qobject.html#isWidgetType">isWidgetType</a>() returns <code>true</code>, a <a href="../qtwidgets/qwidget.html">QWidget</a>. (This is because, in the <a href="qevent.html#Type-enum">ChildAdded</a> case, the child is not yet fully constructed, and in the <a href="qevent.html#Type-enum">ChildRemoved</a> case it might have been destructed already).</p>
 <p><a href="qevent.html#Type-enum">QEvent::ChildPolished</a> events are sent to widgets when children are polished, or when polished children are added. If you receive a child polished event, the child's construction is usually completed. However, this is not guaranteed, and multiple polish events may be delivered during the execution of a widget's constructor.</p>
@@ -327,7 +327,7 @@
 <p><b> 参见 </b><a href="qobject.html#findChild">findChild</a>(), <a href="qobject.html#findChildren">findChildren</a>(), <a href="qobject.html#parent">parent</a>(), 和 <a href="qobject.html#setParent">setParent</a>().</p>
 <!-- @@@children -->
 <!-- $$$connect[overload1]$$$connectconstQObject*constchar*constQObject*constchar*Qt::ConnectionType -->
-<h3 class="fn" id="connect"><a name="connect"></a><code>[static] </code><span class="type"><a href="qmetaobject-connection.html">QMetaObject::Connection</a></span> QObject::<span class="name">connect</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>sender</i>, const <span class="type">char</span> *<i>signal</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, const <span class="type">char</span> *<i>method</i>, <span class="type">Qt::ConnectionType</span> <i>type</i> = Qt::AutoConnection)</h3>
+<h3 class="fn" id="connect"><a name="connect"></a><code>[静态函数] </code><span class="type"><a href="qmetaobject-connection.html">QMetaObject::Connection</a></span> QObject::<span class="name">connect</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>sender</i>, const <span class="type">char</span> *<i>signal</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, const <span class="type">char</span> *<i>method</i>, <span class="type">Qt::ConnectionType</span> <i>type</i> = Qt::AutoConnection)</h3>
 <p>Creates a connection of the given <i>type</i> from the <i>signal</i> in the <i>sender</i> object to the <i>method</i> in the <i>receiver</i> object. Returns a handle to the connection that can be used to disconnect it later.</p>
 <p>You must use the <code>SIGNAL()</code> and <code>SLOT()</code> macros when specifying the <i>signal</i> and the <i>method</i>, for example:</p>
 <pre class="cpp">
@@ -388,7 +388,7 @@
 <p><b> 参见 </b><a href="qobject.html#disconnect">disconnect</a>(), <a href="qobject.html#sender">sender</a>(), <a href="qmetatype.html#qRegisterMetaType-1">qRegisterMetaType</a>(), <a href="qmetatype.html#Q_DECLARE_METATYPE">Q_DECLARE_METATYPE</a>(), 和 <a href="../qtdoc/signalsandslots-syntaxes.html">Differences between String-Based and Functor-Based Connections</a>.</p>
 <!-- @@@connect -->
 <!-- $$$connect$$$connectconstQObject*constQMetaMethod&constQObject*constQMetaMethod&Qt::ConnectionType -->
-<h3 class="fn" id="connect-1"><a name="connect-1"></a><code>[static] </code><span class="type"><a href="qmetaobject-connection.html">QMetaObject::Connection</a></span> QObject::<span class="name">connect</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>sender</i>, const <span class="type"><a href="qmetamethod.html">QMetaMethod</a></span> &amp;<i>signal</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, const <span class="type"><a href="qmetamethod.html">QMetaMethod</a></span> &amp;<i>method</i>, <span class="type">Qt::ConnectionType</span> <i>type</i> = Qt::AutoConnection)</h3>
+<h3 class="fn" id="connect-1"><a name="connect-1"></a><code>[静态函数] </code><span class="type"><a href="qmetaobject-connection.html">QMetaObject::Connection</a></span> QObject::<span class="name">connect</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>sender</i>, const <span class="type"><a href="qmetamethod.html">QMetaMethod</a></span> &amp;<i>signal</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, const <span class="type"><a href="qmetamethod.html">QMetaMethod</a></span> &amp;<i>method</i>, <span class="type">Qt::ConnectionType</span> <i>type</i> = Qt::AutoConnection)</h3>
 <p>Creates a connection of the given <i>type</i> from the <i>signal</i> in the <i>sender</i> object to the <i>method</i> in the <i>receiver</i> object. Returns a handle to the connection that can be used to disconnect it later.</p>
 <p>The Connection handle will be invalid if it cannot create the connection, for example, the parameters were invalid. You can check if the <a href="qmetaobject-connection.html">QMetaObject::Connection</a> is valid by casting it to a bool.</p>
 <p>This function works in the same way as <code>connect(const QObject *sender, const char *signal, const QObject *receiver, const char *method, Qt::ConnectionType type)</code> but it uses <a href="qmetamethod.html">QMetaMethod</a> to specify signal and method.</p>
@@ -405,7 +405,7 @@
 <p><b> 参见 </b><a href="qobject.html#disconnect">disconnect</a>().</p>
 <!-- @@@connect -->
 <!-- $$$connect$$$connectconstQObject*PointerToMemberFunctionconstQObject*PointerToMemberFunctionQt::ConnectionType -->
-<h3 class="fn" id="connect-3"><a name="connect-3"></a><code>[static] </code><span class="type"><a href="qmetaobject-connection.html">QMetaObject::Connection</a></span> QObject::<span class="name">connect</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>sender</i>, <span class="type">PointerToMemberFunction</span> <i>signal</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, <span class="type">PointerToMemberFunction</span> <i>method</i>, <span class="type">Qt::ConnectionType</span> <i>type</i> = Qt::AutoConnection)</h3>
+<h3 class="fn" id="connect-3"><a name="connect-3"></a><code>[静态函数] </code><span class="type"><a href="qmetaobject-connection.html">QMetaObject::Connection</a></span> QObject::<span class="name">connect</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>sender</i>, <span class="type">PointerToMemberFunction</span> <i>signal</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, <span class="type">PointerToMemberFunction</span> <i>method</i>, <span class="type">Qt::ConnectionType</span> <i>type</i> = Qt::AutoConnection)</h3>
 <p>This function overloads <a href="qobject.html#connect">connect</a>().</p>
 <p>Creates a connection of the given <i>type</i> from the <i>signal</i> in the <i>sender</i> object to the <i>method</i> in the <i>receiver</i> object. Returns a handle to the connection that can be used to disconnect it later.</p>
 <p>The signal must be a function declared as a signal in the header. The slot function can be any member function that can be connected to the signal. A slot can be connected to a given signal if the signal has at least as many arguments as the slot, and there is an implicit conversion between the types of the corresponding arguments in the signal and the slot.</p>
@@ -436,7 +436,7 @@
 <p><b> 参见 </b><a href="../qtdoc/signalsandslots-syntaxes.html">Differences between String-Based and Functor-Based Connections</a>.</p>
 <!-- @@@connect -->
 <!-- $$$connect$$$connectconstQObject*PointerToMemberFunctionFunctor -->
-<h3 class="fn" id="connect-4"><a name="connect-4"></a><code>[static] </code><span class="type"><a href="qmetaobject-connection.html">QMetaObject::Connection</a></span> QObject::<span class="name">connect</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>sender</i>, <span class="type">PointerToMemberFunction</span> <i>signal</i>, <span class="type">Functor</span> <i>functor</i>)</h3>
+<h3 class="fn" id="connect-4"><a name="connect-4"></a><code>[静态函数] </code><span class="type"><a href="qmetaobject-connection.html">QMetaObject::Connection</a></span> QObject::<span class="name">connect</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>sender</i>, <span class="type">PointerToMemberFunction</span> <i>signal</i>, <span class="type">Functor</span> <i>functor</i>)</h3>
 <p>This function overloads <a href="qobject.html#connect">connect</a>().</p>
 <p>Creates a connection from <i>signal</i> in <i>sender</i> object to <i>functor</i>, and returns a handle to the connection</p>
 <p>The signal must be a function declared as a signal in the header. The slot function can be any function or functor that can be connected to the signal. A function can be connected to a given signal if the signal has at least as many argument as the slot. A functor can be connected to a signal if they have exactly the same number of arguments. There must exist implicit conversion between the types of the corresponding arguments in the signal and the slot.</p>
@@ -464,7 +464,7 @@
 <p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
 <!-- @@@connect -->
 <!-- $$$connect$$$connectconstQObject*PointerToMemberFunctionconstQObject*FunctorQt::ConnectionType -->
-<h3 class="fn" id="connect-5"><a name="connect-5"></a><code>[static] </code><span class="type"><a href="qmetaobject-connection.html">QMetaObject::Connection</a></span> QObject::<span class="name">connect</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>sender</i>, <span class="type">PointerToMemberFunction</span> <i>signal</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>context</i>, <span class="type">Functor</span> <i>functor</i>, <span class="type">Qt::ConnectionType</span> <i>type</i> = Qt::AutoConnection)</h3>
+<h3 class="fn" id="connect-5"><a name="connect-5"></a><code>[静态函数] </code><span class="type"><a href="qmetaobject-connection.html">QMetaObject::Connection</a></span> QObject::<span class="name">connect</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>sender</i>, <span class="type">PointerToMemberFunction</span> <i>signal</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>context</i>, <span class="type">Functor</span> <i>functor</i>, <span class="type">Qt::ConnectionType</span> <i>type</i> = Qt::AutoConnection)</h3>
 <p>This function overloads <a href="qobject.html#connect">connect</a>().</p>
 <p>Creates a connection of a given <i>type</i> from <i>signal</i> in <i>sender</i> object to <i>functor</i> to be placed in a specific event loop of <i>context</i>, and returns a handle to the connection.</p>
 <p><b>Note: </b>Qt::UniqueConnections do not work for lambdas, non-member functions and functors; they only apply to connecting to member functions.</p><p>The signal must be a function declared as a signal in the header. The slot function can be any function or functor that can be connected to the signal. A function can be connected to a given signal if the signal has at least as many argument as the slot. A functor can be connected to a signal if they have exactly the same number of arguments. There must exist implicit conversion between the types of the corresponding arguments in the signal and the slot.</p>
@@ -493,7 +493,7 @@
 <p>这个函数是在Qt 5.2版本中新增引入的。</p>
 <!-- @@@connect -->
 <!-- $$$connectNotify[overload1]$$$connectNotifyconstQMetaMethod& -->
-<h3 class="fn" id="connectNotify"><a name="connectNotify"></a><code>[virtual protected] </code><span class="type">void</span> QObject::<span class="name">connectNotify</span>(const <span class="type"><a href="qmetamethod.html">QMetaMethod</a></span> &amp;<i>signal</i>)</h3>
+<h3 class="fn" id="connectNotify"><a name="connectNotify"></a><code>[虚保护函数] </code><span class="type">void</span> QObject::<span class="name">connectNotify</span>(const <span class="type"><a href="qmetamethod.html">QMetaMethod</a></span> &amp;<i>signal</i>)</h3>
 <p>This virtual function is called when something has been connected to <i>signal</i> in this object.</p>
 <p>If you want to compare <i>signal</i> with a specific signal, you can use <a href="qmetamethod.html#fromSignal">QMetaMethod::fromSignal</a>() as follows:</p>
 <pre class="cpp">
@@ -509,7 +509,7 @@
 <p><b> 参见 </b><a href="qobject.html#connect">connect</a>() 和 <a href="qobject.html#disconnectNotify">disconnectNotify</a>().</p>
 <!-- @@@connectNotify -->
 <!-- $$$customEvent[overload1]$$$customEventQEvent* -->
-<h3 class="fn" id="customEvent"><a name="customEvent"></a><code>[virtual protected] </code><span class="type">void</span> QObject::<span class="name">customEvent</span>(<span class="type"><a href="qevent.html">QEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="customEvent"><a name="customEvent"></a><code>[虚保护函数] </code><span class="type">void</span> QObject::<span class="name">customEvent</span>(<span class="type"><a href="qevent.html">QEvent</a></span> *<i>event</i>)</h3>
 <p>This event handler can be reimplemented in a subclass to receive custom events. Custom events are user-defined events with a type value at least as large as the <a href="qevent.html#Type-enum">QEvent::User</a> item of the <a href="qevent.html#Type-enum">QEvent::Type</a> enum, and is typically a <a href="qevent.html">QEvent</a> subclass. The event is passed in the <i>event</i> parameter.</p>
 <p><b> 参见 </b><a href="qobject.html#event">event</a>() 和 <a href="qevent.html">QEvent</a>.</p>
 <!-- @@@customEvent -->
@@ -522,13 +522,13 @@
 <p><b> 参见 </b><a href="qobject.html#destroyed">destroyed</a>() 和 <a href="qpointer.html">QPointer</a>.</p>
 <!-- @@@deleteLater -->
 <!-- $$$destroyed[overload1]$$$destroyedQObject* -->
-<h3 class="fn" id="destroyed"><a name="destroyed"></a><code>[signal] </code><span class="type">void</span> QObject::<span class="name">destroyed</span>(<span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>obj</i> = nullptr)</h3>
+<h3 class="fn" id="destroyed"><a name="destroyed"></a><code>[信号] </code><span class="type">void</span> QObject::<span class="name">destroyed</span>(<span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>obj</i> = nullptr)</h3>
 <p>This signal is emitted immediately before the object <i>obj</i> is destroyed, and can not be blocked.</p>
 <p>All the objects's children are destroyed immediately after this signal is emitted.</p>
 <p><b> 参见 </b><a href="qobject.html#deleteLater">deleteLater</a>() 和 <a href="qpointer.html">QPointer</a>.</p>
 <!-- @@@destroyed -->
 <!-- $$$disconnect[overload1]$$$disconnectconstQObject*constchar*constQObject*constchar* -->
-<h3 class="fn" id="disconnect"><a name="disconnect"></a><code>[static] </code><span class="type">bool</span> QObject::<span class="name">disconnect</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>sender</i>, const <span class="type">char</span> *<i>signal</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, const <span class="type">char</span> *<i>method</i>)</h3>
+<h3 class="fn" id="disconnect"><a name="disconnect"></a><code>[静态函数] </code><span class="type">bool</span> QObject::<span class="name">disconnect</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>sender</i>, const <span class="type">char</span> *<i>signal</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, const <span class="type">char</span> *<i>method</i>)</h3>
 <p>Disconnects <i>signal</i> in object <i>sender</i> from <i>method</i> in object <i>receiver</i>. Returns <code>true</code> if the connection is successfully broken; otherwise returns <code>false</code>.</p>
 <p>A signal-slot connection is removed when either of the objects involved are destroyed.</p>
 <p>disconnect() is typically used in three ways, as the following examples demonstrate.</p>
@@ -578,7 +578,7 @@
 <p><b> 参见 </b><a href="qobject.html#connect">connect</a>().</p>
 <!-- @@@disconnect -->
 <!-- $$$disconnect$$$disconnectconstQObject*constQMetaMethod&constQObject*constQMetaMethod& -->
-<h3 class="fn" id="disconnect-1"><a name="disconnect-1"></a><code>[static] </code><span class="type">bool</span> QObject::<span class="name">disconnect</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>sender</i>, const <span class="type"><a href="qmetamethod.html">QMetaMethod</a></span> &amp;<i>signal</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, const <span class="type"><a href="qmetamethod.html">QMetaMethod</a></span> &amp;<i>method</i>)</h3>
+<h3 class="fn" id="disconnect-1"><a name="disconnect-1"></a><code>[静态函数] </code><span class="type">bool</span> QObject::<span class="name">disconnect</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>sender</i>, const <span class="type"><a href="qmetamethod.html">QMetaMethod</a></span> &amp;<i>signal</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, const <span class="type"><a href="qmetamethod.html">QMetaMethod</a></span> &amp;<i>method</i>)</h3>
 <p>Disconnects <i>signal</i> in object <i>sender</i> from <i>method</i> in object <i>receiver</i>. Returns <code>true</code> if the connection is successfully broken; otherwise returns <code>false</code>.</p>
 <p>This function provides the same possibilities like <code>disconnect(const QObject *sender, const char *signal, const QObject *receiver, const char *method)</code> but uses <a href="qmetamethod.html">QMetaMethod</a> to represent the signal and the method to be disconnected.</p>
 <p>Additionally this function returnsfalse and no signals and slots disconnected if:</p>
@@ -604,13 +604,13 @@
 <p>A signal-slot connection is removed when either of the objects involved are destroyed.</p>
 <!-- @@@disconnect -->
 <!-- $$$disconnect$$$disconnectconstQMetaObject::Connection& -->
-<h3 class="fn" id="disconnect-4"><a name="disconnect-4"></a><code>[static] </code><span class="type">bool</span> QObject::<span class="name">disconnect</span>(const <span class="type"><a href="qmetaobject-connection.html">QMetaObject::Connection</a></span> &amp;<i>connection</i>)</h3>
+<h3 class="fn" id="disconnect-4"><a name="disconnect-4"></a><code>[静态函数] </code><span class="type">bool</span> QObject::<span class="name">disconnect</span>(const <span class="type"><a href="qmetaobject-connection.html">QMetaObject::Connection</a></span> &amp;<i>connection</i>)</h3>
 <p>Disconnect a connection.</p>
 <p>If the <i>connection</i> is invalid or has already been disconnected, do nothing and return false.</p>
 <p><b> 参见 </b><a href="qobject.html#connect">connect</a>().</p>
 <!-- @@@disconnect -->
 <!-- $$$disconnect$$$disconnectconstQObject*PointerToMemberFunctionconstQObject*PointerToMemberFunction -->
-<h3 class="fn" id="disconnect-5"><a name="disconnect-5"></a><code>[static] </code><span class="type">bool</span> QObject::<span class="name">disconnect</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>sender</i>, <span class="type">PointerToMemberFunction</span> <i>signal</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, <span class="type">PointerToMemberFunction</span> <i>method</i>)</h3>
+<h3 class="fn" id="disconnect-5"><a name="disconnect-5"></a><code>[静态函数] </code><span class="type">bool</span> QObject::<span class="name">disconnect</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>sender</i>, <span class="type">PointerToMemberFunction</span> <i>signal</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, <span class="type">PointerToMemberFunction</span> <i>method</i>)</h3>
 <p>This function overloads diconnect().</p>
 <p>Disconnects <i>signal</i> in object <i>sender</i> from <i>method</i> in object <i>receiver</i>. Returns <code>true</code> if the connection is successfully broken; otherwise returns <code>false</code>.</p>
 <p>A signal-slot connection is removed when either of the objects involved are destroyed.</p>
@@ -650,7 +650,7 @@
 <p><b> 参见 </b><a href="qobject.html#connect">connect</a>().</p>
 <!-- @@@disconnect -->
 <!-- $$$disconnectNotify[overload1]$$$disconnectNotifyconstQMetaMethod& -->
-<h3 class="fn" id="disconnectNotify"><a name="disconnectNotify"></a><code>[virtual protected] </code><span class="type">void</span> QObject::<span class="name">disconnectNotify</span>(const <span class="type"><a href="qmetamethod.html">QMetaMethod</a></span> &amp;<i>signal</i>)</h3>
+<h3 class="fn" id="disconnectNotify"><a name="disconnectNotify"></a><code>[虚保护函数] </code><span class="type">void</span> QObject::<span class="name">disconnectNotify</span>(const <span class="type"><a href="qmetamethod.html">QMetaMethod</a></span> &amp;<i>signal</i>)</h3>
 <p>This virtual function is called when something has been disconnected from <i>signal</i> in this object.</p>
 <p>See <a href="qobject.html#connectNotify">connectNotify</a>() for an example of how to compare <i>signal</i> with a specific signal.</p>
 <p>If all signals were disconnected from this object (e.g&#x2e;, the signal argument to <a href="qobject.html#disconnect">disconnect</a>() was 0), disconnectNotify() is only called once, and the <i>signal</i> will be an invalid <a href="qmetamethod.html">QMetaMethod</a> (<a href="qmetamethod.html#isValid">QMetaMethod::isValid</a>() returns <code>false</code>).</p>
@@ -675,7 +675,7 @@
 <p>这个函数是在Qt 4.2版本中新增引入的。</p>
 <!-- @@@dynamicPropertyNames -->
 <!-- $$$event[overload1]$$$eventQEvent* -->
-<h3 class="fn" id="event"><a name="event"></a><code>[virtual] </code><span class="type">bool</span> QObject::<span class="name">event</span>(<span class="type"><a href="qevent.html">QEvent</a></span> *<i>e</i>)</h3>
+<h3 class="fn" id="event"><a name="event"></a><code>[虚函数] </code><span class="type">bool</span> QObject::<span class="name">event</span>(<span class="type"><a href="qevent.html">QEvent</a></span> *<i>e</i>)</h3>
 <p>This virtual function receives events to an object and should return true if the event <i>e</i> was recognized and processed.</p>
 <p>The event() function can be reimplemented to customize the behavior of an object.</p>
 <p>Make sure you call the parent event class implementation for all the events you did not handle.</p>
@@ -711,7 +711,7 @@
 <p><b> 参见 </b><a href="qobject.html#installEventFilter">installEventFilter</a>(), <a href="qobject.html#timerEvent">timerEvent</a>(), <a href="qcoreapplication.html#sendEvent">QCoreApplication::sendEvent</a>(), 和 <a href="qcoreapplication.html#postEvent">QCoreApplication::postEvent</a>().</p>
 <!-- @@@event -->
 <!-- $$$eventFilter[overload1]$$$eventFilterQObject*QEvent* -->
-<h3 class="fn" id="eventFilter"><a name="eventFilter"></a><code>[virtual] </code><span class="type">bool</span> QObject::<span class="name">eventFilter</span>(<span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>watched</i>, <span class="type"><a href="qevent.html">QEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="eventFilter"><a name="eventFilter"></a><code>[虚函数] </code><span class="type">bool</span> QObject::<span class="name">eventFilter</span>(<span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>watched</i>, <span class="type"><a href="qevent.html">QEvent</a></span> *<i>event</i>)</h3>
 <p>Filters events if this object has been installed as an event filter for the <i>watched</i> object.</p>
 <p>In your reimplementation of this function, if you want to filter the <i>event</i> out, i.e&#x2e; stop it being handled further, return true; otherwise return false.</p>
 <p>样例：</p>
@@ -895,7 +895,7 @@
 <p><b> 参见 </b><a href="qobject.html#removeEventFilter">removeEventFilter</a>(), <a href="qobject.html#eventFilter">eventFilter</a>(), 和 <a href="qobject.html#event">event</a>().</p>
 <!-- @@@installEventFilter -->
 <!-- $$$isSignalConnected[overload1]$$$isSignalConnectedconstQMetaMethod& -->
-<h3 class="fn" id="isSignalConnected"><a name="isSignalConnected"></a><code>[protected] </code><span class="type">bool</span> QObject::<span class="name">isSignalConnected</span>(const <span class="type"><a href="qmetamethod.html">QMetaMethod</a></span> &amp;<i>signal</i>) const</h3>
+<h3 class="fn" id="isSignalConnected"><a name="isSignalConnected"></a><code>[保护函数] </code><span class="type">bool</span> QObject::<span class="name">isSignalConnected</span>(const <span class="type"><a href="qmetamethod.html">QMetaMethod</a></span> &amp;<i>signal</i>) const</h3>
 <p>Returns <code>true</code> if the <i>signal</i> is connected to at least one receiver, otherwise returns <code>false</code>.</p>
 <p><i>signal</i> must be a signal member of this object, otherwise the behaviour is undefined.</p>
 <pre class="cpp">
@@ -929,7 +929,7 @@
 <p><b> 参见 </b><a href="qobject.html#timerEvent">timerEvent</a>() 和 <a href="qobject.html#startTimer">startTimer</a>().</p>
 <!-- @@@killTimer -->
 <!-- $$$metaObject[overload1]$$$metaObject -->
-<h3 class="fn" id="metaObject"><a name="metaObject"></a><code>[virtual] </code>const <span class="type"><a href="qmetaobject.html">QMetaObject</a></span> *QObject::<span class="name">metaObject</span>() const</h3>
+<h3 class="fn" id="metaObject"><a name="metaObject"></a><code>[虚函数] </code>const <span class="type"><a href="qmetaobject.html">QMetaObject</a></span> *QObject::<span class="name">metaObject</span>() const</h3>
 <p>Returns a pointer to the meta-object of this object.</p>
 <p>A meta-object contains information about a class that inherits <a href="qobject.html">QObject</a>, e.g&#x2e; class name, superclass name, properties, signals and slots. Every <a href="qobject.html">QObject</a> subclass that contains the <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro will have a meta-object.</p>
 <p>The meta-object information is required by the signal/slot connection mechanism and the property system. The <a href="qobject.html#inherits">inherits</a>() function also makes use of the meta-object.</p>
@@ -961,7 +961,7 @@
 <p><b> 参见 </b><a href="qobject.html#thread">thread</a>().</p>
 <!-- @@@moveToThread -->
 <!-- $$$objectNameChanged -->
-<h3 class="fn" id="objectNameChanged"><a name="objectNameChanged"></a><code>[signal] </code><span class="type">void</span> QObject::<span class="name">objectNameChanged</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>objectName</i>)</h3>
+<h3 class="fn" id="objectNameChanged"><a name="objectNameChanged"></a><code>[信号] </code><span class="type">void</span> QObject::<span class="name">objectNameChanged</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>objectName</i>)</h3>
 <p>This signal is emitted after the object's name has been changed. The new object name is passed as <i>objectName</i>.</p>
 <p><b>Note: </b>This is a private signal. It can be used in signal connections but cannot be emitted by the user.</p>
 <p><b>Note:</b> Notifier signal for property <a href="qobject.html#objectName-prop">objectName</a>. </p><p><b> 参见 </b><a href="qobject.html#objectName-prop">QObject::objectName</a>.</p>
@@ -979,7 +979,7 @@
 <p><b> 参见 </b><a href="qobject.html#setProperty">setProperty</a>(), <a href="qvariant.html#isValid">QVariant::isValid</a>(), <a href="qobject.html#metaObject">metaObject</a>(), 和 <a href="qobject.html#dynamicPropertyNames">dynamicPropertyNames</a>().</p>
 <!-- @@@property -->
 <!-- $$$receivers[overload1]$$$receiversconstchar* -->
-<h3 class="fn" id="receivers"><a name="receivers"></a><code>[protected] </code><span class="type">int</span> QObject::<span class="name">receivers</span>(const <span class="type">char</span> *<i>signal</i>) const</h3>
+<h3 class="fn" id="receivers"><a name="receivers"></a><code>[保护函数] </code><span class="type">int</span> QObject::<span class="name">receivers</span>(const <span class="type">char</span> *<i>signal</i>) const</h3>
 <p>Returns the number of receivers connected to the <i>signal</i>.</p>
 <p>Since both slots and signals can be used as receivers for signals, and the same connections can be made many times, the number of receivers is the same as the number of connections made from this signal.</p>
 <p>When calling this function, you can use the <code>SIGNAL()</code> macro to pass a specific signal:</p>
@@ -1003,7 +1003,7 @@
 <p><b> 参见 </b><a href="qobject.html#installEventFilter">installEventFilter</a>(), <a href="qobject.html#eventFilter">eventFilter</a>(), 和 <a href="qobject.html#event">event</a>().</p>
 <!-- @@@removeEventFilter -->
 <!-- $$$sender[overload1]$$$sender -->
-<h3 class="fn" id="sender"><a name="sender"></a><code>[protected] </code><span class="type"><a href="qobject.html#QObject">QObject</a></span> *QObject::<span class="name">sender</span>() const</h3>
+<h3 class="fn" id="sender"><a name="sender"></a><code>[保护函数] </code><span class="type"><a href="qobject.html#QObject">QObject</a></span> *QObject::<span class="name">sender</span>() const</h3>
 <p>Returns a pointer to the object that sent the signal, if called in a slot activated by a signal; otherwise it returns 0. The pointer is valid only during the execution of the slot that calls this function from this object's thread context.</p>
 <p>The pointer returned by this function becomes invalid if the sender is destroyed, or if the slot is disconnected from the sender's signal.</p>
 <p><b>Warning:</b> This function violates the object-oriented principle of modularity. However, getting access to the sender might be useful when many signals are connected to a single slot.</p>
@@ -1011,7 +1011,7 @@
 <p><b> 参见 </b><a href="qobject.html#senderSignalIndex">senderSignalIndex</a>().</p>
 <!-- @@@sender -->
 <!-- $$$senderSignalIndex[overload1]$$$senderSignalIndex -->
-<h3 class="fn" id="senderSignalIndex"><a name="senderSignalIndex"></a><code>[protected] </code><span class="type">int</span> QObject::<span class="name">senderSignalIndex</span>() const</h3>
+<h3 class="fn" id="senderSignalIndex"><a name="senderSignalIndex"></a><code>[保护函数] </code><span class="type">int</span> QObject::<span class="name">senderSignalIndex</span>() const</h3>
 <p>Returns the meta-method index of the signal that called the currently executing slot, which is a member of the class returned by <a href="qobject.html#sender">sender</a>(). If called outside of a slot activated by a signal, -1 is returned.</p>
 <p>For signals with default parameters, this function will always return the index with all parameters, regardless of which was used with <a href="qobject.html#connect">connect</a>(). For example, the signal <code>destroyed(QObject *obj = 0)</code> will have two different indexes (with and without the parameter), but this function will always return the index with a parameter. This does not apply when overloading signals with different parameters.</p>
 <p><b>Warning:</b> This function violates the object-oriented principle of modularity. However, getting access to the signal index might be useful when many signals are connected to a single slot.</p>
@@ -1145,13 +1145,13 @@
 <p><b> 参见 </b><a href="qobject.html#moveToThread">moveToThread</a>().</p>
 <!-- @@@thread -->
 <!-- $$$timerEvent[overload1]$$$timerEventQTimerEvent* -->
-<h3 class="fn" id="timerEvent"><a name="timerEvent"></a><code>[virtual protected] </code><span class="type">void</span> QObject::<span class="name">timerEvent</span>(<span class="type"><a href="qtimerevent.html">QTimerEvent</a></span> *<i>event</i>)</h3>
+<h3 class="fn" id="timerEvent"><a name="timerEvent"></a><code>[虚保护函数] </code><span class="type">void</span> QObject::<span class="name">timerEvent</span>(<span class="type"><a href="qtimerevent.html">QTimerEvent</a></span> *<i>event</i>)</h3>
 <p>This event handler can be reimplemented in a subclass to receive timer events for the object.</p>
 <p><a href="qtimer.html">QTimer</a> provides a higher-level interface to the timer functionality, and also more general information about timers. The timer event is passed in the <i>event</i> parameter.</p>
 <p><b> 参见 </b><a href="qobject.html#startTimer">startTimer</a>(), <a href="qobject.html#killTimer">killTimer</a>(), 和 <a href="qobject.html#event">event</a>().</p>
 <!-- @@@timerEvent -->
 <!-- $$$tr[overload1]$$$trconstchar*constchar*int -->
-<h3 class="fn" id="tr"><a name="tr"></a><code>[static] </code><span class="type"><a href="qstring.html">QString</a></span> QObject::<span class="name">tr</span>(const <span class="type">char</span> *<i>sourceText</i>, const <span class="type">char</span> *<i>disambiguation</i> = Q_OBJECT, <span class="type">int</span> <i>n</i> = Q_OBJECT)</h3>
+<h3 class="fn" id="tr"><a name="tr"></a><code>[静态函数] </code><span class="type"><a href="qstring.html">QString</a></span> QObject::<span class="name">tr</span>(const <span class="type">char</span> *<i>sourceText</i>, const <span class="type">char</span> *<i>disambiguation</i> = Q_OBJECT, <span class="type">int</span> <i>n</i> = Q_OBJECT)</h3>
 <p>Returns a translated version of <i>sourceText</i>, optionally based on a <i>disambiguation</i> string and value of <i>n</i> for strings containing plurals; otherwise returns <a href="qstring.html#fromUtf8">QString::fromUtf8</a>(<i>sourceText</i>) if no appropriate translated string is available.</p>
 <p>样例：</p>
 <pre class="cpp">

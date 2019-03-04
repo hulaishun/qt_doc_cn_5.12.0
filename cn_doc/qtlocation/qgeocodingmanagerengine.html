@@ -121,23 +121,23 @@
 <p>Constructs a new engine with the specified <i>parent</i>, using <i>parameters</i> to pass any implementation specific data to the engine.</p>
 <!-- @@@QGeoCodingManagerEngine -->
 <!-- $$$~QGeoCodingManagerEngine[overload1]$$$~QGeoCodingManagerEngine -->
-<h3 class="fn" id="dtor.QGeoCodingManagerEngine"><a name="dtor.QGeoCodingManagerEngine"></a><code>[virtual] </code>QGeoCodingManagerEngine::<span class="name">~QGeoCodingManagerEngine</span>()</h3>
+<h3 class="fn" id="dtor.QGeoCodingManagerEngine"><a name="dtor.QGeoCodingManagerEngine"></a><code>[虚函数] </code>QGeoCodingManagerEngine::<span class="name">~QGeoCodingManagerEngine</span>()</h3>
 <p>Destroys this engine.</p>
 <!-- @@@~QGeoCodingManagerEngine -->
 <!-- $$$error[overload1]$$$errorQGeoCodeReply*QGeoCodeReply::ErrorQString -->
-<h3 class="fn" id="error"><a name="error"></a><code>[signal] </code><span class="type">void</span> QGeoCodingManagerEngine::<span class="name">error</span>(<span class="type"><a href="qgeocodereply.html">QGeoCodeReply</a></span> *<i>reply</i>, <span class="type"><a href="qgeocodereply.html#Error-enum">QGeoCodeReply::Error</a></span> <i>error</i>, <span class="type"><a href="../qtcore/qstring.html">QString</a></span> <i>errorString</i> = QString())</h3>
+<h3 class="fn" id="error"><a name="error"></a><code>[信号] </code><span class="type">void</span> QGeoCodingManagerEngine::<span class="name">error</span>(<span class="type"><a href="qgeocodereply.html">QGeoCodeReply</a></span> *<i>reply</i>, <span class="type"><a href="qgeocodereply.html#Error-enum">QGeoCodeReply::Error</a></span> <i>error</i>, <span class="type"><a href="../qtcore/qstring.html">QString</a></span> <i>errorString</i> = QString())</h3>
 <p>This signal is emitted when an error has been detected in the processing of <i>reply</i>. The <a href="qgeocodingmanagerengine.html#finished">QGeoCodingManagerEngine::finished</a>() signal will probably follow.</p>
 <p>The error will be described by the error code <i>error</i>. If <i>errorString</i> is not empty it will contain a textual description of the error.</p>
 <p>This signal and <a href="qgeocodereply.html#error">QGeoCodeReply::error</a>() will be emitted at the same time.</p>
 <p><b>Note: </b>Do not delete the <i>reply</i> object in the slot connected to this signal. Use <a href="../qtcore/qobject.html#deleteLater">deleteLater</a>() instead.</p><!-- @@@error -->
 <!-- $$$finished[overload1]$$$finishedQGeoCodeReply* -->
-<h3 class="fn" id="finished"><a name="finished"></a><code>[signal] </code><span class="type">void</span> QGeoCodingManagerEngine::<span class="name">finished</span>(<span class="type"><a href="qgeocodereply.html">QGeoCodeReply</a></span> *<i>reply</i>)</h3>
+<h3 class="fn" id="finished"><a name="finished"></a><code>[信号] </code><span class="type">void</span> QGeoCodingManagerEngine::<span class="name">finished</span>(<span class="type"><a href="qgeocodereply.html">QGeoCodeReply</a></span> *<i>reply</i>)</h3>
 <p>This signal is emitted when <i>reply</i> has finished processing.</p>
 <p>If reply::error() equals <a href="qgeocodereply.html#Error-enum">QGeoCodeReply::NoError</a> then the processing finished successfully.</p>
 <p>This signal and <a href="qgeocodereply.html#finished">QGeoCodeReply::finished</a>() will be emitted at the same time.</p>
 <p><b>Note: </b>Do not delete the <i>reply</i> object in the slot connected to this signal. Use <a href="../qtcore/qobject.html#deleteLater">deleteLater</a>() instead.</p><!-- @@@finished -->
 <!-- $$$geocode[overload1]$$$geocodeconstQGeoAddress&constQGeoShape& -->
-<h3 class="fn" id="geocode"><a name="geocode"></a><code>[virtual] </code><span class="type"><a href="qgeocodereply.html">QGeoCodeReply</a></span> *QGeoCodingManagerEngine::<span class="name">geocode</span>(const <span class="type"><a href="../qtpositioning/qgeoaddress.html">QGeoAddress</a></span> &amp;<i>address</i>, const <span class="type"><a href="../qtpositioning/qgeoshape.html">QGeoShape</a></span> &amp;<i>bounds</i>)</h3>
+<h3 class="fn" id="geocode"><a name="geocode"></a><code>[虚函数] </code><span class="type"><a href="qgeocodereply.html">QGeoCodeReply</a></span> *QGeoCodingManagerEngine::<span class="name">geocode</span>(const <span class="type"><a href="../qtpositioning/qgeoaddress.html">QGeoAddress</a></span> &amp;<i>address</i>, const <span class="type"><a href="../qtpositioning/qgeoshape.html">QGeoShape</a></span> &amp;<i>bounds</i>)</h3>
 <p>Begins the geocoding of <i>address</i>. Geocoding is the process of finding a coordinate that corresponds to a given address.</p>
 <p>A <a href="qgeocodereply.html">QGeoCodeReply</a> object will be returned, which can be used to manage the geocoding operation and to return the results of the operation.</p>
 <p>This engine and the returned <a href="qgeocodereply.html">QGeoCodeReply</a> object will emit signals indicating if the operation completes or if errors occur.</p>
@@ -148,7 +148,7 @@
 <p>The user is responsible for deleting the returned reply object, although this can be done in the slot connected to <a href="qgeocodingmanagerengine.html#finished">QGeoCodingManagerEngine::finished</a>(), <a href="qgeocodingmanagerengine.html#error">QGeoCodingManagerEngine::error</a>(), <a href="qgeocodereply.html#finished">QGeoCodeReply::finished</a>() or <a href="qgeocodereply.html#error">QGeoCodeReply::error</a>() with <a href="../qtcore/qobject.html#deleteLater">deleteLater</a>().</p>
 <!-- @@@geocode -->
 <!-- $$$geocode$$$geocodeconstQString&intintconstQGeoShape& -->
-<h3 class="fn" id="geocode-1"><a name="geocode-1"></a><code>[virtual] </code><span class="type"><a href="qgeocodereply.html">QGeoCodeReply</a></span> *QGeoCodingManagerEngine::<span class="name">geocode</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>address</i>, <span class="type">int</span> <i>limit</i>, <span class="type">int</span> <i>offset</i>, const <span class="type"><a href="../qtpositioning/qgeoshape.html">QGeoShape</a></span> &amp;<i>bounds</i>)</h3>
+<h3 class="fn" id="geocode-1"><a name="geocode-1"></a><code>[虚函数] </code><span class="type"><a href="qgeocodereply.html">QGeoCodeReply</a></span> *QGeoCodingManagerEngine::<span class="name">geocode</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>address</i>, <span class="type">int</span> <i>limit</i>, <span class="type">int</span> <i>offset</i>, const <span class="type"><a href="../qtpositioning/qgeoshape.html">QGeoShape</a></span> &amp;<i>bounds</i>)</h3>
 <p>Begins geocoding for a location matching <i>address</i>.</p>
 <p>A <a href="qgeocodereply.html">QGeoCodeReply</a> object will be returned, which can be used to manage the geocoding operation and to return the results of the operation.</p>
 <p>This engine and the returned <a href="qgeocodereply.html">QGeoCodeReply</a> object will emit signals indicating if the operation completes or if errors occur.</p>
@@ -175,7 +175,7 @@
 <p>The combination of <a href="qgeocodingmanagerengine.html#managerName">managerName</a>() and managerVersion() should be unique amongst plugin implementations.</p>
 <!-- @@@managerVersion -->
 <!-- $$$reverseGeocode[overload1]$$$reverseGeocodeconstQGeoCoordinate&constQGeoShape& -->
-<h3 class="fn" id="reverseGeocode"><a name="reverseGeocode"></a><code>[virtual] </code><span class="type"><a href="qgeocodereply.html">QGeoCodeReply</a></span> *QGeoCodingManagerEngine::<span class="name">reverseGeocode</span>(const <span class="type"><a href="../qtpositioning/qgeocoordinate.html">QGeoCoordinate</a></span> &amp;<i>coordinate</i>, const <span class="type"><a href="../qtpositioning/qgeoshape.html">QGeoShape</a></span> &amp;<i>bounds</i>)</h3>
+<h3 class="fn" id="reverseGeocode"><a name="reverseGeocode"></a><code>[虚函数] </code><span class="type"><a href="qgeocodereply.html">QGeoCodeReply</a></span> *QGeoCodingManagerEngine::<span class="name">reverseGeocode</span>(const <span class="type"><a href="../qtpositioning/qgeocoordinate.html">QGeoCoordinate</a></span> &amp;<i>coordinate</i>, const <span class="type"><a href="../qtpositioning/qgeoshape.html">QGeoShape</a></span> &amp;<i>bounds</i>)</h3>
 <p>Begins the reverse geocoding of <i>coordinate</i>. Reverse geocoding is the process of finding an address that corresponds to a given coordinate.</p>
 <p>A <a href="qgeocodereply.html">QGeoCodeReply</a> object will be returned, which can be used to manage the reverse geocoding operation and to return the results of the operation.</p>
 <p>This engine and the returned <a href="qgeocodereply.html">QGeoCodeReply</a> object will emit signals indicating if the operation completes or if errors occur.</p>

@@ -277,7 +277,7 @@
 <p><b>Note: </b>The object must be initialized before logging can happen.</p><p><b> 参见 </b><a href="qopengldebuglogger.html#initialize">initialize</a>().</p>
 <!-- @@@QOpenGLDebugLogger -->
 <!-- $$$~QOpenGLDebugLogger[overload1]$$$~QOpenGLDebugLogger -->
-<h3 class="fn" id="dtor.QOpenGLDebugLogger"><a name="dtor.QOpenGLDebugLogger"></a><code>[virtual] </code>QOpenGLDebugLogger::<span class="name">~QOpenGLDebugLogger</span>()</h3>
+<h3 class="fn" id="dtor.QOpenGLDebugLogger"><a name="dtor.QOpenGLDebugLogger"></a><code>[虚函数] </code>QOpenGLDebugLogger::<span class="name">~QOpenGLDebugLogger</span>()</h3>
 <p>Destroys the logger object.</p>
 <!-- @@@~QOpenGLDebugLogger -->
 <!-- $$$disableMessages[overload1]$$$disableMessagesQOpenGLDebugMessage::SourcesQOpenGLDebugMessage::TypesQOpenGLDebugMessage::Severities -->
@@ -338,7 +338,7 @@
 <p>If a message text is too long, it will be automatically truncated by <a href="qopengldebuglogger.html">QOpenGLDebugLogger</a>.</p>
 <p><b>Note: </b>Message texts are encoded in UTF-8 when they get passed to OpenGL, so their size in bytes does not usually match the amount of UTF-16 code units, as returned f.i&#x2e; by <a href="../qtcore/qstring.html#length">QString::length</a>(). (It does if the message contains 7-bit ASCII only data, which is typical for debug messages.)</p><!-- @@@maximumMessageLength -->
 <!-- $$$messageLogged[overload1]$$$messageLoggedconstQOpenGLDebugMessage& -->
-<h3 class="fn" id="messageLogged"><a name="messageLogged"></a><code>[signal] </code><span class="type">void</span> QOpenGLDebugLogger::<span class="name">messageLogged</span>(const <span class="type"><a href="qopengldebugmessage.html">QOpenGLDebugMessage</a></span> &amp;<i>debugMessage</i>)</h3>
+<h3 class="fn" id="messageLogged"><a name="messageLogged"></a><code>[信号] </code><span class="type">void</span> QOpenGLDebugLogger::<span class="name">messageLogged</span>(const <span class="type"><a href="qopengldebugmessage.html">QOpenGLDebugMessage</a></span> &amp;<i>debugMessage</i>)</h3>
 <p>This signal is emitted when a debug message (wrapped by the <i>debugMessage</i> argument) is logged from the OpenGL server.</p>
 <p>Depending on the OpenGL implementation, this signal can be emitted from other threads than the one(s) the receiver(s) lives in, and even different from the thread the <a href="qopenglcontext.html">QOpenGLContext</a> in which this object has been initialized lives in. Moreover, the signal could be emitted from multiple threads at the same time. This is normally not a problem, as Qt will utilize a queued connection for cross-thread signal emissions, but if you force the connection type to Direct then you must be aware of the potential races in the slots connected to this signal.</p>
 <p>If logging have been started in <a href="qopengldebuglogger.html#LoggingMode-enum">SynchronousLogging</a> mode, OpenGL guarantees that this signal will be emitted from the same thread the <a href="qopenglcontext.html">QOpenGLContext</a> has been bound to, and no concurrent invocations will ever happen.</p>

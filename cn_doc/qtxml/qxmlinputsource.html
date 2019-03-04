@@ -112,16 +112,16 @@
 <p><b> 参见 </b><a href="qxmlinputsource.html#setData">setData</a>(), <a href="qxmlinputsource.html#fetchData">fetchData</a>(), 和 <a href="../qtcore/qiodevice.html">QIODevice</a>.</p>
 <!-- @@@QXmlInputSource -->
 <!-- $$$~QXmlInputSource[overload1]$$$~QXmlInputSource -->
-<h3 class="fn" id="dtor.QXmlInputSource"><a name="dtor.QXmlInputSource"></a><code>[virtual] </code>QXmlInputSource::<span class="name">~QXmlInputSource</span>()</h3>
+<h3 class="fn" id="dtor.QXmlInputSource"><a name="dtor.QXmlInputSource"></a><code>[虚函数] </code>QXmlInputSource::<span class="name">~QXmlInputSource</span>()</h3>
 <p>析构函数。</p>
 <!-- @@@~QXmlInputSource -->
 <!-- $$$data[overload1]$$$data -->
-<h3 class="fn" id="data"><a name="data"></a><code>[virtual] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QXmlInputSource::<span class="name">data</span>() const</h3>
+<h3 class="fn" id="data"><a name="data"></a><code>[虚函数] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QXmlInputSource::<span class="name">data</span>() const</h3>
 <p>Returns the data the input source contains or an empty string if the input source does not contain any data.</p>
 <p><b> 参见 </b><a href="qxmlinputsource.html#setData">setData</a>(), <a href="qxmlinputsource.html#QXmlInputSource">QXmlInputSource</a>(), 和 <a href="qxmlinputsource.html#fetchData">fetchData</a>().</p>
 <!-- @@@data -->
 <!-- $$$fetchData[overload1]$$$fetchData -->
-<h3 class="fn" id="fetchData"><a name="fetchData"></a><code>[virtual] </code><span class="type">void</span> QXmlInputSource::<span class="name">fetchData</span>()</h3>
+<h3 class="fn" id="fetchData"><a name="fetchData"></a><code>[虚函数] </code><span class="type">void</span> QXmlInputSource::<span class="name">fetchData</span>()</h3>
 <p>This function reads more data from the device that was set during construction. If the input source already contained data, this function deletes that data first.</p>
 <p>This object contains no data after a call to this function if the object was constructed without a device to read data from or if this function was not able to get more data from the device.</p>
 <p>There are two occasions where a fetch is done implicitly by another function call: during construction (so that the object starts out with some initial data where available), and during a call to <a href="qxmlinputsource.html#next">next</a>() (if the data had run out).</p>
@@ -129,29 +129,29 @@
 <p><b> 参见 </b><a href="qxmlinputsource.html#data">data</a>(), <a href="qxmlinputsource.html#next">next</a>(), 和 <a href="qxmlinputsource.html#QXmlInputSource">QXmlInputSource</a>().</p>
 <!-- @@@fetchData -->
 <!-- $$$fromRawData[overload1]$$$fromRawDataconstQByteArray&bool -->
-<h3 class="fn" id="fromRawData"><a name="fromRawData"></a><code>[virtual protected] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QXmlInputSource::<span class="name">fromRawData</span>(const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>data</i>, <span class="type">bool</span> <i>beginning</i> = false)</h3>
+<h3 class="fn" id="fromRawData"><a name="fromRawData"></a><code>[虚保护函数] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QXmlInputSource::<span class="name">fromRawData</span>(const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>data</i>, <span class="type">bool</span> <i>beginning</i> = false)</h3>
 <p>This function reads the XML file from <i>data</i> and tries to recognize the encoding. It converts the raw data <i>data</i> into a <a href="../qtcore/qstring.html">QString</a> and returns it. It tries its best to get the correct encoding for the XML file.</p>
 <p>If <i>beginning</i> is true, this function assumes that the data starts at the beginning of a new XML document and looks for an encoding declaration. If <i>beginning</i> is false, it converts the raw data using the encoding determined from prior calls.</p>
 <!-- @@@fromRawData -->
 <!-- $$$next[overload1]$$$next -->
-<h3 class="fn" id="next"><a name="next"></a><code>[virtual] </code><span class="type"><a href="../qtcore/qchar.html">QChar</a></span> QXmlInputSource::<span class="name">next</span>()</h3>
+<h3 class="fn" id="next"><a name="next"></a><code>[虚函数] </code><span class="type"><a href="../qtcore/qchar.html">QChar</a></span> QXmlInputSource::<span class="name">next</span>()</h3>
 <p>Returns the next character of the input source. If this function reaches the end of available data, it returns <a href="qxmlinputsource.html#EndOfData-var">QXmlInputSource::EndOfData</a>. If you call next() after that, it tries to fetch more data by calling <a href="qxmlinputsource.html#fetchData">fetchData</a>(). If the <a href="qxmlinputsource.html#fetchData">fetchData</a>() call results in new data, this function returns the first character of that data; otherwise it returns <a href="qxmlinputsource.html#EndOfDocument-var">QXmlInputSource::EndOfDocument</a>.</p>
 <p>Readers, such as <a href="qxmlsimplereader.html">QXmlSimpleReader</a>, will assume that the end of the XML document has been reached if the this function returns <a href="qxmlinputsource.html#EndOfDocument-var">QXmlInputSource::EndOfDocument</a>, and will check that the supplied input is well-formed. Therefore, when reimplementing this function, it is important to ensure that this behavior is duplicated.</p>
 <p><b> 参见 </b><a href="qxmlinputsource.html#reset">reset</a>(), <a href="qxmlinputsource.html#fetchData">fetchData</a>(), <a href="qxmlsimplereader.html#parse">QXmlSimpleReader::parse</a>(), 和 <a href="qxmlsimplereader.html#parseContinue">QXmlSimpleReader::parseContinue</a>().</p>
 <!-- @@@next -->
 <!-- $$$reset[overload1]$$$reset -->
-<h3 class="fn" id="reset"><a name="reset"></a><code>[virtual] </code><span class="type">void</span> QXmlInputSource::<span class="name">reset</span>()</h3>
+<h3 class="fn" id="reset"><a name="reset"></a><code>[虚函数] </code><span class="type">void</span> QXmlInputSource::<span class="name">reset</span>()</h3>
 <p>This function sets the position used by <a href="qxmlinputsource.html#next">next</a>() to the beginning of the data returned by <a href="qxmlinputsource.html#data">data</a>(). This is useful if you want to use the input source for more than one parse.</p>
 <p><b>Note: </b>In the case that the underlying data source is a <a href="../qtcore/qiodevice.html">QIODevice</a>, the current position in the device is not automatically set to the start of input. Call <a href="../qtcore/qiodevice.html#seek">QIODevice::seek</a>(0) on the device to do this.</p><p><b> 参见 </b><a href="qxmlinputsource.html#next">next</a>().</p>
 <!-- @@@reset -->
 <!-- $$$setData[overload1]$$$setDataconstQString& -->
-<h3 class="fn" id="setData"><a name="setData"></a><code>[virtual] </code><span class="type">void</span> QXmlInputSource::<span class="name">setData</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>dat</i>)</h3>
+<h3 class="fn" id="setData"><a name="setData"></a><code>[虚函数] </code><span class="type">void</span> QXmlInputSource::<span class="name">setData</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>dat</i>)</h3>
 <p>Sets the data of the input source to <i>dat</i>.</p>
 <p>If the input source already contains data, this function deletes that data first.</p>
 <p><b> 参见 </b><a href="qxmlinputsource.html#data">data</a>().</p>
 <!-- @@@setData -->
 <!-- $$$setData$$$setDataconstQByteArray& -->
-<h3 class="fn" id="setData-1"><a name="setData-1"></a><code>[virtual] </code><span class="type">void</span> QXmlInputSource::<span class="name">setData</span>(const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>dat</i>)</h3>
+<h3 class="fn" id="setData-1"><a name="setData-1"></a><code>[虚函数] </code><span class="type">void</span> QXmlInputSource::<span class="name">setData</span>(const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>dat</i>)</h3>
 <p>这是一个重载函数。</p>
 <p>The data <i>dat</i> is passed through the correct text-codec, before it is set.</p>
 <!-- @@@setData -->
