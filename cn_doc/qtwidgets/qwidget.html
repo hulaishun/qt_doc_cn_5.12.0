@@ -50,16 +50,16 @@
 <li class="level1"><a href="#protected-slots">保护的槽函数</a></li>
 <li class="level1"><a href="#macros">宏定义</a></li>
 <li class="level1"><a href="#details">详细描述</a></li>
-<li class="level2"><a href="#top-level-and-child-widgets">Top-Level and Child Widgets</a></li>
-<li class="level2"><a href="#composite-widgets">Composite Widgets</a></li>
-<li class="level2"><a href="#custom-widgets-and-painting">Custom Widgets and Painting</a></li>
-<li class="level2"><a href="#size-hints-and-size-policies">Size Hints and Size Policies</a></li>
-<li class="level2"><a href="#events">Events</a></li>
-<li class="level2"><a href="#groups-of-functions-and-properties">Groups of Functions and Properties</a></li>
-<li class="level2"><a href="#widget-style-sheets">Widget Style Sheets</a></li>
-<li class="level2"><a href="#transparency-and-double-buffering">Transparency and Double Buffering</a></li>
-<li class="level2"><a href="#creating-translucent-windows">Creating Translucent Windows</a></li>
-<li class="level2"><a href="#native-widgets-vs-alien-widgets">Native Widgets vs Alien Widgets</a></li>
+<li class="level2"><a href="#top-level-and-child-widgets">顶层和子部件</a></li>
+<li class="level2"><a href="#composite-widgets">复合部件</a></li>
+<li class="level2"><a href="#custom-widgets-and-painting">自定义部件和绘画</a></li>
+<li class="level2"><a href="#size-hints-and-size-policies">默认大小和策略</a></li>
+<li class="level2"><a href="#events">事件</a></li>
+<li class="level2"><a href="#groups-of-functions-and-properties">函数和属性分组</a></li>
+<li class="level2"><a href="#widget-style-sheets">部件样式表</a></li>
+<li class="level2"><a href="#transparency-and-double-buffering">透明度和双缓冲</a></li>
+<li class="level2"><a href="#creating-translucent-windows">创建半透明窗口</a></li>
+<li class="level2"><a href="#native-widgets-vs-alien-widgets">原生部件与异性部件</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
@@ -503,27 +503,27 @@
 </ol>
 <p><a href="qwidget.html">QWidget</a> has many member functions, but some of them have little direct functionality; for example, <a href="qwidget.html">QWidget</a> has a font property, but never uses this itself. There are many subclasses which provide real functionality, such as <a href="qlabel.html">QLabel</a>, <a href="qpushbutton.html">QPushButton</a>, <a href="qlistwidget.html">QListWidget</a>, 和 <a href="qtabwidget.html">QTabWidget</a>.</p>
 <a name="top-level-and-child-widgets"></a>
-<h3 >Top-Level and Child Widgets</h3>
+<h3 >顶层和子部件</h3>
 <p>A widget without a parent widget is always an independent window (top-level widget). For these widgets, <a href="qwidget.html#windowTitle-prop">setWindowTitle</a>() 和 <a href="qwidget.html#windowIcon-prop">setWindowIcon</a>() set the title bar and icon respectively.</p>
 <p>Non-window widgets are child widgets, displayed within their parent widgets. Most widgets in Qt are mainly useful as child widgets. For example, it is possible to display a button as a top-level window, but most people prefer to put their buttons inside other widgets, such as <a href="qdialog.html">QDialog</a>.</p>
 <p class="centerAlign"><img src="images/parent-child-widgets.png" alt="A parent widget containing various child widgets." /></p><p>The diagram above shows a <a href="qgroupbox.html">QGroupBox</a> widget being used to hold various child widgets in a layout provided by <a href="qgridlayout.html">QGridLayout</a>. The <a href="qlabel.html">QLabel</a> child widgets have been outlined to indicate their full sizes.</p>
 <p>If you want to use a <a href="qwidget.html">QWidget</a> to hold child widgets you will usually want to add a layout to the parent <a href="qwidget.html">QWidget</a>. See <a href="layout.html">Layout Management</a> for more information.</p>
 <a name="composite-widgets"></a>
-<h3 >Composite Widgets</h3>
+<h3 >复合部件</h3>
 <p>When a widget is used as a container to group a number of child widgets, it is known as a composite widget. These can be created by constructing a widget with the required visual properties - a <a href="qframe.html">QFrame</a>, for example - and adding child widgets to it, usually managed by a layout. The above diagram shows such a composite widget that was created using Qt Designer.</p>
 <p>Composite widgets can also be created by subclassing a standard widget, such as <a href="qwidget.html">QWidget</a> or <a href="qframe.html">QFrame</a>, and adding the necessary layout and child widgets in the constructor of the subclass. Many of the <a href="examples-widgets.html">examples provided with Qt</a> use this approach, and it is also covered in the Qt <a href="qtwidgets-index.html#tutorials">手册</a>.</p>
 <a name="custom-widgets-and-painting"></a>
-<h3 >Custom Widgets and Painting</h3>
+<h3 >自定义部件和绘画</h3>
 <p>Since <a href="qwidget.html">QWidget</a> is a subclass of <a href="../qtgui/qpaintdevice.html">QPaintDevice</a>, subclasses can be used to display custom content that is composed using a series of painting operations with an instance of the <a href="../qtgui/qpainter.html">QPainter</a> class. This approach contrasts with the canvas-style approach used by the <a href="graphicsview.html">Graphics View Framework</a> where items are added to a scene by the application and are rendered by the framework itself.</p>
 <p>Each widget performs all painting operations from within its <a href="qwidget.html#paintEvent">paintEvent</a>() function. This is called whenever the widget needs to be redrawn, either as a result of some external change or when requested by the application.</p>
 <p>The <a href="qtwidgets-widgets-analogclock-example.html">Analog Clock example</a> shows how a simple widget can handle paint events.</p>
 <a name="size-hints-and-size-policies"></a>
-<h3 >Size Hints and Size Policies</h3>
+<h3 >默认大小和策略</h3>
 <p>When implementing a new widget, it is almost always useful to reimplement <a href="qwidget.html#sizeHint-prop">sizeHint</a>() to provide a reasonable default size for the widget and to set the correct size policy with <a href="qwidget.html#sizePolicy-prop">setSizePolicy</a>().</p>
 <p>By default, composite widgets which do not provide a size hint will be sized according to the space requirements of their child widgets.</p>
 <p>The size policy lets you supply good default behavior for the layout management system, so that other widgets can contain and manage yours easily. The default size policy indicates that the size hint represents the preferred size of the widget, and this is often good enough for many widgets.</p>
 <p><b>Note: </b>The size of top-level widgets are constrained to 2/3 of the desktop's height and width. You can <a href="qwidget.html#size-prop">resize</a>() the widget manually if these bounds are inadequate.</p><a name="events"></a>
-<h3 >Events</h3>
+<h3 >事件</h3>
 <p>Widgets respond to events that are typically caused by user actions. Qt delivers events to widgets by calling specific event handler functions with instances of <a href="../qtcore/qevent.html">QEvent</a> subclasses containing information about each event.</p>
 <p>If your widget only contains child widgets, you probably do not need to implement any event handlers. If you want to detect a mouse click in a child widget call the child's <a href="qwidget.html#underMouse">underMouse</a>() function inside the widget's <a href="qwidget.html#mousePressEvent">mousePressEvent</a>().</p>
 <p>The <a href="qtwidgets-widgets-scribble-example.html">Scribble example</a> implements a wider set of events to handle mouse movement, button presses, and window resizing.</p>
@@ -555,9 +555,9 @@
 <p>The default implementation of <a href="qwidget.html#event">event</a>() handles <b>Tab</b> and <b>Shift+Tab</b> (to move the keyboard focus), and passes on most of the other events to one of the more specialized handlers above.</p>
 <p>Events and the mechanism used to deliver them are covered in <a href="../qtcore/eventsandfilters.html">事件系统</a>.</p>
 <a name="groups-of-functions-and-properties"></a>
-<h3 >Groups of Functions and Properties</h3>
+<h3 >函数和属性分组</h3>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Context</th><th >Functions and Properties</th></tr></thead>
+ <thead><tr class="qt-style"><th >上下文</th><th >函数和属性</th></tr></thead>
 <tr valign="top" class="odd"><td >Window functions</td><td ><a href="qwidget.html#show">show</a>(), <a href="qwidget.html#hide">hide</a>(), <a href="qwidget.html#raise">raise</a>(), <a href="qwidget.html#lower">lower</a>(), <a href="qwidget.html#close">close</a>().</td></tr>
 <tr valign="top" class="even"><td >Top-level windows</td><td ><a href="qwidget.html#windowModified-prop">windowModified</a>, <a href="qwidget.html#windowTitle-prop">windowTitle</a>, <a href="qwidget.html#windowIcon-prop">windowIcon</a>, <a href="qwidget.html#isActiveWindow-prop">isActiveWindow</a>, <a href="qwidget.html#activateWindow">activateWindow</a>(), <a href="qwidget.html#minimized-prop">minimized</a>, <a href="qwidget.html#showMinimized">showMinimized</a>(), <a href="qwidget.html#maximized-prop">maximized</a>, <a href="qwidget.html#showMaximized">showMaximized</a>(), <a href="qwidget.html#fullScreen-prop">fullScreen</a>, <a href="qwidget.html#showFullScreen">showFullScreen</a>(), <a href="qwidget.html#showNormal">showNormal</a>().</td></tr>
 <tr valign="top" class="odd"><td >Window contents</td><td ><a href="qwidget.html#update">update</a>(), <a href="qwidget.html#repaint">repaint</a>(), <a href="qwidget.html#scroll">scroll</a>().</td></tr>
@@ -572,11 +572,11 @@
 <tr valign="top" class="even"><td >Interactive help</td><td ><a href="qwidget.html#toolTip-prop">setToolTip</a>(), <a href="qwidget.html#whatsThis-prop">setWhatsThis</a>()</td></tr>
 </table></div>
 <a name="widget-style-sheets"></a>
-<h3 >Widget Style Sheets</h3>
+<h3 >部件样式表</h3>
 <p>In addition to the standard widget styles for each platform, widgets can also be styled according to rules specified in a <a href="stylesheet.html">style sheet</a>. This feature enables you to customize the appearance of specific widgets to provide visual cues to users about their purpose. For example, a button could be styled in a particular way to indicate that it performs a destructive action.</p>
 <p>The use of widget style sheets is described in more detail in the <a href="stylesheet.html">Qt样式表</a> document.</p>
 <a name="transparency-and-double-buffering"></a>
-<h3 >Transparency and Double Buffering</h3>
+<h3 >透明度和双缓冲</h3>
 <p>Since Qt 4.0, <a href="qwidget.html">QWidget</a> automatically double-buffers its painting, so there is no need to write double-buffering code in <a href="qwidget.html#paintEvent">paintEvent</a>() to avoid flicker.</p>
 <p>Since Qt 4.1, the <a href="../qtcore/qt.html#WidgetAttribute-enum">Qt::WA_ContentsPropagated</a> widget attribute has been deprecated. Instead, the contents of parent widgets are propagated by default to each of their children as long as <a href="../qtcore/qt.html#WidgetAttribute-enum">Qt::WA_PaintOnScreen</a> is not set. Custom widgets can be written to take advantage of this feature by updating irregular regions (to create non-rectangular child widgets), or painting with colors that have less than full alpha component. The following diagram shows how attributes and properties of a custom widget can be fine-tuned to achieve different effects.</p>
 <p class="centerAlign"><img src="images/propagation-custom.png" alt="" /></p><p>In the above diagram, a semi-transparent rectangular child widget with an area removed is constructed and added to a parent widget (a <a href="qlabel.html">QLabel</a> showing a pixmap). Then, different properties and widget attributes are set to achieve different effects:</p>
@@ -591,7 +591,7 @@
 <p>Since Qt 4.1, the contents of parent widgets are also propagated to standard Qt widgets. This can lead to some unexpected results if the parent widget is decorated in a non-standard way, as shown in the diagram below.</p>
 <p class="centerAlign"><img src="images/propagation-standard.png" alt="" /></p><p>The scope for customizing the painting behavior of standard Qt widgets, without resorting to subclassing, is slightly less than that possible for custom widgets. Usually, the desired appearance of a standard widget can be achieved by setting its <a href="qwidget.html#autoFillBackground-prop">autoFillBackground</a> property.</p>
 <a name="creating-translucent-windows"></a>
-<h3 >Creating Translucent Windows</h3>
+<h3 >创建半透明窗口</h3>
 <p>Since Qt 4.5, it has been possible to create windows with translucent regions on window systems that support compositing.</p>
 <p>To enable this feature in a top-level widget, set its <a href="../qtcore/qt.html#WidgetAttribute-enum">Qt::WA_TranslucentBackground</a> attribute with <a href="qwidget.html#setAttribute">setAttribute</a>() and ensure that its background is painted with non-opaque colors in the regions you want to be partially transparent.</p>
 <p>Platform notes:</p>
@@ -600,7 +600,7 @@
 <li>Windows: The widget needs to have the <a href="../qtcore/qt.html#WindowType-enum">Qt::FramelessWindowHint</a> window flag set for the translucency to work.</li>
 </ul>
 <a name="native-widgets-vs-alien-widgets"></a>
-<h3 >Native Widgets vs Alien Widgets</h3>
+<h3 >原生部件与异性部件</h3>
 <p>Introduced in Qt 4.4, alien widgets are widgets unknown to the windowing system. They do not have a native window handle associated with them. This feature significantly speeds up widget painting, resizing, and removes flicker.</p>
 <p>Should you require the old behavior with native windows, you can choose one of the following options:</p>
 <ol class="1" type="1"><li>Use the <code>QT_USE_NATIVE_WINDOWS=1</code> in your environment.</li>
@@ -634,7 +634,7 @@
 <p>Setting this property to true announces to the system that this widget <i>may</i> be able to accept drop events.</p>
 <p>If the widget is the desktop (<a href="qwidget.html#windowType">windowType</a>() == <a href="../qtcore/qt.html#WindowType-enum">Qt::Desktop</a>), this may fail if another application is using the desktop; you can call acceptDrops() to test if this occurs.</p>
 <p><b>Warning:</b> Do not modify this property in a drag and drop event handler.</p>
-<p>By default, this property is <code>false</code>.</p>
+<p>默认情况下，此属性值为 <code>false</code>.</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>acceptDrops</b></span>() const</td></tr>
@@ -661,7 +661,7 @@
 <p>This is the primary name by which assistive technology such as screen readers announce this widget. For most widgets setting this property is not required. For example for <a href="qpushbutton.html">QPushButton</a> the button's text will be used.</p>
 <p>It is important to set this property when the widget does not provide any text. For example a button that only contains an icon needs to set this property to work with screen readers. The name should be short and equivalent to the visual information conveyed by the widget.</p>
 <p>This property has to be <a href="../qtdoc/internationalization.html">localized</a>.</p>
-<p>By default, this property contains an empty string.</p>
+<p>默认情况下，此属性包含一个空字符串。</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><span class="name"><b>accessibleName</b></span>() const</td></tr>
@@ -676,14 +676,14 @@
 <p>In addition, Windows are always filled with <a href="../qtgui/qpalette.html#ColorRole-enum">QPalette::Window</a>, unless the WA_OpaquePaintEvent or WA_NoSystemBackground attributes are set.</p>
 <p>This property cannot be turned off (i.e&#x2e;, set to false) if a widget's parent has a static gradient for its background.</p>
 <p><b>Warning:</b> Use this property with caution in conjunction with <a href="stylesheet.html">Qt样式表</a>. When a widget has a style sheet with a valid background or a border-image, this property is automatically disabled.</p>
-<p>By default, this property is <code>false</code>.</p>
+<p>默认情况下，此属性值为 <code>false</code>.</p>
 <p>这个属性是在Qt 4.1版本中新增引入的。</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>autoFillBackground</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setAutoFillBackground</b></span>(bool <i>enabled</i>)</td></tr>
 </table></div>
-<p><b> 参见 </b><a href="../qtcore/qt.html#WidgetAttribute-enum">Qt::WA_OpaquePaintEvent</a>, <a href="../qtcore/qt.html#WidgetAttribute-enum">Qt::WA_NoSystemBackground</a>, 和 <a href="qwidget.html#transparency-and-double-buffering">Transparency and Double Buffering</a>.</p>
+<p><b> 参见 </b><a href="../qtcore/qt.html#WidgetAttribute-enum">Qt::WA_OpaquePaintEvent</a>, <a href="../qtcore/qt.html#WidgetAttribute-enum">Qt::WA_NoSystemBackground</a>, 和 <a href="qwidget.html#transparency-and-double-buffering">透明度和双缓冲</a>.</p>
 <!-- @@@autoFillBackground -->
 <!-- $$$baseSize-prop$$$baseSize$$$setBaseSizeconstQSize&$$$setBaseSizeintint -->
 <h3 class="fn" id="baseSize-prop"><a name="baseSize-prop"></a><span class="name">baseSize</span> : <span class="type"><a href="../qtcore/qsize.html">QSize</a></span></h3>
@@ -769,7 +769,7 @@
 <!-- $$$focus-prop$$$hasFocus -->
 <h3 class="fn" id="focus-prop"><a name="focus-prop"></a><span class="name">focus</span> : const <span class="type">bool</span></h3>
 <p>This property holds whether this widget (or its focus proxy) has the keyboard input focus</p>
-<p>By default, this property is <code>false</code>.</p>
+<p>默认情况下，此属性值为 <code>false</code>.</p>
 <p><b>Note: </b>Obtaining the value of this property for a widget is effectively equivalent to checking whether <a href="qapplication.html#focusWidget">QApplication::focusWidget</a>() refers to the widget.</p><p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>hasFocus</b></span>() const</td></tr>
@@ -829,7 +829,7 @@
 <h3 class="fn" id="fullScreen-prop"><a name="fullScreen-prop"></a><span class="name">fullScreen</span> : const <span class="type">bool</span></h3>
 <p>This property holds whether the widget is shown in full screen mode</p>
 <p>A widget in full screen mode occupies the whole screen area and does not display window decorations, such as a title bar.</p>
-<p>By default, this property is <code>false</code>.</p>
+<p>默认情况下，此属性值为 <code>false</code>.</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>isFullScreen</b></span>() const</td></tr>
@@ -882,7 +882,7 @@
 <p>This property holds whether this widget's window is the active window</p>
 <p>The active window is the window that contains the widget that has keyboard focus (The window may still have focus if it has no widgets or none of its widgets accepts keyboard focus).</p>
 <p>When popup windows are visible, this property is <code>true</code> for both the active window <i>and</i> for the popup.</p>
-<p>By default, this property is <code>false</code>.</p>
+<p>默认情况下，此属性值为 <code>false</code>.</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>isActiveWindow</b></span>() const</td></tr>
@@ -921,7 +921,7 @@
 <h3 class="fn" id="maximized-prop"><a name="maximized-prop"></a><span class="name">maximized</span> : const <span class="type">bool</span></h3>
 <p>This property holds whether this widget is maximized</p>
 <p>This property is only relevant for windows.</p>
-<p><b>Note: </b>Due to limitations on some window systems, this does not always report the expected results (e.g&#x2e;, if the user on X11 maximizes the window via the window manager, Qt has no way of distinguishing this from any other resize). This is expected to improve as window manager protocols evolve.</p><p>By default, this property is <code>false</code>.</p>
+<p><b>Note: </b>Due to limitations on some window systems, this does not always report the expected results (e.g&#x2e;, if the user on X11 maximizes the window via the window manager, Qt has no way of distinguishing this from any other resize). This is expected to improve as window manager protocols evolve.</p><p>默认情况下，此属性值为 <code>false</code>.</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>isMaximized</b></span>() const</td></tr>
@@ -969,7 +969,7 @@
 <h3 class="fn" id="minimized-prop"><a name="minimized-prop"></a><span class="name">minimized</span> : const <span class="type">bool</span></h3>
 <p>This property holds whether this widget is minimized (iconified)</p>
 <p>This property is only relevant for windows.</p>
-<p>By default, this property is <code>false</code>.</p>
+<p>默认情况下，此属性值为 <code>false</code>.</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>isMinimized</b></span>() const</td></tr>
@@ -980,7 +980,7 @@
 <h3 class="fn" id="minimumHeight-prop"><a name="minimumHeight-prop"></a><span class="name">minimumHeight</span> : <span class="type">int</span></h3>
 <p>This property holds the widget's minimum height in pixels</p>
 <p>This property corresponds to the height held by the <a href="qwidget.html#minimumSize-prop">minimumSize</a> property.</p>
-<p>By default, this property has a value of 0.</p>
+<p>默认情况下，此属性的值为0。</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>minimumHeight</b></span>() const</td></tr>
@@ -1018,7 +1018,7 @@
 <h3 class="fn" id="minimumWidth-prop"><a name="minimumWidth-prop"></a><span class="name">minimumWidth</span> : <span class="type">int</span></h3>
 <p>This property holds the widget's minimum width in pixels</p>
 <p>This property corresponds to the width held by the <a href="qwidget.html#minimumSize-prop">minimumSize</a> property.</p>
-<p>By default, this property has a value of 0.</p>
+<p>默认情况下，此属性的值为0。</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>minimumWidth</b></span>() const</td></tr>
@@ -1030,7 +1030,7 @@
 <h3 class="fn" id="modal-prop"><a name="modal-prop"></a><span class="name">modal</span> : const <span class="type">bool</span></h3>
 <p>This property holds whether the widget is a modal widget</p>
 <p>This property only makes sense for windows. A modal widget prevents widgets in all other windows from getting any input.</p>
-<p>By default, this property is <code>false</code>.</p>
+<p>默认情况下，此属性值为 <code>false</code>.</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>isModal</b></span>() const</td></tr>
@@ -1168,7 +1168,7 @@
 <!-- $$$statusTip-prop$$$statusTip$$$setStatusTipconstQString& -->
 <h3 class="fn" id="statusTip-prop"><a name="statusTip-prop"></a><span class="name">statusTip</span> : <span class="type"><a href="../qtcore/qstring.html">QString</a></span></h3>
 <p>This property holds the widget's status tip</p>
-<p>By default, this property contains an empty string.</p>
+<p>默认情况下，此属性包含一个空字符串。</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><span class="name"><b>statusTip</b></span>() const</td></tr>
@@ -1208,7 +1208,7 @@
 <p>This property holds the widget's tooltip</p>
 <p>Note that by default tooltips are only shown for widgets that are children of the active window. You can change this behavior by setting the attribute <a href="../qtcore/qt.html#WidgetAttribute-enum">Qt::WA_AlwaysShowToolTips</a> on the <i>window</i>, not on the widget with the tooltip.</p>
 <p>If you want to control a tooltip's behavior, you can intercept the <a href="qwidget.html#event">event</a>() function and catch the <a href="../qtcore/qevent.html#Type-enum">QEvent::ToolTip</a> event (e.g&#x2e;, if you want to customize the area for which the tooltip should be shown).</p>
-<p>By default, this property contains an empty string.</p>
+<p>默认情况下，此属性包含一个空字符串。</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><span class="name"><b>toolTip</b></span>() const</td></tr>
@@ -1268,7 +1268,7 @@
 <!-- $$$whatsThis-prop$$$whatsThis$$$setWhatsThisconstQString& -->
 <h3 class="fn" id="whatsThis-prop"><a name="whatsThis-prop"></a><span class="name">whatsThis</span> : <span class="type"><a href="../qtcore/qstring.html">QString</a></span></h3>
 <p>This property holds the widget's What's This help text.</p>
-<p>By default, this property contains an empty string.</p>
+<p>默认情况下，此属性包含一个空字符串。</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><span class="name"><b>whatsThis</b></span>() const</td></tr>
@@ -1294,7 +1294,7 @@
 <p>If the window title is set at any point, then the window title takes precedence and will be shown instead of the file path string.</p>
 <p>Additionally, on <a href="../qtdoc/internationalization.html#macos">macOS</a>, this has an added benefit that it sets the <a href="http://developer.apple.com/documentation/UserExperience/Conceptual/OSXHIGuidelines/XHIGWindows/chapter_17_section_3.html">proxy icon</a> for the window, assuming that the file path exists.</p>
 <p>If no file path is set, this property contains an empty string.</p>
-<p>By default, this property contains an empty string.</p>
+<p>默认情况下，此属性包含一个空字符串。</p>
 <p>这个属性是在Qt 4.4版本中新增引入的。</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
@@ -1390,7 +1390,7 @@
 <h3 class="fn" id="x-prop"><a name="x-prop"></a><span class="name">x</span> : const <span class="type">int</span></h3>
 <p>This property holds the x coordinate of the widget relative to its parent including any window frame</p>
 <p>See the <a href="application-windows.html#window-geometry">Window Geometry</a> documentation for an overview of geometry issues with windows.</p>
-<p>By default, this property has a value of 0.</p>
+<p>默认情况下，此属性的值为0。</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>x</b></span>() const</td></tr>
@@ -1401,7 +1401,7 @@
 <h3 class="fn" id="y-prop"><a name="y-prop"></a><span class="name">y</span> : const <span class="type">int</span></h3>
 <p>This property holds the y coordinate of the widget relative to its parent and including any window frame</p>
 <p>See the <a href="application-windows.html#window-geometry">Window Geometry</a> documentation for an overview of geometry issues with windows.</p>
-<p>By default, this property has a value of 0.</p>
+<p>默认情况下，此属性的值为0。</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>y</b></span>() const</td></tr>
@@ -2184,7 +2184,7 @@
 <p>After scrolling, the widgets will receive paint events for the areas that need to be repainted. For widgets that Qt knows to be opaque, this is only the newly exposed parts. For example, if an opaque widget is scrolled 8 pixels to the left, only an 8-pixel wide stripe at the right edge needs updating.</p>
 <p>Since widgets propagate the contents of their parents by default, you need to set the <a href="qwidget.html#autoFillBackground-prop">autoFillBackground</a> property, or use <a href="qwidget.html#setAttribute">setAttribute</a>() to set the <a href="../qtcore/qt.html#WidgetAttribute-enum">Qt::WA_OpaquePaintEvent</a> attribute, to make a widget opaque.</p>
 <p>For widgets that use contents propagation, a scroll will cause an update of the entire scroll area.</p>
-<p><b> 参见 </b><a href="qwidget.html#transparency-and-double-buffering">Transparency and Double Buffering</a>.</p>
+<p><b> 参见 </b><a href="qwidget.html#transparency-and-double-buffering">透明度和双缓冲</a>.</p>
 <!-- @@@scroll -->
 <!-- $$$scroll$$$scrollintintconstQRect& -->
 <h3 class="fn" id="scroll-1"><a name="scroll-1"></a><span class="type">void</span> QWidget::<span class="name">scroll</span>(<span class="type">int</span> <i>dx</i>, <span class="type">int</span> <i>dy</i>, const <span class="type"><a href="../qtcore/qrect.html">QRect</a></span> &amp;<i>r</i>)</h3>
