@@ -238,13 +238,13 @@
 <!-- @@@~QFileDevice -->
 <!-- $$$atEnd[overload1]$$$atEnd -->
 <h3 class="fn" id="atEnd"><a name="atEnd"></a><code>[重载虚函数] </code><span class="type">bool</span> QFileDevice::<span class="name">atEnd</span>() const</h3>
-<p>Reimplemented from <a href="qiodevice.html#atEnd">QIODevice::atEnd</a>().</p>
+<p>重新实现了父类函数接口 <a href="qiodevice.html#atEnd">QIODevice::atEnd</a>().</p>
 <p>Returns <code>true</code> if the end of the file has been reached; otherwise returns false.</p>
 <p>For regular empty files on Unix (e.g&#x2e; those in <code>/proc</code>), this function returns <code>true</code>, since the file system reports that the size of such a file is 0. Therefore, you should not depend on atEnd() when reading data from such a file, but rather call <a href="qiodevice.html#read">read</a>() until no more data can be read.</p>
 <!-- @@@atEnd -->
 <!-- $$$close[overload1]$$$close -->
 <h3 class="fn" id="close"><a name="close"></a><code>[重载虚函数] </code><span class="type">void</span> QFileDevice::<span class="name">close</span>()</h3>
-<p>Reimplemented from <a href="qiodevice.html#close">QIODevice::close</a>().</p>
+<p>重新实现了父类函数接口 <a href="qiodevice.html#close">QIODevice::close</a>().</p>
 <p>Calls <a href="qfiledevice.html#flush">QFileDevice::flush</a>() and closes the file. Errors from flush are ignored.</p>
 <p><b> 参见 </b><a href="qiodevice.html#close">QIODevice::close</a>().</p>
 <!-- @@@close -->
@@ -277,7 +277,7 @@
 <!-- @@@handle -->
 <!-- $$$isSequential[overload1]$$$isSequential -->
 <h3 class="fn" id="isSequential"><a name="isSequential"></a><code>[重载虚函数] </code><span class="type">bool</span> QFileDevice::<span class="name">isSequential</span>() const</h3>
-<p>Reimplemented from <a href="qiodevice.html#isSequential">QIODevice::isSequential</a>().</p>
+<p>重新实现了父类函数接口 <a href="qiodevice.html#isSequential">QIODevice::isSequential</a>().</p>
 <p>Returns <code>true</code> if the file can only be manipulated sequentially; otherwise returns <code>false</code>.</p>
 <p>Most files support random-access, but some special files may not.</p>
 <p><b> 参见 </b><a href="qiodevice.html#isSequential">QIODevice::isSequential</a>().</p>
@@ -297,15 +297,15 @@
 <!-- @@@permissions -->
 <!-- $$$pos[overload1]$$$pos -->
 <h3 class="fn" id="pos"><a name="pos"></a><code>[重载虚函数] </code><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> QFileDevice::<span class="name">pos</span>() const</h3>
-<p>Reimplemented from <a href="qiodevice.html#pos">QIODevice::pos</a>().</p>
+<p>重新实现了父类函数接口 <a href="qiodevice.html#pos">QIODevice::pos</a>().</p>
 <!-- @@@pos -->
 <!-- $$$readData[overload1]$$$readDatachar*qint64 -->
 <h3 class="fn" id="readData"><a name="readData"></a><code>[重载虚保护函数] </code><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> QFileDevice::<span class="name">readData</span>(<span class="type">char</span> *<i>data</i>, <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> <i>len</i>)</h3>
-<p>Reimplemented from <a href="qiodevice.html#readData">QIODevice::readData</a>().</p>
+<p>重新实现了父类函数接口 <a href="qiodevice.html#readData">QIODevice::readData</a>().</p>
 <!-- @@@readData -->
 <!-- $$$readLineData[overload1]$$$readLineDatachar*qint64 -->
 <h3 class="fn" id="readLineData"><a name="readLineData"></a><code>[重载虚保护函数] </code><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> QFileDevice::<span class="name">readLineData</span>(<span class="type">char</span> *<i>data</i>, <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> <i>maxlen</i>)</h3>
-<p>Reimplemented from <a href="qiodevice.html#readLineData">QIODevice::readLineData</a>().</p>
+<p>重新实现了父类函数接口 <a href="qiodevice.html#readLineData">QIODevice::readLineData</a>().</p>
 <!-- @@@readLineData -->
 <!-- $$$resize[overload1]$$$resizeqint64 -->
 <h3 class="fn" id="resize"><a name="resize"></a><code>[虚函数] </code><span class="type">bool</span> QFileDevice::<span class="name">resize</span>(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> <i>sz</i>)</h3>
@@ -315,7 +315,7 @@
 <!-- @@@resize -->
 <!-- $$$seek[overload1]$$$seekqint64 -->
 <h3 class="fn" id="seek"><a name="seek"></a><code>[重载虚函数] </code><span class="type">bool</span> QFileDevice::<span class="name">seek</span>(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> <i>pos</i>)</h3>
-<p>Reimplemented from <a href="qiodevice.html#seek">QIODevice::seek</a>().</p>
+<p>重新实现了父类函数接口 <a href="qiodevice.html#seek">QIODevice::seek</a>().</p>
 <p>For random-access devices, this function sets the current position to <i>pos</i>, returning true on success, or false if an error occurred. For sequential devices, the default behavior is to do nothing and return false.</p>
 <p>Seeking beyond the end of a file: If the position is beyond the end of a file, then seek() will not immediately extend the file. If a write is performed at this position, then the file will be extended. The content of the file between the previous end of file and the newly written data is UNDEFINED and varies between platforms and file systems.</p>
 <!-- @@@seek -->
@@ -333,7 +333,7 @@
 <!-- @@@setPermissions -->
 <!-- $$$size[overload1]$$$size -->
 <h3 class="fn" id="size"><a name="size"></a><code>[重载虚函数] </code><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> QFileDevice::<span class="name">size</span>() const</h3>
-<p>Reimplemented from <a href="qiodevice.html#size">QIODevice::size</a>().</p>
+<p>重新实现了父类函数接口 <a href="qiodevice.html#size">QIODevice::size</a>().</p>
 <p>Returns the size of the file.</p>
 <p>For regular empty files on Unix (e.g&#x2e; those in <code>/proc</code>), this function returns 0; the contents of such a file are generated on demand in response to you calling <a href="qiodevice.html#read">read</a>().</p>
 <!-- @@@size -->
@@ -350,7 +350,7 @@
 <!-- @@@unsetError -->
 <!-- $$$writeData[overload1]$$$writeDataconstchar*qint64 -->
 <h3 class="fn" id="writeData"><a name="writeData"></a><code>[重载虚保护函数] </code><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> QFileDevice::<span class="name">writeData</span>(const <span class="type">char</span> *<i>data</i>, <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> <i>len</i>)</h3>
-<p>Reimplemented from <a href="qiodevice.html#writeData">QIODevice::writeData</a>().</p>
+<p>重新实现了父类函数接口 <a href="qiodevice.html#writeData">QIODevice::writeData</a>().</p>
 <!-- @@@writeData -->
 </div>
 <div class="vars">
