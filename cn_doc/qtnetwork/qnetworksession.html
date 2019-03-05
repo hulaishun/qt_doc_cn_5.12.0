@@ -199,7 +199,7 @@
 <p>Frees the resources associated with the <a href="qnetworksession.html">QNetworkSession</a> object.</p>
 <!-- @@@~QNetworkSession -->
 <!-- $$$accept[overload1]$$$accept -->
-<h3 class="fn" id="accept"><a name="accept"></a><code>[slot] </code><span class="type">void</span> QNetworkSession::<span class="name">accept</span>()</h3>
+<h3 class="fn" id="accept"><a name="accept"></a><code>[槽函数] </code><span class="type">void</span> QNetworkSession::<span class="name">accept</span>()</h3>
 <p>Instructs the session to permanently accept the new access point. Once this function has been called the session may not return to the old access point.</p>
 <p>The old access point may be closed in the process if there are no other network sessions for it. Therefore any open socket that still uses the old access point may become unusable and should be closed before completing the migration.</p>
 <!-- @@@accept -->
@@ -222,7 +222,7 @@
 <p>This function may not always be supported on all platforms and returns 0. The platform capability can be detected via <a href="qnetworkconfigurationmanager.html#Capability-enum">QNetworkConfigurationManager::DataStatistics</a>.</p>
 <p><b>Note: </b>On some platforms this function may run the main event loop.</p><!-- @@@bytesWritten -->
 <!-- $$$close[overload1]$$$close -->
-<h3 class="fn" id="close"><a name="close"></a><code>[slot] </code><span class="type">void</span> QNetworkSession::<span class="name">close</span>()</h3>
+<h3 class="fn" id="close"><a name="close"></a><code>[槽函数] </code><span class="type">void</span> QNetworkSession::<span class="name">close</span>()</h3>
 <p>Decreases the session counter on the associated network configuration. If the session counter reaches zero the active network interface is shut down. This also means that <a href="qnetworksession.html#state">state</a>() will only change from <a href="qnetworksession.html#State-enum">Connected</a> to <a href="qnetworksession.html#State-enum">Disconnected</a> if the current session was the last open session.</p>
 <p>If the platform does not support out-of-process sessions calling this function does not stop the interface. In this case <a href="qnetworksession.html#stop">stop</a>() has to be used to force a shut down. The platform capabilities can be detected via <a href="qnetworkconfigurationmanager.html#capabilities">QNetworkConfigurationManager::capabilities</a>().</p>
 <p>Note that this call is asynchronous. Depending on the outcome of this call the results can be enquired by connecting to the <a href="qnetworksession.html#stateChanged">stateChanged</a>(), <a href="qnetworksession.html#opened">opened</a>() or <a href="qnetworksession.html#error">error</a>() signals.</p>
@@ -259,7 +259,7 @@
 <p><b> 参见 </b><a href="qnetworksession.html#error">error</a>().</p>
 <!-- @@@errorString -->
 <!-- $$$ignore[overload1]$$$ignore -->
-<h3 class="fn" id="ignore"><a name="ignore"></a><code>[slot] </code><span class="type">void</span> QNetworkSession::<span class="name">ignore</span>()</h3>
+<h3 class="fn" id="ignore"><a name="ignore"></a><code>[槽函数] </code><span class="type">void</span> QNetworkSession::<span class="name">ignore</span>()</h3>
 <p>This function indicates that the application does not wish to roam the session.</p>
 <p><b> 参见 </b><a href="qnetworksession.html#migrate">migrate</a>().</p>
 <!-- @@@ignore -->
@@ -276,7 +276,7 @@
 <p>The session can be controlled via <a href="qnetworksession.html#open">open</a>() 和 <a href="qnetworksession.html#close">close</a>().</p>
 <!-- @@@isOpen -->
 <!-- $$$migrate[overload1]$$$migrate -->
-<h3 class="fn" id="migrate"><a name="migrate"></a><code>[slot] </code><span class="type">void</span> QNetworkSession::<span class="name">migrate</span>()</h3>
+<h3 class="fn" id="migrate"><a name="migrate"></a><code>[槽函数] </code><span class="type">void</span> QNetworkSession::<span class="name">migrate</span>()</h3>
 <p>Instructs the session to roam to the new access point. The old access point remains active until the application calls <a href="qnetworksession.html#accept">accept</a>().</p>
 <p>The <a href="qnetworksession.html#newConfigurationActivated">newConfigurationActivated</a>() signal is emitted once roaming has been completed.</p>
 <p><b> 参见 </b><a href="qnetworksession.html#accept">accept</a>().</p>
@@ -287,7 +287,7 @@
 <p><b> 参见 </b><a href="qnetworksession.html#accept">accept</a>() 和 <a href="qnetworksession.html#reject">reject</a>().</p>
 <!-- @@@newConfigurationActivated -->
 <!-- $$$open[overload1]$$$open -->
-<h3 class="fn" id="open"><a name="open"></a><code>[slot] </code><span class="type">void</span> QNetworkSession::<span class="name">open</span>()</h3>
+<h3 class="fn" id="open"><a name="open"></a><code>[槽函数] </code><span class="type">void</span> QNetworkSession::<span class="name">open</span>()</h3>
 <p>Creates an open session which increases the session counter on the underlying network interface. The system will not terminate a network interface until the session reference counter reaches zero. Therefore an open session allows an application to register its use of the interface.</p>
 <p>As a result of calling open() the interface will be started if it is not connected/up yet. Some platforms may not provide support for out-of-process sessions. On such platforms the session counter ignores any sessions held by another process. The platform capabilities can be detected via <a href="qnetworkconfigurationmanager.html#capabilities">QNetworkConfigurationManager::capabilities</a>().</p>
 <p>Note that this call is asynchronous. Depending on the outcome of this call the results can be enquired by connecting to the <a href="qnetworksession.html#stateChanged">stateChanged</a>(), <a href="qnetworksession.html#opened">opened</a>() or <a href="qnetworksession.html#error">error</a>() signals.</p>
@@ -308,7 +308,7 @@
 <p><b> 参见 </b><a href="qnetworksession.html#migrate">migrate</a>(), <a href="qnetworksession.html#ignore">ignore</a>(), 和 <a href="qnetworkconfiguration.html#isRoamingAvailable">QNetworkConfiguration::isRoamingAvailable</a>().</p>
 <!-- @@@preferredConfigurationChanged -->
 <!-- $$$reject[overload1]$$$reject -->
-<h3 class="fn" id="reject"><a name="reject"></a><code>[slot] </code><span class="type">void</span> QNetworkSession::<span class="name">reject</span>()</h3>
+<h3 class="fn" id="reject"><a name="reject"></a><code>[槽函数] </code><span class="type">void</span> QNetworkSession::<span class="name">reject</span>()</h3>
 <p>The new access point is not suitable for the application. By calling this function the session returns to the previous access point/configuration. This action may invalidate any socket that has been created via the not desired access point.</p>
 <p><b> 参见 </b><a href="qnetworksession.html#accept">accept</a>().</p>
 <!-- @@@reject -->
@@ -366,7 +366,7 @@
 <p><b> 参见 </b><a href="qnetworksession.html#state">state</a>().</p>
 <!-- @@@stateChanged -->
 <!-- $$$stop[overload1]$$$stop -->
-<h3 class="fn" id="stop"><a name="stop"></a><code>[slot] </code><span class="type">void</span> QNetworkSession::<span class="name">stop</span>()</h3>
+<h3 class="fn" id="stop"><a name="stop"></a><code>[槽函数] </code><span class="type">void</span> QNetworkSession::<span class="name">stop</span>()</h3>
 <p>Invalidates all open sessions against the network interface and therefore stops the underlying network interface. This function always changes the session's <a href="qnetworksession.html#state">state</a>() flag to <a href="qnetworksession.html#State-enum">Disconnected</a>.</p>
 <p><b> 参见 </b><a href="qnetworksession.html#open">open</a>() 和 <a href="qnetworksession.html#close">close</a>().</p>
 <!-- @@@stop -->

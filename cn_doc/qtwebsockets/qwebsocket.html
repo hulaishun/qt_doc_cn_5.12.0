@@ -209,7 +209,7 @@
 <p><b>Note: </b>This signal has the same meaning both for secure and non-secure WebSockets. As opposed to <a href="../qtnetwork/qsslsocket.html">QSslSocket</a>, bytesWritten() is only emitted when encrypted data is effectively written (see <a href="../qtnetwork/qsslsocket.html#encryptedBytesWritten">QSslSocket::encryptedBytesWritten</a>()).</p><p><b> 参见 </b><a href="qwebsocket.html#close">close</a>().</p>
 <!-- @@@bytesWritten -->
 <!-- $$$close[overload1]$$$closeQWebSocketProtocol::CloseCodeconstQString& -->
-<h3 class="fn" id="close"><a name="close"></a><code>[slot] </code><span class="type">void</span> QWebSocket::<span class="name">close</span>(<span class="type">QWebSocketProtocol::CloseCode</span> <i>closeCode</i> = QWebSocketProtocol::CloseCodeNormal, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>reason</i> = QString())</h3>
+<h3 class="fn" id="close"><a name="close"></a><code>[槽函数] </code><span class="type">void</span> QWebSocket::<span class="name">close</span>(<span class="type">QWebSocketProtocol::CloseCode</span> <i>closeCode</i> = QWebSocketProtocol::CloseCodeNormal, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>reason</i> = QString())</h3>
 <p>Gracefully closes the socket with the given <i>closeCode</i> and <i>reason</i>.</p>
 <p>Any data in the write buffer is flushed before the socket is closed. The <i>closeCode</i> is a <a href="qwebsocketprotocol.html#CloseCode-enum">QWebSocketProtocol::CloseCode</a> indicating the reason to close, and <i>reason</i> describes the reason of the closure more in detail. All control frames, including the Close frame, are limited to 125 bytes. Since two of these are used for <i>closeCode</i> the maximum length of <i>reason</i> is 123! If <i>reason</i> exceeds this limit it will be truncated.</p>
 <!-- @@@close -->
@@ -260,7 +260,7 @@
 <p>This function writes as much as possible from the internal write buffer to the underlying network socket, without blocking. If any data was written, this function returns true; otherwise false is returned. Call this function if you need <a href="qwebsocket.html">QWebSocket</a> to start sending buffered data immediately. The number of bytes successfully written depends on the operating system. In most cases, you do not need to call this function, because <a href="qwebsocket.html">QWebSocket</a> will start sending data automatically once control goes back to the event loop.</p>
 <!-- @@@flush -->
 <!-- $$$ignoreSslErrors[overload1]$$$ignoreSslErrors -->
-<h3 class="fn" id="ignoreSslErrors"><a name="ignoreSslErrors"></a><code>[slot] </code><span class="type">void</span> QWebSocket::<span class="name">ignoreSslErrors</span>()</h3>
+<h3 class="fn" id="ignoreSslErrors"><a name="ignoreSslErrors"></a><code>[槽函数] </code><span class="type">void</span> QWebSocket::<span class="name">ignoreSslErrors</span>()</h3>
 <p>This slot tells <a href="qwebsocket.html">QWebSocket</a> to ignore errors during <a href="qwebsocket.html">QWebSocket</a>'s handshake phase and continue connecting. If you want to continue with the connection even if errors occur during the handshake phase, then you must call this slot, either from a slot connected to <a href="qwebsocket.html#sslErrors">sslErrors</a>(), or before the handshake phase. If you don't call this slot, either in response to errors or before the handshake, the connection will be dropped after the <a href="qwebsocket.html#sslErrors">sslErrors</a>() signal has been emitted.</p>
 <p><b>Warning:</b> Be sure to always let the user inspect the errors reported by the <a href="qwebsocket.html#sslErrors">sslErrors</a>() signal, and only call this method upon confirmation from the user that proceeding is ok. If there are unexpected errors, the connection should be aborted. Calling this method without inspecting the actual errors will most likely pose a security risk for your application. Use it with great care!</p>
 <p><b> 参见 </b><a href="qwebsocket.html#sslErrors">sslErrors</a>(), <a href="../qtnetwork/qsslsocket.html#ignoreSslErrors">QSslSocket::ignoreSslErrors</a>(), 和 <a href="../qtnetwork/qnetworkreply.html#ignoreSslErrors">QNetworkReply::ignoreSslErrors</a>().</p>
@@ -303,12 +303,12 @@
 <p><b> 参见 </b><a href="qwebsocket.html#setMaskGenerator">setMaskGenerator</a>().</p>
 <!-- @@@maskGenerator -->
 <!-- $$$open[overload1]$$$openconstQUrl& -->
-<h3 class="fn" id="open"><a name="open"></a><code>[slot] </code><span class="type">void</span> QWebSocket::<span class="name">open</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
+<h3 class="fn" id="open"><a name="open"></a><code>[槽函数] </code><span class="type">void</span> QWebSocket::<span class="name">open</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
 <p>Opens a WebSocket connection using the given <i>url</i>.</p>
 <p>If the url contains newline characters (\r\n), then the error signal will be emitted with <a href="../qtnetwork/qabstractsocket.html#SocketError-enum">QAbstractSocket::ConnectionRefusedError</a> as error type.</p>
 <!-- @@@open -->
 <!-- $$$open$$$openconstQNetworkRequest& -->
-<h3 class="fn" id="open-1"><a name="open-1"></a><code>[slot] </code><span class="type">void</span> QWebSocket::<span class="name">open</span>(const <span class="type"><a href="../qtnetwork/qnetworkrequest.html">QNetworkRequest</a></span> &amp;<i>request</i>)</h3>
+<h3 class="fn" id="open-1"><a name="open-1"></a><code>[槽函数] </code><span class="type">void</span> QWebSocket::<span class="name">open</span>(const <span class="type"><a href="../qtnetwork/qnetworkrequest.html">QNetworkRequest</a></span> &amp;<i>request</i>)</h3>
 <p>Opens a WebSocket connection using the given <i>request</i>.</p>
 <p>The <i>request</i> url will be used to open the WebSocket connection. Headers present in the request will be sent to the server in the upgrade request, together with the ones needed for the websocket handshake.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
@@ -335,7 +335,7 @@
 <p>Returns the peerport</p>
 <!-- @@@peerPort -->
 <!-- $$$ping[overload1]$$$pingconstQByteArray& -->
-<h3 class="fn" id="ping"><a name="ping"></a><code>[slot] </code><span class="type">void</span> QWebSocket::<span class="name">ping</span>(const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>payload</i> = QByteArray())</h3>
+<h3 class="fn" id="ping"><a name="ping"></a><code>[槽函数] </code><span class="type">void</span> QWebSocket::<span class="name">ping</span>(const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>payload</i> = QByteArray())</h3>
 <p>Pings the server to indicate that the connection is still alive. Additional <i>payload</i> can be sent along the ping message.</p>
 <p>The size of the <i>payload</i> cannot be bigger than 125. If it is larger, the <i>payload</i> is clipped to 125 bytes.</p>
 <p><b> 参见 </b><a href="qwebsocket.html#pong">pong</a>().</p>

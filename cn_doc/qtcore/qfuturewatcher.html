@@ -161,7 +161,7 @@
 <p>Destroys the <a href="qfuturewatcher.html">QFutureWatcher</a>.</p>
 <!-- @@@~QFutureWatcher -->
 <!-- $$$cancel[overload1]$$$cancel -->
-<h3 class="fn" id="cancel"><a name="cancel"></a><code>[slot] </code><span class="type">void</span> QFutureWatcher::<span class="name">cancel</span>()</h3>
+<h3 class="fn" id="cancel"><a name="cancel"></a><code>[槽函数] </code><span class="type">void</span> QFutureWatcher::<span class="name">cancel</span>()</h3>
 <p>Cancels the asynchronous computation represented by the <a href="qfuturewatcher.html#future">future</a>(). Note that the cancelation is asynchronous. Use <a href="qfuturewatcher.html#waitForFinished">waitForFinished</a>() after calling cancel() when you need synchronous cancelation.</p>
 <p>Currently available results may still be accessed on a canceled <a href="qfuture.html">QFuture</a>, but new results will <i>not</i> become available after calling this function. Also, this <a href="qfuturewatcher.html">QFutureWatcher</a> will not deliver progress and result ready signals once canceled. This includes the <a href="qfuturewatcher.html#progressValueChanged">progressValueChanged</a>(), <a href="qfuturewatcher.html#progressRangeChanged">progressRangeChanged</a>(), <a href="qfuturewatcher.html#progressTextChanged">progressTextChanged</a>(), <a href="qfuturewatcher.html#resultReadyAt">resultReadyAt</a>(), 和 <a href="qfuturewatcher.html#resultsReadyAt">resultsReadyAt</a>() signals.</p>
 <p>Be aware that not all asynchronous computations can be canceled. For example, the <a href="qfuture.html">QFuture</a> returned by <a href="../qtconcurrent/qtconcurrent.html#run">QtConcurrent::run</a>() cannot be canceled; but the <a href="qfuture.html">QFuture</a> returned by <a href="../qtconcurrent/qtconcurrent.html#mappedReduced-1">QtConcurrent::mappedReduced</a>() can.</p>
@@ -203,7 +203,7 @@
 <p>Returns <code>true</code> if the asynchronous computation represented by the <a href="qfuturewatcher.html#future">future</a>() has been started, or if no future has been set; otherwise returns <code>false</code>.</p>
 <!-- @@@isStarted -->
 <!-- $$$pause[overload1]$$$pause -->
-<h3 class="fn" id="pause"><a name="pause"></a><code>[slot] </code><span class="type">void</span> QFutureWatcher::<span class="name">pause</span>()</h3>
+<h3 class="fn" id="pause"><a name="pause"></a><code>[槽函数] </code><span class="type">void</span> QFutureWatcher::<span class="name">pause</span>()</h3>
 <p>Pauses the asynchronous computation represented by the <a href="qfuturewatcher.html#future">future</a>(). This is a convenience method that simply calls <a href="qfuturewatcher.html#setPaused">setPaused</a>(true).</p>
 <p><b> 参见 </b><a href="qfuturewatcher.html#resume">resume</a>().</p>
 <!-- @@@pause -->
@@ -263,7 +263,7 @@
 <p>This signal is emitted when the watched future reports ready results. The results are indexed from <i>beginIndex</i> to <i>endIndex</i>.</p>
 <!-- @@@resultsReadyAt -->
 <!-- $$$resume[overload1]$$$resume -->
-<h3 class="fn" id="resume"><a name="resume"></a><code>[slot] </code><span class="type">void</span> QFutureWatcher::<span class="name">resume</span>()</h3>
+<h3 class="fn" id="resume"><a name="resume"></a><code>[槽函数] </code><span class="type">void</span> QFutureWatcher::<span class="name">resume</span>()</h3>
 <p>Resumes the asynchronous computation represented by the <a href="qfuturewatcher.html#future">future</a>(). This is a convenience method that simply calls <a href="qfuturewatcher.html#setPaused">setPaused</a>(false).</p>
 <p><b> 参见 </b><a href="qfuturewatcher.html#pause">pause</a>().</p>
 <!-- @@@resume -->
@@ -279,7 +279,7 @@
 <p><b> 参见 </b><a href="qfuturewatcher.html#future">future</a>().</p>
 <!-- @@@setFuture -->
 <!-- $$$setPaused[overload1]$$$setPausedbool -->
-<h3 class="fn" id="setPaused"><a name="setPaused"></a><code>[slot] </code><span class="type">void</span> QFutureWatcher::<span class="name">setPaused</span>(<span class="type">bool</span> <i>paused</i>)</h3>
+<h3 class="fn" id="setPaused"><a name="setPaused"></a><code>[槽函数] </code><span class="type">void</span> QFutureWatcher::<span class="name">setPaused</span>(<span class="type">bool</span> <i>paused</i>)</h3>
 <p>If <i>paused</i> is true, this function pauses the asynchronous computation represented by the <a href="qfuturewatcher.html#future">future</a>(). If the computation is already paused, this function does nothing. This <a href="qfuturewatcher.html">QFutureWatcher</a> will stop delivering progress and result ready signals while the future is paused. Signal delivery will continue once the computation is resumed.</p>
 <p>If <i>paused</i> is false, this function resumes the asynchronous computation. If the computation was not previously paused, this function does nothing.</p>
 <p>Be aware that not all computations can be paused. For example, the <a href="qfuture.html">QFuture</a> returned by <a href="../qtconcurrent/qtconcurrent.html#run">QtConcurrent::run</a>() cannot be paused; but the <a href="qfuture.html">QFuture</a> returned by <a href="../qtconcurrent/qtconcurrent.html#mappedReduced-1">QtConcurrent::mappedReduced</a>() can.</p>
@@ -294,7 +294,7 @@
 <p>This signal is emitted when this <a href="qfuturewatcher.html">QFutureWatcher</a> starts watching the future set with <a href="qfuturewatcher.html#setFuture">setFuture</a>().</p>
 <!-- @@@started -->
 <!-- $$$togglePaused[overload1]$$$togglePaused -->
-<h3 class="fn" id="togglePaused"><a name="togglePaused"></a><code>[slot] </code><span class="type">void</span> QFutureWatcher::<span class="name">togglePaused</span>()</h3>
+<h3 class="fn" id="togglePaused"><a name="togglePaused"></a><code>[槽函数] </code><span class="type">void</span> QFutureWatcher::<span class="name">togglePaused</span>()</h3>
 <p>Toggles the paused state of the asynchronous computation. In other words, if the computation is currently paused, calling this function resumes it; if the computation is running, it becomes paused. This is a convenience method for calling <a href="qfuturewatcher.html#setPaused">setPaused</a>(!<a href="qfuturewatcher.html#isPaused">isPaused</a>()).</p>
 <p><b> 参见 </b><a href="qfuturewatcher.html#setPaused">setPaused</a>(), <a href="qfuturewatcher.html#pause">pause</a>(), 和 <a href="qfuturewatcher.html#resume">resume</a>().</p>
 <!-- @@@togglePaused -->

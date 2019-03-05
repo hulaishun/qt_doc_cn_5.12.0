@@ -379,7 +379,7 @@
 <p><b> 参见 </b><a href="qthread.html#Priority-enum">Priority</a>, <a href="qthread.html#setPriority">setPriority</a>(), 和 <a href="qthread.html#start">start</a>().</p>
 <!-- @@@priority -->
 <!-- $$$quit[overload1]$$$quit -->
-<h3 class="fn" id="quit"><a name="quit"></a><code>[slot] </code><span class="type">void</span> QThread::<span class="name">quit</span>()</h3>
+<h3 class="fn" id="quit"><a name="quit"></a><code>[槽函数] </code><span class="type">void</span> QThread::<span class="name">quit</span>()</h3>
 <p>Tells the thread's event loop to exit with return code 0 (success). Equivalent to calling <a href="qthread.html#exit">QThread::exit</a>(0).</p>
 <p>This function does nothing if the thread does not have an event loop.</p>
 <p><b> 参见 </b><a href="qthread.html#exit">exit</a>() 和 <a href="qeventloop.html">QEventLoop</a>.</p>
@@ -434,7 +434,7 @@
 <p><b> 参见 </b><a href="qthread.html#setStackSize">setStackSize</a>().</p>
 <!-- @@@stackSize -->
 <!-- $$$start[overload1]$$$startQThread::Priority -->
-<h3 class="fn" id="start"><a name="start"></a><code>[slot] </code><span class="type">void</span> QThread::<span class="name">start</span>(<span class="type"><a href="qthread.html#Priority-enum">QThread::Priority</a></span> <i>priority</i> = InheritPriority)</h3>
+<h3 class="fn" id="start"><a name="start"></a><code>[槽函数] </code><span class="type">void</span> QThread::<span class="name">start</span>(<span class="type"><a href="qthread.html#Priority-enum">QThread::Priority</a></span> <i>priority</i> = InheritPriority)</h3>
 <p>Begins execution of the thread by calling <a href="qthread.html#run">run</a>(). The operating system will schedule the thread according to the <i>priority</i> parameter. If the thread is already running, this function does nothing.</p>
 <p>The effect of the <i>priority</i> parameter is dependent on the operating system's scheduling policy. In particular, the <i>priority</i> will be ignored on systems that do not support thread priorities (such as on Linux, see the <a href="http://linux.die.net/man/2/sched_setscheduler">sched_setscheduler</a> documentation for more details).</p>
 <p><b> 参见 </b><a href="qthread.html#run">run</a>() 和 <a href="qthread.html#terminate">terminate</a>().</p>
@@ -446,7 +446,7 @@
 <p><b> 参见 </b><a href="qthread.html#finished">finished</a>().</p>
 <!-- @@@started -->
 <!-- $$$terminate[overload1]$$$terminate -->
-<h3 class="fn" id="terminate"><a name="terminate"></a><code>[slot] </code><span class="type">void</span> QThread::<span class="name">terminate</span>()</h3>
+<h3 class="fn" id="terminate"><a name="terminate"></a><code>[槽函数] </code><span class="type">void</span> QThread::<span class="name">terminate</span>()</h3>
 <p>Terminates the execution of the thread. The thread may or may not be terminated immediately, depending on the operating system's scheduling policies. Use <a href="qthread.html#wait">QThread::wait</a>() after terminate(), to be sure.</p>
 <p>When the thread is terminated, all threads waiting for the thread to finish will be woken up.</p>
 <p><b>Warning:</b> This function is dangerous and its use is discouraged. The thread can be terminated at any point in its code path. Threads can be terminated while modifying data. There is no chance for the thread to clean up after itself, unlock any held mutexes, etc. In short, use this function only if absolutely necessary.</p>

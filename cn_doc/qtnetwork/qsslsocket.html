@@ -412,7 +412,7 @@
 <p><b> 参见 </b><a href="../qtcore/qiodevice.html#write-2">write</a>() 和 <a href="qsslsocket.html#waitForBytesWritten">waitForBytesWritten</a>().</p>
 <!-- @@@flush -->
 <!-- $$$ignoreSslErrors[overload1]$$$ignoreSslErrors -->
-<h3 class="fn" id="ignoreSslErrors"><a name="ignoreSslErrors"></a><code>[slot] </code><span class="type">void</span> QSslSocket::<span class="name">ignoreSslErrors</span>()</h3>
+<h3 class="fn" id="ignoreSslErrors"><a name="ignoreSslErrors"></a><code>[槽函数] </code><span class="type">void</span> QSslSocket::<span class="name">ignoreSslErrors</span>()</h3>
 <p>This slot tells <a href="qsslsocket.html">QSslSocket</a> to ignore errors during <a href="qsslsocket.html">QSslSocket</a>'s handshake phase and continue connecting. If you want to continue with the connection even if errors occur during the handshake phase, then you must call this slot, either from a slot connected to <a href="qsslsocket.html#sslErrors">sslErrors</a>(), or before the handshake phase. If you don't call this slot, either in response to errors or before the handshake, the connection will be dropped after the <a href="qsslsocket.html#sslErrors">sslErrors</a>() signal has been emitted.</p>
 <p>If there are no errors during the SSL handshake phase (i.e&#x2e;, the identity of the peer is established with no problems), <a href="qsslsocket.html">QSslSocket</a> will not emit the <a href="qsslsocket.html#sslErrors">sslErrors</a>() signal, and it is unnecessary to call this function.</p>
 <p><b>Warning:</b> Be sure to always let the user inspect the errors reported by the <a href="qsslsocket.html#sslErrors">sslErrors</a>() signal, and only call this method upon confirmation from the user that proceeding is ok. If there are unexpected errors, the connection should be aborted. Calling this method without inspecting the actual errors will most likely pose a security risk for your application. Use it with great care!</p>
@@ -691,13 +691,13 @@
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <!-- @@@sslLibraryVersionString -->
 <!-- $$$startClientEncryption[overload1]$$$startClientEncryption -->
-<h3 class="fn" id="startClientEncryption"><a name="startClientEncryption"></a><code>[slot] </code><span class="type">void</span> QSslSocket::<span class="name">startClientEncryption</span>()</h3>
+<h3 class="fn" id="startClientEncryption"><a name="startClientEncryption"></a><code>[槽函数] </code><span class="type">void</span> QSslSocket::<span class="name">startClientEncryption</span>()</h3>
 <p>Starts a delayed SSL handshake for a client connection. This function can be called when the socket is in the <a href="qabstractsocket.html#SocketState-enum">ConnectedState</a> but still in the <a href="qsslsocket.html#SslMode-enum">UnencryptedMode</a>. If it is not yet connected, or if it is already encrypted, this function has no effect.</p>
 <p>Clients that implement STARTTLS functionality often make use of delayed SSL handshakes. Most other clients can avoid calling this function directly by using <a href="qsslsocket.html#connectToHostEncrypted">connectToHostEncrypted</a>() instead, which automatically performs the handshake.</p>
 <p><b> 参见 </b><a href="qsslsocket.html#connectToHostEncrypted">connectToHostEncrypted</a>() 和 <a href="qsslsocket.html#startServerEncryption">startServerEncryption</a>().</p>
 <!-- @@@startClientEncryption -->
 <!-- $$$startServerEncryption[overload1]$$$startServerEncryption -->
-<h3 class="fn" id="startServerEncryption"><a name="startServerEncryption"></a><code>[slot] </code><span class="type">void</span> QSslSocket::<span class="name">startServerEncryption</span>()</h3>
+<h3 class="fn" id="startServerEncryption"><a name="startServerEncryption"></a><code>[槽函数] </code><span class="type">void</span> QSslSocket::<span class="name">startServerEncryption</span>()</h3>
 <p>Starts a delayed SSL handshake for a server connection. This function can be called when the socket is in the <a href="qabstractsocket.html#SocketState-enum">ConnectedState</a> but still in <a href="qsslsocket.html#SslMode-enum">UnencryptedMode</a>. If it is not connected or it is already encrypted, the function has no effect.</p>
 <p>For server sockets, calling this function is the only way to initiate the SSL handshake. Most servers will call this function immediately upon receiving a connection, or as a result of having received a protocol-specific command to enter SSL mode (e.g, the server may respond to receiving the string &quot;STARTTLS\r\n&quot; by calling this function).</p>
 <p>The most common way to implement an SSL server is to create a subclass of <a href="qtcpserver.html">QTcpServer</a> and reimplement <a href="qtcpserver.html#incomingConnection">QTcpServer::incomingConnection</a>(). The returned socket descriptor is then passed to <a href="qsslsocket.html#setSocketDescriptor">QSslSocket::setSocketDescriptor</a>().</p>

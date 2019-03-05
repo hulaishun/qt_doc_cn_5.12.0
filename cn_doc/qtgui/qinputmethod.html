@@ -275,11 +275,11 @@
 <div class="func">
 <h2>成员函数文档</h2>
 <!-- $$$commit[overload1]$$$commit -->
-<h3 class="fn" id="commit"><a name="commit"></a><code>[slot] </code><span class="type">void</span> QInputMethod::<span class="name">commit</span>()</h3>
+<h3 class="fn" id="commit"><a name="commit"></a><code>[槽函数] </code><span class="type">void</span> QInputMethod::<span class="name">commit</span>()</h3>
 <p>Commits the word user is currently composing to the editor. The function is mostly needed by the input methods with text prediction features and by the methods where the script used for typing characters is different from the script that actually gets appended to the editor. Any kind of action that interrupts the text composing needs to flush the composing state by calling the commit() function, for example when the cursor is moved elsewhere.</p>
 <!-- @@@commit -->
 <!-- $$$hide[overload1]$$$hide -->
-<h3 class="fn" id="hide"><a name="hide"></a><code>[slot] </code><span class="type">void</span> QInputMethod::<span class="name">hide</span>()</h3>
+<h3 class="fn" id="hide"><a name="hide"></a><code>[槽函数] </code><span class="type">void</span> QInputMethod::<span class="name">hide</span>()</h3>
 <p>Requests virtual keyboard to close.</p>
 <p>Normally applications should not need to call this function, keyboard should automatically close when the text editor loses focus, for example when the parent view is closed.</p>
 <!-- @@@hide -->
@@ -295,7 +295,7 @@
 <p><b> 参见 </b><a href="qinputmethod.html#setInputItemTransform">setInputItemTransform</a>().</p>
 <!-- @@@inputItemTransform -->
 <!-- $$$invokeAction[overload1]$$$invokeActionQInputMethod::Actionint -->
-<h3 class="fn" id="invokeAction"><a name="invokeAction"></a><code>[slot] </code><span class="type">void</span> QInputMethod::<span class="name">invokeAction</span>(<span class="type"><a href="qinputmethod.html#Action-enum">QInputMethod::Action</a></span> <i>a</i>, <span class="type">int</span> <i>cursorPosition</i>)</h3>
+<h3 class="fn" id="invokeAction"><a name="invokeAction"></a><code>[槽函数] </code><span class="type">void</span> QInputMethod::<span class="name">invokeAction</span>(<span class="type"><a href="qinputmethod.html#Action-enum">QInputMethod::Action</a></span> <i>a</i>, <span class="type">int</span> <i>cursorPosition</i>)</h3>
 <p>Called by the input item when the word currently being composed is tapped by the user, as indicated by the action <i>a</i> and the given <i>cursorPosition</i>. Input methods often use this information to offer more word suggestions to the user.</p>
 <!-- @@@invokeAction -->
 <!-- $$$queryFocusObject[overload1]$$$queryFocusObjectQt::InputMethodQueryQVariant -->
@@ -303,7 +303,7 @@
 <p>Send <i>query</i> to the current focus object with parameters <i>argument</i> and return the result.</p>
 <!-- @@@queryFocusObject -->
 <!-- $$$reset[overload1]$$$reset -->
-<h3 class="fn" id="reset"><a name="reset"></a><code>[slot] </code><span class="type">void</span> QInputMethod::<span class="name">reset</span>()</h3>
+<h3 class="fn" id="reset"><a name="reset"></a><code>[槽函数] </code><span class="type">void</span> QInputMethod::<span class="name">reset</span>()</h3>
 <p>Resets the input method state. For example, a text editor normally calls this method before inserting a text to make widget ready to accept a text.</p>
 <p>Input method resets automatically when the focused editor changes.</p>
 <!-- @@@reset -->
@@ -324,12 +324,12 @@
 <p><b> 参见 </b><a href="qinputmethod.html#visible-prop">isVisible</a>(), <a href="qinputmethod.html#show">show</a>(), 和 <a href="qinputmethod.html#hide">hide</a>().</p>
 <!-- @@@setVisible -->
 <!-- $$$show[overload1]$$$show -->
-<h3 class="fn" id="show"><a name="show"></a><code>[slot] </code><span class="type">void</span> QInputMethod::<span class="name">show</span>()</h3>
+<h3 class="fn" id="show"><a name="show"></a><code>[槽函数] </code><span class="type">void</span> QInputMethod::<span class="name">show</span>()</h3>
 <p>Requests virtual keyboard to open. If the platform doesn't provide virtual keyboard the visibility remains false.</p>
 <p>Normally applications should not need to call this function, keyboard should automatically open when the text editor gains focus.</p>
 <!-- @@@show -->
 <!-- $$$update[overload1]$$$updateQt::InputMethodQueries -->
-<h3 class="fn" id="update"><a name="update"></a><code>[slot] </code><span class="type">void</span> QInputMethod::<span class="name">update</span>(<span class="type">Qt::InputMethodQueries</span> <i>queries</i>)</h3>
+<h3 class="fn" id="update"><a name="update"></a><code>[槽函数] </code><span class="type">void</span> QInputMethod::<span class="name">update</span>(<span class="type">Qt::InputMethodQueries</span> <i>queries</i>)</h3>
 <p>Called by the input item to inform the platform input methods when there has been state changes in editor's input method query attributes. When calling the function <i>queries</i> parameter has to be used to tell what has changes, which input method can use to make queries for attributes it's interested with <a href="qinputmethodqueryevent.html">QInputMethodQueryEvent</a>.</p>
 <p>In particular calling update whenever the cursor position changes is important as that often causes other query attributes like surrounding text and text selection to change as well. The attributes that often change together with cursor position have been grouped in <a href="../qtcore/qt.html#InputMethodQuery-enum">Qt::ImQueryInput</a> value for convenience.</p>
 <!-- @@@update -->

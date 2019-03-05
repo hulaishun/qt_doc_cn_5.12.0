@@ -318,7 +318,7 @@
 <p><b> 参见 </b><a href="qopengldebuglogger.html#startLogging">startLogging</a>().</p>
 <!-- @@@isLogging -->
 <!-- $$$logMessage[overload1]$$$logMessageconstQOpenGLDebugMessage& -->
-<h3 class="fn" id="logMessage"><a name="logMessage"></a><code>[slot] </code><span class="type">void</span> QOpenGLDebugLogger::<span class="name">logMessage</span>(const <span class="type"><a href="qopengldebugmessage.html">QOpenGLDebugMessage</a></span> &amp;<i>debugMessage</i>)</h3>
+<h3 class="fn" id="logMessage"><a name="logMessage"></a><code>[槽函数] </code><span class="type">void</span> QOpenGLDebugLogger::<span class="name">logMessage</span>(const <span class="type"><a href="qopengldebugmessage.html">QOpenGLDebugMessage</a></span> &amp;<i>debugMessage</i>)</h3>
 <p>Inserts the message <i>debugMessage</i> into the OpenGL debug log. This provides a way for applications or libraries to insert custom messages that can ease the debugging of OpenGL applications.</p>
 <p><b>Note: </b><i>debugMessage</i> must have <a href="qopengldebugmessage.html#Source-enum">QOpenGLDebugMessage::ApplicationSource</a> or <a href="qopengldebugmessage.html#Source-enum">QOpenGLDebugMessage::ThirdPartySource</a> as its source, and a valid type and severity, otherwise it will not be inserted into the log.</p><p><b>Note: </b>The object must be initialized before logging can happen.</p><p><b> 参见 </b><a href="qopengldebuglogger.html#initialize">initialize</a>().</p>
 <!-- @@@logMessage -->
@@ -330,7 +330,7 @@
 <!-- $$$loggingMode -->
 <h3 class="fn" id="loggingMode"><a name="loggingMode"></a><span class="type"><a href="qopengldebuglogger.html#LoggingMode-enum">QOpenGLDebugLogger::LoggingMode</a></span> QOpenGLDebugLogger::<span class="name">loggingMode</span>() const</h3>
 <p>Returns the logging mode of the object.</p>
-<p><b>Note:</b> Getter function for property <a href="qopengldebuglogger.html#loggingMode-prop">loggingMode</a>. </p><p><b> 参见 </b><a href="qopengldebuglogger.html#startLogging">startLogging</a>().</p>
+<p><b>注意：</b> 此获取函数来自于属性 <a href="qopengldebuglogger.html#loggingMode-prop">loggingMode</a>. </p><p><b> 参见 </b><a href="qopengldebuglogger.html#startLogging">startLogging</a>().</p>
 <!-- @@@loggingMode -->
 <!-- $$$maximumMessageLength[overload1]$$$maximumMessageLength -->
 <h3 class="fn" id="maximumMessageLength"><a name="maximumMessageLength"></a><span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> QOpenGLDebugLogger::<span class="name">maximumMessageLength</span>() const</h3>
@@ -357,14 +357,14 @@
 <p><b>Note: </b>The <i>source</i> must either be <a href="qopengldebugmessage.html#Source-enum">QOpenGLDebugMessage::ApplicationSource</a> or <a href="qopengldebugmessage.html#Source-enum">QOpenGLDebugMessage::ThirdPartySource</a>, otherwise the group will not be pushed.</p><p><b>Note: </b>The object must be initialized before managing debug groups.</p><p><b> 参见 </b><a href="qopengldebuglogger.html#popGroup">popGroup</a>(), <a href="qopengldebuglogger.html#enableMessages">enableMessages</a>(), 和 <a href="qopengldebuglogger.html#disableMessages">disableMessages</a>().</p>
 <!-- @@@pushGroup -->
 <!-- $$$startLogging[overload1]$$$startLoggingQOpenGLDebugLogger::LoggingMode -->
-<h3 class="fn" id="startLogging"><a name="startLogging"></a><code>[slot] </code><span class="type">void</span> QOpenGLDebugLogger::<span class="name">startLogging</span>(<span class="type"><a href="qopengldebuglogger.html#LoggingMode-enum">QOpenGLDebugLogger::LoggingMode</a></span> <i>loggingMode</i> = AsynchronousLogging)</h3>
+<h3 class="fn" id="startLogging"><a name="startLogging"></a><code>[槽函数] </code><span class="type">void</span> QOpenGLDebugLogger::<span class="name">startLogging</span>(<span class="type"><a href="qopengldebuglogger.html#LoggingMode-enum">QOpenGLDebugLogger::LoggingMode</a></span> <i>loggingMode</i> = AsynchronousLogging)</h3>
 <p>Starts logging messages coming from the OpenGL server. When a new message is received, the signal <a href="qopengldebuglogger.html#messageLogged">messageLogged</a>() is emitted, carrying the logged message as argument.</p>
 <p><i>loggingMode</i> specifies whether the logging must be asynchronous (the default) or synchronous.</p>
 <p><a href="qopengldebuglogger.html">QOpenGLDebugLogger</a> will record the values of <code>GL_DEBUG_OUTPUT</code> and <code>GL_DEBUG_OUTPUT_SYNCHRONOUS</code> when logging is started, and set them back when logging is stopped. Moreover, any user-defined OpenGL debug callback installed when this function is invoked will be restored when logging is stopped; <a href="qopengldebuglogger.html">QOpenGLDebugLogger</a> will ensure that the pre-existing callback will still be invoked when logging.</p>
 <p><b>Note: </b>It's not possible to change the logging mode without stopping and starting logging again. This might change in a future version of Qt.</p><p><b>Note: </b>The object must be initialized before logging can happen.</p><p><b> 参见 </b><a href="qopengldebuglogger.html#stopLogging">stopLogging</a>() 和 <a href="qopengldebuglogger.html#initialize">initialize</a>().</p>
 <!-- @@@startLogging -->
 <!-- $$$stopLogging[overload1]$$$stopLogging -->
-<h3 class="fn" id="stopLogging"><a name="stopLogging"></a><code>[slot] </code><span class="type">void</span> QOpenGLDebugLogger::<span class="name">stopLogging</span>()</h3>
+<h3 class="fn" id="stopLogging"><a name="stopLogging"></a><code>[槽函数] </code><span class="type">void</span> QOpenGLDebugLogger::<span class="name">stopLogging</span>()</h3>
 <p>Stops logging messages from the OpenGL server.</p>
 <p><b> 参见 </b><a href="qopengldebuglogger.html#startLogging">startLogging</a>().</p>
 <!-- @@@stopLogging -->

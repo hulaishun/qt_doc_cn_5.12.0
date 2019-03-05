@@ -265,11 +265,11 @@
 <p>Signal emitted when the buffer <i>format</i> for the buffer image capture has changed.</p>
 <!-- @@@bufferFormatChanged -->
 <!-- $$$cancelCapture[overload1]$$$cancelCapture -->
-<h3 class="fn" id="cancelCapture"><a name="cancelCapture"></a><code>[slot] </code><span class="type">void</span> QCameraImageCapture::<span class="name">cancelCapture</span>()</h3>
+<h3 class="fn" id="cancelCapture"><a name="cancelCapture"></a><code>[槽函数] </code><span class="type">void</span> QCameraImageCapture::<span class="name">cancelCapture</span>()</h3>
 <p>Cancel incomplete capture requests. Already captured and queused for proicessing images may be discarded.</p>
 <!-- @@@cancelCapture -->
 <!-- $$$capture[overload1]$$$captureconstQString& -->
-<h3 class="fn" id="capture"><a name="capture"></a><code>[slot] </code><span class="type">int</span> QCameraImageCapture::<span class="name">capture</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>file</i> = QString())</h3>
+<h3 class="fn" id="capture"><a name="capture"></a><code>[槽函数] </code><span class="type">int</span> QCameraImageCapture::<span class="name">capture</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>file</i> = QString())</h3>
 <p>Capture the image and save it to <i>file</i>. This operation is asynchronous in majority of cases, followed by signals <a href="qcameraimagecapture.html#imageExposed">QCameraImageCapture::imageExposed</a>(), <a href="qcameraimagecapture.html#imageCaptured">QCameraImageCapture::imageCaptured</a>(), <a href="qcameraimagecapture.html#imageSaved">QCameraImageCapture::imageSaved</a>() or <a href="qcameraimagecapture.html#error">QCameraImageCapture::error</a>().</p>
 <p>If an empty <i>file</i> is passed, the camera backend choses the default location and naming scheme for photos on the system, if only file name without full path is specified, the image will be saved to the default directory, with a full path reported with <a href="qcameraimagecapture.html#imageCaptured">imageCaptured</a>() 和 <a href="qcameraimagecapture.html#imageSaved">imageSaved</a>() signals.</p>
 <p><a href="qcamera.html">QCamera</a> saves all the capture parameters like exposure settings or image processing parameters, so changes to camera parameters after capture() is called do not affect previous capture requests.</p>
@@ -352,7 +352,7 @@
 <!-- $$$readyForCaptureChanged -->
 <h3 class="fn" id="readyForCaptureChanged"><a name="readyForCaptureChanged"></a><code>[信号] </code><span class="type">void</span> QCameraImageCapture::<span class="name">readyForCaptureChanged</span>(<span class="type">bool</span> <i>ready</i>)</h3>
 <p>Signals that a camera's <i>ready</i> for capture state has changed.</p>
-<p><b>Note:</b> Notifier signal for property <a href="qcameraimagecapture.html#readyForCapture-prop">readyForCapture</a>. </p><!-- @@@readyForCaptureChanged -->
+<p><b>注意：</b> 此通知信号来自于属性 <a href="qcameraimagecapture.html#readyForCapture-prop">readyForCapture</a>. </p><!-- @@@readyForCaptureChanged -->
 <!-- $$$setBufferFormat[overload1]$$$setBufferFormatconstQVideoFrame::PixelFormat -->
 <h3 class="fn" id="setBufferFormat"><a name="setBufferFormat"></a><span class="type">void</span> QCameraImageCapture::<span class="name">setBufferFormat</span>(const <span class="type"><a href="qvideoframe.html#PixelFormat-enum">QVideoFrame::PixelFormat</a></span> <i>format</i>)</h3>
 <p>Sets the buffer image capture <i>format</i> to be used.</p>
