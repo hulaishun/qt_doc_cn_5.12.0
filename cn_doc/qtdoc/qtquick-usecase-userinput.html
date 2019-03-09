@@ -89,7 +89,7 @@
 <p>For more advanced use cases such as, drag, pinch and zoom gestures, see documentation for the <a href="../qtquick/qml-qtquick-draghandler.html">DragHandler</a> 和 <a href="../qtquick/qml-qtquick-pinchhandler.html">PinchHandler</a> types.</p>
 <p><b>Note: </b>Some types have their own built-in input handling. For example, <a href="../qtquick/qml-qtquick-flickable.html">Flickable</a> responds to mouse dragging and mouse wheel scrolling. It handles touch dragging and flicking via synthetic mouse events that are created when the touch events are not handled.</p><a name="keyboard-and-button-events"></a>
 <h3 >Keyboard and button events</h3>
-<p>Button and key presses, from buttons on a device, a keypad, or a keyboard, can all be handled using the <a href="../qtquick/qml-qtquick-keys.html">Keys</a> attached property. This attached property is available on all <a href="../qtquick/qml-qtquick-item.html">Item</a> derived types, and works with the <a href="../qtquick/qml-qtquick-item.html#focus-prop">Item::focus</a> property to determine which type receives the key event. For simple key handling, you can set the focus to true on a single <a href="../qtquick/qml-qtquick-item.html">Item</a> and do all your key handling there.</p>
+<p>Button and key presses, from buttons on a device, a keypad, or a keyboard, can all be handled using the <a href="../qtquick/qml-qtquick-keys.html">键盘</a> attached property. This attached property is available on all <a href="../qtquick/qml-qtquick-item.html">Item</a> derived types, and works with the <a href="../qtquick/qml-qtquick-item.html#focus-prop">Item::focus</a> property to determine which type receives the key event. For simple key handling, you can set the focus to true on a single <a href="../qtquick/qml-qtquick-item.html">Item</a> and do all your key handling there.</p>
 <pre class="qml">
 
   import QtQuick 2.3
@@ -115,10 +115,10 @@
           <span class="name">color</span>: <span class="string">&quot;red&quot;</span>
 
           <span class="name">focus</span>: <span class="number">true</span>
-          <span class="name">Keys</span>.onUpPressed: <span class="name">rectangle</span>.<span class="name">y</span> <span class="operator">-=</span> <span class="number">10</span>
-          <span class="name">Keys</span>.onDownPressed: <span class="name">rectangle</span>.<span class="name">y</span> <span class="operator">+=</span> <span class="number">10</span>
-          <span class="name">Keys</span>.onLeftPressed: <span class="name">rectangle</span>.<span class="name">x</span> <span class="operator">+=</span> <span class="number">10</span>
-          <span class="name">Keys</span>.onRightPressed: <span class="name">rectangle</span>.<span class="name">x</span> <span class="operator">-=</span> <span class="number">10</span>
+          <span class="name">键盘</span>.onUpPressed: <span class="name">rectangle</span>.<span class="name">y</span> <span class="operator">-=</span> <span class="number">10</span>
+          <span class="name">键盘</span>.onDownPressed: <span class="name">rectangle</span>.<span class="name">y</span> <span class="operator">+=</span> <span class="number">10</span>
+          <span class="name">键盘</span>.onLeftPressed: <span class="name">rectangle</span>.<span class="name">x</span> <span class="operator">+=</span> <span class="number">10</span>
+          <span class="name">键盘</span>.onRightPressed: <span class="name">rectangle</span>.<span class="name">x</span> <span class="operator">-=</span> <span class="number">10</span>
       }
   }
 

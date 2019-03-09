@@ -177,24 +177,24 @@
 </pre>
 <a name="key-handling"></a>
 <h3 >Key Handling</h3>
-<p>Key handling is available to all Item-based visual types via the <a href="qml-qtquick-keys.html">Keys</a> attached property. The <i>Keys</i> attached property provides basic signals such as <a href="qml-qtquick-keys.html#pressed-signal">pressed</a> 和 <a href="qml-qtquick-keys.html#released-signal">released</a>, as well as signals for specific keys, such as <a href="qml-qtquick-keys.html#spacePressed-signal">spacePressed</a>. The example below assigns <a href="qtquick-input-focus.html">keyboard focus</a> to the item and handles the left key via the general <code>onPressed</code> handler and the return key via the <code>onReturnPressed</code> handler:</p>
+<p>Key handling is available to all Item-based visual types via the <a href="qml-qtquick-keys.html">键盘</a> attached property. The <i>键盘</i> attached property provides basic signals such as <a href="qml-qtquick-keys.html#pressed-signal">pressed</a> 和 <a href="qml-qtquick-keys.html#released-signal">released</a>, as well as signals for specific keys, such as <a href="qml-qtquick-keys.html#spacePressed-signal">spacePressed</a>. The example below assigns <a href="qtquick-input-focus.html">keyboard focus</a> to the item and handles the left key via the general <code>onPressed</code> handler and the return key via the <code>onReturnPressed</code> handler:</p>
 <pre class="qml">
 
   import QtQuick 2.0
 
   <span class="type"><a href="qml-qtquick-item.html">Item</a></span> {
       <span class="name">focus</span>: <span class="number">true</span>
-      <span class="name">Keys</span>.onPressed: {
+      <span class="name">键盘</span>.onPressed: {
           <span class="keyword">if</span> (<span class="name">event</span>.<span class="name">key</span> <span class="operator">==</span> <span class="name">Qt</span>.<span class="name">Key_Left</span>) {
               <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;move left&quot;</span>);
               <span class="name">event</span>.<span class="name">accepted</span> <span class="operator">=</span> <span class="number">true</span>;
           }
       }
-      <span class="name">Keys</span>.onReturnPressed: <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;Pressed return&quot;</span>);
+      <span class="name">键盘</span>.onReturnPressed: <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;Pressed return&quot;</span>);
   }
 
 </pre>
-<p>See the <a href="qml-qtquick-keys.html">Keys</a> attached property for detailed documentation.</p>
+<p>See the <a href="qml-qtquick-keys.html">键盘</a> attached property for detailed documentation.</p>
 <a name="layout-mirroring"></a>
 <h3 >Layout Mirroring</h3>
 <p>Item layouts can be mirrored using the <a href="qml-qtquick-layoutmirroring.html">LayoutMirroring</a> attached property. This causes <a href="qml-qtquick-item.html#anchors.top-prop">anchors</a> to be horizontally reversed, and also causes items that lay out or position their children (such as <a href="qml-qtquick-listview.html">ListView</a> or <a href="qml-qtquick-row.html">Row</a>) to horizontally reverse the direction of their layouts.</p>

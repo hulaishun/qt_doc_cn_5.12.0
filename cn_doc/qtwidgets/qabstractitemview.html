@@ -314,7 +314,7 @@
 <p>The <a href="qabstractitemview.html">QAbstractItemView</a> class provides the basic functionality for item view classes.</p>
 <p><a href="qabstractitemview.html">QAbstractItemView</a> class is the base class for every standard view that uses a <a href="../qtcore/qabstractitemmodel.html">QAbstractItemModel</a>. <a href="qabstractitemview.html">QAbstractItemView</a> is an abstract class and cannot itself be instantiated. It provides a standard interface for interoperating with models through the signals and slots mechanism, enabling subclasses to be kept up-to-date with changes to their models. This class provides standard support for keyboard and mouse navigation, viewport scrolling, item editing, and selections. The keyboard navigation implements this functionality:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Keys</th><th >Functionality</th></tr></thead>
+ <thead><tr class="qt-style"><th >键盘</th><th >功能</th></tr></thead>
 <tr valign="top" class="odd"><td >Arrow keys</td><td >Changes the current item and selects it.</td></tr>
 <tr valign="top" class="even"><td >Ctrl+Arrow keys</td><td >Changes the current item but does not select it.</td></tr>
 <tr valign="top" class="odd"><td >Shift+Arrow keys</td><td >Changes the current item and selects it. The previously selected item(s) is not deselected.</td></tr>
@@ -662,7 +662,7 @@
 <p><b> 参见 </b><a href="qabstractitemview.html#activated">activated</a>(), <a href="qabstractitemview.html#doubleClicked">doubleClicked</a>(), <a href="qabstractitemview.html#entered">entered</a>(), 和 <a href="qabstractitemview.html#pressed">pressed</a>().</p>
 <!-- @@@clicked -->
 <!-- $$$closeEditor[overload1]$$$closeEditorQWidget*QAbstractItemDelegate::EndEditHint -->
-<h3 class="fn" id="closeEditor"><a name="closeEditor"></a><code>[virtual protected slot] </code><span class="type">void</span> QAbstractItemView::<span class="name">closeEditor</span>(<span class="type"><a href="qwidget.html#QWidget">QWidget</a></span> *<i>editor</i>, <span class="type"><a href="qabstractitemdelegate.html#EndEditHint-enum">QAbstractItemDelegate::EndEditHint</a></span> <i>hint</i>)</h3>
+<h3 class="fn" id="closeEditor"><a name="closeEditor"></a><code>[虚保护槽函数] </code><span class="type">void</span> QAbstractItemView::<span class="name">closeEditor</span>(<span class="type"><a href="qwidget.html#QWidget">QWidget</a></span> *<i>editor</i>, <span class="type"><a href="qabstractitemdelegate.html#EndEditHint-enum">QAbstractItemDelegate::EndEditHint</a></span> <i>hint</i>)</h3>
 <p>Closes the given <i>editor</i>, and releases it. The <i>hint</i> is used to specify how the view should respond to the end of the editing operation. For example, the hint may indicate that the next item in the view should be opened for editing.</p>
 <p><b> 参见 </b><a href="qabstractitemview.html#edit">edit</a>() 和 <a href="qabstractitemview.html#commitData">commitData</a>().</p>
 <!-- @@@closeEditor -->
@@ -672,12 +672,12 @@
 <p><b> 参见 </b><a href="qabstractitemview.html#openPersistentEditor">openPersistentEditor</a>() 和 <a href="qabstractitemview.html#isPersistentEditorOpen">isPersistentEditorOpen</a>().</p>
 <!-- @@@closePersistentEditor -->
 <!-- $$$commitData[overload1]$$$commitDataQWidget* -->
-<h3 class="fn" id="commitData"><a name="commitData"></a><code>[virtual protected slot] </code><span class="type">void</span> QAbstractItemView::<span class="name">commitData</span>(<span class="type"><a href="qwidget.html#QWidget">QWidget</a></span> *<i>editor</i>)</h3>
+<h3 class="fn" id="commitData"><a name="commitData"></a><code>[虚保护槽函数] </code><span class="type">void</span> QAbstractItemView::<span class="name">commitData</span>(<span class="type"><a href="qwidget.html#QWidget">QWidget</a></span> *<i>editor</i>)</h3>
 <p>Commit the data in the <i>editor</i> to the model.</p>
 <p><b> 参见 </b><a href="qabstractitemview.html#closeEditor">closeEditor</a>().</p>
 <!-- @@@commitData -->
 <!-- $$$currentChanged[overload1]$$$currentChangedconstQModelIndex&constQModelIndex& -->
-<h3 class="fn" id="currentChanged"><a name="currentChanged"></a><code>[virtual protected slot] </code><span class="type">void</span> QAbstractItemView::<span class="name">currentChanged</span>(const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>current</i>, const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>previous</i>)</h3>
+<h3 class="fn" id="currentChanged"><a name="currentChanged"></a><code>[虚保护槽函数] </code><span class="type">void</span> QAbstractItemView::<span class="name">currentChanged</span>(const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>current</i>, const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>previous</i>)</h3>
 <p>This slot is called when a new item becomes the current item. The previous current item is specified by the <i>previous</i> index, and the new item by the <i>current</i> index.</p>
 <p>If you want to know about changes to items see the <a href="qabstractitemview.html#dataChanged">dataChanged</a>() signal.</p>
 <!-- @@@currentChanged -->
@@ -687,7 +687,7 @@
 <p><b> 参见 </b><a href="qabstractitemview.html#setCurrentIndex">setCurrentIndex</a>().</p>
 <!-- @@@currentIndex -->
 <!-- $$$dataChanged[overload1]$$$dataChangedconstQModelIndex&constQModelIndex&constQVector<int>& -->
-<h3 class="fn" id="dataChanged"><a name="dataChanged"></a><code>[virtual protected slot] </code><span class="type">void</span> QAbstractItemView::<span class="name">dataChanged</span>(const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>topLeft</i>, const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>bottomRight</i>, const <span class="type"><a href="../qtcore/qvector.html">QVector</a></span>&lt;<span class="type">int</span>&gt; &amp;<i>roles</i> = QVector&lt;int&gt;())</h3>
+<h3 class="fn" id="dataChanged"><a name="dataChanged"></a><code>[虚保护槽函数] </code><span class="type">void</span> QAbstractItemView::<span class="name">dataChanged</span>(const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>topLeft</i>, const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>bottomRight</i>, const <span class="type"><a href="../qtcore/qvector.html">QVector</a></span>&lt;<span class="type">int</span>&gt; &amp;<i>roles</i> = QVector&lt;int&gt;())</h3>
 <p>This slot is called when items with the given <i>roles</i> are changed in the model. The changed items are those from <i>topLeft</i> to <i>bottomRight</i> inclusive. If just one item is changed <i>topLeft</i> == <i>bottomRight</i>.</p>
 <p>The <i>roles</i> which have been changed can either be an empty container (meaning everything has changed), or a non-empty container with the subset of roles which have changed.</p>
 <!-- @@@dataChanged -->
@@ -744,7 +744,7 @@
 <p><b> 参见 </b><a href="qabstractitemview.html#closeEditor">closeEditor</a>().</p>
 <!-- @@@edit -->
 <!-- $$$editorDestroyed[overload1]$$$editorDestroyedQObject* -->
-<h3 class="fn" id="editorDestroyed"><a name="editorDestroyed"></a><code>[virtual protected slot] </code><span class="type">void</span> QAbstractItemView::<span class="name">editorDestroyed</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>editor</i>)</h3>
+<h3 class="fn" id="editorDestroyed"><a name="editorDestroyed"></a><code>[虚保护槽函数] </code><span class="type">void</span> QAbstractItemView::<span class="name">editorDestroyed</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>editor</i>)</h3>
 <p>This function is called when the given <i>editor</i> has been destroyed.</p>
 <p><b> 参见 </b><a href="qabstractitemview.html#closeEditor">closeEditor</a>().</p>
 <!-- @@@editorDestroyed -->
@@ -784,13 +784,13 @@
 <!-- $$$horizontalOffset[overload1]$$$horizontalOffset -->
 <h3 class="fn" id="horizontalOffset"><a name="horizontalOffset"></a><code>[纯虚保护函数] </code><span class="type">int</span> QAbstractItemView::<span class="name">horizontalOffset</span>() const</h3>
 <p>Returns the horizontal offset of the view.</p>
-<p>In the base class this is a pure virtual function.</p>
+<p>在基类中，这是一个纯虚函数。</p>
 <p><b> 参见 </b><a href="qabstractitemview.html#verticalOffset">verticalOffset</a>().</p>
 <!-- @@@horizontalOffset -->
 <!-- $$$indexAt[overload1]$$$indexAtconstQPoint& -->
 <h3 class="fn" id="indexAt"><a name="indexAt"></a><code>[纯虚函数] </code><span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> QAbstractItemView::<span class="name">indexAt</span>(const <span class="type"><a href="../qtcore/qpoint.html">QPoint</a></span> &amp;<i>point</i>) const</h3>
 <p>Returns the model index of the item at the viewport coordinates <i>point</i>.</p>
-<p>In the base class this is a pure virtual function.</p>
+<p>在基类中，这是一个纯虚函数。</p>
 <p><b> 参见 </b><a href="qabstractitemview.html#visualRect">visualRect</a>().</p>
 <!-- @@@indexAt -->
 <!-- $$$indexWidget[overload1]$$$indexWidgetconstQModelIndex& -->
@@ -811,7 +811,7 @@
 <h3 class="fn" id="isIndexHidden"><a name="isIndexHidden"></a><code>[纯虚保护函数] </code><span class="type">bool</span> QAbstractItemView::<span class="name">isIndexHidden</span>(const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>) const</h3>
 <p>Returns <code>true</code> if the item referred to by the given <i>index</i> is hidden in the view, otherwise returns <code>false</code>.</p>
 <p>Hiding is a view specific feature. For example in <a href="../qtquick/qml-qtquick-tableview.html">TableView</a> a column can be marked as hidden or a row in the TreeView.</p>
-<p>In the base class this is a pure virtual function.</p>
+<p>在基类中，这是一个纯虚函数。</p>
 <!-- @@@isIndexHidden -->
 <!-- $$$isPersistentEditorOpen[overload1]$$$isPersistentEditorOpenconstQModelIndex& -->
 <h3 class="fn" id="isPersistentEditorOpen"><a name="isPersistentEditorOpen"></a><span class="type">bool</span> QAbstractItemView::<span class="name">isPersistentEditorOpen</span>(const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>) const</h3>
@@ -879,7 +879,7 @@
 <!-- $$$moveCursor[overload1]$$$moveCursorQAbstractItemView::CursorActionQt::KeyboardModifiers -->
 <h3 class="fn" id="moveCursor"><a name="moveCursor"></a><code>[纯虚保护函数] </code><span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> QAbstractItemView::<span class="name">moveCursor</span>(<span class="type"><a href="qabstractitemview.html#CursorAction-enum">QAbstractItemView::CursorAction</a></span> <i>cursorAction</i>, <span class="type">Qt::KeyboardModifiers</span> <i>modifiers</i>)</h3>
 <p>Returns a <a href="../qtcore/qmodelindex.html">QModelIndex</a> object pointing to the next object in the view, based on the given <i>cursorAction</i> and keyboard modifiers specified by <i>modifiers</i>.</p>
-<p>In the base class this is a pure virtual function.</p>
+<p>在基类中，这是一个纯虚函数。</p>
 <!-- @@@moveCursor -->
 <!-- $$$openPersistentEditor[overload1]$$$openPersistentEditorconstQModelIndex& -->
 <h3 class="fn" id="openPersistentEditor"><a name="openPersistentEditor"></a><span class="type">void</span> QAbstractItemView::<span class="name">openPersistentEditor</span>(const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>)</h3>
@@ -893,7 +893,7 @@
 <p><b> 参见 </b><a href="qabstractitemview.html#activated">activated</a>(), <a href="qabstractitemview.html#clicked">clicked</a>(), <a href="qabstractitemview.html#doubleClicked">doubleClicked</a>(), 和 <a href="qabstractitemview.html#entered">entered</a>().</p>
 <!-- @@@pressed -->
 <!-- $$$reset[overload1]$$$reset -->
-<h3 class="fn" id="reset"><a name="reset"></a><code>[virtual slot] </code><span class="type">void</span> QAbstractItemView::<span class="name">reset</span>()</h3>
+<h3 class="fn" id="reset"><a name="reset"></a><code>[虚槽函数] </code><span class="type">void</span> QAbstractItemView::<span class="name">reset</span>()</h3>
 <p>Reset the internal state of the view.</p>
 <p><b>Warning:</b> This function will reset open editors, scroll bar positions, selections, etc. Existing changes will not be committed. If you would like to save your changes when resetting the view, you can reimplement this function, commit your changes, and then call the superclass' implementation.</p>
 <!-- @@@reset -->
@@ -909,12 +909,12 @@
 <p><b> 参见 </b><a href="qabstractitemview.html#setRootIndex">setRootIndex</a>().</p>
 <!-- @@@rootIndex -->
 <!-- $$$rowsAboutToBeRemoved[overload1]$$$rowsAboutToBeRemovedconstQModelIndex&intint -->
-<h3 class="fn" id="rowsAboutToBeRemoved"><a name="rowsAboutToBeRemoved"></a><code>[virtual protected slot] </code><span class="type">void</span> QAbstractItemView::<span class="name">rowsAboutToBeRemoved</span>(const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i>, <span class="type">int</span> <i>start</i>, <span class="type">int</span> <i>end</i>)</h3>
+<h3 class="fn" id="rowsAboutToBeRemoved"><a name="rowsAboutToBeRemoved"></a><code>[虚保护槽函数] </code><span class="type">void</span> QAbstractItemView::<span class="name">rowsAboutToBeRemoved</span>(const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i>, <span class="type">int</span> <i>start</i>, <span class="type">int</span> <i>end</i>)</h3>
 <p>This slot is called when rows are about to be removed. The deleted rows are those under the given <i>parent</i> from <i>start</i> to <i>end</i> inclusive.</p>
 <p><b> 参见 </b><a href="qabstractitemview.html#rowsInserted">rowsInserted</a>().</p>
 <!-- @@@rowsAboutToBeRemoved -->
 <!-- $$$rowsInserted[overload1]$$$rowsInsertedconstQModelIndex&intint -->
-<h3 class="fn" id="rowsInserted"><a name="rowsInserted"></a><code>[virtual protected slot] </code><span class="type">void</span> QAbstractItemView::<span class="name">rowsInserted</span>(const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i>, <span class="type">int</span> <i>start</i>, <span class="type">int</span> <i>end</i>)</h3>
+<h3 class="fn" id="rowsInserted"><a name="rowsInserted"></a><code>[虚保护槽函数] </code><span class="type">void</span> QAbstractItemView::<span class="name">rowsInserted</span>(const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i>, <span class="type">int</span> <i>start</i>, <span class="type">int</span> <i>end</i>)</h3>
 <p>This slot is called when rows are inserted. The new rows are those under the given <i>parent</i> from <i>start</i> to <i>end</i> inclusive. The base class implementation calls fetchMore() on the model to check for more data.</p>
 <p><b> 参见 </b><a href="qabstractitemview.html#rowsAboutToBeRemoved">rowsAboutToBeRemoved</a>().</p>
 <!-- @@@rowsInserted -->
@@ -933,7 +933,7 @@
 <!-- $$$scrollTo[overload1]$$$scrollToconstQModelIndex&QAbstractItemView::ScrollHint -->
 <h3 class="fn" id="scrollTo"><a name="scrollTo"></a><code>[纯虚函数] </code><span class="type">void</span> QAbstractItemView::<span class="name">scrollTo</span>(const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>, <span class="type"><a href="qabstractitemview.html#ScrollHint-enum">QAbstractItemView::ScrollHint</a></span> <i>hint</i> = EnsureVisible)</h3>
 <p>Scrolls the view if necessary to ensure that the item at <i>index</i> is visible. The view will try to position the item according to the given <i>hint</i>.</p>
-<p>In the base class this is a pure virtual function.</p>
+<p>在基类中，这是一个纯虚函数。</p>
 <!-- @@@scrollTo -->
 <!-- $$$scrollToBottom[overload1]$$$scrollToBottom -->
 <h3 class="fn" id="scrollToBottom"><a name="scrollToBottom"></a><code>[槽函数] </code><span class="type">void</span> QAbstractItemView::<span class="name">scrollToBottom</span>()</h3>
@@ -948,7 +948,7 @@
 <p><b> 参见 </b><a href="qabstractitemview.html#scrollTo">scrollTo</a>() 和 <a href="qabstractitemview.html#scrollToBottom">scrollToBottom</a>().</p>
 <!-- @@@scrollToTop -->
 <!-- $$$selectAll[overload1]$$$selectAll -->
-<h3 class="fn" id="selectAll"><a name="selectAll"></a><code>[virtual slot] </code><span class="type">void</span> QAbstractItemView::<span class="name">selectAll</span>()</h3>
+<h3 class="fn" id="selectAll"><a name="selectAll"></a><code>[虚槽函数] </code><span class="type">void</span> QAbstractItemView::<span class="name">selectAll</span>()</h3>
 <p>Selects all items in the view. This function will use the selection behavior set on the view when selecting.</p>
 <p><b> 参见 </b><a href="qabstractitemview.html#setSelection">setSelection</a>(), <a href="qabstractitemview.html#selectedIndexes">selectedIndexes</a>(), 和 <a href="qabstractitemview.html#clearSelection">clearSelection</a>().</p>
 <!-- @@@selectAll -->
@@ -958,7 +958,7 @@
 <p><b> 参见 </b><a href="../qtcore/qitemselectionmodel.html#selectedIndexes">QItemSelectionModel::selectedIndexes</a>().</p>
 <!-- @@@selectedIndexes -->
 <!-- $$$selectionChanged[overload1]$$$selectionChangedconstQItemSelection&constQItemSelection& -->
-<h3 class="fn" id="selectionChanged"><a name="selectionChanged"></a><code>[virtual protected slot] </code><span class="type">void</span> QAbstractItemView::<span class="name">selectionChanged</span>(const <span class="type"><a href="../qtcore/qitemselection.html">QItemSelection</a></span> &amp;<i>selected</i>, const <span class="type"><a href="../qtcore/qitemselection.html">QItemSelection</a></span> &amp;<i>deselected</i>)</h3>
+<h3 class="fn" id="selectionChanged"><a name="selectionChanged"></a><code>[虚保护槽函数] </code><span class="type">void</span> QAbstractItemView::<span class="name">selectionChanged</span>(const <span class="type"><a href="../qtcore/qitemselection.html">QItemSelection</a></span> &amp;<i>selected</i>, const <span class="type"><a href="../qtcore/qitemselection.html">QItemSelection</a></span> &amp;<i>deselected</i>)</h3>
 <p>This slot is called when the selection is changed. The previous selection (which may be empty), is specified by <i>deselected</i>, and the new selection by <i>selected</i>.</p>
 <p><b> 参见 </b><a href="qabstractitemview.html#setSelection">setSelection</a>().</p>
 <!-- @@@selectionChanged -->
@@ -1043,7 +1043,7 @@
 <p><b> 参见 </b><a href="qabstractitemview.html#model">model</a>(), <a href="qabstractitemview.html#selectionModel">selectionModel</a>(), 和 <a href="qabstractitemview.html#setSelectionModel">setSelectionModel</a>().</p>
 <!-- @@@setModel -->
 <!-- $$$setRootIndex[overload1]$$$setRootIndexconstQModelIndex& -->
-<h3 class="fn" id="setRootIndex"><a name="setRootIndex"></a><code>[virtual slot] </code><span class="type">void</span> QAbstractItemView::<span class="name">setRootIndex</span>(const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>)</h3>
+<h3 class="fn" id="setRootIndex"><a name="setRootIndex"></a><code>[虚槽函数] </code><span class="type">void</span> QAbstractItemView::<span class="name">setRootIndex</span>(const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>)</h3>
 <p>Sets the root item to the item at the given <i>index</i>.</p>
 <p><b> 参见 </b><a href="qabstractitemview.html#rootIndex">rootIndex</a>().</p>
 <!-- @@@setRootIndex -->
@@ -1103,14 +1103,14 @@
 <p>这个函数是在Qt 4.3版本中新增引入的。</p>
 <!-- @@@update -->
 <!-- $$$updateGeometries[overload1]$$$updateGeometries -->
-<h3 class="fn" id="updateGeometries"><a name="updateGeometries"></a><code>[virtual protected slot] </code><span class="type">void</span> QAbstractItemView::<span class="name">updateGeometries</span>()</h3>
+<h3 class="fn" id="updateGeometries"><a name="updateGeometries"></a><code>[虚保护槽函数] </code><span class="type">void</span> QAbstractItemView::<span class="name">updateGeometries</span>()</h3>
 <p>Updates the geometry of the child widgets of the view.</p>
 <p>这个函数是在Qt 4.4版本中新增引入的。</p>
 <!-- @@@updateGeometries -->
 <!-- $$$verticalOffset[overload1]$$$verticalOffset -->
 <h3 class="fn" id="verticalOffset"><a name="verticalOffset"></a><code>[纯虚保护函数] </code><span class="type">int</span> QAbstractItemView::<span class="name">verticalOffset</span>() const</h3>
 <p>Returns the vertical offset of the view.</p>
-<p>In the base class this is a pure virtual function.</p>
+<p>在基类中，这是一个纯虚函数。</p>
 <p><b> 参见 </b><a href="qabstractitemview.html#horizontalOffset">horizontalOffset</a>().</p>
 <!-- @@@verticalOffset -->
 <!-- $$$viewOptions[overload1]$$$viewOptions -->
@@ -1136,13 +1136,13 @@
 <h3 class="fn" id="visualRect"><a name="visualRect"></a><code>[纯虚函数] </code><span class="type"><a href="../qtcore/qrect.html">QRect</a></span> QAbstractItemView::<span class="name">visualRect</span>(const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>) const</h3>
 <p>Returns the rectangle on the viewport occupied by the item at <i>index</i>.</p>
 <p>If your item is displayed in several areas then visualRect should return the primary area that contains index and not the complete area that index might encompasses, touch or cause drawing.</p>
-<p>In the base class this is a pure virtual function.</p>
+<p>在基类中，这是一个纯虚函数。</p>
 <p><b> 参见 </b><a href="qabstractitemview.html#indexAt">indexAt</a>() 和 <a href="qabstractitemview.html#visualRegionForSelection">visualRegionForSelection</a>().</p>
 <!-- @@@visualRect -->
 <!-- $$$visualRegionForSelection[overload1]$$$visualRegionForSelectionconstQItemSelection& -->
 <h3 class="fn" id="visualRegionForSelection"><a name="visualRegionForSelection"></a><code>[纯虚保护函数] </code><span class="type"><a href="../qtgui/qregion.html">QRegion</a></span> QAbstractItemView::<span class="name">visualRegionForSelection</span>(const <span class="type"><a href="../qtcore/qitemselection.html">QItemSelection</a></span> &amp;<i>selection</i>) const</h3>
 <p>Returns the region from the viewport of the items in the given <i>selection</i>.</p>
-<p>In the base class this is a pure virtual function.</p>
+<p>在基类中，这是一个纯虚函数。</p>
 <p><b> 参见 </b><a href="qabstractitemview.html#visualRect">visualRect</a>() 和 <a href="qabstractitemview.html#selectedIndexes">selectedIndexes</a>().</p>
 <!-- @@@visualRegionForSelection -->
 </div>
