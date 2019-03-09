@@ -46,10 +46,10 @@
 <li class="level1"><a href="#static-public-members">静态公共成员</a></li>
 <li class="level1"><a href="#reimplemented-protected-functions">重新实现的保护函数</a></li>
 <li class="level1"><a href="#details">详细描述</a></li>
-<li class="level2"><a href="#basic-usage">Basic Usage</a></li>
-<li class="level2"><a href="#iterating-through-completions">Iterating Through Completions</a></li>
-<li class="level2"><a href="#the-completion-model">The Completion Model</a></li>
-<li class="level2"><a href="#handling-tree-models">Handling Tree Models</a></li>
+<li class="level2"><a href="#basic-usage">基本用法</a></li>
+<li class="level2"><a href="#iterating-through-completions">迭代完成</a></li>
+<li class="level2"><a href="#the-completion-model">完成模型</a></li>
+<li class="level2"><a href="#handling-tree-models">处理树模型</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
@@ -181,7 +181,7 @@
 <p>The <a href="qcompleter.html">QCompleter</a> class provides completions based on an item model.</p>
 <p>You can use <a href="qcompleter.html">QCompleter</a> to provide auto completions in any Qt widget, such as <a href="qlineedit.html">QLineEdit</a> 和 <a href="qcombobox.html">QComboBox</a>. When the user starts typing a word, <a href="qcompleter.html">QCompleter</a> suggests possible ways of completing the word, based on a word list. The word list is provided as a <a href="../qtcore/qabstractitemmodel.html">QAbstractItemModel</a>. (For simple applications, where the word list is static, you can pass a <a href="../qtcore/qstringlist.html">QStringList</a> to <a href="qcompleter.html">QCompleter</a>'s constructor.)</p>
 <a name="basic-usage"></a>
-<h3 >Basic Usage</h3>
+<h3 >基本用法</h3>
 <p>A <a href="qcompleter.html">QCompleter</a> is used typically with a <a href="qlineedit.html">QLineEdit</a> or <a href="qcombobox.html">QComboBox</a>. For example, here's how to provide auto completions from a simple word list in a <a href="qlineedit.html">QLineEdit</a>:</p>
 <pre class="cpp">
 
@@ -205,10 +205,10 @@
 </pre>
 <p>To set the model on which <a href="qcompleter.html">QCompleter</a> should operate, call <a href="qcompleter.html#setModel">setModel</a>(). By default, <a href="qcompleter.html">QCompleter</a> will attempt to match the <a href="qcompleter.html#completionPrefix-prop">completion prefix</a> (i.e&#x2e;, the word that the user has started typing) against the <a href="../qtcore/qt.html#ItemDataRole-enum">Qt::EditRole</a> data stored in column 0 in the model case sensitively. This can be changed using <a href="qcompleter.html#completionRole-prop">setCompletionRole</a>(), <a href="qcompleter.html#completionColumn-prop">setCompletionColumn</a>(), 和 <a href="qcompleter.html#caseSensitivity-prop">setCaseSensitivity</a>().</p>
 <p>If the model is sorted on the column and role that are used for completion, you can call <a href="qcompleter.html#modelSorting-prop">setModelSorting</a>() with either <a href="qcompleter.html#ModelSorting-enum">QCompleter::CaseSensitivelySortedModel</a> or <a href="qcompleter.html#ModelSorting-enum">QCompleter::CaseInsensitivelySortedModel</a> as the argument. On large models, this can lead to significant performance improvements, because <a href="qcompleter.html">QCompleter</a> can then use binary search instead of linear search. The binary search only works when the <a href="qcompleter.html#filterMode-prop">filterMode</a> is <a href="../qtcore/qt.html#MatchFlag-enum">Qt::MatchStartsWith</a>.</p>
-<p>The model can be a <a href="../qtcore/qabstractlistmodel.html">list model</a>, a <a href="../qtcore/qabstracttablemodel.html">table model</a>, or a <a href="../qtcore/qabstractitemmodel.html">tree model</a>. Completion on tree models is slightly more involved and is covered in the <a href="qcompleter.html#handling-tree-models">Handling Tree Models</a> section below.</p>
+<p>The model can be a <a href="../qtcore/qabstractlistmodel.html">list model</a>, a <a href="../qtcore/qabstracttablemodel.html">table model</a>, or a <a href="../qtcore/qabstractitemmodel.html">tree model</a>. Completion on tree models is slightly more involved and is covered in the <a href="qcompleter.html#handling-tree-models">处理树模型</a> section below.</p>
 <p>The <a href="qcompleter.html#completionMode-prop">completionMode</a>() determines the mode used to provide completions to the user.</p>
 <a name="iterating-through-completions"></a>
-<h3 >Iterating Through Completions</h3>
+<h3 >迭代完成</h3>
 <p>To retrieve a single candidate string, call <a href="qcompleter.html#completionPrefix-prop">setCompletionPrefix</a>() with the text that needs to be completed and call <a href="qcompleter.html#currentCompletion">currentCompletion</a>(). You can iterate through the list of completions as below:</p>
 <pre class="cpp">
 
@@ -218,10 +218,10 @@
 </pre>
 <p><a href="qcompleter.html#completionCount">completionCount</a>() returns the total number of completions for the current prefix. <a href="qcompleter.html#completionCount">completionCount</a>() should be avoided when possible, since it requires a scan of the entire model.</p>
 <a name="the-completion-model"></a>
-<h3 >The Completion Model</h3>
+<h3 >完成模型</h3>
 <p><a href="qcompleter.html#completionModel">completionModel</a>() return a list model that contains all possible completions for the current completion prefix, in the order in which they appear in the model. This model can be used to display the current completions in a custom view. Calling <a href="qcompleter.html#completionPrefix-prop">setCompletionPrefix</a>() automatically refreshes the completion model.</p>
 <a name="handling-tree-models"></a>
-<h3 >Handling Tree Models</h3>
+<h3 >处理树模型</h3>
 <p><a href="qcompleter.html">QCompleter</a> can look for completions in tree models, assuming that any item (or sub-item or sub-sub-item) can be unambiguously represented as a string by specifying the path to the item. The completion is then performed one level at a time.</p>
 <p>Let's take the example of a user typing in a file system path. The model is a (hierarchical) <a href="qfilesystemmodel.html">QFileSystemModel</a>. The completion occurs for every element in the path. For example, if the current text is <code>C:\Wind</code>, <a href="qcompleter.html">QCompleter</a> might suggest <code>Windows</code> to complete the current path element. Similarly, if the current text is <code>C:\Windows\Sy</code>, <a href="qcompleter.html">QCompleter</a> might suggest <code>System</code>.</p>
 <p>For this kind of completion to work, <a href="qcompleter.html">QCompleter</a> needs to be able to split the path into a list of strings that are matched at each level. For <code>C:\Windows\Sy</code>, it needs to be split as &quot;C:&quot;, &quot;Windows&quot; and &quot;Sy&quot;. The default implementation of <a href="qcompleter.html#splitPath">splitPath</a>(), splits the <a href="qcompleter.html#completionPrefix-prop">completionPrefix</a> using <a href="../qtcore/qdir.html#separator">QDir::separator</a>() if the model is a <a href="qfilesystemmodel.html">QFileSystemModel</a>.</p>
@@ -257,7 +257,7 @@
 <!-- $$$caseSensitivity-prop$$$caseSensitivity$$$setCaseSensitivityQt::CaseSensitivity -->
 <h3 class="fn" id="caseSensitivity-prop"><a name="caseSensitivity-prop"></a><span class="name">caseSensitivity</span> : <span class="type">Qt::CaseSensitivity</span></h3>
 <p>This property holds the case sensitivity of the matching</p>
-<p>The default is <a href="../qtcore/qt.html#CaseSensitivity-enum">Qt::CaseSensitive</a>.</p>
+<p>默认值为 <a href="../qtcore/qt.html#CaseSensitivity-enum">Qt::CaseSensitive</a>.</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> Qt::CaseSensitivity </td><td class="memItemRight bottomAlign"><span class="name"><b>caseSensitivity</b></span>() const</td></tr>
@@ -280,7 +280,7 @@
 <!-- $$$completionMode-prop$$$completionMode$$$setCompletionModeQCompleter::CompletionMode -->
 <h3 class="fn" id="completionMode-prop"><a name="completionMode-prop"></a><span class="name">completionMode</span> : <span class="type"><a href="qcompleter.html#CompletionMode-enum">CompletionMode</a></span></h3>
 <p>how the completions are provided to the user</p>
-<p>The default value is <a href="qcompleter.html#CompletionMode-enum">QCompleter::PopupCompletion</a>.</p>
+<p>默认值为 <a href="qcompleter.html#CompletionMode-enum">QCompleter::PopupCompletion</a>.</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QCompleter::CompletionMode </td><td class="memItemRight bottomAlign"><span class="name"><b>completionMode</b></span>() const</td></tr>
@@ -300,7 +300,7 @@
 <!-- $$$completionRole-prop$$$completionRole$$$setCompletionRoleint -->
 <h3 class="fn" id="completionRole-prop"><a name="completionRole-prop"></a><span class="name">completionRole</span> : <span class="type">int</span></h3>
 <p>This property holds the item role to be used to query the contents of items for matching.</p>
-<p>The default role is <a href="../qtcore/qt.html#ItemDataRole-enum">Qt::EditRole</a>.</p>
+<p>默认角色为 <a href="../qtcore/qt.html#ItemDataRole-enum">Qt::EditRole</a>.</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>completionRole</b></span>() const</td></tr>
@@ -313,7 +313,7 @@
 <p>how the filtering is performed</p>
 <p>If filterMode is set to <a href="../qtcore/qt.html#MatchFlag-enum">Qt::MatchStartsWith</a>, only those entries that start with the typed characters will be displayed. <a href="../qtcore/qt.html#MatchFlag-enum">Qt::MatchContains</a> will display the entries that contain the typed characters, and <a href="../qtcore/qt.html#MatchFlag-enum">Qt::MatchEndsWith</a> the ones that end with the typed characters.</p>
 <p>Currently, only these three modes are implemented. Setting filterMode to any other <a href="../qtcore/qt.html#MatchFlag-enum">Qt::MatchFlag</a> will issue a warning, and no action will be performed.</p>
-<p>The default mode is <a href="../qtcore/qt.html#MatchFlag-enum">Qt::MatchStartsWith</a>.</p>
+<p>默认模式为 <aa href="../qtcore/qt.html#MatchFlag-enum">Qt::MatchStartsWith</a>.</p>
 <p>这个属性是在Qt 5.2版本中新增引入的。</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
@@ -349,7 +349,7 @@
 <!-- $$$wrapAround-prop$$$wrapAround$$$setWrapAroundbool -->
 <h3 class="fn" id="wrapAround-prop"><a name="wrapAround-prop"></a><span class="name">wrapAround</span> : <span class="type">bool</span></h3>
 <p>This property holds the completions wrap around when navigating through items</p>
-<p>The default is true.</p>
+<p>默认值为true。</p>
 <p>这个属性是在Qt 4.3版本中新增引入的。</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
@@ -422,7 +422,7 @@
 <!-- @@@currentIndex -->
 <!-- $$$currentRow[overload1]$$$currentRow -->
 <h3 class="fn" id="currentRow"><a name="currentRow"></a><span class="type">int</span> QCompleter::<span class="name">currentRow</span>() const</h3>
-<p>Returns the current row.</p>
+<p>返回当前行的索引值。</p>
 <p><b> 参见 </b><a href="qcompleter.html#setCurrentRow">setCurrentRow</a>().</p>
 <!-- @@@currentRow -->
 <!-- $$$event[overload1]$$$eventQEvent* -->
@@ -479,7 +479,7 @@
 <h3 class="fn" id="setModel"><a name="setModel"></a><span class="type">void</span> QCompleter::<span class="name">setModel</span>(<span class="type"><a href="../qtcore/qabstractitemmodel.html">QAbstractItemModel</a></span> *<i>model</i>)</h3>
 <p>Sets the model which provides completions to <i>model</i>. The <i>model</i> can be list model or a tree model. If a model has been already previously set and it has the <a href="qcompleter.html">QCompleter</a> as its parent, it is deleted.</p>
 <p>For convenience, if <i>model</i> is a <a href="qfilesystemmodel.html">QFileSystemModel</a>, <a href="qcompleter.html">QCompleter</a> switches its <a href="qcompleter.html#caseSensitivity-prop">caseSensitivity</a> to <a href="../qtcore/qt.html#CaseSensitivity-enum">Qt::CaseInsensitive</a> on Windows and <a href="../qtcore/qt.html#CaseSensitivity-enum">Qt::CaseSensitive</a> on other platforms.</p>
-<p><b> 参见 </b><a href="qcompleter.html#completionModel">completionModel</a>(), <a href="qcompleter.html#modelSorting-prop">modelSorting</a>, 和 <a href="qcompleter.html#handling-tree-models">Handling Tree Models</a>.</p>
+<p><b> 参见 </b><a href="qcompleter.html#completionModel">completionModel</a>(), <a href="qcompleter.html#modelSorting-prop">modelSorting</a>, 和 <a href="qcompleter.html#handling-tree-models">处理树模型</a>.</p>
 <!-- @@@setModel -->
 <!-- $$$setPopup[overload1]$$$setPopupQAbstractItemView* -->
 <h3 class="fn" id="setPopup"><a name="setPopup"></a><span class="type">void</span> QCompleter::<span class="name">setPopup</span>(<span class="type"><a href="qabstractitemview.html">QAbstractItemView</a></span> *<i>popup</i>)</h3>
@@ -498,7 +498,7 @@
 <p>Splits the given <i>path</i> into strings that are used to match at each level in the <a href="qcompleter.html#model">model</a>().</p>
 <p>The default implementation of splitPath() splits a file system path based on <a href="../qtcore/qdir.html#separator">QDir::separator</a>() when the sourceModel() is a <a href="qfilesystemmodel.html">QFileSystemModel</a>.</p>
 <p>When used with list models, the first item in the returned list is used for matching.</p>
-<p><b> 参见 </b><a href="qcompleter.html#pathFromIndex">pathFromIndex</a>() 和 <a href="qcompleter.html#handling-tree-models">Handling Tree Models</a>.</p>
+<p><b> 参见 </b><a href="qcompleter.html#pathFromIndex">pathFromIndex</a>() 和 <a href="qcompleter.html#handling-tree-models">处理树模型</a>.</p>
 <!-- @@@splitPath -->
 <!-- $$$widget[overload1]$$$widget -->
 <h3 class="fn" id="widget"><a name="widget"></a><span class="type"><a href="qwidget.html">QWidget</a></span> *QCompleter::<span class="name">widget</span>() const</h3>
