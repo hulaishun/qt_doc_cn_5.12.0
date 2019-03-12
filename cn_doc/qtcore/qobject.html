@@ -274,7 +274,7 @@
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qobject.html#objectNameChanged">objectNameChanged</a></b></span>(const QString &amp;<i>objectName</i>)</td><td class="memItemRight bottomAlign">[see note below]</td></tr>
 </table></div>
-<p><b>Note: </b>This is a private signal. It can be used in signal connections but cannot be emitted by the user.</p>
+<p><b>注意： </b>这是个私有信号，它可用于信号连接，但是不能由用户触发。</p>
 <p><b> 参见 </b><a href="qobject.html#metaObject">metaObject</a>() 和 <a href="qmetaobject.html#className">QMetaObject::className</a>().</p>
 <!-- @@@objectName -->
 </div>
@@ -384,7 +384,7 @@
 
 </pre>
 <p>call <a href="qmetatype.html#qRegisterMetaType-1">qRegisterMetaType</a>() to register the data type before you establish the connection.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
+<p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p><b> 参见 </b><a href="qobject.html#disconnect">disconnect</a>(), <a href="qobject.html#sender">sender</a>(), <a href="qmetatype.html#qRegisterMetaType-1">qRegisterMetaType</a>(), <a href="qmetatype.html#Q_DECLARE_METATYPE">Q_DECLARE_METATYPE</a>(), 和 <a href="../qtdoc/signalsandslots-syntaxes.html">Differences between String-Based and Functor-Based Connections</a>.</p>
 <!-- @@@connect -->
 <!-- $$$connect$$$connectconstQObject*constQMetaMethod&constQObject*constQMetaMethod&Qt::ConnectionType -->
@@ -401,7 +401,7 @@
 <p>Connects <i>signal</i> from the <i>sender</i> object to this object's <i>method</i>.</p>
 <p>Equivalent to connect(<i>sender</i>, <i>signal</i>, <code>this</code>, <i>method</i>, <i>type</i>).</p>
 <p>Every connection you make emits a signal, so duplicate connections emit two signals. You can break a connection using <a href="qobject.html#disconnect">disconnect</a>().</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
+<p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p><b> 参见 </b><a href="qobject.html#disconnect">disconnect</a>().</p>
 <!-- @@@connect -->
 <!-- $$$connect$$$connectconstQObject*PointerToMemberFunctionconstQObject*PointerToMemberFunctionQt::ConnectionType -->
@@ -432,7 +432,7 @@
 </pre>
 <p>make sure to declare the argument type with <a href="qmetatype.html#Q_DECLARE_METATYPE">Q_DECLARE_METATYPE</a></p>
 <p>Overloaded functions can be resolved with help of <a href="qtglobal.html#qOverload">qOverload</a>.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
+<p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p><b> 参见 </b><a href="../qtdoc/signalsandslots-syntaxes.html">Differences between String-Based and Functor-Based Connections</a>.</p>
 <!-- @@@connect -->
 <!-- $$$connect$$$connectconstQObject*PointerToMemberFunctionFunctor -->
@@ -461,7 +461,7 @@
 </pre>
 <p>The connection will automatically disconnect if the sender is destroyed. However, you should take care that any objects used within the functor are still alive when the signal is emitted.</p>
 <p>Overloaded functions can be resolved with help of <a href="qtglobal.html#qOverload">qOverload</a>.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
+<p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <!-- @@@connect -->
 <!-- $$$connect$$$connectconstQObject*PointerToMemberFunctionconstQObject*FunctorQt::ConnectionType -->
 <h3 class="fn" id="connect-5"><a name="connect-5"></a><code>[静态函数] </code><span class="type"><a href="qmetaobject-connection.html">QMetaObject::Connection</a></span> QObject::<span class="name">connect</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>sender</i>, <span class="type">PointerToMemberFunction</span> <i>signal</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>context</i>, <span class="type">Functor</span> <i>functor</i>, <span class="type">Qt::ConnectionType</span> <i>type</i> = Qt::AutoConnection)</h3>
@@ -489,7 +489,7 @@
 </pre>
 <p>The connection will automatically disconnect if the sender or the context is destroyed. However, you should take care that any objects used within the functor are still alive when the signal is emitted.</p>
 <p>Overloaded functions can be resolved with help of <a href="qtglobal.html#qOverload">qOverload</a>.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
+<p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p>这个函数是在Qt 5.2版本中新增引入的。</p>
 <!-- @@@connect -->
 <!-- $$$connectNotify[overload1]$$$connectNotifyconstQMetaMethod& -->
@@ -574,7 +574,7 @@
 <p>If <i>signal</i> is 0, it disconnects <i>receiver</i> and <i>method</i> from any signal. If not, only the specified signal is disconnected.</p>
 <p>If <i>receiver</i> is 0, it disconnects anything connected to <i>signal</i>. If not, slots in objects other than <i>receiver</i> are not disconnected.</p>
 <p>If <i>method</i> is 0, it disconnects anything that is connected to <i>receiver</i>. If not, only slots named <i>method</i> will be disconnected, and all other slots are left alone. The <i>method</i> must be 0 if <i>receiver</i> is left out, so you cannot disconnect a specifically-named slot on all objects.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
+<p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p><b> 参见 </b><a href="qobject.html#connect">connect</a>().</p>
 <!-- @@@disconnect -->
 <!-- $$$disconnect$$$disconnectconstQObject*constQMetaMethod&constQObject*constQMetaMethod& -->
@@ -595,7 +595,7 @@
 <p>This function overloads <a href="qobject.html#disconnect">disconnect</a>().</p>
 <p>Disconnects <i>signal</i> from <i>method</i> of <i>receiver</i>.</p>
 <p>A signal-slot connection is removed when either of the objects involved are destroyed.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
+<p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <!-- @@@disconnect -->
 <!-- $$$disconnect$$$disconnectconstQObject*constchar* -->
 <h3 class="fn" id="disconnect-3"><a name="disconnect-3"></a><span class="type">bool</span> QObject::<span class="name">disconnect</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, const <span class="type">char</span> *<i>method</i> = nullptr) const</h3>
@@ -646,7 +646,7 @@
 <p>If <i>signal</i> is 0, it disconnects <i>receiver</i> and <i>method</i> from any signal. If not, only the specified signal is disconnected.</p>
 <p>If <i>receiver</i> is 0, it disconnects anything connected to <i>signal</i>. If not, slots in objects other than <i>receiver</i> are not disconnected.</p>
 <p>If <i>method</i> is 0, it disconnects anything that is connected to <i>receiver</i>. If not, only slots named <i>method</i> will be disconnected, and all other slots are left alone. The <i>method</i> must be 0 if <i>receiver</i> is left out, so you cannot disconnect a specifically-named slot on all objects.</p>
-<p><b>Note: </b>It is not possible to use this overload to diconnect signals connected to functors or lambda expressions. That is because it is not possible to compare them. Instead, use the overload that takes a <a href="qmetaobject-connection.html">QMetaObject::Connection</a></p><p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
+<p><b>Note: </b>It is not possible to use this overload to diconnect signals connected to functors or lambda expressions. That is because it is not possible to compare them. Instead, use the overload that takes a <a href="qmetaobject-connection.html">QMetaObject::Connection</a></p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p><b> 参见 </b><a href="qobject.html#connect">connect</a>().</p>
 <!-- @@@disconnect -->
 <!-- $$$disconnectNotify[overload1]$$$disconnectNotifyconstQMetaMethod& -->
@@ -963,7 +963,7 @@
 <!-- $$$objectNameChanged -->
 <h3 class="fn" id="objectNameChanged"><a name="objectNameChanged"></a><code>[信号] </code><span class="type">void</span> QObject::<span class="name">objectNameChanged</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>objectName</i>)</h3>
 <p>This signal is emitted after the object's name has been changed. The new object name is passed as <i>objectName</i>.</p>
-<p><b>Note: </b>This is a private signal. It can be used in signal connections but cannot be emitted by the user.</p>
+<p><b>注意： </b>这是个私有信号，它可用于信号连接，但是不能由用户触发。</p>
 <p><b>注意：</b> 此通知信号来自于属性 <a href="qobject.html#objectName-prop">objectName</a>. </p><p><b> 参见 </b><a href="qobject.html#objectName-prop">QObject::objectName</a>.</p>
 <!-- @@@objectNameChanged -->
 <!-- $$$parent[overload1]$$$parent -->

@@ -299,7 +299,7 @@
 <h3 class="fn" id="aboutToQuit"><a name="aboutToQuit"></a><code>[信号] </code><span class="type">void</span> QCoreApplication::<span class="name">aboutToQuit</span>()</h3>
 <p>This signal is emitted when the application is about to quit the main event loop, e.g&#x2e; when the event loop level drops to zero. This may happen either after a call to <a href="qcoreapplication.html#quit">quit</a>() from inside the application or when the user shuts down the entire desktop session.</p>
 <p>The signal is particularly useful if your application has to do some last-second cleanup. Note that no user interaction is possible in this state.</p>
-<p><b>Note: </b>This is a private signal. It can be used in signal connections but cannot be emitted by the user.</p>
+<p><b>注意： </b>这是个私有信号，它可用于信号连接，但是不能由用户触发。</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#quit">quit</a>().</p>
 <!-- @@@aboutToQuit -->
 <!-- $$$addLibraryPath[overload1]$$$addLibraryPathconstQString& -->
@@ -436,7 +436,7 @@
 <p>The event must be allocated on the heap since the post event queue will take ownership of the event and delete it once it has been posted. It is <i>not safe</i> to access the event after it has been posted.</p>
 <p>When control returns to the main event loop, all events that are stored in the queue will be sent using the <a href="qcoreapplication.html#notify">notify</a>() function.</p>
 <p>Events are sorted in descending <i>priority</i> order, i.e&#x2e; events with a high <i>priority</i> are queued before events with a lower <i>priority</i>. The <i>priority</i> can be any integer value, i.e&#x2e; between INT_MAX and INT_MIN, inclusive; see <a href="qt.html#EventPriority-enum">Qt::EventPriority</a> for more details. Events with equal <i>priority</i> will be processed in the order posted.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
+<p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p>这个函数是在Qt 4.3版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#sendEvent">sendEvent</a>(), <a href="qcoreapplication.html#notify">notify</a>(), <a href="qcoreapplication.html#sendPostedEvents">sendPostedEvents</a>(), 和 <a href="qt.html#EventPriority-enum">Qt::EventPriority</a>.</p>
 <!-- @@@postEvent -->
@@ -446,7 +446,7 @@
 <p>You can call this function occasionally when your program is busy performing a long operation (e.g&#x2e; copying a file).</p>
 <p>In the event that you are running a local loop which calls this function continuously, without an event loop, the <a href="qevent.html#Type-enum">DeferredDelete</a> events will not be processed. This can affect the behaviour of widgets, e.g&#x2e; <a href="../qtwidgets/qtooltip.html">QToolTip</a>, that rely on <a href="qevent.html#Type-enum">DeferredDelete</a> events to function properly. An alternative would be to call <a href="qcoreapplication.html#sendPostedEvents">sendPostedEvents()</a> from within that local loop.</p>
 <p>Calling this function processes events only for the calling thread.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
+<p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#exec">exec</a>(), <a href="qtimer.html">QTimer</a>, <a href="qeventloop.html#processEvents">QEventLoop::processEvents</a>(), <a href="qcoreapplication-obsolete.html#flush">flush</a>(), 和 <a href="qcoreapplication.html#sendPostedEvents">sendPostedEvents</a>().</p>
 <!-- @@@processEvents -->
 <!-- $$$processEvents$$$processEventsQEventLoop::ProcessEventsFlagsint -->
@@ -455,7 +455,7 @@
 <p>Processes pending events for the calling thread for <i>maxtime</i> milliseconds or until there are no more events to process, whichever is shorter.</p>
 <p>You can call this function occasionally when your program is busy doing a long operation (e.g&#x2e; copying a file).</p>
 <p>Calling this function processes events only for the calling thread.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
+<p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#exec">exec</a>(), <a href="qtimer.html">QTimer</a>, 和 <a href="qeventloop.html#processEvents">QEventLoop::processEvents</a>().</p>
 <!-- @@@processEvents -->
 <!-- $$$quit[overload1]$$$quit -->
@@ -491,7 +491,7 @@
 <p>Removes all events of the given <i>eventType</i> that were posted using <a href="qcoreapplication.html#postEvent">postEvent</a>() for <i>receiver</i>.</p>
 <p>The events are <i>not</i> dispatched, instead they are removed from the queue. You should never need to call this function. If you do call it, be aware that killing events may cause <i>receiver</i> to break one or more invariants.</p>
 <p>If <i>receiver</i> is null, the events of <i>eventType</i> are removed for all objects. If <i>eventType</i> is 0, all the events are removed for <i>receiver</i>. You should never call this function with <i>eventType</i> of 0.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
+<p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p>这个函数是在Qt 4.3版本中新增引入的。</p>
 <!-- @@@removePostedEvents -->
 <!-- $$$removeTranslator[overload1]$$$removeTranslatorQTranslator* -->
@@ -563,7 +563,7 @@
 <p><i>n</i> is used in conjunction with <code>%n</code> to support plural forms. See <a href="qobject.html#tr">QObject::tr</a>() for details.</p>
 <p>If none of the translation files contain a translation for <i>sourceText</i> in <i>context</i>, this function returns a <a href="qstring.html">QString</a> equivalent of <i>sourceText</i>.</p>
 <p>This function is not virtual. You can use alternative translation techniques by subclassing <a href="qtranslator.html">QTranslator</a>.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
+<p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p><b> 参见 </b><a href="qobject.html#tr">QObject::tr</a>(), <a href="qcoreapplication.html#installTranslator">installTranslator</a>(), <a href="qcoreapplication.html#removeTranslator">removeTranslator</a>(), and translate().</p>
 <!-- @@@translate -->
 </div>
@@ -625,13 +625,13 @@
 
 </pre>
 <p>By selecting the right parent object, this can often be made to clean up the module's data at the right moment.</p>
-<p><b>Note: </b>This function has been thread-safe since Qt 5.10.</p><p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
+<p><b>Note: </b>This function has been thread-safe since Qt 5.10.</p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#qRemovePostRoutine">qRemovePostRoutine</a>().</p>
 <!-- @@@qAddPostRoutine -->
 <!-- $$$qRemovePostRoutine[overload1]$$$qRemovePostRoutineQtCleanUpFunction -->
 <h3 class="fn" id="qRemovePostRoutine"><a name="qRemovePostRoutine"></a><span class="type">void</span> <span class="name">qRemovePostRoutine</span>(<span class="type">QtCleanUpFunction</span> <i>ptr</i>)</h3>
 <p>Removes the cleanup routine specified by <i>ptr</i> from the list of routines called by the <a href="qcoreapplication.html">QCoreApplication</a> destructor. The routine must have been previously added to the list by a call to <a href="qcoreapplication.html#qAddPostRoutine">qAddPostRoutine</a>(), otherwise this function has no effect.</p>
-<p><b>Note: </b>This function has been thread-safe since Qt 5.10.</p><p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
+<p><b>Note: </b>This function has been thread-safe since Qt 5.10.</p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p>这个函数是在Qt 5.3版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#qAddPostRoutine">qAddPostRoutine</a>().</p>
 <!-- @@@qRemovePostRoutine -->

@@ -212,7 +212,7 @@
 <p>If <i>connectionName</i> is not specified, the new connection becomes the default connection for the application, and subsequent calls to <a href="qsqldatabase.html#database">database</a>() without the connection name argument will return the default connection. If a <i>connectionName</i> is provided here, use database(<i>connectionName</i>) to retrieve the connection.</p>
 <p><b>Warning:</b> If you add a connection with the same name as an existing connection, the new connection replaces the old one. If you call this function more than once without specifying <i>connectionName</i>, the default connection will be the one replaced.</p>
 <p>Before using the connection, it must be initialized. e.g&#x2e;, call some or all of <a href="qsqldatabase.html#setDatabaseName">setDatabaseName</a>(), <a href="qsqldatabase.html#setUserName">setUserName</a>(), <a href="qsqldatabase.html#setPassword">setPassword</a>(), <a href="qsqldatabase.html#setHostName">setHostName</a>(), <a href="qsqldatabase.html#setPort">setPort</a>(), 和 <a href="qsqldatabase.html#setConnectOptions">setConnectOptions</a>(), and, finally, <a href="qsqldatabase.html#open">open</a>().</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
+<p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p><b> 参见 </b><a href="qsqldatabase.html#database">database</a>(), <a href="qsqldatabase.html#removeDatabase">removeDatabase</a>(), 和 <a href="../qtdoc/threads-modules.html#threads-and-the-sql-module">Threads and the SQL Module</a>.</p>
 <!-- @@@addDatabase -->
 <!-- $$$addDatabase$$$addDatabaseQSqlDriver*constQString& -->
@@ -285,19 +285,19 @@
 <!-- $$$connectionNames[overload1]$$$connectionNames -->
 <h3 class="fn" id="connectionNames"><a name="connectionNames"></a><code>[静态函数] </code><span class="type"><a href="../qtcore/qstringlist.html">QStringList</a></span> QSqlDatabase::<span class="name">connectionNames</span>()</h3>
 <p>Returns a list containing the names of all connections.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
+<p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p><b> 参见 </b><a href="qsqldatabase.html#contains">contains</a>(), <a href="qsqldatabase.html#database">database</a>(), 和 <a href="../qtdoc/threads-modules.html#threads-and-the-sql-module">Threads and the SQL Module</a>.</p>
 <!-- @@@connectionNames -->
 <!-- $$$contains[overload1]$$$containsconstQString& -->
 <h3 class="fn" id="contains"><a name="contains"></a><code>[静态函数] </code><span class="type">bool</span> QSqlDatabase::<span class="name">contains</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>connectionName</i> = QLatin1String(defaultConnection))</h3>
 <p>Returns <code>true</code> if the list of database connections contains <i>connectionName</i>; otherwise returns <code>false</code>.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
+<p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p><b> 参见 </b><a href="qsqldatabase.html#connectionNames">connectionNames</a>(), <a href="qsqldatabase.html#database">database</a>(), 和 <a href="../qtdoc/threads-modules.html#threads-and-the-sql-module">Threads and the SQL Module</a>.</p>
 <!-- @@@contains -->
 <!-- $$$database[overload1]$$$databaseconstQString&bool -->
 <h3 class="fn" id="database"><a name="database"></a><code>[静态函数] </code><span class="type"><a href="qsqldatabase.html#QSqlDatabase">QSqlDatabase</a></span> QSqlDatabase::<span class="name">database</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>connectionName</i> = QLatin1String(defaultConnection), <span class="type">bool</span> <i>open</i> = true)</h3>
 <p>Returns the database connection called <i>connectionName</i>. The database connection must have been previously added with <a href="qsqldatabase.html#addDatabase">addDatabase</a>(). If <i>open</i> is true (the default) and the database connection is not already open it is opened now. If no <i>connectionName</i> is specified the default connection is used. If <i>connectionName</i> does not exist in the list of databases, an invalid connection is returned.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
+<p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p><b> 参见 </b><a href="qsqldatabase.html#isOpen">isOpen</a>() 和 <a href="../qtdoc/threads-modules.html#threads-and-the-sql-module">Threads and the SQL Module</a>.</p>
 <!-- @@@database -->
 <!-- $$$databaseName[overload1]$$$databaseName -->
@@ -445,7 +445,7 @@
 
 </pre>
 <p>To remove the default connection, which may have been created with a call to <a href="qsqldatabase.html#addDatabase">addDatabase</a>() not specifying a connection name, you can retrieve the default connection name by calling <a href="qsqldatabase.html#connectionName">connectionName</a>() on the database returned by <a href="qsqldatabase.html#database">database</a>(). Note that if a default database hasn't been created an invalid database will be returned.</p>
-<p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">thread-safe</a>.</p>
+<p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p><b> 参见 </b><a href="qsqldatabase.html#database">database</a>(), <a href="qsqldatabase.html#connectionName">connectionName</a>(), 和 <a href="../qtdoc/threads-modules.html#threads-and-the-sql-module">Threads and the SQL Module</a>.</p>
 <!-- @@@removeDatabase -->
 <!-- $$$rollback[overload1]$$$rollback -->
