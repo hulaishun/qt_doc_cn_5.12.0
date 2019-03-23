@@ -297,7 +297,7 @@
 <div class="fngroup">
 <h3 class="fn fngroupitem" id="prepend-1"><a name="prepend-1"></a><span class="type">void</span> QVarLengthArray::<span class="name">prepend</span>(const <span class="type">T</span> &amp;<i>value</i>)</h3><h3 class="fn fngroupitem" id="prepend"><a name="prepend"></a><span class="type">void</span> QVarLengthArray::<span class="name">prepend</span>(<span class="type">T</span> &amp;&amp;<i>value</i>)</h3></div>
 <p>Inserts <i>value</i> at the beginning of the array.</p>
-<p>This is the same as vector.insert(0, <i>value</i>).</p>
+<p>此函数等同于 vector.insert(0, <i>value</i>).</p>
 <p>For large arrays, this operation can be slow (<a href="containers.html#linear-time">linear time</a>), because it requires moving all the items in the vector by one position further in memory. If you want a container class that provides a fast <a href="qvarlengtharray.html#prepend">prepend</a>() function, use <a href="qlist.html">QList</a> or <a href="qlinkedlist.html">QLinkedList</a> instead.</p>
 <p>This documentation was introduced in  Qt 4.8.</p>
 <p><b> 参见 </b><a href="qvarlengtharray.html#append">append</a>() 和 <a href="qvarlengtharray.html#insert">insert</a>().</p>
@@ -314,7 +314,7 @@
 <!-- $$$QVarLengthArray$$$QVarLengthArraystd::initializer_list<T> -->
 <h3 class="fn" id="QVarLengthArray-2"><a name="QVarLengthArray-2"></a>QVarLengthArray::<span class="name">QVarLengthArray</span>(<span class="type">std::initializer_list</span>&lt;<span class="type">T</span>&gt; <i>args</i>)</h3>
 <p>Constructs an array from the std::initializer_list given by <i>args</i>.</p>
-<p>This constructor is only enabled if the compiler supports C++11 initializer lists.</p>
+<p>仅当编译器支持C++11初始化列表时，该构造函数才有效。</p>
 <p>这个函数是在Qt 5.5版本中新增引入的。</p>
 <!-- @@@QVarLengthArray -->
 <!-- $$$~QVarLengthArray[overload1]$$$~QVarLengthArray -->
@@ -411,7 +411,7 @@
 <!-- $$$contains[overload1]$$$containsconstT& -->
 <h3 class="fn" id="contains"><a name="contains"></a><span class="type">bool</span> QVarLengthArray::<span class="name">contains</span>(const <span class="type">T</span> &amp;<i>value</i>) const</h3>
 <p>Returns <code>true</code> if the array contains an occurrence of <i>value</i>; otherwise returns <code>false</code>.</p>
-<p>This function requires the value type to have an implementation of <code>operator==()</code>.</p>
+<p>该函数邀请值类型的列表元素实现了 <code>operator==()</code>.</p>
 <p>这个函数是在Qt 5.3版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qvarlengtharray.html#indexOf">indexOf</a>() 和 <a href="qvarlengtharray.html#lastIndexOf">lastIndexOf</a>().</p>
 <!-- @@@contains -->
@@ -503,7 +503,7 @@
 <!-- $$$indexOf[overload1]$$$indexOfconstT&int -->
 <h3 class="fn" id="indexOf"><a name="indexOf"></a><span class="type">int</span> QVarLengthArray::<span class="name">indexOf</span>(const <span class="type">T</span> &amp;<i>value</i>, <span class="type">int</span> <i>from</i> = ...) const</h3>
 <p>Returns the index position of the first occurrence of <i>value</i> in the array, searching forward from index position <i>from</i>. Returns -1 if no item matched.</p>
-<p>This function requires the value type to have an implementation of <code>operator==()</code>.</p>
+<p>该函数邀请值类型的列表元素实现了 <code>operator==()</code>.</p>
 <p>这个函数是在Qt 5.3版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qvarlengtharray.html#lastIndexOf">lastIndexOf</a>() 和 <a href="qvarlengtharray.html#contains">contains</a>().</p>
 <!-- @@@indexOf -->
@@ -535,7 +535,7 @@
 <!-- $$$lastIndexOf[overload1]$$$lastIndexOfconstT&int -->
 <h3 class="fn" id="lastIndexOf"><a name="lastIndexOf"></a><span class="type">int</span> QVarLengthArray::<span class="name">lastIndexOf</span>(const <span class="type">T</span> &amp;<i>value</i>, <span class="type">int</span> <i>from</i> = ...) const</h3>
 <p>Returns the index position of the last occurrence of the value <i>value</i> in the array, searching backward from index position <i>from</i>. If <i>from</i> is -1 (the default), the search starts at the last item. Returns -1 if no item matched.</p>
-<p>This function requires the value type to have an implementation of <code>operator==()</code>.</p>
+<p>该函数邀请值类型的列表元素实现了 <code>operator==()</code>.</p>
 <p>这个函数是在Qt 5.3版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qvarlengtharray.html#indexOf">indexOf</a>() 和 <a href="qvarlengtharray.html#contains">contains</a>().</p>
 <!-- @@@lastIndexOf -->
@@ -685,7 +685,7 @@
 <!-- $$$operator=$$$operator=std::initializer_list<T> -->
 <h3 class="fn" id="operator-eq-1"><a name="operator-eq-1"></a><span class="type"><a href="qvarlengtharray.html#QVarLengthArray">QVarLengthArray</a></span>&lt;<span class="type">T</span>, <span class="type">Prealloc</span>&gt; &amp;QVarLengthArray::<span class="name">operator=</span>(<span class="type">std::initializer_list</span>&lt;<span class="type">T</span>&gt; <i>list</i>)</h3>
 <p>Assigns the values of <i>list</i> to this array, and returns a reference to this array.</p>
-<p>This constructor is only enabled if the compiler supports C++11 initializer lists.</p>
+<p>仅当编译器支持C++11初始化列表时，该构造函数才有效。</p>
 <p>这个函数是在Qt 5.5版本中新增引入的。</p>
 <!-- @@@operator= -->
 <!-- $$$operator[][overload1]$$$operator[]int -->
@@ -708,40 +708,40 @@
 <h3 class="fn" id="operator-not-eq"><a name="operator-not-eq"></a><span class="type">bool</span> <span class="name">operator!=</span>(const <span class="type"><a href="qvarlengtharray.html#QVarLengthArray">QVarLengthArray</a></span>&lt;<span class="type">T</span>, <span class="type">Prealloc1</span>&gt; &amp;<i>left</i> = ..., const <span class="type"><a href="qvarlengtharray.html#QVarLengthArray">QVarLengthArray</a></span>&lt;<span class="type">T</span>, <span class="type">Prealloc2</span>&gt; &amp;<i>right</i> = ...)</h3>
 <p>Returns <code>true</code> if the two arrays, specified by <i>left</i> and <i>right</i>, are <i>not</i> equal.</p>
 <p>Two arrays are considered equal if they contain the same values in the same order.</p>
-<p>This function requires the value type to have an implementation of <code>operator==()</code>.</p>
+<p>该函数邀请值类型的列表元素实现了 <code>operator==()</code>.</p>
 <p>这个函数是在Qt 4.8版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qchar.html#operator-eq-eq">operator==</a>().</p>
 <!-- @@@operator!= -->
 <!-- $$$operator<[overload1]$$$operator<constQVarLengthArray<T,Prealloc1>&constQVarLengthArray<T,Prealloc2>& -->
 <h3 class="fn" id="operator-lt"><a name="operator-lt"></a><span class="type">bool</span> <span class="name">operator&lt;</span>(const <span class="type"><a href="qvarlengtharray.html#QVarLengthArray">QVarLengthArray</a></span>&lt;<span class="type">T</span>, <span class="type">Prealloc1</span>&gt; &amp;<i>lhs</i> = ..., const <span class="type"><a href="qvarlengtharray.html#QVarLengthArray">QVarLengthArray</a></span>&lt;<span class="type">T</span>, <span class="type">Prealloc2</span>&gt; &amp;<i>rhs</i> = ...)</h3>
 <p>Returns <code>true</code> if variable length array <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically less than</a> <i>rhs</i>; otherwise returns <code>false</code>.</p>
-<p>This function requires the value type to have an implementation of <code>operator&lt;()</code>.</p>
+<p>该函数邀请值类型的列表元素实现了 <code>operator&lt;()</code>.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <!-- @@@operator< -->
 <!-- $$$operator<=[overload1]$$$operator<=constQVarLengthArray<T,Prealloc1>&constQVarLengthArray<T,Prealloc2>& -->
 <h3 class="fn" id="operator-lt-eq"><a name="operator-lt-eq"></a><span class="type">bool</span> <span class="name">operator&lt;=</span>(const <span class="type"><a href="qvarlengtharray.html#QVarLengthArray">QVarLengthArray</a></span>&lt;<span class="type">T</span>, <span class="type">Prealloc1</span>&gt; &amp;<i>lhs</i> = ..., const <span class="type"><a href="qvarlengtharray.html#QVarLengthArray">QVarLengthArray</a></span>&lt;<span class="type">T</span>, <span class="type">Prealloc2</span>&gt; &amp;<i>rhs</i> = ...)</h3>
 <p>Returns <code>true</code> if variable length array <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically less than or equal to</a> <i>rhs</i>; otherwise returns <code>false</code>.</p>
-<p>This function requires the value type to have an implementation of <code>operator&lt;()</code>.</p>
+<p>该函数邀请值类型的列表元素实现了 <code>operator&lt;()</code>.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <!-- @@@operator<= -->
 <!-- $$$operator==[overload1]$$$operator==constQVarLengthArray<T,Prealloc1>&constQVarLengthArray<T,Prealloc2>& -->
 <h3 class="fn" id="operator-eq-eq"><a name="operator-eq-eq"></a><span class="type">bool</span> <span class="name">operator==</span>(const <span class="type"><a href="qvarlengtharray.html#QVarLengthArray">QVarLengthArray</a></span>&lt;<span class="type">T</span>, <span class="type">Prealloc1</span>&gt; &amp;<i>left</i> = ..., const <span class="type"><a href="qvarlengtharray.html#QVarLengthArray">QVarLengthArray</a></span>&lt;<span class="type">T</span>, <span class="type">Prealloc2</span>&gt; &amp;<i>right</i> = ...)</h3>
 <p>Returns <code>true</code> if the two arrays, specified by <i>left</i> and <i>right</i>, are equal.</p>
 <p>Two arrays are considered equal if they contain the same values in the same order.</p>
-<p>This function requires the value type to have an implementation of <code>operator==()</code>.</p>
+<p>该函数邀请值类型的列表元素实现了 <code>operator==()</code>.</p>
 <p>这个函数是在Qt 4.8版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qchar.html#operator-not-eq">operator!=</a>().</p>
 <!-- @@@operator== -->
 <!-- $$$operator>[overload1]$$$operator>constQVarLengthArray<T,Prealloc1>&constQVarLengthArray<T,Prealloc2>& -->
 <h3 class="fn" id="operator-gt"><a name="operator-gt"></a><span class="type">bool</span> <span class="name">operator&gt;</span>(const <span class="type"><a href="qvarlengtharray.html#QVarLengthArray">QVarLengthArray</a></span>&lt;<span class="type">T</span>, <span class="type">Prealloc1</span>&gt; &amp;<i>lhs</i> = ..., const <span class="type"><a href="qvarlengtharray.html#QVarLengthArray">QVarLengthArray</a></span>&lt;<span class="type">T</span>, <span class="type">Prealloc2</span>&gt; &amp;<i>rhs</i> = ...)</h3>
 <p>Returns <code>true</code> if variable length array <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically greater than</a> <i>rhs</i>; otherwise returns <code>false</code>.</p>
-<p>This function requires the value type to have an implementation of <code>operator&lt;()</code>.</p>
+<p>该函数邀请值类型的列表元素实现了 <code>operator&lt;()</code>.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <!-- @@@operator> -->
 <!-- $$$operator>=[overload1]$$$operator>=constQVarLengthArray<T,Prealloc1>&constQVarLengthArray<T,Prealloc2>& -->
 <h3 class="fn" id="operator-gt-eq"><a name="operator-gt-eq"></a><span class="type">bool</span> <span class="name">operator&gt;=</span>(const <span class="type"><a href="qvarlengtharray.html#QVarLengthArray">QVarLengthArray</a></span>&lt;<span class="type">T</span>, <span class="type">Prealloc1</span>&gt; &amp;<i>lhs</i> = ..., const <span class="type"><a href="qvarlengtharray.html#QVarLengthArray">QVarLengthArray</a></span>&lt;<span class="type">T</span>, <span class="type">Prealloc2</span>&gt; &amp;<i>rhs</i> = ...)</h3>
 <p>Returns <code>true</code> if variable length array <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically greater than or equal to</a> <i>rhs</i>; otherwise returns <code>false</code>.</p>
-<p>This function requires the value type to have an implementation of <code>operator&lt;()</code>.</p>
+<p>该函数邀请值类型的列表元素实现了 <code>operator&lt;()</code>.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <!-- @@@operator>= -->
 </div>

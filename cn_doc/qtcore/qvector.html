@@ -353,7 +353,7 @@
 <!-- $$$ -->
 <div class="fngroup">
 <h3 class="fn fngroupitem" id="push_front-1"><a name="push_front-1"></a><span class="type">void</span> QVector::<span class="name">push_front</span>(const <span class="type">T</span> &amp;<i>value</i>)</h3><h3 class="fn fngroupitem" id="push_front"><a name="push_front"></a><span class="type">void</span> QVector::<span class="name">push_front</span>(<span class="type">T</span> &amp;&amp;<i>value</i>)</h3></div>
-<p>This function is provided for STL compatibility. It is equivalent to prepend(<i>value</i>).</p>
+<p>此函数支持STL风格的兼容性，它等同于 prepend(<i>value</i>).</p>
 <!-- @@@ -->
 <!-- $$$ -->
 <div class="fngroup">
@@ -391,7 +391,7 @@
   <span class="comment">// vector: [&quot;three&quot;, &quot;two&quot;, &quot;one&quot;]</span>
 
 </pre>
-<p>This is the same as vector.insert(0, <i>value</i>).</p>
+<p>此函数等同于 vector.insert(0, <i>value</i>).</p>
 <p>For large vectors, this operation can be slow (<a href="containers.html#linear-time">linear time</a>), because it requires moving all the items in the vector by one position further in memory. If you want a container class that provides a fast <a href="qvector.html#prepend">prepend</a>() function, use <a href="qlist.html">QList</a> or <a href="qlinkedlist.html">QLinkedList</a> instead.</p>
 <p><b> 参见 </b><a href="qvector.html#append">append</a>() 和 <a href="qvector.html#insert">insert</a>().</p>
 <!-- @@@ -->
@@ -425,7 +425,7 @@
 <!-- $$$QVector$$$QVectorstd::initializer_list<T> -->
 <h3 class="fn" id="QVector-5"><a name="QVector-5"></a>QVector::<span class="name">QVector</span>(<span class="type">std::initializer_list</span>&lt;<span class="type">T</span>&gt; <i>args</i>)</h3>
 <p>Constructs a vector from the std::initializer_list given by <i>args</i>.</p>
-<p>This constructor is only enabled if the compiler supports C++11 initializer lists.</p>
+<p>仅当编译器支持C++11初始化列表时，该构造函数才有效。</p>
 <p>这个函数是在Qt 4.8版本中新增引入的。</p>
 <!-- @@@QVector -->
 <!-- $$$~QVector[overload1]$$$~QVector -->
@@ -447,7 +447,7 @@
   <span class="comment">// three: &quot;three&quot;</span>
 
 </pre>
-<p>This is the same as calling resize(<a href="qvector.html#size">size</a>() + 1) and assigning <i>value</i> to the new last element in the vector.</p>
+<p>此函数等同于 calling resize(<a href="qvector.html#size">size</a>() + 1) and assigning <i>value</i> to the new last element in the vector.</p>
 <p>This operation is relatively fast, because <a href="qvector.html">QVector</a> typically allocates more memory than necessary, so it can grow without reallocating the entire vector each time.</p>
 <p><b> 参见 </b><a href="qvector.html#operator-lt-lt">operator&lt;&lt;</a>(), <a href="qvector.html#prepend">prepend</a>(), 和 <a href="qvector.html#insert">insert</a>().</p>
 <!-- @@@append -->
@@ -483,7 +483,7 @@
 <!-- @@@at -->
 <!-- $$$back[overload1]$$$back -->
 <h3 class="fn" id="back"><a name="back"></a><span class="type"><a href="qvector.html#reference-typedef">QVector::reference</a></span> QVector::<span class="name">back</span>()</h3>
-<p>This function is provided for STL compatibility. It is equivalent to <a href="qvector.html#last">last</a>().</p>
+<p>此函数用于STL风格的兼容性，它相当于 <a href="qvector.html#last">last</a>().</p>
 <!-- @@@back -->
 <!-- $$$back$$$back -->
 <h3 class="fn" id="back-1"><a name="back-1"></a><span class="type"><a href="qvector.html#const_reference-typedef">QVector::const_reference</a></span> QVector::<span class="name">back</span>() const</h3>
@@ -560,13 +560,13 @@
 <!-- $$$contains[overload1]$$$containsconstT& -->
 <h3 class="fn" id="contains"><a name="contains"></a><span class="type">bool</span> QVector::<span class="name">contains</span>(const <span class="type">T</span> &amp;<i>value</i>) const</h3>
 <p>Returns <code>true</code> if the vector contains an occurrence of <i>value</i>; otherwise returns <code>false</code>.</p>
-<p>This function requires the value type to have an implementation of <code>operator==()</code>.</p>
+<p>该函数邀请值类型的列表元素实现了 <code>operator==()</code>.</p>
 <p><b> 参见 </b><a href="qvector.html#indexOf">indexOf</a>() 和 <a href="qvector.html#count-1">count</a>().</p>
 <!-- @@@contains -->
 <!-- $$$count[overload1]$$$countconstT& -->
 <h3 class="fn" id="count"><a name="count"></a><span class="type">int</span> QVector::<span class="name">count</span>(const <span class="type">T</span> &amp;<i>value</i>) const</h3>
 <p>Returns the number of occurrences of <i>value</i> in the vector.</p>
-<p>This function requires the value type to have an implementation of <code>operator==()</code>.</p>
+<p>该函数邀请值类型的列表元素实现了 <code>operator==()</code>.</p>
 <p><b> 参见 </b><a href="qvector.html#contains">contains</a>() 和 <a href="qvector.html#indexOf">indexOf</a>().</p>
 <!-- @@@count -->
 <!-- $$$count$$$count -->
@@ -608,7 +608,7 @@
 <!-- @@@data -->
 <!-- $$$empty[overload1]$$$empty -->
 <h3 class="fn" id="empty"><a name="empty"></a><span class="type">bool</span> QVector::<span class="name">empty</span>() const</h3>
-<p>This function is provided for STL compatibility. It is equivalent to <a href="qvector.html#isEmpty">isEmpty</a>(), returning <code>true</code> if the vector is empty; otherwise returns <code>false</code>.</p>
+<p>此函数用于STL风格的兼容性，它相当于 <a href="qvector.html#isEmpty">isEmpty</a>(), returning <code>true</code> if the vector is empty; otherwise returns <code>false</code>.</p>
 <!-- @@@empty -->
 <!-- $$$end[overload1]$$$end -->
 <h3 class="fn" id="end"><a name="end"></a><span class="type"><a href="qvector.html#iterator-typedefx">QVector::iterator</a></span> QVector::<span class="name">end</span>()</h3>
@@ -693,7 +693,7 @@
 <!-- @@@fromStdVector -->
 <!-- $$$front[overload1]$$$front -->
 <h3 class="fn" id="front"><a name="front"></a><span class="type">T</span> &amp;QVector::<span class="name">front</span>()</h3>
-<p>This function is provided for STL compatibility. It is equivalent to <a href="qvector.html#first">first</a>().</p>
+<p>此函数用于STL风格的兼容性，它相当于 <a href="qvector.html#first">first</a>().</p>
 <!-- @@@front -->
 <!-- $$$front$$$front -->
 <h3 class="fn" id="front-1"><a name="front-1"></a><span class="type"><a href="qvector.html#const_reference-typedef">QVector::const_reference</a></span> QVector::<span class="name">front</span>() const</h3>
@@ -713,7 +713,7 @@
   vector<span class="operator">.</span>indexOf(<span class="string">&quot;X&quot;</span>);            <span class="comment">// returns -1</span>
 
 </pre>
-<p>This function requires the value type to have an implementation of <code>operator==()</code>.</p>
+<p>该函数邀请值类型的列表元素实现了 <code>operator==()</code>.</p>
 <p><b> 参见 </b><a href="qvector.html#lastIndexOf">lastIndexOf</a>() 和 <a href="qvector.html#contains">contains</a>().</p>
 <!-- @@@indexOf -->
 <!-- $$$insert$$$insertintintconstT& -->
@@ -762,7 +762,7 @@
   vector<span class="operator">.</span>lastIndexOf(<span class="string">&quot;X&quot;</span>);        <span class="comment">// returns -1</span>
 
 </pre>
-<p>This function requires the value type to have an implementation of <code>operator==()</code>.</p>
+<p>该函数邀请值类型的列表元素实现了 <code>operator==()</code>.</p>
 <p><b> 参见 </b><a href="qvector.html#indexOf">indexOf</a>().</p>
 <!-- @@@lastIndexOf -->
 <!-- $$$length[overload1]$$$length -->
@@ -785,15 +785,15 @@
 <!-- @@@move -->
 <!-- $$$pop_back[overload1]$$$pop_back -->
 <h3 class="fn" id="pop_back"><a name="pop_back"></a><span class="type">void</span> QVector::<span class="name">pop_back</span>()</h3>
-<p>This function is provided for STL compatibility. It is equivalent to <a href="qvector.html#removeLast">removeLast</a>().</p>
+<p>此函数用于STL风格的兼容性，它相当于 <a href="qvector.html#removeLast">removeLast</a>().</p>
 <!-- @@@pop_back -->
 <!-- $$$pop_front[overload1]$$$pop_front -->
 <h3 class="fn" id="pop_front"><a name="pop_front"></a><span class="type">void</span> QVector::<span class="name">pop_front</span>()</h3>
-<p>This function is provided for STL compatibility. It is equivalent to <a href="qvector.html#removeFirst">removeFirst</a>().</p>
+<p>此函数用于STL风格的兼容性，它相当于 <a href="qvector.html#removeFirst">removeFirst</a>().</p>
 <!-- @@@pop_front -->
 <!-- $$$push_back[overload1]$$$push_backconstT& -->
 <h3 class="fn" id="push_back"><a name="push_back"></a><span class="type">void</span> QVector::<span class="name">push_back</span>(const <span class="type">T</span> &amp;<i>value</i>)</h3>
-<p>This function is provided for STL compatibility. It is equivalent to append(<i>value</i>).</p>
+<p>此函数支持STL风格的兼容性，它等同于 append(<i>value</i>).</p>
 <!-- @@@push_back -->
 <!-- $$$push_back$$$push_backT&& -->
 <h3 class="fn" id="push_back-1"><a name="push_back-1"></a><span class="type">void</span> QVector::<span class="name">push_back</span>(<span class="type">T</span> &amp;&amp;<i>value</i>)</h3>
@@ -894,7 +894,7 @@
 <!-- @@@resize -->
 <!-- $$$shrink_to_fit[overload1]$$$shrink_to_fit -->
 <h3 class="fn" id="shrink_to_fit"><a name="shrink_to_fit"></a><span class="type">void</span> QVector::<span class="name">shrink_to_fit</span>()</h3>
-<p>This function is provided for STL compatibility. It is equivalent to <a href="qvector.html#squeeze">squeeze</a>().</p>
+<p>此函数用于STL风格的兼容性，它相当于 <a href="qvector.html#squeeze">squeeze</a>().</p>
 <p>这个函数是在Qt 5.10版本中新增引入的。</p>
 <!-- @@@shrink_to_fit -->
 <!-- $$$size[overload1]$$$size -->
@@ -990,7 +990,7 @@
 <h3 class="fn" id="operator-not-eq"><a name="operator-not-eq"></a><span class="type">bool</span> QVector::<span class="name">operator!=</span>(const <span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>) const</h3>
 <p>Returns <code>true</code> if <i>other</i> is not equal to this vector; otherwise returns <code>false</code>.</p>
 <p>Two vectors are considered equal if they contain the same values in the same order.</p>
-<p>This function requires the value type to have an implementation of <code>operator==()</code>.</p>
+<p>该函数邀请值类型的列表元素实现了 <code>operator==()</code>.</p>
 <p><b> 参见 </b><a href="qvector.html#operator-eq-eq">operator==</a>().</p>
 <!-- @@@operator!= -->
 <!-- $$$operator+[overload1]$$$operator+constQVector<T>& -->
@@ -1043,7 +1043,7 @@
 <h3 class="fn" id="operator-eq-eq"><a name="operator-eq-eq"></a><span class="type">bool</span> QVector::<span class="name">operator==</span>(const <span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>) const</h3>
 <p>Returns <code>true</code> if <i>other</i> is equal to this vector; otherwise returns <code>false</code>.</p>
 <p>Two vectors are considered equal if they contain the same values in the same order.</p>
-<p>This function requires the value type to have an implementation of <code>operator==()</code>.</p>
+<p>该函数邀请值类型的列表元素实现了 <code>operator==()</code>.</p>
 <p><b> 参见 </b><a href="qvector.html#operator-not-eq">operator!=</a>().</p>
 <!-- @@@operator== -->
 <!-- $$$operator[][overload1]$$$operator[]int -->
@@ -1073,37 +1073,37 @@
 <!-- $$$operator<[overload1]$$$operator<constQVector<T>&constQVector<T>& -->
 <h3 class="fn" id="operator-lt"><a name="operator-lt"></a><span class="type">bool</span> <span class="name">operator&lt;</span>(const <span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>lhs</i>, const <span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>rhs</i>)</h3>
 <p>Returns <code>true</code> if vector <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically less than</a> <i>rhs</i>; otherwise returns <code>false</code>.</p>
-<p>This function requires the value type to have an implementation of <code>operator&lt;()</code>.</p>
+<p>该函数邀请值类型的列表元素实现了 <code>operator&lt;()</code>.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <!-- @@@operator< -->
 <!-- $$$operator<<$$$operator<<QDataStream&constQVector<T>& -->
 <h3 class="fn" id="operator-lt-lt-3"><a name="operator-lt-lt-3"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp;<span class="name">operator&lt;&lt;</span>(<span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp;<i>out</i>, const <span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>vector</i>)</h3>
 <p>Writes the vector <i>vector</i> to stream <i>out</i>.</p>
-<p>This function requires the value type to implement <code>operator&lt;&lt;()</code>.</p>
+<p>该函数要求值类型的列表元素实现了 <code>operator&lt;&lt;()</code>.</p>
 <p><b> 参见 </b><a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator<=[overload1]$$$operator<=constQVector<T>&constQVector<T>& -->
 <h3 class="fn" id="operator-lt-eq"><a name="operator-lt-eq"></a><span class="type">bool</span> <span class="name">operator&lt;=</span>(const <span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>lhs</i>, const <span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>rhs</i>)</h3>
 <p>Returns <code>true</code> if vector <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically less than or equal to</a> <i>rhs</i>; otherwise returns <code>false</code>.</p>
-<p>This function requires the value type to have an implementation of <code>operator&lt;()</code>.</p>
+<p>该函数邀请值类型的列表元素实现了 <code>operator&lt;()</code>.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <!-- @@@operator<= -->
 <!-- $$$operator>[overload1]$$$operator>constQVector<T>&constQVector<T>& -->
 <h3 class="fn" id="operator-gt"><a name="operator-gt"></a><span class="type">bool</span> <span class="name">operator&gt;</span>(const <span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>lhs</i>, const <span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>rhs</i>)</h3>
 <p>Returns <code>true</code> if vector <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically greater than</a> <i>rhs</i>; otherwise returns <code>false</code>.</p>
-<p>This function requires the value type to have an implementation of <code>operator&lt;()</code>.</p>
+<p>该函数邀请值类型的列表元素实现了 <code>operator&lt;()</code>.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <!-- @@@operator> -->
 <!-- $$$operator>=[overload1]$$$operator>=constQVector<T>&constQVector<T>& -->
 <h3 class="fn" id="operator-gt-eq"><a name="operator-gt-eq"></a><span class="type">bool</span> <span class="name">operator&gt;=</span>(const <span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>lhs</i>, const <span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>rhs</i>)</h3>
 <p>Returns <code>true</code> if vector <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically greater than or equal to</a> <i>rhs</i>; otherwise returns <code>false</code>.</p>
-<p>This function requires the value type to have an implementation of <code>operator&lt;()</code>.</p>
+<p>该函数邀请值类型的列表元素实现了 <code>operator&lt;()</code>.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <!-- @@@operator>= -->
 <!-- $$$operator>>[overload1]$$$operator>>QDataStream&QVector<T>& -->
 <h3 class="fn" id="operator-gt-gt"><a name="operator-gt-gt"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp;<span class="name">operator&gt;&gt;</span>(<span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp;<i>in</i>, <span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>vector</i>)</h3>
 <p>Reads a vector from stream <i>in</i> into <i>vector</i>.</p>
-<p>This function requires the value type to implement <code>operator&gt;&gt;()</code>.</p>
+<p>该函数要求值类型的列表元素实现了 <code>operator&gt;&gt;()</code>.</p>
 <p><b> 参见 </b><a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <!-- @@@operator>> -->
 </div>

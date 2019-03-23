@@ -332,7 +332,7 @@
 <h2>成员函数文档</h2>
 <!-- $$$QList[overload1]$$$QList -->
 <h3 class="fn" id="QList"><a name="QList"></a>QList::<span class="name">QList</span>()</h3>
-<p>Constructs an empty list.</p>
+<p>构造函数，实现了一个空列表。</p>
 <!-- @@@QList -->
 <!-- $$$QList$$$QListconstQList<T>& -->
 <h3 class="fn" id="QList-1"><a name="QList-1"></a>QList::<span class="name">QList</span>(const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>)</h3>
@@ -348,7 +348,7 @@
 <!-- $$$QList$$$QListstd::initializer_list<T> -->
 <h3 class="fn" id="QList-3"><a name="QList-3"></a>QList::<span class="name">QList</span>(<span class="type">std::initializer_list</span>&lt;<span class="type">T</span>&gt; <i>args</i>)</h3>
 <p>Construct a list from the std::initializer_list specified by <i>args</i>.</p>
-<p>This constructor is only enabled if the compiler supports C++11 initializer lists.</p>
+<p>仅当编译器支持C++11初始化列表时，该构造函数才有效。</p>
 <p>这个函数是在Qt 4.8版本中新增引入的。</p>
 <!-- @@@QList -->
 <!-- $$$~QList[overload1]$$$~QList -->
@@ -357,7 +357,7 @@
 <!-- @@@~QList -->
 <!-- $$$append[overload1]$$$appendconstT& -->
 <h3 class="fn" id="append"><a name="append"></a><span class="type">void</span> QList::<span class="name">append</span>(const <span class="type">T</span> &amp;<i>value</i>)</h3>
-<p>Inserts <i>value</i> at the end of the list.</p>
+<p>在列表尾部插入一个新值 <i>value</i>。</p>
 <p>样例：</p>
 <pre class="cpp">
 
@@ -368,7 +368,7 @@
   <span class="comment">// list: [&quot;one&quot;, &quot;two&quot;, &quot;three&quot;]</span>
 
 </pre>
-<p>This is the same as list.insert(<a href="qlist.html#size">size</a>(), <i>value</i>).</p>
+<p>此函数等同于 list.insert(<a href="qlist.html#size">size</a>(), <i>value</i>).</p>
 <p>If this list is not shared, this operation is typically very fast (amortized <a href="containers.html#algorithmic-complexity">constant time</a>), because <a href="qlist.html">QList</a> preallocates extra space on both sides of its internal buffer to allow for fast growth at both ends of the list.</p>
 <p><b> 参见 </b><a href="qlist.html#operator-lt-lt">operator&lt;&lt;</a>(), <a href="qlist.html#prepend">prepend</a>(), 和 <a href="qlist.html#insert">insert</a>().</p>
 <!-- @@@append -->
@@ -387,7 +387,7 @@
 <!-- @@@at -->
 <!-- $$$back[overload1]$$$back -->
 <h3 class="fn" id="back"><a name="back"></a><span class="type">T</span> &amp;QList::<span class="name">back</span>()</h3>
-<p>This function is provided for STL compatibility. It is equivalent to <a href="qlist.html#last">last</a>(). The list must not be empty. If the list can be empty, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
+<p>此函数用于STL风格的兼容性，它相当于 <a href="qlist.html#last">last</a>(). The list must not be empty. If the list can be empty, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
 <!-- @@@back -->
 <!-- $$$back$$$back -->
 <h3 class="fn" id="back-1"><a name="back-1"></a>const <span class="type">T</span> &amp;QList::<span class="name">back</span>() const</h3>
@@ -395,7 +395,7 @@
 <!-- @@@back -->
 <!-- $$$begin[overload1]$$$begin -->
 <h3 class="fn" id="begin"><a name="begin"></a><span class="type"><a href="qlist-iterator.html">QList::iterator</a></span> QList::<span class="name">begin</span>()</h3>
-<p>Returns an <a href="containers.html#stl-style-iterators">STL-style iterator</a> pointing to the first item in the list.</p>
+<p>返回一个<a href="containers.html#stl-style-iterators">STL风格的迭代器</a>的指针，指向列表中的第一项。</p>
 <p><b> 参见 </b><a href="qlist.html#constBegin">constBegin</a>() 和 <a href="qlist.html#end">end</a>().</p>
 <!-- @@@begin -->
 <!-- $$$begin$$$begin -->
@@ -404,13 +404,13 @@
 <!-- @@@begin -->
 <!-- $$$cbegin[overload1]$$$cbegin -->
 <h3 class="fn" id="cbegin"><a name="cbegin"></a><span class="type"><a href="qlist-const-iterator.html">QList::const_iterator</a></span> QList::<span class="name">cbegin</span>() const</h3>
-<p>Returns a const <a href="containers.html#stl-style-iterators">STL-style iterator</a> pointing to the first item in the list.</p>
+<p>返回一个<a href="containers.html#stl-style-iterators">STL风格的迭代器</a>的常量指针，指向列表中的第一项。</p>
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qlist.html#begin">begin</a>() 和 <a href="qlist.html#cend">cend</a>().</p>
 <!-- @@@cbegin -->
 <!-- $$$cend[overload1]$$$cend -->
 <h3 class="fn" id="cend"><a name="cend"></a><span class="type"><a href="qlist-const-iterator.html">QList::const_iterator</a></span> QList::<span class="name">cend</span>() const</h3>
-<p>Returns a const <a href="containers.html#stl-style-iterators">STL-style iterator</a> pointing to the imaginary item after the last item in the list.</p>
+<p>返回一个<a href="containers.html#stl-style-iterators">STL风格的迭代器</a>的常量指针，指向列表中的最后一项后的虚位置。</p>
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qlist.html#cbegin">cbegin</a>() 和 <a href="qlist.html#end">end</a>().</p>
 <!-- @@@cend -->
@@ -421,12 +421,12 @@
 <!-- @@@clear -->
 <!-- $$$constBegin[overload1]$$$constBegin -->
 <h3 class="fn" id="constBegin"><a name="constBegin"></a><span class="type"><a href="qlist-const-iterator.html">QList::const_iterator</a></span> QList::<span class="name">constBegin</span>() const</h3>
-<p>Returns a const <a href="containers.html#stl-style-iterators">STL-style iterator</a> pointing to the first item in the list.</p>
+<p>返回一个<a href="containers.html#stl-style-iterators">STL风格的迭代器</a>的常量指针，指向列表中的第一项。</p>
 <p><b> 参见 </b><a href="qlist.html#begin">begin</a>() 和 <a href="qlist.html#constEnd">constEnd</a>().</p>
 <!-- @@@constBegin -->
 <!-- $$$constEnd[overload1]$$$constEnd -->
 <h3 class="fn" id="constEnd"><a name="constEnd"></a><span class="type"><a href="qlist-const-iterator.html">QList::const_iterator</a></span> QList::<span class="name">constEnd</span>() const</h3>
-<p>Returns a const <a href="containers.html#stl-style-iterators">STL-style iterator</a> pointing to the imaginary item after the last item in the list.</p>
+<p>返回一个<a href="containers.html#stl-style-iterators">STL风格的迭代器</a>的常量指针，指向列表中的最后一项后的虚位置。</p>
 <p><b> 参见 </b><a href="qlist.html#constBegin">constBegin</a>() 和 <a href="qlist.html#end">end</a>().</p>
 <!-- @@@constEnd -->
 <!-- $$$constFirst[overload1]$$$constFirst -->
@@ -443,14 +443,14 @@
 <!-- @@@constLast -->
 <!-- $$$contains[overload1]$$$containsconstT& -->
 <h3 class="fn" id="contains"><a name="contains"></a><span class="type">bool</span> QList::<span class="name">contains</span>(const <span class="type">T</span> &amp;<i>value</i>) const</h3>
-<p>Returns <code>true</code> if the list contains an occurrence of <i>value</i>; otherwise returns <code>false</code>.</p>
-<p>This function requires the value type to have an implementation of <code>operator==()</code>.</p>
+<p>若列表中包含任意一个值<i>value</i>，则返回 <code>true</code>；否则则返回  <code>false</code>。</p>
+<p>该函数要求值类型的列表元素实现了 <code>operator==()</code>.</p>
 <p><b> 参见 </b><a href="qlist.html#indexOf">indexOf</a>() 和 <a href="qlist.html#count-1">count</a>().</p>
 <!-- @@@contains -->
 <!-- $$$count[overload1]$$$countconstT& -->
 <h3 class="fn" id="count"><a name="count"></a><span class="type">int</span> QList::<span class="name">count</span>(const <span class="type">T</span> &amp;<i>value</i>) const</h3>
-<p>Returns the number of occurrences of <i>value</i> in the list.</p>
-<p>This function requires the value type to have an implementation of <code>operator==()</code>.</p>
+<p>返回列表中值 <i>value</i>的出现次数。</p>
+<p>该函数要求值类型的列表元素实现了 <code>operator==()</code>.</p>
 <p><b> 参见 </b><a href="qlist.html#contains">contains</a>() 和 <a href="qlist.html#indexOf">indexOf</a>().</p>
 <!-- @@@count -->
 <!-- $$$count$$$count -->
@@ -459,23 +459,23 @@
 <!-- @@@count -->
 <!-- $$$crbegin[overload1]$$$crbegin -->
 <h3 class="fn" id="crbegin"><a name="crbegin"></a><span class="type"><a href="qlist.html#const_reverse_iterator-typedef">QList::const_reverse_iterator</a></span> QList::<span class="name">crbegin</span>() const</h3>
-<p>Returns a const <a href="containers.html#stl-style-iterators">STL-style</a> reverse iterator pointing to the first item in the list, in reverse order.</p>
+<p>返回一个<a href="containers.html#stl-style-iterators">STL风格的</a>反向迭代器的常量指针，指向列表中的反向的第一项。</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qlist.html#begin">begin</a>(), <a href="qlist.html#rbegin">rbegin</a>(), 和 <a href="qlist.html#rend">rend</a>().</p>
 <!-- @@@crbegin -->
 <!-- $$$crend[overload1]$$$crend -->
 <h3 class="fn" id="crend"><a name="crend"></a><span class="type"><a href="qlist.html#const_reverse_iterator-typedef">QList::const_reverse_iterator</a></span> QList::<span class="name">crend</span>() const</h3>
-<p>Returns a const <a href="containers.html#stl-style-iterators">STL-style</a> reverse iterator pointing to one past the last item in the list, in reverse order.</p>
+<p>返回一个<a href="containers.html#stl-style-iterators">STL风格的</a>反向迭代器的常量指针，指向列表中的反向的上一项。</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qlist.html#end">end</a>(), <a href="qlist.html#rend">rend</a>(), 和 <a href="qlist.html#rbegin">rbegin</a>().</p>
 <!-- @@@crend -->
 <!-- $$$empty[overload1]$$$empty -->
 <h3 class="fn" id="empty"><a name="empty"></a><span class="type">bool</span> QList::<span class="name">empty</span>() const</h3>
-<p>This function is provided for STL compatibility. It is equivalent to <a href="qlist.html#isEmpty">isEmpty</a>() and returns <code>true</code> if the list is empty.</p>
+<p>此函数用于STL风格的兼容性，它相当于 <a href="qlist.html#isEmpty">isEmpty</a>() ，若列表为空，则返回 <code>true</code> 。</p>
 <!-- @@@empty -->
 <!-- $$$end[overload1]$$$end -->
 <h3 class="fn" id="end"><a name="end"></a><span class="type"><a href="qlist-iterator.html">QList::iterator</a></span> QList::<span class="name">end</span>()</h3>
-<p>Returns an <a href="containers.html#stl-style-iterators">STL-style iterator</a> pointing to the imaginary item after the last item in the list.</p>
+<p>返回一个<a href="containers.html#stl-style-iterators">STL风格的迭代器</a>的指针，指向列表中的最后一项后的虚位置。</p>
 <p><b> 参见 </b><a href="qlist.html#begin">begin</a>() 和 <a href="qlist.html#constEnd">constEnd</a>().</p>
 <!-- @@@end -->
 <!-- $$$end$$$end -->
@@ -555,7 +555,7 @@
 <!-- @@@fromVector -->
 <!-- $$$front[overload1]$$$front -->
 <h3 class="fn" id="front"><a name="front"></a><span class="type">T</span> &amp;QList::<span class="name">front</span>()</h3>
-<p>This function is provided for STL compatibility. It is equivalent to <a href="qlist.html#first">first</a>(). The list must not be empty. If the list can be empty, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
+<p>此函数用于STL风格的兼容性，它相当于 <a href="qlist.html#first">first</a>(). The list must not be empty. If the list can be empty, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
 <!-- @@@front -->
 <!-- $$$front$$$front -->
 <h3 class="fn" id="front-1"><a name="front-1"></a>const <span class="type">T</span> &amp;QList::<span class="name">front</span>() const</h3>
@@ -575,7 +575,7 @@
   list<span class="operator">.</span>indexOf(<span class="string">&quot;X&quot;</span>);          <span class="comment">// returns -1</span>
 
 </pre>
-<p>This function requires the value type to have an implementation of <code>operator==()</code>.</p>
+<p>该函数要求值类型的列表元素实现了 <code>operator==()</code>.</p>
 <p>Note that <a href="qlist.html">QList</a> uses 0-based indexes, just like C++ arrays. Negative indexes are not supported with the exception of the value mentioned above.</p>
 <p><b> 参见 </b><a href="qlist.html#lastIndexOf">lastIndexOf</a>() 和 <a href="qlist.html#contains">contains</a>().</p>
 <!-- @@@indexOf -->
@@ -600,7 +600,7 @@
 <!-- @@@insert -->
 <!-- $$$isEmpty[overload1]$$$isEmpty -->
 <h3 class="fn" id="isEmpty"><a name="isEmpty"></a><span class="type">bool</span> QList::<span class="name">isEmpty</span>() const</h3>
-<p>Returns <code>true</code> if the list contains no items; otherwise returns false.</p>
+<p>若列表为空不包含任何项，则返回 <code>true</code>；否则则返回 <code>false</code>。</p>
 <p><b> 参见 </b><a href="qlist.html#size">size</a>().</p>
 <!-- @@@isEmpty -->
 <!-- $$$last[overload1]$$$last -->
@@ -626,7 +626,7 @@
   list<span class="operator">.</span>lastIndexOf(<span class="string">&quot;X&quot;</span>);      <span class="comment">// returns -1</span>
 
 </pre>
-<p>This function requires the value type to have an implementation of <code>operator==()</code>.</p>
+<p>该函数要求值类型的列表元素实现了 <code>operator==()</code>.</p>
 <p>Note that <a href="qlist.html">QList</a> uses 0-based indexes, just like C++ arrays. Negative indexes are not supported with the exception of the value mentioned above.</p>
 <p><b> 参见 </b><a href="qlist.html#indexOf">indexOf</a>().</p>
 <!-- @@@lastIndexOf -->
@@ -652,20 +652,20 @@
   <span class="comment">// list: [&quot;A&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;B&quot;, &quot;F&quot;]</span>
 
 </pre>
-<p>This is the same as insert(<i>to</i>, <a href="qlist.html#takeAt">takeAt</a>(<i>from</i>)).This function assumes that both <i>from</i> and <i>to</i> are at least 0 but less than <a href="qlist.html#size">size</a>(). To avoid failure, test that both <i>from</i> and <i>to</i> are at least 0 and less than <a href="qlist.html#size">size</a>().</p>
+<p>此函数等同于 insert(<i>to</i>, <a href="qlist.html#takeAt">takeAt</a>(<i>from</i>)).This function assumes that both <i>from</i> and <i>to</i> are at least 0 but less than <a href="qlist.html#size">size</a>(). To avoid failure, test that both <i>from</i> and <i>to</i> are at least 0 and less than <a href="qlist.html#size">size</a>().</p>
 <p><b> 参见 </b><a href="qlist.html#swap">swap</a>(), <a href="qlist.html#insert">insert</a>(), 和 <a href="qlist.html#takeAt">takeAt</a>().</p>
 <!-- @@@move -->
 <!-- $$$pop_back[overload1]$$$pop_back -->
 <h3 class="fn" id="pop_back"><a name="pop_back"></a><span class="type">void</span> QList::<span class="name">pop_back</span>()</h3>
-<p>This function is provided for STL compatibility. It is equivalent to <a href="qlist.html#removeLast">removeLast</a>(). The list must not be empty. If the list can be empty, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
+<p>此函数用于STL风格的兼容性，它相当于 <a href="qlist.html#removeLast">removeLast</a>(). The list must not be empty. If the list can be empty, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
 <!-- @@@pop_back -->
 <!-- $$$pop_front[overload1]$$$pop_front -->
 <h3 class="fn" id="pop_front"><a name="pop_front"></a><span class="type">void</span> QList::<span class="name">pop_front</span>()</h3>
-<p>This function is provided for STL compatibility. It is equivalent to <a href="qlist.html#removeFirst">removeFirst</a>(). The list must not be empty. If the list can be empty, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
+<p>此函数用于STL风格的兼容性，它相当于 <a href="qlist.html#removeFirst">removeFirst</a>(). The list must not be empty. If the list can be empty, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
 <!-- @@@pop_front -->
 <!-- $$$prepend[overload1]$$$prependconstT& -->
 <h3 class="fn" id="prepend"><a name="prepend"></a><span class="type">void</span> QList::<span class="name">prepend</span>(const <span class="type">T</span> &amp;<i>value</i>)</h3>
-<p>Inserts <i>value</i> at the beginning of the list.</p>
+<p>在列表的头部增加新值 <i>value</i>。</p>
 <p>样例：</p>
 <pre class="cpp">
 
@@ -676,17 +676,17 @@
   <span class="comment">// list: [&quot;three&quot;, &quot;two&quot;, &quot;one&quot;]</span>
 
 </pre>
-<p>This is the same as list.insert(0, <i>value</i>).</p>
+<p>此函数等同于 list.insert(0, <i>value</i>).</p>
 <p>If this list is not shared, this operation is typically very fast (amortized <a href="containers.html#algorithmic-complexity">constant time</a>), because <a href="qlist.html">QList</a> preallocates extra space on both sides of its internal buffer to allow for fast growth at both ends of the list.</p>
 <p><b> 参见 </b><a href="qlist.html#append">append</a>() 和 <a href="qlist.html#insert">insert</a>().</p>
 <!-- @@@prepend -->
 <!-- $$$push_back[overload1]$$$push_backconstT& -->
 <h3 class="fn" id="push_back"><a name="push_back"></a><span class="type">void</span> QList::<span class="name">push_back</span>(const <span class="type">T</span> &amp;<i>value</i>)</h3>
-<p>This function is provided for STL compatibility. It is equivalent to <a href="qlist.html#append">append</a>(<i>value</i>).</p>
+<p>此函数用于STL风格的兼容性，它相当于 <a href="qlist.html#append">append</a>(<i>value</i>).</p>
 <!-- @@@push_back -->
 <!-- $$$push_front[overload1]$$$push_frontconstT& -->
 <h3 class="fn" id="push_front"><a name="push_front"></a><span class="type">void</span> QList::<span class="name">push_front</span>(const <span class="type">T</span> &amp;<i>value</i>)</h3>
-<p>This function is provided for STL compatibility. It is equivalent to <a href="qlist.html#prepend">prepend</a>(<i>value</i>).</p>
+<p>此函数用于STL风格的兼容性，它相当于 <a href="qlist.html#prepend">prepend</a>(<i>value</i>).</p>
 <!-- @@@push_front -->
 <!-- $$$rbegin[overload1]$$$rbegin -->
 <h3 class="fn" id="rbegin"><a name="rbegin"></a><span class="type"><a href="qlist.html#reverse_iterator-typedef">QList::reverse_iterator</a></span> QList::<span class="name">rbegin</span>()</h3>
@@ -711,7 +711,7 @@
   <span class="comment">// list: [&quot;cloud&quot;, &quot;rain&quot;]</span>
 
 </pre>
-<p>This function requires the value type to have an implementation of <code>operator==()</code>.</p>
+<p>该函数要求值类型的列表元素实现了 <code>operator==()</code>.</p>
 <p><b> 参见 </b><a href="qlist.html#removeOne">removeOne</a>(), <a href="qlist.html#removeAt">removeAt</a>(), <a href="qlist.html#takeAt">takeAt</a>(), 和 <a href="qlist.html#replace">replace</a>().</p>
 <!-- @@@removeAll -->
 <!-- $$$removeAt[overload1]$$$removeAtint -->
@@ -741,13 +741,13 @@
   <span class="comment">// list: [&quot;cloud&quot;, &quot;sun&quot;, &quot;rain&quot;]</span>
 
 </pre>
-<p>This function requires the value type to have an implementation of <code>operator==()</code>.</p>
+<p>该函数要求值类型的列表元素实现了 <code>operator==()</code>.</p>
 <p>这个函数是在Qt 4.4版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qlist.html#removeAll">removeAll</a>(), <a href="qlist.html#removeAt">removeAt</a>(), <a href="qlist.html#takeAt">takeAt</a>(), 和 <a href="qlist.html#replace">replace</a>().</p>
 <!-- @@@removeOne -->
 <!-- $$$rend[overload1]$$$rend -->
 <h3 class="fn" id="rend"><a name="rend"></a><span class="type"><a href="qlist.html#reverse_iterator-typedef">QList::reverse_iterator</a></span> QList::<span class="name">rend</span>()</h3>
-<p>Returns a <a href="containers.html#stl-style-iterators">STL-style</a> reverse iterator pointing to one past the last item in the list, in reverse order.</p>
+<p>返回一个<a href="containers.html#stl-style-iterators">STL风格的</a>反向迭代器的指针，指向列表中的反向的上一项。</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qlist.html#end">end</a>(), <a href="qlist.html#crend">crend</a>(), 和 <a href="qlist.html#rbegin">rbegin</a>().</p>
 <!-- @@@rend -->
@@ -770,7 +770,7 @@
 <!-- @@@reserve -->
 <!-- $$$size[overload1]$$$size -->
 <h3 class="fn" id="size"><a name="size"></a><span class="type">int</span> QList::<span class="name">size</span>() const</h3>
-<p>Returns the number of items in the list.</p>
+<p>返回列表中所有项的数量。</p>
 <p><b> 参见 </b><a href="qlist.html#isEmpty">isEmpty</a>() 和 <a href="qlist.html#count-1">count</a>().</p>
 <!-- @@@size -->
 <!-- $$$startsWith[overload1]$$$startsWithconstT& -->
@@ -781,7 +781,7 @@
 <!-- @@@startsWith -->
 <!-- $$$swap[overload1]$$$swapQList<T>& -->
 <h3 class="fn" id="swap"><a name="swap"></a><span class="type">void</span> QList::<span class="name">swap</span>(<span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>)</h3>
-<p>Swaps list <i>other</i> with this list. This operation is very fast and never fails.</p>
+<p>交换当前列表和 <i>other</i>列表。此操作巨快，且从未失手失败过。</p>
 <p>这个函数是在Qt 4.8版本中新增引入的。</p>
 <!-- @@@swap -->
 <!-- $$$swap$$$swapintint -->
@@ -878,7 +878,7 @@
 <h3 class="fn" id="operator-not-eq"><a name="operator-not-eq"></a><span class="type">bool</span> QList::<span class="name">operator!=</span>(const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>) const</h3>
 <p>Returns <code>true</code> if <i>other</i> is not equal to this list; otherwise returns <code>false</code>.</p>
 <p>Two lists are considered equal if they contain the same values in the same order.</p>
-<p>This function requires the value type to have an implementation of <code>operator==()</code>.</p>
+<p>该函数要求值类型的列表元素实现了 <code>operator==()</code>.</p>
 <p><b> 参见 </b><a href="qlist.html#operator-eq-eq">operator==</a>().</p>
 <!-- @@@operator!= -->
 <!-- $$$operator+[overload1]$$$operator+constQList<T>& -->
@@ -894,7 +894,7 @@
 <!-- $$$operator+=$$$operator+=constT& -->
 <h3 class="fn" id="operator-2b-eq-1"><a name="operator-2b-eq-1"></a><span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;QList::<span class="name">operator+=</span>(const <span class="type">T</span> &amp;<i>value</i>)</h3>
 <p>这是一个重载函数。</p>
-<p>Appends <i>value</i> to the list.</p>
+<p>追加新值 <i>value</i>到列表尾部。</p>
 <p><b> 参见 </b><a href="qlist.html#append">append</a>() 和 <a href="qlist.html#operator-lt-lt">operator&lt;&lt;</a>().</p>
 <!-- @@@operator+= -->
 <!-- $$$operator<<[overload1]$$$operator<<constQList<T>& -->
@@ -905,7 +905,7 @@
 <!-- $$$operator<<$$$operator<<constT& -->
 <h3 class="fn" id="operator-lt-lt-1"><a name="operator-lt-lt-1"></a><span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;QList::<span class="name">operator&lt;&lt;</span>(const <span class="type">T</span> &amp;<i>value</i>)</h3>
 <p>这是一个重载函数。</p>
-<p>Appends <i>value</i> to the list.</p>
+<p>追加新值 <i>value</i>到列表尾部。</p>
 <!-- @@@operator<< -->
 <!-- $$$operator=[overload1]$$$operator=constQList<T>& -->
 <h3 class="fn" id="operator-eq"><a name="operator-eq"></a><span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;QList::<span class="name">operator=</span>(const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>)</h3>
@@ -920,7 +920,7 @@
 <h3 class="fn" id="operator-eq-eq"><a name="operator-eq-eq"></a><span class="type">bool</span> QList::<span class="name">operator==</span>(const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>) const</h3>
 <p>Returns <code>true</code> if <i>other</i> is equal to this list; otherwise returns false.</p>
 <p>Two lists are considered equal if they contain the same values in the same order.</p>
-<p>This function requires the value type to have an implementation of <code>operator==()</code>.</p>
+<p>该函数要求值类型的列表元素实现了 <code>operator==()</code>.</p>
 <p><b> 参见 </b><a href="qlist.html#operator-not-eq">operator!=</a>().</p>
 <!-- @@@operator== -->
 <!-- $$$operator[][overload1]$$$operator[]int -->
@@ -949,37 +949,37 @@
 <!-- $$$operator<[overload1]$$$operator<constQList<T>&constQList<T>& -->
 <h3 class="fn" id="operator-lt"><a name="operator-lt"></a><span class="type">bool</span> <span class="name">operator&lt;</span>(const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>lhs</i>, const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>rhs</i>)</h3>
 <p>Returns <code>true</code> if list <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically less than</a> <i>rhs</i>; otherwise returns <code>false</code>.</p>
-<p>This function requires the value type to have an implementation of <code>operator&lt;()</code>.</p>
+<p>该函数要求值类型的列表元素实现了 <code>operator&lt;()</code>.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <!-- @@@operator< -->
 <!-- $$$operator<<$$$operator<<QDataStream&constQList<T>& -->
 <h3 class="fn" id="operator-lt-lt-2"><a name="operator-lt-lt-2"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp;<span class="name">operator&lt;&lt;</span>(<span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp;<i>out</i>, const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>list</i>)</h3>
 <p>Writes the list <i>list</i> to stream <i>out</i>.</p>
-<p>This function requires the value type to implement <code>operator&lt;&lt;()</code>.</p>
+<p>该函数要求值类型的列表元素实现了 <code>operator&lt;&lt;()</code>.</p>
 <p><b> 参见 </b><a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator<=[overload1]$$$operator<=constQList<T>&constQList<T>& -->
 <h3 class="fn" id="operator-lt-eq"><a name="operator-lt-eq"></a><span class="type">bool</span> <span class="name">operator&lt;=</span>(const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>lhs</i>, const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>rhs</i>)</h3>
 <p>Returns <code>true</code> if list <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically less than or equal to</a> <i>rhs</i>; otherwise returns <code>false</code>.</p>
-<p>This function requires the value type to have an implementation of <code>operator&lt;()</code>.</p>
+<p>该函数要求值类型的列表元素实现了 <code>operator&lt;()</code>.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <!-- @@@operator<= -->
 <!-- $$$operator>[overload1]$$$operator>constQList<T>&constQList<T>& -->
 <h3 class="fn" id="operator-gt"><a name="operator-gt"></a><span class="type">bool</span> <span class="name">operator&gt;</span>(const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>lhs</i>, const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>rhs</i>)</h3>
 <p>Returns <code>true</code> if list <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically greater than</a> <i>rhs</i>; otherwise returns <code>false</code>.</p>
-<p>This function requires the value type to have an implementation of <code>operator&lt;()</code>.</p>
+<p>该函数要求值类型的列表元素实现了 <code>operator&lt;()</code>.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <!-- @@@operator> -->
 <!-- $$$operator>=[overload1]$$$operator>=constQList<T>&constQList<T>& -->
 <h3 class="fn" id="operator-gt-eq"><a name="operator-gt-eq"></a><span class="type">bool</span> <span class="name">operator&gt;=</span>(const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>lhs</i>, const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>rhs</i>)</h3>
 <p>Returns <code>true</code> if list <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically greater than or equal to</a> <i>rhs</i>; otherwise returns <code>false</code>.</p>
-<p>This function requires the value type to have an implementation of <code>operator&lt;()</code>.</p>
+<p>该函数要求值类型的列表元素实现了 <code>operator&lt;()</code>.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <!-- @@@operator>= -->
 <!-- $$$operator>>[overload1]$$$operator>>QDataStream&QList<T>& -->
 <h3 class="fn" id="operator-gt-gt"><a name="operator-gt-gt"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp;<span class="name">operator&gt;&gt;</span>(<span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp;<i>in</i>, <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>list</i>)</h3>
 <p>Reads a list from stream <i>in</i> into <i>list</i>.</p>
-<p>This function requires the value type to implement <code>operator&gt;&gt;()</code>.</p>
+<p>该函数要求值类型的列表元素实现了 <code>operator&gt;&gt;()</code>.</p>
 <p><b> 参见 </b><a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
 <!-- @@@operator>> -->
 </div>
