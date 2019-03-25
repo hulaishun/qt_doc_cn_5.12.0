@@ -291,7 +291,7 @@
 <!-- $$$const_reverse_iterator -->
 <h3 class="fn" id="const_reverse_iterator-typedef"><a name="const_reverse_iterator-typedef"></a>typedef QList::<span class="name">const_reverse_iterator</span></h3>
 <p>The QList::const_reverse_iterator typedef provides an STL-style const reverse iterator for <a href="qlist.html">QList</a>.</p>
-<p>It is simply a typedef for <code>std::reverse_iterator&lt;const_iterator&gt;</code>.</p>
+<p>它只是简单类型重定义，方便使用于 <code>std::reverse_iterator&lt;const_iterator&gt;</code>.</p>
 <p><b>Warning:</b> Iterators on implicitly shared containers do not work exactly like STL-iterators. You should avoid copying a container while iterators are active on that container. For more information, read <a href="containers.html#implicit-sharing-iterator-problem">Implicit sharing iterator problem</a>.</p>
 <p>这个类型定义是在Qt 5.6版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qlist.html#rbegin">QList::rbegin</a>(), <a href="qlist.html#rend">QList::rend</a>(), <a href="qlist.html#reverse_iterator-typedef">QList::reverse_iterator</a>, 和 <a href="qlist-const-iterator.html">QList::const_iterator</a>.</p>
@@ -311,7 +311,7 @@
 <!-- $$$reverse_iterator -->
 <h3 class="fn" id="reverse_iterator-typedef"><a name="reverse_iterator-typedef"></a>typedef QList::<span class="name">reverse_iterator</span></h3>
 <p>The QList::reverse_iterator typedef provides an STL-style non-const reverse iterator for <a href="qlist.html">QList</a>.</p>
-<p>It is simply a typedef for <code>std::reverse_iterator&lt;iterator&gt;</code>.</p>
+<p>它只是简单类型重定义，方便使用于 <code>std::reverse_iterator&lt;iterator&gt;</code>.</p>
 <p><b>Warning:</b> Iterators on implicitly shared containers do not work exactly like STL-iterators. You should avoid copying a container while iterators are active on that container. For more information, read <a href="containers.html#implicit-sharing-iterator-problem">Implicit sharing iterator problem</a>.</p>
 <p>这个类型定义是在Qt 5.6版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qlist.html#rbegin">QList::rbegin</a>(), <a href="qlist.html#rend">QList::rend</a>(), <a href="qlist.html#const_reverse_iterator-typedef">QList::const_reverse_iterator</a>, 和 <a href="qlist-iterator.html">QList::iterator</a>.</p>
@@ -353,7 +353,7 @@
 <!-- @@@QList -->
 <!-- $$$~QList[overload1]$$$~QList -->
 <h3 class="fn" id="dtor.QList"><a name="dtor.QList"></a>QList::<span class="name">~QList</span>()</h3>
-<p>Destroys the list. References to the values in the list and all iterators of this list become invalid.</p>
+<p>析构函数， 列表中的元素值和迭代器都将无效。</ p>
 <!-- @@@~QList -->
 <!-- $$$append[overload1]$$$appendconstT& -->
 <h3 class="fn" id="append"><a name="append"></a><span class="type">void</span> QList::<span class="name">append</span>(const <span class="type">T</span> &amp;<i>value</i>)</h3>
@@ -375,7 +375,7 @@
 <!-- $$$append$$$appendconstQList<T>& -->
 <h3 class="fn" id="append-1"><a name="append-1"></a><span class="type">void</span> QList::<span class="name">append</span>(const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>value</i>)</h3>
 <p>这是一个重载函数。</p>
-<p>Appends the items of the <i>value</i> list to this list.</p>
+<p>追加新值 <i>value</i> 到列表的尾部。</p>
 <p>这个函数是在Qt 4.5版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qlist.html#operator-lt-lt">operator&lt;&lt;</a>() 和 <a href="qlist.html#operator-2b-eq">operator+=</a>().</p>
 <!-- @@@append -->
@@ -387,7 +387,7 @@
 <!-- @@@at -->
 <!-- $$$back[overload1]$$$back -->
 <h3 class="fn" id="back"><a name="back"></a><span class="type">T</span> &amp;QList::<span class="name">back</span>()</h3>
-<p>此函数用于STL风格的兼容性，它相当于 <a href="qlist.html#last">last</a>(). The list must not be empty. If the list can be empty, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
+<p>此函数用于STL风格的兼容性，它相当于 <a href="qlist.html#last">last</a>()。列表不允许为空值。若列表有可能为空值，则务必在调用此函数之前调用 <a href="qlist.html#isEmpty">isEmpty</a>()来加以判断，做好提前规避。</p>
 <!-- @@@back -->
 <!-- $$$back$$$back -->
 <h3 class="fn" id="back-1"><a name="back-1"></a>const <span class="type">T</span> &amp;QList::<span class="name">back</span>() const</h3>
@@ -416,7 +416,7 @@
 <!-- @@@cend -->
 <!-- $$$clear[overload1]$$$clear -->
 <h3 class="fn" id="clear"><a name="clear"></a><span class="type">void</span> QList::<span class="name">clear</span>()</h3>
-<p>Removes all items from the list.</p>
+<p>删除列表中的所有元素。</p>
 <p><b> 参见 </b><a href="qlist.html#removeAll">removeAll</a>().</p>
 <!-- @@@clear -->
 <!-- $$$constBegin[overload1]$$$constBegin -->
@@ -431,13 +431,13 @@
 <!-- @@@constEnd -->
 <!-- $$$constFirst[overload1]$$$constFirst -->
 <h3 class="fn" id="constFirst"><a name="constFirst"></a>const <span class="type">T</span> &amp;QList::<span class="name">constFirst</span>() const</h3>
-<p>Returns a const reference to the first item in the list. The list must not be empty. If the list can be empty, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
+<p>Returns a const reference to the first item in the list。列表不允许为空值。若列表有可能为空值，则务必在调用此函数之前调用 <a href="qlist.html#isEmpty">isEmpty</a>()来加以判断，做好提前规避。</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qlist.html#constLast">constLast</a>(), <a href="qlist.html#isEmpty">isEmpty</a>(), 和 <a href="qlist.html#first">first</a>().</p>
 <!-- @@@constFirst -->
 <!-- $$$constLast[overload1]$$$constLast -->
 <h3 class="fn" id="constLast"><a name="constLast"></a>const <span class="type">T</span> &amp;QList::<span class="name">constLast</span>() const</h3>
-<p>Returns a reference to the last item in the list. The list must not be empty. If the list can be empty, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
+<p>Returns a reference to the last item in the list。列表不允许为空值。若列表有可能为空值，则务必在调用此函数之前调用 <a href="qlist.html#isEmpty">isEmpty</a>()来加以判断，做好提前规避。</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qlist.html#constFirst">constFirst</a>(), <a href="qlist.html#isEmpty">isEmpty</a>(), 和 <a href="qlist.html#last">last</a>().</p>
 <!-- @@@constLast -->
@@ -500,7 +500,7 @@
 <!-- @@@erase -->
 <!-- $$$first[overload1]$$$first -->
 <h3 class="fn" id="first"><a name="first"></a><span class="type">T</span> &amp;QList::<span class="name">first</span>()</h3>
-<p>Returns a reference to the first item in the list. The list must not be empty. If the list can be empty, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
+<p>Returns a reference to the first item in the list。列表不允许为空值。若列表有可能为空值，则务必在调用此函数之前调用 <a href="qlist.html#isEmpty">isEmpty</a>()来加以判断，做好提前规避。</p>
 <p><b> 参见 </b><a href="qlist.html#constFirst">constFirst</a>(), <a href="qlist.html#last">last</a>(), 和 <a href="qlist.html#isEmpty">isEmpty</a>().</p>
 <!-- @@@first -->
 <!-- $$$first$$$first -->
@@ -555,7 +555,7 @@
 <!-- @@@fromVector -->
 <!-- $$$front[overload1]$$$front -->
 <h3 class="fn" id="front"><a name="front"></a><span class="type">T</span> &amp;QList::<span class="name">front</span>()</h3>
-<p>此函数用于STL风格的兼容性，它相当于 <a href="qlist.html#first">first</a>(). The list must not be empty. If the list can be empty, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
+<p>此函数用于STL风格的兼容性，它相当于 <a href="qlist.html#first">first</a>()。列表不允许为空值。若列表有可能为空值，则务必在调用此函数之前调用 <a href="qlist.html#isEmpty">isEmpty</a>()来加以判断，做好提前规避。</p>
 <!-- @@@front -->
 <!-- $$$front$$$front -->
 <h3 class="fn" id="front-1"><a name="front-1"></a>const <span class="type">T</span> &amp;QList::<span class="name">front</span>() const</h3>
@@ -605,7 +605,7 @@
 <!-- @@@isEmpty -->
 <!-- $$$last[overload1]$$$last -->
 <h3 class="fn" id="last"><a name="last"></a><span class="type">T</span> &amp;QList::<span class="name">last</span>()</h3>
-<p>Returns a reference to the last item in the list. The list must not be empty. If the list can be empty, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
+<p>Returns a reference to the last item in the list。列表不允许为空值。若列表有可能为空值，则务必在调用此函数之前调用 <a href="qlist.html#isEmpty">isEmpty</a>()来加以判断，做好提前规避。</p>
 <p><b> 参见 </b><a href="qlist.html#constLast">constLast</a>(), <a href="qlist.html#first">first</a>(), 和 <a href="qlist.html#isEmpty">isEmpty</a>().</p>
 <!-- @@@last -->
 <!-- $$$last$$$last -->
@@ -657,11 +657,11 @@
 <!-- @@@move -->
 <!-- $$$pop_back[overload1]$$$pop_back -->
 <h3 class="fn" id="pop_back"><a name="pop_back"></a><span class="type">void</span> QList::<span class="name">pop_back</span>()</h3>
-<p>此函数用于STL风格的兼容性，它相当于 <a href="qlist.html#removeLast">removeLast</a>(). The list must not be empty. If the list can be empty, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
+<p>此函数用于STL风格的兼容性，它相当于 <a href="qlist.html#removeLast">removeLast</a>()。列表不允许为空值。若列表有可能为空值，则务必在调用此函数之前调用 <a href="qlist.html#isEmpty">isEmpty</a>()来加以判断，做好提前规避。</p>
 <!-- @@@pop_back -->
 <!-- $$$pop_front[overload1]$$$pop_front -->
 <h3 class="fn" id="pop_front"><a name="pop_front"></a><span class="type">void</span> QList::<span class="name">pop_front</span>()</h3>
-<p>此函数用于STL风格的兼容性，它相当于 <a href="qlist.html#removeFirst">removeFirst</a>(). The list must not be empty. If the list can be empty, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
+<p>此函数用于STL风格的兼容性，它相当于 <a href="qlist.html#removeFirst">removeFirst</a>()。列表不允许为空值。若列表有可能为空值，则务必在调用此函数之前调用 <a href="qlist.html#isEmpty">isEmpty</a>()来加以判断，做好提前规避。</p>
 <!-- @@@pop_front -->
 <!-- $$$prepend[overload1]$$$prependconstT& -->
 <h3 class="fn" id="prepend"><a name="prepend"></a><span class="type">void</span> QList::<span class="name">prepend</span>(const <span class="type">T</span> &amp;<i>value</i>)</h3>
@@ -721,12 +721,12 @@
 <!-- @@@removeAt -->
 <!-- $$$removeFirst[overload1]$$$removeFirst -->
 <h3 class="fn" id="removeFirst"><a name="removeFirst"></a><span class="type">void</span> QList::<span class="name">removeFirst</span>()</h3>
-<p>Removes the first item in the list. Calling this function is equivalent to calling <a href="qlist.html#removeAt">removeAt</a>(0). The list must not be empty. If the list can be empty, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
+<p>Removes the first item in the list. Calling this function is equivalent to calling <a href="qlist.html#removeAt">removeAt</a>(0)。列表不允许为空值。若列表有可能为空值，则务必在调用此函数之前调用 <a href="qlist.html#isEmpty">isEmpty</a>()来加以判断，做好提前规避。</p>
 <p><b> 参见 </b><a href="qlist.html#removeAt">removeAt</a>() 和 <a href="qlist.html#takeFirst">takeFirst</a>().</p>
 <!-- @@@removeFirst -->
 <!-- $$$removeLast[overload1]$$$removeLast -->
 <h3 class="fn" id="removeLast"><a name="removeLast"></a><span class="type">void</span> QList::<span class="name">removeLast</span>()</h3>
-<p>Removes the last item in the list. Calling this function is equivalent to calling <a href="qlist.html#removeAt">removeAt</a>(<a href="qlist.html#size">size</a>() - 1). The list must not be empty. If the list can be empty, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
+<p>Removes the last item in the list. Calling this function is equivalent to calling <a href="qlist.html#removeAt">removeAt</a>(<a href="qlist.html#size">size</a>() - 1)。列表不允许为空值。若列表有可能为空值，则务必在调用此函数之前调用 <a href="qlist.html#isEmpty">isEmpty</a>()来加以判断，做好提前规避。</p>
 <p><b> 参见 </b><a href="qlist.html#removeAt">removeAt</a>() 和 <a href="qlist.html#takeLast">takeLast</a>().</p>
 <!-- @@@removeLast -->
 <!-- $$$removeOne[overload1]$$$removeOneconstT& -->
