@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- qdatetime.cpp -->
-  <title>QDate Class | Qt Core 5.12</title>
+  <title>QDate类 | Qt核心模块 5.12</title>
   <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
   <script type="text/javascript">
     document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
@@ -49,7 +49,7 @@
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <h1 class="title">QDate Class</h1>
 <!-- $$$QDate-brief -->
-<p>The <a href="qdate.html">QDate</a> class provides date functions. <a href="#details">更多详情...</a></p>
+<p>这个 <a href="qdate.html">QDate</a> 类提供了日期相关的函数。 <a href="#details">更多详情...</a></p>
 <!-- @@@QDate -->
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> 头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QDate&gt;</span>
@@ -129,7 +129,7 @@
 <h4 >No Year 0</h4>
 <p>There is no year 0. Dates in that year are considered invalid. The year -1 is the year &quot;1 before Christ&quot; or &quot;1 before current era.&quot; The day before 1 January 1 CE, <a href="qdate.html">QDate</a>(1, 1, 1), is 31 December 1 BCE, <a href="qdate.html">QDate</a>(-1, 12, 31).</p>
 <a name="range-of-valid-dates"></a>
-<h4 >Range of Valid Dates</h4>
+<h4 >有效日期范围 </h4>
 <p>Dates are stored internally as a Julian Day number, an integer count of every day in a contiguous range, with 24 November 4714 BCE in the Gregorian calendar being Julian Day 0 (1 January 4713 BCE in the Julian calendar). As well as being an efficient and accurate way of storing an absolute date, it is suitable for converting a Date into other calendar systems such as Hebrew, Islamic or Chinese. The Julian Day number can be obtained using <a href="qdate.html#toJulianDay">QDate::toJulianDay</a>() and can be set using <a href="qdate.html#fromJulianDay">QDate::fromJulianDay</a>().</p>
 <p>The range of dates able to be stored by <a href="qdate.html">QDate</a> as a Julian Day number is for technical reasons limited to between -784350574879 and 784354017364, which means from before 2 billion BCE to after 2 billion CE.</p>
 </div>
@@ -155,7 +155,7 @@
 <!-- $$$ -->
 <div class="fngroup">
 <h3 class="fn fngroupitem" id="toString"><a name="toString"></a><span class="type"><a href="qstring.html">QString</a></span> QDate::<span class="name">toString</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>format</i>) const</h3><h3 class="fn fngroupitem" id="toString-2"><a name="toString-2"></a><span class="type"><a href="qstring.html">QString</a></span> QDate::<span class="name">toString</span>(<span class="type"><a href="qstringview.html">QStringView</a></span> <i>format</i>) const</h3></div>
-<p>Returns the date as a string. The <i>format</i> parameter determines the format of the result string.</p>
+<p>返回字符串格式的日期。这个格式 <i>format</i> 参数决定了结果字符串的格式。</p>
 <p>These expressions may be used:</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th >表达式</th><th >输出</th></tr></thead>
@@ -178,17 +178,17 @@
 <tr valign="top" class="even"><td >ddd MMMM d yy</td><td >Sun July 20 69</td></tr>
 <tr valign="top" class="odd"><td >'The day is' dddd</td><td >The day is Sunday</td></tr>
 </table></div>
-<p>If the datetime is invalid, an empty string will be returned.</p>
+<p>若日期值无效，则返回一个空的字符串。</p>
 <p><b> 参见 </b><a href="qdate.html#fromString">fromString</a>(), <a href="qdatetime.html#toString">QDateTime::toString</a>(), <a href="qtime.html#toString">QTime::toString</a>(), 和 <a href="qlocale.html#toString">QLocale::toString</a>().</p>
 <!-- @@@ -->
 <!-- $$$QDate[overload1]$$$QDate -->
 <h3 class="fn" id="QDate"><a name="QDate"></a>QDate::<span class="name">QDate</span>()</h3>
-<p>Constructs a null date. Null dates are invalid.</p>
+<p>构造函数，创建一个空日期。日期时间值是无效的。</p>
 <p><b> 参见 </b><a href="qdate.html#isNull">isNull</a>() 和 <a href="qdate.html#isValid">isValid</a>().</p>
 <!-- @@@QDate -->
 <!-- $$$QDate$$$QDateintintint -->
 <h3 class="fn" id="QDate-2"><a name="QDate-2"></a>QDate::<span class="name">QDate</span>(<span class="type">int</span> <i>y</i>, <span class="type">int</span> <i>m</i>, <span class="type">int</span> <i>d</i>)</h3>
-<p>Constructs a date with year <i>y</i>, month <i>m</i> and day <i>d</i>.</p>
+<p>构造函数，创建一个日期，其年月日分别为<i>y/i> <i>m</i>和<i>d</i>。</p>
 <p>If the specified date is invalid, the date is not set and <a href="qdate.html#isValid">isValid</a>() returns <code>false</code>.</p>
 <p><b>Warning:</b> Years 1 to 99 are interpreted as is. Year 0 is invalid.</p>
 <p><b> 参见 </b><a href="qdate.html#isValid">isValid</a>().</p>
@@ -196,7 +196,7 @@
 <!-- $$$addDays[overload1]$$$addDaysqint64 -->
 <h3 class="fn" id="addDays"><a name="addDays"></a><span class="type"><a href="qdate.html#QDate">QDate</a></span> QDate::<span class="name">addDays</span>(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> <i>ndays</i>) const</h3>
 <p>Returns a <a href="qdate.html">QDate</a> object containing a date <i>ndays</i> later than the date of this object (or earlier if <i>ndays</i> is negative).</p>
-<p>Returns a null date if the current date is invalid or the new date is out of range.</p>
+<p>若当前日期无效或者新日期超出范围时，则返回一个空日期。</p>
 <p><b> 参见 </b><a href="qdate.html#addMonths">addMonths</a>(), <a href="qdate.html#addYears">addYears</a>(), 和 <a href="qdate.html#daysTo">daysTo</a>().</p>
 <!-- @@@addDays -->
 <!-- $$$addMonths[overload1]$$$addMonthsint -->
@@ -211,43 +211,43 @@
 <!-- @@@addYears -->
 <!-- $$$currentDate[overload1]$$$currentDate -->
 <h3 class="fn" id="currentDate"><a name="currentDate"></a><code>[静态函数] </code><span class="type"><a href="qdate.html#QDate">QDate</a></span> QDate::<span class="name">currentDate</span>()</h3>
-<p>Returns the current date, as reported by the system clock.</p>
+<p>返回系统时钟报告的当前日期。</p>
 <p><b> 参见 </b><a href="qtime.html#currentTime">QTime::currentTime</a>() 和 <a href="qdatetime.html#currentDateTime">QDateTime::currentDateTime</a>().</p>
 <!-- @@@currentDate -->
 <!-- $$$day[overload1]$$$day -->
 <h3 class="fn" id="day"><a name="day"></a><span class="type">int</span> QDate::<span class="name">day</span>() const</h3>
-<p>Returns the day of the month (1 to 31) of this date.</p>
-<p>Returns 0 if the date is invalid.</p>
+<p>返回当前日期所在月份的几号(1到31)。</p>
+<p>若日期无效则返回0值。</p>
 <p><b> 参见 </b><a href="qdate.html#year">year</a>(), <a href="qdate.html#month">month</a>(), 和 <a href="qdate.html#dayOfWeek">dayOfWeek</a>().</p>
 <!-- @@@day -->
 <!-- $$$dayOfWeek[overload1]$$$dayOfWeek -->
 <h3 class="fn" id="dayOfWeek"><a name="dayOfWeek"></a><span class="type">int</span> QDate::<span class="name">dayOfWeek</span>() const</h3>
-<p>Returns the weekday (1 = Monday to 7 = Sunday) for this date.</p>
-<p>Returns 0 if the date is invalid.</p>
+<p>返回当前日期的星期几(1为星期一 到 7为星期日)。</p>
+<p>若日期无效则返回0值。</p>
 <p><b> 参见 </b><a href="qdate.html#day">day</a>(), <a href="qdate.html#dayOfYear">dayOfYear</a>(), 和 <a href="qt.html#DayOfWeek-enum">Qt::DayOfWeek</a>.</p>
 <!-- @@@dayOfWeek -->
 <!-- $$$dayOfYear[overload1]$$$dayOfYear -->
 <h3 class="fn" id="dayOfYear"><a name="dayOfYear"></a><span class="type">int</span> QDate::<span class="name">dayOfYear</span>() const</h3>
-<p>Returns the day of the year (1 to 365 or 366 on leap years) for this date.</p>
-<p>Returns 0 if the date is invalid.</p>
+<p>返回当前日期在所在年份的第几天。(1到365或1到366闰年)。</p>
+<p>若日期无效则返回0值。</p>
 <p><b> 参见 </b><a href="qdate.html#day">day</a>() 和 <a href="qdate.html#dayOfWeek">dayOfWeek</a>().</p>
 <!-- @@@dayOfYear -->
 <!-- $$$daysInMonth[overload1]$$$daysInMonth -->
 <h3 class="fn" id="daysInMonth"><a name="daysInMonth"></a><span class="type">int</span> QDate::<span class="name">daysInMonth</span>() const</h3>
-<p>Returns the number of days in the month (28 to 31) for this date.</p>
-<p>Returns 0 if the date is invalid.</p>
+<p>返回当前日期所在月份的天数值(28到31)。</p>
+<p>若日期无效则返回0值。</p>
 <p><b> 参见 </b><a href="qdate.html#day">day</a>() 和 <a href="qdate.html#daysInYear">daysInYear</a>().</p>
 <!-- @@@daysInMonth -->
 <!-- $$$daysInYear[overload1]$$$daysInYear -->
 <h3 class="fn" id="daysInYear"><a name="daysInYear"></a><span class="type">int</span> QDate::<span class="name">daysInYear</span>() const</h3>
-<p>Returns the number of days in the year (365 or 366) for this date.</p>
-<p>Returns 0 if the date is invalid.</p>
+<p>返回当前日期所在年份的天数值(365或366)。</p>
+<p>若日期无效则返回0值。</p>
 <p><b> 参见 </b><a href="qdate.html#day">day</a>() 和 <a href="qdate.html#daysInMonth">daysInMonth</a>().</p>
 <!-- @@@daysInYear -->
 <!-- $$$daysTo[overload1]$$$daysToconstQDate& -->
 <h3 class="fn" id="daysTo"><a name="daysTo"></a><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> QDate::<span class="name">daysTo</span>(const <span class="type"><a href="qdate.html#QDate">QDate</a></span> &amp;<i>d</i>) const</h3>
 <p>Returns the number of days from this date to <i>d</i> (which is negative if <i>d</i> is earlier than this date).</p>
-<p>Returns 0 if either date is invalid.</p>
+<p>若任一日期无效则返回0值。</p>
 <p>样例：</p>
 <pre class="cpp">
 
@@ -273,7 +273,7 @@
 <!-- $$$fromString$$$fromStringconstQString&constQString& -->
 <h3 class="fn" id="fromString-1"><a name="fromString-1"></a><code>[静态函数] </code><span class="type"><a href="qdate.html#QDate">QDate</a></span> QDate::<span class="name">fromString</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>string</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>format</i>)</h3>
 <p>Returns the <a href="qdate.html">QDate</a> represented by the <i>string</i>, using the <i>format</i> given, or an invalid date if the string cannot be parsed.</p>
-<p>These expressions may be used for the format:</p>
+<p>这些表达式可以使用如下格式：</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th >表达式</th><th >输出</th></tr></thead>
 <tr valign="top" class="odd"><td >d</td><td >The day as a number without a leading zero (1 to 31)</td></tr>
@@ -307,7 +307,7 @@
 <tr valign="top" class="even"><td >Month</td><td >1</td></tr>
 <tr valign="top" class="odd"><td >Day</td><td >1</td></tr>
 </table></div>
-<p>The following examples demonstrate the default values:</p>
+<p>以下样例演示了默认值：</p>
 <pre class="cpp">
 
   <span class="type"><a href="qdate.html#QDate">QDate</a></span><span class="operator">::</span>fromString(<span class="string">&quot;1.30&quot;</span><span class="operator">,</span> <span class="string">&quot;M.d&quot;</span>);           <span class="comment">// January 30 1900</span>
@@ -320,28 +320,28 @@
 <!-- $$$getDate[overload1]$$$getDateint*int*int* -->
 <h3 class="fn" id="getDate"><a name="getDate"></a><span class="type">void</span> QDate::<span class="name">getDate</span>(<span class="type">int</span> *<i>year</i>, <span class="type">int</span> *<i>month</i>, <span class="type">int</span> *<i>day</i>) const</h3>
 <p>Extracts the date's year, month, and day, and assigns them to *<i>year</i>, *<i>month</i>, and *<i>day</i>. The pointers may be null.</p>
-<p>Returns 0 if the date is invalid.</p>
+<p>若日期无效则返回0值。</p>
 <p><b>Note: </b>In Qt versions prior to 5.7, this function is marked as non-<code>const</code>.</p><p>这个函数是在Qt 4.5版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qdate.html#year">year</a>(), <a href="qdate.html#month">month</a>(), <a href="qdate.html#day">day</a>(), 和 <a href="qdate.html#isValid">isValid</a>().</p>
 <!-- @@@getDate -->
 <!-- $$$isLeapYear[overload1]$$$isLeapYearint -->
 <h3 class="fn" id="isLeapYear"><a name="isLeapYear"></a><code>[静态函数] </code><span class="type">bool</span> QDate::<span class="name">isLeapYear</span>(<span class="type">int</span> <i>year</i>)</h3>
-<p>Returns <code>true</code> if the specified <i>year</i> is a leap year; otherwise returns <code>false</code>.</p>
+<p>若指定年份 <i>year</i> 是闰年，则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
 <!-- @@@isLeapYear -->
 <!-- $$$isNull[overload1]$$$isNull -->
 <h3 class="fn" id="isNull"><a name="isNull"></a><span class="type">bool</span> QDate::<span class="name">isNull</span>() const</h3>
-<p>Returns <code>true</code> if the date is null; otherwise returns <code>false</code>. A null date is invalid.</p>
+<p>若日期为空，则返回 <code>true</code> ；否则则返回 <code>false</code>。空值日期是无效的。</p>
 <p><b>Note: </b>The behavior of this function is equivalent to <a href="qdate.html#isValid">isValid</a>().</p><p><b> 参见 </b><a href="qdate.html#isValid">isValid</a>().</p>
 <!-- @@@isNull -->
 <!-- $$$isValid[overload1]$$$isValid -->
 <h3 class="fn" id="isValid"><a name="isValid"></a><span class="type">bool</span> QDate::<span class="name">isValid</span>() const</h3>
-<p>Returns <code>true</code> if this date is valid; otherwise returns <code>false</code>.</p>
+<p>若日期有效则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
 <p><b> 参见 </b><a href="qdate.html#isNull">isNull</a>().</p>
 <!-- @@@isValid -->
 <!-- $$$isValid$$$isValidintintint -->
 <h3 class="fn" id="isValid-1"><a name="isValid-1"></a><code>[静态函数] </code><span class="type">bool</span> QDate::<span class="name">isValid</span>(<span class="type">int</span> <i>year</i>, <span class="type">int</span> <i>month</i>, <span class="type">int</span> <i>day</i>)</h3>
 <p>这是一个重载函数。</p>
-<p>Returns <code>true</code> if the specified date (<i>year</i>, <i>month</i>, and <i>day</i>) is valid; otherwise returns <code>false</code>.</p>
+<p>若使用参数 <i>year</i>, <i>month</i>和<i>day</i> 来设置的指定日期有效，则返回 <code>true</code>；否则则返回 <code>false</code>。</p>
 <p>样例：</p>
 <pre class="cpp">
 
@@ -373,13 +373,13 @@
 <li>11 = &quot;November&quot;</li>
 <li>12 = &quot;December&quot;</li>
 </ul>
-<p>Returns 0 if the date is invalid.</p>
+<p>若日期无效则返回0值。</p>
 <p><b> 参见 </b><a href="qdate.html#year">year</a>() 和 <a href="qdate.html#day">day</a>().</p>
 <!-- @@@month -->
 <!-- $$$setDate[overload1]$$$setDateintintint -->
 <h3 class="fn" id="setDate"><a name="setDate"></a><span class="type">bool</span> QDate::<span class="name">setDate</span>(<span class="type">int</span> <i>year</i>, <span class="type">int</span> <i>month</i>, <span class="type">int</span> <i>day</i>)</h3>
-<p>Sets the date's <i>year</i>, <i>month</i>, and <i>day</i>. Returns <code>true</code> if the date is valid; otherwise returns <code>false</code>.</p>
-<p>If the specified date is invalid, the <a href="qdate.html">QDate</a> object is set to be invalid.</p>
+<p>使用年月日 <i>year</i>, <i>month</i>和<i>day</i>来设置该日期。若日期有效则返回 <code>true</code>；否则则返回 <code>false</code>。</p>
+<p>若指定时间无效，则该 <a href="qdate.html">QDate</a> 对象将被设置为无效值。</p>
 <p>这个函数是在Qt 4.2版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qdate.html#isValid">isValid</a>().</p>
 <!-- @@@setDate -->
@@ -391,20 +391,20 @@
 <!-- $$$toString$$$toStringQt::DateFormat -->
 <h3 class="fn" id="toString-1"><a name="toString-1"></a><span class="type"><a href="qstring.html">QString</a></span> QDate::<span class="name">toString</span>(<span class="type">Qt::DateFormat</span> <i>format</i> = Qt::TextDate) const</h3>
 <p>这是一个重载函数。</p>
-<p>Returns the date as a string. The <i>format</i> parameter determines the format of the string.</p>
+<p>返回字符串形式的日期。这个格式 <i>format</i> 参数决定了字符串的格式。</p>
 <p>If the <i>format</i> is <a href="qt.html#DateFormat-enum">Qt::TextDate</a>, the string is formatted in the default way. QDate::shortDayName() and QDate::shortMonthName() are used to generate the string, so the day and month names will be localized names using the system locale, i.e&#x2e; <a href="qlocale.html#system">QLocale::system</a>(). An example of this formatting is &quot;Sat May 20 1995&quot;.</p>
 <p>If the <i>format</i> is <a href="qt.html#DateFormat-enum">Qt::ISODate</a>, the string format corresponds to the ISO 8601 extended specification for representations of dates and times, taking the form yyyy-MM-dd, where yyyy is the year, MM is the month of the year (between 01 and 12), and dd is the day of the month between 01 and 31.</p>
 <p>If the <i>format</i> is <a href="qt.html#DateFormat-enum">Qt::SystemLocaleShortDate</a> or <a href="qt.html#DateFormat-enum">Qt::SystemLocaleLongDate</a>, the string format depends on the locale settings of the system. Identical to calling <a href="qlocale.html#system">QLocale::system</a>().<a href="qdate.html#toString">toString</a>(date, <a href="qlocale.html#FormatType-enum">QLocale::ShortFormat</a>) or <a href="qlocale.html#system">QLocale::system</a>().<a href="qdate.html#toString">toString</a>(date, <a href="qlocale.html#FormatType-enum">QLocale::LongFormat</a>).</p>
 <p>If the <i>format</i> is <a href="qt.html#DateFormat-enum">Qt::DefaultLocaleShortDate</a> or <a href="qt.html#DateFormat-enum">Qt::DefaultLocaleLongDate</a>, the string format depends on the default application locale. This is the locale set with <a href="qlocale.html#setDefault">QLocale::setDefault</a>(), or the system locale if no default locale has been set. Identical to calling <a href="qlocale.html#toString">QLocale().toString(date, QLocale::ShortFormat) </a> or <a href="qlocale.html#toString">QLocale().toString(date, QLocale::LongFormat)</a>.</p>
 <p>If the <i>format</i> is <a href="qt.html#DateFormat-enum">Qt::RFC2822Date</a>, the string is formatted in an <a href="http://www.rfc-editor.org/rfc/rfc2822.txt">RFC 2822</a> compatible way. An example of this formatting is &quot;20 May 1995&quot;.</p>
-<p>If the date is invalid, an empty string will be returned.</p>
+<p>若日期无效，则返回一个空的字符串。</p>
 <p><b>Warning:</b> The <a href="qt.html#DateFormat-enum">Qt::ISODate</a> format is only valid for years in the range 0 to 9999. This restriction may apply to locale-aware formats as well, depending on the locale settings.</p>
 <p><b> 参见 </b><a href="qdate.html#fromString">fromString</a>(), <a href="qdate-obsolete.html#shortDayName">shortDayName</a>(), <a href="qdate-obsolete.html#shortMonthName">shortMonthName</a>(), 和 <a href="qlocale.html#toString">QLocale::toString</a>().</p>
 <!-- @@@toString -->
 <!-- $$$weekNumber[overload1]$$$weekNumberint* -->
 <h3 class="fn" id="weekNumber"><a name="weekNumber"></a><span class="type">int</span> QDate::<span class="name">weekNumber</span>(<span class="type">int</span> *<i>yearNumber</i> = nullptr) const</h3>
 <p>Returns the week number (1 to 53), and stores the year in *<i>yearNumber</i> unless <i>yearNumber</i> is null (the default).</p>
-<p>Returns 0 if the date is invalid.</p>
+<p>若日期无效则返回0值。</p>
 <p>In accordance with ISO 8601, weeks start on Monday and the first Thursday of a year is always in week 1 of that year. Most years have 52 weeks, but some have 53.</p>
 <p>*<i>yearNumber</i> is not always the same as <a href="qdate.html#year">year</a>(). For example, 1 January 2000 has week number 52 in the year 1999, and 31 December 2002 has week number 1 in the year 2003.</p>
 <p><b> 参见 </b><a href="qdate.html#isValid">isValid</a>().</p>
@@ -412,32 +412,32 @@
 <!-- $$$year[overload1]$$$year -->
 <h3 class="fn" id="year"><a name="year"></a><span class="type">int</span> QDate::<span class="name">year</span>() const</h3>
 <p>Returns the year of this date. Negative numbers indicate years before 1 CE, such that year -44 is 44 BCE.</p>
-<p>Returns 0 if the date is invalid.</p>
+<p>若日期无效则返回0值。</p>
 <p><b> 参见 </b><a href="qdate.html#month">month</a>() 和 <a href="qdate.html#day">day</a>().</p>
 <!-- @@@year -->
 <!-- $$$operator!=[overload1]$$$operator!=constQDate& -->
 <h3 class="fn" id="operator-not-eq"><a name="operator-not-eq"></a><span class="type">bool</span> QDate::<span class="name">operator!=</span>(const <span class="type"><a href="qdate.html#QDate">QDate</a></span> &amp;<i>d</i>) const</h3>
-<p>Returns <code>true</code> if this date is different from <i>d</i>; otherwise returns <code>false</code>.</p>
+<p>若时间小不等于 <i>d</i>，则返回 <code>true</code>；否则则返回 <code>false</code>。</p>
 <!-- @@@operator!= -->
 <!-- $$$operator<[overload1]$$$operator<constQDate& -->
 <h3 class="fn" id="operator-lt"><a name="operator-lt"></a><span class="type">bool</span> QDate::<span class="name">operator&lt;</span>(const <span class="type"><a href="qdate.html#QDate">QDate</a></span> &amp;<i>d</i>) const</h3>
-<p>Returns <code>true</code> if this date is earlier than <i>d</i>; otherwise returns false.</p>
+<p>若时间小于 <i>d</i>，则返回 <code>true</code>；否则则返回 <code>false</code>。</p>
 <!-- @@@operator< -->
 <!-- $$$operator<=[overload1]$$$operator<=constQDate& -->
 <h3 class="fn" id="operator-lt-eq"><a name="operator-lt-eq"></a><span class="type">bool</span> QDate::<span class="name">operator&lt;=</span>(const <span class="type"><a href="qdate.html#QDate">QDate</a></span> &amp;<i>d</i>) const</h3>
-<p>Returns <code>true</code> if this date is earlier than or equal to <i>d</i>; otherwise returns <code>false</code>.</p>
+<p>若时间小于等于 <i>d</i>，则返回 <code>true</code>；否则则返回 <code>false</code>。</p>
 <!-- @@@operator<= -->
 <!-- $$$operator==[overload1]$$$operator==constQDate& -->
 <h3 class="fn" id="operator-eq-eq"><a name="operator-eq-eq"></a><span class="type">bool</span> QDate::<span class="name">operator==</span>(const <span class="type"><a href="qdate.html#QDate">QDate</a></span> &amp;<i>d</i>) const</h3>
-<p>Returns <code>true</code> if this date is equal to <i>d</i>; otherwise returns false.</p>
+<p>若时间等于 <i>d</i>，则返回 <code>true</code>；否则则返回 <code>false</code>。</p>
 <!-- @@@operator== -->
 <!-- $$$operator>[overload1]$$$operator>constQDate& -->
 <h3 class="fn" id="operator-gt"><a name="operator-gt"></a><span class="type">bool</span> QDate::<span class="name">operator&gt;</span>(const <span class="type"><a href="qdate.html#QDate">QDate</a></span> &amp;<i>d</i>) const</h3>
-<p>Returns <code>true</code> if this date is later than <i>d</i>; otherwise returns false.</p>
+<p>若时间大于 <i>d</i>，则返回 <code>true</code>；否则则返回 <code>false</code>。</p>
 <!-- @@@operator> -->
 <!-- $$$operator>=[overload1]$$$operator>=constQDate& -->
 <h3 class="fn" id="operator-gt-eq"><a name="operator-gt-eq"></a><span class="type">bool</span> QDate::<span class="name">operator&gt;=</span>(const <span class="type"><a href="qdate.html#QDate">QDate</a></span> &amp;<i>d</i>) const</h3>
-<p>Returns <code>true</code> if this date is later than or equal to <i>d</i>; otherwise returns <code>false</code>.</p>
+<p>若时间大于等于 <i>d</i>，则返回 <code>true</code>；否则则返回 <code>false</code>。</p>
 <!-- @@@operator>= -->
 </div>
 <div class="vars">
@@ -447,12 +447,12 @@
 <h2>相关非成员</h2>
 <!-- $$$operator<<[overload1]$$$operator<<QDataStream&constQDate& -->
 <h3 class="fn" id="operator-lt-lt"><a name="operator-lt-lt"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp;<span class="name">operator&lt;&lt;</span>(<span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp;<i>out</i>, const <span class="type"><a href="qdate.html#QDate">QDate</a></span> &amp;<i>date</i>)</h3>
-<p>Writes the <i>date</i> to stream <i>out</i>.</p>
+<p>把时间值 <i>date</i> 写入到流 <i>out</i>里面。</p>
 <p><b> 参见 </b><a href="datastreamformat.html">序列化Qt数据类型</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator>>[overload1]$$$operator>>QDataStream&QDate& -->
 <h3 class="fn" id="operator-gt-gt"><a name="operator-gt-gt"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp;<span class="name">operator&gt;&gt;</span>(<span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp;<i>in</i>, <span class="type"><a href="qdate.html#QDate">QDate</a></span> &amp;<i>date</i>)</h3>
-<p>Reads a date from stream <i>in</i> into the <i>date</i>.</p>
+<p>从流 <i>in</i> 里面读取时间值到参数 <i>date</i>中。</p>
 <p><b> 参见 </b><a href="datastreamformat.html">序列化Qt数据类型</a>.</p>
 <!-- @@@operator>> -->
 </div>

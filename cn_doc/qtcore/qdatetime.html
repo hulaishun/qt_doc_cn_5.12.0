@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- qdatetime.cpp -->
-  <title>QDateTime Class | Qt Core 5.12</title>
+  <title>QDateTime Class | Qt核心模块 5.12</title>
   <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
   <script type="text/javascript">
     document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
@@ -160,7 +160,7 @@
 <h4 >No Year 0</h4>
 <p>There is no year 0. Dates in that year are considered invalid. The year -1 is the year &quot;1 before Christ&quot; or &quot;1 before current era.&quot; The day before 1 January 1 CE is 31 December 1 BCE.</p>
 <a name="range-of-valid-dates"></a>
-<h4 >Range of Valid Dates</h4>
+<h4 >有效日期范围 </h4>
 <p>The range of valid values able to be stored in <a href="qdatetime.html">QDateTime</a> is dependent on the internal storage implementation. <a href="qdatetime.html">QDateTime</a> is currently stored in a qint64 as a serial msecs value encoding the date and time. This restricts the date range to about +/- 292 million years, compared to the <a href="qdate.html">QDate</a> range of +/- 2 billion years. Care must be taken when creating a <a href="qdatetime.html">QDateTime</a> with extreme values that you do not overflow the storage. The exact range of supported values varies depending on the <a href="qt.html#TimeSpec-enum">Qt::TimeSpec</a> and time zone.</p>
 <a name="use-of-system-timezone"></a>
 <h4 >Use of System Timezone</h4>
@@ -233,7 +233,7 @@
 <tr valign="top" class="even"><td >hh:mm:ss.z</td><td >14:13:09.12</td></tr>
 <tr valign="top" class="odd"><td >h:m:s ap</td><td >2:13:9 pm</td></tr>
 </table></div>
-<p>If the datetime is invalid, an empty string will be returned.</p>
+<p>若日期值无效，则返回一个空的字符串。</p>
 <p><b> 参见 </b><a href="qdatetime.html#fromString">fromString</a>(), <a href="qdate.html#toString">QDate::toString</a>(), <a href="qtime.html#toString">QTime::toString</a>(), 和 <a href="qlocale.html#toString">QLocale::toString</a>().</p>
 <!-- @@@ -->
 <!-- $$$QDateTime[overload1]$$$QDateTime -->
@@ -711,7 +711,7 @@
 <p>If the <i>format</i> is <a href="qt.html#DateFormat-enum">Qt::SystemLocaleShortDate</a> or <a href="qt.html#DateFormat-enum">Qt::SystemLocaleLongDate</a>, the string format depends on the locale settings of the system. Identical to calling <a href="qlocale.html#system">QLocale::system</a>().<a href="qdatetime.html#toString">toString</a>(datetime, <a href="qlocale.html#FormatType-enum">QLocale::ShortFormat</a>) or <a href="qlocale.html#system">QLocale::system</a>().<a href="qdatetime.html#toString">toString</a>(datetime, <a href="qlocale.html#FormatType-enum">QLocale::LongFormat</a>).</p>
 <p>If the <i>format</i> is <a href="qt.html#DateFormat-enum">Qt::DefaultLocaleShortDate</a> or <a href="qt.html#DateFormat-enum">Qt::DefaultLocaleLongDate</a>, the string format depends on the default application locale. This is the locale set with <a href="qlocale.html#setDefault">QLocale::setDefault</a>(), or the system locale if no default locale has been set. Identical to calling QLocale().<a href="qdatetime.html#toString">toString</a>(datetime, <a href="qlocale.html#FormatType-enum">QLocale::ShortFormat</a>) or QLocale().<a href="qdatetime.html#toString">toString</a>(datetime, <a href="qlocale.html#FormatType-enum">QLocale::LongFormat</a>).</p>
 <p>If the <i>format</i> is <a href="qt.html#DateFormat-enum">Qt::RFC2822Date</a>, the string is formatted following <a href="http://www.rfc-editor.org/rfc/rfc2822.txt">RFC 2822</a>.</p>
-<p>If the datetime is invalid, an empty string will be returned.</p>
+<p>若日期值无效，则返回一个空的字符串。</p>
 <p><b>Warning:</b> The <a href="qt.html#DateFormat-enum">Qt::ISODate</a> format is only valid for years in the range 0 to 9999. This restriction may apply to locale-aware formats as well, depending on the locale settings.</p>
 <p><b> 参见 </b><a href="qdatetime.html#fromString">fromString</a>(), <a href="qdate.html#toString">QDate::toString</a>(), <a href="qtime.html#toString">QTime::toString</a>(), 和 <a href="qlocale.html#toString">QLocale::toString</a>().</p>
 <!-- @@@toString -->
