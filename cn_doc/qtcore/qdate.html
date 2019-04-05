@@ -188,7 +188,7 @@
 <!-- @@@QDate -->
 <!-- $$$QDate$$$QDateintintint -->
 <h3 class="fn" id="QDate-2"><a name="QDate-2"></a>QDate::<span class="name">QDate</span>(<span class="type">int</span> <i>y</i>, <span class="type">int</span> <i>m</i>, <span class="type">int</span> <i>d</i>)</h3>
-<p>构造函数，创建一个日期，其年月日分别为<i>y/i> <i>m</i>和<i>d</i>。</p>
+<p>构造函数，创建一个日期，其年月日分别为<i>y</i> <i>m</i>和<i>d</i>。</p>
 <p>If the specified date is invalid, the date is not set and <a href="qdate.html#isValid">isValid</a>() returns <code>false</code>.</p>
 <p><b>Warning:</b> Years 1 to 99 are interpreted as is. Year 0 is invalid.</p>
 <p><b> 参见 </b><a href="qdate.html#isValid">isValid</a>().</p>
@@ -246,7 +246,7 @@
 <!-- @@@daysInYear -->
 <!-- $$$daysTo[overload1]$$$daysToconstQDate& -->
 <h3 class="fn" id="daysTo"><a name="daysTo"></a><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> QDate::<span class="name">daysTo</span>(const <span class="type"><a href="qdate.html#QDate">QDate</a></span> &amp;<i>d</i>) const</h3>
-<p>Returns the number of days from this date to <i>d</i> (which is negative if <i>d</i> is earlier than this date).</p>
+<p>返回从当前日期到传入参数 <i>d</i>之间的日期天数值 (若传入参数 <i>d</i> 早于当前日期则返回值为负数)。</p>
 <p>若任一日期无效则返回0值。</p>
 <p>样例：</p>
 <pre class="cpp">
@@ -300,12 +300,12 @@
   <span class="type"><a href="qdate.html#QDate">QDate</a></span> date <span class="operator">=</span> <span class="type"><a href="qdate.html#QDate">QDate</a></span><span class="operator">::</span>fromString(<span class="string">&quot;130&quot;</span><span class="operator">,</span> <span class="string">&quot;Md&quot;</span>); <span class="comment">// invalid</span>
 
 </pre>
-<p>For any field that is not represented in the format the following defaults are used:</p>
+<p>对于未在以上格式中表示的任何字段，将使用以下默认值：</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th >字段</th><th >默认值</th></tr></thead>
-<tr valign="top" class="odd"><td >Year</td><td >1900</td></tr>
-<tr valign="top" class="even"><td >Month</td><td >1</td></tr>
-<tr valign="top" class="odd"><td >Day</td><td >1</td></tr>
+<tr valign="top" class="odd"><td >年份</td><td >1900</td></tr>
+<tr valign="top" class="even"><td >月份</td><td >1</td></tr>
+<tr valign="top" class="odd"><td >日</td><td >1</td></tr>
 </table></div>
 <p>以下样例演示了默认值：</p>
 <pre class="cpp">
@@ -319,9 +319,9 @@
 <!-- @@@fromString -->
 <!-- $$$getDate[overload1]$$$getDateint*int*int* -->
 <h3 class="fn" id="getDate"><a name="getDate"></a><span class="type">void</span> QDate::<span class="name">getDate</span>(<span class="type">int</span> *<i>year</i>, <span class="type">int</span> *<i>month</i>, <span class="type">int</span> *<i>day</i>) const</h3>
-<p>Extracts the date's year, month, and day, and assigns them to *<i>year</i>, *<i>month</i>, and *<i>day</i>. The pointers may be null.</p>
+<p>提取日期的年份、月份和天数，并且对应赋值给传入参数 *<i>year</i>, *<i>month</i>, and *<i>day</i>。指针可能为空值。</p>
 <p>若日期无效则返回0值。</p>
-<p><b>Note: </b>In Qt versions prior to 5.7, this function is marked as non-<code>const</code>.</p><p>这个函数是在Qt 4.5版本中新增引入的。</p>
+<p><b>注意： </b>在Qt 5.7版本之前，该函数是当做 非 <<code>const</code>.</p><p>这个函数是在Qt 4.5版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qdate.html#year">year</a>(), <a href="qdate.html#month">month</a>(), <a href="qdate.html#day">day</a>(), 和 <a href="qdate.html#isValid">isValid</a>().</p>
 <!-- @@@getDate -->
 <!-- $$$isLeapYear[overload1]$$$isLeapYearint -->
@@ -331,7 +331,7 @@
 <!-- $$$isNull[overload1]$$$isNull -->
 <h3 class="fn" id="isNull"><a name="isNull"></a><span class="type">bool</span> QDate::<span class="name">isNull</span>() const</h3>
 <p>若日期为空，则返回 <code>true</code> ；否则则返回 <code>false</code>。空值日期是无效的。</p>
-<p><b>Note: </b>The behavior of this function is equivalent to <a href="qdate.html#isValid">isValid</a>().</p><p><b> 参见 </b><a href="qdate.html#isValid">isValid</a>().</p>
+<p><b>注意： </b>此函数行为等同于 <a href="qdate.html#isValid">isValid</a>().</p><p><b> 参见 </b><a href="qdate.html#isValid">isValid</a>().</p>
 <!-- @@@isNull -->
 <!-- $$$isValid[overload1]$$$isValid -->
 <h3 class="fn" id="isValid"><a name="isValid"></a><span class="type">bool</span> QDate::<span class="name">isValid</span>() const</h3>
@@ -346,19 +346,19 @@
 <pre class="cpp">
 
   <span class="type"><a href="qdate.html#QDate">QDate</a></span><span class="operator">::</span>isValid(<span class="number">2002</span><span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="number">17</span>);  <span class="comment">// true</span>
-  <span class="type"><a href="qdate.html#QDate">QDate</a></span><span class="operator">::</span>isValid(<span class="number">2002</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">30</span>);  <span class="comment">// false (Feb 30 does not exist)</span>
-  <span class="type"><a href="qdate.html#QDate">QDate</a></span><span class="operator">::</span>isValid(<span class="number">2004</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">29</span>);  <span class="comment">// true (2004 is a leap year)</span>
-  <span class="type"><a href="qdate.html#QDate">QDate</a></span><span class="operator">::</span>isValid(<span class="number">2000</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">29</span>);  <span class="comment">// true (2000 is a leap year)</span>
-  <span class="type"><a href="qdate.html#QDate">QDate</a></span><span class="operator">::</span>isValid(<span class="number">2006</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">29</span>);  <span class="comment">// false (2006 is not a leap year)</span>
-  <span class="type"><a href="qdate.html#QDate">QDate</a></span><span class="operator">::</span>isValid(<span class="number">2100</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">29</span>);  <span class="comment">// false (2100 is not a leap year)</span>
-  <span class="type"><a href="qdate.html#QDate">QDate</a></span><span class="operator">::</span>isValid(<span class="number">1202</span><span class="operator">,</span> <span class="number">6</span><span class="operator">,</span> <span class="number">6</span>);   <span class="comment">// true (even though 1202 is pre-Gregorian)</span>
+  <span class="type"><a href="qdate.html#QDate">QDate</a></span><span class="operator">::</span>isValid(<span class="number">2002</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">30</span>);  <span class="comment">// false (不存在2月30号)</span>
+  <span class="type"><a href="qdate.html#QDate">QDate</a></span><span class="operator">::</span>isValid(<span class="number">2004</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">29</span>);  <span class="comment">// true (2004是个闰年)</span>
+  <span class="type"><a href="qdate.html#QDate">QDate</a></span><span class="operator">::</span>isValid(<span class="number">2000</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">29</span>);  <span class="comment">// true (2000是个闰年)</span>
+  <span class="type"><a href="qdate.html#QDate">QDate</a></span><span class="operator">::</span>isValid(<span class="number">2006</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">29</span>);  <span class="comment">// false (2006不是闰年)</span>
+  <span class="type"><a href="qdate.html#QDate">QDate</a></span><span class="operator">::</span>isValid(<span class="number">2100</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">29</span>);  <span class="comment">// false (2100不是闰年)</span>
+  <span class="type"><a href="qdate.html#QDate">QDate</a></span><span class="operator">::</span>isValid(<span class="number">1202</span><span class="operator">,</span> <span class="number">6</span><span class="operator">,</span> <span class="number">6</span>);   <span class="comment">// true (即使1202是公元前)</span>
 
 </pre>
 <p><b> 参见 </b><a href="qdate.html#isNull">isNull</a>() 和 <a href="qdate.html#setDate">setDate</a>().</p>
 <!-- @@@isValid -->
 <!-- $$$month[overload1]$$$month -->
 <h3 class="fn" id="month"><a name="month"></a><span class="type">int</span> QDate::<span class="name">month</span>() const</h3>
-<p>Returns the number corresponding to the month of this date, using the following convention:</p>
+<p>使用以下约定，返回当前日期中月份所对应的月份数字：</p>
 <ul>
 <li>1 = &quot;January&quot;</li>
 <li>2 = &quot;February&quot;</li>
@@ -385,7 +385,7 @@
 <!-- @@@setDate -->
 <!-- $$$toJulianDay[overload1]$$$toJulianDay -->
 <h3 class="fn" id="toJulianDay"><a name="toJulianDay"></a><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> QDate::<span class="name">toJulianDay</span>() const</h3>
-<p>Converts the date to a Julian day.</p>
+<p>将日期转换为儒略日。</p>
 <p><b> 参见 </b><a href="qdate.html#fromJulianDay">fromJulianDay</a>().</p>
 <!-- @@@toJulianDay -->
 <!-- $$$toString$$$toStringQt::DateFormat -->
@@ -403,7 +403,7 @@
 <!-- @@@toString -->
 <!-- $$$weekNumber[overload1]$$$weekNumberint* -->
 <h3 class="fn" id="weekNumber"><a name="weekNumber"></a><span class="type">int</span> QDate::<span class="name">weekNumber</span>(<span class="type">int</span> *<i>yearNumber</i> = nullptr) const</h3>
-<p>Returns the week number (1 to 53), and stores the year in *<i>yearNumber</i> unless <i>yearNumber</i> is null (the default).</p>
+<p>返回当前日期所在一年中的星期数量 (1 到 53), 同时存储年份在传入参数 *<i>yearNumber</i> 中，除非传入参数 <i>yearNumber</i> 是个空值 (默认值是空值)。</p>
 <p>若日期无效则返回0值。</p>
 <p>In accordance with ISO 8601, weeks start on Monday and the first Thursday of a year is always in week 1 of that year. Most years have 52 weeks, but some have 53.</p>
 <p>*<i>yearNumber</i> is not always the same as <a href="qdate.html#year">year</a>(). For example, 1 January 2000 has week number 52 in the year 1999, and 31 December 2002 has week number 1 in the year 2003.</p>
@@ -411,7 +411,7 @@
 <!-- @@@weekNumber -->
 <!-- $$$year[overload1]$$$year -->
 <h3 class="fn" id="year"><a name="year"></a><span class="type">int</span> QDate::<span class="name">year</span>() const</h3>
-<p>Returns the year of this date. Negative numbers indicate years before 1 CE, such that year -44 is 44 BCE.</p>
+<p>返回当前日期的年份。负数表示1 CE之前的年份，比如-44年就是公元前44年。</p>
 <p>若日期无效则返回0值。</p>
 <p><b> 参见 </b><a href="qdate.html#month">month</a>() 和 <a href="qdate.html#day">day</a>().</p>
 <!-- @@@year -->
