@@ -199,12 +199,12 @@
 <tr valign="top" class="even"><td >dd</td><td >有用0前填充的数字天数 (01 to 31)</td></tr>
 <tr valign="top" class="odd"><td >ddd</td><td >缩写的本地化的星期名称 (e.g&#x2e; 'Mon' to 'Sun')。 使用系统区域设置来本地化该名称, i.e&#x2e; <a href="qlocale.html#system">QLocale::system</a>().</td></tr>
 <tr valign="top" class="even"><td >dddd</td><td >全部的本地化的星期名称 (e.g&#x2e; 'Monday' to 'Sunday')。使用系统区域设置来本地化该名称, i.e&#x2e; <a href="qlocale.html#system">QLocale::system</a>().</td></tr>
-<tr valign="top" class="odd"><td >M</td><td >the month as number without a leading zero (1-12)</td></tr>
-<tr valign="top" class="even"><td >MM</td><td >the month as number with a leading zero (01-12)</td></tr>
+<tr valign="top" class="odd"><td >M</td><td >没有用0前填充的数字月份 (1 to 12)</td></tr>
+<tr valign="top" class="even"><td >MM</td><td >有用0前填充的数字月份 (01 to 12)</td></tr>
 <tr valign="top" class="odd"><td >MMM</td><td >缩写的本地化的月份名称 (e.g&#x2e; 'Jan' to 'Dec')。 使用系统区域设置来本地化该名称, i.e&#x2e; <a href="qlocale.html#system">QLocale::system</a>().</td></tr>
 <tr valign="top" class="even"><td >MMMM</td><td >全部的本地化的月份名称 (e.g&#x2e; 'January' to 'December')。使用系统区域设置来本地化该名称, i.e&#x2e; <a href="qlocale.html#system">QLocale::system</a>().</td></tr>
-<tr valign="top" class="odd"><td >yy</td><td >the year as two digit number (00-99)</td></tr>
-<tr valign="top" class="even"><td >yyyy</td><td >the year as four digit number</td></tr>
+<tr valign="top" class="odd"><td >yy</td><td >用两位数字(00到99)表示的年份</td></tr>
+<tr valign="top" class="even"><td >yyyy</td><td >用四位数字表示的年份</td></tr>
 </table></div>
 <p>These expressions may be used for the time:</p>
 <div class="table"><table class="generic">
@@ -213,10 +213,10 @@
 <tr valign="top" class="even"><td >hh</td><td >the hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display)</td></tr>
 <tr valign="top" class="odd"><td >H</td><td >the hour without a leading zero (0 to 23, even with AM/PM display)</td></tr>
 <tr valign="top" class="even"><td >HH</td><td >the hour with a leading zero (00 to 23, even with AM/PM display)</td></tr>
-<tr valign="top" class="odd"><td >m</td><td >the minute without a leading zero (0 to 59)</td></tr>
-<tr valign="top" class="even"><td >mm</td><td >the minute with a leading zero (00 to 59)</td></tr>
-<tr valign="top" class="odd"><td >s</td><td >the whole second without a leading zero (0 to 59)</td></tr>
-<tr valign="top" class="even"><td >ss</td><td >the whole second with a leading zero where applicable (00 to 59)</td></tr>
+<tr valign="top" class="odd"><td >m</td><td >没有用0前填充的分钟 (0到59)</td></tr>
+<tr valign="top" class="even"><td >mm</td><td >有用0前填充的分钟 (00到59)</td></tr>
+<tr valign="top" class="odd"><td >s</td><td >没有用0前填充的秒 (0到59)</td></tr>
+<tr valign="top" class="even"><td >ss</td><td >有用0前填充的秒 (00到59)</td></tr>
 <tr valign="top" class="odd"><td >z</td><td >the fractional part of the second, to go after a decimal point, without trailing zeroes (0 to 999). Thus &quot;<code>s.z</code>&quot; reports the seconds to full available (millisecond) precision without trailing zeroes.</td></tr>
 <tr valign="top" class="even"><td >zzz</td><td >the fractional part of the second, to millisecond precision, including trailing zeroes where applicable (000 to 999).</td></tr>
 <tr valign="top" class="odd"><td >AP or A</td><td >use AM/PM display. <i>A/AP</i> will be replaced by either &quot;AM&quot; or &quot;PM&quot;.</td></tr>
@@ -290,7 +290,7 @@
 <!-- $$$addMSecs[overload1]$$$addMSecsqint64 -->
 <h3 class="fn" id="addMSecs"><a name="addMSecs"></a><span class="type"><a href="qdatetime.html#QDateTime">QDateTime</a></span> QDateTime::<span class="name">addMSecs</span>(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> <i>msecs</i>) const</h3>
 <p>Returns a <a href="qdatetime.html">QDateTime</a> object containing a datetime <i>msecs</i> miliseconds later than the datetime of this object (or earlier if <i>msecs</i> is negative).</p>
-<p>If this datetime is invalid, an invalid datetime will be returned.</p>
+<p>若当前日期时间是无效的，则返回一个无效的日期时间。</p>
 <p><b> 参见 </b><a href="qdatetime.html#addSecs">addSecs</a>(), <a href="qdatetime.html#msecsTo">msecsTo</a>(), <a href="qdatetime.html#addDays">addDays</a>(), <a href="qdatetime.html#addMonths">addMonths</a>(), 和 <a href="qdatetime.html#addYears">addYears</a>().</p>
 <!-- @@@addMSecs -->
 <!-- $$$addMonths[overload1]$$$addMonthsint -->
@@ -302,7 +302,7 @@
 <!-- $$$addSecs[overload1]$$$addSecsqint64 -->
 <h3 class="fn" id="addSecs"><a name="addSecs"></a><span class="type"><a href="qdatetime.html#QDateTime">QDateTime</a></span> QDateTime::<span class="name">addSecs</span>(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> <i>s</i>) const</h3>
 <p>Returns a <a href="qdatetime.html">QDateTime</a> object containing a datetime <i>s</i> seconds later than the datetime of this object (or earlier if <i>s</i> is negative).</p>
-<p>If this datetime is invalid, an invalid datetime will be returned.</p>
+<p>若当前日期时间是无效的，则返回一个无效的日期时间。</p>
 <p><b> 参见 </b><a href="qdatetime.html#addMSecs">addMSecs</a>(), <a href="qdatetime.html#secsTo">secsTo</a>(), <a href="qdatetime.html#addDays">addDays</a>(), <a href="qdatetime.html#addMonths">addMonths</a>(), 和 <a href="qdatetime.html#addYears">addYears</a>().</p>
 <!-- @@@addSecs -->
 <!-- $$$addYears[overload1]$$$addYearsint -->
@@ -425,12 +425,12 @@
 <tr valign="top" class="even"><td >dd</td><td >有用0前填充的数字天数 (01 to 31)</td></tr>
 <tr valign="top" class="odd"><td >ddd</td><td >the abbreviated localized day name (e.g&#x2e; 'Mon' to 'Sun'). Uses QDate::shortDayName().</td></tr>
 <tr valign="top" class="even"><td >dddd</td><td >the long localized day name (e.g&#x2e; 'Monday' to 'Sunday'). Uses QDate::longDayName().</td></tr>
-<tr valign="top" class="odd"><td >M</td><td >the month as number without a leading zero (1-12)</td></tr>
-<tr valign="top" class="even"><td >MM</td><td >the month as number with a leading zero (01-12)</td></tr>
+<tr valign="top" class="odd"><td >M</td><td >没有用0前填充的数字月份 (1 to 12)</td></tr>
+<tr valign="top" class="even"><td >MM</td><td >有用0前填充的数字月份 (01 to 12)</td></tr>
 <tr valign="top" class="odd"><td >MMM</td><td >the abbreviated localized month name (e.g&#x2e; 'Jan' to 'Dec'). Uses QDate::shortMonthName().</td></tr>
 <tr valign="top" class="even"><td >MMMM</td><td >the long localized month name (e.g&#x2e; 'January' to 'December'). Uses QDate::longMonthName().</td></tr>
-<tr valign="top" class="odd"><td >yy</td><td >the year as two digit number (00-99)</td></tr>
-<tr valign="top" class="even"><td >yyyy</td><td >the year as four digit number</td></tr>
+<tr valign="top" class="odd"><td >yy</td><td >用两位数字(00到99)表示的年份</td></tr>
+<tr valign="top" class="even"><td >yyyy</td><td >用四位数字表示的年份</td></tr>
 </table></div>
 <p><b>Note: </b>Unlike the other version of this function, day and month names must be given in the user's local language. It is only possible to use the English names if the user's language is English.</p><p>These expressions may be used for the time part of the format string:</p>
 <div class="table"><table class="generic">
@@ -439,10 +439,10 @@
 <tr valign="top" class="even"><td >hh</td><td >the hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display)</td></tr>
 <tr valign="top" class="odd"><td >H</td><td >the hour without a leading zero (0 to 23, even with AM/PM display)</td></tr>
 <tr valign="top" class="even"><td >HH</td><td >the hour with a leading zero (00 to 23, even with AM/PM display)</td></tr>
-<tr valign="top" class="odd"><td >m</td><td >the minute without a leading zero (0 to 59)</td></tr>
-<tr valign="top" class="even"><td >mm</td><td >the minute with a leading zero (00 to 59)</td></tr>
-<tr valign="top" class="odd"><td >s</td><td >the whole second without a leading zero (0 to 59)</td></tr>
-<tr valign="top" class="even"><td >ss</td><td >the whole second with a leading zero where applicable (00 to 59)</td></tr>
+<tr valign="top" class="odd"><td >m</td><td >没有用0前填充的分钟 (0到59)</td></tr>
+<tr valign="top" class="even"><td >mm</td><td >有用0前填充的分钟 (00到59)</td></tr>
+<tr valign="top" class="odd"><td >s</td><td >没有用0前填充的秒 (0到59)</td></tr>
+<tr valign="top" class="even"><td >ss</td><td >有用0前填充的秒 (00到59)</td></tr>
 <tr valign="top" class="odd"><td >z</td><td >the fractional part of the second, to go after a decimal point, without trailing zeroes (0 to 999). Thus &quot;<code>s.z</code>&quot; reports the seconds to full available (millisecond) precision without trailing zeroes.</td></tr>
 <tr valign="top" class="even"><td >zzz</td><td >the fractional part of the second, to millisecond precision, including trailing zeroes where applicable (000 to 999).</td></tr>
 <tr valign="top" class="odd"><td >AP or A</td><td >interpret as an AM/PM time. <i>AP</i> must be either &quot;AM&quot; or &quot;PM&quot;.</td></tr>
