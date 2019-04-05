@@ -156,19 +156,19 @@
 <div class="fngroup">
 <h3 class="fn fngroupitem" id="toString"><a name="toString"></a><span class="type"><a href="qstring.html">QString</a></span> QDate::<span class="name">toString</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>format</i>) const</h3><h3 class="fn fngroupitem" id="toString-2"><a name="toString-2"></a><span class="type"><a href="qstring.html">QString</a></span> QDate::<span class="name">toString</span>(<span class="type"><a href="qstringview.html">QStringView</a></span> <i>format</i>) const</h3></div>
 <p>返回字符串格式的日期。这个格式 <i>format</i> 参数决定了结果字符串的格式。</p>
-<p>These expressions may be used:</p>
+<p>可以使用以下表达式：</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th >表达式</th><th >输出</th></tr></thead>
-<tr valign="top" class="odd"><td >d</td><td >the day as number without a leading zero (1 to 31)</td></tr>
-<tr valign="top" class="even"><td >dd</td><td >the day as number with a leading zero (01 to 31)</td></tr>
-<tr valign="top" class="odd"><td >ddd</td><td >the abbreviated localized day name (e.g&#x2e; 'Mon' to 'Sun'). Uses the system locale to localize the name, i.e&#x2e; <a href="qlocale.html#system">QLocale::system</a>().</td></tr>
-<tr valign="top" class="even"><td >dddd</td><td >the long localized day name (e.g&#x2e; 'Monday' to 'Sunday'). Uses the system locale to localize the name, i.e&#x2e; <a href="qlocale.html#system">QLocale::system</a>().</td></tr>
-<tr valign="top" class="odd"><td >M</td><td >the month as number without a leading zero (1 to 12)</td></tr>
-<tr valign="top" class="even"><td >MM</td><td >the month as number with a leading zero (01 to 12)</td></tr>
-<tr valign="top" class="odd"><td >MMM</td><td >the abbreviated localized month name (e.g&#x2e; 'Jan' to 'Dec'). Uses the system locale to localize the name, i.e&#x2e; <a href="qlocale.html#system">QLocale::system</a>().</td></tr>
-<tr valign="top" class="even"><td >MMMM</td><td >the long localized month name (e.g&#x2e; 'January' to 'December'). Uses the system locale to localize the name, i.e&#x2e; <a href="qlocale.html#system">QLocale::system</a>().</td></tr>
-<tr valign="top" class="odd"><td >yy</td><td >the year as two digit number (00 to 99)</td></tr>
-<tr valign="top" class="even"><td >yyyy</td><td >the year as four digit number. If the year is negative, a minus sign is prepended in addition.</td></tr>
+<tr valign="top" class="odd"><td >d</td><td >没有用0前填充的数字天数 (1 to 31)</td></tr>
+<tr valign="top" class="even"><td >dd</td><td >有用0前填充的数字天数 (01 to 31)</td></tr>
+<tr valign="top" class="odd"><td >ddd</td><td >缩写的本地化的星期名称 (e.g&#x2e; 'Mon' to 'Sun')。 使用系统区域设置来本地化该名称, i.e&#x2e; <a href="qlocale.html#system">QLocale::system</a>().</td></tr>
+<tr valign="top" class="even"><td >dddd</td><td >全部的本地化的星期名称 (e.g&#x2e; 'Monday' to 'Sunday')。使用系统区域设置来本地化该名称, i.e&#x2e; <a href="qlocale.html#system">QLocale::system</a>().</td></tr>
+<tr valign="top" class="odd"><td >M</td><td >没有用0前填充的数字月份 (1 to 12)</td></tr>
+<tr valign="top" class="even"><td >MM</td><td >有用0前填充的数字月份 (01 to 12)</td></tr>
+<tr valign="top" class="odd"><td >MMM</td><td >缩写的本地化的月份名称 (e.g&#x2e; 'Jan' to 'Dec')。 使用系统区域设置来本地化该名称, i.e&#x2e; <a href="qlocale.html#system">QLocale::system</a>().</td></tr>
+<tr valign="top" class="even"><td >MMMM</td><td >全部的本地化的月份名称 (e.g&#x2e; 'January' to 'December')。使用系统区域设置来本地化该名称, i.e&#x2e; <a href="qlocale.html#system">QLocale::system</a>().</td></tr>
+<tr valign="top" class="odd"><td >yy</td><td >用两位数字(00到99)表示的年份</td></tr>
+<tr valign="top" class="even"><td >yyyy</td><td >用四位数字表示的年份。若年份是负数，则在年份前面另外添加减号。</td></tr>
 </table></div>
 <p>All other input characters will be ignored. Any sequence of characters that are enclosed in single quotes will be treated as text and not be used as an expression. Two consecutive single quotes (&quot;''&quot;) are replaced by a singlequote in the output. Formats without separators (e.g&#x2e; &quot;ddMM&quot;) are currently not supported.</p>
 <p>Example format strings (assuming that the <a href="qdate.html">QDate</a> is the 20 July 1969):</p>
@@ -189,8 +189,8 @@
 <!-- $$$QDate$$$QDateintintint -->
 <h3 class="fn" id="QDate-2"><a name="QDate-2"></a>QDate::<span class="name">QDate</span>(<span class="type">int</span> <i>y</i>, <span class="type">int</span> <i>m</i>, <span class="type">int</span> <i>d</i>)</h3>
 <p>构造函数，创建一个日期，其年月日分别为<i>y</i> <i>m</i>和<i>d</i>。</p>
-<p>If the specified date is invalid, the date is not set and <a href="qdate.html#isValid">isValid</a>() returns <code>false</code>.</p>
-<p><b>Warning:</b> Years 1 to 99 are interpreted as is. Year 0 is invalid.</p>
+<p>若指定的日期无效，则不会设置日期，并且 <a href="qdate.html#isValid">isValid</a>() 将返回 <code>false</code>。</p>
+<p><b>警告:</b> 年份1到99将被解释为原来值。0年份是无效的。</p>
 <p><b> 参见 </b><a href="qdate.html#isValid">isValid</a>().</p>
 <!-- @@@QDate -->
 <!-- $$$addDays[overload1]$$$addDaysqint64 -->
@@ -261,31 +261,31 @@
 <!-- @@@daysTo -->
 <!-- $$$fromJulianDay[overload1]$$$fromJulianDayqint64 -->
 <h3 class="fn" id="fromJulianDay"><a name="fromJulianDay"></a><code>[静态函数] </code><span class="type"><a href="qdate.html#QDate">QDate</a></span> QDate::<span class="name">fromJulianDay</span>(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> <i>jd</i>)</h3>
-<p>Converts the Julian day <i>jd</i> to a <a href="qdate.html">QDate</a>.</p>
+<p>将儒略日 <i>jd</i> 转换为日期<a href="qdate.html">QDate</a>。</p>
 <p><b> 参见 </b><a href="qdate.html#toJulianDay">toJulianDay</a>().</p>
 <!-- @@@fromJulianDay -->
 <!-- $$$fromString[overload1]$$$fromStringconstQString&Qt::DateFormat -->
 <h3 class="fn" id="fromString"><a name="fromString"></a><code>[静态函数] </code><span class="type"><a href="qdate.html#QDate">QDate</a></span> QDate::<span class="name">fromString</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>string</i>, <span class="type">Qt::DateFormat</span> <i>format</i> = Qt::TextDate)</h3>
-<p>Returns the <a href="qdate.html">QDate</a> represented by the <i>string</i>, using the <i>format</i> given, or an invalid date if the string cannot be parsed.</p>
+<p>返回由给定的格式 <i>format</i>且有字符串<i>/string</i>描述的日期 <a href="qdate.html">QDate</a> 。若无法解析字符串，则返回的无效的日期。</p>
 <p>Note for <a href="qt.html#DateFormat-enum">Qt::TextDate</a>: It is recommended that you use the English short month names (e.g&#x2e; &quot;Jan&quot;). Although localized month names can also be used, they depend on the user's locale settings.</p>
 <p><b> 参见 </b><a href="qdate.html#toString">toString</a>() 和 <a href="qlocale.html#toDate">QLocale::toDate</a>().</p>
 <!-- @@@fromString -->
 <!-- $$$fromString$$$fromStringconstQString&constQString& -->
 <h3 class="fn" id="fromString-1"><a name="fromString-1"></a><code>[静态函数] </code><span class="type"><a href="qdate.html#QDate">QDate</a></span> QDate::<span class="name">fromString</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>string</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>format</i>)</h3>
-<p>Returns the <a href="qdate.html">QDate</a> represented by the <i>string</i>, using the <i>format</i> given, or an invalid date if the string cannot be parsed.</p>
+<p>返回由给定的格式 <i>format</i>且有字符串<i>/string</i>描述的日期 <a href="qdate.html">QDate</a> 。若无法解析字符串，则返回的无效的日期。</p>
 <p>这些表达式可以使用如下格式：</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th >表达式</th><th >输出</th></tr></thead>
-<tr valign="top" class="odd"><td >d</td><td >The day as a number without a leading zero (1 to 31)</td></tr>
-<tr valign="top" class="even"><td >dd</td><td >The day as a number with a leading zero (01 to 31)</td></tr>
-<tr valign="top" class="odd"><td >ddd</td><td >The abbreviated localized day name (e.g&#x2e; 'Mon' to 'Sun'). Uses the system locale to localize the name, i.e&#x2e; <a href="qlocale.html#system">QLocale::system</a>().</td></tr>
-<tr valign="top" class="even"><td >dddd</td><td >The long localized day name (e.g&#x2e; 'Monday' to 'Sunday'). Uses the system locale to localize the name, i.e&#x2e; <a href="qlocale.html#system">QLocale::system</a>().</td></tr>
-<tr valign="top" class="odd"><td >M</td><td >The month as a number without a leading zero (1 to 12)</td></tr>
-<tr valign="top" class="even"><td >MM</td><td >The month as a number with a leading zero (01 to 12)</td></tr>
-<tr valign="top" class="odd"><td >MMM</td><td >The abbreviated localized month name (e.g&#x2e; 'Jan' to 'Dec'). Uses the system locale to localize the name, i.e&#x2e; <a href="qlocale.html#system">QLocale::system</a>().</td></tr>
-<tr valign="top" class="even"><td >MMMM</td><td >The long localized month name (e.g&#x2e; 'January' to 'December'). Uses the system locale to localize the name, i.e&#x2e; <a href="qlocale.html#system">QLocale::system</a>().</td></tr>
-<tr valign="top" class="odd"><td >yy</td><td >The year as two digit number (00 to 99)</td></tr>
-<tr valign="top" class="even"><td >yyyy</td><td >The year as four digit number. If the year is negative, a minus sign is prepended in addition.</td></tr>
+<tr valign="top" class="odd"><td >d</td><td >没有用0前填充的数字天数 (1 to 31)</td></tr>
+<tr valign="top" class="even"><td >dd</td><td >有用0前填充的数字天数 (01 to 31)</td></tr>
+<tr valign="top" class="odd"><td >ddd</td><td >缩写的本地化的星期名称 (e.g&#x2e; 'Mon' to 'Sun')。 使用系统区域设置来本地化该名称, i.e&#x2e; <a href="qlocale.html#system">QLocale::system</a>().</td></tr>
+<tr valign="top" class="even"><td >dddd</td><td >全部的本地化的星期名称 (e.g&#x2e; 'Monday' to 'Sunday')。使用系统区域设置来本地化该名称, i.e&#x2e; <a href="qlocale.html#system">QLocale::system</a>().</td></tr>
+<tr valign="top" class="odd"><td >M</td><td >没有用0前填充的数字月份 (1 to 12)</td></tr>
+<tr valign="top" class="even"><td >MM</td><td >有用0前填充的数字月份 (01 to 12)</td></tr>
+<tr valign="top" class="odd"><td >MMM</td><td >缩写的本地化的月份名称 (e.g&#x2e; 'Jan' to 'Dec')。 使用系统区域设置来本地化该名称, i.e&#x2e; <a href="qlocale.html#system">QLocale::system</a>().</td></tr>
+<tr valign="top" class="even"><td >MMMM</td><td >全部的本地化的月份名称 (e.g&#x2e; 'January' to 'December')。使用系统区域设置来本地化该名称, i.e&#x2e; <a href="qlocale.html#system">QLocale::system</a>().</td></tr>
+<tr valign="top" class="odd"><td >yy</td><td >用两位数字(00到99)表示的年份</td></tr>
+<tr valign="top" class="even"><td >yyyy</td><td >用四位数字表示的年份。若年份是负数，则在年份前面另外添加减号。</td></tr>
 </table></div>
 <p>All other input characters will be treated as text. Any sequence of characters that are enclosed in single quotes will also be treated as text and will not be used as an expression. For example:</p>
 <pre class="cpp">
