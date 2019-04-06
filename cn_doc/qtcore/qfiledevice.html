@@ -49,7 +49,7 @@
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <h1 class="title">QFileDevice Class</h1>
 <!-- $$$QFileDevice-brief -->
-<p>The <a href="qfiledevice.html">QFileDevice</a> class provides an interface for reading from and writing to open files. <a href="#details">更多详情...</a></p>
+<p><a href="qfiledevice.html">QFileDevice</a>类提供了读取和写入已打开文件的接口。 <a href="#details">更多详情...</a></p>
 <!-- @@@QFileDevice -->
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> 头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QFileDevice&gt;</span>
@@ -136,7 +136,7 @@
 <!-- $$$QFileDevice-description -->
 <div class="descr">
 <h2 id="details">详细描述</h2>
-<p>The <a href="qfiledevice.html">QFileDevice</a> class provides an interface for reading from and writing to open files.</p>
+<p><a href="qfiledevice.html">QFileDevice</a>类提供了读取和写入已打开文件的接口。 </p>
 <p><a href="qfiledevice.html">QFileDevice</a> is the base class for I/O devices that can read and write text and binary files and <a href="resources.html">resources</a>. <a href="qfile.html">QFile</a> offers the main functionality, <a href="qfiledevice.html">QFileDevice</a> serves as a base class for sharing functionality with other file devices such as <a href="qtemporaryfile.html">QTemporaryFile</a>, by providing all the operations that can be done on files that have been opened by <a href="qfile.html">QFile</a> or <a href="qtemporaryfile.html">QTemporaryFile</a>.</p>
 </div>
 <p><b> 参见 </b><a href="qfile.html">QFile</a> 和 <a href="qtemporaryfile.html">QTemporaryFile</a>.</p>
@@ -192,7 +192,7 @@
 <tr><td class="topAlign"><code>QFileDevice::NoOptions</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">No options.</td></tr>
 <tr><td class="topAlign"><code>QFileDevice::MapPrivateOption</code></td><td class="topAlign tblval"><code>0x0001</code></td><td class="topAlign">The mapped memory will be private, so any modifications will not be visible to other processes and will not be written to disk. Any such modifications will be lost when the memory is unmapped. It is unspecified whether modifications made to the file made after the mapping is created will be visible through the mapped memory. This enum value was introduced in Qt 5.4&#x2e;</td></tr>
 </table></div>
-<p>This enum was introduced or modified in  Qt 4.4.</p>
+<p>这个枚举是在Qt 4.4版本中新增引入的。</p>
 <!-- @@@MemoryMapFlags -->
 <!-- $$$Permission$$$ReadOwner$$$WriteOwner$$$ExeOwner$$$ReadUser$$$WriteUser$$$ExeUser$$$ReadGroup$$$WriteGroup$$$ExeGroup$$$ReadOther$$$WriteOther$$$ExeOther -->
 <h3 class="flags" id="Permission-enum"><a name="Permission-enum"></a>enum QFileDevice::<span class="name">Permission</span><br/>flags QFileDevice::<span class="name">Permissions</span></h3>
@@ -234,12 +234,12 @@
 <h2>成员函数文档</h2>
 <!-- $$$~QFileDevice[overload1]$$$~QFileDevice -->
 <h3 class="fn" id="dtor.QFileDevice"><a name="dtor.QFileDevice"></a><code>[虚函数] </code>QFileDevice::<span class="name">~QFileDevice</span>()</h3>
-<p>Destroys the file device, closing it if necessary.</p>
+<p>析构函数，释放文件设备，若可能的话将关闭文件设备。</p>
 <!-- @@@~QFileDevice -->
 <!-- $$$atEnd[overload1]$$$atEnd -->
 <h3 class="fn" id="atEnd"><a name="atEnd"></a><code>[重载虚函数] </code><span class="type">bool</span> QFileDevice::<span class="name">atEnd</span>() const</h3>
 <p>重新实现了父类函数接口 <a href="qiodevice.html#atEnd">QIODevice::atEnd</a>().</p>
-<p>Returns <code>true</code> if the end of the file has been reached; otherwise returns false.</p>
+<p>若到达文件尾部，则返回 <code>true</code>；否则则返回<code>false</code>。</p>
 <p>For regular empty files on Unix (e.g&#x2e; those in <code>/proc</code>), this function returns <code>true</code>, since the file system reports that the size of such a file is 0. Therefore, you should not depend on atEnd() when reading data from such a file, but rather call <a href="qiodevice.html#read">read</a>() until no more data can be read.</p>
 <!-- @@@atEnd -->
 <!-- $$$close[overload1]$$$close -->
@@ -250,36 +250,36 @@
 <!-- @@@close -->
 <!-- $$$error[overload1]$$$error -->
 <h3 class="fn" id="error"><a name="error"></a><span class="type"><a href="qfiledevice.html#FileError-enum">QFileDevice::FileError</a></span> QFileDevice::<span class="name">error</span>() const</h3>
-<p>Returns the file error status.</p>
+<p>返回文件错误状态。</p>
 <p>The I/O device status returns an error code. For example, if <a href="qiodevice.html#open">open</a>() returns <code>false</code>, or a read/write operation returns -1, this function can be called to find out the reason why the operation failed.</p>
 <p><b> 参见 </b><a href="qfiledevice.html#unsetError">unsetError</a>().</p>
 <!-- @@@error -->
 <!-- $$$fileName[overload1]$$$fileName -->
 <h3 class="fn" id="fileName"><a name="fileName"></a><code>[虚函数] </code><span class="type"><a href="qstring.html">QString</a></span> QFileDevice::<span class="name">fileName</span>() const</h3>
-<p>Returns the name of the file. The default implementation in <a href="qfiledevice.html">QFileDevice</a> returns a null string.</p>
+<p>返回文件名称。<a href="qfiledevice.html">QFileDevice</a>的默认实现是返回一个空字符串。</p>
 <!-- @@@fileName -->
 <!-- $$$fileTime[overload1]$$$fileTimeQFileDevice::FileTime -->
 <h3 class="fn" id="fileTime"><a name="fileTime"></a><span class="type"><a href="qdatetime.html">QDateTime</a></span> QFileDevice::<span class="name">fileTime</span>(<span class="type"><a href="qfiledevice.html#FileTime-enum">QFileDevice::FileTime</a></span> <i>time</i>) const</h3>
-<p>Returns the file time specified by <i>time</i>. If the time cannot be determined return QDateTime() (an invalid date time).</p>
+<p>返回由参数<i>time</i>所指定的文件时间。若该时间无法确定，则返回默认的QDateTime() (一个无效的日期时间)。</p>
 <p>这个函数是在Qt 5.10版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qfiledevice.html#setFileTime">setFileTime</a>(), <a href="qfiledevice.html#FileTime-enum">FileTime</a>, 和 <a href="qdatetime.html#isValid">QDateTime::isValid</a>().</p>
 <!-- @@@fileTime -->
 <!-- $$$flush[overload1]$$$flush -->
 <h3 class="fn" id="flush"><a name="flush"></a><span class="type">bool</span> QFileDevice::<span class="name">flush</span>()</h3>
-<p>Flushes any buffered data to the file. 若成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
+<p>将任何缓冲的数据及时刷新写入到文件。 若成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
 <!-- @@@flush -->
 <!-- $$$handle[overload1]$$$handle -->
 <h3 class="fn" id="handle"><a name="handle"></a><span class="type">int</span> QFileDevice::<span class="name">handle</span>() const</h3>
-<p>Returns the file handle of the file.</p>
+<p>返回该文件的文件句柄。</p>
 <p>This is a small positive integer, suitable for use with C library functions such as <code>fdopen()</code> and <code>fcntl()</code>. On systems that use file descriptors for sockets (i.e&#x2e; Unix systems, but not Windows) the handle can be used with <a href="qsocketnotifier.html">QSocketNotifier</a> as well.</p>
-<p>If the file is not open, or there is an error, handle() returns -1.</p>
+<p>若文件没有被打开或者打开时发生错误，handle()函数返回-1。</p>
 <p><b> 参见 </b><a href="qsocketnotifier.html">QSocketNotifier</a>.</p>
 <!-- @@@handle -->
 <!-- $$$isSequential[overload1]$$$isSequential -->
 <h3 class="fn" id="isSequential"><a name="isSequential"></a><code>[重载虚函数] </code><span class="type">bool</span> QFileDevice::<span class="name">isSequential</span>() const</h3>
 <p>重新实现了父类函数接口 <a href="qiodevice.html#isSequential">QIODevice::isSequential</a>().</p>
-<p>Returns <code>true</code> if the file can only be manipulated sequentially; otherwise returns <code>false</code>.</p>
-<p>Most files support random-access, but some special files may not.</p>
+<p>若文件只能顺序处理，则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
+<p>大多数文件支持随机访问，但是也有一些特定文件不支持随机访问。</p>
 <p><b> 参见 </b><a href="qiodevice.html#isSequential">QIODevice::isSequential</a>().</p>
 <!-- @@@isSequential -->
 <!-- $$$map[overload1]$$$mapqint64qint64QFileDevice::MemoryMapFlags -->
@@ -287,12 +287,12 @@
 <p>Maps <i>size</i> bytes of the file into memory starting at <i>offset</i>. A file should be open for a map to succeed but the file does not need to stay open after the memory has been mapped. When the <a href="qfile.html">QFile</a> is destroyed or a new file is opened with this object, any maps that have not been unmapped will automatically be unmapped.</p>
 <p>The mapping will have the same open mode as the file (read and/or write), except when using <a href="qfiledevice.html#MemoryMapFlags-enum">MapPrivateOption</a>, in which case it is always possible to write to the mapped memory.</p>
 <p>Any mapping options can be passed through <i>flags</i>.</p>
-<p>Returns a pointer to the memory or 0 if there is an error.</p>
+<p>返回指向内存的指针，若有错误发送则返回0。</p>
 <p><b> 参见 </b><a href="qfiledevice.html#unmap">unmap</a>().</p>
 <!-- @@@map -->
 <!-- $$$permissions[overload1]$$$permissions -->
 <h3 class="fn" id="permissions"><a name="permissions"></a><code>[虚函数] </code><span class="type"><a href="qfiledevice.html#Permission-enum">QFileDevice::Permissions</a></span> QFileDevice::<span class="name">permissions</span>() const</h3>
-<p>Returns the complete OR-ed together combination of <a href="qfiledevice.html#Permission-enum">QFile::Permission</a> for the file.</p>
+<p>返回完整的或操作组合值 <a href="qfiledevice.html#Permission-enum">QFile::Permission</a> for the file.</p>
 <p><b> 参见 </b><a href="qfiledevice.html#setPermissions">setPermissions</a>().</p>
 <!-- @@@permissions -->
 <!-- $$$pos[overload1]$$$pos -->
@@ -322,7 +322,7 @@
 <!-- $$$setFileTime[overload1]$$$setFileTimeconstQDateTime&QFileDevice::FileTime -->
 <h3 class="fn" id="setFileTime"><a name="setFileTime"></a><span class="type">bool</span> QFileDevice::<span class="name">setFileTime</span>(const <span class="type"><a href="qdatetime.html">QDateTime</a></span> &amp;<i>newDate</i>, <span class="type"><a href="qfiledevice.html#FileTime-enum">QFileDevice::FileTime</a></span> <i>fileTime</i>)</h3>
 <p>Sets the file time specified by <i>fileTime</i> to <i>newDate</i>, returning true if successful; otherwise returns false.</p>
-<p><b>注意： </b>The file must be open to use this function.</p><p>这个函数是在Qt 5.10版本中新增引入的。</p>
+<p><b>注意： </b>使用此函数要求文件必须已打开。</p><p>这个函数是在Qt 5.10版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qfiledevice.html#fileTime">fileTime</a>() 和 <a href="qfiledevice.html#FileTime-enum">FileTime</a>.</p>
 <!-- @@@setFileTime -->
 <!-- $$$setPermissions[overload1]$$$setPermissionsQFileDevice::Permissions -->
@@ -334,13 +334,13 @@
 <!-- $$$size[overload1]$$$size -->
 <h3 class="fn" id="size"><a name="size"></a><code>[重载虚函数] </code><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> QFileDevice::<span class="name">size</span>() const</h3>
 <p>重新实现了父类函数接口 <a href="qiodevice.html#size">QIODevice::size</a>().</p>
-<p>Returns the size of the file.</p>
+<p>返回文件大小。</p>
 <p>For regular empty files on Unix (e.g&#x2e; those in <code>/proc</code>), this function returns 0; the contents of such a file are generated on demand in response to you calling <a href="qiodevice.html#read">read</a>().</p>
 <!-- @@@size -->
 <!-- $$$unmap[overload1]$$$unmapuchar* -->
 <h3 class="fn" id="unmap"><a name="unmap"></a><span class="type">bool</span> QFileDevice::<span class="name">unmap</span>(<span class="type"><a href="qtglobal.html#uchar-typedef">uchar</a></span> *<i>address</i>)</h3>
 <p>Unmaps the memory <i>address</i>.</p>
-<p>Returns <code>true</code> if the unmap succeeds; false otherwise.</p>
+<p>若取消映射成功则返回 <code>true</code>；否则则返回 <code>false</code>。</p>
 <p><b> 参见 </b><a href="qfiledevice.html#map">map</a>().</p>
 <!-- @@@unmap -->
 <!-- $$$unsetError[overload1]$$$unsetError -->

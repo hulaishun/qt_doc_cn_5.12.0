@@ -264,7 +264,7 @@
 <h3 class="fn" id="copy-1"><a name="copy-1"></a><code>[静态函数] </code><span class="type">bool</span> QFile::<span class="name">copy</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>newName</i>)</h3>
 <p>这是一个重载函数。</p>
 <p>Copies the file <i>fileName</i> to <i>newName</i>. 若成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
-<p>If a file with the name <i>newName</i> already exists, <a href="qfile.html#copy">copy</a>() returns <code>false</code> (i.e&#x2e;, <a href="qfile.html">QFile</a> will not overwrite it).</p>
+<p>若参数<i>newName</i>所描述的文件已存在， <a href="qfile.html#copy">copy</a>()则返回 <code>false</code> (i.e&#x2e;, <a href="qfile.html">QFile</a> 将不会重写它)。</p>
 <p><b> 参见 </b><a href="qfile.html#rename">rename</a>().</p>
 <!-- @@@copy -->
 <!-- $$$decodeName[overload1]$$$decodeNameconstQByteArray& -->
@@ -285,7 +285,7 @@
 <!-- $$$exists[overload1]$$$existsconstQString& -->
 <h3 class="fn" id="exists"><a name="exists"></a><code>[静态函数] </code><span class="type">bool</span> QFile::<span class="name">exists</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>)</h3>
 <p>若指定文件<i>fileName</i>已存在则返回<code>true</code>，否则则返回 <code>false</code>。</p>
-<p><b>注意： </b>If <i>fileName</i> is a symlink that points to a non-existing file, false is returned.</p><!-- @@@exists -->
+<p><b>注意： </b>若参数 <i>fileName</i> 是一个指向不存在文件的快捷方式，则返回false。</p><!-- @@@exists -->
 <!-- $$$exists$$$exists -->
 <h3 class="fn" id="exists-1"><a name="exists-1"></a><span class="type">bool</span> QFile::<span class="name">exists</span>() const</h3>
 <p>这是一个重载函数。</p>
@@ -368,7 +368,7 @@
 <!-- $$$permissions$$$permissionsconstQString& -->
 <h3 class="fn" id="permissions-1"><a name="permissions-1"></a><code>[静态函数] </code><span class="type"><a href="qfiledevice.html#Permission-enum">QFileDevice::Permissions</a></span> QFile::<span class="name">permissions</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>)</h3>
 <p>这是一个重载函数。</p>
-<p>Returns the complete OR-ed together combination of <a href="qfiledevice.html#Permission-enum">QFile::Permission</a> for <i>fileName</i>.</p>
+<p>返回完整的或操作组合值 <a href="qfiledevice.html#Permission-enum">QFile::Permission</a> for <i>fileName</i>.</p>
 <!-- @@@permissions -->
 <!-- $$$remove[overload1]$$$remove -->
 <h3 class="fn" id="remove"><a name="remove"></a><span class="type">bool</span> QFile::<span class="name">remove</span>()</h3>
@@ -386,7 +386,7 @@
 <!-- $$$rename[overload1]$$$renameconstQString& -->
 <h3 class="fn" id="rename"><a name="rename"></a><span class="type">bool</span> QFile::<span class="name">rename</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>newName</i>)</h3>
 <p>Renames the file currently specified by <a href="qfile.html#fileName">fileName</a>() to <i>newName</i>. 若成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
-<p>If a file with the name <i>newName</i> already exists, rename() returns <code>false</code> (i.e&#x2e;, <a href="qfile.html">QFile</a> will not overwrite it).</p>
+<p>若参数<i>newName</i>所描述的文件已存在， 重命名函数则返回 <code>false</code> (i.e&#x2e;, <a href="qfile.html">QFile</a> 将不会重写它)。</p>
 <p>文件在它被重命名之前将被关闭。</p>
 <p>If the rename operation fails, Qt will attempt to copy this file's contents to <i>newName</i>, and then remove this file, keeping only <i>newName</i>. If that copy operation fails or this file can't be removed, the destination file <i>newName</i> is removed to restore the old state.</p>
 <p><b> 参见 </b><a href="qfile.html#setFileName">setFileName</a>().</p>
