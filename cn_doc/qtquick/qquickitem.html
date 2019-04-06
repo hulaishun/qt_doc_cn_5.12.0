@@ -305,8 +305,8 @@
 <a name="custom-scene-graph-items"></a>
 <h3 >Custom Scene Graph Items</h3>
 <p>All visual QML items are rendered using the scene graph, the default implementation of which is a low-level, high-performance rendering stack, closely tied to OpenGL. It is possible for subclasses of <a href="qquickitem.html">QQuickItem</a> to add their own custom content into the scene graph by setting the <a href="qquickitem.html#Flag-enum">QQuickItem::ItemHasContents</a> flag and reimplementing the <a href="qquickitem.html#updatePaintNode">QQuickItem::updatePaintNode</a>() function.</p>
-<p><b>Warning:</b> It is crucial that OpenGL operations and interaction with the scene graph happens exclusively on the rendering thread, primarily during the <a href="qquickitem.html#updatePaintNode">updatePaintNode</a>() call. The best rule of thumb is to only use classes with the &quot;QSG&quot; prefix inside the <a href="qquickitem.html#updatePaintNode">QQuickItem::updatePaintNode</a>() function.</p>
-<p><b>Note: </b>All classes with QSG prefix should be used solely on the scene graph's rendering thread. See <a href="qtquick-visualcanvas-scenegraph.html#scene-graph-and-rendering">Scene Graph and Rendering</a> for more information.</p><a name="graphics-resource-handling"></a>
+<p><b>警告：</b> It is crucial that OpenGL operations and interaction with the scene graph happens exclusively on the rendering thread, primarily during the <a href="qquickitem.html#updatePaintNode">updatePaintNode</a>() call. The best rule of thumb is to only use classes with the &quot;QSG&quot; prefix inside the <a href="qquickitem.html#updatePaintNode">QQuickItem::updatePaintNode</a>() function.</p>
+<p><b>注意： </b>All classes with QSG prefix should be used solely on the scene graph's rendering thread. See <a href="qtquick-visualcanvas-scenegraph.html#scene-graph-and-rendering">Scene Graph and Rendering</a> for more information.</p><a name="graphics-resource-handling"></a>
 <h4 >Graphics Resource Handling</h4>
 <p>The preferred way to handle cleanup of graphics resources used in the scene graph, is to rely on the automatic cleanup of nodes. A <a href="qsgnode.html">QSGNode</a> returned from <a href="qquickitem.html#updatePaintNode">QQuickItem::updatePaintNode</a>() is automatically deleted on the right thread at the right time. Trees of <a href="qsgnode.html">QSGNode</a> instances are managed through the use of <a href="qsgnode.html#Flag-enum">QSGNode::OwnedByParent</a>, which is set by default. So, for the majority of custom scene graph items, no extra work will be required.</p>
 <p>Implementations that store graphics resources outside the node tree, such as an item implementing <a href="qquickitem.html#textureProvider">QQuickItem::textureProvider</a>(), will need to take care in cleaning it up correctly depending on how the item is used in QML. The situations to handle are:</p>
@@ -316,10 +316,10 @@
 <li>The item is deleted; When the destructor if an item runs, it should delete any graphics resources it has. If neither of the two conditions above were already met, the item will be part of a window and it is possible to use <a href="qquickwindow.html#scheduleRenderJob">QQuickWindow::scheduleRenderJob</a>() to have them cleaned up. If an implementation ignores the call to <a href="qquickitem.html#releaseResources">QQuickItem::releaseResources</a>(), the item will in many cases no longer have access to a <a href="qquickwindow.html">QQuickWindow</a> and thus no means of scheduling cleanup.</li>
 </ul>
 <p>When scheduling cleanup of graphics resources using <a href="qquickwindow.html#scheduleRenderJob">QQuickWindow::scheduleRenderJob</a>(), one should use either <a href="qquickwindow.html#RenderStage-enum">QQuickWindow::BeforeSynchronizingStage</a> or <a href="qquickwindow.html#RenderStage-enum">QQuickWindow::AfterSynchronizingStage</a>. The <a href="qtquick-visualcanvas-scenegraph.html#scene-graph-and-rendering">synchronization stage</a> is where the scene graph is changed as a result of changes to the QML tree. If cleanup is scheduled at any other time, it may result in other parts of the scene graph referencing the newly deleted objects as these parts have not been updated.</p>
-<p><b>Note: </b>Use of <a href="../qtcore/qobject.html#deleteLater">QObject::deleteLater</a>() to clean up graphics resources is not recommended as this will run at an arbitrary time and it is unknown if there will be an OpenGL context bound when the deletion takes place.</p><a name="custom-qpainter-items"></a>
+<p><b>注意： </b>Use of <a href="../qtcore/qobject.html#deleteLater">QObject::deleteLater</a>() to clean up graphics resources is not recommended as this will run at an arbitrary time and it is unknown if there will be an OpenGL context bound when the deletion takes place.</p><a name="custom-qpainter-items"></a>
 <h3 >Custom QPainter Items</h3>
 <p>The <a href="qquickitem.html">QQuickItem</a> provides a subclass, <a href="qquickpainteditem.html">QQuickPaintedItem</a>, which allows the users to render content using <a href="../qtgui/qpainter.html">QPainter</a>.</p>
-<p><b>Warning:</b> Using <a href="qquickpainteditem.html">QQuickPaintedItem</a> uses an indirect 2D surface to render its content, either using software rasterization or using an OpenGL framebuffer object (FBO), so the rendering is a two-step operation. First rasterize the surface, then draw the surface. Using scene graph API directly is always significantly faster.</p>
+<p><b>警告：</b> Using <a href="qquickpainteditem.html">QQuickPaintedItem</a> uses an indirect 2D surface to render its content, either using software rasterization or using an OpenGL framebuffer object (FBO), so the rendering is a two-step operation. First rasterize the surface, then draw the surface. Using scene graph API directly is always significantly faster.</p>
 <a name="behavior-animations"></a>
 <h3 >Behavior Animations</h3>
 <p>If your Item uses the <a href="qml-qtquick-behavior.html">行为</a> type to define animations for property changes, you should always use either <a href="../qtcore/qobject.html#setProperty">QObject::setProperty</a>(), QQmlProperty(), or <a href="../qtcore/qmetaproperty.html#write">QMetaProperty::write</a>() when you need to modify those properties from C++. This ensures that the QML engine knows about the property change. Otherwise, the engine won't be able to carry out your requested animation. Note that these functions incur a slight performance penalty. For more details, see <a href="../qtqml/qtqml-cppintegration-interactqmlfromcpp.html#accessing-members-of-a-qml-object-type-from-c">Accessing Members of a QML Object Type from C++</a>.</p>
@@ -583,7 +583,7 @@
 <!-- $$$parent-prop$$$parentItem$$$setParentItemQQuickItem* -->
 <h3 class="fn" id="parent-prop"><a name="parent-prop"></a><span class="name">parent</span> : <span class="type"><a href="qquickitem.html#QQuickItem">QQuickItem</a></span>*</h3>
 <p>This property holds the visual parent of the item.</p>
-<p><b>Note: </b>The concept of the <i>visual parent</i> differs from that of the <i><a href="../qtcore/qobject.html">QObject</a> parent</i>. An item's visual parent may not necessarily be the same as its object parent. See <a href="qtquick-visualcanvas-visualparent.html">Concepts - Visual Parent in Qt Quick</a> for more details.</p><p><b>访问函数：</b></p>
+<p><b>注意： </b>The concept of the <i>visual parent</i> differs from that of the <i><a href="../qtcore/qobject.html">QObject</a> parent</i>. An item's visual parent may not necessarily be the same as its object parent. See <a href="qtquick-visualcanvas-visualparent.html">Concepts - Visual Parent in Qt Quick</a> for more details.</p><p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QQuickItem *</td><td class="memItemRight bottomAlign"><span class="name"><b>parentItem</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setParentItem</b></span>(QQuickItem *<i>parent</i>)</td></tr>
@@ -692,7 +692,7 @@
 <p>Setting this property directly affects the <code>visible</code> value of child items. When set to <code>false</code>, the <code>visible</code> values of all child items also become <code>false</code>. When set to <code>true</code>, the <code>visible</code> values of child items are returned to <code>true</code>, unless they have explicitly been set to <code>false</code>.</p>
 <p>(Because of this flow-on behavior, using the <code>visible</code> property may not have the intended effect if a property binding should only respond to explicit property changes. In such cases it may be better to use the <a href="qtquick-effects-topic.html#opacity">opacity</a> property instead.)</p>
 <p>If this property is set to <code>false</code>, the item will no longer receive mouse events, but will continue to receive key events and will retain the keyboard <a href="qquickitem.html#focus-prop">focus</a> if it has been set. (In contrast, setting the <a href="qquickitem.html#enabled-prop">enabled</a> property to <code>false</code> stops both mouse and keyboard events, and also removes focus from the item.)</p>
-<p><b>Note: </b>This property's value is only affected by changes to this property or the parent's <code>visible</code> property. It does not change, for example, if this item moves off-screen, or if the <a href="qtquick-effects-topic.html#opacity">opacity</a> changes to 0.</p><p><b>访问函数：</b></p>
+<p><b>注意： </b>This property's value is only affected by changes to this property or the parent's <code>visible</code> property. It does not change, for example, if this item moves off-screen, or if the <a href="qtquick-effects-topic.html#opacity">opacity</a> changes to 0.</p><p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>isVisible</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setVisible</b></span>(<i>bool</i>)</td></tr>
@@ -831,7 +831,7 @@
   }
 
 </pre>
-<p><b>Note: </b>Using <a href="qquickitem.html#implicitWidth-prop">implicitWidth</a> of <a href="qml-qtquick-text.html">Text</a> or <a href="qml-qtquick-textedit.html">TextEdit</a> and setting the width explicitly incurs a performance penalty as the text must be laid out twice.</p><!-- @@@ -->
+<p><b>注意： </b>Using <a href="qquickitem.html#implicitWidth-prop">implicitWidth</a> of <a href="qml-qtquick-text.html">Text</a> or <a href="qml-qtquick-textedit.html">TextEdit</a> and setting the width explicitly incurs a performance penalty as the text must be laid out twice.</p><!-- @@@ -->
 <!-- $$$QQuickItem[overload1]$$$QQuickItemQQuickItem* -->
 <h3 class="fn" id="QQuickItem"><a name="QQuickItem"></a>QQuickItem::<span class="name">QQuickItem</span>(<span class="type"><a href="qquickitem.html#QQuickItem">QQuickItem</a></span> *<i>parent</i> = nullptr)</h3>
 <p>Constructs a <a href="qquickitem.html">QQuickItem</a> with the given <i>parent</i>.</p>
@@ -867,7 +867,7 @@
 <h3 class="fn" id="childAt"><a name="childAt"></a><span class="type"><a href="qquickitem.html#QQuickItem">QQuickItem</a></span> *QQuickItem::<span class="name">childAt</span>(<span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> <i>x</i>, <span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> <i>y</i>) const</h3>
 <p>Returns the first visible child item found at point (<i>x</i>, <i>y</i>) within the coordinate system of this item.</p>
 <p>Returns 0 if there is no such item.</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <!-- @@@childAt -->
 <!-- $$$childItems[overload1]$$$childItems -->
 <h3 class="fn" id="childItems"><a name="childItems"></a><span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qquickitem.html#QQuickItem">QQuickItem</a></span> *&gt; QQuickItem::<span class="name">childItems</span>() const</h3>
@@ -895,7 +895,7 @@
 <p>Returns true if this item contains <i>point</i>, which is in local coordinates; returns false otherwise.</p>
 <p>This function can be overwritten in order to handle point collisions in items with custom shapes. The default implementation checks if the point is inside the item's bounding rect.</p>
 <p>Note that this method is generally used to check whether the item is under the mouse cursor, and for that reason, the implementation of this function should be as light-weight as possible.</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <!-- @@@contains -->
 <!-- $$$cursor[overload1]$$$cursor -->
 <h3 class="fn" id="cursor"><a name="cursor"></a><span class="type"><a href="../qtgui/qcursor.html">QCursor</a></span> QQuickItem::<span class="name">cursor</span>() const</h3>
@@ -962,7 +962,7 @@
 <p>Forces active focus on the item.</p>
 <p>This method sets focus on the item and ensures that all ancestor <a href="qml-qtquick-focusscope.html">FocusScope</a> objects in the object hierarchy are also given <a href="qquickitem.html#focus-prop">focus</a>.</p>
 <p>The reason for the focus change will be <a href="../qtcore/qt.html#FocusReason-enum">Qt::OtherFocusReason</a>. Use the overloaded method to specify the focus reason to enable better handling of the focus change.</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <p><b> 参见 </b><a href="qquickitem.html#activeFocus-prop">activeFocus</a>.</p>
 <!-- @@@forceActiveFocus -->
 <!-- $$$forceActiveFocus$$$forceActiveFocusQt::FocusReason -->
@@ -971,7 +971,7 @@
 <p>Forces active focus on the item with the given <i>reason</i>.</p>
 <p>This method sets focus on the item and ensures that all ancestor <a href="qml-qtquick-focusscope.html">FocusScope</a> objects in the object hierarchy are also given <a href="qquickitem.html#focus-prop">focus</a>.</p>
 <p>这个函数是在Qt 5.1版本中新增引入的。</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <p><b> 参见 </b><a href="qquickitem.html#activeFocus-prop">activeFocus</a> 和 <a href="../qtcore/qt.html#FocusReason-enum">Qt::FocusReason</a>.</p>
 <!-- @@@forceActiveFocus -->
 <!-- $$$geometryChanged[overload1]$$$geometryChangedconstQRectF&constQRectF& -->
@@ -983,7 +983,7 @@
 <h3 class="fn" id="grabMouse"><a name="grabMouse"></a><span class="type">void</span> QQuickItem::<span class="name">grabMouse</span>()</h3>
 <p>Grabs the mouse input.</p>
 <p>This item will receive all mouse events until <a href="qquickitem.html#ungrabMouse">ungrabMouse</a>() is called. Usually this function should not be called, since accepting for example a mouse press event makes sure that the following events are delivered to the item. If an item wants to take over mouse events from the current receiver, it needs to call this function.</p>
-<p><b>Warning:</b> This function should be used with caution.</p>
+<p><b>警告：</b> This function should be used with caution.</p>
 <!-- @@@grabMouse -->
 <!-- $$$grabToImage[overload1]$$$grabToImageconstQSize& -->
 <h3 class="fn" id="grabToImage"><a name="grabToImage"></a><span class="type"><a href="../qtcore/qsharedpointer.html">QSharedPointer</a></span>&lt;<span class="type"><a href="qquickitemgrabresult.html">QQuickItemGrabResult</a></span>&gt; QQuickItem::<span class="name">grabToImage</span>(const <span class="type"><a href="../qtcore/qsize.html">QSize</a></span> &amp;<i>targetSize</i> = QSize())</h3>
@@ -991,7 +991,7 @@
 <p>The grab happens asynchronously and the signal <a href="qquickitemgrabresult.html#ready">QQuickItemGrabResult::ready</a>() is emitted when the grab has been completed.</p>
 <p>Use <i>targetSize</i> to specify the size of the target image. By default, the result will have the same size as item.</p>
 <p>If the grab could not be initiated, the function returns <code>null</code>.</p>
-<p><b>Note: </b>This function will render the item to an offscreen surface and copy that surface from the GPU's memory into the CPU's memory, which can be quite costly. For &quot;live&quot; preview, use <a href="qml-qtquick-item.html#layer.enabled-prop">layers</a> or <a href="qml-qtquick-shadereffectsource.html">ShaderEffectSource</a>.</p><p><b> 参见 </b><a href="qquickwindow.html#grabWindow">QQuickWindow::grabWindow</a>().</p>
+<p><b>注意： </b>This function will render the item to an offscreen surface and copy that surface from the GPU's memory into the CPU's memory, which can be quite costly. For &quot;live&quot; preview, use <a href="qml-qtquick-item.html#layer.enabled-prop">layers</a> or <a href="qml-qtquick-shadereffectsource.html">ShaderEffectSource</a>.</p><p><b> 参见 </b><a href="qquickwindow.html#grabWindow">QQuickWindow::grabWindow</a>().</p>
 <!-- @@@grabToImage -->
 <!-- $$$grabTouchPoints[overload1]$$$grabTouchPointsconstQVector<int>& -->
 <h3 class="fn" id="grabTouchPoints"><a name="grabTouchPoints"></a><span class="type">void</span> QQuickItem::<span class="name">grabTouchPoints</span>(const <span class="type"><a href="../qtcore/qvector.html">QVector</a></span>&lt;<span class="type">int</span>&gt; &amp;<i>ids</i>)</h3>
@@ -1095,7 +1095,7 @@
 <p>Maps the given <i>point</i> in the global screen coordinate system to the equivalent point within this item's coordinate system, and returns the mapped coordinate.</p>
 <p>The following properties of the item are used in the mapping: <a href="qquickitem.html#x-prop">x</a>, <a href="qquickitem.html#y-prop">y</a>, <a href="qquickitem.html#scale-prop">scale</a>, <a href="qquickitem.html#rotation-prop">rotation</a>, <a href="qquickitem.html#transformOrigin-prop">transformOrigin</a>, 和 <a href="qml-qtquick-item.html#transform-prop">transform</a>.</p>
 <p>For example, this may be helpful to add a popup to a Qt Quick component.</p>
-<p><b>Note: </b>Window positioning is done by the window manager and this value is treated only as a hint. So, the resulting window position may differ from what is expected.</p><p>这个函数是在Qt 5.7版本中新增引入的。</p>
+<p><b>注意： </b>Window positioning is done by the window manager and this value is treated only as a hint. So, the resulting window position may differ from what is expected.</p><p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qtquick-visualcanvas-coordinates.html">Concepts - Visual Coordinates in Qt Quick</a>.</p>
 <!-- @@@mapFromGlobal -->
 <!-- $$$mapFromItem[overload1]$$$mapFromItemconstQQuickItem*constQPointF& -->
@@ -1142,7 +1142,7 @@
 <p>Maps the given <i>point</i> in this item's coordinate system to the equivalent point within global screen coordinate system, and returns the mapped coordinate.</p>
 <p>The following properties of the item are used in the mapping: <a href="qquickitem.html#x-prop">x</a>, <a href="qquickitem.html#y-prop">y</a>, <a href="qquickitem.html#scale-prop">scale</a>, <a href="qquickitem.html#rotation-prop">rotation</a>, <a href="qquickitem.html#transformOrigin-prop">transformOrigin</a>, 和 <a href="qml-qtquick-item.html#transform-prop">transform</a>.</p>
 <p>For example, this may be helpful to add a popup to a Qt Quick component.</p>
-<p><b>Note: </b>Window positioning is done by the window manager and this value is treated only as a hint. So, the resulting window position may differ from what is expected.</p><p>这个函数是在Qt 5.7版本中新增引入的。</p>
+<p><b>注意： </b>Window positioning is done by the window manager and this value is treated only as a hint. So, the resulting window position may differ from what is expected.</p><p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qtquick-visualcanvas-coordinates.html">Concepts - Visual Coordinates in Qt Quick</a>.</p>
 <!-- @@@mapToGlobal -->
 <!-- $$$mapToItem[overload1]$$$mapToItemconstQQuickItem*constQPointF& -->
@@ -1185,7 +1185,7 @@
 <!-- $$$nextItemInFocusChain[overload1]$$$nextItemInFocusChainbool -->
 <h3 class="fn" id="nextItemInFocusChain"><a name="nextItemInFocusChain"></a><span class="type"><a href="qquickitem.html#QQuickItem">QQuickItem</a></span> *QQuickItem::<span class="name">nextItemInFocusChain</span>(<span class="type">bool</span> <i>forward</i> = true)</h3>
 <p>Returns the item in the focus chain which is next to this item. If <i>forward</i> is <code>true</code>, or not supplied, it is the next item in the forwards direction. If <i>forward</i> is <code>false</code>, it is the next item in the backwards direction.</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <!-- @@@nextItemInFocusChain -->
 <!-- $$$polish[overload1]$$$polish -->
 <h3 class="fn" id="polish"><a name="polish"></a><span class="type">void</span> QQuickItem::<span class="name">polish</span>()</h3>
@@ -1305,7 +1305,7 @@
 <!-- $$$ungrabTouchPoints[overload1]$$$ungrabTouchPoints -->
 <h3 class="fn" id="ungrabTouchPoints"><a name="ungrabTouchPoints"></a><span class="type">void</span> QQuickItem::<span class="name">ungrabTouchPoints</span>()</h3>
 <p>Ungrabs the touch points owned by this item.</p>
-<p><b>Note: </b>there is hardly any reason to call this function. It should only be called when an item does not want to receive any further events, so no move or release events will be delivered after calling this function.</p><p><b> 参见 </b><a href="qquickitem.html#grabTouchPoints">grabTouchPoints</a>().</p>
+<p><b>注意： </b>there is hardly any reason to call this function. It should only be called when an item does not want to receive any further events, so no move or release events will be delivered after calling this function.</p><p><b> 参见 </b><a href="qquickitem.html#grabTouchPoints">grabTouchPoints</a>().</p>
 <!-- @@@ungrabTouchPoints -->
 <!-- $$$unsetCursor[overload1]$$$unsetCursor -->
 <h3 class="fn" id="unsetCursor"><a name="unsetCursor"></a><span class="type">void</span> QQuickItem::<span class="name">unsetCursor</span>()</h3>
@@ -1343,9 +1343,9 @@
 </pre>
 <p>The main thread is blocked while this function is executed so it is safe to read values from the <a href="qquickitem.html">QQuickItem</a> instance and other objects in the main thread.</p>
 <p>If no call to QQuickItem::updatePaintNode() result in actual scene graph changes, like <a href="qsgnode.html#markDirty">QSGNode::markDirty</a>() or adding and removing nodes, then the underlying implementation may decide to not render the scene again as the visual outcome is identical.</p>
-<p><b>Warning:</b> It is crucial that OpenGL operations and interaction with the scene graph happens exclusively on the render thread, primarily during the QQuickItem::updatePaintNode() call. The best rule of thumb is to only use classes with the &quot;QSG&quot; prefix inside the QQuickItem::updatePaintNode() function.</p>
-<p><b>Warning:</b> This function is called on the render thread. This means any QObjects or thread local storage that is created will have affinity to the render thread, so apply caution when doing anything other than rendering in this function. Similarly for signals, these will be emitted on the render thread and will thus often be delivered via queued connections.</p>
-<p><b>Note: </b>All classes with QSG prefix should be used solely on the scene graph's rendering thread. See <a href="qtquick-visualcanvas-scenegraph.html#scene-graph-and-rendering">Scene Graph and Rendering</a> for more information.</p><p><b> 参见 </b><a href="qsgmaterial.html">QSGMaterial</a>, <a href="qsgsimplematerial.html">QSGSimpleMaterial</a>, <a href="qsggeometrynode.html">QSGGeometryNode</a>, <a href="qsggeometry.html">QSGGeometry</a>, <a href="qsgflatcolormaterial.html">QSGFlatColorMaterial</a>, <a href="qsgtexturematerial.html">QSGTextureMaterial</a>, <a href="qsgnode.html#markDirty">QSGNode::markDirty</a>(), 和 <a href="qquickitem.html#graphics-resource-handling">Graphics Resource Handling</a>.</p>
+<p><b>警告：</b> It is crucial that OpenGL operations and interaction with the scene graph happens exclusively on the render thread, primarily during the QQuickItem::updatePaintNode() call. The best rule of thumb is to only use classes with the &quot;QSG&quot; prefix inside the QQuickItem::updatePaintNode() function.</p>
+<p><b>警告：</b> This function is called on the render thread. This means any QObjects or thread local storage that is created will have affinity to the render thread, so apply caution when doing anything other than rendering in this function. Similarly for signals, these will be emitted on the render thread and will thus often be delivered via queued connections.</p>
+<p><b>注意： </b>All classes with QSG prefix should be used solely on the scene graph's rendering thread. See <a href="qtquick-visualcanvas-scenegraph.html#scene-graph-and-rendering">Scene Graph and Rendering</a> for more information.</p><p><b> 参见 </b><a href="qsgmaterial.html">QSGMaterial</a>, <a href="qsgsimplematerial.html">QSGSimpleMaterial</a>, <a href="qsggeometrynode.html">QSGGeometryNode</a>, <a href="qsggeometry.html">QSGGeometry</a>, <a href="qsgflatcolormaterial.html">QSGFlatColorMaterial</a>, <a href="qsgtexturematerial.html">QSGTextureMaterial</a>, <a href="qsgnode.html#markDirty">QSGNode::markDirty</a>(), 和 <a href="qquickitem.html#graphics-resource-handling">Graphics Resource Handling</a>.</p>
 <!-- @@@updatePaintNode -->
 <!-- $$$updatePolish[overload1]$$$updatePolish -->
 <h3 class="fn" id="updatePolish"><a name="updatePolish"></a><code>[虚保护函数] </code><span class="type">void</span> QQuickItem::<span class="name">updatePolish</span>()</h3>

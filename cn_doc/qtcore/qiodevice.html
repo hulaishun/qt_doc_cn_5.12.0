@@ -583,14 +583,14 @@
 <h3 class="fn" id="startTransaction"><a name="startTransaction"></a><span class="type">void</span> QIODevice::<span class="name">startTransaction</span>()</h3>
 <p>Starts a new read transaction on the device.</p>
 <p>Defines a restorable point within the sequence of read operations. For sequential devices, read data will be duplicated internally to allow recovery in case of incomplete reads. For random-access devices, this function saves the current position. Call <a href="qiodevice.html#commitTransaction">commitTransaction</a>() or <a href="qiodevice.html#rollbackTransaction">rollbackTransaction</a>() to finish the transaction.</p>
-<p><b>Note: </b>Nesting transactions is not supported.</p><p>这个函数是在Qt 5.7版本中新增引入的。</p>
+<p><b>注意： </b>Nesting transactions is not supported.</p><p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qiodevice.html#commitTransaction">commitTransaction</a>() 和 <a href="qiodevice.html#rollbackTransaction">rollbackTransaction</a>().</p>
 <!-- @@@startTransaction -->
 <!-- $$$ungetChar[overload1]$$$ungetCharchar -->
 <h3 class="fn" id="ungetChar"><a name="ungetChar"></a><span class="type">void</span> QIODevice::<span class="name">ungetChar</span>(<span class="type">char</span> <i>c</i>)</h3>
 <p>Puts the character <i>c</i> back into the device, and decrements the current position unless the position is 0. This function is usually called to &quot;undo&quot; a <a href="qiodevice.html#getChar">getChar</a>() operation, such as when writing a backtracking parser.</p>
 <p>If <i>c</i> was not previously read from the device, the behavior is undefined.</p>
-<p><b>Note: </b>This function is not available while a transaction is in progress.</p><!-- @@@ungetChar -->
+<p><b>注意： </b>This function is not available while a transaction is in progress.</p><!-- @@@ungetChar -->
 <!-- $$$waitForBytesWritten[overload1]$$$waitForBytesWrittenint -->
 <h3 class="fn" id="waitForBytesWritten"><a name="waitForBytesWritten"></a><code>[虚函数] </code><span class="type">bool</span> QIODevice::<span class="name">waitForBytesWritten</span>(<span class="type">int</span> <i>msecs</i>)</h3>
 <p>For buffered devices, this function waits until a payload of buffered written data has been written to the device and the <a href="qiodevice.html#bytesWritten">bytesWritten</a>() signal has been emitted, or until <i>msecs</i> milliseconds have passed. If msecs is -1, this function will not time out. For unbuffered devices, it returns immediately.</p>
@@ -598,7 +598,7 @@
 <p>This function can operate without an event loop. It is useful when writing non-GUI applications and when performing I/O operations in a non-GUI thread.</p>
 <p>If called from within a slot connected to the <a href="qiodevice.html#bytesWritten">bytesWritten</a>() signal, <a href="qiodevice.html#bytesWritten">bytesWritten</a>() will not be reemitted.</p>
 <p>Reimplement this function to provide a blocking API for a custom device. The default implementation does nothing, and returns <code>false</code>.</p>
-<p><b>Warning:</b> Calling this function from the main (GUI) thread might cause your user interface to freeze.</p>
+<p><b>警告：</b> Calling this function from the main (GUI) thread might cause your user interface to freeze.</p>
 <p><b> 参见 </b><a href="qiodevice.html#waitForReadyRead">waitForReadyRead</a>().</p>
 <!-- @@@waitForBytesWritten -->
 <!-- $$$waitForReadyRead[overload1]$$$waitForReadyReadint -->
@@ -608,7 +608,7 @@
 <p>This function can operate without an event loop. It is useful when writing non-GUI applications and when performing I/O operations in a non-GUI thread.</p>
 <p>If called from within a slot connected to the <a href="qiodevice.html#readyRead">readyRead</a>() signal, <a href="qiodevice.html#readyRead">readyRead</a>() will not be reemitted.</p>
 <p>Reimplement this function to provide a blocking API for a custom device. The default implementation does nothing, and returns <code>false</code>.</p>
-<p><b>Warning:</b> Calling this function from the main (GUI) thread might cause your user interface to freeze.</p>
+<p><b>警告：</b> Calling this function from the main (GUI) thread might cause your user interface to freeze.</p>
 <p><b> 参见 </b><a href="qiodevice.html#waitForBytesWritten">waitForBytesWritten</a>().</p>
 <!-- @@@waitForReadyRead -->
 <!-- $$$write[overload1]$$$writeconstchar*qint64 -->

@@ -259,7 +259,7 @@
   engine<span class="operator">.</span>evaluate(<span class="string">&quot;var myObject = new MyObject()&quot;</span>);
 
 </pre>
-<p><b>Note: </b>Currently only classes using the <a href="../qtcore/qobject.html#Q_OBJECT">Q_OBJECT</a> macro are supported; it is not possible to expose the <code>staticMetaObject</code> of a <a href="../qtcore/qobject.html#Q_GADGET">Q_GADGET</a> class to JavaScript.</p><a name="dynamic-qobject-properties"></a>
+<p><b>注意： </b>Currently only classes using the <a href="../qtcore/qobject.html#Q_OBJECT">Q_OBJECT</a> macro are supported; it is not possible to expose the <code>staticMetaObject</code> of a <a href="../qtcore/qobject.html#Q_GADGET">Q_GADGET</a> class to JavaScript.</p><a name="dynamic-qobject-properties"></a>
 <h4 >Dynamic QObject Properties</h4>
 <p>Dynamic <a href="../qtcore/qobject.html">QObject</a> properties are not supported. For example, the following code will not work:</p>
 <pre class="cpp">
@@ -361,7 +361,7 @@
 <p>The evaluation of <i>program</i> can cause an <a href="qjsengine.html#script-exceptions">exception</a> in the engine; in this case the return value will be the exception that was thrown (typically an <code>Error</code> object; see <a href="qjsvalue.html#isError">QJSValue::isError</a>()).</p>
 <p><i>lineNumber</i> is used to specify a starting line number for <i>program</i>; line number information reported by the engine that pertains to this evaluation will be based on this argument. For example, if <i>program</i> consists of two lines of code, and the statement on the second line causes a script exception, the exception line number would be <i>lineNumber</i> plus one. When no starting line number is specified, line numbers will be 1-based.</p>
 <p><i>fileName</i> is used for error reporting. For example, in error objects the file name is accessible through the &quot;fileName&quot; property if it is provided with this function.</p>
-<p><b>Note: </b>If an exception was thrown and the exception value is not an Error instance (i.e&#x2e;, <a href="qjsvalue.html#isError">QJSValue::isError</a>() returns <code>false</code>), the exception value will still be returned, but there is currently no API for detecting that an exception did occur in this case.</p><!-- @@@evaluate -->
+<p><b>注意： </b>If an exception was thrown and the exception value is not an Error instance (i.e&#x2e;, <a href="qjsvalue.html#isError">QJSValue::isError</a>() returns <code>false</code>), the exception value will still be returned, but there is currently no API for detecting that an exception did occur in this case.</p><!-- @@@evaluate -->
 <!-- $$$fromScriptValue[overload1]$$$fromScriptValueconstQJSValue& -->
 <h3 class="fn" id="fromScriptValue"><a name="fromScriptValue"></a><span class="type">T</span> QJSEngine::<span class="name">fromScriptValue</span>(const <span class="type"><a href="qjsvalue.html">QJSValue</a></span> &amp;<i>value</i>)</h3>
 <p>Returns the given <i>value</i> converted to the template type <code>T</code>.</p>
@@ -378,7 +378,7 @@
 <p>If this is the first time the module is imported in the engine, the file is loaded from the specified location in either the local file system or the Qt resource system and evaluated as an ECMAScript module. The file is expected to be encoded in UTF-8 text.</p>
 <p>Subsequent imports of the same module will return the previously imported instance. Modules are singletons and remain around until the engine is destroyed.</p>
 <p>The specified <i>fileName</i> will internally be normalized using <a href="../qtcore/qfileinfo.html#canonicalFilePath">QFileInfo::canonicalFilePath</a>(). That means that multiple imports of the same file on disk using different relative paths will load the file only once.</p>
-<p><b>Note: </b>If an exception is thrown during the loading of the module, the return value will be the exception (typically an <code>Error</code> object; see <a href="qjsvalue.html#isError">QJSValue::isError</a>()).</p><p>这个函数是在Qt 5.12版本中新增引入的。</p>
+<p><b>注意： </b>If an exception is thrown during the loading of the module, the return value will be the exception (typically an <code>Error</code> object; see <a href="qjsvalue.html#isError">QJSValue::isError</a>()).</p><p>这个函数是在Qt 5.12版本中新增引入的。</p>
 <!-- @@@importModule -->
 <!-- $$$installExtensions[overload1]$$$installExtensionsQJSEngine::ExtensionsconstQJSValue& -->
 <h3 class="fn" id="installExtensions"><a name="installExtensions"></a><span class="type">void</span> QJSEngine::<span class="name">installExtensions</span>(<span class="type"><a href="qjsengine.html#Extension-enum">QJSEngine::Extensions</a></span> <i>extensions</i>, const <span class="type"><a href="qjsvalue.html">QJSValue</a></span> &amp;<i>object</i> = QJSValue())</h3>

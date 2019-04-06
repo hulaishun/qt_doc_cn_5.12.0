@@ -52,7 +52,7 @@
 <div class="sidebar-content" id="sidebar-content"></div></div>
 <h1 class="title">QFile Class</h1>
 <!-- $$$QFile-brief -->
-<p>The <a href="qfile.html">QFile</a> class provides an interface for reading from and writing to files. <a href="#details">更多详情...</a></p>
+<p><a href="qfile.html">QFile</a>类提供了读取文件和写入文件的接口。 <a href="#details">更多详情...</a></p>
 <!-- @@@QFile -->
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> 头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QFile&gt;</span>
@@ -138,7 +138,7 @@
 <!-- $$$QFile-description -->
 <div class="descr">
 <h2 id="details">详细描述</h2>
-<p>The <a href="qfile.html">QFile</a> class provides an interface for reading from and writing to files.</p>
+<p><a href="qfile.html">QFile</a>类提供了读取文件和写入文件的接口。 </p>
 <p><a href="qfile.html">QFile</a> is an I/O device for reading and writing text and binary files and <a href="resources.html">resources</a>. A <a href="qfile.html">QFile</a> may be used by itself or, more conveniently, with a <a href="qtextstream.html">QTextStream</a> or <a href="qdatastream.html">QDataStream</a>.</p>
 <p>The file name is usually passed in the constructor, but it can be set at any time using <a href="qfile.html#setFileName">setFileName</a>(). <a href="qfile.html">QFile</a> expects the file separator to be '/' regardless of operating system. The use of other separators (e.g&#x2e;, '\') is not supported.</p>
 <p>You can check for a file's existence using <a href="qfile.html#exists-1">exists</a>(), and remove a file using <a href="qfile.html#remove">remove</a>(). (More advanced file system related operations are provided by <a href="qfileinfo.html">QFileInfo</a> 和 <a href="qdir.html">QDir</a>.)</p>
@@ -235,15 +235,15 @@
 <h2>成员函数文档</h2>
 <!-- $$$QFile[overload1]$$$QFile -->
 <h3 class="fn" id="QFile"><a name="QFile"></a>QFile::<span class="name">QFile</span>()</h3>
-<p>Constructs a <a href="qfile.html">QFile</a> object.</p>
+<p>构造函数，创建一个 <a href="qfile.html">QFile</a> 对象。</p>
 <!-- @@@QFile -->
 <!-- $$$QFile$$$QFileconstQString& -->
 <h3 class="fn" id="QFile-1"><a name="QFile-1"></a>QFile::<span class="name">QFile</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>name</i>)</h3>
-<p>Constructs a new file object to represent the file with the given <i>name</i>.</p>
+<p>构造函数，创建一个新文件对象，使用传入参数<i>name</i>来描述文件。</p>
 <!-- @@@QFile -->
 <!-- $$$QFile$$$QFileQObject* -->
 <h3 class="fn" id="QFile-2"><a name="QFile-2"></a>QFile::<span class="name">QFile</span>(<span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>parent</i>)</h3>
-<p>Constructs a new file object with the given <i>parent</i>.</p>
+<p>构造函数，使用传入参数<i>parent</i>创建一个新文件对象。</p>
 <!-- @@@QFile -->
 <!-- $$$QFile$$$QFileconstQString&QObject* -->
 <h3 class="fn" id="QFile-3"><a name="QFile-3"></a>QFile::<span class="name">QFile</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>name</i>, <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>parent</i>)</h3>
@@ -251,19 +251,19 @@
 <!-- @@@QFile -->
 <!-- $$$~QFile[overload1]$$$~QFile -->
 <h3 class="fn" id="dtor.QFile"><a name="dtor.QFile"></a><code>[虚函数] </code>QFile::<span class="name">~QFile</span>()</h3>
-<p>Destroys the file object, closing it if necessary.</p>
+<p>析构函数，释放文件对象，若可能的话将关闭文件。</p>
 <!-- @@@~QFile -->
 <!-- $$$copy[overload1]$$$copyconstQString& -->
 <h3 class="fn" id="copy"><a name="copy"></a><span class="type">bool</span> QFile::<span class="name">copy</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>newName</i>)</h3>
-<p>Copies the file currently specified by <a href="qfile.html#fileName">fileName</a>() to a file called <i>newName</i>. Returns <code>true</code> if successful; otherwise returns <code>false</code>.</p>
+<p>Copies the file currently specified by <a href="qfile.html#fileName">fileName</a>() to a file called <i>newName</i>. 若成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
 <p>Note that if a file with the name <i>newName</i> already exists, copy() returns <code>false</code> (i.e&#x2e; <a href="qfile.html">QFile</a> will not overwrite it).</p>
-<p>The source file is closed before it is copied.</p>
+<p>源文件在它被拷贝之前将被关闭。</p>
 <p><b> 参见 </b><a href="qfile.html#setFileName">setFileName</a>().</p>
 <!-- @@@copy -->
 <!-- $$$copy$$$copyconstQString&constQString& -->
 <h3 class="fn" id="copy-1"><a name="copy-1"></a><code>[静态函数] </code><span class="type">bool</span> QFile::<span class="name">copy</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>newName</i>)</h3>
 <p>这是一个重载函数。</p>
-<p>Copies the file <i>fileName</i> to <i>newName</i>. Returns <code>true</code> if successful; otherwise returns <code>false</code>.</p>
+<p>Copies the file <i>fileName</i> to <i>newName</i>. 若成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
 <p>If a file with the name <i>newName</i> already exists, <a href="qfile.html#copy">copy</a>() returns <code>false</code> (i.e&#x2e;, <a href="qfile.html">QFile</a> will not overwrite it).</p>
 <p><b> 参见 </b><a href="qfile.html#rename">rename</a>().</p>
 <!-- @@@copy -->
@@ -284,8 +284,8 @@
 <!-- @@@encodeName -->
 <!-- $$$exists[overload1]$$$existsconstQString& -->
 <h3 class="fn" id="exists"><a name="exists"></a><code>[静态函数] </code><span class="type">bool</span> QFile::<span class="name">exists</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>)</h3>
-<p>Returns <code>true</code> if the file specified by <i>fileName</i> exists; otherwise returns <code>false</code>.</p>
-<p><b>Note: </b>If <i>fileName</i> is a symlink that points to a non-existing file, false is returned.</p><!-- @@@exists -->
+<p>若指定文件<i>fileName</i>已存在则返回<code>true</code>，否则则返回 <code>false</code>。</p>
+<p><b>注意： </b>If <i>fileName</i> is a symlink that points to a non-existing file, false is returned.</p><!-- @@@exists -->
 <!-- $$$exists$$$exists -->
 <h3 class="fn" id="exists-1"><a name="exists-1"></a><span class="type">bool</span> QFile::<span class="name">exists</span>() const</h3>
 <p>这是一个重载函数。</p>
@@ -300,14 +300,14 @@
 <!-- @@@fileName -->
 <!-- $$$link[overload1]$$$linkconstQString& -->
 <h3 class="fn" id="link"><a name="link"></a><span class="type">bool</span> QFile::<span class="name">link</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>linkName</i>)</h3>
-<p>Creates a link named <i>linkName</i> that points to the file currently specified by <a href="qfile.html#fileName">fileName</a>(). What a link is depends on the underlying filesystem (be it a shortcut on Windows or a symbolic link on Unix). Returns <code>true</code> if successful; otherwise returns <code>false</code>.</p>
+<p>Creates a link named <i>linkName</i> that points to the file currently specified by <a href="qfile.html#fileName">fileName</a>(). What a link is depends on the underlying filesystem (be it a shortcut on Windows or a symbolic link on Unix). 若成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
 <p>This function will not overwrite an already existing entity in the file system; in this case, <code>link()</code> will return false and set <a href="qfiledevice.html#error">error()</a> to return <a href="qfiledevice.html#FileError-enum">RenameError</a>.</p>
-<p><b>Note: </b>To create a valid link on Windows, <i>linkName</i> must have a <code>.lnk</code> file extension.</p><p><b> 参见 </b><a href="qfile.html#setFileName">setFileName</a>().</p>
+<p><b>注意： </b>To create a valid link on Windows, <i>linkName</i> must have a <code>.lnk</code> file extension.</p><p><b> 参见 </b><a href="qfile.html#setFileName">setFileName</a>().</p>
 <!-- @@@link -->
 <!-- $$$link$$$linkconstQString&constQString& -->
 <h3 class="fn" id="link-1"><a name="link-1"></a><code>[静态函数] </code><span class="type">bool</span> QFile::<span class="name">link</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>linkName</i>)</h3>
 <p>这是一个重载函数。</p>
-<p>Creates a link named <i>linkName</i> that points to the file <i>fileName</i>. What a link is depends on the underlying filesystem (be it a shortcut on Windows or a symbolic link on Unix). Returns <code>true</code> if successful; otherwise returns <code>false</code>.</p>
+<p>Creates a link named <i>linkName</i> that points to the file <i>fileName</i>. What a link is depends on the underlying filesystem (be it a shortcut on Windows or a symbolic link on Unix). 若成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
 <p><b> 参见 </b><a href="qfile.html#link">link</a>().</p>
 <!-- @@@link -->
 <!-- $$$open[overload1]$$$openQIODevice::OpenMode -->
@@ -315,12 +315,12 @@
 <p>重新实现了父类函数接口 <a href="qiodevice.html#open">QIODevice::open</a>().</p>
 <p>Opens the file using <a href="qiodevice.html#OpenModeFlag-enum">OpenMode</a> <i>mode</i>, returning true if successful; otherwise false.</p>
 <p>The <i>mode</i> must be <a href="qiodevice.html#OpenModeFlag-enum">QIODevice::ReadOnly</a>, <a href="qiodevice.html#OpenModeFlag-enum">QIODevice::WriteOnly</a>, or <a href="qiodevice.html#OpenModeFlag-enum">QIODevice::ReadWrite</a>. It may also have additional flags, such as <a href="qiodevice.html#OpenModeFlag-enum">QIODevice::Text</a> 和 <a href="qiodevice.html#OpenModeFlag-enum">QIODevice::Unbuffered</a>.</p>
-<p><b>Note: </b>In <a href="qiodevice.html#OpenModeFlag-enum">WriteOnly</a> or <a href="qiodevice.html#OpenModeFlag-enum">ReadWrite</a> mode, if the relevant file does not already exist, this function will try to create a new file before opening it.</p><p><b> 参见 </b><a href="qiodevice.html#OpenModeFlag-enum">QIODevice::OpenMode</a> 和 <a href="qfile.html#setFileName">setFileName</a>().</p>
+<p><b>注意： </b>In <a href="qiodevice.html#OpenModeFlag-enum">WriteOnly</a> or <a href="qiodevice.html#OpenModeFlag-enum">ReadWrite</a> mode, if the relevant file does not already exist, this function will try to create a new file before opening it.</p><p><b> 参见 </b><a href="qiodevice.html#OpenModeFlag-enum">QIODevice::OpenMode</a> 和 <a href="qfile.html#setFileName">setFileName</a>().</p>
 <!-- @@@open -->
 <!-- $$$open$$$openFILE*QIODevice::OpenModeQFileDevice::FileHandleFlags -->
 <h3 class="fn" id="open-1"><a name="open-1"></a><span class="type">bool</span> QFile::<span class="name">open</span>(<span class="type">FILE</span> *<i>fh</i>, <span class="type"><a href="qiodevice.html#OpenModeFlag-enum">QIODevice::OpenMode</a></span> <i>mode</i>, <span class="type"><a href="qfiledevice.html#FileHandleFlag-enum">QFileDevice::FileHandleFlags</a></span> <i>handleFlags</i> = DontCloseHandle)</h3>
 <p>这是一个重载函数。</p>
-<p>Opens the existing file handle <i>fh</i> in the given <i>mode</i>. <i>handleFlags</i> may be used to specify additional options. Returns <code>true</code> if successful; otherwise returns <code>false</code>.</p>
+<p>Opens the existing file handle <i>fh</i> in the given <i>mode</i>. <i>handleFlags</i> may be used to specify additional options. 若成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
 <p>样例：</p>
 <pre class="cpp">
 
@@ -336,11 +336,11 @@
 
 </pre>
 <p>When a <a href="qfile.html">QFile</a> is opened using this function, behaviour of <a href="qfiledevice.html#close">close</a>() is controlled by the <a href="qfiledevice.html#FileHandleFlag-enum">AutoCloseHandle</a> flag. If <a href="qfiledevice.html#FileHandleFlag-enum">AutoCloseHandle</a> is specified, and this function succeeds, then calling <a href="qfiledevice.html#close">close</a>() closes the adopted handle. Otherwise, <a href="qfiledevice.html#close">close</a>() does not actually close the file, but only flushes it.</p>
-<p><b>Warning:</b></p>
+<p><b>警告：</b></p>
 <ol class="1" type="1"><li>If <i>fh</i> does not refer to a regular file, e.g&#x2e;, it is <code>stdin</code>, <code>stdout</code>, or <code>stderr</code>, you may not be able to <a href="qfiledevice.html#seek">seek</a>(). <a href="qfile.html#size">size</a>() returns <code>0</code> in those cases. See <a href="qiodevice.html#isSequential">QIODevice::isSequential</a>() for more information.</li>
 <li>Since this function opens the file without specifying the file name, you cannot use this <a href="qfile.html">QFile</a> with a <a href="qfileinfo.html">QFileInfo</a>.</li>
 </ol>
-<p><b>Note for the Windows Platform</b></p>
+<p><b>Windows平台注意事项</b></p>
 <p><i>fh</i> must be opened in binary mode (i.e&#x2e;, the mode string must contain 'b', as in &quot;rb&quot; or &quot;wb&quot;) when accessing files and other random-access devices. Qt will translate the end-of-line characters if you pass <a href="qiodevice.html#OpenModeFlag-enum">QIODevice::Text</a> to <i>mode</i>. Sequential devices, such as stdin and stdout, are unaffected by this limitation.</p>
 <p>You need to enable support for console applications in order to use the stdin, stdout and stderr streams at the console. To do this, add the following declaration to your application's project file:</p>
 <pre class="cpp">
@@ -353,11 +353,11 @@
 <!-- $$$open$$$openintQIODevice::OpenModeQFileDevice::FileHandleFlags -->
 <h3 class="fn" id="open-2"><a name="open-2"></a><span class="type">bool</span> QFile::<span class="name">open</span>(<span class="type">int</span> <i>fd</i>, <span class="type"><a href="qiodevice.html#OpenModeFlag-enum">QIODevice::OpenMode</a></span> <i>mode</i>, <span class="type"><a href="qfiledevice.html#FileHandleFlag-enum">QFileDevice::FileHandleFlags</a></span> <i>handleFlags</i> = DontCloseHandle)</h3>
 <p>这是一个重载函数。</p>
-<p>Opens the existing file descriptor <i>fd</i> in the given <i>mode</i>. <i>handleFlags</i> may be used to specify additional options. Returns <code>true</code> if successful; otherwise returns <code>false</code>.</p>
+<p>Opens the existing file descriptor <i>fd</i> in the given <i>mode</i>. <i>handleFlags</i> may be used to specify additional options. 若成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
 <p>When a <a href="qfile.html">QFile</a> is opened using this function, behaviour of <a href="qfiledevice.html#close">close</a>() is controlled by the <a href="qfiledevice.html#FileHandleFlag-enum">AutoCloseHandle</a> flag. If <a href="qfiledevice.html#FileHandleFlag-enum">AutoCloseHandle</a> is specified, and this function succeeds, then calling <a href="qfiledevice.html#close">close</a>() closes the adopted handle. Otherwise, <a href="qfiledevice.html#close">close</a>() does not actually close the file, but only flushes it.</p>
 <p>The <a href="qfile.html">QFile</a> that is opened using this function is automatically set to be in raw mode; this means that the file input/output functions are slow. If you run into performance issues, you should try to use one of the other open functions.</p>
-<p><b>Warning:</b> If <i>fd</i> is not a regular file, e.g, it is 0 (<code>stdin</code>), 1 (<code>stdout</code>), or 2 (<code>stderr</code>), you may not be able to <a href="qfiledevice.html#seek">seek</a>(). In those cases, <a href="qfile.html#size">size</a>() returns <code>0</code>. See <a href="qiodevice.html#isSequential">QIODevice::isSequential</a>() for more information.</p>
-<p><b>Warning:</b> Since this function opens the file without specifying the file name, you cannot use this <a href="qfile.html">QFile</a> with a <a href="qfileinfo.html">QFileInfo</a>.</p>
+<p><b>警告：</b> If <i>fd</i> is not a regular file, e.g, it is 0 (<code>stdin</code>), 1 (<code>stdout</code>), or 2 (<code>stderr</code>), you may not be able to <a href="qfiledevice.html#seek">seek</a>(). In those cases, <a href="qfile.html#size">size</a>() returns <code>0</code>. See <a href="qiodevice.html#isSequential">QIODevice::isSequential</a>() for more information.</p>
+<p><b>警告：</b> Since this function opens the file without specifying the file name, you cannot use this <a href="qfile.html">QFile</a> with a <a href="qfileinfo.html">QFileInfo</a>.</p>
 <p><b> 参见 </b><a href="qfiledevice.html#close">close</a>().</p>
 <!-- @@@open -->
 <!-- $$$permissions[overload1]$$$permissions -->
@@ -372,29 +372,29 @@
 <!-- @@@permissions -->
 <!-- $$$remove[overload1]$$$remove -->
 <h3 class="fn" id="remove"><a name="remove"></a><span class="type">bool</span> QFile::<span class="name">remove</span>()</h3>
-<p>Removes the file specified by <a href="qfile.html#fileName">fileName</a>(). Returns <code>true</code> if successful; otherwise returns <code>false</code>.</p>
-<p>The file is closed before it is removed.</p>
+<p>删除给定参数<a href="qfile.html#fileName">fileName</a>所指定的文件。. 若成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
+<p>文件在它被删除之前将被关闭。</p>
 <p><b> 参见 </b><a href="qfile.html#setFileName">setFileName</a>().</p>
 <!-- @@@remove -->
 <!-- $$$remove$$$removeconstQString& -->
 <h3 class="fn" id="remove-1"><a name="remove-1"></a><code>[静态函数] </code><span class="type">bool</span> QFile::<span class="name">remove</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>)</h3>
 <p>这是一个重载函数。</p>
-<p>Removes the file specified by the <i>fileName</i> given.</p>
+<p>删除给定参数<i>fileName</i>所指定的文件。</p>
 <p>如果成功则返回 <code>true</code>；否则返回 <code>false</code>.</p>
 <p><b> 参见 </b><a href="qfile.html#remove">remove</a>().</p>
 <!-- @@@remove -->
 <!-- $$$rename[overload1]$$$renameconstQString& -->
 <h3 class="fn" id="rename"><a name="rename"></a><span class="type">bool</span> QFile::<span class="name">rename</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>newName</i>)</h3>
-<p>Renames the file currently specified by <a href="qfile.html#fileName">fileName</a>() to <i>newName</i>. Returns <code>true</code> if successful; otherwise returns <code>false</code>.</p>
+<p>Renames the file currently specified by <a href="qfile.html#fileName">fileName</a>() to <i>newName</i>. 若成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
 <p>If a file with the name <i>newName</i> already exists, rename() returns <code>false</code> (i.e&#x2e;, <a href="qfile.html">QFile</a> will not overwrite it).</p>
-<p>The file is closed before it is renamed.</p>
+<p>文件在它被重命名之前将被关闭。</p>
 <p>If the rename operation fails, Qt will attempt to copy this file's contents to <i>newName</i>, and then remove this file, keeping only <i>newName</i>. If that copy operation fails or this file can't be removed, the destination file <i>newName</i> is removed to restore the old state.</p>
 <p><b> 参见 </b><a href="qfile.html#setFileName">setFileName</a>().</p>
 <!-- @@@rename -->
 <!-- $$$rename$$$renameconstQString&constQString& -->
 <h3 class="fn" id="rename-1"><a name="rename-1"></a><code>[静态函数] </code><span class="type">bool</span> QFile::<span class="name">rename</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>oldName</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>newName</i>)</h3>
 <p>这是一个重载函数。</p>
-<p>Renames the file <i>oldName</i> to <i>newName</i>. Returns <code>true</code> if successful; otherwise returns <code>false</code>.</p>
+<p>Renames the file <i>oldName</i> to <i>newName</i>. 若成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
 <p>If a file with the name <i>newName</i> already exists, <a href="qfile.html#rename">rename</a>() returns <code>false</code> (i.e&#x2e;, <a href="qfile.html">QFile</a> will not overwrite it).</p>
 <p><b> 参见 </b><a href="qfile.html#rename">rename</a>().</p>
 <!-- @@@rename -->
@@ -406,13 +406,13 @@
 <h3 class="fn" id="resize-1"><a name="resize-1"></a><code>[静态函数] </code><span class="type">bool</span> QFile::<span class="name">resize</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>, <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> <i>sz</i>)</h3>
 <p>这是一个重载函数。</p>
 <p>Sets <i>fileName</i> to size (in bytes) <i>sz</i>. Returns <code>true</code> if the resize succeeds; false otherwise. If <i>sz</i> is larger than <i>fileName</i> currently is the new bytes will be set to 0, if <i>sz</i> is smaller the file is simply truncated.</p>
-<p><b>Warning:</b> This function can fail if the file doesn't exist.</p>
+<p><b>警告：</b> 若文件不存在则该函数将失败。</p>
 <p><b> 参见 </b><a href="qfile.html#resize">resize</a>().</p>
 <!-- @@@resize -->
 <!-- $$$setFileName[overload1]$$$setFileNameconstQString& -->
 <h3 class="fn" id="setFileName"><a name="setFileName"></a><span class="type">void</span> QFile::<span class="name">setFileName</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>name</i>)</h3>
 <p>Sets the <i>name</i> of the file. The name can have no path, a relative path, or an absolute path.</p>
-<p>Do not call this function if the file has already been opened.</p>
+<p>若该文件已经被打开，则不要再次调用此函数。</p>
 <p>If the file name has no path or a relative path, the path used will be the application's current directory path <i>at the time of the <a href="qfile.html#open">open</a>()</i> call.</p>
 <p>样例：</p>
 <pre class="cpp">
@@ -430,8 +430,8 @@
 <!-- $$$setPermissions[overload1]$$$setPermissionsQFileDevice::Permissions -->
 <h3 class="fn" id="setPermissions"><a name="setPermissions"></a><code>[重载虚函数] </code><span class="type">bool</span> QFile::<span class="name">setPermissions</span>(<span class="type"><a href="qfiledevice.html#Permission-enum">QFileDevice::Permissions</a></span> <i>permissions</i>)</h3>
 <p>重新实现了父类函数接口 <a href="qfiledevice.html#setPermissions">QFileDevice::setPermissions</a>().</p>
-<p>Sets the permissions for the file to the <i>permissions</i> specified. Returns <code>true</code> if successful, or <code>false</code> if the permissions cannot be modified.</p>
-<p><b>Warning:</b> This function does not manipulate ACLs, which may limit its effectiveness.</p>
+<p>Sets the permissions for the file to the <i>permissions</i> specified. 若成功则返回 <code>true</code> ；若权限不能被修改则返回 <code>false</code>。</p>
+<p><b>警告：</b> This function does not manipulate ACLs, which may limit its effectiveness.</p>
 <p><b> 参见 </b><a href="qfile.html#permissions">permissions</a>() 和 <a href="qfile.html#setFileName">setFileName</a>().</p>
 <!-- @@@setPermissions -->
 <!-- $$$setPermissions$$$setPermissionsconstQString&QFileDevice::Permissions -->
@@ -446,14 +446,14 @@
 <!-- $$$symLinkTarget[overload1]$$$symLinkTargetconstQString& -->
 <h3 class="fn" id="symLinkTarget"><a name="symLinkTarget"></a><code>[静态函数] </code><span class="type"><a href="qstring.html">QString</a></span> QFile::<span class="name">symLinkTarget</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>)</h3>
 <p>Returns the absolute path of the file or directory referred to by the symlink (or shortcut on Windows) specified by <i>fileName</i>, or returns an empty string if the <i>fileName</i> does not correspond to a symbolic link.</p>
-<p>This name may not represent an existing file; it is only a string. <a href="qfile.html#exists-1">QFile::exists</a>() returns <code>true</code> if the symlink points to an existing file.</p>
+<p>This name may not represent an existing file; it is only a string. <a href="qfile.html#exists-1">QFile::exists</a>() 若快捷方式指向一个已存在的文件则返回 <code>true</code> 。</p>
 <p>这个函数是在Qt 4.2版本中新增引入的。</p>
 <!-- @@@symLinkTarget -->
 <!-- $$$symLinkTarget$$$symLinkTarget -->
 <h3 class="fn" id="symLinkTarget-1"><a name="symLinkTarget-1"></a><span class="type"><a href="qstring.html">QString</a></span> QFile::<span class="name">symLinkTarget</span>() const</h3>
 <p>这是一个重载函数。</p>
 <p>Returns the absolute path of the file or directory a symlink (or shortcut on Windows) points to, or a an empty string if the object isn't a symbolic link.</p>
-<p>This name may not represent an existing file; it is only a string. <a href="qfile.html#exists-1">QFile::exists</a>() returns <code>true</code> if the symlink points to an existing file.</p>
+<p>This name may not represent an existing file; it is only a string. <a href="qfile.html#exists-1">QFile::exists</a>() 若快捷方式指向一个已存在的文件则返回 <code>true</code> 。</p>
 <p>这个函数是在Qt 4.2版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qfile.html#fileName">fileName</a>() 和 <a href="qfile.html#setFileName">setFileName</a>().</p>
 <!-- @@@symLinkTarget -->

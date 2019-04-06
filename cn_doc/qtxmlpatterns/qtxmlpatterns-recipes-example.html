@@ -158,7 +158,7 @@
 
 </pre>
 <p><a href="qtxmlpatterns-recipes-example.html#evaluate-function">evaluate()</a> demonstrates the standard Qt XML Patterns usage pattern. First, an instance of <a href="qxmlquery.html">QXmlQuery</a> is created (<code>query</code>). The <code>query's</code> <a href="qxmlquery.html#bindVariable">bindVariable()</a> function is then called to bind the <code>cookbook.xml</code> file to the <a href="xmlprocessing.html">XQuery</a> variable <code>inputDocument</code>. <i>After</i> the variable is bound, <a href="qxmlquery.html#setQuery">setQuery()</a> is called to pass the <a href="xmlprocessing.html">XQuery</a> text to the <code>query</code>.</p>
-<p><b>Note: </b><a href="qxmlquery.html#setQuery">setQuery()</a> must be called <i>after</i> <a href="qxmlquery.html#bindVariable">bindVariable()</a>.</p><p>Passing the <a href="xmlprocessing.html">XQuery</a> to <a href="qxmlquery.html#setQuery">setQuery()</a> causes Qt XML Patterns to parse the <a href="xmlprocessing.html">XQuery</a>. <a href="qxmlquery.html#isValid">QXmlQuery::isValid</a>() is called to ensure that the <a href="xmlprocessing.html">XQuery</a> was correctly parsed.</p>
+<p><b>注意： </b><a href="qxmlquery.html#setQuery">setQuery()</a> must be called <i>after</i> <a href="qxmlquery.html#bindVariable">bindVariable()</a>.</p><p>Passing the <a href="xmlprocessing.html">XQuery</a> to <a href="qxmlquery.html#setQuery">setQuery()</a> causes Qt XML Patterns to parse the <a href="xmlprocessing.html">XQuery</a>. <a href="qxmlquery.html#isValid">QXmlQuery::isValid</a>() is called to ensure that the <a href="xmlprocessing.html">XQuery</a> was correctly parsed.</p>
 <a name="evaluate-function"></a><pre class="cpp">
 
   <span class="type">void</span> QueryMainWindow<span class="operator">::</span>evaluate(<span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> <span class="operator">&amp;</span>str)
@@ -188,7 +188,7 @@
 
 </pre>
 <p>If the <a href="xmlprocessing.html">XQuery</a> is valid, an instance of <a href="qxmlformatter.html">QXmlFormatter</a> is created to format the query result as XML into a <a href="../qtcore/qbuffer.html">QBuffer</a>. To evaluate the <a href="xmlprocessing.html">XQuery</a>, an overload of <a href="qxmlquery.html#evaluateTo">evaluateTo()</a> is called that takes a QAbstractXmlReceiver for its output (<a href="qxmlformatter.html">QXmlFormatter</a> inherits QAbstractXmlReceiver). Finally, the formatted XML result is displayed in the UI's bottom text view.</p>
-<p><b>Note: </b>Each <a href="xmlprocessing.html">XQuery</a> <code>.xq</code> file must declare the <code>$inputDocument</code> variable to represent the <code>cookbook.xml</code> document:</p><pre class="cpp plain">
+<p><b>注意： </b>Each <a href="xmlprocessing.html">XQuery</a> <code>.xq</code> file must declare the <code>$inputDocument</code> variable to represent the <code>cookbook.xml</code> document:</p><pre class="cpp plain">
 
   (: All ingredients for Mushroom Soup. :)
   declare variable $inputDocument external;
@@ -197,7 +197,7 @@
   &lt;p&gt;{@name, @quantity}&lt;/p&gt;
 
 </pre>
-<p><b>Note: </b>If you add add your own query.xq files, you must declare the <code>$inputDocument</code> and use it as shown above.</p><p>文件：</p>
+<p><b>注意： </b>If you add add your own query.xq files, you must declare the <code>$inputDocument</code> and use it as shown above.</p><p>文件：</p>
 <ul>
 <li><a href="qtxmlpatterns-recipes-files-allrecipes-xq.html">recipes/files/allRecipes.xq</a></li>
 <li><a href="qtxmlpatterns-recipes-files-cookbook-xml.html">recipes/files/cookbook.xml</a></li>

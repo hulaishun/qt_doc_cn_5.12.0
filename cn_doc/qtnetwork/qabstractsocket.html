@@ -220,7 +220,7 @@
 </pre>
 <p>If <a href="../qtcore/qiodevice.html#waitForReadyRead">waitForReadyRead()</a> returns <code>false</code>, the connection has been closed or an error has occurred.</p>
 <p>Programming with a blocking socket is radically different from programming with a non-blocking socket. A blocking socket doesn't require an event loop and typically leads to simpler code. However, in a GUI application, blocking sockets should only be used in non-GUI threads, to avoid freezing the user interface. See the <a href="qtnetwork-fortuneclient-example.html">fortuneclient</a> 和 <a href="qtnetwork-blockingfortuneclient-example.html">blockingfortuneclient</a> examples for an overview of both approaches.</p>
-<p><b>Note: </b>We discourage the use of the blocking functions together with signals. One of the two possibilities should be used.</p><p><a href="qabstractsocket.html">QAbstractSocket</a> can be used with <a href="../qtcore/qtextstream.html">QTextStream</a> 和 <a href="../qtcore/qdatastream.html">QDataStream</a>'s stream operators (operator&lt;&lt;() and operator&gt;&gt;()). There is one issue to be aware of, though: You must make sure that enough data is available before attempting to read it using operator&gt;&gt;().</p>
+<p><b>注意： </b>We discourage the use of the blocking functions together with signals. One of the two possibilities should be used.</p><p><a href="qabstractsocket.html">QAbstractSocket</a> can be used with <a href="../qtcore/qtextstream.html">QTextStream</a> 和 <a href="../qtcore/qdatastream.html">QDataStream</a>'s stream operators (operator&lt;&lt;() and operator&gt;&gt;()). There is one issue to be aware of, though: You must make sure that enough data is available before attempting to read it using operator&gt;&gt;().</p>
 </div>
 <p><b> 参见 </b><a href="qnetworkaccessmanager.html">QNetworkAccessManager</a> 和 <a href="qtcpserver.html">QTcpServer</a>.</p>
 <!-- @@@QAbstractSocket -->
@@ -440,7 +440,7 @@
 <!-- $$$connected[overload1]$$$connected -->
 <h3 class="fn" id="connected"><a name="connected"></a><code>[信号] </code><span class="type">void</span> QAbstractSocket::<span class="name">connected</span>()</h3>
 <p>This signal is emitted after <a href="qabstractsocket.html#connectToHost">connectToHost</a>() has been called and a connection has been successfully established.</p>
-<p><b>Note: </b>On some operating systems the connected() signal may be directly emitted from the <a href="qabstractsocket.html#connectToHost">connectToHost</a>() call for connections to the localhost.</p><p><b> 参见 </b><a href="qabstractsocket.html#connectToHost">connectToHost</a>() 和 <a href="qabstractsocket.html#disconnected">disconnected</a>().</p>
+<p><b>注意： </b>On some operating systems the connected() signal may be directly emitted from the <a href="qabstractsocket.html#connectToHost">connectToHost</a>() call for connections to the localhost.</p><p><b> 参见 </b><a href="qabstractsocket.html#connectToHost">connectToHost</a>() 和 <a href="qabstractsocket.html#disconnected">disconnected</a>().</p>
 <!-- @@@connected -->
 <!-- $$$disconnectFromHost[overload1]$$$disconnectFromHost -->
 <h3 class="fn" id="disconnectFromHost"><a name="disconnectFromHost"></a><code>[虚函数] </code><span class="type">void</span> QAbstractSocket::<span class="name">disconnectFromHost</span>()</h3>
@@ -450,7 +450,7 @@
 <!-- $$$disconnected[overload1]$$$disconnected -->
 <h3 class="fn" id="disconnected"><a name="disconnected"></a><code>[信号] </code><span class="type">void</span> QAbstractSocket::<span class="name">disconnected</span>()</h3>
 <p>This signal is emitted when the socket has been disconnected.</p>
-<p><b>Warning:</b> If you need to delete the <a href="../qtcore/qobject.html#sender">sender</a>() of this signal in a slot connected to it, use the <a href="../qtcore/qobject.html#deleteLater">deleteLater()</a> function.</p>
+<p><b>警告：</b> If you need to delete the <a href="../qtcore/qobject.html#sender">sender</a>() of this signal in a slot connected to it, use the <a href="../qtcore/qobject.html#deleteLater">deleteLater()</a> function.</p>
 <p><b> 参见 </b><a href="qabstractsocket.html#connectToHost">connectToHost</a>(), <a href="qabstractsocket.html#disconnectFromHost">disconnectFromHost</a>(), 和 <a href="qabstractsocket.html#abort">abort</a>().</p>
 <!-- @@@disconnected -->
 <!-- $$$error[overload1]$$$error -->
@@ -480,7 +480,7 @@
 <!-- $$$hostFound[overload1]$$$hostFound -->
 <h3 class="fn" id="hostFound"><a name="hostFound"></a><code>[信号] </code><span class="type">void</span> QAbstractSocket::<span class="name">hostFound</span>()</h3>
 <p>This signal is emitted after <a href="qabstractsocket.html#connectToHost">connectToHost</a>() has been called and the host lookup has succeeded.</p>
-<p><b>Note: </b>Since Qt 4.6&#x2e;3 <a href="qabstractsocket.html">QAbstractSocket</a> may emit hostFound() directly from the <a href="qabstractsocket.html#connectToHost">connectToHost</a>() call since a DNS result could have been cached.</p><p><b> 参见 </b><a href="qabstractsocket.html#connected">connected</a>().</p>
+<p><b>注意： </b>Since Qt 4.6&#x2e;3 <a href="qabstractsocket.html">QAbstractSocket</a> may emit hostFound() directly from the <a href="qabstractsocket.html#connectToHost">connectToHost</a>() call since a DNS result could have been cached.</p><p><b> 参见 </b><a href="qabstractsocket.html#connected">connected</a>().</p>
 <!-- @@@hostFound -->
 <!-- $$$isSequential[overload1]$$$isSequential -->
 <h3 class="fn" id="isSequential"><a name="isSequential"></a><code>[重载虚函数] </code><span class="type">bool</span> QAbstractSocket::<span class="name">isSequential</span>() const</h3>
@@ -489,7 +489,7 @@
 <!-- $$$isValid[overload1]$$$isValid -->
 <h3 class="fn" id="isValid"><a name="isValid"></a><span class="type">bool</span> QAbstractSocket::<span class="name">isValid</span>() const</h3>
 <p>Returns <code>true</code> if the socket is valid and ready for use; otherwise returns <code>false</code>.</p>
-<p><b>Note: </b>The socket's state must be <a href="qabstractsocket.html#SocketState-enum">ConnectedState</a> before reading and writing can occur.</p><p><b> 参见 </b><a href="qabstractsocket.html#state">state</a>().</p>
+<p><b>注意： </b>The socket's state must be <a href="qabstractsocket.html#SocketState-enum">ConnectedState</a> before reading and writing can occur.</p><p><b> 参见 </b><a href="qabstractsocket.html#state">state</a>().</p>
 <!-- @@@isValid -->
 <!-- $$$localAddress[overload1]$$$localAddress -->
 <h3 class="fn" id="localAddress"><a name="localAddress"></a><span class="type"><a href="qhostaddress.html">QHostAddress</a></span> QAbstractSocket::<span class="name">localAddress</span>() const</h3>
@@ -532,7 +532,7 @@
 <!-- $$$proxyAuthenticationRequired[overload1]$$$proxyAuthenticationRequiredconstQNetworkProxy&QAuthenticator* -->
 <h3 class="fn" id="proxyAuthenticationRequired"><a name="proxyAuthenticationRequired"></a><code>[信号] </code><span class="type">void</span> QAbstractSocket::<span class="name">proxyAuthenticationRequired</span>(const <span class="type"><a href="qnetworkproxy.html">QNetworkProxy</a></span> &amp;<i>proxy</i>, <span class="type"><a href="qauthenticator.html">QAuthenticator</a></span> *<i>authenticator</i>)</h3>
 <p>This signal can be emitted when a <i>proxy</i> that requires authentication is used. The <i>authenticator</i> object can then be filled in with the required details to allow authentication and continue the connection.</p>
-<p><b>Note: </b>It is not possible to use a QueuedConnection to connect to this signal, as the connection will fail if the authenticator has not been filled in with new information when the signal returns.</p><p>这个函数是在Qt 4.3版本中新增引入的。</p>
+<p><b>注意： </b>It is not possible to use a QueuedConnection to connect to this signal, as the connection will fail if the authenticator has not been filled in with new information when the signal returns.</p><p>这个函数是在Qt 4.3版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qauthenticator.html">QAuthenticator</a> 和 <a href="qnetworkproxy.html">QNetworkProxy</a>.</p>
 <!-- @@@proxyAuthenticationRequired -->
 <!-- $$$readBufferSize[overload1]$$$readBufferSize -->
@@ -633,7 +633,7 @@
 <!-- $$$setSocketOption[overload1]$$$setSocketOptionQAbstractSocket::SocketOptionconstQVariant& -->
 <h3 class="fn" id="setSocketOption"><a name="setSocketOption"></a><code>[虚函数] </code><span class="type">void</span> QAbstractSocket::<span class="name">setSocketOption</span>(<span class="type"><a href="qabstractsocket.html#SocketOption-enum">QAbstractSocket::SocketOption</a></span> <i>option</i>, const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>value</i>)</h3>
 <p>Sets the given <i>option</i> to the value described by <i>value</i>.</p>
-<p><b>Note: </b>On Windows Runtime, <a href="qabstractsocket.html#SocketOption-enum">QAbstractSocket::KeepAliveOption</a> must be set before the socket is connected.</p><p>这个函数是在Qt 4.6版本中新增引入的。</p>
+<p><b>注意： </b>On Windows Runtime, <a href="qabstractsocket.html#SocketOption-enum">QAbstractSocket::KeepAliveOption</a> must be set before the socket is connected.</p><p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qabstractsocket.html#socketOption">socketOption</a>().</p>
 <!-- @@@setSocketOption -->
 <!-- $$$setSocketState[overload1]$$$setSocketStateQAbstractSocket::SocketState -->
@@ -675,7 +675,7 @@
 <p>重新实现了父类函数接口 <a href="../qtcore/qiodevice.html#waitForBytesWritten">QIODevice::waitForBytesWritten</a>().</p>
 <p>This function blocks until at least one byte has been written on the socket and the <a href="../qtcore/qiodevice.html#bytesWritten">bytesWritten()</a> signal has been emitted. The function will timeout after <i>msecs</i> milliseconds; the default timeout is 30000 milliseconds.</p>
 <p>The function returns <code>true</code> if the <a href="../qtcore/qiodevice.html#bytesWritten">bytesWritten</a>() signal is emitted; otherwise it returns <code>false</code> (if an error occurred or the operation timed out).</p>
-<p><b>Note: </b>This function may fail randomly on Windows. Consider using the event loop and the <a href="../qtcore/qiodevice.html#bytesWritten">bytesWritten</a>() signal if your software will run on Windows.</p><p><b> 参见 </b><a href="qabstractsocket.html#waitForReadyRead">waitForReadyRead</a>().</p>
+<p><b>注意： </b>This function may fail randomly on Windows. Consider using the event loop and the <a href="../qtcore/qiodevice.html#bytesWritten">bytesWritten</a>() signal if your software will run on Windows.</p><p><b> 参见 </b><a href="qabstractsocket.html#waitForReadyRead">waitForReadyRead</a>().</p>
 <!-- @@@waitForBytesWritten -->
 <!-- $$$waitForConnected[overload1]$$$waitForConnectedint -->
 <h3 class="fn" id="waitForConnected"><a name="waitForConnected"></a><code>[虚函数] </code><span class="type">bool</span> QAbstractSocket::<span class="name">waitForConnected</span>(<span class="type">int</span> <i>msecs</i> = 30000)</h3>
@@ -689,7 +689,7 @@
 
 </pre>
 <p>If msecs is -1, this function will not time out.</p>
-<p><b>Note: </b>This function may wait slightly longer than <i>msecs</i>, depending on the time it takes to complete the host lookup.</p><p><b>Note: </b>Multiple calls to this functions do not accumulate the time. If the function times out, the connecting process will be aborted.</p><p><b>Note: </b>This function may fail randomly on Windows. Consider using the event loop and the <a href="qabstractsocket.html#connected">connected</a>() signal if your software will run on Windows.</p><p><b> 参见 </b><a href="qabstractsocket.html#connectToHost">connectToHost</a>() 和 <a href="qabstractsocket.html#connected">connected</a>().</p>
+<p><b>注意： </b>This function may wait slightly longer than <i>msecs</i>, depending on the time it takes to complete the host lookup.</p><p><b>注意： </b>Multiple calls to this functions do not accumulate the time. If the function times out, the connecting process will be aborted.</p><p><b>注意： </b>This function may fail randomly on Windows. Consider using the event loop and the <a href="qabstractsocket.html#connected">connected</a>() signal if your software will run on Windows.</p><p><b> 参见 </b><a href="qabstractsocket.html#connectToHost">connectToHost</a>() 和 <a href="qabstractsocket.html#connected">connected</a>().</p>
 <!-- @@@waitForConnected -->
 <!-- $$$waitForDisconnected[overload1]$$$waitForDisconnectedint -->
 <h3 class="fn" id="waitForDisconnected"><a name="waitForDisconnected"></a><code>[虚函数] </code><span class="type">bool</span> QAbstractSocket::<span class="name">waitForDisconnected</span>(<span class="type">int</span> <i>msecs</i> = 30000)</h3>
@@ -704,14 +704,14 @@
 
 </pre>
 <p>If msecs is -1, this function will not time out.</p>
-<p><b>Note: </b>This function may fail randomly on Windows. Consider using the event loop and the <a href="qabstractsocket.html#disconnected">disconnected</a>() signal if your software will run on Windows.</p><p><b> 参见 </b><a href="qabstractsocket.html#disconnectFromHost">disconnectFromHost</a>() 和 <a href="qabstractsocket.html#close">close</a>().</p>
+<p><b>注意： </b>This function may fail randomly on Windows. Consider using the event loop and the <a href="qabstractsocket.html#disconnected">disconnected</a>() signal if your software will run on Windows.</p><p><b> 参见 </b><a href="qabstractsocket.html#disconnectFromHost">disconnectFromHost</a>() 和 <a href="qabstractsocket.html#close">close</a>().</p>
 <!-- @@@waitForDisconnected -->
 <!-- $$$waitForReadyRead[overload1]$$$waitForReadyReadint -->
 <h3 class="fn" id="waitForReadyRead"><a name="waitForReadyRead"></a><code>[重载虚函数] </code><span class="type">bool</span> QAbstractSocket::<span class="name">waitForReadyRead</span>(<span class="type">int</span> <i>msecs</i> = 30000)</h3>
 <p>重新实现了父类函数接口 <a href="../qtcore/qiodevice.html#waitForReadyRead">QIODevice::waitForReadyRead</a>().</p>
 <p>This function blocks until new data is available for reading and the <a href="../qtcore/qiodevice.html#readyRead">readyRead()</a> signal has been emitted. The function will timeout after <i>msecs</i> milliseconds; the default timeout is 30000 milliseconds.</p>
 <p>The function returns <code>true</code> if the <a href="../qtcore/qiodevice.html#readyRead">readyRead</a>() signal is emitted and there is new data available for reading; otherwise it returns <code>false</code> (if an error occurred or the operation timed out).</p>
-<p><b>Note: </b>This function may fail randomly on Windows. Consider using the event loop and the <a href="../qtcore/qiodevice.html#readyRead">readyRead</a>() signal if your software will run on Windows.</p><p><b> 参见 </b><a href="qabstractsocket.html#waitForBytesWritten">waitForBytesWritten</a>().</p>
+<p><b>注意： </b>This function may fail randomly on Windows. Consider using the event loop and the <a href="../qtcore/qiodevice.html#readyRead">readyRead</a>() signal if your software will run on Windows.</p><p><b> 参见 </b><a href="qabstractsocket.html#waitForBytesWritten">waitForBytesWritten</a>().</p>
 <!-- @@@waitForReadyRead -->
 <!-- $$$writeData[overload1]$$$writeDataconstchar*qint64 -->
 <h3 class="fn" id="writeData"><a name="writeData"></a><code>[重载虚保护函数] </code><span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> QAbstractSocket::<span class="name">writeData</span>(const <span class="type">char</span> *<i>data</i>, <span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> <i>size</i>)</h3>

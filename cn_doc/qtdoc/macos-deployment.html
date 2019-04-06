@@ -360,7 +360,7 @@
 <p>First, we tell the application to only look for plugins in this directory. In our case, we want the application to look for only those plugins that we distribute with the bundle. If we were part of a bigger Qt installation we could have used <a href="../qtcore/qcoreapplication.html#addLibraryPath">QCoreApplication::addLibraryPath</a>() instead.</p>
 </td></tr>
 </table></div>
-<p><b>Warning:</b> While deploying plugins, we make changes to the source code and that resets the default identification names when the application is rebuilt. So you must repeat the process of making your application link to the correct Qt frameworks in the bundle using <code>install_name_tool</code>.</p>
+<p><b>警告：</b> While deploying plugins, we make changes to the source code and that resets the default identification names when the application is rebuilt. So you must repeat the process of making your application link to the correct Qt frameworks in the bundle using <code>install_name_tool</code>.</p>
 <p>Now you should be able to move the application to another macOS machine and run it without Qt installed. Alternatively, you can move your frameworks that live outside of the bundle to another directory and see if the application still runs.</p>
 <p>If you store the frameworks in another location outside the bundle, the technique of linking your application is similar; you must make sure that the application and the frameworks agree where to be looking for the Qt libraries as well as the plugins.</p>
 <a name="creating-the-application-package"></a>
@@ -437,7 +437,7 @@
 <tr valign="top" class="odd"><td ><code>-libpath=&lt;path&gt;</code></td><td >Add the given path to the library search path</td></tr>
 <tr valign="top" class="even"><td ><code>-fs=&lt;filesystem&gt;</code></td><td >Set the filesystem used for the .dmg disk image (defaults to HFS+)</td></tr>
 </table></div>
-<p><b>Note: </b>macOS High Sierra introduced the new Apple File System (APFS). Older versions of macOS cannot read .dmg files that are formatted with APFS. By default, <code>macdeployqt</code> uses the older HFS+ file system for compatibility with all versions of macOS currently supported by Qt. Use the <code>-fs</code> option to specify a different file system.</p></div>
+<p><b>注意： </b>macOS High Sierra introduced the new Apple File System (APFS). Older versions of macOS cannot read .dmg files that are formatted with APFS. By default, <code>macdeployqt</code> uses the older HFS+ file system for compatibility with all versions of macOS currently supported by Qt. Use the <code>-fs</code> option to specify a different file system.</p></div>
 <!-- @@@macos-deployment.html -->
         </div>
        </div>

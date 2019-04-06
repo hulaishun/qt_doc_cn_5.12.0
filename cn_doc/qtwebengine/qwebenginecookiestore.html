@@ -133,26 +133,26 @@
 <!-- $$$deleteAllCookies[overload1]$$$deleteAllCookies -->
 <h3 class="fn" id="deleteAllCookies"><a name="deleteAllCookies"></a><span class="type">void</span> QWebEngineCookieStore::<span class="name">deleteAllCookies</span>()</h3>
 <p>Deletes all the cookies in the cookie store.</p>
-<p><b>Note: </b>This operation is asynchronous.</p><p><b> 参见 </b><a href="qwebenginecookiestore.html#loadAllCookies">loadAllCookies</a>().</p>
+<p><b>注意： </b>This operation is asynchronous.</p><p><b> 参见 </b><a href="qwebenginecookiestore.html#loadAllCookies">loadAllCookies</a>().</p>
 <!-- @@@deleteAllCookies -->
 <!-- $$$deleteCookie[overload1]$$$deleteCookieconstQNetworkCookie&constQUrl& -->
 <h3 class="fn" id="deleteCookie"><a name="deleteCookie"></a><span class="type">void</span> QWebEngineCookieStore::<span class="name">deleteCookie</span>(const <span class="type"><a href="../qtnetwork/qnetworkcookie.html">QNetworkCookie</a></span> &amp;<i>cookie</i>, const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>origin</i> = QUrl())</h3>
 <p>Deletes <i>cookie</i> from the cookie store. It is possible to provide an optional <i>origin</i> URL argument to limit the scope of the cookie to be deleted.</p>
-<p><b>Note: </b>This operation is asynchronous.</p><!-- @@@deleteCookie -->
+<p><b>注意： </b>This operation is asynchronous.</p><!-- @@@deleteCookie -->
 <!-- $$$deleteSessionCookies[overload1]$$$deleteSessionCookies -->
 <h3 class="fn" id="deleteSessionCookies"><a name="deleteSessionCookies"></a><span class="type">void</span> QWebEngineCookieStore::<span class="name">deleteSessionCookies</span>()</h3>
 <p>Deletes all the session cookies in the cookie store. Session cookies do not have an expiration date assigned to them.</p>
-<p><b>Note: </b>This operation is asynchronous.</p><p><b> 参见 </b><a href="qwebenginecookiestore.html#loadAllCookies">loadAllCookies</a>().</p>
+<p><b>注意： </b>This operation is asynchronous.</p><p><b> 参见 </b><a href="qwebenginecookiestore.html#loadAllCookies">loadAllCookies</a>().</p>
 <!-- @@@deleteSessionCookies -->
 <!-- $$$loadAllCookies[overload1]$$$loadAllCookies -->
 <h3 class="fn" id="loadAllCookies"><a name="loadAllCookies"></a><span class="type">void</span> QWebEngineCookieStore::<span class="name">loadAllCookies</span>()</h3>
 <p>Loads all the cookies into the cookie store. The <a href="qwebenginecookiestore.html#cookieAdded">cookieAdded</a>() signal is emitted on every loaded cookie. Cookies are loaded automatically when the store gets initialized, which in most cases happens on loading the first URL. However, calling this function is useful if cookies should be listed before entering the web content.</p>
-<p><b>Note: </b>This operation is asynchronous.</p><!-- @@@loadAllCookies -->
+<p><b>注意： </b>This operation is asynchronous.</p><!-- @@@loadAllCookies -->
 <!-- $$$setCookie[overload1]$$$setCookieconstQNetworkCookie&constQUrl& -->
 <h3 class="fn" id="setCookie"><a name="setCookie"></a><span class="type">void</span> QWebEngineCookieStore::<span class="name">setCookie</span>(const <span class="type"><a href="../qtnetwork/qnetworkcookie.html">QNetworkCookie</a></span> &amp;<i>cookie</i>, const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>origin</i> = QUrl())</h3>
 <p>Adds <i>cookie</i> to the cookie store.</p>
-<p><b>Note: </b>If <i>cookie</i> specifies a <a href="../qtnetwork/qnetworkcookie.html#domain">QNetworkCookie::domain</a>() that does not start with a dot, a dot is automatically prepended. To limit the cookie to the exact server, omit <a href="../qtnetwork/qnetworkcookie.html#domain">QNetworkCookie::domain</a>() and set <i>origin</i> instead.</p><p>The provided URL should also include the scheme.</p>
-<p><b>Note: </b>This operation is asynchronous.</p><!-- @@@setCookie -->
+<p><b>注意： </b>If <i>cookie</i> specifies a <a href="../qtnetwork/qnetworkcookie.html#domain">QNetworkCookie::domain</a>() that does not start with a dot, a dot is automatically prepended. To limit the cookie to the exact server, omit <a href="../qtnetwork/qnetworkcookie.html#domain">QNetworkCookie::domain</a>() and set <i>origin</i> instead.</p><p>The provided URL should also include the scheme.</p>
+<p><b>注意： </b>This operation is asynchronous.</p><!-- @@@setCookie -->
 <!-- $$$setCookieFilter[overload1]$$$setCookieFilterconststd::function<bool(constFilterRequest&)>& -->
 <h3 class="fn" id="setCookieFilter"><a name="setCookieFilter"></a><span class="type">void</span> QWebEngineCookieStore::<span class="name">setCookieFilter</span>(const <span class="type">std::function</span>&lt;<span class="type">bool</span> (const <span class="type"><a href="qwebenginecookiestore-filterrequest.html">FilterRequest</a></span> &amp;)&gt; &amp;<i>filterCallback</i>)</h3>
 <p>Installs a cookie filter that can prevent sites and resources from using cookies. The <i>filterCallback</i> must be a lambda or functor taking a <a href="qwebenginecookiestore-filterrequest.html">FilterRequest</a> structure. If the cookie access is to be accepted, the filter function should return <code>true</code>; otherwise it should return <code>false</code>.</p>
@@ -167,7 +167,7 @@
 </pre>
 <p>You can unset the filter with a <code>nullptr</code> argument.</p>
 <p>The callback should not be used to execute heavy tasks since it is running on the IO thread and therefore blocks the Chromium networking.</p>
-<p><b>Note: </b>The cookie filter also controls other features with tracking capabilities similar to those of cookies; including IndexedDB, DOM storage, filesystem API, service workers, and AppCache.</p><p>这个函数是在Qt 5.11版本中新增引入的。</p>
+<p><b>注意： </b>The cookie filter also controls other features with tracking capabilities similar to those of cookies; including IndexedDB, DOM storage, filesystem API, service workers, and AppCache.</p><p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qwebenginecookiestore.html#deleteAllCookies">deleteAllCookies</a>() 和 <a href="qwebenginecookiestore.html#loadAllCookies">loadAllCookies</a>().</p>
 <!-- @@@setCookieFilter -->
 <!-- $$$setCookieFilter$$$setCookieFilterstd::function<bool(constFilterRequest&)>&& -->

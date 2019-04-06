@@ -104,7 +104,7 @@
 <p>The scene graph nodes contains a mechanism to describe which parts of the scene has changed. This includes the combined matrices, accumulated opacity, changes to the node hierarchy, and so on. This information can be used for optimizations inside the scene graph renderer. For the renderer to properly render the nodes, it is important that users call <a href="qsgnode.html#markDirty">QSGNode::markDirty</a>() with the correct flags when nodes are changed. Most of the functions on the node classes will implicitly call <a href="qsgnode.html#markDirty">markDirty</a>(). For example, <a href="qsgnode.html#appendChildNode">QSGNode::appendChildNode</a>() will call <a href="qsgnode.html#markDirty">markDirty</a>() passing in <a href="qsgnode.html#DirtyStateBit-enum">QSGNode::DirtyNodeAdded</a>.</p>
 <p>If nodes change every frame, the <a href="qsgnode.html#preprocess">preprocess</a>() function can be used to apply changes to a node for every frame it is rendered. The use of <a href="qsgnode.html#preprocess">preprocess</a>() must be explicitly enabled by setting the <a href="qsgnode.html#Flag-enum">QSGNode::UsePreprocess</a> flag on the node.</p>
 <p>The virtual <a href="qsgnode.html#isSubtreeBlocked">isSubtreeBlocked</a>() function can be used to disable a subtree all together. Nodes in a blocked subtree will not be preprocessed() and not rendered.</p>
-<p><b>Note: </b>All classes with QSG prefix should be used solely on the scene graph's rendering thread. See <a href="qtquick-visualcanvas-scenegraph.html#scene-graph-and-rendering">Scene Graph and Rendering</a> for more information.</p></div>
+<p><b>注意： </b>All classes with QSG prefix should be used solely on the scene graph's rendering thread. See <a href="qtquick-visualcanvas-scenegraph.html#scene-graph-and-rendering">Scene Graph and Rendering</a> for more information.</p></div>
 <!-- @@@QSGNode -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -231,7 +231,7 @@
 <h3 class="fn" id="preprocess"><a name="preprocess"></a><code>[虚函数] </code><span class="type">void</span> QSGNode::<span class="name">preprocess</span>()</h3>
 <p>Override this function to do processing on the node before it is rendered.</p>
 <p>Preprocessing needs to be explicitly enabled by setting the flag <a href="qsgnode.html#Flag-enum">QSGNode::UsePreprocess</a>. The flag needs to be set before the node is added to the scene graph and will cause the preprocess() function to be called for every frame the node is rendered.</p>
-<p><b>Warning:</b> Beware of deleting nodes while they are being preprocessed. It is possible, with a small performance hit, to delete a single node during its own preprocess call. Deleting a subtree which has nodes that also use preprocessing may result in a segmentation fault. This is done for performance reasons.</p>
+<p><b>警告：</b> Beware of deleting nodes while they are being preprocessed. It is possible, with a small performance hit, to delete a single node during its own preprocess call. Deleting a subtree which has nodes that also use preprocessing may result in a segmentation fault. This is done for performance reasons.</p>
 <!-- @@@preprocess -->
 <!-- $$$previousSibling[overload1]$$$previousSibling -->
 <h3 class="fn" id="previousSibling"><a name="previousSibling"></a><span class="type"><a href="qsgnode.html#QSGNode">QSGNode</a></span> *QSGNode::<span class="name">previousSibling</span>() const</h3>

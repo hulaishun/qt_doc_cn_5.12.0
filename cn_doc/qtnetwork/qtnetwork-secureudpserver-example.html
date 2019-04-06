@@ -42,7 +42,7 @@
 <!-- @@@secureudpserver -->
 <!-- $$$secureudpserver-description -->
 <div class="descr"> <a name="details"></a>
-<p class="centerAlign"><img src="images/secureudpserver-example.png" alt="Screenshot of the DTLS server example." /></p><p><b>Note: </b>The DTLS server example is intended to be run alongside the <a href="qtnetwork-secureudpclient-example.html">DTLS client</a> example.</p><p>The server is implemented by the DtlsServer class. It uses <a href="qudpsocket.html">QUdpSocket</a>, <a href="qdtlsclientverifier.html">QDtlsClientVerifier</a>, 和 <a href="qdtls.html">QDtls</a> to test each client's reachability, complete a handshake, and read and write encrypted messages.</p>
+<p class="centerAlign"><img src="images/secureudpserver-example.png" alt="Screenshot of the DTLS server example." /></p><p><b>注意： </b>The DTLS server example is intended to be run alongside the <a href="qtnetwork-secureudpclient-example.html">DTLS client</a> example.</p><p>The server is implemented by the DtlsServer class. It uses <a href="qudpsocket.html">QUdpSocket</a>, <a href="qdtlsclientverifier.html">QDtlsClientVerifier</a>, 和 <a href="qdtls.html">QDtls</a> to test each client's reachability, complete a handshake, and read and write encrypted messages.</p>
 <pre class="cpp">
 
   <span class="keyword">class</span> DtlsServer : <span class="keyword">public</span> <span class="type"><a href="../qtcore/qobject.html">QObject</a></span>
@@ -102,7 +102,7 @@
   }
 
 </pre>
-<p><b>Note: </b>The server is not using a certificate and is relying on Pre-Shared Key (PSK) handshake.</p><p>listen() binds <a href="qudpsocket.html">QUdpSocket</a>:</p>
+<p><b>注意： </b>The server is not using a certificate and is relying on Pre-Shared Key (PSK) handshake.</p><p>listen() binds <a href="qudpsocket.html">QUdpSocket</a>:</p>
 <pre class="cpp">
 
   bool DtlsServer<span class="operator">::</span>listen(<span class="keyword">const</span> <span class="type"><a href="qhostaddress.html">QHostAddress</a></span> <span class="operator">&amp;</span>address<span class="operator">,</span> <span class="type"><a href="../qtcore/qtglobal.html#quint16-typedef">quint16</a></span> port)
@@ -260,7 +260,7 @@
   }
 
 </pre>
-<p><b>Note: </b>For the sake of brevity, the definition of pskRequired() is oversimplified. The documentation for the <a href="qsslpresharedkeyauthenticator.html">QSslPreSharedKeyAuthenticator</a> class explains in detail how this slot can be properly implemented.</p><p>After the handshake is completed for the network peer, an encrypted DTLS connection is considered to be established and the server decrypts subsequent datagrams, sent by the peer, by calling decryptDatagram(). The server also sends an encrypted response to the peer:</p>
+<p><b>注意： </b>For the sake of brevity, the definition of pskRequired() is oversimplified. The documentation for the <a href="qsslpresharedkeyauthenticator.html">QSslPreSharedKeyAuthenticator</a> class explains in detail how this slot can be properly implemented.</p><p>After the handshake is completed for the network peer, an encrypted DTLS connection is considered to be established and the server decrypts subsequent datagrams, sent by the peer, by calling decryptDatagram(). The server also sends an encrypted response to the peer:</p>
 <pre class="cpp">
 
   <span class="type">void</span> DtlsServer<span class="operator">::</span>decryptDatagram(DtlsConnection connection<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> <span class="operator">&amp;</span>clientMessage)

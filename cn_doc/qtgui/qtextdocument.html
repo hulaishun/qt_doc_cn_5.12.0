@@ -739,7 +739,7 @@
 <p>This function is called by the rich text engine to request data that isn't directly stored by <a href="qtextdocument.html">QTextDocument</a>, but still associated with it. For example, images are referenced indirectly by the name attribute of a <a href="qtextimageformat.html">QTextImageFormat</a> object.</p>
 <p>When called by Qt, <i>type</i> is one of the values of <a href="qtextdocument.html#ResourceType-enum">QTextDocument::ResourceType</a>.</p>
 <p>If the <a href="qtextdocument.html">QTextDocument</a> is a child object of a <a href="../qtcore/qobject.html">QObject</a> that has an invokable loadResource method such as <a href="../qtwidgets/qtextedit.html">QTextEdit</a>, <a href="../qtwidgets/qtextbrowser.html">QTextBrowser</a> or a <a href="qtextdocument.html">QTextDocument</a> itself then the default implementation tries to retrieve the data from the parent.</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <!-- @@@loadResource -->
 <!-- $$$markContentsDirty[overload1]$$$markContentsDirtyintint -->
 <h3 class="fn" id="markContentsDirty"><a name="markContentsDirty"></a><span class="type">void</span> QTextDocument::<span class="name">markContentsDirty</span>(<span class="type">int</span> <i>position</i>, <span class="type">int</span> <i>length</i>)</h3>
@@ -834,7 +834,7 @@
 <h3 class="fn" id="setHtml"><a name="setHtml"></a><span class="type">void</span> QTextDocument::<span class="name">setHtml</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>html</i>)</h3>
 <p>Replaces the entire contents of the document with the given HTML-formatted text in the <i>html</i> string. The undo/redo history is reset when this function is called.</p>
 <p>The HTML formatting is respected as much as possible; for example, &quot;&lt;b&gt;bold&lt;/b&gt; text&quot; will produce text where the first word has a font weight that gives it a bold appearance: &quot;<b>bold</b> text&quot;.</p>
-<p><b>Note: </b>It is the responsibility of the caller to make sure that the text is correctly decoded when a <a href="../qtcore/qstring.html">QString</a> containing HTML is created and passed to setHtml().</p><p><b> 参见 </b><a href="qtextdocument.html#setPlainText">setPlainText</a>() 和 <a href="richtext-html-subset.html">支持HTML子集</a>.</p>
+<p><b>注意： </b>It is the responsibility of the caller to make sure that the text is correctly decoded when a <a href="../qtcore/qstring.html">QString</a> containing HTML is created and passed to setHtml().</p><p><b> 参见 </b><a href="qtextdocument.html#setPlainText">setPlainText</a>() 和 <a href="richtext-html-subset.html">支持HTML子集</a>.</p>
 <!-- @@@setHtml -->
 <!-- $$$setIndentWidth -->
 <h3 class="fn" id="setIndentWidth"><a name="setIndentWidth"></a><span class="type">void</span> QTextDocument::<span class="name">setIndentWidth</span>(<span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> <i>width</i>)</h3>
@@ -870,7 +870,7 @@
 <h3 class="fn" id="toPlainText"><a name="toPlainText"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QTextDocument::<span class="name">toPlainText</span>() const</h3>
 <p>Returns the plain text contained in the document. If you want formatting information use a <a href="qtextcursor.html">QTextCursor</a> instead.</p>
 <p>This function returns the same as <a href="qtextdocument.html#toRawText">toRawText</a>(), but will replace some unicode characters with ASCII alternatives. In particular, no-break space (U+00A0) is replaced by a regular space (U+0020), and both paragraph (U+2029) and line (U+2028) separators are replaced by line feed (U+000A). If you need the precise contents of the document, use <a href="qtextdocument.html#toRawText">toRawText</a>() instead.</p>
-<p><b>Note: </b>Embedded objects, such as images, are represented by a Unicode value U+FFFC (OBJECT REPLACEMENT CHARACTER).</p><p><b> 参见 </b><a href="qtextdocument.html#toHtml">toHtml</a>().</p>
+<p><b>注意： </b>Embedded objects, such as images, are represented by a Unicode value U+FFFC (OBJECT REPLACEMENT CHARACTER).</p><p><b> 参见 </b><a href="qtextdocument.html#toHtml">toHtml</a>().</p>
 <!-- @@@toPlainText -->
 <!-- $$$toRawText[overload1]$$$toRawText -->
 <h3 class="fn" id="toRawText"><a name="toRawText"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QTextDocument::<span class="name">toRawText</span>() const</h3>

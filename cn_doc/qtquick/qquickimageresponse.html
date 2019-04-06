@@ -130,7 +130,7 @@
 <p>This method is used to communicate that the response is no longer required by the engine.</p>
 <p>It may be reimplemented to cancel a request in the provider side, however, it is not mandatory.</p>
 <p>A cancelled <a href="qquickimageresponse.html">QQuickImageResponse</a> still needs to emit <a href="qquickimageresponse.html#finished">finished</a>() so that the engine may clean up the <a href="qquickimageresponse.html">QQuickImageResponse</a>.</p>
-<p><b>Note: </b><a href="qquickimageresponse.html#finished">finished</a>() should not be emitted until the response is complete, regardless of whether or not cancel() was called. If it is called prematurely, the engine may destroy the response while it is still active, leading to a crash.</p><!-- @@@cancel -->
+<p><b>注意： </b><a href="qquickimageresponse.html#finished">finished</a>() should not be emitted until the response is complete, regardless of whether or not cancel() was called. If it is called prematurely, the engine may destroy the response while it is still active, leading to a crash.</p><!-- @@@cancel -->
 <!-- $$$errorString[overload1]$$$errorString -->
 <h3 class="fn" id="errorString"><a name="errorString"></a><code>[虚函数] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QQuickImageResponse::<span class="name">errorString</span>() const</h3>
 <p>Returns the error string for the job execution. An empty string means no error.</p>
@@ -138,11 +138,11 @@
 <!-- $$$finished[overload1]$$$finished -->
 <h3 class="fn" id="finished"><a name="finished"></a><code>[信号] </code><span class="type">void</span> QQuickImageResponse::<span class="name">finished</span>()</h3>
 <p>Signals that the job execution has finished (be it successfully, because an error happened or because it was cancelled).</p>
-<p><b>Note: </b>Emission of this signal must be the final action the response performs: once the signal is received, the response will subsequently be destroyed by the engine.</p><!-- @@@finished -->
+<p><b>注意： </b>Emission of this signal must be the final action the response performs: once the signal is received, the response will subsequently be destroyed by the engine.</p><!-- @@@finished -->
 <!-- $$$textureFactory[overload1]$$$textureFactory -->
 <h3 class="fn" id="textureFactory"><a name="textureFactory"></a><code>[纯虚函数] </code><span class="type"><a href="qquicktexturefactory.html">QQuickTextureFactory</a></span> *QQuickImageResponse::<span class="name">textureFactory</span>() const</h3>
 <p>Returns the texture factory for the job. You can use <a href="qquicktexturefactory.html#textureFactoryForImage">QQuickTextureFactory::textureFactoryForImage</a> if your provider works with <a href="../qtgui/qimage.html">QImage</a>. The engine takes ownership of the returned <a href="qquicktexturefactory.html">QQuickTextureFactory</a>.</p>
-<p><b>Note: </b>This method will be called only when needed. For example, it may not be called if there is an error or the job is cancelled. Therefore, allocate the <a href="qquicktexturefactory.html">QQuickTextureFactory</a> instance only in this method or otherwise ensure its deletion.</p><!-- @@@textureFactory -->
+<p><b>注意： </b>This method will be called only when needed. For example, it may not be called if there is an error or the job is cancelled. Therefore, allocate the <a href="qquicktexturefactory.html">QQuickTextureFactory</a> instance only in this method or otherwise ensure its deletion.</p><!-- @@@textureFactory -->
 </div>
 <div class="vars">
 <h2>成员变量文档</h2>

@@ -594,12 +594,12 @@
 <p>Casts the variant to the requested type, <i>targetTypeId</i>. If the cast cannot be done, the variant is still changed to the requested type, but is left in a cleared null state similar to that constructed by <a href="qvariant.html">QVariant</a>(Type).</p>
 <p>Returns <code>true</code> if the current type of the variant was successfully cast; otherwise returns <code>false</code>.</p>
 <p>A <a href="qvariant.html">QVariant</a> containing a pointer to a type derived from <a href="qobject.html">QObject</a> will also convert and return true for this function if a <a href="qobject.html#qobject_cast">qobject_cast</a> to the type described by <i>targetTypeId</i> would succeed. Note that this only works for <a href="qobject.html">QObject</a> subclasses which use the <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro.</p>
-<p><b>Note: </b>converting QVariants that are null due to not being initialized or having failed a previous conversion will always fail, changing the type, remaining null, and returning <code>false</code>.</p><p><b> 参见 </b><a href="qvariant.html#canConvert">canConvert</a>(int targetTypeId) and <a href="qvariant.html#clear">clear</a>().</p>
+<p><b>注意： </b>converting QVariants that are null due to not being initialized or having failed a previous conversion will always fail, changing the type, remaining null, and returning <code>false</code>.</p><p><b> 参见 </b><a href="qvariant.html#canConvert">canConvert</a>(int targetTypeId) and <a href="qvariant.html#clear">clear</a>().</p>
 <!-- @@@convert -->
 <!-- $$$fromStdVariant[overload1]$$$fromStdVariantconstint& -->
 <h3 class="fn" id="fromStdVariant"><a name="fromStdVariant"></a><code>[静态函数] </code><span class="type"><a href="qvariant.html#QVariant">QVariant</a></span> QVariant::<span class="name">fromStdVariant</span>(const <span class="type">int</span> &amp;<i>value</i>)</h3>
 <p>Returns a <a href="qvariant.html">QVariant</a> with the type and value of the active variant of <i>value</i>. If the active type is std::monostate a default <a href="qvariant.html">QVariant</a> is returned.</p>
-<p><b>Note: </b>With this method you do not need to register the variant as a Qt metatype, since the std::variant is resolved before being stored. The component types should be registered however.</p><p>这个函数是在Qt 5.11版本中新增引入的。</p>
+<p><b>注意： </b>With this method you do not need to register the variant as a Qt metatype, since the std::variant is resolved before being stored. The component types should be registered however.</p><p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qvariant.html#fromValue">fromValue</a>().</p>
 <!-- @@@fromStdVariant -->
 <!-- $$$fromValue[overload1]$$$fromValueconstT& -->
@@ -612,12 +612,12 @@
   <span class="keyword">return</span> <span class="type"><a href="qvariant.html#QVariant">QVariant</a></span><span class="operator">::</span>fromValue(s);
 
 </pre>
-<p><b>Note: </b>If you are working with custom types, you should use the <a href="qmetatype.html#Q_DECLARE_METATYPE">Q_DECLARE_METATYPE</a>() macro to register your custom type.</p><p><b> 参见 </b><a href="qvariant.html#setValue">setValue</a>() 和 <a href="qvariant.html#value">value</a>().</p>
+<p><b>注意： </b>If you are working with custom types, you should use the <a href="qmetatype.html#Q_DECLARE_METATYPE">Q_DECLARE_METATYPE</a>() macro to register your custom type.</p><p><b> 参见 </b><a href="qvariant.html#setValue">setValue</a>() 和 <a href="qvariant.html#value">value</a>().</p>
 <!-- @@@fromValue -->
 <!-- $$$isNull[overload1]$$$isNull -->
 <h3 class="fn" id="isNull"><a name="isNull"></a><span class="type">bool</span> QVariant::<span class="name">isNull</span>() const</h3>
 <p>Returns <code>true</code> if this is a null variant, false otherwise. A variant is considered null if it contains no initialized value, or the contained value is a null pointer or is an instance of a built-in type that has an isNull method, in which case the result would be the same as calling isNull on the wrapped object.</p>
-<p><b>Warning:</b> Null variants is not a single state and two null variants may easily return <code>false</code> on the == operator if they do not contain similar null values.</p>
+<p><b>警告：</b> Null variants is not a single state and two null variants may easily return <code>false</code> on the == operator if they do not contain similar null values.</p>
 <p><b> 参见 </b><a href="qvariant.html#convert">convert</a>(int).</p>
 <!-- @@@isNull -->
 <!-- $$$isValid[overload1]$$$isValid -->
@@ -717,7 +717,7 @@
 <h3 class="fn" id="toInt"><a name="toInt"></a><span class="type">int</span> QVariant::<span class="name">toInt</span>(<span class="type">bool</span> *<i>ok</i> = nullptr) const</h3>
 <p>Returns the variant as an int if the variant has <a href="qvariant.html#userType">userType</a>() <a href="qmetatype.html#Type-enum">QMetaType::Int</a>, <a href="qmetatype.html#Type-enum">QMetaType::Bool</a>, <a href="qmetatype.html#Type-enum">QMetaType::QByteArray</a>, <a href="qmetatype.html#Type-enum">QMetaType::QChar</a>, <a href="qmetatype.html#Type-enum">QMetaType::Double</a>, <a href="qmetatype.html#Type-enum">QMetaType::LongLong</a>, <a href="qmetatype.html#Type-enum">QMetaType::QString</a>, <a href="qmetatype.html#Type-enum">QMetaType::UInt</a>, or <a href="qmetatype.html#Type-enum">QMetaType::ULongLong</a>; otherwise returns 0.</p>
 <p>If <i>ok</i> is non-null: <code>*</code><i>ok</i> is set to true if the value could be converted to an int; otherwise <code>*</code><i>ok</i> is set to false.</p>
-<p><b>Warning:</b> If the value is convertible to a <a href="qmetatype.html#Type-enum">QMetaType::LongLong</a> but is too large to be represented in an int, the resulting arithmetic overflow will not be reflected in <i>ok</i>. A simple workaround is to use <a href="qstring.html#toInt">QString::toInt</a>().</p>
+<p><b>警告：</b> If the value is convertible to a <a href="qmetatype.html#Type-enum">QMetaType::LongLong</a> but is too large to be represented in an int, the resulting arithmetic overflow will not be reflected in <i>ok</i>. A simple workaround is to use <a href="qstring.html#toInt">QString::toInt</a>().</p>
 <p><b> 参见 </b><a href="qvariant.html#canConvert">canConvert</a>(int targetTypeId) and <a href="qvariant.html#convert">convert</a>().</p>
 <!-- @@@toInt -->
 <!-- $$$toJsonArray[overload1]$$$toJsonArray -->
@@ -858,7 +858,7 @@
 <h3 class="fn" id="toUInt"><a name="toUInt"></a><span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> QVariant::<span class="name">toUInt</span>(<span class="type">bool</span> *<i>ok</i> = nullptr) const</h3>
 <p>Returns the variant as an unsigned int if the variant has <a href="qvariant.html#userType">userType</a>() <a href="qmetatype.html#Type-enum">QMetaType::UInt</a>, <a href="qmetatype.html#Type-enum">QMetaType::Bool</a>, <a href="qmetatype.html#Type-enum">QMetaType::QByteArray</a>, <a href="qmetatype.html#Type-enum">QMetaType::QChar</a>, <a href="qmetatype.html#Type-enum">QMetaType::Double</a>, <a href="qmetatype.html#Type-enum">QMetaType::Int</a>, <a href="qmetatype.html#Type-enum">QMetaType::LongLong</a>, <a href="qmetatype.html#Type-enum">QMetaType::QString</a>, or <a href="qmetatype.html#Type-enum">QMetaType::ULongLong</a>; otherwise returns 0.</p>
 <p>If <i>ok</i> is non-null: <code>*</code><i>ok</i> is set to true if the value could be converted to an unsigned int; otherwise <code>*</code><i>ok</i> is set to false.</p>
-<p><b>Warning:</b> If the value is convertible to a <a href="qmetatype.html#Type-enum">QMetaType::ULongLong</a> but is too large to be represented in an unsigned int, the resulting arithmetic overflow will not be reflected in <i>ok</i>. A simple workaround is to use <a href="qstring.html#toUInt">QString::toUInt</a>().</p>
+<p><b>警告：</b> If the value is convertible to a <a href="qmetatype.html#Type-enum">QMetaType::ULongLong</a> but is too large to be represented in an unsigned int, the resulting arithmetic overflow will not be reflected in <i>ok</i>. A simple workaround is to use <a href="qstring.html#toUInt">QString::toUInt</a>().</p>
 <p><b> 参见 </b><a href="qvariant.html#canConvert">canConvert</a>(int targetTypeId) and <a href="qvariant.html#convert">convert</a>().</p>
 <!-- @@@toUInt -->
 <!-- $$$toULongLong[overload1]$$$toULongLongbool* -->
@@ -950,17 +950,17 @@
 <!-- $$$operator!=[overload1]$$$operator!=constQVariant& -->
 <h3 class="fn" id="operator-not-eq"><a name="operator-not-eq"></a><span class="type">bool</span> QVariant::<span class="name">operator!=</span>(const <span class="type"><a href="qvariant.html#QVariant">QVariant</a></span> &amp;<i>v</i>) const</h3>
 <p>Compares this <a href="qvariant.html">QVariant</a> with <i>v</i> and returns <code>true</code> if they are not equal; otherwise returns <code>false</code>.</p>
-<p><b>Warning:</b> To make this function work with a custom type registered with <a href="qmetatype.html#qRegisterMetaType-1">qRegisterMetaType</a>(), its comparison operator must be registered using <a href="qmetatype.html#registerComparators">QMetaType::registerComparators</a>().</p>
+<p><b>警告：</b> To make this function work with a custom type registered with <a href="qmetatype.html#qRegisterMetaType-1">qRegisterMetaType</a>(), its comparison operator must be registered using <a href="qmetatype.html#registerComparators">QMetaType::registerComparators</a>().</p>
 <!-- @@@operator!= -->
 <!-- $$$operator<[overload1]$$$operator<constQVariant& -->
 <h3 class="fn" id="operator-lt"><a name="operator-lt"></a><span class="type">bool</span> QVariant::<span class="name">operator&lt;</span>(const <span class="type"><a href="qvariant.html#QVariant">QVariant</a></span> &amp;<i>v</i>) const</h3>
 <p>Compares this <a href="qvariant.html">QVariant</a> with <i>v</i> and returns <code>true</code> if this is less than <i>v</i>.</p>
-<p><b>Note: </b>Comparability might not be availabe for the type stored in this <a href="qvariant.html">QVariant</a> or in <i>v</i>.</p><p><b>Warning:</b> To make this function work with a custom type registered with <a href="qmetatype.html#qRegisterMetaType-1">qRegisterMetaType</a>(), its comparison operator must be registered using <a href="qmetatype.html#registerComparators">QMetaType::registerComparators</a>().</p>
+<p><b>注意： </b>Comparability might not be availabe for the type stored in this <a href="qvariant.html">QVariant</a> or in <i>v</i>.</p><p><b>警告：</b> To make this function work with a custom type registered with <a href="qmetatype.html#qRegisterMetaType-1">qRegisterMetaType</a>(), its comparison operator must be registered using <a href="qmetatype.html#registerComparators">QMetaType::registerComparators</a>().</p>
 <!-- @@@operator< -->
 <!-- $$$operator<=[overload1]$$$operator<=constQVariant& -->
 <h3 class="fn" id="operator-lt-eq"><a name="operator-lt-eq"></a><span class="type">bool</span> QVariant::<span class="name">operator&lt;=</span>(const <span class="type"><a href="qvariant.html#QVariant">QVariant</a></span> &amp;<i>v</i>) const</h3>
 <p>Compares this <a href="qvariant.html">QVariant</a> with <i>v</i> and returns <code>true</code> if this is less or equal than <i>v</i>.</p>
-<p><b>Note: </b>Comparability might not be available for the type stored in this <a href="qvariant.html">QVariant</a> or in <i>v</i>.</p><p><b>Warning:</b> To make this function work with a custom type registered with <a href="qmetatype.html#qRegisterMetaType-1">qRegisterMetaType</a>(), its comparison operator must be registered using <a href="qmetatype.html#registerComparators">QMetaType::registerComparators</a>().</p>
+<p><b>注意： </b>Comparability might not be available for the type stored in this <a href="qvariant.html">QVariant</a> or in <i>v</i>.</p><p><b>警告：</b> To make this function work with a custom type registered with <a href="qmetatype.html#qRegisterMetaType-1">qRegisterMetaType</a>(), its comparison operator must be registered using <a href="qmetatype.html#registerComparators">QMetaType::registerComparators</a>().</p>
 <!-- @@@operator<= -->
 <!-- $$$operator=[overload1]$$$operator=constQVariant& -->
 <h3 class="fn" id="operator-eq"><a name="operator-eq"></a><span class="type"><a href="qvariant.html#QVariant">QVariant</a></span> &amp;QVariant::<span class="name">operator=</span>(const <span class="type"><a href="qvariant.html#QVariant">QVariant</a></span> &amp;<i>variant</i>)</h3>
@@ -975,17 +975,17 @@
 <h3 class="fn" id="operator-eq-eq"><a name="operator-eq-eq"></a><span class="type">bool</span> QVariant::<span class="name">operator==</span>(const <span class="type"><a href="qvariant.html#QVariant">QVariant</a></span> &amp;<i>v</i>) const</h3>
 <p>Compares this <a href="qvariant.html">QVariant</a> with <i>v</i> and returns <code>true</code> if they are equal; otherwise returns <code>false</code>.</p>
 <p><a href="qvariant.html">QVariant</a> uses the equality operator of the <a href="qvariant.html#type">type</a>() it contains to check for equality. <a href="qvariant.html">QVariant</a> will try to <a href="qvariant.html#convert">convert</a>() <i>v</i> if its type is not the same as this variant's type. See <a href="qvariant.html#canConvert-1">canConvert</a>() for a list of possible conversions.</p>
-<p><b>Warning:</b> To make this function work with a custom type registered with <a href="qmetatype.html#qRegisterMetaType-1">qRegisterMetaType</a>(), its comparison operator must be registered using <a href="qmetatype.html#registerComparators">QMetaType::registerComparators</a>().</p>
+<p><b>警告：</b> To make this function work with a custom type registered with <a href="qmetatype.html#qRegisterMetaType-1">qRegisterMetaType</a>(), its comparison operator must be registered using <a href="qmetatype.html#registerComparators">QMetaType::registerComparators</a>().</p>
 <!-- @@@operator== -->
 <!-- $$$operator>[overload1]$$$operator>constQVariant& -->
 <h3 class="fn" id="operator-gt"><a name="operator-gt"></a><span class="type">bool</span> QVariant::<span class="name">operator&gt;</span>(const <span class="type"><a href="qvariant.html#QVariant">QVariant</a></span> &amp;<i>v</i>) const</h3>
 <p>Compares this <a href="qvariant.html">QVariant</a> with <i>v</i> and returns <code>true</code> if this is larger than <i>v</i>.</p>
-<p><b>Note: </b>Comparability might not be available for the type stored in this <a href="qvariant.html">QVariant</a> or in <i>v</i>.</p><p><b>Warning:</b> To make this function work with a custom type registered with <a href="qmetatype.html#qRegisterMetaType-1">qRegisterMetaType</a>(), its comparison operator must be registered using <a href="qmetatype.html#registerComparators">QMetaType::registerComparators</a>().</p>
+<p><b>注意： </b>Comparability might not be available for the type stored in this <a href="qvariant.html">QVariant</a> or in <i>v</i>.</p><p><b>警告：</b> To make this function work with a custom type registered with <a href="qmetatype.html#qRegisterMetaType-1">qRegisterMetaType</a>(), its comparison operator must be registered using <a href="qmetatype.html#registerComparators">QMetaType::registerComparators</a>().</p>
 <!-- @@@operator> -->
 <!-- $$$operator>=[overload1]$$$operator>=constQVariant& -->
 <h3 class="fn" id="operator-gt-eq"><a name="operator-gt-eq"></a><span class="type">bool</span> QVariant::<span class="name">operator&gt;=</span>(const <span class="type"><a href="qvariant.html#QVariant">QVariant</a></span> &amp;<i>v</i>) const</h3>
 <p>Compares this <a href="qvariant.html">QVariant</a> with <i>v</i> and returns <code>true</code> if this is larger or equal than <i>v</i>.</p>
-<p><b>Note: </b>Comparability might not be available for the type stored in this <a href="qvariant.html">QVariant</a> or in <i>v</i>.</p><p><b>Warning:</b> To make this function work with a custom type registered with <a href="qmetatype.html#qRegisterMetaType-1">qRegisterMetaType</a>(), its comparison operator must be registered using <a href="qmetatype.html#registerComparators">QMetaType::registerComparators</a>().</p>
+<p><b>注意： </b>Comparability might not be available for the type stored in this <a href="qvariant.html">QVariant</a> or in <i>v</i>.</p><p><b>警告：</b> To make this function work with a custom type registered with <a href="qmetatype.html#qRegisterMetaType-1">qRegisterMetaType</a>(), its comparison operator must be registered using <a href="qmetatype.html#registerComparators">QMetaType::registerComparators</a>().</p>
 <!-- @@@operator>= -->
 </div>
 <div class="vars">
@@ -1015,14 +1015,14 @@
 <!-- $$$operator!=$$$operator!=constQVariant&constQVariant& -->
 <h3 class="fn" id="operator-not-eq-1"><a name="operator-not-eq-1"></a><span class="type">bool</span> <span class="name">operator!=</span>(const <span class="type"><a href="qvariant.html#QVariant">QVariant</a></span> &amp;<i>v1</i>, const <span class="type"><a href="qvariant.html#QVariant">QVariant</a></span> &amp;<i>v2</i>)</h3>
 <p>Returns <code>false</code> if <i>v1</i> and <i>v2</i> are equal; otherwise returns <code>true</code>.</p>
-<p><b>Warning:</b> To make this function work with a custom type registered with <a href="qmetatype.html#qRegisterMetaType-1">qRegisterMetaType</a>(), its comparison operator must be registered using <a href="qmetatype.html#registerComparators">QMetaType::registerComparators</a>().</p>
+<p><b>警告：</b> To make this function work with a custom type registered with <a href="qmetatype.html#qRegisterMetaType-1">qRegisterMetaType</a>(), its comparison operator must be registered using <a href="qmetatype.html#registerComparators">QMetaType::registerComparators</a>().</p>
 <!-- @@@operator!= -->
 <!-- $$$operator==$$$operator==constQVariant&constQVariant& -->
 <h3 class="fn" id="operator-eq-eq-1"><a name="operator-eq-eq-1"></a><span class="type">bool</span> <span class="name">operator==</span>(const <span class="type"><a href="qvariant.html#QVariant">QVariant</a></span> &amp;<i>v1</i>, const <span class="type"><a href="qvariant.html#QVariant">QVariant</a></span> &amp;<i>v2</i>)</h3>
 <p>Returns <code>true</code> if <i>v1</i> and <i>v2</i> are equal; otherwise returns <code>false</code>.</p>
 <p>If <i>v1</i> and <i>v2</i> have the same <a href="qvariant.html#type">type()</a>, the type's equality operator is used for comparison. If not, it is attempted to <a href="qvariant.html#convert">convert()</a> <i>v2</i> to the same type as <i>v1</i>. See <a href="qvariant.html#canConvert-1">canConvert()</a> for a list of possible conversions.</p>
 <p>The result of the function is not affected by the result of <a href="qvariant.html#isNull">QVariant::isNull</a>, which means that two values can be equal even if one of them is null and another is not.</p>
-<p><b>Warning:</b> To make this function work with a custom type registered with <a href="qmetatype.html#qRegisterMetaType-1">qRegisterMetaType</a>(), its comparison operator must be registered using <a href="qmetatype.html#registerComparators">QMetaType::registerComparators</a>().</p>
+<p><b>警告：</b> To make this function work with a custom type registered with <a href="qmetatype.html#qRegisterMetaType-1">qRegisterMetaType</a>(), its comparison operator must be registered using <a href="qmetatype.html#registerComparators">QMetaType::registerComparators</a>().</p>
 <!-- @@@operator== -->
 </div>
 <div class="macros">

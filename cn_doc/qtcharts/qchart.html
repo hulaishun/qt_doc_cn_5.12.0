@@ -237,7 +237,7 @@
 <h3 class="fn" id="ChartTheme-enum"><a name="ChartTheme-enum"></a>enum QChart::<span class="name">ChartTheme</span></h3>
 <p>This enum describes the theme used by the chart.</p>
 <p>A theme is a built-in collection of UI style related settings applied to all the visual elements of a chart, such as colors, pens, brushes, and fonts of series, as well as axes, title, and legend. The <a href="qtcharts-chartthemes-example.html">Chart themes example</a> illustrates how to use themes.</p>
-<p><b>Note: </b>Changing the theme will overwrite all customizations previously applied to the series.</p><div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
+<p><b>注意： </b>Changing the theme will overwrite all customizations previously applied to the series.</p><div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QChart::ChartThemeLight</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">The light theme, which is the default theme.</td></tr>
 <tr><td class="topAlign"><code>QChart::ChartThemeBlueCerulean</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">The cerulean blue theme.</td></tr>
 <tr><td class="topAlign"><code>QChart::ChartThemeDark</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">The dark theme.</td></tr>
@@ -321,7 +321,7 @@
 <h3 class="fn" id="dropShadowEnabled-prop"><a name="dropShadowEnabled-prop"></a><span class="name">dropShadowEnabled</span> : <span class="type">bool</span></h3>
 <p>This property holds whether the background drop shadow effect is enabled.</p>
 <p>If set to <code>true</code>, the background drop shadow effect is enabled. If set to <code>false</code>, it is disabled.</p>
-<p><b>Note: </b>The drop shadow effect depends on the theme, and therefore the setting may change if the theme is changed.</p><p><b>访问函数：</b></p>
+<p><b>注意： </b>The drop shadow effect depends on the theme, and therefore the setting may change if the theme is changed.</p><p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>isDropShadowEnabled</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setDropShadowEnabled</b></span>(bool <i>enabled</i> = true)</td></tr>
@@ -343,7 +343,7 @@
 <h3 class="fn" id="localizeNumbers-prop"><a name="localizeNumbers-prop"></a><span class="name">localizeNumbers</span> : <span class="type">bool</span></h3>
 <p>This property holds whether numbers are localized.</p>
 <p>When <code>true</code>, all generated numbers appearing in various series and axis labels will be localized using the <a href="../qtcore/qlocale.html">QLocale</a> set with the <a href="qchart.html#locale-prop">locale</a> property. When <code>false</code>, the <i>C</i> locale is always used. Defaults to <code>false</code>.</p>
-<p><b>Note: </b>This property does not affect <a href="qdatetimeaxis.html">QDateTimeAxis</a> labels, which always use the <a href="../qtcore/qlocale.html">QLocale</a> set with the locale property.</p><p><b>访问函数：</b></p>
+<p><b>注意： </b>This property does not affect <a href="qdatetimeaxis.html">QDateTimeAxis</a> labels, which always use the <a href="../qtcore/qlocale.html">QLocale</a> set with the locale property.</p><p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>localizeNumbers</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setLocalizeNumbers</b></span>(bool <i>localize</i>)</td></tr>
@@ -377,7 +377,7 @@
 <!-- $$$plotAreaBackgroundVisible-prop$$$isPlotAreaBackgroundVisible$$$setPlotAreaBackgroundVisiblebool -->
 <h3 class="fn" id="plotAreaBackgroundVisible-prop"><a name="plotAreaBackgroundVisible-prop"></a><span class="name">plotAreaBackgroundVisible</span> : <span class="type">bool</span></h3>
 <p>This property holds whether the chart plot area background is visible.</p>
-<p><b>Note: </b>By default, the plot area background is invisible and the plot area uses the general chart background.</p><p><b>访问函数：</b></p>
+<p><b>注意： </b>By default, the plot area background is invisible and the plot area uses the general chart background.</p><p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>isPlotAreaBackgroundVisible</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setPlotAreaBackgroundVisible</b></span>(bool <i>visible</i> = true)</td></tr>
@@ -422,7 +422,7 @@
 <!-- $$$addSeries[overload1]$$$addSeriesQAbstractSeries* -->
 <h3 class="fn" id="addSeries"><a name="addSeries"></a><span class="type">void</span> QChart::<span class="name">addSeries</span>(<span class="type"><a href="qabstractseries.html">QAbstractSeries</a></span> *<i>series</i>)</h3>
 <p>Adds the series <i>series</i> to the chart and takes ownership of it.</p>
-<p><b>Note: </b>A newly added series is not attached to any axes by default, not even those that might have been created for the chart using <a href="qchart.html#createDefaultAxes">createDefaultAxes</a>() before the series was added to the chart. If no axes are attached to the newly added series before the chart is shown, the series will get drawn as if it had axes with ranges that exactly fit the series to the plot area of the chart. This can be confusing if the same chart also displays other series that have properly attached axes, so always make sure you either call <a href="qchart.html#createDefaultAxes">createDefaultAxes</a>() after a series has been added or explicitly attach axes for the series.</p><p><b> 参见 </b><a href="qchart.html#removeSeries">removeSeries</a>(), <a href="qchart.html#removeAllSeries">removeAllSeries</a>(), <a href="qchart.html#createDefaultAxes">createDefaultAxes</a>(), 和 <a href="qabstractseries.html#attachAxis">QAbstractSeries::attachAxis</a>().</p>
+<p><b>注意： </b>A newly added series is not attached to any axes by default, not even those that might have been created for the chart using <a href="qchart.html#createDefaultAxes">createDefaultAxes</a>() before the series was added to the chart. If no axes are attached to the newly added series before the chart is shown, the series will get drawn as if it had axes with ranges that exactly fit the series to the plot area of the chart. This can be confusing if the same chart also displays other series that have properly attached axes, so always make sure you either call <a href="qchart.html#createDefaultAxes">createDefaultAxes</a>() after a series has been added or explicitly attach axes for the series.</p><p><b> 参见 </b><a href="qchart.html#removeSeries">removeSeries</a>(), <a href="qchart.html#removeAllSeries">removeAllSeries</a>(), <a href="qchart.html#createDefaultAxes">createDefaultAxes</a>(), 和 <a href="qabstractseries.html#attachAxis">QAbstractSeries::attachAxis</a>().</p>
 <!-- @@@addSeries -->
 <!-- $$$axes[overload1]$$$axesQt::OrientationsQAbstractSeries* -->
 <h3 class="fn" id="axes"><a name="axes"></a><span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qabstractaxis.html">QAbstractAxis</a></span> *&gt; QChart::<span class="name">axes</span>(<span class="type">Qt::Orientations</span> <i>orientation</i> = Qt::Horizontal|Qt::Vertical, <span class="type"><a href="qabstractseries.html">QAbstractSeries</a></span> *<i>series</i> = nullptr) const</h3>
@@ -452,7 +452,7 @@
 <!-- $$$createDefaultAxes[overload1]$$$createDefaultAxes -->
 <h3 class="fn" id="createDefaultAxes"><a name="createDefaultAxes"></a><span class="type">void</span> QChart::<span class="name">createDefaultAxes</span>()</h3>
 <p>Creates axes for the chart based on the series that have already been added to the chart. Any axes previously added to the chart will be deleted.</p>
-<p><b>Note: </b>This function has to be called after all series have been added to the chart. The axes created by this function will NOT get automatically attached to any series added to the chart after this function has been called. A series with no axes attached will by default scale to utilize the entire plot area of the chart, which can be confusing if there are other series with properly attached axes also present.</p><div class="table"><table class="generic">
+<p><b>注意： </b>This function has to be called after all series have been added to the chart. The axes created by this function will NOT get automatically attached to any series added to the chart after this function has been called. A series with no axes attached will by default scale to utilize the entire plot area of the chart, which can be confusing if there are other series with properly attached axes also present.</p><div class="table"><table class="generic">
  <thead><tr class="qt-style"><th >Series type</th><th >X-axis</th><th >Y-axis</th></tr></thead>
 <tr valign="top" class="odd"><td ><a href="qxyseries.html">QXYSeries</a></td><td ><a href="qvalueaxis.html">QValueAxis</a></td><td ><a href="qvalueaxis.html">QValueAxis</a></td></tr>
 <tr valign="top" class="even"><td ><a href="qbarseries.html">QBarSeries</a></td><td ><a href="qbarcategoryaxis.html">QBarCategoryAxis</a></td><td ><a href="qvalueaxis.html">QValueAxis</a></td></tr>
@@ -575,7 +575,7 @@
 <!-- $$$zoomIn$$$zoomInconstQRectF& -->
 <h3 class="fn" id="zoomIn-1"><a name="zoomIn-1"></a><span class="type">void</span> QChart::<span class="name">zoomIn</span>(const <span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> &amp;<i>rect</i>)</h3>
 <p>Zooms into the view to a maximum level at which the rectangle <i>rect</i> is still fully visible.</p>
-<p><b>Note: </b>This is not supported for polar charts.</p><!-- @@@zoomIn -->
+<p><b>注意： </b>This is not supported for polar charts.</p><!-- @@@zoomIn -->
 <!-- $$$zoomOut[overload1]$$$zoomOut -->
 <h3 class="fn" id="zoomOut"><a name="zoomOut"></a><span class="type">void</span> QChart::<span class="name">zoomOut</span>()</h3>
 <p>Zooms out of the view by a factor of two.</p>
@@ -583,7 +583,7 @@
 <!-- $$$zoomReset[overload1]$$$zoomReset -->
 <h3 class="fn" id="zoomReset"><a name="zoomReset"></a><span class="type">void</span> QChart::<span class="name">zoomReset</span>()</h3>
 <p>Resets the series domains to what they were before any zoom method was called.</p>
-<p><b>Note: </b>This will also reset scrolling and explicit axis range settings specified between the first zoom operation and calling this method. If no zoom operation has been performed, this method does nothing.</p><!-- @@@zoomReset -->
+<p><b>注意： </b>This will also reset scrolling and explicit axis range settings specified between the first zoom operation and calling this method. If no zoom operation has been performed, this method does nothing.</p><!-- @@@zoomReset -->
 </div>
 <div class="vars">
 <h2>成员变量文档</h2>

@@ -238,7 +238,7 @@
 <!-- $$$bytesFree[overload1]$$$bytesFree -->
 <h3 class="fn" id="bytesFree"><a name="bytesFree"></a><span class="type">int</span> QAudioOutput::<span class="name">bytesFree</span>() const</h3>
 <p>Returns the number of free bytes available in the audio buffer.</p>
-<p><b>Note: </b>The returned value is only valid while in <a href="qaudio.html#State-enum">QAudio::ActiveState</a> or <a href="qaudio.html#State-enum">QAudio::IdleState</a> state, otherwise returns zero.</p><!-- @@@bytesFree -->
+<p><b>注意： </b>The returned value is only valid while in <a href="qaudio.html#State-enum">QAudio::ActiveState</a> or <a href="qaudio.html#State-enum">QAudio::IdleState</a> state, otherwise returns zero.</p><!-- @@@bytesFree -->
 <!-- $$$category[overload1]$$$category -->
 <h3 class="fn" id="category"><a name="category"></a><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QAudioOutput::<span class="name">category</span>() const</h3>
 <p>Returns the audio category of this audio stream.</p>
@@ -269,7 +269,7 @@
 <!-- $$$periodSize[overload1]$$$periodSize -->
 <h3 class="fn" id="periodSize"><a name="periodSize"></a><span class="type">int</span> QAudioOutput::<span class="name">periodSize</span>() const</h3>
 <p>Returns the period size in bytes. This is the amount of data required each period to prevent buffer underrun, and to ensure uninterrupted playback.</p>
-<p><b>Note: </b>It is recommended to provide at least enough data for a full period with each write operation.</p><!-- @@@periodSize -->
+<p><b>注意： </b>It is recommended to provide at least enough data for a full period with each write operation.</p><!-- @@@periodSize -->
 <!-- $$$processedUSecs[overload1]$$$processedUSecs -->
 <h3 class="fn" id="processedUSecs"><a name="processedUSecs"></a><span class="type"><a href="../qtcore/qtglobal.html#qint64-typedef">qint64</a></span> QAudioOutput::<span class="name">processedUSecs</span>() const</h3>
 <p>Returns the amount of audio data processed since <a href="qaudiooutput.html#start-1">start</a>() was called (in microseconds).</p>
@@ -286,7 +286,7 @@
 <!-- $$$setBufferSize[overload1]$$$setBufferSizeint -->
 <h3 class="fn" id="setBufferSize"><a name="setBufferSize"></a><span class="type">void</span> QAudioOutput::<span class="name">setBufferSize</span>(<span class="type">int</span> <i>value</i>)</h3>
 <p>Sets the audio buffer size to <i>value</i> in bytes.</p>
-<p><b>Note: </b>This function can be called anytime before <a href="qaudiooutput.html#start-1">start</a>(). Calls to this are ignored after <a href="qaudiooutput.html#start-1">start</a>(). It should not be assumed that the buffer size set is the actual buffer size used - call <a href="qaudiooutput.html#bufferSize">bufferSize</a>() anytime after <a href="qaudiooutput.html#start-1">start</a>() to return the actual buffer size being used.</p><p><b> 参见 </b><a href="qaudiooutput.html#bufferSize">bufferSize</a>().</p>
+<p><b>注意： </b>This function can be called anytime before <a href="qaudiooutput.html#start-1">start</a>(). Calls to this are ignored after <a href="qaudiooutput.html#start-1">start</a>(). It should not be assumed that the buffer size set is the actual buffer size used - call <a href="qaudiooutput.html#bufferSize">bufferSize</a>() anytime after <a href="qaudiooutput.html#start-1">start</a>() to return the actual buffer size being used.</p><p><b> 参见 </b><a href="qaudiooutput.html#bufferSize">bufferSize</a>().</p>
 <!-- @@@setBufferSize -->
 <!-- $$$setCategory[overload1]$$$setCategoryconstQString& -->
 <h3 class="fn" id="setCategory"><a name="setCategory"></a><span class="type">void</span> QAudioOutput::<span class="name">setCategory</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>category</i>)</h3>
@@ -320,7 +320,7 @@
 <!-- $$$start$$$start -->
 <h3 class="fn" id="start-1"><a name="start-1"></a><span class="type"><a href="../qtcore/qiodevice.html">QIODevice</a></span> *QAudioOutput::<span class="name">start</span>()</h3>
 <p>Returns a pointer to the internal <a href="../qtcore/qiodevice.html">QIODevice</a> being used to transfer data to the system's audio output. The device will already be open and <a href="../qtcore/qiodevice.html#write-2">write()</a> can write data directly to it.</p>
-<p><b>Note: </b>The pointer will become invalid after the stream is stopped or if you start another stream.</p><p>If the <a href="qaudiooutput.html">QAudioOutput</a> is able to access the system's audio device, <a href="qaudiooutput.html#state">state</a>() returns <a href="qaudio.html#State-enum">QAudio::IdleState</a>, <a href="qaudiooutput.html#error">error</a>() returns <a href="qaudio.html#Error-enum">QAudio::NoError</a> and the <a href="qaudiooutput.html#stateChanged">stateChanged</a>() signal is emitted.</p>
+<p><b>注意： </b>The pointer will become invalid after the stream is stopped or if you start another stream.</p><p>If the <a href="qaudiooutput.html">QAudioOutput</a> is able to access the system's audio device, <a href="qaudiooutput.html#state">state</a>() returns <a href="qaudio.html#State-enum">QAudio::IdleState</a>, <a href="qaudiooutput.html#error">error</a>() returns <a href="qaudio.html#Error-enum">QAudio::NoError</a> and the <a href="qaudiooutput.html#stateChanged">stateChanged</a>() signal is emitted.</p>
 <p>If a problem occurs during this process, <a href="qaudiooutput.html#error">error</a>() returns <a href="qaudio.html#Error-enum">QAudio::OpenError</a>, <a href="qaudiooutput.html#state">state</a>() returns <a href="qaudio.html#State-enum">QAudio::StoppedState</a> and the <a href="qaudiooutput.html#stateChanged">stateChanged</a>() signal is emitted.</p>
 <p><b> 参见 </b><a href="../qtcore/qiodevice.html">QIODevice</a>.</p>
 <!-- @@@start -->

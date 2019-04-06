@@ -135,7 +135,7 @@
 <p>This copy constructor is different in that it allows <i>o</i> to be a different type of explicitly shared data pointer but one that has a compatible shared data object.</p>
 <p>By default, the <i>d pointer</i> of <i>o</i> (of type <code>X *</code>) gets implicitly converted to the type <code>T *</code>; the result of this conversion is set as the <i>d pointer</i> of <i>this</i>, and the reference count of the shared data object is incremented.</p>
 <p>However, if the macro <code>QT_ENABLE_QEXPLICITLYSHAREDDATAPOINTER_STATICCAST</code> is defined before including the <code>QExplicitlySharedDataPointer</code> header, then the <i>d pointer</i> of <i>o</i> undergoes a <code>static_cast</code> to the type <code>T *</code>. The result of the cast is then set as the <i>d pointer</i> of <i>this</i>, and the reference count of the shared data object is incremented.</p>
-<p><b>Warning:</b> relying on such <code>static_cast</code> is potentially dangerous, because it allows code like this to compile:</p>
+<p><b>警告：</b> relying on such <code>static_cast</code> is potentially dangerous, because it allows code like this to compile:</p>
 <pre class="cpp">
 
       <span class="type"><a href="qexplicitlyshareddatapointer.html#QExplicitlySharedDataPointer">QExplicitlySharedDataPointer</a></span><span class="operator">&lt;</span>Base<span class="operator">&gt;</span> base(<span class="keyword">new</span> Base);

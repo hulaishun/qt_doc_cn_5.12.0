@@ -484,7 +484,7 @@
 <!-- $$$requestedUrl-prop$$$requestedUrl -->
 <h3 class="fn" id="requestedUrl-prop"><a name="requestedUrl-prop"></a><span class="name">requestedUrl</span> : const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span></h3>
 <p>This property holds the URL that was originally requested to be loaded by the page that is currently viewed</p>
-<p><b>Note: </b>The URL may differ from the one returned by <a href="qwebenginepage.html#url-prop">url</a>(), which is the actual URL that results from DNS resolution or redirection.</p><p><b>访问函数：</b></p>
+<p><b>注意： </b>The URL may differ from the one returned by <a href="qwebenginepage.html#url-prop">url</a>(), which is the actual URL that results from DNS resolution or redirection.</p><p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QUrl </td><td class="memItemRight bottomAlign"><span class="name"><b>requestedUrl</b></span>() const</td></tr>
 </table></div>
@@ -557,7 +557,7 @@
   page<span class="operator">.</span>runJavaScript(<span class="string">&quot;document.title&quot;</span><span class="operator">,</span> <span class="operator">[</span><span class="operator">]</span>(<span class="keyword">const</span> <span class="type">QVariant</span> <span class="operator">&amp;</span>v) { <a href="../qtcore/qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> v<span class="operator">.</span>toString(); });
 
 </pre>
-<p><b>Warning:</b> Do not execute lengthy routines in the callback function, because it might block the rendering of the web engine page.</p>
+<p><b>警告：</b> Do not execute lengthy routines in the callback function, because it might block the rendering of the web engine page.</p>
 <p>See <a href="qwebenginepage.html#scripts">scripts</a>() for an alternative API to inject scripts.</p>
 <p>This documentation was introduced in  Qt 5.7.</p>
 <p><b> 参见 </b><a href="qwebenginescript.html#ScriptWorldId-enum">QWebEngineScript::ScriptWorldId</a>.</p>
@@ -594,7 +594,7 @@
 <!-- $$$audioMutedChanged -->
 <h3 class="fn" id="audioMutedChanged"><a name="audioMutedChanged"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">audioMutedChanged</span>(<span class="type">bool</span> <i>muted</i>)</h3>
 <p>This signal is emitted when the page's <i>muted</i> state changes.</p>
-<p><b>Note: </b>Not to be confused with a specific HTML5 audio or video element being muted.</p><p>这个函数是在Qt 5.7版本中新增引入的。</p>
+<p><b>注意： </b>Not to be confused with a specific HTML5 audio or video element being muted.</p><p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b>注意：</b> 此通知信号来自于属性 <a href="qwebenginepage.html#audioMuted-prop">audioMuted</a>. </p><!-- @@@audioMutedChanged -->
 <!-- $$$authenticationRequired[overload1]$$$authenticationRequiredconstQUrl&QAuthenticator* -->
 <h3 class="fn" id="authenticationRequired"><a name="authenticationRequired"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">authenticationRequired</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>requestUrl</i>, <span class="type"><a href="../qtnetwork/qauthenticator.html">QAuthenticator</a></span> *<i>authenticator</i>)</h3>
@@ -629,7 +629,7 @@
 <p>This function is called to create a new window of the specified <i>type</i>. For example, when a JavaScript program requests to open a document in a new window.</p>
 <p>If the new window can be created, the new window's <a href="qwebenginepage.html">QWebEnginePage</a> is returned; otherwise a null pointer is returned.</p>
 <p>If the view associated with the web page is a <a href="qwebengineview.html">QWebEngineView</a> object, then the default implementation forwards the request to <a href="qwebengineview.html#createWindow">QWebEngineView::createWindow</a>(); otherwise it returns a null pointer.</p>
-<p><b>Note: </b>In the cases when the window creation is being triggered by JavaScript, apart from reimplementing this method the application must also set <a href="qwebenginesettings.html#WebAttribute-enum">QWebEngineSettings::JavascriptCanOpenWindows</a> to <code>true</code> in order for the method to get called.</p><p><b> 参见 </b><a href="qwebengineview.html#createWindow">QWebEngineView::createWindow</a>().</p>
+<p><b>注意： </b>In the cases when the window creation is being triggered by JavaScript, apart from reimplementing this method the application must also set <a href="qwebenginesettings.html#WebAttribute-enum">QWebEngineSettings::JavascriptCanOpenWindows</a> to <code>true</code> in order for the method to get called.</p><p><b> 参见 </b><a href="qwebengineview.html#createWindow">QWebEngineView::createWindow</a>().</p>
 <!-- @@@createWindow -->
 <!-- $$$devToolsPage[overload1]$$$devToolsPage -->
 <h3 class="fn" id="devToolsPage"><a name="devToolsPage"></a><span class="type"><a href="qwebenginepage.html#QWebEnginePage">QWebEnginePage</a></span> *QWebEnginePage::<span class="name">devToolsPage</span>() const</h3>
@@ -683,7 +683,7 @@
 <!-- $$$geometryChangeRequested[overload1]$$$geometryChangeRequestedconstQRect& -->
 <h3 class="fn" id="geometryChangeRequested"><a name="geometryChangeRequested"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">geometryChangeRequested</span>(const <span class="type"><a href="../qtcore/qrect.html">QRect</a></span> &amp;<i>geom</i>)</h3>
 <p>This signal is emitted whenever the document wants to change the position and size of the page to <i>geom</i>. This can happen for example through JavaScript.</p>
-<p><b>Note: </b><a href="../qtgui/qwindow.html#setGeometry-1">setGeometry()</a> expects a size excluding the window decoration, while <i>geom</i> includes it. You have to remove the size of the frame margins from <i>geom</i> to handle this signal correctly.</p><pre class="cpp">
+<p><b>注意： </b><a href="../qtgui/qwindow.html#setGeometry-1">setGeometry()</a> expects a size excluding the window decoration, while <i>geom</i> includes it. You have to remove the size of the frame margins from <i>geom</i> to handle this signal correctly.</p><pre class="cpp">
 
   window<span class="operator">-</span><span class="operator">&gt;</span>setGeometry(geom<span class="operator">.</span>marginsRemoved(window<span class="operator">-</span><span class="operator">&gt;</span>frameMargins()));
 
@@ -743,7 +743,7 @@
 <!-- $$$load[overload1]$$$loadconstQUrl& -->
 <h3 class="fn" id="load"><a name="load"></a><span class="type">void</span> QWebEnginePage::<span class="name">load</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
 <p>Loads <i>url</i> into this page.</p>
-<p><b>Note: </b>The view remains the same until enough data has arrived to display the new URL.</p><p><b> 参见 </b><a href="qwebenginepage.html#url-prop">setUrl</a>(), <a href="qwebenginepage.html#setHtml">setHtml</a>(), 和 <a href="qwebenginepage.html#setContent">setContent</a>().</p>
+<p><b>注意： </b>The view remains the same until enough data has arrived to display the new URL.</p><p><b> 参见 </b><a href="qwebenginepage.html#url-prop">setUrl</a>(), <a href="qwebenginepage.html#setHtml">setHtml</a>(), 和 <a href="qwebenginepage.html#setContent">setContent</a>().</p>
 <!-- @@@load -->
 <!-- $$$load$$$loadconstQWebEngineHttpRequest& -->
 <h3 class="fn" id="load-1"><a name="load-1"></a><span class="type">void</span> QWebEnginePage::<span class="name">load</span>(const <span class="type"><a href="qwebenginehttprequest.html">QWebEngineHttpRequest</a></span> &amp;<i>request</i>)</h3>
@@ -775,7 +775,7 @@
 <h3 class="fn" id="print"><a name="print"></a><span class="type">void</span> QWebEnginePage::<span class="name">print</span>(<span class="type"><a href="../qtprintsupport/qprinter.html">QPrinter</a></span> *<i>printer</i>, const <span class="type">QWebEngineCallback</span>&lt;<span class="type">bool</span>&gt; &amp;<i>resultCallback</i>)</h3>
 <p>Renders the current content of the page into a temporary PDF document, then prints it using <i>printer</i>.</p>
 <p>The settings for creating and printing the PDF document will be retrieved from the <i>printer</i> object. It is the users responsibility to ensure the <i>printer</i> remains valid until <i>resultCallback</i> has been called.</p>
-<p><b>Note: </b>The rendering of the current content into a temporary PDF document is asynchronous and does not block the main thread. However, the subsequent rendering of PDF into <i>printer</i> runs on the main thread and will therefore block the event loop. Moreover, printing runs on the browser process, which is by default not sandboxed.</p><p>The <i>resultCallback</i> must take a boolean as parameter. If printing was successful, this boolean will have the value <code>true</code>, otherwise, its value will be <code>false</code>.</p>
+<p><b>注意： </b>The rendering of the current content into a temporary PDF document is asynchronous and does not block the main thread. However, the subsequent rendering of PDF into <i>printer</i> runs on the main thread and will therefore block the event loop. Moreover, printing runs on the browser process, which is by default not sandboxed.</p><p>The <i>resultCallback</i> must take a boolean as parameter. If printing was successful, this boolean will have the value <code>true</code>, otherwise, its value will be <code>false</code>.</p>
 <p>这个函数是在Qt 5.8版本中新增引入的。</p>
 <!-- @@@print -->
 <!-- $$$printRequested[overload1]$$$printRequested -->
@@ -816,7 +816,7 @@
 <!-- $$$recentlyAudibleChanged -->
 <h3 class="fn" id="recentlyAudibleChanged"><a name="recentlyAudibleChanged"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">recentlyAudibleChanged</span>(<span class="type">bool</span> <i>recentlyAudible</i>)</h3>
 <p>This signal is emitted when the page's audible state, <i>recentlyAudible</i>, changes, because the audio is played or stopped.</p>
-<p><b>Note: </b>The signal is also emitted when calling the <a href="qwebenginepage.html#audioMuted-prop">setAudioMuted</a>() method. Also, if the audio is paused, this signal is emitted with an approximate <b>two-second delay</b>, from the moment the audio is paused.</p><p>这个函数是在Qt 5.7版本中新增引入的。</p>
+<p><b>注意： </b>The signal is also emitted when calling the <a href="qwebenginepage.html#audioMuted-prop">setAudioMuted</a>() method. Also, if the audio is paused, this signal is emitted with an approximate <b>two-second delay</b>, from the moment the audio is paused.</p><p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b>注意：</b> 此通知信号来自于属性 <a href="qwebenginepage.html#recentlyAudible-prop">recentlyAudible</a>. </p><!-- @@@recentlyAudibleChanged -->
 <!-- $$$registerProtocolHandlerRequested[overload1]$$$registerProtocolHandlerRequestedQWebEngineRegisterProtocolHandlerRequest -->
 <h3 class="fn" id="registerProtocolHandlerRequested"><a name="registerProtocolHandlerRequested"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">registerProtocolHandlerRequested</span>(<span class="type"><a href="qwebengineregisterprotocolhandlerrequest.html">QWebEngineRegisterProtocolHandlerRequest</a></span> <i>request</i>)</h3>
@@ -883,14 +883,14 @@
 <!-- $$$selectionChanged[overload1]$$$selectionChanged -->
 <h3 class="fn" id="selectionChanged"><a name="selectionChanged"></a><code>[信号] </code><span class="type">void</span> QWebEnginePage::<span class="name">selectionChanged</span>()</h3>
 <p>This signal is emitted whenever the selection changes, either interactively or programmatically. For example, by calling <a href="qwebenginepage.html#triggerAction">triggerAction</a>() with a selection action.</p>
-<p><b>Note: </b>When using the mouse to select text by left-clicking and dragging, the signal will be emitted for each new character selected, and not upon releasing the left mouse button.</p><p><b> 参见 </b><a href="qwebenginepage.html#selectedText-prop">selectedText</a>().</p>
+<p><b>注意： </b>When using the mouse to select text by left-clicking and dragging, the signal will be emitted for each new character selected, and not upon releasing the left mouse button.</p><p><b> 参见 </b><a href="qwebenginepage.html#selectedText-prop">selectedText</a>().</p>
 <!-- @@@selectionChanged -->
 <!-- $$$setContent[overload1]$$$setContentconstQByteArray&constQString&constQUrl& -->
 <h3 class="fn" id="setContent"><a name="setContent"></a><span class="type">void</span> QWebEnginePage::<span class="name">setContent</span>(const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>data</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>mimeType</i> = QString(), const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>baseUrl</i> = QUrl())</h3>
 <p>Sets the content of the web page to <i>data</i>. If the <i>mimeType</i> argument is empty, it is assumed that the content is <code>text/plain,charset=US-ASCII</code>.</p>
 <p>External objects referenced in the content are located relative to <i>baseUrl</i>.</p>
 <p>The <i>data</i> is loaded immediately; external objects are loaded asynchronously.</p>
-<p><b>Note: </b>This method will not affect session or global history for the page.</p><p><b>Warning:</b> The content will be percent encoded before being sent to the renderer via IPC. This may increase its size. The maximum size of the percent encoded content is 2 megabytes minus 6 bytes plus the length of the mime type string.</p>
+<p><b>注意： </b>This method will not affect session or global history for the page.</p><p><b>警告：</b> The content will be percent encoded before being sent to the renderer via IPC. This may increase its size. The maximum size of the percent encoded content is 2 megabytes minus 6 bytes plus the length of the mime type string.</p>
 <p><b> 参见 </b><a href="qwebenginepage.html#toHtml">toHtml</a>() 和 <a href="qwebenginepage.html#setHtml">setHtml</a>().</p>
 <!-- @@@setContent -->
 <!-- $$$setDevToolsPage[overload1]$$$setDevToolsPageQWebEnginePage* -->
@@ -903,7 +903,7 @@
 <!-- $$$setFeaturePermission[overload1]$$$setFeaturePermissionconstQUrl&QWebEnginePage::FeatureQWebEnginePage::PermissionPolicy -->
 <h3 class="fn" id="setFeaturePermission"><a name="setFeaturePermission"></a><span class="type">void</span> QWebEnginePage::<span class="name">setFeaturePermission</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>securityOrigin</i>, <span class="type"><a href="qwebenginepage.html#Feature-enum">QWebEnginePage::Feature</a></span> <i>feature</i>, <span class="type"><a href="qwebenginepage.html#PermissionPolicy-enum">QWebEnginePage::PermissionPolicy</a></span> <i>policy</i>)</h3>
 <p>Sets the permission for the web site identified by <i>securityOrigin</i> to use <i>feature</i> to <i>policy</i>.</p>
-<p><b>Note: </b>Call this method on the <a href="qwebenginepage.html#featurePermissionRequested">featurePermissionRequested</a>() signal, as it is meant to serve pending feature requests only. Setting feature permissions ahead of a request has no effect.</p><p><b> 参见 </b><a href="qwebenginepage.html#featurePermissionRequested">featurePermissionRequested</a>() 和 <a href="qwebenginepage.html#featurePermissionRequestCanceled">featurePermissionRequestCanceled</a>().</p>
+<p><b>注意： </b>Call this method on the <a href="qwebenginepage.html#featurePermissionRequested">featurePermissionRequested</a>() signal, as it is meant to serve pending feature requests only. Setting feature permissions ahead of a request has no effect.</p><p><b> 参见 </b><a href="qwebenginepage.html#featurePermissionRequested">featurePermissionRequested</a>() 和 <a href="qwebenginepage.html#featurePermissionRequestCanceled">featurePermissionRequestCanceled</a>().</p>
 <!-- @@@setFeaturePermission -->
 <!-- $$$setHtml[overload1]$$$setHtmlconstQString&constQUrl& -->
 <h3 class="fn" id="setHtml"><a name="setHtml"></a><span class="type">void</span> QWebEnginePage::<span class="name">setHtml</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>html</i>, const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>baseUrl</i> = QUrl())</h3>
@@ -912,8 +912,8 @@
 <p>If a script in the <i>html</i> runs longer than the default script timeout (currently 10 seconds), for example due to being blocked by a modal JavaScript alert dialog, this method will return as soon as possible after the timeout and any subsequent <i>html</i> will be loaded asynchronously.</p>
 <p>When using this method, the web engine assumes that external resources, such as JavaScript programs or style sheets, are encoded in UTF-8 unless otherwise specified. For example, the encoding of an external script can be specified through the charset attribute of the HTML script tag. It is also possible for the encoding to be specified by the web server.</p>
 <p>This is a convenience function equivalent to <a href="qwebenginepage.html#setContent">setContent</a>(html, &quot;text/html&quot;, baseUrl).</p>
-<p><b>Note: </b>This method will not affect session or global history for the page.</p><p><b>Warning:</b> This function works only for HTML, for other mime types (such as XHTML and SVG) <a href="qwebenginepage.html#setContent">setContent</a>() should be used instead.</p>
-<p><b>Warning:</b> The content will be percent encoded before being sent to the renderer via IPC. This may increase its size. The maximum size of the percent encoded content is 2 megabytes minus 30 bytes.</p>
+<p><b>注意： </b>This method will not affect session or global history for the page.</p><p><b>警告：</b> This function works only for HTML, for other mime types (such as XHTML and SVG) <a href="qwebenginepage.html#setContent">setContent</a>() should be used instead.</p>
+<p><b>警告：</b> The content will be percent encoded before being sent to the renderer via IPC. This may increase its size. The maximum size of the percent encoded content is 2 megabytes minus 30 bytes.</p>
 <p><b> 参见 </b><a href="qwebenginepage.html#toHtml">toHtml</a>(), <a href="qwebenginepage.html#setContent">setContent</a>(), 和 <a href="qwebenginepage.html#load">load</a>().</p>
 <!-- @@@setHtml -->
 <!-- $$$setInspectedPage[overload1]$$$setInspectedPageQWebEnginePage* -->
@@ -931,7 +931,7 @@
 <!-- $$$setWebChannel[overload1]$$$setWebChannelQWebChannel*uint -->
 <h3 class="fn" id="setWebChannel"><a name="setWebChannel"></a><span class="type">void</span> QWebEnginePage::<span class="name">setWebChannel</span>(<span class="type"><a href="../qtwebchannel/qwebchannel.html">QWebChannel</a></span> *<i>channel</i>, <span class="type"><a href="../qtcore/qtglobal.html#uint-typedef">uint</a></span> <i>worldId</i>)</h3>
 <p>Sets the web channel instance to be used by this page to <i>channel</i> and connects it to web engine's transport using Chromium IPC messages. The transport is exposed in the JavaScript world <i>worldId</i> as <code>qt.webChannelTransport</code>, which should be used when using the <a href="../qtwebchannel/qtwebchannel-javascript.html">Qt WebChannel JavaScript API</a>.</p>
-<p><b>Note: </b>The page does not take ownership of the channel object.</p><p><b>Note: </b>Only one web channel can be installed per page, setting one even in another JavaScript world uninstalls any already installed web channel.</p><p>这个函数是在Qt 5.7版本中新增引入的。</p>
+<p><b>注意： </b>The page does not take ownership of the channel object.</p><p><b>注意： </b>Only one web channel can be installed per page, setting one even in another JavaScript world uninstalls any already installed web channel.</p><p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qwebenginepage.html#webChannel">webChannel</a>() 和 <a href="qwebenginescript.html#ScriptWorldId-enum">QWebEngineScript::ScriptWorldId</a>.</p>
 <!-- @@@setWebChannel -->
 <!-- $$$setWebChannel$$$setWebChannelQWebChannel* -->
@@ -955,12 +955,12 @@
 <!-- $$$toHtml[overload1]$$$toHtmlconstQWebEngineCallback<constQString&>& -->
 <h3 class="fn" id="toHtml"><a name="toHtml"></a><span class="type">void</span> QWebEnginePage::<span class="name">toHtml</span>(const <span class="type">QWebEngineCallback</span>&lt;const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;&gt; &amp;<i>resultCallback</i>) const</h3>
 <p>Asynchronous method to retrieve the page's content as HTML, enclosed in HTML and BODY tags. Upon successful completion, <i>resultCallback</i> is called with the page's content.</p>
-<p><b>Note: </b><i>resultCallback</i> can be any of a function pointer, a functor or a lambda, and it is expected to take a <a href="../qtcore/qstring.html">QString</a> parameter.</p><p><b> 参见 </b><a href="qwebenginepage.html#setHtml">setHtml</a>() 和 <a href="qwebenginepage.html#toPlainText">toPlainText</a>().</p>
+<p><b>注意： </b><i>resultCallback</i> can be any of a function pointer, a functor or a lambda, and it is expected to take a <a href="../qtcore/qstring.html">QString</a> parameter.</p><p><b> 参见 </b><a href="qwebenginepage.html#setHtml">setHtml</a>() 和 <a href="qwebenginepage.html#toPlainText">toPlainText</a>().</p>
 <!-- @@@toHtml -->
 <!-- $$$toPlainText[overload1]$$$toPlainTextconstQWebEngineCallback<constQString&>& -->
 <h3 class="fn" id="toPlainText"><a name="toPlainText"></a><span class="type">void</span> QWebEnginePage::<span class="name">toPlainText</span>(const <span class="type">QWebEngineCallback</span>&lt;const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;&gt; &amp;<i>resultCallback</i>) const</h3>
 <p>Asynchronous method to retrieve the page's content converted to plain text, completely stripped of all HTML formatting. Upon successful completion, <i>resultCallback</i> is called with the page's content.</p>
-<p><b>Note: </b><i>resultCallback</i> can be any of a function pointer, a functor or a lambda, and it is expected to take a <a href="../qtcore/qstring.html">QString</a> parameter.</p><p><b> 参见 </b><a href="qwebenginepage.html#toHtml">toHtml</a>().</p>
+<p><b>注意： </b><i>resultCallback</i> can be any of a function pointer, a functor or a lambda, and it is expected to take a <a href="../qtcore/qstring.html">QString</a> parameter.</p><p><b> 参见 </b><a href="qwebenginepage.html#toHtml">toHtml</a>().</p>
 <!-- @@@toPlainText -->
 <!-- $$$triggerAction[overload1]$$$triggerActionQWebEnginePage::WebActionbool -->
 <h3 class="fn" id="triggerAction"><a name="triggerAction"></a><code>[虚函数] </code><span class="type">void</span> QWebEnginePage::<span class="name">triggerAction</span>(<span class="type"><a href="qwebenginepage.html#WebAction-enum">QWebEnginePage::WebAction</a></span> <i>action</i>, <span class="type">bool</span> <i>checked</i> = ...)</h3>

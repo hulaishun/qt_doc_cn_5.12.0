@@ -119,7 +119,7 @@
 <p>The pixel contents of a video frame can be mapped to memory using the <a href="qvideoframe.html#map">map</a>() function. While mapped, the video data can accessed using the <a href="qvideoframe.html#bits">bits</a>() function, which returns a pointer to a buffer. The total size of this buffer is given by the <a href="qvideoframe.html#mappedBytes">mappedBytes</a>() function, and the size of each line is given by <a href="qvideoframe.html#bytesPerLine">bytesPerLine</a>(). The return value of the <a href="qvideoframe.html#handle">handle</a>() function may also be used to access frame data using the internal buffer's native APIs (for example - an OpenGL texture handle).</p>
 <p>A video frame can also have timestamp information associated with it. These timestamps can be used by an implementation of <a href="qabstractvideosurface.html">QAbstractVideoSurface</a> to determine when to start and stop displaying the frame, but not all surfaces might respect this setting.</p>
 <p>The video pixel data in a <a href="qvideoframe.html">QVideoFrame</a> is encapsulated in a <a href="qabstractvideobuffer.html">QAbstractVideoBuffer</a>. A <a href="qvideoframe.html">QVideoFrame</a> may be constructed from any buffer type by subclassing the <a href="qabstractvideobuffer.html">QAbstractVideoBuffer</a> class.</p>
-<p><b>Note: </b>Since video frames can be expensive to copy, <a href="qvideoframe.html">QVideoFrame</a> is explicitly shared, so any change made to a video frame will also apply to any copies.</p></div>
+<p><b>注意： </b>Since video frames can be expensive to copy, <a href="qvideoframe.html">QVideoFrame</a> is explicitly shared, so any change made to a video frame will also apply to any copies.</p></div>
 <!-- @@@QVideoFrame -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -186,7 +186,7 @@
 <!-- $$$QVideoFrame$$$QVideoFrameQAbstractVideoBuffer*constQSize&QVideoFrame::PixelFormat -->
 <h3 class="fn" id="QVideoFrame-1"><a name="QVideoFrame-1"></a>QVideoFrame::<span class="name">QVideoFrame</span>(<span class="type"><a href="qabstractvideobuffer.html">QAbstractVideoBuffer</a></span> *<i>buffer</i>, const <span class="type"><a href="../qtcore/qsize.html">QSize</a></span> &amp;<i>size</i>, <span class="type"><a href="qvideoframe.html#PixelFormat-enum">QVideoFrame::PixelFormat</a></span> <i>format</i>)</h3>
 <p>Constructs a video frame from a <i>buffer</i> with the given pixel <i>format</i> and <i>size</i> in pixels.</p>
-<p><b>Note: </b>This doesn't increment the reference count of the video buffer.</p><!-- @@@QVideoFrame -->
+<p><b>注意： </b>This doesn't increment the reference count of the video buffer.</p><!-- @@@QVideoFrame -->
 <!-- $$$QVideoFrame$$$QVideoFrameintconstQSize&intQVideoFrame::PixelFormat -->
 <h3 class="fn" id="QVideoFrame-2"><a name="QVideoFrame-2"></a>QVideoFrame::<span class="name">QVideoFrame</span>(<span class="type">int</span> <i>bytes</i>, const <span class="type"><a href="../qtcore/qsize.html">QSize</a></span> &amp;<i>size</i>, <span class="type">int</span> <i>bytesPerLine</i>, <span class="type"><a href="qvideoframe.html#PixelFormat-enum">QVideoFrame::PixelFormat</a></span> <i>format</i>)</h3>
 <p>Constructs a video frame of the given pixel <i>format</i> and <i>size</i> in pixels.</p>
@@ -195,7 +195,7 @@
 <!-- $$$QVideoFrame$$$QVideoFrameconstQImage& -->
 <h3 class="fn" id="QVideoFrame-3"><a name="QVideoFrame-3"></a>QVideoFrame::<span class="name">QVideoFrame</span>(const <span class="type"><a href="../qtgui/qimage.html">QImage</a></span> &amp;<i>image</i>)</h3>
 <p>Constructs a video frame from an <i>image</i>.</p>
-<p><b>Note: </b>This will construct an invalid video frame if there is no frame type equivalent to the image format.</p><p><b> 参见 </b><a href="qvideoframe.html#pixelFormatFromImageFormat">pixelFormatFromImageFormat</a>().</p>
+<p><b>注意： </b>This will construct an invalid video frame if there is no frame type equivalent to the image format.</p><p><b> 参见 </b><a href="qvideoframe.html#pixelFormatFromImageFormat">pixelFormatFromImageFormat</a>().</p>
 <!-- @@@QVideoFrame -->
 <!-- $$$QVideoFrame$$$QVideoFrameconstQVideoFrame& -->
 <h3 class="fn" id="QVideoFrame-4"><a name="QVideoFrame-4"></a>QVideoFrame::<span class="name">QVideoFrame</span>(const <span class="type"><a href="qvideoframe.html#QVideoFrame">QVideoFrame</a></span> &amp;<i>other</i>)</h3>
@@ -242,7 +242,7 @@
 <!-- $$$bytesPerLine[overload1]$$$bytesPerLine -->
 <h3 class="fn" id="bytesPerLine"><a name="bytesPerLine"></a><span class="type">int</span> QVideoFrame::<span class="name">bytesPerLine</span>() const</h3>
 <p>Returns the number of bytes in a scan line.</p>
-<p><b>Note: </b>For planar formats this is the bytes per line of the first plane only. The bytes per line of subsequent planes should be calculated as per the frame <a href="qvideoframe.html#PixelFormat-enum">pixel format</a>.</p><p>This value is only valid while the frame data is <a href="qvideoframe.html#map">mapped</a>.</p>
+<p><b>注意： </b>For planar formats this is the bytes per line of the first plane only. The bytes per line of subsequent planes should be calculated as per the frame <a href="qvideoframe.html#PixelFormat-enum">pixel format</a>.</p><p>This value is only valid while the frame data is <a href="qvideoframe.html#map">mapped</a>.</p>
 <p><b> 参见 </b><a href="qvideoframe.html#bits">bits</a>(), <a href="qvideoframe.html#map">map</a>(), 和 <a href="qvideoframe.html#mappedBytes">mappedBytes</a>().</p>
 <!-- @@@bytesPerLine -->
 <!-- $$$bytesPerLine$$$bytesPerLineint -->
@@ -281,7 +281,7 @@
 <!-- $$$imageFormatFromPixelFormat[overload1]$$$imageFormatFromPixelFormatQVideoFrame::PixelFormat -->
 <h3 class="fn" id="imageFormatFromPixelFormat"><a name="imageFormatFromPixelFormat"></a><code>[静态函数] </code><span class="type"><a href="../qtgui/qimage.html#Format-enum">QImage::Format</a></span> QVideoFrame::<span class="name">imageFormatFromPixelFormat</span>(<span class="type"><a href="qvideoframe.html#PixelFormat-enum">QVideoFrame::PixelFormat</a></span> <i>format</i>)</h3>
 <p>Returns an image format equivalent to a video frame pixel <i>format</i>. If there is no equivalent format <a href="../qtgui/qimage.html#Format-enum">QImage::Format_Invalid</a> is returned instead.</p>
-<p><b>Note: </b>In general <a href="../qtgui/qimage.html">QImage</a> does not handle YUV formats.</p><!-- @@@imageFormatFromPixelFormat -->
+<p><b>注意： </b>In general <a href="../qtgui/qimage.html">QImage</a> does not handle YUV formats.</p><!-- @@@imageFormatFromPixelFormat -->
 <!-- $$$isMapped[overload1]$$$isMapped -->
 <h3 class="fn" id="isMapped"><a name="isMapped"></a><span class="type">bool</span> QVideoFrame::<span class="name">isMapped</span>() const</h3>
 <p>Identifies if a video frame's contents are currently mapped to system memory.</p>
@@ -307,7 +307,7 @@
 <p>Identifies if the mapped contents of a video frame will be persisted when the frame is unmapped.</p>
 <p>This is a convenience function which checks if the <a href="qabstractvideobuffer.html#MapMode-enum">MapMode</a> contains the <a href="qabstractvideobuffer.html#MapMode-enum">QAbstractVideoBuffer::WriteOnly</a> flag.</p>
 <p>Returns true if the video frame will be updated when unmapped, and false otherwise.</p>
-<p><b>Note: </b>The result of altering the data of a frame that is mapped in read-only mode is undefined. Depending on the buffer implementation the changes may be persisted, or worse alter a shared buffer.</p><p><b> 参见 </b><a href="qvideoframe.html#mapMode">mapMode</a>() 和 <a href="qabstractvideobuffer.html#MapMode-enum">QAbstractVideoBuffer::MapMode</a>.</p>
+<p><b>注意： </b>The result of altering the data of a frame that is mapped in read-only mode is undefined. Depending on the buffer implementation the changes may be persisted, or worse alter a shared buffer.</p><p><b> 参见 </b><a href="qvideoframe.html#mapMode">mapMode</a>() 和 <a href="qabstractvideobuffer.html#MapMode-enum">QAbstractVideoBuffer::MapMode</a>.</p>
 <!-- @@@isWritable -->
 <!-- $$$map[overload1]$$$mapQAbstractVideoBuffer::MapMode -->
 <h3 class="fn" id="map"><a name="map"></a><span class="type">bool</span> QVideoFrame::<span class="name">map</span>(<span class="type"><a href="qabstractvideobuffer.html#MapMode-enum">QAbstractVideoBuffer::MapMode</a></span> <i>mode</i>)</h3>
@@ -317,7 +317,7 @@
 <p>While mapped the contents of a video frame can be accessed directly through the pointer returned by the <a href="qvideoframe.html#bits">bits</a>() function.</p>
 <p>When access to the data is no longer needed, be sure to call the <a href="qvideoframe.html#unmap">unmap</a>() function to release the mapped memory and possibly update the video frame contents.</p>
 <p>If the video frame has been mapped in read only mode, it is permissible to map it multiple times in read only mode (and unmap it a corresponding number of times). In all other cases it is necessary to unmap the frame first before mapping a second time.</p>
-<p><b>Note: </b>Writing to memory that is mapped as read-only is undefined, and may result in changes to shared data or crashes.</p><p>Returns true if the frame was mapped to memory in the given <i>mode</i> and false otherwise.</p>
+<p><b>注意： </b>Writing to memory that is mapped as read-only is undefined, and may result in changes to shared data or crashes.</p><p>Returns true if the frame was mapped to memory in the given <i>mode</i> and false otherwise.</p>
 <p><b> 参见 </b><a href="qvideoframe.html#unmap">unmap</a>(), <a href="qvideoframe.html#mapMode">mapMode</a>(), 和 <a href="qvideoframe.html#bits">bits</a>().</p>
 <!-- @@@map -->
 <!-- $$$mapMode[overload1]$$$mapMode -->
@@ -345,7 +345,7 @@
 <!-- $$$pixelFormatFromImageFormat[overload1]$$$pixelFormatFromImageFormatQImage::Format -->
 <h3 class="fn" id="pixelFormatFromImageFormat"><a name="pixelFormatFromImageFormat"></a><code>[静态函数] </code><span class="type"><a href="qvideoframe.html#PixelFormat-enum">QVideoFrame::PixelFormat</a></span> QVideoFrame::<span class="name">pixelFormatFromImageFormat</span>(<span class="type"><a href="../qtgui/qimage.html#Format-enum">QImage::Format</a></span> <i>format</i>)</h3>
 <p>Returns a video pixel format equivalent to an image <i>format</i>. If there is no equivalent format QVideoFrame::InvalidType is returned instead.</p>
-<p><b>Note: </b>In general <a href="../qtgui/qimage.html">QImage</a> does not handle YUV formats.</p><!-- @@@pixelFormatFromImageFormat -->
+<p><b>注意： </b>In general <a href="../qtgui/qimage.html">QImage</a> does not handle YUV formats.</p><!-- @@@pixelFormatFromImageFormat -->
 <!-- $$$planeCount[overload1]$$$planeCount -->
 <h3 class="fn" id="planeCount"><a name="planeCount"></a><span class="type">int</span> QVideoFrame::<span class="name">planeCount</span>() const</h3>
 <p>Returns the number of planes in the video frame.</p>

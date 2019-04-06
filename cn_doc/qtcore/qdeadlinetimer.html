@@ -231,7 +231,7 @@
 <!-- $$$addNSecs[overload1]$$$addNSecsQDeadlineTimerqint64 -->
 <h3 class="fn" id="addNSecs"><a name="addNSecs"></a><code>[静态函数] </code><span class="type"><a href="qdeadlinetimer.html#QDeadlineTimer">QDeadlineTimer</a></span> QDeadlineTimer::<span class="name">addNSecs</span>(<span class="type"><a href="qdeadlinetimer.html#QDeadlineTimer">QDeadlineTimer</a></span> <i>dt</i>, <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> <i>nsecs</i>)</h3>
 <p>Returns a <a href="qdeadlinetimer.html">QDeadlineTimer</a> object whose deadline is extended from <i>dt</i>'s deadline by <i>nsecs</i> nanoseconds. If <i>dt</i> was set to never expire, this function returns a <a href="qdeadlinetimer.html">QDeadlineTimer</a> that will not expire either.</p>
-<p><b>Note: </b>if <i>dt</i> was created as expired, its deadline is indeterminate and adding an amount of time may or may not cause it to become unexpired.</p><!-- @@@addNSecs -->
+<p><b>注意： </b>if <i>dt</i> was created as expired, its deadline is indeterminate and adding an amount of time may or may not cause it to become unexpired.</p><!-- @@@addNSecs -->
 <!-- $$$current[overload1]$$$currentQt::TimerType -->
 <h3 class="fn" id="current"><a name="current"></a><code>[静态函数] </code><span class="type"><a href="qdeadlinetimer.html#QDeadlineTimer">QDeadlineTimer</a></span> QDeadlineTimer::<span class="name">current</span>(<span class="type">Qt::TimerType</span> <i>timerType</i> = Qt::CoarseTimer)</h3>
 <p>Returns a <a href="qdeadlinetimer.html">QDeadlineTimer</a> that is expired but is guaranteed to contain the current time. Objects created by this function can participate in the calculation of how long a timer is overdue, using the <a href="qdeadlinetimer.html#deadline">deadline</a>() function.</p>
@@ -254,7 +254,7 @@
       }
 
 </pre>
-<p><b>Note: </b>Timers that were created as expired have an indetermine time point in the past as their deadline, so the above calculation may not work.</p><p><b> 参见 </b><a href="qdeadlinetimer.html#remainingTime">remainingTime</a>(), <a href="qdeadlinetimer.html#deadlineNSecs">deadlineNSecs</a>(), 和 <a href="qdeadlinetimer.html#setDeadline">setDeadline</a>().</p>
+<p><b>注意： </b>Timers that were created as expired have an indetermine time point in the past as their deadline, so the above calculation may not work.</p><p><b> 参见 </b><a href="qdeadlinetimer.html#remainingTime">remainingTime</a>(), <a href="qdeadlinetimer.html#deadlineNSecs">deadlineNSecs</a>(), 和 <a href="qdeadlinetimer.html#setDeadline">setDeadline</a>().</p>
 <!-- @@@deadline -->
 <!-- $$$deadlineNSecs[overload1]$$$deadlineNSecs -->
 <h3 class="fn" id="deadlineNSecs"><a name="deadlineNSecs"></a><span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> QDeadlineTimer::<span class="name">deadlineNSecs</span>() const</h3>
@@ -268,7 +268,7 @@
           realTimeLeft <span class="operator">-</span><span class="operator">=</span> <span class="type"><a href="qdeadlinetimer.html#QDeadlineTimer">QDeadlineTimer</a></span><span class="operator">::</span>current()<span class="operator">.</span>deadlineNSecs();
 
 </pre>
-<p><b>Note: </b>Timers that were created as expired have an indetermine time point in the past as their deadline, so the above calculation may not work.</p><p><b> 参见 </b><a href="qdeadlinetimer.html#remainingTime">remainingTime</a>() and deadlineNSecs().</p>
+<p><b>注意： </b>Timers that were created as expired have an indetermine time point in the past as their deadline, so the above calculation may not work.</p><p><b> 参见 </b><a href="qdeadlinetimer.html#remainingTime">remainingTime</a>() and deadlineNSecs().</p>
 <!-- @@@deadlineNSecs -->
 <!-- $$$hasExpired[overload1]$$$hasExpired -->
 <h3 class="fn" id="hasExpired"><a name="hasExpired"></a><span class="type">bool</span> QDeadlineTimer::<span class="name">hasExpired</span>() const</h3>
@@ -344,7 +344,7 @@
       deadline<span class="operator">.</span>setRemainingTime(<span class="number">250ms</span>);
 
 </pre>
-<p><b>Note: </b>Qt detects the necessary C++14 compiler support by way of the feature test recommendations from <a href="https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations">C++ Committee's Standing Document 6</a>.</p><p><b> 参见 </b><a href="qdeadlinetimer.html#setDeadline">setDeadline</a>(), <a href="qdeadlinetimer.html#remainingTime">remainingTime</a>(), <a href="qdeadlinetimer.html#hasExpired">hasExpired</a>(), 和 <a href="qdeadlinetimer.html#isForever">isForever</a>().</p>
+<p><b>注意： </b>Qt detects the necessary C++14 compiler support by way of the feature test recommendations from <a href="https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations">C++ Committee's Standing Document 6</a>.</p><p><b> 参见 </b><a href="qdeadlinetimer.html#setDeadline">setDeadline</a>(), <a href="qdeadlinetimer.html#remainingTime">remainingTime</a>(), <a href="qdeadlinetimer.html#hasExpired">hasExpired</a>(), 和 <a href="qdeadlinetimer.html#isForever">isForever</a>().</p>
 <!-- @@@setRemainingTime -->
 <!-- $$$setTimerType[overload1]$$$setTimerTypeQt::TimerType -->
 <h3 class="fn" id="setTimerType"><a name="setTimerType"></a><span class="type">void</span> QDeadlineTimer::<span class="name">setTimerType</span>(<span class="type">Qt::TimerType</span> <i>timerType</i>)</h3>
@@ -393,7 +393,7 @@
       <span class="keyword">return</span> d1<span class="operator">.</span>deadlineNSecs() <span class="operator">!</span><span class="operator">=</span> d2<span class="operator">.</span>deadlineNSecs();
 
 </pre>
-<p><b>Note: </b>comparing <a href="qdeadlinetimer.html">QDeadlineTimer</a> objects with different timer types is not supported and may result in unpredictable behavior.</p><!-- @@@operator!= -->
+<p><b>注意： </b>comparing <a href="qdeadlinetimer.html">QDeadlineTimer</a> objects with different timer types is not supported and may result in unpredictable behavior.</p><!-- @@@operator!= -->
 <!-- $$$operator+[overload1]$$$operator+QDeadlineTimerqint64 -->
 <h3 class="fn" id="operator-2b"><a name="operator-2b"></a><span class="type"><a href="qdeadlinetimer.html#QDeadlineTimer">QDeadlineTimer</a></span> <span class="name">operator+</span>(<span class="type"><a href="qdeadlinetimer.html#QDeadlineTimer">QDeadlineTimer</a></span> <i>dt</i>, <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> <i>msecs</i>)</h3>
 <p>Returns a <a href="qdeadlinetimer.html">QDeadlineTimer</a> object whose deadline is <i>msecs</i> later than the deadline stored in <i>dt</i>. If <i>dt</i> is set to never expire, this function returns a <a href="qdeadlinetimer.html">QDeadlineTimer</a> that does not expire either.</p>
@@ -417,7 +417,7 @@
       <span class="keyword">return</span> d1<span class="operator">.</span>deadlineNSecs() <span class="operator">&lt;</span> d2<span class="operator">.</span>deadlineNSecs();
 
 </pre>
-<p><b>Note: </b>comparing <a href="qdeadlinetimer.html">QDeadlineTimer</a> objects with different timer types is not supported and may result in unpredictable behavior.</p><!-- @@@operator< -->
+<p><b>注意： </b>comparing <a href="qdeadlinetimer.html">QDeadlineTimer</a> objects with different timer types is not supported and may result in unpredictable behavior.</p><!-- @@@operator< -->
 <!-- $$$operator<=[overload1]$$$operator<=QDeadlineTimerQDeadlineTimer -->
 <h3 class="fn" id="operator-lt-eq"><a name="operator-lt-eq"></a><span class="type">bool</span> <span class="name">operator&lt;=</span>(<span class="type"><a href="qdeadlinetimer.html#QDeadlineTimer">QDeadlineTimer</a></span> <i>d1</i>, <span class="type"><a href="qdeadlinetimer.html#QDeadlineTimer">QDeadlineTimer</a></span> <i>d2</i>)</h3>
 <p>Returns true if the deadline on <i>d1</i> is earlier than or the same as the deadline in <i>d2</i>, false otherwise. The timer type used to create the two deadlines is ignored. This function is equivalent to:</p>
@@ -426,7 +426,7 @@
       <span class="keyword">return</span> d1<span class="operator">.</span>deadlineNSecs() <span class="operator">&lt;</span><span class="operator">=</span> d2<span class="operator">.</span>deadlineNSecs();
 
 </pre>
-<p><b>Note: </b>comparing <a href="qdeadlinetimer.html">QDeadlineTimer</a> objects with different timer types is not supported and may result in unpredictable behavior.</p><!-- @@@operator<= -->
+<p><b>注意： </b>comparing <a href="qdeadlinetimer.html">QDeadlineTimer</a> objects with different timer types is not supported and may result in unpredictable behavior.</p><!-- @@@operator<= -->
 <!-- $$$operator==[overload1]$$$operator==QDeadlineTimerQDeadlineTimer -->
 <h3 class="fn" id="operator-eq-eq"><a name="operator-eq-eq"></a><span class="type">bool</span> <span class="name">operator==</span>(<span class="type"><a href="qdeadlinetimer.html#QDeadlineTimer">QDeadlineTimer</a></span> <i>d1</i>, <span class="type"><a href="qdeadlinetimer.html#QDeadlineTimer">QDeadlineTimer</a></span> <i>d2</i>)</h3>
 <p>Returns true if the deadline on <i>d1</i> and the deadline in <i>d2</i> are the same, false otherwise. The timer type used to create the two deadlines is ignored. This function is equivalent to:</p>
@@ -435,7 +435,7 @@
       <span class="keyword">return</span> d1<span class="operator">.</span>deadlineNSecs() <span class="operator">=</span><span class="operator">=</span> d2<span class="operator">.</span>deadlineNSecs();
 
 </pre>
-<p><b>Note: </b>comparing <a href="qdeadlinetimer.html">QDeadlineTimer</a> objects with different timer types is not supported and may result in unpredictable behavior.</p><!-- @@@operator== -->
+<p><b>注意： </b>comparing <a href="qdeadlinetimer.html">QDeadlineTimer</a> objects with different timer types is not supported and may result in unpredictable behavior.</p><!-- @@@operator== -->
 <!-- $$$operator>[overload1]$$$operator>QDeadlineTimerQDeadlineTimer -->
 <h3 class="fn" id="operator-gt"><a name="operator-gt"></a><span class="type">bool</span> <span class="name">operator&gt;</span>(<span class="type"><a href="qdeadlinetimer.html#QDeadlineTimer">QDeadlineTimer</a></span> <i>d1</i>, <span class="type"><a href="qdeadlinetimer.html#QDeadlineTimer">QDeadlineTimer</a></span> <i>d2</i>)</h3>
 <p>Returns true if the deadline on <i>d1</i> is later than the deadline in <i>d2</i>, false otherwise. The timer type used to create the two deadlines is ignored. This function is equivalent to:</p>
@@ -444,7 +444,7 @@
       <span class="keyword">return</span> d1<span class="operator">.</span>deadlineNSecs() <span class="operator">&gt;</span> d2<span class="operator">.</span>deadlineNSecs();
 
 </pre>
-<p><b>Note: </b>comparing <a href="qdeadlinetimer.html">QDeadlineTimer</a> objects with different timer types is not supported and may result in unpredictable behavior.</p><!-- @@@operator> -->
+<p><b>注意： </b>comparing <a href="qdeadlinetimer.html">QDeadlineTimer</a> objects with different timer types is not supported and may result in unpredictable behavior.</p><!-- @@@operator> -->
 <!-- $$$operator>=[overload1]$$$operator>=QDeadlineTimerQDeadlineTimer -->
 <h3 class="fn" id="operator-gt-eq"><a name="operator-gt-eq"></a><span class="type">bool</span> <span class="name">operator&gt;=</span>(<span class="type"><a href="qdeadlinetimer.html#QDeadlineTimer">QDeadlineTimer</a></span> <i>d1</i>, <span class="type"><a href="qdeadlinetimer.html#QDeadlineTimer">QDeadlineTimer</a></span> <i>d2</i>)</h3>
 <p>Returns true if the deadline on <i>d1</i> is later than or the same as the deadline in <i>d2</i>, false otherwise. The timer type used to create the two deadlines is ignored. This function is equivalent to:</p>
@@ -453,7 +453,7 @@
       <span class="keyword">return</span> d1<span class="operator">.</span>deadlineNSecs() <span class="operator">&gt;</span><span class="operator">=</span> d2<span class="operator">.</span>deadlineNSecs();
 
 </pre>
-<p><b>Note: </b>comparing <a href="qdeadlinetimer.html">QDeadlineTimer</a> objects with different timer types is not supported and may result in unpredictable behavior.</p><!-- @@@operator>= -->
+<p><b>注意： </b>comparing <a href="qdeadlinetimer.html">QDeadlineTimer</a> objects with different timer types is not supported and may result in unpredictable behavior.</p><!-- @@@operator>= -->
 </div>
 <div class="macros">
 <h2>宏定义文档</h2>

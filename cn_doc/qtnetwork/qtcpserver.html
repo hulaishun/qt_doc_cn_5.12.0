@@ -162,7 +162,7 @@
 <!-- $$$addPendingConnection[overload1]$$$addPendingConnectionQTcpSocket* -->
 <h3 class="fn" id="addPendingConnection"><a name="addPendingConnection"></a><code>[保护函数] </code><span class="type">void</span> QTcpServer::<span class="name">addPendingConnection</span>(<span class="type"><a href="qtcpsocket.html">QTcpSocket</a></span> *<i>socket</i>)</h3>
 <p>This function is called by <a href="qtcpserver.html#incomingConnection">QTcpServer::incomingConnection</a>() to add the <i>socket</i> to the list of pending incoming connections.</p>
-<p><b>Note: </b>Don't forget to call this member from reimplemented <a href="qtcpserver.html#incomingConnection">incomingConnection</a>() if you do not want to break the Pending Connections mechanism.</p><p>这个函数是在Qt 4.7版本中新增引入的。</p>
+<p><b>注意： </b>Don't forget to call this member from reimplemented <a href="qtcpserver.html#incomingConnection">incomingConnection</a>() if you do not want to break the Pending Connections mechanism.</p><p>这个函数是在Qt 4.7版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qtcpserver.html#incomingConnection">incomingConnection</a>().</p>
 <!-- @@@addPendingConnection -->
 <!-- $$$close[overload1]$$$close -->
@@ -186,7 +186,7 @@
 <p>The base implementation creates a <a href="qtcpsocket.html">QTcpSocket</a>, sets the socket descriptor and then stores the <a href="qtcpsocket.html">QTcpSocket</a> in an internal list of pending connections. Finally <a href="qtcpserver.html#newConnection">newConnection</a>() is emitted.</p>
 <p>Reimplement this function to alter the server's behavior when a connection is available.</p>
 <p>If this server is using <a href="qnetworkproxy.html">QNetworkProxy</a> then the <i>socketDescriptor</i> may not be usable with native socket functions, and should only be used with <a href="qabstractsocket.html#setSocketDescriptor">QTcpSocket::setSocketDescriptor</a>().</p>
-<p><b>Note: </b>If another socket is created in the reimplementation of this method, it needs to be added to the Pending Connections mechanism by calling <a href="qtcpserver.html#addPendingConnection">addPendingConnection</a>().</p><p><b>Note: </b>If you want to handle an incoming connection as a new <a href="qtcpsocket.html">QTcpSocket</a> object in another thread you have to pass the <a href="qtcpserver.html#socketDescriptor">socketDescriptor</a> to the other thread and create the <a href="qtcpsocket.html">QTcpSocket</a> object there and use its <a href="qtcpserver.html#setSocketDescriptor">setSocketDescriptor</a>() method.</p><p><b> 参见 </b><a href="qtcpserver.html#newConnection">newConnection</a>(), <a href="qtcpserver.html#nextPendingConnection">nextPendingConnection</a>(), 和 <a href="qtcpserver.html#addPendingConnection">addPendingConnection</a>().</p>
+<p><b>注意： </b>If another socket is created in the reimplementation of this method, it needs to be added to the Pending Connections mechanism by calling <a href="qtcpserver.html#addPendingConnection">addPendingConnection</a>().</p><p><b>注意： </b>If you want to handle an incoming connection as a new <a href="qtcpsocket.html">QTcpSocket</a> object in another thread you have to pass the <a href="qtcpserver.html#socketDescriptor">socketDescriptor</a> to the other thread and create the <a href="qtcpsocket.html">QTcpSocket</a> object there and use its <a href="qtcpserver.html#setSocketDescriptor">setSocketDescriptor</a>() method.</p><p><b> 参见 </b><a href="qtcpserver.html#newConnection">newConnection</a>(), <a href="qtcpserver.html#nextPendingConnection">nextPendingConnection</a>(), 和 <a href="qtcpserver.html#addPendingConnection">addPendingConnection</a>().</p>
 <!-- @@@incomingConnection -->
 <!-- $$$isListening[overload1]$$$isListening -->
 <h3 class="fn" id="isListening"><a name="isListening"></a><span class="type">bool</span> QTcpServer::<span class="name">isListening</span>() const</h3>
@@ -214,7 +214,7 @@
 <p>Returns the next pending connection as a connected <a href="qtcpsocket.html">QTcpSocket</a> object.</p>
 <p>The socket is created as a child of the server, which means that it is automatically deleted when the <a href="qtcpserver.html">QTcpServer</a> object is destroyed. It is still a good idea to delete the object explicitly when you are done with it, to avoid wasting memory.</p>
 <p>0 is returned if this function is called when there are no pending connections.</p>
-<p><b>Note: </b>The returned <a href="qtcpsocket.html">QTcpSocket</a> object cannot be used from another thread. If you want to use an incoming connection from another thread, you need to override <a href="qtcpserver.html#incomingConnection">incomingConnection</a>().</p><p><b> 参见 </b><a href="qtcpserver.html#hasPendingConnections">hasPendingConnections</a>().</p>
+<p><b>注意： </b>The returned <a href="qtcpsocket.html">QTcpSocket</a> object cannot be used from another thread. If you want to use an incoming connection from another thread, you need to override <a href="qtcpserver.html#incomingConnection">incomingConnection</a>().</p><p><b> 参见 </b><a href="qtcpserver.html#hasPendingConnections">hasPendingConnections</a>().</p>
 <!-- @@@nextPendingConnection -->
 <!-- $$$pauseAccepting[overload1]$$$pauseAccepting -->
 <h3 class="fn" id="pauseAccepting"><a name="pauseAccepting"></a><span class="type">void</span> QTcpServer::<span class="name">pauseAccepting</span>()</h3>

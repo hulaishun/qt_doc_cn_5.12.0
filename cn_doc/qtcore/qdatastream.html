@@ -274,7 +274,7 @@
 <!-- $$$FloatingPointPrecision$$$SinglePrecision$$$DoublePrecision -->
 <h3 class="fn" id="FloatingPointPrecision-enum"><a name="FloatingPointPrecision-enum"></a>enum QDataStream::<span class="name">FloatingPointPrecision</span></h3>
 <p>The precision of floating point numbers used for reading/writing the data. This will only have an effect if the version of the data stream is <a href="qdatastream.html#Version-enum">Qt_4_6</a> or higher.</p>
-<p><b>Warning:</b> The floating point precision must be set to the same value on the object that writes and the object that reads the data stream.</p>
+<p><b>警告：</b> The floating point precision must be set to the same value on the object that writes and the object that reads the data stream.</p>
 <div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QDataStream::SinglePrecision</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">All floating point numbers in the data stream have 32-bit precision.</td></tr>
 <tr><td class="topAlign"><code>QDataStream::DoublePrecision</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">All floating point numbers in the data stream have 64-bit precision.</td></tr>
@@ -452,7 +452,7 @@
 <p>For versions prior to <a href="qdatastream.html#Version-enum">Qt_4_6</a>, the precision of floating point numbers in the data stream depends on the stream operator called.</p>
 <p>默认值为 <a href="qdatastream.html#FloatingPointPrecision-enum">DoublePrecision</a>.</p>
 <p>Note that this property does not affect the serialization or deserialization of <code>qfloat16</code> instances.</p>
-<p><b>Warning:</b> This property must be set to the same value on the object that writes and the object that reads the data stream.</p>
+<p><b>警告：</b> This property must be set to the same value on the object that writes and the object that reads the data stream.</p>
 <p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qdatastream.html#floatingPointPrecision">floatingPointPrecision</a>().</p>
 <!-- @@@setFloatingPointPrecision -->
@@ -488,7 +488,7 @@
 <p>Starts a new read transaction on the stream.</p>
 <p>Defines a restorable point within the sequence of read operations. For sequential devices, read data will be duplicated internally to allow recovery in case of incomplete reads. For random-access devices, this function saves the current position of the stream. Call <a href="qdatastream.html#commitTransaction">commitTransaction</a>(), <a href="qdatastream.html#rollbackTransaction">rollbackTransaction</a>(), or <a href="qdatastream.html#abortTransaction">abortTransaction</a>() to finish the current transaction.</p>
 <p>Once a transaction is started, subsequent calls to this function will make the transaction recursive. Inner transactions act as agents of the outermost transaction (i.e&#x2e;, report the status of read operations to the outermost transaction, which can restore the position of the stream).</p>
-<p><b>Note: </b>Restoring to the point of the nested startTransaction() call is not supported.</p><p>When an error occurs during a transaction (including an inner transaction failing), reading from the data stream is suspended (all subsequent read operations return empty/zero values) and subsequent inner transactions are forced to fail. Starting a new outermost transaction recovers from this state. This behavior makes it unnecessary to error-check every read operation separately.</p>
+<p><b>注意： </b>Restoring to the point of the nested startTransaction() call is not supported.</p><p>When an error occurs during a transaction (including an inner transaction failing), reading from the data stream is suspended (all subsequent read operations return empty/zero values) and subsequent inner transactions are forced to fail. Starting a new outermost transaction recovers from this state. This behavior makes it unnecessary to error-check every read operation separately.</p>
 <p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qdatastream.html#commitTransaction">commitTransaction</a>(), <a href="qdatastream.html#rollbackTransaction">rollbackTransaction</a>(), 和 <a href="qdatastream.html#abortTransaction">abortTransaction</a>().</p>
 <!-- @@@startTransaction -->

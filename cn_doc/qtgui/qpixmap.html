@@ -187,7 +187,7 @@
 <p><a href="qpixmap.html">QPixmap</a> supports a number of functions for creating a new pixmap that is a transformed version of the original:</p>
 <p>The <a href="qpixmap.html#scaled">scaled</a>(), <a href="qpixmap.html#scaledToWidth">scaledToWidth</a>() 和 <a href="qpixmap.html#scaledToHeight">scaledToHeight</a>() functions return scaled copies of the pixmap, while the <a href="qpixmap.html#copy">copy</a>() function creates a <a href="qpixmap.html">QPixmap</a> that is a plain copy of the original one.</p>
 <p>The <a href="qpixmap.html#transformed">transformed</a>() function returns a copy of the pixmap that is transformed with the given transformation matrix and transformation mode: Internally, the transformation matrix is adjusted to compensate for unwanted translation, i.e&#x2e; <a href="qpixmap.html#transformed">transformed</a>() returns the smallest pixmap containing all transformed points of the original pixmap. The static <a href="qpixmap.html#trueMatrix">trueMatrix</a>() function returns the actual matrix used for transforming the pixmap.</p>
-<p><b>Note: </b>When using the native X11 graphics system, the pixmap becomes invalid when the <a href="../qtwidgets/qapplication.html">QApplication</a> instance is destroyed.</p></div>
+<p><b>注意： </b>When using the native X11 graphics system, the pixmap becomes invalid when the <a href="../qtwidgets/qapplication.html">QApplication</a> instance is destroyed.</p></div>
 <p><b> 参见 </b><a href="qbitmap.html">QBitmap</a>, <a href="qimage.html">QImage</a>, <a href="qimagereader.html">QImageReader</a>, 和 <a href="qimagewriter.html">QImageWriter</a>.</p>
 <!-- @@@QPixmap -->
 <div class="types">
@@ -206,14 +206,14 @@
 <!-- $$$QPixmap$$$QPixmapintint -->
 <h3 class="fn" id="QPixmap-2"><a name="QPixmap-2"></a>QPixmap::<span class="name">QPixmap</span>(<span class="type">int</span> <i>width</i>, <span class="type">int</span> <i>height</i>)</h3>
 <p>Constructs a pixmap with the given <i>width</i> and <i>height</i>. If either <i>width</i> or <i>height</i> is zero, a null pixmap is constructed.</p>
-<p><b>Warning:</b> This will create a <a href="qpixmap.html">QPixmap</a> with uninitialized data. Call <a href="qpixmap.html#fill">fill</a>() to fill the pixmap with an appropriate color before drawing onto it with <a href="qpainter.html">QPainter</a>.</p>
+<p><b>警告：</b> This will create a <a href="qpixmap.html">QPixmap</a> with uninitialized data. Call <a href="qpixmap.html#fill">fill</a>() to fill the pixmap with an appropriate color before drawing onto it with <a href="qpainter.html">QPainter</a>.</p>
 <p><b> 参见 </b><a href="qpixmap.html#isNull">isNull</a>().</p>
 <!-- @@@QPixmap -->
 <!-- $$$QPixmap$$$QPixmapconstQSize& -->
 <h3 class="fn" id="QPixmap-3"><a name="QPixmap-3"></a>QPixmap::<span class="name">QPixmap</span>(const <span class="type"><a href="../qtcore/qsize.html">QSize</a></span> &amp;<i>size</i>)</h3>
 <p>这是一个重载函数。</p>
 <p>Constructs a pixmap of the given <i>size</i>.</p>
-<p><b>Warning:</b> This will create a <a href="qpixmap.html">QPixmap</a> with uninitialized data. Call <a href="qpixmap.html#fill">fill</a>() to fill the pixmap with an appropriate color before drawing onto it with <a href="qpainter.html">QPainter</a>.</p>
+<p><b>警告：</b> This will create a <a href="qpixmap.html">QPixmap</a> with uninitialized data. Call <a href="qpixmap.html#fill">fill</a>() to fill the pixmap with an appropriate color before drawing onto it with <a href="qpainter.html">QPainter</a>.</p>
 <!-- @@@QPixmap -->
 <!-- $$$QPixmap$$$QPixmapconstQString&constchar*Qt::ImageConversionFlags -->
 <h3 class="fn" id="QPixmap-4"><a name="QPixmap-4"></a>QPixmap::<span class="name">QPixmap</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>fileName</i>, const <span class="type">char</span> *<i>format</i> = nullptr, <span class="type">Qt::ImageConversionFlags</span> <i>flags</i> = Qt::AutoColor)</h3>
@@ -300,7 +300,7 @@
 <h3 class="fn" id="defaultDepth"><a name="defaultDepth"></a><code>[静态函数] </code><span class="type">int</span> QPixmap::<span class="name">defaultDepth</span>()</h3>
 <p>Returns the default pixmap depth used by the application.</p>
 <p>On all platforms the depth of the primary screen will be returned.</p>
-<p><b>Note: </b><a href="qguiapplication.html">QGuiApplication</a> must be created before calling this function.</p><p><b> 参见 </b><a href="qpixmap.html#depth">depth</a>(), <a href="../qtwidgets/qcolormap.html#depth">QColormap::depth</a>(), 和 <a href="qpixmap.html#pixmap-information">Pixmap Information</a>.</p>
+<p><b>注意： </b><a href="qguiapplication.html">QGuiApplication</a> must be created before calling this function.</p><p><b> 参见 </b><a href="qpixmap.html#depth">depth</a>(), <a href="../qtwidgets/qcolormap.html#depth">QColormap::depth</a>(), 和 <a href="qpixmap.html#pixmap-information">Pixmap Information</a>.</p>
 <!-- @@@defaultDepth -->
 <!-- $$$depth[overload1]$$$depth -->
 <h3 class="fn" id="depth"><a name="depth"></a><span class="type">int</span> QPixmap::<span class="name">depth</span>() const</h3>
@@ -394,7 +394,7 @@
 <!-- $$$mask[overload1]$$$mask -->
 <h3 class="fn" id="mask"><a name="mask"></a><span class="type"><a href="qbitmap.html">QBitmap</a></span> QPixmap::<span class="name">mask</span>() const</h3>
 <p>Extracts a bitmap mask from the pixmap's alpha channel.</p>
-<p><b>Warning:</b> This is potentially an expensive operation. The mask of the pixmap is extracted dynamically from the pixeldata.</p>
+<p><b>警告：</b> This is potentially an expensive operation. The mask of the pixmap is extracted dynamically from the pixeldata.</p>
 <p><b> 参见 </b><a href="qpixmap.html#setMask">setMask</a>() 和 <a href="qpixmap.html#pixmap-information">Pixmap Information</a>.</p>
 <!-- @@@mask -->
 <!-- $$$rect[overload1]$$$rect -->
@@ -404,7 +404,7 @@
 <!-- @@@rect -->
 <!-- $$$save[overload1]$$$saveconstQString&constchar*int -->
 <h3 class="fn" id="save"><a name="save"></a><span class="type">bool</span> QPixmap::<span class="name">save</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>fileName</i>, const <span class="type">char</span> *<i>format</i> = nullptr, <span class="type">int</span> <i>quality</i> = -1) const</h3>
-<p>Saves the pixmap to the file with the given <i>fileName</i> using the specified image file <i>format</i> and <i>quality</i> factor. Returns <code>true</code> if successful; otherwise returns <code>false</code>.</p>
+<p>Saves the pixmap to the file with the given <i>fileName</i> using the specified image file <i>format</i> and <i>quality</i> factor. 若成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
 <p>The <i>quality</i> factor must be in the range [0,100] or -1. Specify 0 to obtain small compressed files, 100 for large uncompressed files, and -1 to use the default settings.</p>
 <p>If <i>format</i> is 0, an image format will be chosen from <i>fileName</i>'s suffix.</p>
 <p><b> 参见 </b><a href="qpixmap.html#reading-and-writing-image-files">Reading and Writing Image Files</a>.</p>
@@ -491,7 +491,7 @@
 <p>Sets a mask bitmap.</p>
 <p>This function merges the <i>mask</i> with the pixmap's alpha channel. A pixel value of 1 on the mask means the pixmap's pixel is unchanged; a value of 0 means the pixel is transparent. The mask must have the same size as this pixmap.</p>
 <p>Setting a null mask resets the mask, leaving the previously transparent pixels black. The effect of this function is undefined when the pixmap is being painted on.</p>
-<p><b>Warning:</b> This is potentially an expensive operation.</p>
+<p><b>警告：</b> This is potentially an expensive operation.</p>
 <p><b> 参见 </b><a href="qpixmap.html#mask">mask</a>(), <a href="qpixmap.html#pixmap-transformations">Pixmap Transformations</a>, 和 <a href="qbitmap.html">QBitmap</a>.</p>
 <!-- @@@setMask -->
 <!-- $$$size[overload1]$$$size -->

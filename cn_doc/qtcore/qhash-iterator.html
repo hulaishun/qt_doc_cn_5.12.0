@@ -148,7 +148,7 @@
 </pre>
 <p>However, this will potentially crash in <code>++i</code>, because <code>i</code> is a dangling iterator after the call to <a href="qhash.html#erase">erase</a>().</p>
 <p>Multiple iterators can be used on the same hash. However, be aware that any modification performed directly on the <a href="qhash.html#qhash">QHash</a> has the potential of dramatically changing the order in which the items are stored in the hash, as they might cause <a href="qhash.html#qhash">QHash</a> to rehash its internal data structure. There is one notable exception: <a href="qhash.html#erase">QHash::erase</a>(). This function can safely be called while iterating, and won't affect the order of items in the hash. If you need to keep iterators over a long period of time, we recommend that you use <a href="qmap.html">QMap</a> rather than <a href="qhash.html#qhash">QHash</a>.</p>
-<p><b>Warning:</b> Iterators on implicitly shared containers do not work exactly like STL-iterators. You should avoid copying a container while iterators are active on that container. For more information, read <a href="containers.html#implicit-sharing-iterator-problem">Implicit sharing iterator problem</a>.</p>
+<p><b>警告：</b> Iterators on implicitly shared containers do not work exactly like STL-iterators. You should avoid copying a container while iterators are active on that container. For more information, read <a href="containers.html#implicit-sharing-iterator-problem">Implicit sharing iterator problem</a>.</p>
 </div>
 <p><b> 参见 </b><a href="qhash-const-iterator.html">QHash::const_iterator</a>, <a href="qhash-key-iterator.html">QHash::key_iterator</a>, 和 <a href="qmutablehashiterator.html">QMutableHashIterator</a>.</p>
 <!-- @@@iterator -->

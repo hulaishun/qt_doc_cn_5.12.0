@@ -97,11 +97,11 @@
 
 </pre>
 <p>The complete source code for this example is available in <a href="qtquick-models-stringlistmodel-example.html">examples/quick/models/stringlistmodel</a> within the Qt install directory.</p>
-<p><b>Note: </b>There is no way for the view to know that the contents of a <a href="../qtcore/qstringlist.html">QStringList</a> have changed. If the <a href="../qtcore/qstringlist.html">QStringList</a> changes, it will be necessary to reset the model by calling <a href="../qtqml/qqmlcontext.html#setContextProperty">QQmlContext::setContextProperty</a>() again.</p><a name="qvariantlist-based-model"></a>
+<p><b>注意： </b>There is no way for the view to know that the contents of a <a href="../qtcore/qstringlist.html">QStringList</a> have changed. If the <a href="../qtcore/qstringlist.html">QStringList</a> changes, it will be necessary to reset the model by calling <a href="../qtqml/qqmlcontext.html#setContextProperty">QQmlContext::setContextProperty</a>() again.</p><a name="qvariantlist-based-model"></a>
 <h3 >QVariantList-based Model</h3>
 <p>A model may be a single <a href="../qtcore/qvariant.html#QVariantList-typedef">QVariantList</a>, which provides the contents of the list via the <i>modelData</i> role.</p>
 <p>The API works just like with <a href="../qtcore/qstringlist.html">QStringList</a>, as shown in the previous section.</p>
-<p><b>Note: </b>There is no way for the view to know that the contents of a <a href="../qtcore/qvariant.html#QVariantList-typedef">QVariantList</a> have changed. If the <a href="../qtcore/qvariant.html#QVariantList-typedef">QVariantList</a> changes, it will be necessary to reset the model.</p><a name="qobjectlist-based-model"></a>
+<p><b>注意： </b>There is no way for the view to know that the contents of a <a href="../qtcore/qvariant.html#QVariantList-typedef">QVariantList</a> have changed. If the <a href="../qtcore/qvariant.html#QVariantList-typedef">QVariantList</a> changes, it will be necessary to reset the model.</p><a name="qobjectlist-based-model"></a>
 <h3 >QObjectList-based Model</h3>
 <p>A list of <a href="../qtcore/qobject.html">QObject</a>* values can also be used as a model. A <a href="../qtcore/qlist.html">QList</a>&lt;<a href="../qtcore/qobject.html">QObject</a>*&gt; provides the properties of the objects in the list as roles.</p>
 <p>The following application creates a <code>DataObject</code> class with <a href="../qtcore/qobject.html#Q_PROPERTY">Q_PROPERTY</a> values that will be accessible as named roles when a <a href="../qtcore/qlist.html">QList</a>&lt;DataObject*&gt; is exposed to QML:</p>
@@ -341,7 +341,7 @@
   }
 
 </pre>
-<p><b>Note: </b>It is important to emit the <a href="../qtcore/qabstractitemmodel.html#dataChanged">dataChanged</a>() signal after saving the changes.</p><p>Unlike the C++ item views such as <a href="../qtwidgets/qlistview.html">QListView</a> or <a href="../qtwidgets/qtableview.html">QTableView</a>, the <code>setData()</code> method must be explicitly invoked from QML delegates whenever appropriate. This is done by simply assigning a new value to the corresponding model property. For example, on the editingFinished() or accepted() signal of <a href="../qtquickcontrols/qml-qtquick-controls2-textfield.html">TextField</a>.</p>
+<p><b>注意： </b>It is important to emit the <a href="../qtcore/qabstractitemmodel.html#dataChanged">dataChanged</a>() signal after saving the changes.</p><p>Unlike the C++ item views such as <a href="../qtwidgets/qlistview.html">QListView</a> or <a href="../qtwidgets/qtableview.html">QTableView</a>, the <code>setData()</code> method must be explicitly invoked from QML delegates whenever appropriate. This is done by simply assigning a new value to the corresponding model property. For example, on the editingFinished() or accepted() signal of <a href="../qtquickcontrols/qml-qtquick-controls2-textfield.html">TextField</a>.</p>
 <pre class="qml">
 
   <span class="type"><a href="qml-qtquick-listview.html">ListView</a></span> {
@@ -355,7 +355,7 @@
   }
 
 </pre>
-<p><b>Note: </b>The <code>edit</code> role is equal to <a href="../qtcore/qt.html#ItemDataRole-enum">Qt::EditRole</a>. See <a href="../qtcore/qabstractitemmodel.html#roleNames">roleNames</a>() for the built-in role names. However, real life models would usually register custom roles.</p></div>
+<p><b>注意： </b>The <code>edit</code> role is equal to <a href="../qtcore/qt.html#ItemDataRole-enum">Qt::EditRole</a>. See <a href="../qtcore/qabstractitemmodel.html#roleNames">roleNames</a>() for the built-in role names. However, real life models would usually register custom roles.</p></div>
 <!-- @@@qtquick-modelviewsdata-cppmodels.html -->
         </div>
        </div>

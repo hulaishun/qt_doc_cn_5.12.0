@@ -151,13 +151,13 @@
       query<span class="operator">.</span>evaluateTo(out);
 
 </pre>
-<p><b>Note: </b>Currently, <a href="qxmlquery.html#setFocus">setFocus</a>() must be called <i>before</i> <a href="qxmlquery.html#setQuery">setQuery</a>() when using XSLT.</p><p>Another way to run an XSLT stylesheet is to use the <code>xmlpatterns</code> command line utility.</p>
+<p><b>注意： </b>Currently, <a href="qxmlquery.html#setFocus">setFocus</a>() must be called <i>before</i> <a href="qxmlquery.html#setQuery">setQuery</a>() when using XSLT.</p><p>Another way to run an XSLT stylesheet is to use the <code>xmlpatterns</code> command line utility.</p>
 <pre class="cpp">
 
   xmlpatterns myStylesheet<span class="operator">.</span>xsl myInput<span class="operator">.</span>xml
 
 </pre>
-<p><b>Note: </b>For the current release, XSLT support should be considered experimental. See section <a href="xmlprocessing.html#xslt-2-0">XSLT conformance</a> for details.</p><p>Stylesheet parameters are bound using <a href="qxmlquery.html#bindVariable">bindVariable</a>().</p>
+<p><b>注意： </b>For the current release, XSLT support should be considered experimental. See section <a href="xmlprocessing.html#xslt-2-0">XSLT conformance</a> for details.</p><p>Stylesheet parameters are bound using <a href="qxmlquery.html#bindVariable">bindVariable</a>().</p>
 <a name="binding-a-query-to-a-starting-node"></a>
 <h3 >Binding A Query To A Starting Node</h3>
 <p>When a query is run on XML data, as in the snippet above, the <code>doc()</code> function returns the node in the built-in data model where the query evaluation will begin. But when a query is run on a custom node model containing non-XML data, one of the <a href="qxmlquery.html#bindVariable">bindVariable</a>() functions must be called to bind a variable name to a starting node in the custom model. A $variable reference is used in the <a href="xmlprocessing.html">XQuery</a> text to access the starting node in the custom model. It is not necessary to declare the variable name external in the query. See the example in the documentation for <a href="qabstractxmlnodemodel.html">QAbstractXmlNodeModel</a>.</p>
@@ -204,7 +204,7 @@
 <!-- $$$QXmlQuery[overload1]$$$QXmlQuery -->
 <h3 class="fn" id="QXmlQuery"><a name="QXmlQuery"></a>QXmlQuery::<span class="name">QXmlQuery</span>()</h3>
 <p>Constructs an invalid, empty query that cannot be used until <a href="qxmlquery.html#setQuery">setQuery</a>() is called.</p>
-<p><b>Note: </b>This constructor must not be used if you intend to use this <a href="qxmlquery.html">QXmlQuery</a> to process XSL-T stylesheets. The other constructor must be used in that case.</p><!-- @@@QXmlQuery -->
+<p><b>注意： </b>This constructor must not be used if you intend to use this <a href="qxmlquery.html">QXmlQuery</a> to process XSL-T stylesheets. The other constructor must be used in that case.</p><!-- @@@QXmlQuery -->
 <!-- $$$QXmlQuery$$$QXmlQueryconstQXmlQuery& -->
 <h3 class="fn" id="QXmlQuery-1"><a name="QXmlQuery-1"></a>QXmlQuery::<span class="name">QXmlQuery</span>(const <span class="type"><a href="qxmlquery.html#QXmlQuery">QXmlQuery</a></span> &amp;<i>other</i>)</h3>
 <p>Constructs a <a href="qxmlquery.html">QXmlQuery</a> that is a copy of <i>other</i>. The new instance will share resources with the existing query to the extent possible.</p>
@@ -216,7 +216,7 @@
 <!-- $$$QXmlQuery$$$QXmlQueryQXmlQuery::QueryLanguageconstQXmlNamePool& -->
 <h3 class="fn" id="QXmlQuery-3"><a name="QXmlQuery-3"></a>QXmlQuery::<span class="name">QXmlQuery</span>(<span class="type"><a href="qxmlquery.html#QueryLanguage-enum">QXmlQuery::QueryLanguage</a></span> <i>queryLanguage</i>, const <span class="type"><a href="qxmlnamepool.html">QXmlNamePool</a></span> &amp;<i>np</i> = QXmlNamePool())</h3>
 <p>Constructs a query that will be used to run Xqueries or XSL-T stylesheets, depending on the value of <i>queryLanguage</i>. It will use <i>np</i> as its name pool.</p>
-<p><b>Note: </b>If your <a href="qxmlquery.html">QXmlQuery</a> will process XSL-T stylesheets, this constructor must be used. The default constructor can only create instances of <a href="qxmlquery.html">QXmlQuery</a> for running XQueries.</p><p><b>Note: </b>The XSL-T support in this release is considered experimental. See the <a href="xmlprocessing.html#xslt-2-0">XSLT conformance</a> for details.</p><p>这个函数是在Qt 4.5版本中新增引入的。</p>
+<p><b>注意： </b>If your <a href="qxmlquery.html">QXmlQuery</a> will process XSL-T stylesheets, this constructor must be used. The default constructor can only create instances of <a href="qxmlquery.html">QXmlQuery</a> for running XQueries.</p><p><b>注意： </b>The XSL-T support in this release is considered experimental. See the <a href="xmlprocessing.html#xslt-2-0">XSLT conformance</a> for details.</p><p>这个函数是在Qt 4.5版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qxmlquery.html#queryLanguage">queryLanguage</a>().</p>
 <!-- @@@QXmlQuery -->
 <!-- $$$~QXmlQuery[overload1]$$$~QXmlQuery -->
@@ -271,7 +271,7 @@
 </pre>
 <p><i>name</i> must not be <i>null</i>. <i>name</i>.isNull() must return false. If <i>name</i> has already been bound, its previous binding will be overridden. The URI that <i>name</i> evaluates to is arbitrary and may change.</p>
 <p>If the type of the variable binding changes (e.g&#x2e;, if a previous binding by the same name was a <a href="../qtcore/qvariant.html">QVariant</a>, or if there was no previous binding), <a href="qxmlquery.html#isValid">isValid</a>() will return <code>false</code>, and recompilation of the query text is required. To recompile the query, call <a href="qxmlquery.html#setQuery">setQuery</a>(). For this reason, <a href="qxmlquery.html#bindVariable">bindVariable</a>() should be called before <a href="qxmlquery.html#setQuery">setQuery</a>(), if possible.</p>
-<p><b>Note: </b><i>device</i> must not be deleted while this <a href="qxmlquery.html">QXmlQuery</a> exists.</p><!-- @@@bindVariable -->
+<p><b>注意： </b><i>device</i> must not be deleted while this <a href="qxmlquery.html">QXmlQuery</a> exists.</p><!-- @@@bindVariable -->
 <!-- $$$bindVariable$$$bindVariableconstQString&QIODevice* -->
 <h3 class="fn" id="bindVariable-3"><a name="bindVariable-3"></a><span class="type">void</span> QXmlQuery::<span class="name">bindVariable</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>localName</i>, <span class="type"><a href="../qtcore/qiodevice.html">QIODevice</a></span> *<i>device</i>)</h3>
 <p>这是一个重载函数。</p>

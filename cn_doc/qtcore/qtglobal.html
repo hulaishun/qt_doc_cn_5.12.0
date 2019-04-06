@@ -452,7 +452,7 @@
 <tr valign="top" class="even"><td >Destination variable is a <a href="qstring.html">QString</a></td><td ><a href="qtglobal.html#qEnvironmentVariable">qEnvironmentVariable</a>()</td></tr>
 <tr valign="top" class="odd"><td >Destination variable is a <a href="qbytearray.html">QByteArray</a> or std::string</td><td ><a href="qtglobal.html#qgetenv">qgetenv</a>()</td></tr>
 </table></div>
-<p><b>Note: </b>on Unix systems, this function may produce data loss if the original string contains arbitrary binary data that cannot be decoded by the locale codec. Use <a href="qtglobal.html#qgetenv">qgetenv</a>() instead for that case. On Windows, this function is lossless.</p><p><b>Note: </b>the variable name <i>varName</i> must contain only US-ASCII characters.</p><p>This documentation was introduced in  Qt 5.10.</p>
+<p><b>注意： </b>on Unix systems, this function may produce data loss if the original string contains arbitrary binary data that cannot be decoded by the locale codec. Use <a href="qtglobal.html#qgetenv">qgetenv</a>() instead for that case. On Windows, this function is lossless.</p><p><b>注意： </b>the variable name <i>varName</i> must contain only US-ASCII characters.</p><p>This documentation was introduced in  Qt 5.10.</p>
 <p><b> 参见 </b><a href="qtglobal.html#qputenv">qputenv</a>(), <a href="qtglobal.html#qgetenv">qgetenv</a>(), <a href="qtglobal.html#qEnvironmentVariableIsSet">qEnvironmentVariableIsSet</a>(), 和 <a href="qtglobal.html#qEnvironmentVariableIsEmpty">qEnvironmentVariableIsEmpty</a>().</p>
 <!-- @@@ -->
 <!-- $$$qAbs[overload1]$$$qAbsconstT& -->
@@ -569,7 +569,7 @@
 
 </pre>
 <p>except that it's much faster, and can't throw exceptions.</p>
-<p><b>Note: </b>there's a limit on the length of the value, which is sufficient for all valid values of int, not counting leading zeroes or spaces. Values that are too long will either be truncated or this function will set <i>ok</i> to <code>false</code>.</p><p>这个函数是在Qt 5.5版本中新增引入的。</p>
+<p><b>注意： </b>there's a limit on the length of the value, which is sufficient for all valid values of int, not counting leading zeroes or spaces. Values that are too long will either be truncated or this function will set <i>ok</i> to <code>false</code>.</p><p>这个函数是在Qt 5.5版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qtglobal.html#qgetenv">qgetenv</a>(), <a href="qtglobal.html#qEnvironmentVariable">qEnvironmentVariable</a>(), 和 <a href="qtglobal.html#qEnvironmentVariableIsSet">qEnvironmentVariableIsSet</a>().</p>
 <!-- @@@qEnvironmentVariableIntValue -->
 <!-- $$$qEnvironmentVariableIsEmpty[overload1]$$$qEnvironmentVariableIsEmptyconstchar* -->
@@ -809,7 +809,7 @@
       <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span> <span class="type">QOverload</span><span class="operator">&lt;</span><span class="type">int</span><span class="operator">,</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">&gt;</span><span class="operator">::</span>of(<span class="operator">&amp;</span>Foo<span class="operator">::</span>overloadedFunction)
 
 </pre>
-<p><b>Note: </b>Qt detects the necessary C++14 compiler support by way of the feature test recommendations from <a href="https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations">C++ Committee's Standing Document 6</a>.</p><p>这个函数是在Qt 5.7版本中新增引入的。</p>
+<p><b>注意： </b>Qt detects the necessary C++14 compiler support by way of the feature test recommendations from <a href="https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations">C++ Committee's Standing Document 6</a>.</p><p>这个函数是在Qt 5.7版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qtglobal.html#qConstOverload">qConstOverload</a>(), <a href="qtglobal.html#qNonConstOverload">qNonConstOverload</a>(), 和 <a href="../qtdoc/signalsandslots-syntaxes.html">Differences between String-Based and Functor-Based Connections</a>.</p>
 <!-- @@@qOverload -->
 <!-- $$$qQNaN[overload1]$$$qQNaN -->
@@ -920,7 +920,7 @@
 </pre>
 <p>The default <i>pattern</i> is &quot;%{if-category}%{category}: %{endif}%{message}&quot;.</p>
 <p>The <i>pattern</i> can also be changed at runtime by setting the QT_MESSAGE_PATTERN environment variable; if both qSetMessagePattern() is called and QT_MESSAGE_PATTERN is set, the environment variable takes precedence.</p>
-<p><b>Note: </b>The message pattern only applies to unstructured logging, such as the default <code>stderr</code> output. Structured logging such as systemd will record the message as is, along with as much structured information as can be captured.</p><p>Custom message handlers can use <a href="qtglobal.html#qFormatLogMessage">qFormatLogMessage</a>() to take <i>pattern</i> into account.</p>
+<p><b>注意： </b>The message pattern only applies to unstructured logging, such as the default <code>stderr</code> output. Structured logging such as systemd will record the message as is, along with as much structured information as can be captured.</p><p>Custom message handlers can use <a href="qtglobal.html#qFormatLogMessage">qFormatLogMessage</a>() to take <i>pattern</i> into account.</p>
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qtglobal.html#qInstallMessageHandler">qInstallMessageHandler</a>(), <a href="../qtdoc/testing-and-debugging.html#debugging-techniques">Debugging Techniques</a>, 和 <a href="qloggingcategory.html">QLoggingCategory</a>.</p>
 <!-- @@@qSetMessagePattern -->
@@ -939,14 +939,14 @@
 <p>Returns the value of the environment variable with name <i>varName</i> as a <a href="qbytearray.html">QByteArray</a>. If no variable by that name is found in the environment, this function returns a default-constructed <a href="qbytearray.html">QByteArray</a>.</p>
 <p>The Qt environment manipulation functions are thread-safe, but this requires that the C library equivalent functions like getenv and putenv are not directly called.</p>
 <p>To convert the data to a <a href="qstring.html">QString</a> use <a href="qstring.html#fromLocal8Bit">QString::fromLocal8Bit</a>().</p>
-<p><b>Note: </b>on desktop Windows, qgetenv() may produce data loss if the original string contains Unicode characters not representable in the ANSI encoding. Use <a href="qtglobal.html#qEnvironmentVariable">qEnvironmentVariable</a>() instead. On Unix systems, this function is lossless.</p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
+<p><b>注意： </b>on desktop Windows, qgetenv() may produce data loss if the original string contains Unicode characters not representable in the ANSI encoding. Use <a href="qtglobal.html#qEnvironmentVariable">qEnvironmentVariable</a>() instead. On Unix systems, this function is lossless.</p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p><b> 参见 </b><a href="qtglobal.html#qputenv">qputenv</a>(), <a href="qtglobal.html#qEnvironmentVariable">qEnvironmentVariable</a>(), <a href="qtglobal.html#qEnvironmentVariableIsSet">qEnvironmentVariableIsSet</a>(), 和 <a href="qtglobal.html#qEnvironmentVariableIsEmpty">qEnvironmentVariableIsEmpty</a>().</p>
 <!-- @@@qgetenv -->
 <!-- $$$qputenv[overload1]$$$qputenvconstchar*constQByteArray& -->
 <h3 class="fn" id="qputenv"><a name="qputenv"></a><span class="type">bool</span> <span class="name">qputenv</span>(const <span class="type">char</span> *<i>varName</i>, const <span class="type"><a href="qbytearray.html">QByteArray</a></span> &amp;<i>value</i>)</h3>
 <p>This function sets the <i>value</i> of the environment variable named <i>varName</i>. It will create the variable if it does not exist. It returns 0 if the variable could not be set.</p>
 <p>Calling qputenv with an empty value removes the environment variable on Windows, and makes it set (but empty) on Unix. Prefer using <a href="qtglobal.html#qunsetenv">qunsetenv</a>() for fully portable behavior.</p>
-<p><b>Note: </b>qputenv() was introduced because putenv() from the standard C library was deprecated in VC2005 (and later versions). qputenv() uses the replacement function in VC, and calls the standard C library's implementation on all other platforms.</p><p><b> 参见 </b><a href="qtglobal.html#qgetenv">qgetenv</a>() 和 <a href="qtglobal.html#qEnvironmentVariable">qEnvironmentVariable</a>().</p>
+<p><b>注意： </b>qputenv() was introduced because putenv() from the standard C library was deprecated in VC2005 (and later versions). qputenv() uses the replacement function in VC, and calls the standard C library's implementation on all other platforms.</p><p><b> 参见 </b><a href="qtglobal.html#qgetenv">qgetenv</a>() 和 <a href="qtglobal.html#qEnvironmentVariable">qEnvironmentVariable</a>().</p>
 <!-- @@@qputenv -->
 <!-- $$$qtTrId[overload1]$$$qtTrIdconstchar*int -->
 <h3 class="fn" id="qtTrId"><a name="qtTrId"></a><span class="type"><a href="qstring.html">QString</a></span> <span class="name">qtTrId</span>(const <span class="type">char</span> *<i>id</i>, <span class="type">int</span> <i>n</i> = ...)</h3>
@@ -966,7 +966,7 @@
 
 </pre>
 <p>Creating QM files suitable for use with this function requires passing the <code>-idbased</code> option to the <code>lrelease</code> tool.</p>
-<p><b>Warning:</b> This method is reentrant only if all translators are installed <i>before</i> calling this method. Installing or removing translators while performing translations is not supported. Doing so will probably result in crashes or other undesirable behavior.</p>
+<p><b>警告：</b> This method is reentrant only if all translators are installed <i>before</i> calling this method. Installing or removing translators while performing translations is not supported. Doing so will probably result in crashes or other undesirable behavior.</p>
 <p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
 <p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qobject.html#tr">QObject::tr</a>(), <a href="qcoreapplication.html#translate">QCoreApplication::translate</a>(), 和 <a href="../qtdoc/internationalization.html">Qt国际化</a>.</p>
@@ -1291,7 +1291,7 @@
 <p>This macro could be considered a &quot;lighter&quot; version of <a href="qtglobal.html#Q_ASSERT">Q_ASSERT</a>(). While <a href="qtglobal.html#Q_ASSERT">Q_ASSERT</a> will abort the program's execution if the condition is <code>false</code>, Q_ASSUME will tell the compiler not to generate code for those conditions. Therefore, it is important that the assumptions always hold, otherwise undefined behaviour may occur.</p>
 <p>If <i>expr</i> is a constantly <code>false</code> condition, Q_ASSUME will tell the compiler that the current code execution cannot be reached. That is, Q_ASSUME(false) is equivalent to <a href="qtglobal.html#Q_UNREACHABLE">Q_UNREACHABLE</a>().</p>
 <p>In debug builds the condition is enforced by an assert to facilitate debugging.</p>
-<p><b>Note: </b><a href="qtglobal.html#Q_LIKELY">Q_LIKELY</a>() tells the compiler that the expression is likely, but not the only possibility. Q_ASSUME tells the compiler that it is the only possibility.</p><p>这个函数是在Qt 5.0版本中新增引入的。</p>
+<p><b>注意： </b><a href="qtglobal.html#Q_LIKELY">Q_LIKELY</a>() tells the compiler that the expression is likely, but not the only possibility. Q_ASSUME tells the compiler that it is the only possibility.</p><p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qtglobal.html#Q_ASSERT">Q_ASSERT</a>(), <a href="qtglobal.html#Q_UNREACHABLE">Q_UNREACHABLE</a>(), 和 <a href="qtglobal.html#Q_LIKELY">Q_LIKELY</a>().</p>
 <!-- @@@Q_ASSUME -->
 <!-- $$$Q_BIG_ENDIAN[overload1]$$$Q_BIG_ENDIAN -->
@@ -1562,7 +1562,7 @@
 <h3 class="fn" id="Q_FOREACH"><a name="Q_FOREACH"></a><span class="name">Q_FOREACH</span>(<i>variable</i>, <i>container</i>)</h3>
 <p>Same as foreach(<i>variable</i>, <i>container</i>).</p>
 <p>This macro is available even when <code>no_keywords</code> is specified using the <code>.pro</code> file's <code>CONFIG</code> variable.</p>
-<p><b>Note: </b>Since Qt 5.7, the use of this macro is discouraged. It will be removed in a future version of Qt. Please use C++11 range-for, possibly with <a href="qtglobal.html#qAsConst">qAsConst</a>(), as needed.</p><p><b> 参见 </b><a href="qtglobal.html#qAsConst">qAsConst</a>().</p>
+<p><b>注意： </b>Since Qt 5.7, the use of this macro is discouraged. It will be removed in a future version of Qt. Please use C++11 range-for, possibly with <a href="qtglobal.html#qAsConst">qAsConst</a>(), as needed.</p><p><b> 参见 </b><a href="qtglobal.html#qAsConst">qAsConst</a>().</p>
 <!-- @@@Q_FOREACH -->
 <!-- $$$Q_FOREVER[overload1]$$$Q_FOREVER -->
 <h3 class="fn" id="Q_FOREVER"><a name="Q_FOREVER"></a><span class="name">Q_FOREVER</span></h3>
@@ -1973,7 +1973,7 @@
   CONFIG <span class="operator">+</span><span class="operator">=</span> no_keywords
 
 </pre>
-<p><b>Note: </b>Since Qt 5.7, the use of this macro is discouraged. It will be removed in a future version of Qt. Please use C++11 range-for, possibly with <a href="qtglobal.html#qAsConst">qAsConst</a>(), as needed.</p><p><b> 参见 </b><a href="qtglobal.html#qAsConst">qAsConst</a>().</p>
+<p><b>注意： </b>Since Qt 5.7, the use of this macro is discouraged. It will be removed in a future version of Qt. Please use C++11 range-for, possibly with <a href="qtglobal.html#qAsConst">qAsConst</a>(), as needed.</p><p><b> 参见 </b><a href="qtglobal.html#qAsConst">qAsConst</a>().</p>
 <!-- @@@foreach -->
 <!-- $$$forever[overload1]$$$forever -->
 <h3 class="fn" id="forever"><a name="forever"></a><span class="name">forever</span></h3>
@@ -2094,7 +2094,7 @@
 <h3 class="fn" id="qPrintable"><a name="qPrintable"></a>const <span class="type">char</span> *<span class="name">qPrintable</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>str</i>)</h3>
 <p>Returns <i>str</i> as a <code>const char *</code>. This is equivalent to <i>str</i>.toLocal8Bit().constData().</p>
 <p>The char pointer will be invalid after the statement in which qPrintable() is used. This is because the array returned by <a href="qstring.html#toLocal8Bit">QString::toLocal8Bit</a>() will fall out of scope.</p>
-<p><b>Note: </b><a href="qtglobal.html#qDebug">qDebug</a>(), <a href="qtglobal.html#qInfo">qInfo</a>(), <a href="qtglobal.html#qWarning">qWarning</a>(), <a href="qtglobal.html#qCritical">qCritical</a>(), <a href="qtglobal.html#qFatal">qFatal</a>() expect %s arguments to be UTF-8 encoded, while qPrintable() converts to local 8-bit encoding. Therefore <a href="qtglobal.html#qUtf8Printable">qUtf8Printable</a>() should be used for logging strings instead of qPrintable().</p><p><b> 参见 </b><a href="qtglobal.html#qUtf8Printable">qUtf8Printable</a>().</p>
+<p><b>注意： </b><a href="qtglobal.html#qDebug">qDebug</a>(), <a href="qtglobal.html#qInfo">qInfo</a>(), <a href="qtglobal.html#qWarning">qWarning</a>(), <a href="qtglobal.html#qCritical">qCritical</a>(), <a href="qtglobal.html#qFatal">qFatal</a>() expect %s arguments to be UTF-8 encoded, while qPrintable() converts to local 8-bit encoding. Therefore <a href="qtglobal.html#qUtf8Printable">qUtf8Printable</a>() should be used for logging strings instead of qPrintable().</p><p><b> 参见 </b><a href="qtglobal.html#qUtf8Printable">qUtf8Printable</a>().</p>
 <!-- @@@qPrintable -->
 <!-- $$$qUtf16Printable[overload1]$$$qUtf16PrintableconstQString& -->
 <h3 class="fn" id="qUtf16Printable"><a name="qUtf16Printable"></a>const <span class="type">wchar_t</span> *<span class="name">qUtf16Printable</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>str</i>)</h3>

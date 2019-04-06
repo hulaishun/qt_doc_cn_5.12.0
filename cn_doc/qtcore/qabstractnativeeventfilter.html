@@ -87,7 +87,7 @@
 <!-- $$$nativeEventFilter[overload1]$$$nativeEventFilterconstQByteArray&void*long* -->
 <h3 class="fn" id="nativeEventFilter"><a name="nativeEventFilter"></a><code>[纯虚函数] </code><span class="type">bool</span> QAbstractNativeEventFilter::<span class="name">nativeEventFilter</span>(const <span class="type"><a href="qbytearray.html">QByteArray</a></span> &amp;<i>eventType</i>, <span class="type">void</span> *<i>message</i>, <span class="type">long</span> *<i>result</i>)</h3>
 <p>This method is called for every native event.</p>
-<p><b>Note: </b>The filter function here receives native messages, for example, MSG or XCB event structs.</p><p>It is called by the QPA platform plugin. On Windows, it is called by the event dispatcher.</p>
+<p><b>注意： </b>The filter function here receives native messages, for example, MSG or XCB event structs.</p><p>It is called by the QPA platform plugin. On Windows, it is called by the event dispatcher.</p>
 <p>The type of event <i>eventType</i> is specific to the platform plugin chosen at run-time, and can be used to cast <i>message</i> to the right type.</p>
 <p>On X11, <i>eventType</i> is set to &quot;xcb_generic_event_t&quot;, and the <i>message</i> can be casted to a xcb_generic_event_t pointer.</p>
 <p>On Windows, <i>eventType</i> is set to &quot;windows_generic_MSG&quot; for messages sent to toplevel windows, and &quot;windows_dispatcher_MSG&quot; for system-wide messages such as messages from a registered hot key. In both cases, the <i>message</i> can be casted to a MSG pointer. The <i>result</i> pointer is only used on Windows, and corresponds to the LRESULT pointer.</p>

@@ -165,7 +165,7 @@
 </pre>
 <p>To retrieve results asynchronously, connect to the <a href="qbluetoothdevicediscoveryagent.html#deviceDiscovered">deviceDiscovered</a>() signal. To get a list of all discovered devices, call <a href="qbluetoothdevicediscoveryagent.html#discoveredDevices">discoveredDevices</a>() after the <a href="qbluetoothdevicediscoveryagent.html#finished">finished</a>() signal.</p>
 <p>This class can be used to discover Classic and Low Energy Bluetooth devices. The individual device type can be determined via the <a href="qbluetoothdeviceinfo.html#coreConfigurations">QBluetoothDeviceInfo::coreConfigurations</a>() attribute. In most cases the list returned by <a href="qbluetoothdevicediscoveryagent.html#discoveredDevices">discoveredDevices</a>() contains both types of devices. However not every platform can detect both types of devices. On platforms with this limitation (for example iOS only suports Low Energy discovery), the discovery process will limit the search to the type which is supported.</p>
-<p><b>Note: </b>Since Android 6.0 the ability to detect devices requires ACCESS_COARSE_LOCATION.</p></div>
+<p><b>注意： </b>Since Android 6.0 the ability to detect devices requires ACCESS_COARSE_LOCATION.</p></div>
 <!-- @@@QBluetoothDeviceDiscoveryAgent -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -252,7 +252,7 @@
 <h3 class="fn" id="deviceUpdated"><a name="deviceUpdated"></a><code>[信号] </code><span class="type">void</span> QBluetoothDeviceDiscoveryAgent::<span class="name">deviceUpdated</span>(const <span class="type"><a href="qbluetoothdeviceinfo.html">QBluetoothDeviceInfo</a></span> &amp;<i>info</i>, <span class="type"><a href="qbluetoothdeviceinfo.html#Field-enum">QBluetoothDeviceInfo::Fields</a></span> <i>updatedFields</i>)</h3>
 <p>This signal is emitted when the agent receives additional information about the Bluetooth device described by <i>info</i>. The <i>updatedFields</i> flags tell which information has been updated.</p>
 <p>During discovery, some information can change dynamically, such as <a href="qbluetoothdeviceinfo.html#rssi">signal strength</a> 和 <a href="qbluetoothdeviceinfo.html#manufacturerData-1">manufacturerData</a>. This signal informs you that if your application is displaying this data, it can be updated, rather than waiting until the discovery has finished.</p>
-<p><b>Note: </b>This signal is only emitted on Android and <a href="qtbluetooth-attribution-bluez.html">BlueZ</a> 5.x&#x2e;</p><p><b> 参见 </b><a href="qbluetoothdeviceinfo.html#rssi">QBluetoothDeviceInfo::rssi</a>() 和 <a href="qbluetoothdevicediscoveryagent.html#lowEnergyDiscoveryTimeout">lowEnergyDiscoveryTimeout</a>().</p>
+<p><b>注意： </b>This signal is only emitted on Android and <a href="qtbluetooth-attribution-bluez.html">BlueZ</a> 5.x&#x2e;</p><p><b> 参见 </b><a href="qbluetoothdeviceinfo.html#rssi">QBluetoothDeviceInfo::rssi</a>() 和 <a href="qbluetoothdevicediscoveryagent.html#lowEnergyDiscoveryTimeout">lowEnergyDiscoveryTimeout</a>().</p>
 <!-- @@@deviceUpdated -->
 <!-- $$$discoveredDevices[overload1]$$$discoveredDevices -->
 <h3 class="fn" id="discoveredDevices"><a name="discoveredDevices"></a><span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qbluetoothdeviceinfo.html">QBluetoothDeviceInfo</a></span>&gt; QBluetoothDeviceDiscoveryAgent::<span class="name">discoveredDevices</span>() const</h3>
@@ -308,7 +308,7 @@
 <!-- $$$start$$$startQBluetoothDeviceDiscoveryAgent::DiscoveryMethods -->
 <h3 class="fn" id="start-1"><a name="start-1"></a><code>[槽函数] </code><span class="type">void</span> QBluetoothDeviceDiscoveryAgent::<span class="name">start</span>(<span class="type"><a href="qbluetoothdevicediscoveryagent.html#DiscoveryMethod-enum">QBluetoothDeviceDiscoveryAgent::DiscoveryMethods</a></span> <i>methods</i>)</h3>
 <p>Starts Bluetooth device discovery, if it is not already started and the provided <i>methods</i> are supported. The discovery <i>methods</i> limit the scope of the device search. For example, if the target service or device is a Bluetooth Low Energy device, this function could be used to limit the search to Bluetooth Low Energy devices and thereby reduces the discovery time significantly.</p>
-<p><b>Note: </b><i>methods</i> only determines the type of discovery and does not imply the filtering of the results. For example, the search may still contain classic bluetooth devices despite <i>methods</i> being set to <a href="qbluetoothdevicediscoveryagent.html#DiscoveryMethod-enum">LowEnergyMethod</a> only. This may happen due to previously cached search results which may be incorporated into the search results.</p><p>这个函数是在Qt 5.8版本中新增引入的。</p>
+<p><b>注意： </b><i>methods</i> only determines the type of discovery and does not imply the filtering of the results. For example, the search may still contain classic bluetooth devices despite <i>methods</i> being set to <a href="qbluetoothdevicediscoveryagent.html#DiscoveryMethod-enum">LowEnergyMethod</a> only. This may happen due to previously cached search results which may be incorporated into the search results.</p><p>这个函数是在Qt 5.8版本中新增引入的。</p>
 <!-- @@@start -->
 <!-- $$$stop[overload1]$$$stop -->
 <h3 class="fn" id="stop"><a name="stop"></a><code>[槽函数] </code><span class="type">void</span> QBluetoothDeviceDiscoveryAgent::<span class="name">stop</span>()</h3>

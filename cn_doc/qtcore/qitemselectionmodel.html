@@ -154,7 +154,7 @@
 <p>The selected items are stored using ranges. Whenever you want to modify the selected items use <a href="qitemselectionmodel.html#select">select</a>() and provide either a <a href="qitemselection.html">QItemSelection</a>, or a <a href="qmodelindex.html">QModelIndex</a> and a <a href="qitemselectionmodel.html#SelectionFlag-enum">QItemSelectionModel::SelectionFlag</a>.</p>
 <p>The <a href="qitemselectionmodel.html">QItemSelectionModel</a> takes a two layer approach to selection management, dealing with both selected items that have been committed and items that are part of the current selection. The current selected items are part of the current interactive selection (for example with rubber-band selection or keyboard-shift selections).</p>
 <p>To update the currently selected items, use the bitwise OR of <a href="qitemselectionmodel.html#SelectionFlag-enum">QItemSelectionModel::Current</a> and any of the other <a href="qitemselectionmodel.html#SelectionFlag-enum">SelectionFlags</a>. If you omit the <a href="qitemselectionmodel.html#SelectionFlag-enum">QItemSelectionModel::Current</a> command, a new current selection will be created, and the previous one added to the whole selection. All functions operate on both layers; for example, <a href="../qtwidgets/qtablewidget.html#selectedItems">selecteditems()</a> will return items from both layers.</p>
-<p><b>Note: </b>Since 5.5, <a href="qitemselectionmodel.html#model">model</a>, <a href="qitemselectionmodel.html#hasSelection">hasSelection</a>, 和 <a href="qitemselectionmodel.html#currentIndex">currentIndex</a> are meta-object properties.</p></div>
+<p><b>注意： </b>Since 5.5, <a href="qitemselectionmodel.html#model">model</a>, <a href="qitemselectionmodel.html#hasSelection">hasSelection</a>, 和 <a href="qitemselectionmodel.html#currentIndex">currentIndex</a> are meta-object properties.</p></div>
 <p><b> 参见 </b><a href="../qtwidgets/model-view-programming.html">模型/视图的编程</a>, <a href="qabstractitemmodel.html">QAbstractItemModel</a>, 和 <a href="../qtwidgets/qtwidgets-itemviews-chart-example.html">Chart Example</a>.</p>
 <!-- @@@QItemSelectionModel -->
 <div class="types">
@@ -223,7 +223,7 @@
 <!-- $$$columnIntersectsSelection[overload1]$$$columnIntersectsSelectionintconstQModelIndex& -->
 <h3 class="fn" id="columnIntersectsSelection"><a name="columnIntersectsSelection"></a><span class="type">bool</span> QItemSelectionModel::<span class="name">columnIntersectsSelection</span>(<span class="type">int</span> <i>column</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i>) const</h3>
 <p>Returns <code>true</code> if there are any items selected in the <i>column</i> with the given <i>parent</i>.</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <!-- @@@columnIntersectsSelection -->
 <!-- $$$currentChanged[overload1]$$$currentChangedconstQModelIndex&constQModelIndex& -->
 <h3 class="fn" id="currentChanged"><a name="currentChanged"></a><code>[信号] </code><span class="type">void</span> QItemSelectionModel::<span class="name">currentChanged</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>current</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>previous</i>)</h3>
@@ -261,18 +261,18 @@
 <h3 class="fn" id="isColumnSelected"><a name="isColumnSelected"></a><span class="type">bool</span> QItemSelectionModel::<span class="name">isColumnSelected</span>(<span class="type">int</span> <i>column</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i>) const</h3>
 <p>Returns <code>true</code> if all items are selected in the <i>column</i> with the given <i>parent</i>.</p>
 <p>Note that this function is usually faster than calling <a href="qitemselectionmodel.html#isSelected">isSelected</a>() on all items in the same column and that unselectable items are ignored.</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <!-- @@@isColumnSelected -->
 <!-- $$$isRowSelected[overload1]$$$isRowSelectedintconstQModelIndex& -->
 <h3 class="fn" id="isRowSelected"><a name="isRowSelected"></a><span class="type">bool</span> QItemSelectionModel::<span class="name">isRowSelected</span>(<span class="type">int</span> <i>row</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i>) const</h3>
 <p>Returns <code>true</code> if all items are selected in the <i>row</i> with the given <i>parent</i>.</p>
 <p>Note that this function is usually faster than calling <a href="qitemselectionmodel.html#isSelected">isSelected</a>() on all items in the same row and that unselectable items are ignored.</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <!-- @@@isRowSelected -->
 <!-- $$$isSelected[overload1]$$$isSelectedconstQModelIndex& -->
 <h3 class="fn" id="isSelected"><a name="isSelected"></a><span class="type">bool</span> QItemSelectionModel::<span class="name">isSelected</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>) const</h3>
 <p>Returns <code>true</code> if the given model item <i>index</i> is selected.</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <!-- @@@isSelected -->
 <!-- $$$model[overload1]$$$model -->
 <h3 class="fn" id="model"><a name="model"></a>const <span class="type"><a href="qabstractitemmodel.html">QAbstractItemModel</a></span> *QItemSelectionModel::<span class="name">model</span>() const</h3>
@@ -297,7 +297,7 @@
 <!-- $$$rowIntersectsSelection[overload1]$$$rowIntersectsSelectionintconstQModelIndex& -->
 <h3 class="fn" id="rowIntersectsSelection"><a name="rowIntersectsSelection"></a><span class="type">bool</span> QItemSelectionModel::<span class="name">rowIntersectsSelection</span>(<span class="type">int</span> <i>row</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i>) const</h3>
 <p>Returns <code>true</code> if there are any items selected in the <i>row</i> with the given <i>parent</i>.</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <!-- @@@rowIntersectsSelection -->
 <!-- $$$select[overload1]$$$selectconstQModelIndex&QItemSelectionModel::SelectionFlags -->
 <h3 class="fn" id="select"><a name="select"></a><code>[虚槽函数] </code><span class="type">void</span> QItemSelectionModel::<span class="name">select</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>, <span class="type"><a href="qitemselectionmodel.html#SelectionFlag-enum">QItemSelectionModel::SelectionFlags</a></span> <i>command</i>)</h3>
@@ -313,7 +313,7 @@
 <h3 class="fn" id="selectedColumns"><a name="selectedColumns"></a><span class="type"><a href="qmodelindex.html#QModelIndexList-typedef">QModelIndexList</a></span> QItemSelectionModel::<span class="name">selectedColumns</span>(<span class="type">int</span> <i>row</i> = 0) const</h3>
 <p>Returns the indexes in the given <i>row</i> for columns where all rows are selected.</p>
 <p>这个函数是在Qt 4.2版本中新增引入的。</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <p><b> 参见 </b><a href="qitemselectionmodel.html#selectedIndexes">selectedIndexes</a>() 和 <a href="qitemselectionmodel.html#selectedRows">selectedRows</a>().</p>
 <!-- @@@selectedColumns -->
 <!-- $$$selectedIndexes -->
@@ -324,7 +324,7 @@
 <h3 class="fn" id="selectedRows"><a name="selectedRows"></a><span class="type"><a href="qmodelindex.html#QModelIndexList-typedef">QModelIndexList</a></span> QItemSelectionModel::<span class="name">selectedRows</span>(<span class="type">int</span> <i>column</i> = 0) const</h3>
 <p>Returns the indexes in the given <i>column</i> for the rows where all columns are selected.</p>
 <p>这个函数是在Qt 4.2版本中新增引入的。</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <p><b> 参见 </b><a href="qitemselectionmodel.html#selectedIndexes">selectedIndexes</a>() 和 <a href="qitemselectionmodel.html#selectedColumns">selectedColumns</a>().</p>
 <!-- @@@selectedRows -->
 <!-- $$$selection[overload1]$$$selection -->

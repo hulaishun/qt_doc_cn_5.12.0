@@ -132,11 +132,11 @@
 <!-- $$$QOpenGLTextureBlitter[overload1]$$$QOpenGLTextureBlitter -->
 <h3 class="fn" id="QOpenGLTextureBlitter"><a name="QOpenGLTextureBlitter"></a>QOpenGLTextureBlitter::<span class="name">QOpenGLTextureBlitter</span>()</h3>
 <p>Constructs a new <a href="qopengltextureblitter.html">QOpenGLTextureBlitter</a> instance.</p>
-<p><b>Note: </b>no graphics resources are initialized in the constructor. This makes it safe to place plain <a href="qopengltextureblitter.html">QOpenGLTextureBlitter</a> members into classes because the actual initialization that depends on the OpenGL context happens only in <a href="qopengltextureblitter.html#create">create</a>().</p><!-- @@@QOpenGLTextureBlitter -->
+<p><b>注意： </b>no graphics resources are initialized in the constructor. This makes it safe to place plain <a href="qopengltextureblitter.html">QOpenGLTextureBlitter</a> members into classes because the actual initialization that depends on the OpenGL context happens only in <a href="qopengltextureblitter.html#create">create</a>().</p><!-- @@@QOpenGLTextureBlitter -->
 <!-- $$$~QOpenGLTextureBlitter[overload1]$$$~QOpenGLTextureBlitter -->
 <h3 class="fn" id="dtor.QOpenGLTextureBlitter"><a name="dtor.QOpenGLTextureBlitter"></a>QOpenGLTextureBlitter::<span class="name">~QOpenGLTextureBlitter</span>()</h3>
 <p>Destructs the instance.</p>
-<p><b>Note: </b>When the OpenGL context - or a context sharing resources with it - that was current when calling <a href="qopengltextureblitter.html#create">create</a>() is not current, graphics resources will not be released. Therefore, it is recommended to call <a href="qopengltextureblitter.html#destroy">destroy</a>() manually instead of relying on the destructor to perform OpenGL resource cleanup.</p><!-- @@@~QOpenGLTextureBlitter -->
+<p><b>注意： </b>When the OpenGL context - or a context sharing resources with it - that was current when calling <a href="qopengltextureblitter.html#create">create</a>() is not current, graphics resources will not be released. Therefore, it is recommended to call <a href="qopengltextureblitter.html#destroy">destroy</a>() manually instead of relying on the destructor to perform OpenGL resource cleanup.</p><!-- @@@~QOpenGLTextureBlitter -->
 <!-- $$$bind[overload1]$$$bindGLenum -->
 <h3 class="fn" id="bind"><a name="bind"></a><span class="type">void</span> QOpenGLTextureBlitter::<span class="name">bind</span>(<span class="type">GLenum</span> <i>target</i> = GL_TEXTURE_2D)</h3>
 <p>Binds the graphics resources used by the blitter. This must be called before calling <a href="qopengltextureblitter.html#blit">blit</a>(). Code modifying the OpenGL state should be avoided between the call to bind() and <a href="qopengltextureblitter.html#blit">blit</a>() because otherwise conflicts may arise.</p>
@@ -182,7 +182,7 @@
 <!-- $$$setOpacity[overload1]$$$setOpacityfloat -->
 <h3 class="fn" id="setOpacity"><a name="setOpacity"></a><span class="type">void</span> QOpenGLTextureBlitter::<span class="name">setOpacity</span>(<span class="type">float</span> <i>opacity</i>)</h3>
 <p>Changes the opacity to <i>opacity</i>. The default opacity is 1.0&#x2e;</p>
-<p><b>Note: </b>the blitter does not alter the blend state. It is up to the caller of <a href="qopengltextureblitter.html#blit">blit</a>() to ensure the correct blend settings are active.</p><!-- @@@setOpacity -->
+<p><b>注意： </b>the blitter does not alter the blend state. It is up to the caller of <a href="qopengltextureblitter.html#blit">blit</a>() to ensure the correct blend settings are active.</p><!-- @@@setOpacity -->
 <!-- $$$setRedBlueSwizzle[overload1]$$$setRedBlueSwizzlebool -->
 <h3 class="fn" id="setRedBlueSwizzle"><a name="setRedBlueSwizzle"></a><span class="type">void</span> QOpenGLTextureBlitter::<span class="name">setRedBlueSwizzle</span>(<span class="type">bool</span> <i>swizzle</i>)</h3>
 <p>Sets whether swizzling is enabled for the red and blue color channels to <i>swizzle</i>. An BGRA to RGBA conversion (occurring in the shader on the GPU, instead of a slow CPU-side transformation) can be useful when the source texture contains data from a <a href="qimage.html">QImage</a> with a format like <a href="qimage.html#Format-enum">QImage::Format_ARGB32</a> which maps to BGRA on little endian systems.</p>

@@ -119,7 +119,7 @@
 <p>The <a href="qinapptransaction.html#status-prop">status</a>() provides information on whether the transaction was successful or not. If it was successful, then the application should take appropriate action. When the necessary action has been performed, <a href="qinapptransaction.html#finalize">finalize</a>() should be called. The <a href="qinapptransaction.html#finalize">finalize</a>() function should be called regardless of the status of the transaction.</p>
 <p>It is important that the application stores the purchase information before calling <a href="qinapptransaction.html#finalize">finalize</a>(). If a transaction is not finalized (for example because the application was interrupted before it had a chance to save the information), then the transaction will be emitted again the next time the product is registered by <a href="qinappstore.html#registerProduct">QInAppStore::registerProduct</a>().</p>
 <p>Transactions can also be emitted after calling <a href="qinappstore.html#restorePurchases">QInAppStore::restorePurchases</a>(), at which point a new transaction will be emitted for each previously purchased unlockable product with the status of <a href="qinapptransaction.html#TransactionStatus-enum">PurchaseRestored</a>.</p>
-<p><b>Note: </b>Since transactions may under certain circumstances be emitted for the same transaction several times, the application should always check if the transaction has been registered before. Do not expect each transaction to be unique.</p></div>
+<p><b>注意： </b>Since transactions may under certain circumstances be emitted for the same transaction several times, the application should always check if the transaction has been registered before. Do not expect each transaction to be unique.</p></div>
 <!-- @@@QInAppTransaction -->
 <div class="types">
 <h2>成员类型文档</h2>
@@ -202,7 +202,7 @@
 <!-- $$$finalize[overload1]$$$finalize -->
 <h3 class="fn" id="finalize"><a name="finalize"></a><code>[纯虚函数] </code><span class="type">void</span> QInAppTransaction::<span class="name">finalize</span>()</h3>
 <p>Call this when the application has finished performing all necessary reactions to the purchase. If the status is <a href="qinapptransaction.html#TransactionStatus-enum">PurchaseApproved</a>, the application should store the information about the transaction in a safe way before finalizing it. All transactions should be finalized.</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <!-- @@@finalize -->
 <!-- $$$platformProperty[overload1]$$$platformPropertyconstQString& -->
 <h3 class="fn" id="platformProperty"><a name="platformProperty"></a><code>[虚函数] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QInAppTransaction::<span class="name">platformProperty</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>propertyName</i>) const</h3>
@@ -213,7 +213,7 @@
 <li>AndroidPurchaseData: The purchase data returned by the Google Play store.</li>
 </ul>
 <p>These properties can be used to verify the purchase using the public key of your application. It is also possible to have the back-end verify the purchases by passing in the public key before registering products, using <a href="qinappstore.html#setPlatformProperty">QInAppStore::setPlatformProperty</a>().</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <!-- @@@platformProperty -->
 </div>
 <div class="vars">

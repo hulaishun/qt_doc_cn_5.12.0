@@ -137,7 +137,7 @@
 </pre>
 <p>Use the <a href="qimagereader.html#supportedImageFormats">QImageReader::supportedImageFormats</a>() 和 <a href="qimagewriter.html#supportedImageFormats">QImageWriter::supportedImageFormats</a>() functions to retrieve a complete list of the supported file formats.</p>
 <p>When you retrieve a pixmap using pixmap(<a href="../qtcore/qsize.html">QSize</a>, Mode, State), and no pixmap for this given size, mode and state has been added with <a href="qicon.html#addFile">addFile</a>() or <a href="qicon.html#addPixmap">addPixmap</a>(), then <a href="qicon.html">QIcon</a> will generate one on the fly. This pixmap generation happens in a <a href="qiconengine.html">QIconEngine</a>. The default engine scales pixmaps down if required, but never up, and it uses the current style to calculate a disabled appearance. By using custom icon engines, you can customize every aspect of generated icons. With <a href="qiconengineplugin.html">QIconEnginePlugin</a> it is possible to register different icon engines for different file suffixes, making it possible for third parties to provide additional icon engines to those included with Qt.</p>
-<p><b>Note: </b>Since Qt 4.2, an icon engine that supports SVG is included.</p><a name="making-classes-that-use-qicon"></a>
+<p><b>注意： </b>Since Qt 4.2, an icon engine that supports SVG is included.</p><a name="making-classes-that-use-qicon"></a>
 <h3 >Making Classes that Use QIcon</h3>
 <p>If you write your own widgets that have an option to set a small pixmap, consider allowing a <a href="qicon.html">QIcon</a> to be set for that pixmap. The Qt class <a href="../qtwidgets/qtoolbutton.html">QToolButton</a> is an example of such a widget.</p>
 <p>Provide a method to set a <a href="qicon.html">QIcon</a>, and when you draw the icon, choose whichever pixmap is appropriate for the current state of your widget. For example:</p>
@@ -155,7 +155,7 @@
 
 </pre>
 <p>You might also make use of the <code>Active</code> mode, perhaps making your widget <code>Active</code> when the mouse is over the widget (see <a href="../qtwidgets/qwidget.html#enterEvent">QWidget::enterEvent</a>()), while the mouse is pressed pending the release that will activate the function, or when it is the currently selected item. If the widget can be toggled, the &quot;On&quot; mode might be used to draw a different icon.</p>
-<p class="centerAlign"><img src="images/icon.png" alt="QIcon" /></p><p><b>Note: </b><a href="qicon.html">QIcon</a> needs a <a href="qguiapplication.html">QGuiApplication</a> instance before the icon is created.</p><a name="high-dpi-icons"></a>
+<p class="centerAlign"><img src="images/icon.png" alt="QIcon" /></p><p><b>注意： </b><a href="qicon.html">QIcon</a> needs a <a href="qguiapplication.html">QGuiApplication</a> instance before the icon is created.</p><a name="high-dpi-icons"></a>
 <h3 >High DPI Icons</h3>
 <p>There are two ways that <a href="qicon.html">QIcon</a> supports <a href="../qtdoc/highdpi.html#high-dpi-displays">high DPI</a> icons: via <a href="qicon.html#addFile">addFile</a>() 和 <a href="qicon.html#fromTheme">fromTheme</a>().</p>
 <p><a href="qicon.html#addFile">addFile</a>() is useful if you have your own custom directory structure and do not need to use the <a href="https://standards.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html">freedesktop.org Icon Theme Specification</a>. Icons created via this approach use Qt's <a href="qimagereader.html#high-resolution-versions-of-images">&quot;@nx&quot; high DPI syntax</a>.</p>
@@ -271,7 +271,7 @@
 <p>The file name can refer to an actual file on disk or to one of the application's embedded resources. See the <a href="../qtcore/resources.html">Resource System</a> overview for details on how to embed images and other resource files in the application's executable.</p>
 <p>Use the <a href="qimagereader.html#supportedImageFormats">QImageReader::supportedImageFormats</a>() 和 <a href="qimagewriter.html#supportedImageFormats">QImageWriter::supportedImageFormats</a>() functions to retrieve a complete list of the supported file formats.</p>
 <p>If a high resolution version of the image exists (identified by the suffix <code>@2x</code> on the base name), it is automatically loaded and added with the <i>device pixel ratio</i> set to a value of 2. This can be disabled by setting the environment variable <code>QT_HIGHDPI_DISABLE_2X_IMAGE_LOADING</code> (see <a href="qimagereader.html">QImageReader</a>).</p>
-<p><b>Note: </b>When you add a non-empty filename to a <a href="qicon.html">QIcon</a>, the icon becomes non-null, even if the file doesn't exist or points to a corrupt file.</p><p><b> 参见 </b><a href="qicon.html#addPixmap">addPixmap</a>() 和 <a href="qpixmap.html#devicePixelRatio">QPixmap::devicePixelRatio</a>().</p>
+<p><b>注意： </b>When you add a non-empty filename to a <a href="qicon.html">QIcon</a>, the icon becomes non-null, even if the file doesn't exist or points to a corrupt file.</p><p><b> 参见 </b><a href="qicon.html#addPixmap">addPixmap</a>() 和 <a href="qpixmap.html#devicePixelRatio">QPixmap::devicePixelRatio</a>().</p>
 <!-- @@@addFile -->
 <!-- $$$addPixmap[overload1]$$$addPixmapconstQPixmap&QIcon::ModeQIcon::State -->
 <h3 class="fn" id="addPixmap"><a name="addPixmap"></a><span class="type">void</span> QIcon::<span class="name">addPixmap</span>(const <span class="type"><a href="qpixmap.html">QPixmap</a></span> &amp;<i>pixmap</i>, <span class="type"><a href="qicon.html#Mode-enum">QIcon::Mode</a></span> <i>mode</i> = Normal, <span class="type"><a href="qicon.html#State-enum">QIcon::State</a></span> <i>state</i> = Off)</h3>
@@ -320,7 +320,7 @@
       <span class="type"><a href="qicon.html#QIcon">QIcon</a></span> undoicon <span class="operator">=</span> <span class="type"><a href="qicon.html#QIcon">QIcon</a></span><span class="operator">::</span>fromTheme(<span class="string">&quot;edit-undo&quot;</span>);
 
 </pre>
-<p><b>Note: </b>By default, only X11 will support themed icons. In order to use themed icons on Mac and Windows, you will have to bundle a compliant theme in one of your <a href="qicon.html#themeSearchPaths">themeSearchPaths</a>() and set the appropriate <a href="qicon.html#themeName">themeName</a>().</p><p><b>Note: </b>Qt will make use of GTK's icon-theme.cache if present to speed up the lookup. These caches can be generated using gtk-update-icon-cache: <a href="https://developer.gnome.org/gtk3/stable/gtk-update-icon-cache.html">https://developer.gnome.org/gtk3/stable/gtk-update-icon-cache.html</a>.</p><p><b>Note: </b>If an icon can't be found in the current theme, then it will be searched in <a href="qicon.html#fallbackSearchPaths">fallbackSearchPaths</a>() as an unthemed icon.</p><p>这个函数是在Qt 4.6版本中新增引入的。</p>
+<p><b>注意： </b>By default, only X11 will support themed icons. In order to use themed icons on Mac and Windows, you will have to bundle a compliant theme in one of your <a href="qicon.html#themeSearchPaths">themeSearchPaths</a>() and set the appropriate <a href="qicon.html#themeName">themeName</a>().</p><p><b>注意： </b>Qt will make use of GTK's icon-theme.cache if present to speed up the lookup. These caches can be generated using gtk-update-icon-cache: <a href="https://developer.gnome.org/gtk3/stable/gtk-update-icon-cache.html">https://developer.gnome.org/gtk3/stable/gtk-update-icon-cache.html</a>.</p><p><b>注意： </b>If an icon can't be found in the current theme, then it will be searched in <a href="qicon.html#fallbackSearchPaths">fallbackSearchPaths</a>() as an unthemed icon.</p><p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qicon.html#themeName">themeName</a>(), <a href="qicon.html#setThemeName">setThemeName</a>(), <a href="qicon.html#themeSearchPaths">themeSearchPaths</a>(), 和 <a href="qicon.html#fallbackSearchPaths">fallbackSearchPaths</a>().</p>
 <!-- @@@fromTheme -->
 <!-- $$$fromTheme$$$fromThemeconstQString&constQIcon& -->
@@ -397,7 +397,7 @@
 <!-- $$$setFallbackSearchPaths[overload1]$$$setFallbackSearchPathsconstQStringList& -->
 <h3 class="fn" id="setFallbackSearchPaths"><a name="setFallbackSearchPaths"></a><code>[静态函数] </code><span class="type">void</span> QIcon::<span class="name">setFallbackSearchPaths</span>(const <span class="type"><a href="../qtcore/qstringlist.html">QStringList</a></span> &amp;<i>paths</i>)</h3>
 <p>Sets the fallback search paths for icons to <i>paths</i>.</p>
-<p><b>Note: </b>To add some path without replacing existing ones:</p><pre class="cpp">
+<p><b>注意： </b>To add some path without replacing existing ones:</p><pre class="cpp">
 
       <span class="type"><a href="qicon.html#QIcon">QIcon</a></span><span class="operator">::</span>setFallbackSearchPaths(<span class="type"><a href="qicon.html#QIcon">QIcon</a></span><span class="operator">::</span>fallbackSearchPaths() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;my/search/path&quot;</span>);
 

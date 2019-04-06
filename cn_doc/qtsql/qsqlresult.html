@@ -175,7 +175,7 @@
 <h3 class="fn" id="bindValue-1"><a name="bindValue-1"></a><code>[虚保护函数] </code><span class="type">void</span> QSqlResult::<span class="name">bindValue</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>placeholder</i>, const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>val</i>, <span class="type">QSql::ParamType</span> <i>paramType</i>)</h3>
 <p>这是一个重载函数。</p>
 <p>Binds the value <i>val</i> of parameter type <i>paramType</i> to the <i>placeholder</i> name in the current record (row).</p>
-<p><b>Note: </b>Binding an undefined placeholder will result in undefined behavior.</p><p><b> 参见 </b><a href="qsqlquery.html#bindValue">QSqlQuery::bindValue</a>().</p>
+<p><b>注意： </b>Binding an undefined placeholder will result in undefined behavior.</p><p><b> 参见 </b><a href="qsqlquery.html#bindValue">QSqlQuery::bindValue</a>().</p>
 <!-- @@@bindValue -->
 <!-- $$$bindValueType[overload1]$$$bindValueTypeint -->
 <h3 class="fn" id="bindValueType"><a name="bindValueType"></a><code>[保护函数] </code><span class="type">QSql::ParamType</span> QSqlResult::<span class="name">bindValueType</span>(<span class="type">int</span> <i>index</i>) const</h3>
@@ -271,10 +271,10 @@
 <!-- $$$handle[overload1]$$$handle -->
 <h3 class="fn" id="handle"><a name="handle"></a><code>[虚函数] </code><span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> QSqlResult::<span class="name">handle</span>() const</h3>
 <p>Returns the low-level database handle for this result set wrapped in a <a href="../qtcore/qvariant.html">QVariant</a> or an invalid <a href="../qtcore/qvariant.html">QVariant</a> if there is no handle.</p>
-<p><b>Warning:</b> Use this with uttermost care and only if you know what you're doing.</p>
-<p><b>Warning:</b> The handle returned here can become a stale pointer if the result is modified (for example, if you clear it).</p>
-<p><b>Warning:</b> The handle can be NULL if the result was not executed yet.</p>
-<p><b>Warning:</b> PostgreSQL: in forward-only mode, the handle of <a href="qsqlresult.html">QSqlResult</a> can change after calling <a href="qsqlresult.html#fetch">fetch</a>(), <a href="qsqlresult.html#fetchFirst">fetchFirst</a>(), <a href="qsqlresult.html#fetchLast">fetchLast</a>(), <a href="qsqlresult.html#fetchNext">fetchNext</a>(), <a href="qsqlresult.html#fetchPrevious">fetchPrevious</a>(), nextResult().</p>
+<p><b>警告：</b> Use this with uttermost care and only if you know what you're doing.</p>
+<p><b>警告：</b> The handle returned here can become a stale pointer if the result is modified (for example, if you clear it).</p>
+<p><b>警告：</b> The handle can be NULL if the result was not executed yet.</p>
+<p><b>警告：</b> PostgreSQL: in forward-only mode, the handle of <a href="qsqlresult.html">QSqlResult</a> can change after calling <a href="qsqlresult.html#fetch">fetch</a>(), <a href="qsqlresult.html#fetchFirst">fetchFirst</a>(), <a href="qsqlresult.html#fetchLast">fetchLast</a>(), <a href="qsqlresult.html#fetchNext">fetchNext</a>(), <a href="qsqlresult.html#fetchPrevious">fetchPrevious</a>(), nextResult().</p>
 <p>The handle returned here is database-dependent, you should query the type name of the variant before accessing it.</p>
 <p>This example retrieves the handle for a sqlite result:</p>
 <pre class="cpp">
@@ -396,7 +396,7 @@
 <h3 class="fn" id="setForwardOnly"><a name="setForwardOnly"></a><code>[虚保护函数] </code><span class="type">void</span> QSqlResult::<span class="name">setForwardOnly</span>(<span class="type">bool</span> <i>forward</i>)</h3>
 <p>Sets forward only mode to <i>forward</i>. If <i>forward</i> is true, only <a href="qsqlresult.html#fetchNext">fetchNext</a>() is allowed for navigating the results. Forward only mode needs much less memory since results do not have to be cached. By default, this feature is disabled.</p>
 <p>Setting forward only to false is a suggestion to the database engine, which has the final say on whether a result set is forward only or scrollable. <a href="qsqlresult.html#isForwardOnly">isForwardOnly</a>() will always return the correct status of the result set.</p>
-<p><b>Note: </b>Calling setForwardOnly after execution of the query will result in unexpected results at best, and crashes at worst.</p><p><b>Note: </b>To make sure the forward-only query completed successfully, the application should check <a href="qsqlresult.html#lastError">lastError</a>() for an error not only after executing the query, but also after navigating the query results.</p><p><b>Warning:</b> PostgreSQL: While navigating the query results in forward-only mode, do not execute any other SQL command on the same database connection. This will cause the query results to be lost.</p>
+<p><b>注意： </b>Calling setForwardOnly after execution of the query will result in unexpected results at best, and crashes at worst.</p><p><b>注意： </b>To make sure the forward-only query completed successfully, the application should check <a href="qsqlresult.html#lastError">lastError</a>() for an error not only after executing the query, but also after navigating the query results.</p><p><b>警告：</b> PostgreSQL: While navigating the query results in forward-only mode, do not execute any other SQL command on the same database connection. This will cause the query results to be lost.</p>
 <p><b> 参见 </b><a href="qsqlresult.html#isForwardOnly">isForwardOnly</a>(), <a href="qsqlresult.html#fetchNext">fetchNext</a>(), 和 <a href="qsqlquery.html#setForwardOnly">QSqlQuery::setForwardOnly</a>().</p>
 <!-- @@@setForwardOnly -->
 <!-- $$$setLastError[overload1]$$$setLastErrorconstQSqlError& -->

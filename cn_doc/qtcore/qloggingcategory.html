@@ -124,7 +124,7 @@
   Q_LOGGING_CATEGORY(driverUsb<span class="operator">,</span> <span class="string">&quot;driver.usb&quot;</span>)
 
 </pre>
-<p><b>Note: </b>Category names are free text. However, to allow easy configuration of the categories using <a href="qloggingcategory.html#logging-rules">Logging Rules</a> the names should follow some rules:</p><ul>
+<p><b>注意： </b>Category names are free text. However, to allow easy configuration of the categories using <a href="qloggingcategory.html#logging-rules">Logging Rules</a> the names should follow some rules:</p><ul>
 <li>Use letters and numbers only.</li>
 <li>Further structure categories into common areas by using dots.</li>
 <li>Avoid the category names <code>debug</code>, <code>info</code>, <code>warning</code>, and <code>critical</code>.</li>
@@ -134,7 +134,7 @@
 <a name="checking-category-configuration"></a>
 <h3 >Checking Category Configuration</h3>
 <p><a href="qloggingcategory.html">QLoggingCategory</a> provides <a href="qloggingcategory.html#isDebugEnabled">isDebugEnabled</a>(), <a href="qloggingcategory.html#isInfoEnabled">isInfoEnabled</a>(), <a href="qloggingcategory.html#isWarningEnabled">isWarningEnabled</a>(), <a href="qloggingcategory.html#isCriticalEnabled">isCriticalEnabled</a>(), as well as <a href="qloggingcategory.html#isEnabled">isEnabled</a>() to check whether messages for the given message type should be logged.</p>
-<p><b>Note: </b>The <a href="qloggingcategory.html#qCDebug">qCDebug</a>(), <a href="qloggingcategory.html#qCWarning">qCWarning</a>(), <a href="qloggingcategory.html#qCCritical">qCCritical</a>() macros prevent arguments from being evaluated if the respective message types are not enabled for the category, so explicit checking is not needed:</p><pre class="cpp">
+<p><b>注意： </b>The <a href="qloggingcategory.html#qCDebug">qCDebug</a>(), <a href="qloggingcategory.html#qCWarning">qCWarning</a>(), <a href="qloggingcategory.html#qCCritical">qCCritical</a>() macros prevent arguments from being evaluated if the respective message types are not enabled for the category, so explicit checking is not needed:</p><pre class="cpp">
 
       <span class="comment">// usbEntries() will only be called if driverUsb category is enabled</span>
       qCDebug(driverUsb) <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;devices: &quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> usbEntries();
@@ -255,7 +255,7 @@
 <!-- $$$defaultCategory[overload1]$$$defaultCategory -->
 <h3 class="fn" id="defaultCategory"><a name="defaultCategory"></a><code>[静态函数] </code><span class="type"><a href="qloggingcategory.html#QLoggingCategory">QLoggingCategory</a></span> *QLoggingCategory::<span class="name">defaultCategory</span>()</h3>
 <p>Returns a pointer to the global category <code>&quot;default&quot;</code> that is used e.g&#x2e; by <a href="qtglobal.html#qDebug">qDebug</a>(), <a href="qtglobal.html#qInfo">qInfo</a>(), <a href="qtglobal.html#qWarning">qWarning</a>(), <a href="qtglobal.html#qCritical">qCritical</a>(), <a href="qtglobal.html#qFatal">qFatal</a>().</p>
-<p><b>Note: </b>The returned pointer may be null during destruction of static objects.</p><p><b>Note: </b>Ownership of the category is not transferred, do not <code>delete</code> the returned pointer.</p><!-- @@@defaultCategory -->
+<p><b>注意： </b>The returned pointer may be null during destruction of static objects.</p><p><b>注意： </b>Ownership of the category is not transferred, do not <code>delete</code> the returned pointer.</p><!-- @@@defaultCategory -->
 <!-- $$$installFilter[overload1]$$$installFilterQLoggingCategory::CategoryFilter -->
 <h3 class="fn" id="installFilter"><a name="installFilter"></a><code>[静态函数] </code><span class="type"><a href="qloggingcategory.html#CategoryFilter-typedef">QLoggingCategory::CategoryFilter</a></span> QLoggingCategory::<span class="name">installFilter</span>(<span class="type"><a href="qloggingcategory.html#CategoryFilter-typedef">QLoggingCategory::CategoryFilter</a></span> <i>filter</i>)</h3>
 <p>Installs a function <i>filter</i> that is used to determine which categories and message types should be enabled. Returns a pointer to the previous installed filter.</p>
@@ -281,11 +281,11 @@
 <!-- $$$isCriticalEnabled[overload1]$$$isCriticalEnabled -->
 <h3 class="fn" id="isCriticalEnabled"><a name="isCriticalEnabled"></a><span class="type">bool</span> QLoggingCategory::<span class="name">isCriticalEnabled</span>() const</h3>
 <p>Returns <code>true</code> if critical messages should be shown for this category. Returns <code>false</code> otherwise.</p>
-<p><b>Note: </b>The <a href="qloggingcategory.html#qCCritical">qCCritical</a>() macro already does this check before executing any code. However, calling this method may be useful to avoid expensive generation of data that is only used for debug output.</p><!-- @@@isCriticalEnabled -->
+<p><b>注意： </b>The <a href="qloggingcategory.html#qCCritical">qCCritical</a>() macro already does this check before executing any code. However, calling this method may be useful to avoid expensive generation of data that is only used for debug output.</p><!-- @@@isCriticalEnabled -->
 <!-- $$$isDebugEnabled[overload1]$$$isDebugEnabled -->
 <h3 class="fn" id="isDebugEnabled"><a name="isDebugEnabled"></a><span class="type">bool</span> QLoggingCategory::<span class="name">isDebugEnabled</span>() const</h3>
 <p>Returns <code>true</code> if debug messages should be shown for this category. Returns <code>false</code> otherwise.</p>
-<p><b>Note: </b>The <a href="qloggingcategory.html#qCDebug">qCDebug</a>() macro already does this check before executing any code. However, calling this method may be useful to avoid expensive generation of data that is only used for debug output.</p><!-- @@@isDebugEnabled -->
+<p><b>注意： </b>The <a href="qloggingcategory.html#qCDebug">qCDebug</a>() macro already does this check before executing any code. However, calling this method may be useful to avoid expensive generation of data that is only used for debug output.</p><!-- @@@isDebugEnabled -->
 <!-- $$$isEnabled[overload1]$$$isEnabledQtMsgType -->
 <h3 class="fn" id="isEnabled"><a name="isEnabled"></a><span class="type">bool</span> QLoggingCategory::<span class="name">isEnabled</span>(<span class="type"><a href="qtglobal.html#QtMsgType-enum">QtMsgType</a></span> <i>msgtype</i>) const</h3>
 <p>Returns <code>true</code> if a message of type <i>msgtype</i> for the category should be shown. Returns <code>false</code> otherwise.</p>
@@ -293,17 +293,17 @@
 <!-- $$$isInfoEnabled[overload1]$$$isInfoEnabled -->
 <h3 class="fn" id="isInfoEnabled"><a name="isInfoEnabled"></a><span class="type">bool</span> QLoggingCategory::<span class="name">isInfoEnabled</span>() const</h3>
 <p>Returns <code>true</code> if informational messages should be shown for this category. Returns <code>false</code> otherwise.</p>
-<p><b>Note: </b>The <a href="qloggingcategory.html#qCInfo">qCInfo</a>() macro already does this check before executing any code. However, calling this method may be useful to avoid expensive generation of data that is only used for debug output.</p><p>这个函数是在Qt 5.5版本中新增引入的。</p>
+<p><b>注意： </b>The <a href="qloggingcategory.html#qCInfo">qCInfo</a>() macro already does this check before executing any code. However, calling this method may be useful to avoid expensive generation of data that is only used for debug output.</p><p>这个函数是在Qt 5.5版本中新增引入的。</p>
 <!-- @@@isInfoEnabled -->
 <!-- $$$isWarningEnabled[overload1]$$$isWarningEnabled -->
 <h3 class="fn" id="isWarningEnabled"><a name="isWarningEnabled"></a><span class="type">bool</span> QLoggingCategory::<span class="name">isWarningEnabled</span>() const</h3>
 <p>Returns <code>true</code> if warning messages should be shown for this category. Returns <code>false</code> otherwise.</p>
-<p><b>Note: </b>The <a href="qloggingcategory.html#qCWarning">qCWarning</a>() macro already does this check before executing any code. However, calling this method may be useful to avoid expensive generation of data that is only used for debug output.</p><!-- @@@isWarningEnabled -->
+<p><b>注意： </b>The <a href="qloggingcategory.html#qCWarning">qCWarning</a>() macro already does this check before executing any code. However, calling this method may be useful to avoid expensive generation of data that is only used for debug output.</p><!-- @@@isWarningEnabled -->
 <!-- $$$setEnabled[overload1]$$$setEnabledQtMsgTypebool -->
 <h3 class="fn" id="setEnabled"><a name="setEnabled"></a><span class="type">void</span> QLoggingCategory::<span class="name">setEnabled</span>(<span class="type"><a href="qtglobal.html#QtMsgType-enum">QtMsgType</a></span> <i>type</i>, <span class="type">bool</span> <i>enable</i>)</h3>
 <p>Changes the message type <i>type</i> for the category to <i>enable</i>.</p>
 <p>This method is meant to be used only from inside a filter installed by <a href="qloggingcategory.html#installFilter">installFilter</a>(). See <a href="qloggingcategory.html#configuring-categories">Configuring Categories</a> for an overview on how to configure categories globally.</p>
-<p><b>Note: </b><code>QtFatalMsg</code> cannot be changed. It will always remain <code>true</code>.</p><p><b> 参见 </b><a href="qloggingcategory.html#isEnabled">isEnabled</a>().</p>
+<p><b>注意： </b><code>QtFatalMsg</code> cannot be changed. It will always remain <code>true</code>.</p><p><b> 参见 </b><a href="qloggingcategory.html#isEnabled">isEnabled</a>().</p>
 <!-- @@@setEnabled -->
 <!-- $$$setFilterRules[overload1]$$$setFilterRulesconstQString& -->
 <h3 class="fn" id="setFilterRules"><a name="setFilterRules"></a><code>[静态函数] </code><span class="type">void</span> QLoggingCategory::<span class="name">setFilterRules</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>rules</i>)</h3>
@@ -314,7 +314,7 @@
       <span class="type"><a href="qloggingcategory.html#QLoggingCategory">QLoggingCategory</a></span><span class="operator">::</span>setFilterRules(<span class="type"><a href="qstring.html#QStringLiteral">QStringLiteral</a></span>(<span class="string">&quot;driver.usb.debug=true&quot;</span>));
 
 </pre>
-<p><b>Note: </b>The rules might be ignored if a custom category filter is installed with <a href="qloggingcategory.html#installFilter">installFilter</a>(), or if the user defined <code>QT_LOGGING_CONF</code> or <code>QT_LOGGING_RULES</code> environment variable.</p><!-- @@@setFilterRules -->
+<p><b>注意： </b>The rules might be ignored if a custom category filter is installed with <a href="qloggingcategory.html#installFilter">installFilter</a>(), or if the user defined <code>QT_LOGGING_CONF</code> or <code>QT_LOGGING_RULES</code> environment variable.</p><!-- @@@setFilterRules -->
 <!-- $$$operator()[overload1]$$$operator() -->
 <h3 class="fn" id="operator-28-29"><a name="operator-28-29"></a><span class="type"><a href="qloggingcategory.html#QLoggingCategory">QLoggingCategory</a></span> &amp;QLoggingCategory::<span class="name">operator()</span>()</h3>
 <p>Returns the object itself. This allows both a <a href="qloggingcategory.html">QLoggingCategory</a> variable, and a factory method returning a <a href="qloggingcategory.html">QLoggingCategory</a>, to be used in <a href="qloggingcategory.html#qCDebug">qCDebug</a>(), <a href="qloggingcategory.html#qCWarning">qCWarning</a>(), <a href="qloggingcategory.html#qCCritical">qCCritical</a>() macros.</p>
@@ -366,7 +366,7 @@
       qCCritical(category) <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;a critical message&quot;</span>;
 
 </pre>
-<p><b>Note: </b>Arguments are not processed if critical output for the category is not enabled, so do not rely on any side effects.</p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
+<p><b>注意： </b>Arguments are not processed if critical output for the category is not enabled, so do not rely on any side effects.</p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p>这个函数是在Qt 5.2版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qtglobal.html#qCritical">qCritical</a>().</p>
 <!-- @@@qCCritical -->
@@ -380,7 +380,7 @@
       qCCritical(category<span class="operator">,</span> <span class="string">&quot;a critical message logged into category %s&quot;</span><span class="operator">,</span> category<span class="operator">.</span>categoryName());
 
 </pre>
-<p><b>Note: </b>Arguments might not be processed if critical output for the category is not enabled, so do not rely on any side effects.</p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
+<p><b>注意： </b>Arguments might not be processed if critical output for the category is not enabled, so do not rely on any side effects.</p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p>这个函数是在Qt 5.3版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qtglobal.html#qCritical">qCritical</a>().</p>
 <!-- @@@qCCritical -->
@@ -395,7 +395,7 @@
       qCDebug(category) <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;a debug message&quot;</span>;
 
 </pre>
-<p><b>Note: </b>Arguments are not processed if debug output for the category is not enabled, so do not rely on any side effects.</p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
+<p><b>注意： </b>Arguments are not processed if debug output for the category is not enabled, so do not rely on any side effects.</p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p>这个函数是在Qt 5.2版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qtglobal.html#qDebug">qDebug</a>().</p>
 <!-- @@@qCDebug -->
@@ -409,7 +409,7 @@
       qCDebug(category<span class="operator">,</span> <span class="string">&quot;a debug message logged into category %s&quot;</span><span class="operator">,</span> category<span class="operator">.</span>categoryName());
 
 </pre>
-<p><b>Note: </b>Arguments might not be processed if debug output for the category is not enabled, so do not rely on any side effects.</p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
+<p><b>注意： </b>Arguments might not be processed if debug output for the category is not enabled, so do not rely on any side effects.</p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p>这个函数是在Qt 5.3版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qtglobal.html#qDebug">qDebug</a>().</p>
 <!-- @@@qCDebug -->
@@ -424,7 +424,7 @@
       qCInfo(category) <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;an informational message&quot;</span>;
 
 </pre>
-<p><b>Note: </b>Arguments are not processed if debug output for the category is not enabled, so do not rely on any side effects.</p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
+<p><b>注意： </b>Arguments are not processed if debug output for the category is not enabled, so do not rely on any side effects.</p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p>这个函数是在Qt 5.5版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qtglobal.html#qInfo">qInfo</a>().</p>
 <!-- @@@qCInfo -->
@@ -438,7 +438,7 @@
       qCInfo(category<span class="operator">,</span> <span class="string">&quot;an informational message logged into category %s&quot;</span><span class="operator">,</span> category<span class="operator">.</span>categoryName());
 
 </pre>
-<p><b>Note: </b>Arguments might not be processed if debug output for the category is not enabled, so do not rely on any side effects.</p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
+<p><b>注意： </b>Arguments might not be processed if debug output for the category is not enabled, so do not rely on any side effects.</p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p>这个函数是在Qt 5.5版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qtglobal.html#qInfo">qInfo</a>().</p>
 <!-- @@@qCInfo -->
@@ -453,7 +453,7 @@
       qCWarning(category) <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;a warning message&quot;</span>;
 
 </pre>
-<p><b>Note: </b>Arguments are not processed if warning output for the category is not enabled, so do not rely on any side effects.</p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
+<p><b>注意： </b>Arguments are not processed if warning output for the category is not enabled, so do not rely on any side effects.</p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p>这个函数是在Qt 5.2版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qtglobal.html#qWarning">qWarning</a>().</p>
 <!-- @@@qCWarning -->
@@ -467,7 +467,7 @@
       qCWarning(category<span class="operator">,</span> <span class="string">&quot;a warning message logged into category %s&quot;</span><span class="operator">,</span> category<span class="operator">.</span>categoryName());
 
 </pre>
-<p><b>Note: </b>Arguments might not be processed if warning output for the category is not enabled, so do not rely on any side effects.</p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
+<p><b>注意： </b>Arguments might not be processed if warning output for the category is not enabled, so do not rely on any side effects.</p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p>这个函数是在Qt 5.3版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qtglobal.html#qWarning">qWarning</a>().</p>
 <!-- @@@qCWarning -->

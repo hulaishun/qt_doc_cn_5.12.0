@@ -121,7 +121,7 @@
 </pre>
 <p><a href="qhostinfo.html">QHostInfo</a> supports Internationalized Domain Names (IDNs) through the IDNA and Punycode standards.</p>
 <p>To retrieve the name of the local host, use the static <a href="qhostinfo.html#localHostName">QHostInfo::localHostName</a>() function.</p>
-<p><b>Note: </b>Since Qt 4.6&#x2e;1 <a href="qhostinfo.html">QHostInfo</a> is using multiple threads for DNS lookup instead of one dedicated DNS thread. This improves performance, but also changes the order of signal emissions when using <a href="qhostinfo.html#lookupHost">lookupHost</a>() compared to previous versions of Qt.</p><p><b>Note: </b>Since Qt 4.6&#x2e;3 <a href="qhostinfo.html">QHostInfo</a> is using a small internal 60 second DNS cache for performance improvements.</p></div>
+<p><b>注意： </b>Since Qt 4.6&#x2e;1 <a href="qhostinfo.html">QHostInfo</a> is using multiple threads for DNS lookup instead of one dedicated DNS thread. This improves performance, but also changes the order of signal emissions when using <a href="qhostinfo.html#lookupHost">lookupHost</a>() compared to previous versions of Qt.</p><p><b>注意： </b>Since Qt 4.6&#x2e;3 <a href="qhostinfo.html">QHostInfo</a> is using a small internal 60 second DNS cache for performance improvements.</p></div>
 <p><b> 参见 </b><a href="qabstractsocket.html">QAbstractSocket</a> 和 <a href="http://www.rfc-editor.org/rfc/rfc3492.txt">RFC 3492</a>.</p>
 <!-- @@@QHostInfo -->
 <div class="types">
@@ -200,7 +200,7 @@
 <!-- $$$localDomainName[overload1]$$$localDomainName -->
 <h3 class="fn" id="localDomainName"><a name="localDomainName"></a><code>[静态函数] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QHostInfo::<span class="name">localDomainName</span>()</h3>
 <p>Returns the DNS domain of this machine.</p>
-<p><b>Note: </b>DNS domains are not related to domain names found in Windows networks.</p><p><b> 参见 </b><a href="qhostinfo.html#hostName">hostName</a>().</p>
+<p><b>注意： </b>DNS domains are not related to domain names found in Windows networks.</p><p><b> 参见 </b><a href="qhostinfo.html#hostName">hostName</a>().</p>
 <!-- @@@localDomainName -->
 <!-- $$$localHostName[overload1]$$$localHostName -->
 <h3 class="fn" id="localHostName"><a name="localHostName"></a><code>[静态函数] </code><span class="type"><a href="../qtcore/qstring.html">QString</a></span> QHostInfo::<span class="name">localHostName</span>()</h3>
@@ -242,20 +242,20 @@
                         <span class="keyword">this</span><span class="operator">,</span> SLOT(lookedUp(<span class="type"><a href="qhostinfo.html#QHostInfo">QHostInfo</a></span>)));
 
 </pre>
-<p><b>Note: </b>There is no guarantee on the order the signals will be emitted if you start multiple requests with lookupHost().</p><p><b> 参见 </b><a href="qhostinfo.html#abortHostLookup">abortHostLookup</a>(), <a href="qhostinfo.html#addresses">addresses</a>(), <a href="qhostinfo.html#error">error</a>(), 和 <a href="qhostinfo.html#fromName">fromName</a>().</p>
+<p><b>注意： </b>There is no guarantee on the order the signals will be emitted if you start multiple requests with lookupHost().</p><p><b> 参见 </b><a href="qhostinfo.html#abortHostLookup">abortHostLookup</a>(), <a href="qhostinfo.html#addresses">addresses</a>(), <a href="qhostinfo.html#error">error</a>(), 和 <a href="qhostinfo.html#fromName">fromName</a>().</p>
 <!-- @@@lookupHost -->
 <!-- $$$lookupHost$$$lookupHostconstQString&constQObject*PointerToMemberFunction -->
 <h3 class="fn" id="lookupHost-1"><a name="lookupHost-1"></a><code>[静态函数] </code><span class="type">int</span> QHostInfo::<span class="name">lookupHost</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>name</i>, const <span class="type"><a href="../qtcore/qobject.html">QObject</a></span> *<i>receiver</i>, <span class="type">PointerToMemberFunction</span> <i>function</i>)</h3>
 <p>这是一个重载函数。</p>
 <p>Looks up the IP address(es) associated with host name <i>name</i>, and returns an ID for the lookup. When the result of the lookup is ready, the slot or signal <i>function</i> in <i>receiver</i> is called with a <a href="qhostinfo.html">QHostInfo</a> argument. The <a href="qhostinfo.html">QHostInfo</a> object can then be inspected to get the results of the lookup.</p>
-<p><b>Note: </b>There is no guarantee on the order the signals will be emitted if you start multiple requests with <a href="qhostinfo.html#lookupHost">lookupHost</a>().</p><p>这个函数是在Qt 5.9版本中新增引入的。</p>
+<p><b>注意： </b>There is no guarantee on the order the signals will be emitted if you start multiple requests with <a href="qhostinfo.html#lookupHost">lookupHost</a>().</p><p>这个函数是在Qt 5.9版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qhostinfo.html#abortHostLookup">abortHostLookup</a>(), <a href="qhostinfo.html#addresses">addresses</a>(), <a href="qhostinfo.html#error">error</a>(), 和 <a href="qhostinfo.html#fromName">fromName</a>().</p>
 <!-- @@@lookupHost -->
 <!-- $$$lookupHost$$$lookupHostconstQString&Functor -->
 <h3 class="fn" id="lookupHost-2"><a name="lookupHost-2"></a><code>[静态函数] </code><span class="type">int</span> QHostInfo::<span class="name">lookupHost</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>name</i>, <span class="type">Functor</span> <i>functor</i>)</h3>
 <p>这是一个重载函数。</p>
 <p>Looks up the IP address(es) associated with host name <i>name</i>, and returns an ID for the lookup. When the result of the lookup is ready, the <i>functor</i> is called with a <a href="qhostinfo.html">QHostInfo</a> argument. The <a href="qhostinfo.html">QHostInfo</a> object can then be inspected to get the results of the lookup.</p>
-<p><b>Note: </b>There is no guarantee on the order the signals will be emitted if you start multiple requests with <a href="qhostinfo.html#lookupHost">lookupHost</a>().</p><p>这个函数是在Qt 5.9版本中新增引入的。</p>
+<p><b>注意： </b>There is no guarantee on the order the signals will be emitted if you start multiple requests with <a href="qhostinfo.html#lookupHost">lookupHost</a>().</p><p>这个函数是在Qt 5.9版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qhostinfo.html#abortHostLookup">abortHostLookup</a>(), <a href="qhostinfo.html#addresses">addresses</a>(), <a href="qhostinfo.html#error">error</a>(), 和 <a href="qhostinfo.html#fromName">fromName</a>().</p>
 <!-- @@@lookupHost -->
 <!-- $$$lookupHost$$$lookupHostconstQString&constQObject*Functor -->
@@ -263,7 +263,7 @@
 <p>这是一个重载函数。</p>
 <p>Looks up the IP address(es) associated with host name <i>name</i>, and returns an ID for the lookup. When the result of the lookup is ready, the <i>functor</i> is called with a <a href="qhostinfo.html">QHostInfo</a> argument. The <a href="qhostinfo.html">QHostInfo</a> object can then be inspected to get the results of the lookup.</p>
 <p>If <i>context</i> is destroyed before the lookup completes, the <i>functor</i> will not be called. The <i>functor</i> will be run in the thread of <i>context</i>. The context's thread must have a running Qt event loop.</p>
-<p><b>Note: </b>There is no guarantee on the order the signals will be emitted if you start multiple requests with <a href="qhostinfo.html#lookupHost">lookupHost</a>().</p><p>这个函数是在Qt 5.9版本中新增引入的。</p>
+<p><b>注意： </b>There is no guarantee on the order the signals will be emitted if you start multiple requests with <a href="qhostinfo.html#lookupHost">lookupHost</a>().</p><p>这个函数是在Qt 5.9版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qhostinfo.html#abortHostLookup">abortHostLookup</a>(), <a href="qhostinfo.html#addresses">addresses</a>(), <a href="qhostinfo.html#error">error</a>(), 和 <a href="qhostinfo.html#fromName">fromName</a>().</p>
 <!-- @@@lookupHost -->
 <!-- $$$lookupId[overload1]$$$lookupId -->
@@ -308,7 +308,7 @@
 <!-- $$$operator=$$$operator=QHostInfo&& -->
 <h3 class="fn" id="operator-eq-1"><a name="operator-eq-1"></a><span class="type"><a href="qhostinfo.html#QHostInfo">QHostInfo</a></span> &amp;QHostInfo::<span class="name">operator=</span>(<span class="type"><a href="qhostinfo.html#QHostInfo">QHostInfo</a></span> &amp;&amp;<i>other</i>)</h3>
 <p>Move-assigns <i>other</i> to this <a href="qhostinfo.html">QHostInfo</a> instance.</p>
-<p><b>Note: </b>The moved-from object <i>other</i> is placed in a partially-formed state, in which the only valid operations are destruction and assignment of a new value.</p><p>这个函数是在Qt 5.10版本中新增引入的。</p>
+<p><b>注意： </b>The moved-from object <i>other</i> is placed in a partially-formed state, in which the only valid operations are destruction and assignment of a new value.</p><p>这个函数是在Qt 5.10版本中新增引入的。</p>
 <!-- @@@operator= -->
 </div>
 <div class="vars">

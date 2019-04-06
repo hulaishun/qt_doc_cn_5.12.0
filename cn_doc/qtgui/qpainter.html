@@ -299,7 +299,7 @@
 <p>The <a href="qpainter.html#isActive">isActive</a>() function indicates whether the painter is active. A painter is activated by the <a href="qpainter.html#begin">begin</a>() function and the constructor that takes a <a href="qpaintdevice.html">QPaintDevice</a> argument. The <a href="qpainter.html#end">end</a>() function, and the destructor, deactivates it.</p>
 <p>Together with the <a href="qpaintdevice.html">QPaintDevice</a> 和 <a href="qpaintengine.html">QPaintEngine</a> classes, <a href="qpainter.html">QPainter</a> form the basis for Qt's paint system. <a href="qpainter.html">QPainter</a> is the class used to perform drawing operations. <a href="qpaintdevice.html">QPaintDevice</a> represents a device that can be painted on using a <a href="qpainter.html">QPainter</a>. <a href="qpaintengine.html">QPaintEngine</a> provides the interface that the painter uses to draw onto different types of devices. If the painter is active, <a href="qpainter.html#device">device</a>() returns the paint device on which the painter paints, and <a href="qpainter.html#paintEngine">paintEngine</a>() returns the paint engine that the painter is currently operating on. For more information, see the <a href="paintsystem.html">Paint System</a>.</p>
 <p>Sometimes it is desirable to make someone else paint on an unusual <a href="qpaintdevice.html">QPaintDevice</a>. <a href="qpainter.html">QPainter</a> supports a static function to do this, setRedirected().</p>
-<p><b>Warning:</b> When the paintdevice is a widget, <a href="qpainter.html">QPainter</a> can only be used inside a paintEvent() function or in a function called by paintEvent().</p>
+<p><b>警告：</b> When the paintdevice is a widget, <a href="qpainter.html">QPainter</a> can only be used inside a paintEvent() function or in a function called by paintEvent().</p>
 <a name="settings"></a>
 <h3 >Settings</h3>
 <p>There are several settings that you can customize to make <a href="qpainter.html">QPainter</a> draw according to your preferences:</p>
@@ -560,8 +560,8 @@
 
 </pre>
 <p>Note that most of the time, you can use one of the constructors instead of begin(), and that <a href="qpainter.html#end">end</a>() is automatically done at destruction.</p>
-<p><b>Warning:</b> A paint device can only be painted by one painter at a time.</p>
-<p><b>Warning:</b> Painting on a <a href="qimage.html">QImage</a> with the format <a href="qimage.html#Format-enum">QImage::Format_Indexed8</a> is not supported.</p>
+<p><b>警告：</b> A paint device can only be painted by one painter at a time.</p>
+<p><b>警告：</b> Painting on a <a href="qimage.html">QImage</a> with the format <a href="qimage.html#Format-enum">QImage::Format_Indexed8</a> is not supported.</p>
 <p><b> 参见 </b><a href="qpainter.html#end">end</a>() 和 <a href="qpainter.html#QPainter">QPainter</a>().</p>
 <!-- @@@begin -->
 <!-- $$$beginNativePainting[overload1]$$$beginNativePainting -->
@@ -655,13 +655,13 @@
 <!-- $$$clipPath[overload1]$$$clipPath -->
 <h3 class="fn" id="clipPath"><a name="clipPath"></a><span class="type"><a href="qpainterpath.html">QPainterPath</a></span> QPainter::<span class="name">clipPath</span>() const</h3>
 <p>Returns the current clip path in logical coordinates.</p>
-<p><b>Warning:</b> <a href="qpainter.html">QPainter</a> does not store the combined clip explicitly as this is handled by the underlying <a href="qpaintengine.html">QPaintEngine</a>, so the path is recreated on demand and transformed to the current logical coordinate system. This is potentially an expensive operation.</p>
+<p><b>警告：</b> <a href="qpainter.html">QPainter</a> does not store the combined clip explicitly as this is handled by the underlying <a href="qpaintengine.html">QPaintEngine</a>, so the path is recreated on demand and transformed to the current logical coordinate system. This is potentially an expensive operation.</p>
 <p><b> 参见 </b><a href="qpainter.html#setClipPath">setClipPath</a>(), <a href="qpainter.html#clipRegion">clipRegion</a>(), 和 <a href="qpainter.html#setClipping">setClipping</a>().</p>
 <!-- @@@clipPath -->
 <!-- $$$clipRegion[overload1]$$$clipRegion -->
 <h3 class="fn" id="clipRegion"><a name="clipRegion"></a><span class="type"><a href="qregion.html">QRegion</a></span> QPainter::<span class="name">clipRegion</span>() const</h3>
 <p>Returns the currently set clip region. Note that the clip region is given in logical coordinates.</p>
-<p><b>Warning:</b> <a href="qpainter.html">QPainter</a> does not store the combined clip explicitly as this is handled by the underlying <a href="qpaintengine.html">QPaintEngine</a>, so the path is recreated on demand and transformed to the current logical coordinate system. This is potentially an expensive operation.</p>
+<p><b>警告：</b> <a href="qpainter.html">QPainter</a> does not store the combined clip explicitly as this is handled by the underlying <a href="qpaintengine.html">QPaintEngine</a>, so the path is recreated on demand and transformed to the current logical coordinate system. This is potentially an expensive operation.</p>
 <p><b> 参见 </b><a href="qpainter.html#setClipRegion">setClipRegion</a>(), <a href="qpainter.html#clipPath">clipPath</a>(), 和 <a href="qpainter.html#setClipping">setClipping</a>().</p>
 <!-- @@@clipRegion -->
 <!-- $$$combinedTransform[overload1]$$$combinedTransform -->
@@ -830,7 +830,7 @@
 <!-- $$$drawImage[overload1]$$$drawImageconstQRectF&constQImage&constQRectF&Qt::ImageConversionFlags -->
 <h3 class="fn" id="drawImage"><a name="drawImage"></a><span class="type">void</span> QPainter::<span class="name">drawImage</span>(const <span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> &amp;<i>target</i>, const <span class="type"><a href="qimage.html">QImage</a></span> &amp;<i>image</i>, const <span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> &amp;<i>source</i>, <span class="type">Qt::ImageConversionFlags</span> <i>flags</i> = Qt::AutoColor)</h3>
 <p>Draws the rectangular portion <i>source</i> of the given <i>image</i> into the <i>target</i> rectangle in the paint device.</p>
-<p><b>Note: </b>The image is scaled to fit the rectangle, if both the image and rectangle size disagree.</p><p><b>Note: </b>See <a href="qpainter.html#drawing-high-resolution-versions-of-pixmaps-and-images">Drawing High Resolution Versions of Pixmaps and Images</a> on how this is affected by <a href="qimage.html#devicePixelRatio">QImage::devicePixelRatio</a>().</p><p>If the image needs to be modified to fit in a lower-resolution result (e.g&#x2e; converting from 32-bit to 8-bit), use the <i>flags</i> to specify how you would prefer this to happen.</p>
+<p><b>注意： </b>The image is scaled to fit the rectangle, if both the image and rectangle size disagree.</p><p><b>注意： </b>See <a href="qpainter.html#drawing-high-resolution-versions-of-pixmaps-and-images">Drawing High Resolution Versions of Pixmaps and Images</a> on how this is affected by <a href="qimage.html#devicePixelRatio">QImage::devicePixelRatio</a>().</p><p>If the image needs to be modified to fit in a lower-resolution result (e.g&#x2e; converting from 32-bit to 8-bit), use the <i>flags</i> to specify how you would prefer this to happen.</p>
 <div class="table"><table class="generic" width="100%">
  <tr valign="top" class="odd"><td ><pre class="cpp">
 
@@ -850,7 +850,7 @@
 <h3 class="fn" id="drawImage-1"><a name="drawImage-1"></a><span class="type">void</span> QPainter::<span class="name">drawImage</span>(const <span class="type"><a href="../qtcore/qrect.html">QRect</a></span> &amp;<i>target</i>, const <span class="type"><a href="qimage.html">QImage</a></span> &amp;<i>image</i>, const <span class="type"><a href="../qtcore/qrect.html">QRect</a></span> &amp;<i>source</i>, <span class="type">Qt::ImageConversionFlags</span> <i>flags</i> = Qt::AutoColor)</h3>
 <p>这是一个重载函数。</p>
 <p>Draws the rectangular portion <i>source</i> of the given <i>image</i> into the <i>target</i> rectangle in the paint device.</p>
-<p><b>Note: </b>The image is scaled to fit the rectangle, if both the image and rectangle size disagree.</p><!-- @@@drawImage -->
+<p><b>注意： </b>The image is scaled to fit the rectangle, if both the image and rectangle size disagree.</p><!-- @@@drawImage -->
 <!-- $$$drawImage$$$drawImageconstQPointF&constQImage&constQRectF&Qt::ImageConversionFlags -->
 <h3 class="fn" id="drawImage-2"><a name="drawImage-2"></a><span class="type">void</span> QPainter::<span class="name">drawImage</span>(const <span class="type"><a href="../qtcore/qpointf.html">QPointF</a></span> &amp;<i>point</i>, const <span class="type"><a href="qimage.html">QImage</a></span> &amp;<i>image</i>, const <span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> &amp;<i>source</i>, <span class="type">Qt::ImageConversionFlags</span> <i>flags</i> = ...)</h3>
 <p>这是一个重载函数。</p>
@@ -865,12 +865,12 @@
 <h3 class="fn" id="drawImage-4"><a name="drawImage-4"></a><span class="type">void</span> QPainter::<span class="name">drawImage</span>(const <span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> &amp;<i>rectangle</i>, const <span class="type"><a href="qimage.html">QImage</a></span> &amp;<i>image</i>)</h3>
 <p>这是一个重载函数。</p>
 <p>Draws the given <i>image</i> into the given <i>rectangle</i>.</p>
-<p><b>Note: </b>The image is scaled to fit the rectangle, if both the image and rectangle size disagree.</p><!-- @@@drawImage -->
+<p><b>注意： </b>The image is scaled to fit the rectangle, if both the image and rectangle size disagree.</p><!-- @@@drawImage -->
 <!-- $$$drawImage$$$drawImageconstQRect&constQImage& -->
 <h3 class="fn" id="drawImage-5"><a name="drawImage-5"></a><span class="type">void</span> QPainter::<span class="name">drawImage</span>(const <span class="type"><a href="../qtcore/qrect.html">QRect</a></span> &amp;<i>rectangle</i>, const <span class="type"><a href="qimage.html">QImage</a></span> &amp;<i>image</i>)</h3>
 <p>这是一个重载函数。</p>
 <p>Draws the given <i>image</i> into the given <i>rectangle</i>.</p>
-<p><b>Note: </b>The image is scaled to fit the rectangle, if both the image and rectangle size disagree.</p><!-- @@@drawImage -->
+<p><b>注意： </b>The image is scaled to fit the rectangle, if both the image and rectangle size disagree.</p><!-- @@@drawImage -->
 <!-- $$$drawImage$$$drawImageconstQPointF&constQImage& -->
 <h3 class="fn" id="drawImage-6"><a name="drawImage-6"></a><span class="type">void</span> QPainter::<span class="name">drawImage</span>(const <span class="type"><a href="../qtcore/qpointf.html">QPointF</a></span> &amp;<i>point</i>, const <span class="type"><a href="qimage.html">QImage</a></span> &amp;<i>image</i>)</h3>
 <p>这是一个重载函数。</p>
@@ -1046,7 +1046,7 @@
 <!-- $$$drawPixmap[overload1]$$$drawPixmapconstQRectF&constQPixmap&constQRectF& -->
 <h3 class="fn" id="drawPixmap"><a name="drawPixmap"></a><span class="type">void</span> QPainter::<span class="name">drawPixmap</span>(const <span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> &amp;<i>target</i>, const <span class="type"><a href="qpixmap.html">QPixmap</a></span> &amp;<i>pixmap</i>, const <span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> &amp;<i>source</i>)</h3>
 <p>Draws the rectangular portion <i>source</i> of the given <i>pixmap</i> into the given <i>target</i> in the paint device.</p>
-<p><b>Note: </b>The pixmap is scaled to fit the rectangle, if both the pixmap and rectangle size disagree.</p><p><b>Note: </b>See <a href="qpainter.html#drawing-high-resolution-versions-of-pixmaps-and-images">Drawing High Resolution Versions of Pixmaps and Images</a> on how this is affected by <a href="qpixmap.html#devicePixelRatio">QPixmap::devicePixelRatio</a>().</p><div class="table"><table class="generic" width="100%">
+<p><b>注意： </b>The pixmap is scaled to fit the rectangle, if both the pixmap and rectangle size disagree.</p><p><b>注意： </b>See <a href="qpainter.html#drawing-high-resolution-versions-of-pixmaps-and-images">Drawing High Resolution Versions of Pixmaps and Images</a> on how this is affected by <a href="qpixmap.html#devicePixelRatio">QPixmap::devicePixelRatio</a>().</p><div class="table"><table class="generic" width="100%">
  <tr valign="top" class="odd"><td ><pre class="cpp">
 
   <span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> target(<span class="number">10.0</span><span class="operator">,</span> <span class="number">20.0</span><span class="operator">,</span> <span class="number">80.0</span><span class="operator">,</span> <span class="number">60.0</span>);
@@ -1066,7 +1066,7 @@
 <h3 class="fn" id="drawPixmap-1"><a name="drawPixmap-1"></a><span class="type">void</span> QPainter::<span class="name">drawPixmap</span>(const <span class="type"><a href="../qtcore/qrect.html">QRect</a></span> &amp;<i>target</i>, const <span class="type"><a href="qpixmap.html">QPixmap</a></span> &amp;<i>pixmap</i>, const <span class="type"><a href="../qtcore/qrect.html">QRect</a></span> &amp;<i>source</i>)</h3>
 <p>这是一个重载函数。</p>
 <p>Draws the rectangular portion <i>source</i> of the given <i>pixmap</i> into the given <i>target</i> in the paint device.</p>
-<p><b>Note: </b>The pixmap is scaled to fit the rectangle, if both the pixmap and rectangle size disagree.</p><!-- @@@drawPixmap -->
+<p><b>注意： </b>The pixmap is scaled to fit the rectangle, if both the pixmap and rectangle size disagree.</p><!-- @@@drawPixmap -->
 <!-- $$$drawPixmap$$$drawPixmapintintintintconstQPixmap&intintintint -->
 <h3 class="fn" id="drawPixmap-2"><a name="drawPixmap-2"></a><span class="type">void</span> QPainter::<span class="name">drawPixmap</span>(<span class="type">int</span> <i>x</i>, <span class="type">int</span> <i>y</i>, <span class="type">int</span> <i>w</i>, <span class="type">int</span> <i>h</i>, const <span class="type"><a href="qpixmap.html">QPixmap</a></span> &amp;<i>pixmap</i>, <span class="type">int</span> <i>sx</i>, <span class="type">int</span> <i>sy</i>, <span class="type">int</span> <i>sw</i>, <span class="type">int</span> <i>sh</i>)</h3>
 <p>这是一个重载函数。</p>
@@ -1108,7 +1108,7 @@
 <h3 class="fn" id="drawPixmap-9"><a name="drawPixmap-9"></a><span class="type">void</span> QPainter::<span class="name">drawPixmap</span>(const <span class="type"><a href="../qtcore/qrect.html">QRect</a></span> &amp;<i>rectangle</i>, const <span class="type"><a href="qpixmap.html">QPixmap</a></span> &amp;<i>pixmap</i>)</h3>
 <p>这是一个重载函数。</p>
 <p>Draws the given <i>pixmap</i> into the given <i>rectangle</i>.</p>
-<p><b>Note: </b>The pixmap is scaled to fit the rectangle, if both the pixmap and rectangle size disagree.</p><!-- @@@drawPixmap -->
+<p><b>注意： </b>The pixmap is scaled to fit the rectangle, if both the pixmap and rectangle size disagree.</p><!-- @@@drawPixmap -->
 <!-- $$$drawPixmap$$$drawPixmapintintintintconstQPixmap& -->
 <h3 class="fn" id="drawPixmap-10"><a name="drawPixmap-10"></a><span class="type">void</span> QPainter::<span class="name">drawPixmap</span>(<span class="type">int</span> <i>x</i>, <span class="type">int</span> <i>y</i>, <span class="type">int</span> <i>width</i>, <span class="type">int</span> <i>height</i>, const <span class="type"><a href="qpixmap.html">QPixmap</a></span> &amp;<i>pixmap</i>)</h3>
 <p>这是一个重载函数。</p>
@@ -1313,41 +1313,41 @@
 <p>Draws the given <i>staticText</i> at the given <i>topLeftPosition</i>.</p>
 <p>The text will be drawn using the font and the transformation set on the painter. If the font and/or transformation set on the painter are different from the ones used to initialize the layout of the <a href="qstatictext.html">QStaticText</a>, then the layout will have to be recalculated. Use <a href="qstatictext.html#prepare">QStaticText::prepare</a>() to initialize <i>staticText</i> with the font and transformation with which it will later be drawn.</p>
 <p>If <i>topLeftPosition</i> is not the same as when <i>staticText</i> was initialized, or when it was last drawn, then there will be a slight overhead when translating the text to its new position.</p>
-<p><b>Note: </b>If the painter's transformation is not affine, then <i>staticText</i> will be drawn using regular calls to <a href="qpainter.html#drawText">drawText</a>(), losing any potential for performance improvement.</p><p><b>Note: </b>The y-position is used as the top of the font.</p><p>这个函数是在Qt 4.7版本中新增引入的。</p>
+<p><b>注意： </b>If the painter's transformation is not affine, then <i>staticText</i> will be drawn using regular calls to <a href="qpainter.html#drawText">drawText</a>(), losing any potential for performance improvement.</p><p><b>注意： </b>The y-position is used as the top of the font.</p><p>这个函数是在Qt 4.7版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qstatictext.html">QStaticText</a>.</p>
 <!-- @@@drawStaticText -->
 <!-- $$$drawStaticText$$$drawStaticTextconstQPoint&constQStaticText& -->
 <h3 class="fn" id="drawStaticText-1"><a name="drawStaticText-1"></a><span class="type">void</span> QPainter::<span class="name">drawStaticText</span>(const <span class="type"><a href="../qtcore/qpoint.html">QPoint</a></span> &amp;<i>topLeftPosition</i>, const <span class="type"><a href="qstatictext.html">QStaticText</a></span> &amp;<i>staticText</i>)</h3>
 <p>这是一个重载函数。</p>
 <p>Draws the <i>staticText</i> at the <i>topLeftPosition</i>.</p>
-<p><b>Note: </b>The y-position is used as the top of the font.</p><p>这个函数是在Qt 4.7版本中新增引入的。</p>
+<p><b>注意： </b>The y-position is used as the top of the font.</p><p>这个函数是在Qt 4.7版本中新增引入的。</p>
 <!-- @@@drawStaticText -->
 <!-- $$$drawStaticText$$$drawStaticTextintintconstQStaticText& -->
 <h3 class="fn" id="drawStaticText-2"><a name="drawStaticText-2"></a><span class="type">void</span> QPainter::<span class="name">drawStaticText</span>(<span class="type">int</span> <i>left</i>, <span class="type">int</span> <i>top</i>, const <span class="type"><a href="qstatictext.html">QStaticText</a></span> &amp;<i>staticText</i>)</h3>
 <p>这是一个重载函数。</p>
 <p>Draws the <i>staticText</i> at coordinates <i>left</i> and <i>top</i>.</p>
-<p><b>Note: </b>The y-position is used as the top of the font.</p><p>这个函数是在Qt 4.7版本中新增引入的。</p>
+<p><b>注意： </b>The y-position is used as the top of the font.</p><p>这个函数是在Qt 4.7版本中新增引入的。</p>
 <!-- @@@drawStaticText -->
 <!-- $$$drawText[overload1]$$$drawTextconstQPointF&constQString& -->
 <h3 class="fn" id="drawText"><a name="drawText"></a><span class="type">void</span> QPainter::<span class="name">drawText</span>(const <span class="type"><a href="../qtcore/qpointf.html">QPointF</a></span> &amp;<i>position</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>text</i>)</h3>
 <p>Draws the given <i>text</i> with the currently defined text direction, beginning at the given <i>position</i>.</p>
 <p>This function does not handle the newline character (\n), as it cannot break text into multiple lines, and it cannot display the newline character. Use the QPainter::drawText() overload that takes a rectangle instead if you want to draw multiple lines of text with the newline character, or if you want the text to be wrapped.</p>
 <p>By default, <a href="qpainter.html">QPainter</a> draws text anti-aliased.</p>
-<p><b>Note: </b>The y-position is used as the baseline of the font.</p><p><b> 参见 </b><a href="qpainter.html#setFont">setFont</a>() 和 <a href="qpainter.html#setPen">setPen</a>().</p>
+<p><b>注意： </b>The y-position is used as the baseline of the font.</p><p><b> 参见 </b><a href="qpainter.html#setFont">setFont</a>() 和 <a href="qpainter.html#setPen">setPen</a>().</p>
 <!-- @@@drawText -->
 <!-- $$$drawText$$$drawTextconstQPoint&constQString& -->
 <h3 class="fn" id="drawText-1"><a name="drawText-1"></a><span class="type">void</span> QPainter::<span class="name">drawText</span>(const <span class="type"><a href="../qtcore/qpoint.html">QPoint</a></span> &amp;<i>position</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>text</i>)</h3>
 <p>这是一个重载函数。</p>
 <p>Draws the given <i>text</i> with the currently defined text direction, beginning at the given <i>position</i>.</p>
 <p>By default, <a href="qpainter.html">QPainter</a> draws text anti-aliased.</p>
-<p><b>Note: </b>The y-position is used as the baseline of the font.</p><p><b> 参见 </b><a href="qpainter.html#setFont">setFont</a>() 和 <a href="qpainter.html#setPen">setPen</a>().</p>
+<p><b>注意： </b>The y-position is used as the baseline of the font.</p><p><b> 参见 </b><a href="qpainter.html#setFont">setFont</a>() 和 <a href="qpainter.html#setPen">setPen</a>().</p>
 <!-- @@@drawText -->
 <!-- $$$drawText$$$drawTextintintconstQString& -->
 <h3 class="fn" id="drawText-2"><a name="drawText-2"></a><span class="type">void</span> QPainter::<span class="name">drawText</span>(<span class="type">int</span> <i>x</i>, <span class="type">int</span> <i>y</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>text</i>)</h3>
 <p>这是一个重载函数。</p>
 <p>Draws the given <i>text</i> at position (<i>x</i>, <i>y</i>), using the painter's currently defined text direction.</p>
 <p>By default, <a href="qpainter.html">QPainter</a> draws text anti-aliased.</p>
-<p><b>Note: </b>The y-position is used as the baseline of the font.</p><p><b> 参见 </b><a href="qpainter.html#setFont">setFont</a>() 和 <a href="qpainter.html#setPen">setPen</a>().</p>
+<p><b>注意： </b>The y-position is used as the baseline of the font.</p><p><b> 参见 </b><a href="qpainter.html#setFont">setFont</a>() 和 <a href="qpainter.html#setPen">setPen</a>().</p>
 <!-- @@@drawText -->
 <!-- $$$drawText$$$drawTextconstQRectF&intconstQString&QRectF* -->
 <h3 class="fn" id="drawText-4"><a name="drawText-4"></a><span class="type">void</span> QPainter::<span class="name">drawText</span>(const <span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> &amp;<i>rectangle</i>, <span class="type">int</span> <i>flags</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>text</i>, <span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> *<i>boundingRect</i> = nullptr)</h3>
@@ -1405,7 +1405,7 @@
 <li><a href="../qtcore/qt.html#TextFlag-enum">Qt::TextIncludeTrailingSpaces</a></li>
 </ul>
 <p>By default, <a href="qpainter.html">QPainter</a> draws text anti-aliased.</p>
-<p><b>Note: </b>The y-coordinate of <i>rectangle</i> is used as the top of the font.</p><p><b> 参见 </b><a href="../qtcore/qt.html#AlignmentFlag-enum">Qt::AlignmentFlag</a>, <a href="../qtcore/qt.html#TextFlag-enum">Qt::TextFlag</a>, <a href="qpainter.html#boundingRect">boundingRect</a>(), 和 <a href="qpainter.html#layoutDirection">layoutDirection</a>().</p>
+<p><b>注意： </b>The y-coordinate of <i>rectangle</i> is used as the top of the font.</p><p><b> 参见 </b><a href="../qtcore/qt.html#AlignmentFlag-enum">Qt::AlignmentFlag</a>, <a href="../qtcore/qt.html#TextFlag-enum">Qt::TextFlag</a>, <a href="qpainter.html#boundingRect">boundingRect</a>(), 和 <a href="qpainter.html#layoutDirection">layoutDirection</a>().</p>
 <!-- @@@drawText -->
 <!-- $$$drawText$$$drawTextconstQRect&intconstQString&QRect* -->
 <h3 class="fn" id="drawText-5"><a name="drawText-5"></a><span class="type">void</span> QPainter::<span class="name">drawText</span>(const <span class="type"><a href="../qtcore/qrect.html">QRect</a></span> &amp;<i>rectangle</i>, <span class="type">int</span> <i>flags</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>text</i>, <span class="type"><a href="../qtcore/qrect.html">QRect</a></span> *<i>boundingRect</i> = nullptr)</h3>
@@ -1437,7 +1437,7 @@
 </td></tr>
 </table></div>
 <p>By default, <a href="qpainter.html">QPainter</a> draws text anti-aliased.</p>
-<p><b>Note: </b>The y-coordinate of <i>rectangle</i> is used as the top of the font.</p><p><b> 参见 </b><a href="qpainter.html#setFont">setFont</a>() 和 <a href="qpainter.html#setPen">setPen</a>().</p>
+<p><b>注意： </b>The y-coordinate of <i>rectangle</i> is used as the top of the font.</p><p><b> 参见 </b><a href="qpainter.html#setFont">setFont</a>() 和 <a href="qpainter.html#setPen">setPen</a>().</p>
 <!-- @@@drawText -->
 <!-- $$$drawText$$$drawTextintintintintintconstQString&QRect* -->
 <h3 class="fn" id="drawText-6"><a name="drawText-6"></a><span class="type">void</span> QPainter::<span class="name">drawText</span>(<span class="type">int</span> <i>x</i>, <span class="type">int</span> <i>y</i>, <span class="type">int</span> <i>width</i>, <span class="type">int</span> <i>height</i>, <span class="type">int</span> <i>flags</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>text</i>, <span class="type"><a href="../qtcore/qrect.html">QRect</a></span> *<i>boundingRect</i> = nullptr)</h3>
@@ -1484,14 +1484,14 @@
 <li><a href="../qtcore/qt.html#TextFlag-enum">Qt::TextWordWrap</a></li>
 </ul>
 <p>By default, <a href="qpainter.html">QPainter</a> draws text anti-aliased.</p>
-<p><b>Note: </b>The y-position is used as the top of the font.</p><p><b> 参见 </b><a href="../qtcore/qt.html#AlignmentFlag-enum">Qt::AlignmentFlag</a>, <a href="../qtcore/qt.html#TextFlag-enum">Qt::TextFlag</a>, <a href="qpainter.html#setFont">setFont</a>(), 和 <a href="qpainter.html#setPen">setPen</a>().</p>
+<p><b>注意： </b>The y-position is used as the top of the font.</p><p><b> 参见 </b><a href="../qtcore/qt.html#AlignmentFlag-enum">Qt::AlignmentFlag</a>, <a href="../qtcore/qt.html#TextFlag-enum">Qt::TextFlag</a>, <a href="qpainter.html#setFont">setFont</a>(), 和 <a href="qpainter.html#setPen">setPen</a>().</p>
 <!-- @@@drawText -->
 <!-- $$$drawText$$$drawTextconstQRectF&constQString&constQTextOption& -->
 <h3 class="fn" id="drawText-7"><a name="drawText-7"></a><span class="type">void</span> QPainter::<span class="name">drawText</span>(const <span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> &amp;<i>rectangle</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>text</i>, const <span class="type"><a href="qtextoption.html">QTextOption</a></span> &amp;<i>option</i> = QTextOption())</h3>
 <p>这是一个重载函数。</p>
 <p>Draws the given <i>text</i> in the <i>rectangle</i> specified using the <i>option</i> to control its positioning and orientation.</p>
 <p>By default, <a href="qpainter.html">QPainter</a> draws text anti-aliased.</p>
-<p><b>Note: </b>The y-coordinate of <i>rectangle</i> is used as the top of the font.</p><p><b> 参见 </b><a href="qpainter.html#setFont">setFont</a>() 和 <a href="qpainter.html#setPen">setPen</a>().</p>
+<p><b>注意： </b>The y-coordinate of <i>rectangle</i> is used as the top of the font.</p><p><b> 参见 </b><a href="qpainter.html#setFont">setFont</a>() 和 <a href="qpainter.html#setPen">setPen</a>().</p>
 <!-- @@@drawText -->
 <!-- $$$drawTiledPixmap[overload1]$$$drawTiledPixmapconstQRectF&constQPixmap&constQPointF& -->
 <h3 class="fn" id="drawTiledPixmap"><a name="drawTiledPixmap"></a><span class="type">void</span> QPainter::<span class="name">drawTiledPixmap</span>(const <span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> &amp;<i>rectangle</i>, const <span class="type"><a href="qpixmap.html">QPixmap</a></span> &amp;<i>pixmap</i>, const <span class="type"><a href="../qtcore/qpointf.html">QPointF</a></span> &amp;<i>position</i> = QPointF())</h3>
@@ -1790,7 +1790,7 @@
 <!-- $$$setCompositionMode[overload1]$$$setCompositionModeQPainter::CompositionMode -->
 <h3 class="fn" id="setCompositionMode"><a name="setCompositionMode"></a><span class="type">void</span> QPainter::<span class="name">setCompositionMode</span>(<span class="type"><a href="qpainter.html#CompositionMode-enum">QPainter::CompositionMode</a></span> <i>mode</i>)</h3>
 <p>Sets the composition mode to the given <i>mode</i>.</p>
-<p><b>Warning:</b> Only a <a href="qpainter.html">QPainter</a> operating on a <a href="qimage.html">QImage</a> fully supports all composition modes. The RasterOp modes are supported for X11 as described in <a href="qpainter.html#compositionMode">compositionMode</a>().</p>
+<p><b>警告：</b> Only a <a href="qpainter.html">QPainter</a> operating on a <a href="qimage.html">QImage</a> fully supports all composition modes. The RasterOp modes are supported for X11 as described in <a href="qpainter.html#compositionMode">compositionMode</a>().</p>
 <p><b> 参见 </b><a href="qpainter.html#compositionMode">compositionMode</a>().</p>
 <!-- @@@setCompositionMode -->
 <!-- $$$setFont[overload1]$$$setFontconstQFont& -->

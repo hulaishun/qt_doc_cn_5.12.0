@@ -230,7 +230,7 @@
 <p>Tells the server to listen for incoming connections on <i>name</i>. If the server is currently listening then it will return false. Return true on success otherwise false.</p>
 <p><i>name</i> can be a single name and <a href="qlocalserver.html">QLocalServer</a> will determine the correct platform specific path. <a href="qlocalserver.html#serverName">serverName</a>() will return the name that is passed into listen.</p>
 <p>Usually you would just pass in a name like &quot;foo&quot;, but on Unix this could also be a path such as &quot;/tmp/foo&quot; and on Windows this could be a pipe path such as &quot;\\.\pipe\foo&quot;</p>
-<p><b>Note: </b>On Unix if the server crashes without closing listen will fail with AddressInUseError. To create a new server the file should be removed. On Windows two local servers can listen to the same pipe at the same time, but any connections will go to one of the server.</p><p><b> 参见 </b><a href="qlocalserver.html#serverName">serverName</a>(), <a href="qlocalserver.html#isListening">isListening</a>(), 和 <a href="qlocalserver.html#close">close</a>().</p>
+<p><b>注意： </b>On Unix if the server crashes without closing listen will fail with AddressInUseError. To create a new server the file should be removed. On Windows two local servers can listen to the same pipe at the same time, but any connections will go to one of the server.</p><p><b> 参见 </b><a href="qlocalserver.html#serverName">serverName</a>(), <a href="qlocalserver.html#isListening">isListening</a>(), 和 <a href="qlocalserver.html#close">close</a>().</p>
 <!-- @@@listen -->
 <!-- $$$listen$$$listenqintptr -->
 <h3 class="fn" id="listen-1"><a name="listen-1"></a><span class="type">bool</span> QLocalServer::<span class="name">listen</span>(<span class="type"><a href="../qtcore/qtglobal.html#qintptr-typedef">qintptr</a></span> <i>socketDescriptor</i>)</h3>
@@ -260,7 +260,7 @@
 <h3 class="fn" id="removeServer"><a name="removeServer"></a><code>[静态函数] </code><span class="type">bool</span> QLocalServer::<span class="name">removeServer</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>name</i>)</h3>
 <p>Removes any server instance that might cause a call to <a href="qlocalserver.html#listen">listen</a>() to fail and returns <code>true</code> if successful; otherwise returns <code>false</code>. This function is meant to recover from a crash, when the previous server instance has not been cleaned up.</p>
 <p>On Windows, this function does nothing; on Unix, it removes the socket file given by <i>name</i>.</p>
-<p><b>Warning:</b> Be careful to avoid removing sockets of running instances.</p>
+<p><b>警告：</b> Be careful to avoid removing sockets of running instances.</p>
 <p>这个函数是在Qt 4.5版本中新增引入的。</p>
 <!-- @@@removeServer -->
 <!-- $$$serverError[overload1]$$$serverError -->

@@ -353,7 +353,7 @@
      }
 
 </pre>
-<p><b>Note: </b>The code above does not validate that the length is a sensible value. If the input stream reports that the length is 1 billion elements, the above function will try to allocate some 16 GB or more of RAM, which can lead to a crash.</p><p><b> 参见 </b><a href="qcborstreamreader.html#type">type</a>(), <a href="qcborstreamreader.html#isMap">isMap</a>(), <a href="qcborstreamreader.html#isLengthKnown">isLengthKnown</a>(), <a href="qcborstreamreader.html#length">length</a>(), <a href="qcborstreamreader.html#enterContainer">enterContainer</a>(), 和 <a href="qcborstreamreader.html#leaveContainer">leaveContainer</a>().</p>
+<p><b>注意： </b>The code above does not validate that the length is a sensible value. If the input stream reports that the length is 1 billion elements, the above function will try to allocate some 16 GB or more of RAM, which can lead to a crash.</p><p><b> 参见 </b><a href="qcborstreamreader.html#type">type</a>(), <a href="qcborstreamreader.html#isMap">isMap</a>(), <a href="qcborstreamreader.html#isLengthKnown">isLengthKnown</a>(), <a href="qcborstreamreader.html#length">length</a>(), <a href="qcborstreamreader.html#enterContainer">enterContainer</a>(), 和 <a href="qcborstreamreader.html#leaveContainer">leaveContainer</a>().</p>
 <!-- @@@isArray -->
 <!-- $$$isBool[overload1]$$$isBool -->
 <h3 class="fn" id="isBool"><a name="isBool"></a><span class="type">bool</span> QCborStreamReader::<span class="name">isBool</span>() const</h3>
@@ -399,7 +399,7 @@
 <!-- $$$isInvalid[overload1]$$$isInvalid -->
 <h3 class="fn" id="isInvalid"><a name="isInvalid"></a><span class="type">bool</span> QCborStreamReader::<span class="name">isInvalid</span>() const</h3>
 <p>Returns true if the current element is invalid, false otherwise. The current element may be invalid if there was a decoding error or we've just parsed the last element in an array or map.</p>
-<p><b>Note: </b>This function is not to be confused with <a href="qcborstreamreader.html#isNull">isNull</a>(). Null is a normal CBOR type that must be handled by the application.</p><p><b> 参见 </b><a href="qcborstreamreader.html#type">type</a>() 和 <a href="qcborstreamreader.html#isValid">isValid</a>().</p>
+<p><b>注意： </b>This function is not to be confused with <a href="qcborstreamreader.html#isNull">isNull</a>(). Null is a normal CBOR type that must be handled by the application.</p><p><b> 参见 </b><a href="qcborstreamreader.html#type">type</a>() 和 <a href="qcborstreamreader.html#isValid">isValid</a>().</p>
 <!-- @@@isInvalid -->
 <!-- $$$isLengthKnown[overload1]$$$isLengthKnown -->
 <h3 class="fn" id="isLengthKnown"><a name="isLengthKnown"></a><span class="type">bool</span> QCborStreamReader::<span class="name">isLengthKnown</span>() const</h3>
@@ -433,7 +433,7 @@
 
 </pre>
 <p>The example above uses a function called <code>readElementAsString</code> to read the map's keys and obtain a string. That is because CBOR maps may contain any type as keys, not just strings. User code needs to either perform this conversion, reject non-string keys, or instead use a different container besides <a href="qvariant.html#QVariantMap-typedef">QVariantMap</a> 和 <a href="qvariant.html#QVariantHash-typedef">QVariantHash</a>. For example, if the map is expected to contain integer keys, which is recommended as it reduces stream size and parsing, the correct container would be <code>\l{QMap}&lt;int, QVariant&gt;</code> or <code>\l{QHash}&lt;int, QVariant&gt;</code>.</p>
-<p><b>Note: </b>The code above does not validate that the length is a sensible value. If the input stream reports that the length is 1 billion elements, the above function will try to allocate some 24 GB or more of RAM, which can lead to a crash.</p><p><b> 参见 </b><a href="qcborstreamreader.html#type">type</a>(), <a href="qcborstreamreader.html#isArray">isArray</a>(), <a href="qcborstreamreader.html#isLengthKnown">isLengthKnown</a>(), <a href="qcborstreamreader.html#length">length</a>(), <a href="qcborstreamreader.html#enterContainer">enterContainer</a>(), 和 <a href="qcborstreamreader.html#leaveContainer">leaveContainer</a>().</p>
+<p><b>注意： </b>The code above does not validate that the length is a sensible value. If the input stream reports that the length is 1 billion elements, the above function will try to allocate some 24 GB or more of RAM, which can lead to a crash.</p><p><b> 参见 </b><a href="qcborstreamreader.html#type">type</a>(), <a href="qcborstreamreader.html#isArray">isArray</a>(), <a href="qcborstreamreader.html#isLengthKnown">isLengthKnown</a>(), <a href="qcborstreamreader.html#length">length</a>(), <a href="qcborstreamreader.html#enterContainer">enterContainer</a>(), 和 <a href="qcborstreamreader.html#leaveContainer">leaveContainer</a>().</p>
 <!-- @@@isMap -->
 <!-- $$$isNegativeInteger[overload1]$$$isNegativeInteger -->
 <h3 class="fn" id="isNegativeInteger"><a name="isNegativeInteger"></a><span class="type">bool</span> QCborStreamReader::<span class="name">isNegativeInteger</span>() const</h3>
@@ -443,7 +443,7 @@
 <!-- $$$isNull[overload1]$$$isNull -->
 <h3 class="fn" id="isNull"><a name="isNull"></a><span class="type">bool</span> QCborStreamReader::<span class="name">isNull</span>() const</h3>
 <p>Returns true if the current element is the <code>null</code> value, false if it is anything else. Null values may be used to indicate the absence of some optional data.</p>
-<p><b>Note: </b>This function is not the opposite of <a href="qcborstreamreader.html#isValid">isValid</a>(). A Null value is a valid CBOR value.</p><p><b> 参见 </b><a href="qcborstreamreader.html#type">type</a>(), <a href="qcborstreamreader.html#isSimpleType">isSimpleType</a>(), 和 <a href="qcborstreamreader.html#toSimpleType">toSimpleType</a>().</p>
+<p><b>注意： </b>This function is not the opposite of <a href="qcborstreamreader.html#isValid">isValid</a>(). A Null value is a valid CBOR value.</p><p><b> 参见 </b><a href="qcborstreamreader.html#type">type</a>(), <a href="qcborstreamreader.html#isSimpleType">isSimpleType</a>(), 和 <a href="qcborstreamreader.html#toSimpleType">toSimpleType</a>().</p>
 <!-- @@@isNull -->
 <!-- $$$isSimpleType[overload1]$$$isSimpleType -->
 <h3 class="fn" id="isSimpleType"><a name="isSimpleType"></a><span class="type">bool</span> QCborStreamReader::<span class="name">isSimpleType</span>() const</h3>
@@ -485,7 +485,7 @@
 <!-- $$$isValid[overload1]$$$isValid -->
 <h3 class="fn" id="isValid"><a name="isValid"></a><span class="type">bool</span> QCborStreamReader::<span class="name">isValid</span>() const</h3>
 <p>Returns true if the current element is valid, false otherwise. The current element may be invalid if there was a decoding error or we've just parsed the last element in an array or map.</p>
-<p><b>Note: </b>This function is not the opposite of <a href="qcborstreamreader.html#isNull">isNull</a>(). Null is a normal CBOR type that must be handled by the application.</p><p><b> 参见 </b><a href="qcborstreamreader.html#type">type</a>() 和 <a href="qcborstreamreader.html#isInvalid">isInvalid</a>().</p>
+<p><b>注意： </b>This function is not the opposite of <a href="qcborstreamreader.html#isNull">isNull</a>(). Null is a normal CBOR type that must be handled by the application.</p><p><b> 参见 </b><a href="qcborstreamreader.html#type">type</a>() 和 <a href="qcborstreamreader.html#isInvalid">isInvalid</a>().</p>
 <!-- @@@isValid -->
 <!-- $$$lastError[overload1]$$$lastError -->
 <h3 class="fn" id="lastError"><a name="lastError"></a><span class="type"><a href="qtcborcommon.html">QCborError</a></span> QCborStreamReader::<span class="name">lastError</span>()</h3>
@@ -581,7 +581,7 @@
 
 </pre>
 <p>Unlike <a href="qcborstreamreader.html#readByteArray">readByteArray</a>() 和 <a href="qcborstreamreader.html#readString">readString</a>(), this function is not limited by implementation limits of <a href="qbytearray.html">QByteArray</a> 和 <a href="qstring.html">QString</a>.</p>
-<p><b>Note: </b>This function does not perform verification that the UTF-8 contents are properly formatted. That means this function does not produce the <a href="qcborerror.html#Code-enum">QCborError::InvalidUtf8String</a> error, even when <a href="qcborstreamreader.html#readString">readString</a>() does.</p><p><b> 参见 </b><a href="qcborstreamreader.html#currentStringChunkSize">currentStringChunkSize</a>(), <a href="qcborstreamreader.html#readString">readString</a>(), <a href="qcborstreamreader.html#readByteArray">readByteArray</a>(), <a href="qcborstreamreader.html#isString">isString</a>(), 和 <a href="qcborstreamreader.html#isByteArray">isByteArray</a>().</p>
+<p><b>注意： </b>This function does not perform verification that the UTF-8 contents are properly formatted. That means this function does not produce the <a href="qcborerror.html#Code-enum">QCborError::InvalidUtf8String</a> error, even when <a href="qcborstreamreader.html#readString">readString</a>() does.</p><p><b> 参见 </b><a href="qcborstreamreader.html#currentStringChunkSize">currentStringChunkSize</a>(), <a href="qcborstreamreader.html#readString">readString</a>(), <a href="qcborstreamreader.html#readByteArray">readByteArray</a>(), <a href="qcborstreamreader.html#isString">isString</a>(), 和 <a href="qcborstreamreader.html#isByteArray">isByteArray</a>().</p>
 <!-- @@@readStringChunk -->
 <!-- $$$reparse[overload1]$$$reparse -->
 <h3 class="fn" id="reparse"><a name="reparse"></a><span class="type">void</span> QCborStreamReader::<span class="name">reparse</span>()</h3>

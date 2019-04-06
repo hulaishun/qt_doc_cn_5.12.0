@@ -148,7 +148,7 @@
 <p>There are also corresponding <a href="qpalette.html#color">color</a>() 和 <a href="qpalette.html#brush">brush</a>() getters, and a commonly used convenience function to get the <a href="qpalette.html#ColorRole-enum">ColorRole</a> for the current <a href="qpalette.html#ColorGroup-enum">ColorGroup</a>: <a href="qpalette.html#window">window</a>(), <a href="qpalette.html#windowText">windowText</a>(), <a href="qpalette.html#base">base</a>(), etc.</p>
 <p>You can copy a palette using the copy constructor and test to see if two palettes are <i>identical</i> using <a href="qpalette.html#isCopyOf">isCopyOf</a>().</p>
 <p><a href="qpalette.html">QPalette</a> is optimized by the use of <a href="../qtcore/implicit-sharing.html">implicit sharing</a>, so it is very efficient to pass <a href="qpalette.html">QPalette</a> objects as arguments.</p>
-<p><b>Warning:</b> Some styles do not use the palette for all drawing, for instance, if they make use of native theme engines. This is the case for both the Windows Vista and the <a href="../qtdoc/internationalization.html#macos">macOS</a> styles.</p>
+<p><b>警告：</b> Some styles do not use the palette for all drawing, for instance, if they make use of native theme engines. This is the case for both the Windows Vista and the <a href="../qtdoc/internationalization.html#macos">macOS</a> styles.</p>
 </div>
 <p><b> 参见 </b><a href="../qtwidgets/qapplication.html#setPalette">QApplication::setPalette</a>(), <a href="../qtwidgets/qwidget.html#palette-prop">QWidget::setPalette</a>(), 和 <a href="qcolor.html">QColor</a>.</p>
 <!-- @@@QPalette -->
@@ -371,7 +371,7 @@
 <!-- $$$placeholderText[overload1]$$$placeholderText -->
 <h3 class="fn" id="placeholderText"><a name="placeholderText"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">placeholderText</span>() const</h3>
 <p>Returns the placeholder text brush of the current color group.</p>
-<p><b>Note: </b>Before Qt 5.12, the placeholder text color was hard-coded in the code as <a href="qpalette.html#text">QPalette::text</a>().<a href="qpalette.html#color">color</a>() where an alpha of 128 was applied. We continue to support this behavior by default, unless you set your own brush. One can get back the original placeholder color setting the special <a href="qbrush.html">QBrush</a> default constructor as placeholder brush.</p><p>这个函数是在Qt 5.12版本中新增引入的。</p>
+<p><b>注意： </b>Before Qt 5.12, the placeholder text color was hard-coded in the code as <a href="qpalette.html#text">QPalette::text</a>().<a href="qpalette.html#color">color</a>() where an alpha of 128 was applied. We continue to support this behavior by default, unless you set your own brush. One can get back the original placeholder color setting the special <a href="qbrush.html">QBrush</a> default constructor as placeholder brush.</p><p>这个函数是在Qt 5.12版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qpalette.html#ColorRole-enum">ColorRole</a> 和 <a href="qpalette.html#brush">brush</a>().</p>
 <!-- @@@placeholderText -->
 <!-- $$$resolve[overload1]$$$resolveconstQPalette& -->
@@ -428,13 +428,13 @@
 <!-- $$$toolTipBase[overload1]$$$toolTipBase -->
 <h3 class="fn" id="toolTipBase"><a name="toolTipBase"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">toolTipBase</span>() const</h3>
 <p>Returns the tool tip base brush of the current color group. This brush is used by <a href="../qtwidgets/qtooltip.html">QToolTip</a> 和 <a href="../qtwidgets/qwhatsthis.html">QWhatsThis</a>.</p>
-<p><b>Note: </b>Tool tips use the Inactive color group of <a href="qpalette.html">QPalette</a>, because tool tips are not active windows.</p><p>这个函数是在Qt 4.4版本中新增引入的。</p>
+<p><b>注意： </b>Tool tips use the Inactive color group of <a href="qpalette.html">QPalette</a>, because tool tips are not active windows.</p><p>这个函数是在Qt 4.4版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qpalette.html#ColorRole-enum">ColorRole</a> 和 <a href="qpalette.html#brush">brush</a>().</p>
 <!-- @@@toolTipBase -->
 <!-- $$$toolTipText[overload1]$$$toolTipText -->
 <h3 class="fn" id="toolTipText"><a name="toolTipText"></a>const <span class="type"><a href="qbrush.html">QBrush</a></span> &amp;QPalette::<span class="name">toolTipText</span>() const</h3>
 <p>Returns the tool tip text brush of the current color group. This brush is used by <a href="../qtwidgets/qtooltip.html">QToolTip</a> 和 <a href="../qtwidgets/qwhatsthis.html">QWhatsThis</a>.</p>
-<p><b>Note: </b>Tool tips use the Inactive color group of <a href="qpalette.html">QPalette</a>, because tool tips are not active windows.</p><p>这个函数是在Qt 4.4版本中新增引入的。</p>
+<p><b>注意： </b>Tool tips use the Inactive color group of <a href="qpalette.html">QPalette</a>, because tool tips are not active windows.</p><p>这个函数是在Qt 4.4版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qpalette.html#ColorRole-enum">ColorRole</a> 和 <a href="qpalette.html#brush">brush</a>().</p>
 <!-- @@@toolTipText -->
 <!-- $$$window[overload1]$$$window -->
@@ -454,7 +454,7 @@
 <!-- $$$operator!=[overload1]$$$operator!=constQPalette& -->
 <h3 class="fn" id="operator-not-eq"><a name="operator-not-eq"></a><span class="type">bool</span> QPalette::<span class="name">operator!=</span>(const <span class="type"><a href="qpalette.html#QPalette">QPalette</a></span> &amp;<i>p</i>) const</h3>
 <p>Returns <code>true</code> (slowly) if this palette is different from <i>p</i>; otherwise returns <code>false</code> (usually quickly).</p>
-<p><b>Note: </b>The current <a href="qpalette.html#ColorGroup-enum">ColorGroup</a> is not taken into account when comparing palettes</p><p><b> 参见 </b><a href="qpalette.html#operator-eq-eq">operator==</a>().</p>
+<p><b>注意： </b>The current <a href="qpalette.html#ColorGroup-enum">ColorGroup</a> is not taken into account when comparing palettes</p><p><b> 参见 </b><a href="qpalette.html#operator-eq-eq">operator==</a>().</p>
 <!-- @@@operator!= -->
 <!-- $$$operator=[overload1]$$$operator=constQPalette& -->
 <h3 class="fn" id="operator-eq"><a name="operator-eq"></a><span class="type"><a href="qpalette.html#QPalette">QPalette</a></span> &amp;QPalette::<span class="name">operator=</span>(const <span class="type"><a href="qpalette.html#QPalette">QPalette</a></span> &amp;<i>p</i>)</h3>
@@ -469,7 +469,7 @@
 <!-- $$$operator==[overload1]$$$operator==constQPalette& -->
 <h3 class="fn" id="operator-eq-eq"><a name="operator-eq-eq"></a><span class="type">bool</span> QPalette::<span class="name">operator==</span>(const <span class="type"><a href="qpalette.html#QPalette">QPalette</a></span> &amp;<i>p</i>) const</h3>
 <p>Returns <code>true</code> (usually quickly) if this palette is equal to <i>p</i>; otherwise returns <code>false</code> (slowly).</p>
-<p><b>Note: </b>The current <a href="qpalette.html#ColorGroup-enum">ColorGroup</a> is not taken into account when comparing palettes</p><p><b> 参见 </b><a href="qpalette.html#operator-not-eq">operator!=</a>().</p>
+<p><b>注意： </b>The current <a href="qpalette.html#ColorGroup-enum">ColorGroup</a> is not taken into account when comparing palettes</p><p><b> 参见 </b><a href="qpalette.html#operator-not-eq">operator!=</a>().</p>
 <!-- @@@operator== -->
 </div>
 <div class="vars">

@@ -215,7 +215,7 @@
 <li>However, <a href="qlist.html">QList</a> is used throughout the Qt APIs for passing parameters and for returning values. Use <a href="qlist.html">QList</a> to interface with those APIs.</li>
 <li>If you need a real linked list, which guarantees <a href="containers.html#algorithmic-complexity">constant time</a> insertions mid-list and uses iterators to items rather than indexes, use <a href="qlinkedlist.html">QLinkedList</a>.</li>
 </ul>
-<p><b>Note: </b><a href="qvector.html">QVector</a> 和 <a href="qvarlengtharray.html">QVarLengthArray</a> both guarantee C-compatible array layout. <a href="qlist.html">QList</a> does not. This might be important if your application must interface with a C API.</p><p><b>Note: </b>Iterators into a <a href="qlinkedlist.html">QLinkedList</a> and references into heap-allocating QLists remain valid as long as the referenced items remain in the container. This is not true for iterators and references into a <a href="qvector.html">QVector</a> and non-heap-allocating QLists.</p><p>Here's an example of a <a href="qvector.html">QVector</a> that stores integers and a <a href="qvector.html">QVector</a> that stores <a href="qstring.html">QString</a> values:</p>
+<p><b>注意： </b><a href="qvector.html">QVector</a> 和 <a href="qvarlengtharray.html">QVarLengthArray</a> both guarantee C-compatible array layout. <a href="qlist.html">QList</a> does not. This might be important if your application must interface with a C API.</p><p><b>注意： </b>Iterators into a <a href="qlinkedlist.html">QLinkedList</a> and references into heap-allocating QLists remain valid as long as the referenced items remain in the container. This is not true for iterators and references into a <a href="qvector.html">QVector</a> and non-heap-allocating QLists.</p><p>Here's an example of a <a href="qvector.html">QVector</a> that stores integers and a <a href="qvector.html">QVector</a> that stores <a href="qstring.html">QString</a> values:</p>
 <pre class="cpp">
 
   <span class="type"><a href="qvector.html#QVector">QVector</a></span><span class="operator">&lt;</span><span class="type">int</span><span class="operator">&gt;</span> integerVector;
@@ -290,7 +290,7 @@
 <h3 class="fn" id="const_iterator-typedef"><a name="const_iterator-typedef"></a>typedef QVector::<span class="name">const_iterator</span></h3>
 <p>The QVector::const_iterator typedef provides an STL-style const iterator for <a href="qvector.html">QVector</a> 和 <a href="qstack.html">QStack</a>.</p>
 <p><a href="qvector.html">QVector</a> provides both <a href="containers.html#stl-style-iterators">STL-style iterators</a> 和 <a href="containers.html#java-style-iterators">Java-style iterators</a>. The STL-style const iterator is simply a typedef for &quot;const T *&quot; (pointer to const T).</p>
-<p><b>Warning:</b> Iterators on implicitly shared containers do not work exactly like STL-iterators. You should avoid copying a container while iterators are active on that container. For more information, read <a href="containers.html#implicit-sharing-iterator-problem">Implicit sharing iterator problem</a>.</p>
+<p><b>警告：</b> Iterators on implicitly shared containers do not work exactly like STL-iterators. You should avoid copying a container while iterators are active on that container. For more information, read <a href="containers.html#implicit-sharing-iterator-problem">Implicit sharing iterator problem</a>.</p>
 <p><b> 参见 </b><a href="qvector.html#constBegin">QVector::constBegin</a>(), <a href="qvector.html#constEnd">QVector::constEnd</a>(), <a href="qvector.html#iterator-typedefx">QVector::iterator</a>, 和 <a href="qvectoriterator.html">QVectorIterator</a>.</p>
 <!-- @@@const_iterator -->
 <!-- $$$const_pointer -->
@@ -305,7 +305,7 @@
 <h3 class="fn" id="const_reverse_iterator-typedef"><a name="const_reverse_iterator-typedef"></a>typedef QVector::<span class="name">const_reverse_iterator</span></h3>
 <p>The QVector::const_reverse_iterator typedef provides an STL-style const reverse iterator for <a href="qvector.html">QVector</a>.</p>
 <p>它只是简单类型重定义，方便使用于 <code>std::reverse_iterator&lt;const T*&gt;</code>.</p>
-<p><b>Warning:</b> Iterators on implicitly shared containers do not work exactly like STL-iterators. You should avoid copying a container while iterators are active on that container. For more information, read <a href="containers.html#implicit-sharing-iterator-problem">Implicit sharing iterator problem</a>.</p>
+<p><b>警告：</b> Iterators on implicitly shared containers do not work exactly like STL-iterators. You should avoid copying a container while iterators are active on that container. For more information, read <a href="containers.html#implicit-sharing-iterator-problem">Implicit sharing iterator problem</a>.</p>
 <p>这个类型定义是在Qt 5.6版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qvector.html#rbegin">QVector::rbegin</a>(), <a href="qvector.html#rend">QVector::rend</a>(), <a href="qvector.html#reverse_iterator-typedef">QVector::reverse_iterator</a>, 和 <a href="qvector.html#const_iterator-typedef">QVector::const_iterator</a>.</p>
 <!-- @@@const_reverse_iterator -->
@@ -317,7 +317,7 @@
 <h3 class="fn" id="iterator-typedefx"><a name="iterator-typedefx"></a>typedef QVector::<span class="name">iterator</span></h3>
 <p>The QVector::iterator typedef provides an STL-style non-const iterator for <a href="qvector.html">QVector</a> 和 <a href="qstack.html">QStack</a>.</p>
 <p><a href="qvector.html">QVector</a> provides both <a href="containers.html#stl-style-iterators">STL-style iterators</a> 和 <a href="containers.html#java-style-iterators">Java-style iterators</a>. The STL-style non-const iterator is simply a typedef for &quot;T *&quot; (pointer to T).</p>
-<p><b>Warning:</b> Iterators on implicitly shared containers do not work exactly like STL-iterators. You should avoid copying a container while iterators are active on that container. For more information, read <a href="containers.html#implicit-sharing-iterator-problem">Implicit sharing iterator problem</a>.</p>
+<p><b>警告：</b> Iterators on implicitly shared containers do not work exactly like STL-iterators. You should avoid copying a container while iterators are active on that container. For more information, read <a href="containers.html#implicit-sharing-iterator-problem">Implicit sharing iterator problem</a>.</p>
 <p><b> 参见 </b><a href="qvector.html#begin">QVector::begin</a>(), <a href="qvector.html#end">QVector::end</a>(), <a href="qvector.html#const_iterator-typedef">QVector::const_iterator</a>, 和 <a href="qmutablevectoriterator.html">QMutableVectorIterator</a>.</p>
 <!-- @@@iterator -->
 <!-- $$$pointer -->
@@ -332,7 +332,7 @@
 <h3 class="fn" id="reverse_iterator-typedef"><a name="reverse_iterator-typedef"></a>typedef QVector::<span class="name">reverse_iterator</span></h3>
 <p>The QVector::reverse_iterator typedef provides an STL-style non-const reverse iterator for <a href="qvector.html">QVector</a>.</p>
 <p>它只是简单类型重定义，方便使用于 <code>std::reverse_iterator&lt;T*&gt;</code>.</p>
-<p><b>Warning:</b> Iterators on implicitly shared containers do not work exactly like STL-iterators. You should avoid copying a container while iterators are active on that container. For more information, read <a href="containers.html#implicit-sharing-iterator-problem">Implicit sharing iterator problem</a>.</p>
+<p><b>警告：</b> Iterators on implicitly shared containers do not work exactly like STL-iterators. You should avoid copying a container while iterators are active on that container. For more information, read <a href="containers.html#implicit-sharing-iterator-problem">Implicit sharing iterator problem</a>.</p>
 <p>这个类型定义是在Qt 5.6版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qvector.html#rbegin">QVector::rbegin</a>(), <a href="qvector.html#rend">QVector::rend</a>(), <a href="qvector.html#const_reverse_iterator-typedef">QVector::const_reverse_iterator</a>, 和 <a href="qvector.html#iterator-typedefx">QVector::iterator</a>.</p>
 <!-- @@@reverse_iterator -->
@@ -519,7 +519,7 @@
 <!-- $$$clear[overload1]$$$clear -->
 <h3 class="fn" id="clear"><a name="clear"></a><span class="type">void</span> QVector::<span class="name">clear</span>()</h3>
 <p>Removes all the elements from the vector.</p>
-<p><b>Note: </b>Until Qt 5.6, this also released the memory used by the vector. From Qt 5.7, the capacity is preserved. To shed all capacity, swap with a default-constructed vector:</p><pre class="cpp">
+<p><b>注意： </b>Until Qt 5.6, this also released the memory used by the vector. From Qt 5.7, the capacity is preserved. To shed all capacity, swap with a default-constructed vector:</p><pre class="cpp">
 
   <span class="type"><a href="qvector.html#QVector">QVector</a></span><span class="operator">&lt;</span>T<span class="operator">&gt;</span> v <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
   <span class="type"><a href="qvector.html#QVector">QVector</a></span><span class="operator">&lt;</span>T<span class="operator">&gt;</span>()<span class="operator">.</span>swap(v);
@@ -883,7 +883,7 @@
 <p>Attempts to allocate memory for at least <i>size</i> elements. If you know in advance how large the vector will be, you should call this function to prevent reallocations and memory fragmentation.</p>
 <p>If <i>size</i> is an underestimate, the worst that will happen is that the <a href="qvector.html">QVector</a> will be a bit slower. If <i>size</i> is an overestimate, you may have used more memory than the normal <a href="qvector.html">QVector</a> growth strategy would have allocated—or you may have used less.</p>
 <p>An alternative to reserve() is calling <a href="qvector.html#resize">resize</a>(). Whether or not that is faster than reserve() depends on the element type, because <a href="qvector.html#resize">resize</a>() default-constructs all elements, and requires assignment to existing entries rather than calling <a href="qvector.html#append">append</a>(), which copy- or move-constructs. For simple types, like <code>int</code> or <code>double</code>, <a href="qvector.html#resize">resize</a>() is typically faster, but for anything more complex, you should prefer reserve().</p>
-<p><b>Warning:</b> If the size passed to <a href="qvector.html#resize">resize</a>() was underestimated, you run out of allocated space and into undefined behavior. This problem does not exist with reserve(), because it treats the size as just a hint.</p>
+<p><b>警告：</b> If the size passed to <a href="qvector.html#resize">resize</a>() was underestimated, you run out of allocated space and into undefined behavior. This problem does not exist with reserve(), because it treats the size as just a hint.</p>
 <p><b> 参见 </b><a href="qvector.html#squeeze">squeeze</a>() 和 <a href="qvector.html#capacity">capacity</a>().</p>
 <!-- @@@reserve -->
 <!-- $$$resize[overload1]$$$resizeint -->

@@ -77,7 +77,7 @@
 <h2 id="details">详细描述</h2>
 <p>A volume rendered object is a box with a 3D texture. Three slice planes are supported for the volume, one along each main axis of the volume.</p>
 <p>Rendering volume objects is very performance intensive, especially when the volume is largely transparent, as the contents of the volume are ray-traced. The performance scales nearly linearly with the amount of pixels that the volume occupies on the screen, so showing the volume in a smaller view or limiting the zoom level of the graph are easy ways to improve performance. Similarly, the volume texture dimensions have a large impact on performance. If the frame rate is more important than pixel-perfect rendering of the volume contents, consider turning the high definition shader off by setting the <a href="qml-qtdatavisualization-custom3dvolume.html#useHighDefShader-prop">useHighDefShader</a> property to <code>false</code>.</p>
-<p><b>Note: </b>Filling in the volume data would not typically be efficient or practical from pure QML, so properties directly related to that are not fully supported from QML. Create a hybrid QML/C++ application if you want to use volume objects with a Qt Quick UI.</p><p><b>Note: </b>Volumetric objects are only supported with orthographic projection.</p><p><b>Note: </b>Volumetric objects utilize 3D textures, which are not supported in OpenGL ES2 environments.</p><p><b> 参见 </b><a href="qml-qtdatavisualization-abstractgraph3d.html#orthoProjection-prop">AbstractGraph3D::orthoProjection</a> 和 <a href="qml-qtdatavisualization-custom3dvolume.html#useHighDefShader-prop">useHighDefShader</a>.</p>
+<p><b>注意： </b>Filling in the volume data would not typically be efficient or practical from pure QML, so properties directly related to that are not fully supported from QML. Create a hybrid QML/C++ application if you want to use volume objects with a Qt Quick UI.</p><p><b>注意： </b>Volumetric objects are only supported with orthographic projection.</p><p><b>注意： </b>Volumetric objects utilize 3D textures, which are not supported in OpenGL ES2 environments.</p><p><b> 参见 </b><a href="qml-qtdatavisualization-abstractgraph3d.html#orthoProjection-prop">AbstractGraph3D::orthoProjection</a> 和 <a href="qml-qtdatavisualization-custom3dvolume.html#useHighDefShader-prop">useHighDefShader</a>.</p>
 <!-- @@@Custom3DVolume -->
 <h2>属性文档</h2>
 <!-- $$$alphaMultiplier -->
@@ -110,7 +110,7 @@
 <a name="drawSlices-prop"></a><span class="name">drawSlices</span> : <span class="type"><a href="../qtqml/qml-bool.html">bool</a></span></p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>If this property value is <code>true</code>, the slices indicated by slice index properties will be drawn instead of the full volume. If it is <code>false</code>, the full volume will always be drawn. Defaults to <code>false</code>.</p>
-<p><b>Note: </b>The slices are always drawn along the item axes, so if the item is rotated, the slices are rotated as well.</p><p><b> 参见 </b><a href="qml-qtdatavisualization-custom3dvolume.html#sliceIndexX-prop">sliceIndexX</a>, <a href="qml-qtdatavisualization-custom3dvolume.html#sliceIndexY-prop">sliceIndexY</a>, 和 <a href="qml-qtdatavisualization-custom3dvolume.html#sliceIndexZ-prop">sliceIndexZ</a>.</p>
+<p><b>注意： </b>The slices are always drawn along the item axes, so if the item is rotated, the slices are rotated as well.</p><p><b> 参见 </b><a href="qml-qtdatavisualization-custom3dvolume.html#sliceIndexX-prop">sliceIndexX</a>, <a href="qml-qtdatavisualization-custom3dvolume.html#sliceIndexY-prop">sliceIndexY</a>, 和 <a href="qml-qtdatavisualization-custom3dvolume.html#sliceIndexZ-prop">sliceIndexZ</a>.</p>
 </div></div><!-- @@@drawSlices -->
 <br/>
 <!-- $$$preserveOpacity -->
@@ -213,7 +213,7 @@
 <a name="textureDepth-prop"></a><span class="name">textureDepth</span> : <span class="type"><a href="../qtqml/qml-int.html">int</a></span></p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>The depth of the 3D texture defining the volume content in pixels. Defaults to <code>0</code>.</p>
-<p><b>Note: </b>Changing this property from QML is not supported, as the texture data cannot be resized accordingly.</p></div></div><!-- @@@textureDepth -->
+<p><b>注意： </b>Changing this property from QML is not supported, as the texture data cannot be resized accordingly.</p></div></div><!-- @@@textureDepth -->
 <br/>
 <!-- $$$textureHeight -->
 <div class="qmlitem"><div class="qmlproto">
@@ -223,7 +223,7 @@
 <a name="textureHeight-prop"></a><span class="name">textureHeight</span> : <span class="type"><a href="../qtqml/qml-int.html">int</a></span></p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>The height of the 3D texture defining the volume content in pixels. Defaults to <code>0</code>.</p>
-<p><b>Note: </b>Changing this property from QML is not supported, as the texture data cannot be resized accordingly.</p></div></div><!-- @@@textureHeight -->
+<p><b>注意： </b>Changing this property from QML is not supported, as the texture data cannot be resized accordingly.</p></div></div><!-- @@@textureHeight -->
 <br/>
 <!-- $$$textureWidth -->
 <div class="qmlitem"><div class="qmlproto">
@@ -233,7 +233,7 @@
 <a name="textureWidth-prop"></a><span class="name">textureWidth</span> : <span class="type"><a href="../qtqml/qml-int.html">int</a></span></p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>The width of the 3D texture defining the volume content in pixels. Defaults to <code>0</code>.</p>
-<p><b>Note: </b>Changing this property from QML is not supported, as the texture data cannot be resized accordingly.</p></div></div><!-- @@@textureWidth -->
+<p><b>注意： </b>Changing this property from QML is not supported, as the texture data cannot be resized accordingly.</p></div></div><!-- @@@textureWidth -->
 <br/>
 <!-- $$$useHighDefShader -->
 <div class="qmlitem"><div class="qmlproto">
@@ -244,7 +244,7 @@
 </table></div>
 </div><div class="qmldoc"><p>If this property value is <code>true</code>, a high definition shader is used to render the volume. If it is <code>false</code>, a low definition shader is used.</p>
 <p>The high definition shader guarantees that every visible texel of the volume texture is sampled when the volume is rendered. The low definition shader renders only a rough approximation of the volume contents, but at a much higher frame rate. The low definition shader does not guarantee every texel of the volume texture is sampled, so there may be flickering if the volume contains distinct thin features.</p>
-<p><b>Note: </b>This value does not affect the level of detail when rendering the slices of the volume.</p><p>Defaults to <code>true</code>.</p>
+<p><b>注意： </b>This value does not affect the level of detail when rendering the slices of the volume.</p><p>Defaults to <code>true</code>.</p>
 </div></div><!-- @@@useHighDefShader -->
 <br/>
         </div>

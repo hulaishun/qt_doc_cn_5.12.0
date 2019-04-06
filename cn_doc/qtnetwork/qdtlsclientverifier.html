@@ -109,7 +109,7 @@
 <li>When the server receives the ClientHello message with a cookie, it generates a new cookie as described above. This new cookie is compared to the one found in the ClientHello message.</li>
 <li>In the cookies are equal, the client is considered to be real, and the server can continue with a TLS handshake procedure.</li>
 </ul>
-<p><b>Note: </b>A DTLS server is not required to use DTLS cookies.</p><p><a href="qdtlsclientverifier.html">QDtlsClientVerifier</a> is designed to work in pair with <a href="qudpsocket.html">QUdpSocket</a>, as shown in the following code-excerpt:</p>
+<p><b>注意： </b>A DTLS server is not required to use DTLS cookies.</p><p><a href="qdtlsclientverifier.html">QDtlsClientVerifier</a> is designed to work in pair with <a href="qudpsocket.html">QUdpSocket</a>, as shown in the following code-excerpt:</p>
 <pre class="cpp">
 
   <span class="keyword">class</span> DtlsServer : <span class="keyword">public</span> <span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span>
@@ -163,8 +163,8 @@
 <li>Sending encrypted datagrams to the connected clients (see <a href="qdtls.html">QDtls</a>).</li>
 </ul>
 <p>This implies that <a href="qdtlsclientverifier.html">QDtlsClientVerifier</a> does not read directly from a socket, instead it expects the application to read an incoming datagram, extract the sender's address, and port, and then pass this data to <a href="qdtlsclientverifier.html#verifyClient">verifyClient</a>(). To send a HelloVerifyRequest message, <a href="qdtlsclientverifier.html#verifyClient">verifyClient</a>() can write to the <a href="qudpsocket.html">QUdpSocket</a>.</p>
-<p><b>Note: </b><a href="qdtlsclientverifier.html">QDtlsClientVerifier</a> does not take ownership of the <a href="qudpsocket.html">QUdpSocket</a> object.</p><p>By default <a href="qdtlsclientverifier.html">QDtlsClientVerifier</a> obtains its secret from a cryptographically strong pseudorandom number generator.</p>
-<p><b>Note: </b>The default secret is shared by all objects of the classes <a href="qdtlsclientverifier.html">QDtlsClientVerifier</a> 和 <a href="qdtls.html">QDtls</a>. Since this can impose security risks, RFC 6347 recommends to change the server's secret frequently. Please see <a href="https://tools.ietf.org/html/rfc6347">RFC 6347, section 4.2&#x2e;1</a> for hints about possible server implementations. Cookie generator parameters can be set using the class <a href="qdtlsclientverifier-generatorparameters.html">QDtlsClientVerifier::GeneratorParameters</a> 和 <a href="qdtlsclientverifier.html#setCookieGeneratorParameters">setCookieGeneratorParameters</a>():</p><pre class="cpp">
+<p><b>注意： </b><a href="qdtlsclientverifier.html">QDtlsClientVerifier</a> does not take ownership of the <a href="qudpsocket.html">QUdpSocket</a> object.</p><p>By default <a href="qdtlsclientverifier.html">QDtlsClientVerifier</a> obtains its secret from a cryptographically strong pseudorandom number generator.</p>
+<p><b>注意： </b>The default secret is shared by all objects of the classes <a href="qdtlsclientverifier.html">QDtlsClientVerifier</a> 和 <a href="qdtls.html">QDtls</a>. Since this can impose security risks, RFC 6347 recommends to change the server's secret frequently. Please see <a href="https://tools.ietf.org/html/rfc6347">RFC 6347, section 4.2&#x2e;1</a> for hints about possible server implementations. Cookie generator parameters can be set using the class <a href="qdtlsclientverifier-generatorparameters.html">QDtlsClientVerifier::GeneratorParameters</a> 和 <a href="qdtlsclientverifier.html#setCookieGeneratorParameters">setCookieGeneratorParameters</a>():</p><pre class="cpp">
 
   <span class="type">void</span> DtlsServer<span class="operator">::</span>updateServerSecret()
   {
@@ -214,7 +214,7 @@
 <!-- $$$setCookieGeneratorParameters[overload1]$$$setCookieGeneratorParametersconstQDtlsClientVerifier::GeneratorParameters& -->
 <h3 class="fn" id="setCookieGeneratorParameters"><a name="setCookieGeneratorParameters"></a><span class="type">bool</span> QDtlsClientVerifier::<span class="name">setCookieGeneratorParameters</span>(const <span class="type"><a href="qdtlsclientverifier-generatorparameters.html">QDtlsClientVerifier::GeneratorParameters</a></span> &amp;<i>params</i>)</h3>
 <p>Sets the secret and the cryptographic hash algorithm from <i>params</i>. This <a href="qdtlsclientverifier.html">QDtlsClientVerifier</a> will use these to generate cookies. If the new secret has size zero, this function returns <code>false</code> and does not change the cookie generator parameters.</p>
-<p><b>Note: </b>The secret is supposed to be a cryptographically secure sequence of bytes.</p><p><b> 参见 </b><a href="qdtlsclientverifier-generatorparameters.html">QDtlsClientVerifier::GeneratorParameters</a>, <a href="qdtlsclientverifier.html#cookieGeneratorParameters">cookieGeneratorParameters</a>(), 和 <a href="../qtcore/qcryptographichash.html#Algorithm-enum">QCryptographicHash::Algorithm</a>.</p>
+<p><b>注意： </b>The secret is supposed to be a cryptographically secure sequence of bytes.</p><p><b> 参见 </b><a href="qdtlsclientverifier-generatorparameters.html">QDtlsClientVerifier::GeneratorParameters</a>, <a href="qdtlsclientverifier.html#cookieGeneratorParameters">cookieGeneratorParameters</a>(), 和 <a href="../qtcore/qcryptographichash.html#Algorithm-enum">QCryptographicHash::Algorithm</a>.</p>
 <!-- @@@setCookieGeneratorParameters -->
 <!-- $$$verifiedHello[overload1]$$$verifiedHello -->
 <h3 class="fn" id="verifiedHello"><a name="verifiedHello"></a><span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> QDtlsClientVerifier::<span class="name">verifiedHello</span>() const</h3>

@@ -157,11 +157,11 @@
 <h3 >Pushing Items</h3>
 <p>In the following animation, three <a href="qml-qtquick-controls2-label.html">Label</a> controls are pushed onto a stack view with the <a href="qml-qtquick-controls2-stackview.html#push-method">push()</a> function:</p>
 <p class="centerAlign"><img src="images/qtquickcontrols2-stackview-push.gif" alt="" /></p><p>The stack now contains the following items: <code>[A, B, C]</code>.</p>
-<p><b>Note: </b>When the stack is empty, a <a href="qml-qtquick-controls2-stackview.html#push-method">push()</a> operation will not have a transition animation because there is nothing to transition from (typically on application start-up).</p><a name="popping-items"></a>
+<p><b>注意： </b>When the stack is empty, a <a href="qml-qtquick-controls2-stackview.html#push-method">push()</a> operation will not have a transition animation because there is nothing to transition from (typically on application start-up).</p><a name="popping-items"></a>
 <h3 >Popping Items</h3>
 <p>Continuing on from the example above, the topmost item on the stack is removed with a call to <a href="qml-qtquick-controls2-stackview.html#pop-method">pop()</a>:</p>
 <p class="centerAlign"><img src="images/qtquickcontrols2-stackview-pop.gif" alt="" /></p><p>The stack now contains the following items: <code>[A, B]</code>.</p>
-<p><b>Note: </b>A <a href="qml-qtquick-controls2-stackview.html#pop-method">pop()</a> operation on a stack with depth 1 or 0 does nothing. In such cases, the stack can be emptied using the <a href="qml-qtquick-controls2-stackview.html#clear-method">clear()</a> method.</p><a name="unwinding-items-via-pop"></a>
+<p><b>注意： </b>A <a href="qml-qtquick-controls2-stackview.html#pop-method">pop()</a> operation on a stack with depth 1 or 0 does nothing. In such cases, the stack can be emptied using the <a href="qml-qtquick-controls2-stackview.html#clear-method">clear()</a> method.</p><a name="unwinding-items-via-pop"></a>
 <h4 >Unwinding Items via Pop</h4>
 <p>Sometimes, it is necessary to go back more than a single step in the stack. For example, to return to a &quot;main&quot; item or some kind of section item in the application. In such cases, it is possible to specify an item as a parameter for <a href="qml-qtquick-controls2-stackview.html#pop-method">pop()</a>. This is called an &quot;unwind&quot; operation, where the stack unwinds till the specified item. If the item is not found, stack unwinds until it is left with one item, which becomes the <a href="qml-qtquick-controls2-stackview.html#currentItem-prop">currentItem</a>. To explicitly unwind to the bottom of the stack, it is recommended to use <a href="qml-qtquick-controls2-stackview.html#pop-method">pop(null)</a>, although any non-existent item will do.</p>
 <p>In the following animation, we unwind the stack to the first item by calling <code>pop(null)</code>:</p>
@@ -174,7 +174,7 @@
 <h2 id="deep-linking">Deep Linking</h2>
 <p><i>Deep linking</i> means launching an application into a particular state. For example, a newspaper application could be launched into showing a particular article, bypassing the topmost item. In terms of <a href="qtquickcontrols-chattutorial-example.html#stackview">StackView</a>, deep linking means the ability to modify the state of the stack, so much so that it is possible to push a set of items to the top of the stack, or to completely reset the stack to a given state.</p>
 <p>The API for deep linking in <a href="qtquickcontrols-chattutorial-example.html#stackview">StackView</a> is the same as for basic navigation. Pushing an array instead of a single item adds all the items in that array to the stack. The transition animation, however, is applied only for the last item in the array. The normal semantics of <a href="qml-qtquick-controls2-stackview.html#push-method">push()</a> apply for deep linking, that is, it adds whatever is pushed onto the stack.</p>
-<p><b>Note: </b>Only the last item of the array is loaded. The rest of the items are loaded only when needed, either on subsequent calls to pop or on request to get an item using <a href="qml-qtquick-controls2-stackview.html#get-method">get()</a>.</p><p>This gives us the following result, given the stack [A, B, C]:</p>
+<p><b>注意： </b>Only the last item of the array is loaded. The rest of the items are loaded only when needed, either on subsequent calls to pop or on request to get an item using <a href="qml-qtquick-controls2-stackview.html#get-method">get()</a>.</p><p>This gives us the following result, given the stack [A, B, C]:</p>
 <ul>
 <li><a href="qml-qtquick-controls2-stackview.html#push-method">push([D, E, F])</a> =&gt; [A, B, C, D, E, F] - &quot;push&quot; transition animation between C and F</li>
 <li><a href="qml-qtquick-controls2-stackview.html#replace-method">replace([D, E, F])</a> =&gt; [A, B, D, E, F] - &quot;replace&quot; transition animation between C and F</li>
@@ -200,7 +200,7 @@
 <a name="transitions"></a>
 <h2 id="transitions">Transitions</h2>
 <p>For each push or pop operation, different transition animations are applied to entering and exiting items. These animations define how the entering item should animate in, and the exiting item should animate out. The animations can be customized by assigning different <a href="../qtquick/qmlexampletoggleswitch.html#transition">Transition</a>s for the <a href="qml-qtquick-controls2-stackview.html#pushEnter-prop">pushEnter</a>, <a href="qml-qtquick-controls2-stackview.html#pushExit-prop">pushExit</a>, <a href="qml-qtquick-controls2-stackview.html#popEnter-prop">popEnter</a>, <a href="qml-qtquick-controls2-stackview.html#popExit-prop">popExit</a>, <a href="qml-qtquick-controls2-stackview.html#replaceEnter-prop">replaceEnter</a>, 和 <a href="qml-qtquick-controls2-stackview.html#replaceExit-prop">replaceExit</a> properties of <a href="qtquickcontrols-chattutorial-example.html#stackview">StackView</a>.</p>
-<p><b>Note: </b>The transition animations affect each others' transitional behavior. Customizing the animation for one and leaving the other may give unexpected results.</p><p>The following snippet defines a simple fade transition for push and pop operations:</p>
+<p><b>注意： </b>The transition animations affect each others' transitional behavior. Customizing the animation for one and leaving the other may give unexpected results.</p><p>The following snippet defines a simple fade transition for push and pop operations:</p>
 <pre class="qml">
 
   <span class="type"><a href="qml-qtquick-controls2-stackview.html">StackView</a></span> {
@@ -242,7 +242,7 @@
   }
 
 </pre>
-<p><b>Note: </b>Using anchors on the items added to a <a href="qtquickcontrols-chattutorial-example.html#stackview">StackView</a> is not supported. Typically push, pop, and replace transitions animate the position, which is not possible when anchors are applied. Notice that this only applies to the root of the item. Using anchors for its children works as expected.</p><a name="item-ownership"></a>
+<p><b>注意： </b>Using anchors on the items added to a <a href="qtquickcontrols-chattutorial-example.html#stackview">StackView</a> is not supported. Typically push, pop, and replace transitions animate the position, which is not possible when anchors are applied. Notice that this only applies to the root of the item. Using anchors for its children works as expected.</p><a name="item-ownership"></a>
 <h2 id="item-ownership">Item Ownership</h2>
 <p><a href="qtquickcontrols-chattutorial-example.html#stackview">StackView</a> only takes ownership of items that it creates itself. This means that any item pushed onto a <a href="qtquickcontrols-chattutorial-example.html#stackview">StackView</a> will never be destroyed by the <a href="qtquickcontrols-chattutorial-example.html#stackview">StackView</a>; only items that <a href="qtquickcontrols-chattutorial-example.html#stackview">StackView</a> creates from <a href="../qtqml/qml-qtqml-component.html">Components</a> or <a href="../qtqml/qml-url.html">URLs</a> are destroyed by the <a href="qtquickcontrols-chattutorial-example.html#stackview">StackView</a>. To illustrate this, the messages in the example below will only be printed when the <a href="qtquickcontrols-chattutorial-example.html#stackview">StackView</a> is destroyed, not when the items are popped off the stack:</p>
 <pre class="qml">
@@ -456,7 +456,7 @@
 </table></div>
 </div><div class="qmldoc"><p>This attached property holds the visibility of the item it's attached to. The value follows the value of <a href="../qtquick/qml-qtquick-item.html#visible-prop">Item::visible</a>.</p>
 <p>By default, <a href="qtquickcontrols-chattutorial-example.html#stackview">StackView</a> shows incoming items when the enter transition begins, and hides outgoing items when the exit transition ends. Setting this property explicitly allows the default behavior to be overridden, making it possible to keep items that are below the top-most item visible.</p>
-<p><b>Note: </b>The default transitions of most styles slide outgoing items outside the view, and may also animate their opacity. In order to keep a full stack of items visible, consider customizing the <a href="qml-qtquick-controls2-stackview.html#transitions">transitions</a> so that the items underneath can be seen.</p><p class="centerAlign"><img src="images/qtquickcontrols2-stackview-visible.png" alt="" /></p><pre class="qml">
+<p><b>注意： </b>The default transitions of most styles slide outgoing items outside the view, and may also animate their opacity. In order to keep a full stack of items visible, consider customizing the <a href="qml-qtquick-controls2-stackview.html#transitions">transitions</a> so that the items underneath can be seen.</p><p class="centerAlign"><img src="images/qtquickcontrols2-stackview-visible.png" alt="" /></p><pre class="qml">
 
   <span class="type"><a href="qml-qtquick-controls2-stackview.html">StackView</a></span> {
       <span class="name">id</span>: <span class="name">stackView</span>
@@ -707,7 +707,7 @@
 <tr><td class="topAlign"><code>StackView.ReplaceTransition</code></td><td class="topAlign">An operation with replace transitions (since <a href="../qtqml/qtquick-qmlmodule.html">QtQuick</a>.Controls 2.1).</td></tr>
 <tr><td class="topAlign"><code>StackView.PopTransition</code></td><td class="topAlign">An operation with pop transitions (since <a href="../qtqml/qtquick-qmlmodule.html">QtQuick</a>.Controls 2.1).</td></tr>
 </table></div>
-<p><b>Note: </b>Items that already exist in the stack are not pushed.</p><p><b> 参见 </b><a href="qml-qtquick-controls2-stackview.html#initialItem-prop">initialItem</a> 和 <a href="qml-qtquick-controls2-stackview.html#pushing-items">Pushing Items</a>.</p>
+<p><b>注意： </b>Items that already exist in the stack are not pushed.</p><p><b> 参见 </b><a href="qml-qtquick-controls2-stackview.html#initialItem-prop">initialItem</a> 和 <a href="qml-qtquick-controls2-stackview.html#pushing-items">Pushing Items</a>.</p>
 </div></div><!-- @@@push -->
 <br/>
 <!-- $$$replace -->

@@ -72,7 +72,7 @@
 <h3 class="fn" id="deviceMatrix"><a name="deviceMatrix"></a>const <span class="type"><a href="qmatrix.html">QMatrix</a></span> &amp;QPainter::<span class="name">deviceMatrix</span>() const</h3>
 <p>This function is obsolete. It is provided to keep old source code working. We strongly advise against using it in new code.</p>
 <p>Returns the matrix that transforms from logical coordinates to device coordinates of the platform dependent paint device.</p>
-<p><b>Note: </b>It is advisable to use <a href="qpainter.html#deviceTransform">deviceTransform</a>() instead of this function to preserve the properties of perspective transformations.</p><p>This function is <i>only</i> needed when using platform painting commands on the platform dependent handle (<a href="../qtcore/qt.html#HANDLE-typedef">Qt::HANDLE</a>), and the platform does not do transformations nativly.</p>
+<p><b>注意： </b>It is advisable to use <a href="qpainter.html#deviceTransform">deviceTransform</a>() instead of this function to preserve the properties of perspective transformations.</p><p>This function is <i>only</i> needed when using platform painting commands on the platform dependent handle (<a href="../qtcore/qt.html#HANDLE-typedef">Qt::HANDLE</a>), and the platform does not do transformations nativly.</p>
 <p>The <a href="qpaintengine.html#PaintEngineFeature-enum">QPaintEngine::PaintEngineFeature</a> enum can be queried to determine whether the platform performs the transformations or not.</p>
 <p><b> 参见 </b><a href="qpainter-obsolete.html#worldMatrix">worldMatrix</a>() 和 <a href="qpaintengine.html#hasFeature">QPaintEngine::hasFeature</a>().</p>
 <!-- @@@deviceMatrix -->
@@ -119,7 +119,7 @@
 <p>This function is obsolete. It is provided to keep old source code working. We strongly advise against using it in new code.</p>
 <p>Using <a href="../qtwidgets/qwidget.html#render">QWidget::render</a>() obsoletes the use of this function.</p>
 <p>Returns the replacement for given <i>device</i>. The optional out parameter <i>offset</i> returns the offset within the replaced device.</p>
-<p><b>Warning:</b> Making use of redirections in the <a href="qpainter.html">QPainter</a> API implies that <a href="qpainter.html#begin">QPainter::begin</a>() 和 <a href="qpaintdevice.html">QPaintDevice</a> destructors need to hold a mutex for a short period. This can impact performance. Use of <a href="../qtwidgets/qwidget.html#render">QWidget::render</a> is strongly encouraged.</p>
+<p><b>警告：</b> Making use of redirections in the <a href="qpainter.html">QPainter</a> API implies that <a href="qpainter.html#begin">QPainter::begin</a>() 和 <a href="qpaintdevice.html">QPaintDevice</a> destructors need to hold a mutex for a short period. This can impact performance. Use of <a href="../qtwidgets/qwidget.html#render">QWidget::render</a> is strongly encouraged.</p>
 <p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p><b> 参见 </b><a href="qpainter-obsolete.html#setRedirected">setRedirected</a>() 和 <a href="qpainter-obsolete.html#restoreRedirected">restoreRedirected</a>().</p>
 <!-- @@@redirected -->
@@ -135,7 +135,7 @@
 <p>This function is obsolete. It is provided to keep old source code working. We strongly advise against using it in new code.</p>
 <p>Using <a href="../qtwidgets/qwidget.html#render">QWidget::render</a>() obsoletes the use of this function.</p>
 <p>Restores the previous redirection for the given <i>device</i> after a call to <a href="qpainter-obsolete.html#setRedirected">setRedirected</a>().</p>
-<p><b>Warning:</b> Making use of redirections in the <a href="qpainter.html">QPainter</a> API implies that <a href="qpainter.html#begin">QPainter::begin</a>() 和 <a href="qpaintdevice.html">QPaintDevice</a> destructors need to hold a mutex for a short period. This can impact performance. Use of <a href="../qtwidgets/qwidget.html#render">QWidget::render</a> is strongly encouraged.</p>
+<p><b>警告：</b> Making use of redirections in the <a href="qpainter.html">QPainter</a> API implies that <a href="qpainter.html#begin">QPainter::begin</a>() 和 <a href="qpaintdevice.html">QPaintDevice</a> destructors need to hold a mutex for a short period. This can impact performance. Use of <a href="../qtwidgets/qwidget.html#render">QWidget::render</a> is strongly encouraged.</p>
 <p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p><b> 参见 </b><a href="qpainter-obsolete.html#redirected">redirected</a>().</p>
 <!-- @@@restoreRedirected -->
@@ -157,7 +157,7 @@
 <p>Please use <a href="../qtwidgets/qwidget.html#render">QWidget::render</a>() instead.</p>
 <p>Redirects all paint commands for the given paint <i>device</i>, to the <i>replacement</i> device. The optional point <i>offset</i> defines an offset within the source device.</p>
 <p>The redirection will not be effective until the <a href="qpainter.html#begin">begin</a>() function has been called; make sure to call <a href="qpainter.html#end">end</a>() for the given <i>device</i>'s painter (if any) before redirecting. Call <a href="qpainter-obsolete.html#restoreRedirected">restoreRedirected</a>() to restore the previous redirection.</p>
-<p><b>Warning:</b> Making use of redirections in the <a href="qpainter.html">QPainter</a> API implies that <a href="qpainter.html#begin">QPainter::begin</a>() 和 <a href="qpaintdevice.html">QPaintDevice</a> destructors need to hold a mutex for a short period. This can impact performance. Use of <a href="../qtwidgets/qwidget.html#render">QWidget::render</a> is strongly encouraged.</p>
+<p><b>警告：</b> Making use of redirections in the <a href="qpainter.html">QPainter</a> API implies that <a href="qpainter.html#begin">QPainter::begin</a>() 和 <a href="qpaintdevice.html">QPaintDevice</a> destructors need to hold a mutex for a short period. This can impact performance. Use of <a href="../qtwidgets/qwidget.html#render">QWidget::render</a> is strongly encouraged.</p>
 <p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p><b> 参见 </b><a href="qpainter-obsolete.html#redirected">redirected</a>() 和 <a href="qpainter-obsolete.html#restoreRedirected">restoreRedirected</a>().</p>
 <!-- @@@setRedirected -->
@@ -165,7 +165,7 @@
 <h3 class="fn" id="setWorldMatrix"><a name="setWorldMatrix"></a><span class="type">void</span> QPainter::<span class="name">setWorldMatrix</span>(const <span class="type"><a href="qmatrix.html">QMatrix</a></span> &amp;<i>matrix</i>, <span class="type">bool</span> <i>combine</i> = false)</h3>
 <p>This function is obsolete. It is provided to keep old source code working. We strongly advise against using it in new code.</p>
 <p>Sets the transformation matrix to <i>matrix</i> and enables transformations.</p>
-<p><b>Note: </b>It is advisable to use <a href="qpainter.html#setWorldTransform">setWorldTransform</a>() instead of this function to preserve the properties of perspective transformations.</p><p>If <i>combine</i> is true, then <i>matrix</i> is combined with the current transformation matrix; otherwise <i>matrix</i> replaces the current transformation matrix.</p>
+<p><b>注意： </b>It is advisable to use <a href="qpainter.html#setWorldTransform">setWorldTransform</a>() instead of this function to preserve the properties of perspective transformations.</p><p>If <i>combine</i> is true, then <i>matrix</i> is combined with the current transformation matrix; otherwise <i>matrix</i> replaces the current transformation matrix.</p>
 <p>If <i>matrix</i> is the identity matrix and <i>combine</i> is false, this function calls <a href="qpainter.html#setWorldMatrixEnabled">setWorldMatrixEnabled</a>(false). (The identity matrix is the matrix where <a href="qmatrix.html#m11">QMatrix::m11</a>() 和 <a href="qmatrix.html#m22">QMatrix::m22</a>() are 1.0 and the rest are 0.0&#x2e;)</p>
 <p>The following functions can transform the coordinate system without using a <a href="qmatrix.html">QMatrix</a>:</p>
 <ul>

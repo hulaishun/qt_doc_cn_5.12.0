@@ -60,7 +60,7 @@
 <li>Sharing files and messages.</li>
 </ul>
 <p>The following sections describe how to use Qt NFC C++ classes and QML types for the above use cases.</p>
-<p><b>Note: </b>On Android, Qt Nfc only works in foreground applications. Android services are not supported which is due to API limitations on the Android side.</p><a name="c-overview"></a>
+<p><b>注意： </b>On Android, Qt Nfc only works in foreground applications. Android services are not supported which is due to API limitations on the Android side.</p><a name="c-overview"></a>
 <h2 id="c-overview">C++ Overview</h2>
 <p>The C++ API provides access to the full feature set of the Qt NFC API. This section introduces the major features available to developers.</p>
 <a name="detecting-nfc-tags"></a>
@@ -91,7 +91,7 @@
   }
 
 </pre>
-<p><b>Note: </b>The target object should only be deleted via deleteLater() if it is deleted inside the slot.</p><a name="reading-and-writing-ndef-messages"></a>
+<p><b>注意： </b>The target object should only be deleted via deleteLater() if it is deleted inside the slot.</p><a name="reading-and-writing-ndef-messages"></a>
 <h3 >Reading and Writing NDEF Messages</h3>
 <p>The <a href="qnearfieldtarget.html">QNearFieldTarget</a> instance returned by <a href="qnearfieldmanager.html#targetDetected">QNearFieldManager::targetDetected</a>() signal is used to interact with the tag. Reading and writing a message is an asynchronous operation. The <a href="qnearfieldtarget-requestid.html">QNearFieldTarget::RequestId</a> class associates individual operations and their results.</p>
 <pre class="cpp">
@@ -125,7 +125,7 @@
 <a name="registering-ndef-message-handlers"></a>
 <h3 >Registering NDEF Message Handlers</h3>
 <p>The above described method (of reading NDEF messages) directly connects to the platform's NFC infrastructure. However on some platforms (in particular mobile platforms) this may not actually trigger the target slot if the application is currently running in the background. This is not desirable in cases where an application wants to be activated if the platform detects a tag of particular type. For this purpose the Qt NFC API provides the possibility to register an NDEF message handler. The handler is called by the operating system, when the detected NDEF message matches the given filter criteria. Depending on the platform it may even be possible to start the application that registered the handler.</p>
-<p><b>Note: </b>This feature is not available on all platforms and, in addition to the code snippets below, may require further platform specific setup.</p><pre class="cpp">
+<p><b>注意： </b>This feature is not available on all platforms and, in addition to the code snippets below, may require further platform specific setup.</p><pre class="cpp">
 
   manager <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qnearfieldmanager.html">QNearFieldManager</a></span>(<span class="keyword">this</span>);
   <span class="keyword">if</span> (<span class="operator">!</span>manager<span class="operator">-</span><span class="operator">&gt;</span>isAvailable()) {
@@ -173,7 +173,7 @@
 <a name="sharing-files-and-messages"></a>
 <h3 >Sharing Files and Messages</h3>
 <p>Since Qt 5.3, Qt NFC provides a generic NFC share feature. If both devices support the same protocol, the feature can be used to share files or NDEF messages. The advantage is that the two involved partners can quickly establish a connection via NFC but transfer the data through, for example, Bluetooth or Wifi. Effectively, this combines the low configuration effort of NFC with high data rate communication bearers which usually require a much more complex setup.</p>
-<p><b>Note: </b>The API does not make any guarantees about the actual communication bearer used during the transfer. The bearer is chosen based on the device's capabilities and the properties of the to-be-shared data.</p><p><a href="qnearfieldsharemanager.html">QNearFieldShareManager</a> 和 <a href="qnearfieldsharetarget.html">QNearFieldShareTarget</a> are responsible for accessing the NFC share feature.</p>
+<p><b>注意： </b>The API does not make any guarantees about the actual communication bearer used during the transfer. The bearer is chosen based on the device's capabilities and the properties of the to-be-shared data.</p><p><a href="qnearfieldsharemanager.html">QNearFieldShareManager</a> 和 <a href="qnearfieldsharetarget.html">QNearFieldShareTarget</a> are responsible for accessing the NFC share feature.</p>
 <a name="qml-overview"></a>
 <h2 id="qml-overview">QML Overview</h2>
 <p>The QML API only supports a very small subset of the Qt NFC feature set. This section outlines the available QML features.</p>

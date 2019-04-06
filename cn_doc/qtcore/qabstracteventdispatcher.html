@@ -166,7 +166,7 @@
 <p>The event filter <i>filterObj</i> receives events via its <a href="qabstractnativeeventfilter.html#nativeEventFilter">nativeEventFilter()</a> function, which is called for all events received by all threads.</p>
 <p>The <a href="qabstractnativeeventfilter.html#nativeEventFilter">nativeEventFilter()</a> function should return true if the event should be filtered, (in this case, stopped). It should return false to allow normal Qt processing to continue: the native event can then be translated into a <a href="qevent.html">QEvent</a> and handled by the standard Qt <a href="qevent.html">event</a> filtering, e.g&#x2e; <a href="qobject.html#installEventFilter">QObject::installEventFilter</a>().</p>
 <p>If multiple event filters are installed, the filter that was installed last is activated first.</p>
-<p><b>Note: </b>The filter function set here receives native messages, that is, MSG or XEvent structs.</p><p>For maximum portability, you should always try to use <a href="qevent.html">QEvent</a> objects and <a href="qobject.html#installEventFilter">QObject::installEventFilter</a>() whenever possible.</p>
+<p><b>注意： </b>The filter function set here receives native messages, that is, MSG or XEvent structs.</p><p>For maximum portability, you should always try to use <a href="qevent.html">QEvent</a> objects and <a href="qobject.html#installEventFilter">QObject::installEventFilter</a>() whenever possible.</p>
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qobject.html#installEventFilter">QObject::installEventFilter</a>().</p>
 <!-- @@@installNativeEventFilter -->
@@ -241,7 +241,7 @@
 <!-- @@@unregisterSocketNotifier -->
 <!-- $$$unregisterTimer[overload1]$$$unregisterTimerint -->
 <h3 class="fn" id="unregisterTimer"><a name="unregisterTimer"></a><code>[纯虚函数] </code><span class="type">bool</span> QAbstractEventDispatcher::<span class="name">unregisterTimer</span>(<span class="type">int</span> <i>timerId</i>)</h3>
-<p>Unregisters the timer with the given <i>timerId</i>. Returns <code>true</code> if successful; otherwise returns <code>false</code>.</p>
+<p>Unregisters the timer with the given <i>timerId</i>. 若成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
 <p><b> 参见 </b><a href="qabstracteventdispatcher.html#registerTimer">registerTimer</a>() 和 <a href="qabstracteventdispatcher.html#unregisterTimers">unregisterTimers</a>().</p>
 <!-- @@@unregisterTimer -->
 <!-- $$$unregisterTimers[overload1]$$$unregisterTimersQObject* -->

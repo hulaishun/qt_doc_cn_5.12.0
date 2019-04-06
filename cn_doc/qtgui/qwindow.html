@@ -636,7 +636,7 @@
 <h3 class="fn" id="devicePixelRatio"><a name="devicePixelRatio"></a><span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> QWindow::<span class="name">devicePixelRatio</span>() const</h3>
 <p>Returns the ratio between physical pixels and device-independent pixels for the window. This value is dependent on the screen the window is on, and may change when the window is moved.</p>
 <p>Common values are 1.0 on normal displays and 2.0 on Apple &quot;retina&quot; displays.</p>
-<p><b>Note: </b>For windows not backed by a platform window, meaning that <a href="qwindow.html#create">create</a>() was not called, the function will fall back to the associated <a href="qscreen.html">QScreen</a>'s device pixel ratio.</p><p><b> 参见 </b><a href="qscreen.html#devicePixelRatio-prop">QScreen::devicePixelRatio</a>().</p>
+<p><b>注意： </b>For windows not backed by a platform window, meaning that <a href="qwindow.html#create">create</a>() was not called, the function will fall back to the associated <a href="qscreen.html">QScreen</a>'s device pixel ratio.</p><p><b> 参见 </b><a href="qscreen.html#devicePixelRatio-prop">QScreen::devicePixelRatio</a>().</p>
 <!-- @@@devicePixelRatio -->
 <!-- $$$event[overload1]$$$eventQEvent* -->
 <h3 class="fn" id="event"><a name="event"></a><code>[重载虚保护函数] </code><span class="type">bool</span> QWindow::<span class="name">event</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>ev</i>)</h3>
@@ -683,7 +683,7 @@
 <p>重新实现了父类函数接口 <a href="qsurface.html#format">QSurface::format</a>().</p>
 <p>Returns the actual format of this window.</p>
 <p>After the window has been created, this function will return the actual surface format of the window. It might differ from the requested format if the requested format could not be fulfilled by the platform. It might also be a superset, for example certain buffer sizes may be larger than requested.</p>
-<p><b>Note: </b>Depending on the platform, certain values in this surface format may still contain the requested values, that is, the values that have been passed to <a href="qwindow.html#setFormat">setFormat</a>(). Typical examples are the OpenGL version, profile and options. These may not get updated during <a href="qwindow.html#create">create</a>() since these are context specific and a single window may be used together with multiple contexts over its lifetime. Use the <a href="qopenglcontext.html">QOpenGLContext</a>'s format() instead to query such values.</p><p><b> 参见 </b><a href="qwindow.html#setFormat">setFormat</a>(), <a href="qwindow.html#create">create</a>(), <a href="qwindow.html#requestedFormat">requestedFormat</a>(), 和 <a href="qopenglcontext.html#format">QOpenGLContext::format</a>().</p>
+<p><b>注意： </b>Depending on the platform, certain values in this surface format may still contain the requested values, that is, the values that have been passed to <a href="qwindow.html#setFormat">setFormat</a>(). Typical examples are the OpenGL version, profile and options. These may not get updated during <a href="qwindow.html#create">create</a>() since these are context specific and a single window may be used together with multiple contexts over its lifetime. Use the <a href="qopenglcontext.html">QOpenGLContext</a>'s format() instead to query such values.</p><p><b> 参见 </b><a href="qwindow.html#setFormat">setFormat</a>(), <a href="qwindow.html#create">create</a>(), <a href="qwindow.html#requestedFormat">requestedFormat</a>(), 和 <a href="qopenglcontext.html#format">QOpenGLContext::format</a>().</p>
 <!-- @@@format -->
 <!-- $$$frameGeometry[overload1]$$$frameGeometry -->
 <h3 class="fn" id="frameGeometry"><a name="frameGeometry"></a><span class="type"><a href="../qtcore/qrect.html">QRect</a></span> QWindow::<span class="name">frameGeometry</span>() const</h3>
@@ -708,7 +708,7 @@
 <p>Given the handle <i>id</i> to a native window, this method creates a <a href="qwindow.html">QWindow</a> object which can be used to represent the window when invoking methods like <a href="qwindow.html#setParent">setParent</a>() 和 <a href="qwindow.html#setTransientParent">setTransientParent</a>().</p>
 <p>This can be used, on platforms which support it, to embed a <a href="qwindow.html">QWindow</a> inside a native window, or to embed a native window inside a <a href="qwindow.html">QWindow</a>.</p>
 <p>If foreign windows are not supported or embedding the native window failed in the platform plugin, this function returns 0.</p>
-<p><b>Note: </b>The resulting <a href="qwindow.html">QWindow</a> should not be used to manipulate the underlying native window (besides re-parenting), or to observe state changes of the native window. Any support for these kind of operations is incidental, highly platform dependent and untested.</p><p><b> 参见 </b><a href="qwindow.html#setParent">setParent</a>() 和 <a href="qwindow.html#setTransientParent">setTransientParent</a>().</p>
+<p><b>注意： </b>The resulting <a href="qwindow.html">QWindow</a> should not be used to manipulate the underlying native window (besides re-parenting), or to observe state changes of the native window. Any support for these kind of operations is incidental, highly platform dependent and untested.</p><p><b> 参见 </b><a href="qwindow.html#setParent">setParent</a>() 和 <a href="qwindow.html#setTransientParent">setTransientParent</a>().</p>
 <!-- @@@fromWinId -->
 <!-- $$$geometry[overload1]$$$geometry -->
 <h3 class="fn" id="geometry"><a name="geometry"></a><span class="type"><a href="../qtcore/qrect.html">QRect</a></span> QWindow::<span class="name">geometry</span>() const</h3>
@@ -867,7 +867,7 @@
 <p>The event is delivered in sync with the display vsync on platforms where this is possible. Otherwise, the event is delivered after a delay of 5 ms. The additional time is there to give the event loop a bit of idle time to gather system events, and can be overridden using the QT_QPA_UPDATE_IDLE_TIME environment variable.</p>
 <p>When driving animations, this function should be called once after drawing has completed. Calling this function multiple times will result in a single event being delivered to the window.</p>
 <p>Subclasses of <a href="qwindow.html">QWindow</a> should reimplement <a href="qwindow.html#event">event</a>(), intercept the event and call the application's rendering code, then call the base class implementation.</p>
-<p><b>Note: </b>The subclass' reimplementation of <a href="qwindow.html#event">event</a>() must invoke the base class implementation, unless it is absolutely sure that the event does not need to be handled by the base class. For example, the default implementation of this function relies on <a href="../qtcore/qevent.html#Type-enum">QEvent::Timer</a> events. Filtering them away would therefore break the delivery of the update events.</p><p>这个函数是在Qt 5.5版本中新增引入的。</p>
+<p><b>注意： </b>The subclass' reimplementation of <a href="qwindow.html#event">event</a>() must invoke the base class implementation, unless it is absolutely sure that the event does not need to be handled by the base class. For example, the default implementation of this function relies on <a href="../qtcore/qevent.html#Type-enum">QEvent::Timer</a> events. Filtering them away would therefore break the delivery of the update events.</p><p>这个函数是在Qt 5.5版本中新增引入的。</p>
 <!-- @@@requestUpdate -->
 <!-- $$$requestedFormat[overload1]$$$requestedFormat -->
 <h3 class="fn" id="requestedFormat"><a name="requestedFormat"></a><span class="type"><a href="qsurfaceformat.html">QSurfaceFormat</a></span> QWindow::<span class="name">requestedFormat</span>() const</h3>
@@ -965,7 +965,7 @@
 <h3 class="fn" id="setIcon"><a name="setIcon"></a><span class="type">void</span> QWindow::<span class="name">setIcon</span>(const <span class="type"><a href="qicon.html">QIcon</a></span> &amp;<i>icon</i>)</h3>
 <p>Sets the window's <i>icon</i> in the windowing system</p>
 <p>The window icon might be used by the windowing system for example to decorate the window, and/or in the task switcher.</p>
-<p><b>Note: </b>On <a href="../qtdoc/internationalization.html#macos">macOS</a>, the window title bar icon is meant for windows representing documents, and will only show up if a file path is also set.</p><p><b> 参见 </b><a href="qwindow.html#icon">icon</a>() 和 <a href="qwindow.html#setFilePath">setFilePath</a>().</p>
+<p><b>注意： </b>On <a href="../qtdoc/internationalization.html#macos">macOS</a>, the window title bar icon is meant for windows representing documents, and will only show up if a file path is also set.</p><p><b> 参见 </b><a href="qwindow.html#icon">icon</a>() 和 <a href="qwindow.html#setFilePath">setFilePath</a>().</p>
 <!-- @@@setIcon -->
 <!-- $$$setKeyboardGrabEnabled[overload1]$$$setKeyboardGrabEnabledbool -->
 <h3 class="fn" id="setKeyboardGrabEnabled"><a name="setKeyboardGrabEnabled"></a><span class="type">bool</span> QWindow::<span class="name">setKeyboardGrabEnabled</span>(<span class="type">bool</span> <i>grab</i>)</h3>
@@ -1021,7 +1021,7 @@
 <h3 class="fn" id="setScreen"><a name="setScreen"></a><span class="type">void</span> QWindow::<span class="name">setScreen</span>(<span class="type"><a href="qscreen.html">QScreen</a></span> *<i>newScreen</i>)</h3>
 <p>Sets the screen on which the window should be shown.</p>
 <p>If the window has been created, it will be recreated on the <i>newScreen</i>.</p>
-<p><b>Note: </b>If the screen is part of a virtual desktop of multiple screens, the window will not move automatically to <i>newScreen</i>. To place the window relative to the screen, use the screen's topLeft() position.</p><p>This function only works for top level windows.</p>
+<p><b>注意： </b>If the screen is part of a virtual desktop of multiple screens, the window will not move automatically to <i>newScreen</i>. To place the window relative to the screen, use the screen's topLeft() position.</p><p>This function only works for top level windows.</p>
 <p><b> 参见 </b><a href="qwindow.html#screen">screen</a>() 和 <a href="qscreen.html#virtualSiblings">QScreen::virtualSiblings</a>().</p>
 <!-- @@@setScreen -->
 <!-- $$$setSizeIncrement[overload1]$$$setSizeIncrementconstQSize& -->

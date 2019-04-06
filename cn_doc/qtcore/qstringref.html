@@ -193,7 +193,7 @@
 <p>A string reference explicitly references a portion of a <a href="qstringref.html#string">string</a>() with a given <a href="qstringref.html#size">size</a>(), starting at a specific <a href="qstringref.html#position">position</a>(). Calling <a href="qstringref.html#toString">toString</a>() returns a copy of the data as a real <a href="qstring.html">QString</a> instance.</p>
 <p>This class is designed to improve the performance of substring handling when manipulating substrings obtained from existing <a href="qstring.html">QString</a> instances. <a href="qstringref.html">QStringRef</a> avoids the memory allocation and reference counting overhead of a standard <a href="qstring.html">QString</a> by simply referencing a part of the original string. This can prove to be advantageous in low level code, such as that used in a parser, at the expense of potentially more complex code.</p>
 <p>For most users, there are no semantic benefits to using <a href="qstringref.html">QStringRef</a> instead of <a href="qstring.html">QString</a> since <a href="qstringref.html">QStringRef</a> requires attention to be paid to memory management issues, potentially making code more complex to write and maintain.</p>
-<p><b>Warning:</b> A <a href="qstringref.html">QStringRef</a> is only valid as long as the referenced string exists. If the original string is deleted, the string reference points to an invalid memory location.</p>
+<p><b>警告：</b> A <a href="qstringref.html">QStringRef</a> is only valid as long as the referenced string exists. If the original string is deleted, the string reference points to an invalid memory location.</p>
 <p>We suggest that you only use this class in stable code where profiling has clearly identified that performance improvements can be made by replacing standard string operations with the optimized substring handling provided by this class.</p>
 </div>
 <p><b> 参见 </b><a href="implicit-sharing.html#implicitly-shared-classes">隐性共享类</a>.</p>
@@ -225,7 +225,7 @@
 <!-- $$$QStringRef$$$QStringRefconstQString*intint -->
 <h3 class="fn" id="QStringRef-1"><a name="QStringRef-1"></a>QStringRef::<span class="name">QStringRef</span>(const <span class="type"><a href="qstring.html">QString</a></span> *<i>string</i>, <span class="type">int</span> <i>position</i>, <span class="type">int</span> <i>length</i>)</h3>
 <p>Constructs a string reference to the range of characters in the given <i>string</i> specified by the starting <i>position</i> and <i>length</i> in characters.</p>
-<p><b>Warning:</b> This function exists to improve performance as much as possible, and performs no bounds checking. For program correctness, <i>position</i> and <i>length</i> must describe a valid substring of <i>string</i>.</p>
+<p><b>警告：</b> This function exists to improve performance as much as possible, and performs no bounds checking. For program correctness, <i>position</i> and <i>length</i> must describe a valid substring of <i>string</i>.</p>
 <p>This means that the starting <i>position</i> must be positive or 0 and smaller than <i>string</i>'s length, and <i>length</i> must be positive or 0 but smaller than the string's length minus the starting <i>position</i>; i.e, 0 &lt;= position &lt; string-&gt;<a href="qstringref.html#length">length</a>() and 0 &lt;= length &lt;= string-&gt;<a href="qstringref.html#length">length</a>() - position must both be satisfied.</p>
 <!-- @@@QStringRef -->
 <!-- $$$QStringRef$$$QStringRefconstQString* -->
@@ -257,7 +257,7 @@
 <h3 class="fn" id="back"><a name="back"></a><span class="type"><a href="qchar.html">QChar</a></span> QStringRef::<span class="name">back</span>() const</h3>
 <p>Returns the last character in the string. Same as <code>at(size() - 1)</code>.</p>
 <p>This function is provided for STL compatibility.</p>
-<p><b>Warning:</b> Calling this function on an empty string constitutes undefined behavior.</p>
+<p><b>警告：</b> Calling this function on an empty string constitutes undefined behavior.</p>
 <p>这个函数是在Qt 5.10版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qstringref.html#front">front</a>(), <a href="qstringref.html#at">at</a>(), 和 <a href="qstringref.html#operator-5b-5d">operator[]</a>().</p>
 <!-- @@@back -->
@@ -289,7 +289,7 @@
 <!-- $$$chopped[overload1]$$$choppedint -->
 <h3 class="fn" id="chopped"><a name="chopped"></a><span class="type"><a href="qstringref.html#QStringRef">QStringRef</a></span> QStringRef::<span class="name">chopped</span>(<span class="type">int</span> <i>len</i>) const</h3>
 <p>Returns a substring reference to the <a href="qstringref.html#size">size</a>() - <i>len</i> leftmost characters of this string.</p>
-<p><b>Note: </b>The behavior is undefined if <i>len</i> is negative or greater than <a href="qstringref.html#size">size</a>().</p><p>这个函数是在Qt 5.10版本中新增引入的。</p>
+<p><b>注意： </b>The behavior is undefined if <i>len</i> is negative or greater than <a href="qstringref.html#size">size</a>().</p><p>这个函数是在Qt 5.10版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qstringref.html#endsWith">endsWith</a>(), <a href="qstringref.html#left">left</a>(), <a href="qstringref.html#right">right</a>(), <a href="qstringref.html#mid">mid</a>(), <a href="qstringref.html#chop">chop</a>(), 和 <a href="qstringref.html#truncate">truncate</a>().</p>
 <!-- @@@chopped -->
 <!-- $$$clear[overload1]$$$clear -->
@@ -482,7 +482,7 @@
 <h3 class="fn" id="front"><a name="front"></a><span class="type"><a href="qchar.html">QChar</a></span> QStringRef::<span class="name">front</span>() const</h3>
 <p>Returns the first character in the string. Same as <code>at(0)</code>.</p>
 <p>This function is provided for STL compatibility.</p>
-<p><b>Warning:</b> Calling this function on an empty string constitutes undefined behavior.</p>
+<p><b>警告：</b> Calling this function on an empty string constitutes undefined behavior.</p>
 <p>这个函数是在Qt 5.10版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qstringref.html#back">back</a>(), <a href="qstringref.html#at">at</a>(), 和 <a href="qstringref.html#operator-5b-5d">operator[]</a>().</p>
 <!-- @@@front -->
@@ -646,7 +646,7 @@
 <h3 class="fn" id="split"><a name="split"></a><span class="type"><a href="qvector.html">QVector</a></span>&lt;<span class="type"><a href="qstringref.html#QStringRef">QStringRef</a></span>&gt; QStringRef::<span class="name">split</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>sep</i>, <span class="type"><a href="qstring.html#SplitBehavior-enum">QString::SplitBehavior</a></span> <i>behavior</i> = QString::KeepEmptyParts, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive) const</h3>
 <p>Splits the string into substrings references wherever <i>sep</i> occurs, and returns the list of those strings.</p>
 <p>See <a href="qstring.html#split">QString::split</a>() for how <i>sep</i>, <i>behavior</i> and <i>cs</i> interact to form the result.</p>
-<p><b>Note: </b>All references are valid as long this string is alive. Destroying this string will cause all references be dangling pointers.</p><p>这个函数是在Qt 5.4版本中新增引入的。</p>
+<p><b>注意： </b>All references are valid as long this string is alive. Destroying this string will cause all references be dangling pointers.</p><p>这个函数是在Qt 5.4版本中新增引入的。</p>
 <!-- @@@split -->
 <!-- $$$split$$$splitQCharQString::SplitBehaviorQt::CaseSensitivity -->
 <h3 class="fn" id="split-1"><a name="split-1"></a><span class="type"><a href="qvector.html">QVector</a></span>&lt;<span class="type"><a href="qstringref.html#QStringRef">QStringRef</a></span>&gt; QStringRef::<span class="name">split</span>(<span class="type"><a href="qchar.html">QChar</a></span> <i>sep</i>, <span class="type"><a href="qstring.html#SplitBehavior-enum">QString::SplitBehavior</a></span> <i>behavior</i> = QString::KeepEmptyParts, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive) const</h3>

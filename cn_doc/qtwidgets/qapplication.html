@@ -288,7 +288,7 @@
 <p>The flash time is the time required to display, invert and restore the caret display. Usually the text cursor is displayed for half the cursor flash time, then hidden for the same amount of time, but this may vary.</p>
 <p>The default value on X11 is 1000 milliseconds. On Windows, the <b>Control Panel</b> value is used and setting this property sets the cursor flash time for all applications.</p>
 <p>We recommend that widgets do not cache this value as it may change at any time if the user changes the global desktop settings.</p>
-<p><b>Note: </b>This property may hold a negative value, for instance if cursor blinking is disabled.</p><p><b>访问函数：</b></p>
+<p><b>注意： </b>This property may hold a negative value, for instance if cursor blinking is disabled.</p><p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>cursorFlashTime</b></span>()</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setCursorFlashTime</b></span>(<i>int</i>)</td></tr>
@@ -408,14 +408,14 @@
 <!-- $$$QApplication[overload1]$$$QApplicationint&char** -->
 <h3 class="fn" id="QApplication"><a name="QApplication"></a>QApplication::<span class="name">QApplication</span>(<span class="type">int</span> &amp;<i>argc</i>, <span class="type">char</span> **<i>argv</i>)</h3>
 <p>Initializes the window system and constructs an application object with <i>argc</i> command line arguments in <i>argv</i>.</p>
-<p><b>Warning:</b> The data referred to by <i>argc</i> and <i>argv</i> must stay valid for the entire lifetime of the <a href="qapplication.html">QApplication</a> object. In addition, <i>argc</i> must be greater than zero and <i>argv</i> must contain at least one valid character string.</p>
+<p><b>警告：</b> The data referred to by <i>argc</i> and <i>argv</i> must stay valid for the entire lifetime of the <a href="qapplication.html">QApplication</a> object. In addition, <i>argc</i> must be greater than zero and <i>argv</i> must contain at least one valid character string.</p>
 <p>The global <code>qApp</code> pointer refers to this application object. Only one application object should be created.</p>
 <p>This application object must be constructed before any <a href="../qtgui/qpaintdevice.html">paint devices</a> (including widgets, pixmaps, bitmaps etc.)&#x2e;</p>
-<p><b>Note: </b><i>argc</i> and <i>argv</i> might be changed as Qt removes command line arguments that it recognizes.</p><p>All Qt programs automatically support the following command line options:</p>
+<p><b>注意： </b><i>argc</i> and <i>argv</i> might be changed as Qt removes command line arguments that it recognizes.</p><p>All Qt programs automatically support the following command line options:</p>
 <ul>
 <li>-style= <i>style</i>, sets the application GUI style. Possible values depend on your system configuration. If you compiled Qt with additional styles or have additional styles as plugins these will be available to the <code>-style</code> command line option. You can also set the style for all Qt applications by setting the <code>QT_STYLE_OVERRIDE</code> environment variable.</li>
 <li>-style <i>style</i>, is the same as listed above.</li>
-<li>-stylesheet= <i>stylesheet</i>, sets the application <a href="stylesheet.html">styleSheet</a>. The value must be a path to a file that contains the Style Sheet.<p><b>Note: </b>Relative URLs in the Style Sheet file are relative to the Style Sheet file's path.</p></li>
+<li>-stylesheet= <i>stylesheet</i>, sets the application <a href="stylesheet.html">styleSheet</a>. The value must be a path to a file that contains the Style Sheet.<p><b>注意： </b>Relative URLs in the Style Sheet file are relative to the Style Sheet file's path.</p></li>
 <li>-stylesheet <i>stylesheet</i>, is the same as listed above.</li>
 <li>-widgetcount, prints debug message at the end about number of widgets left undestroyed and maximum number of widgets existed at the same time</li>
 <li>-reverse, sets the application's layout direction to <a href="../qtcore/qt.html#LayoutDirection-enum">Qt::RightToLeft</a></li>
@@ -465,7 +465,7 @@
 <h3 class="fn" id="allWidgets"><a name="allWidgets"></a><code>[静态函数] </code><span class="type">QWidgetList</span> QApplication::<span class="name">allWidgets</span>()</h3>
 <p>Returns a list of all the widgets in the application.</p>
 <p>The list is empty (<a href="../qtcore/qlist.html#isEmpty">QList::isEmpty</a>()) if there are no widgets.</p>
-<p><b>Note: </b>Some of the widgets may be hidden.</p><p>样例：</p>
+<p><b>注意： </b>Some of the widgets may be hidden.</p><p>样例：</p>
 <pre class="cpp">
 
   <span class="type">void</span> updateAllWidgets()
@@ -554,7 +554,7 @@
 <h3 class="fn" id="isEffectEnabled"><a name="isEffectEnabled"></a><code>[静态函数] </code><span class="type">bool</span> QApplication::<span class="name">isEffectEnabled</span>(<span class="type">Qt::UIEffect</span> <i>effect</i>)</h3>
 <p>Returns <code>true</code> if <i>effect</i> is enabled; otherwise returns <code>false</code>.</p>
 <p>By default, Qt will try to use the desktop settings. To prevent this, call <a href="../qtgui/qguiapplication.html#setDesktopSettingsAware">setDesktopSettingsAware</a>(false).</p>
-<p><b>Note: </b>All effects are disabled on screens running at less than 16-bit color depth.</p><p><b> 参见 </b><a href="qapplication.html#setEffectEnabled">setEffectEnabled</a>() 和 <a href="../qtcore/qt.html#UIEffect-enum">Qt::UIEffect</a>.</p>
+<p><b>注意： </b>All effects are disabled on screens running at less than 16-bit color depth.</p><p><b> 参见 </b><a href="qapplication.html#setEffectEnabled">setEffectEnabled</a>() 和 <a href="../qtcore/qt.html#UIEffect-enum">Qt::UIEffect</a>.</p>
 <!-- @@@isEffectEnabled -->
 <!-- $$$navigationMode[overload1]$$$navigationMode -->
 <h3 class="fn" id="navigationMode"><a name="navigationMode"></a><code>[静态函数] </code><span class="type">Qt::NavigationMode</span> QApplication::<span class="name">navigationMode</span>()</h3>
@@ -581,20 +581,20 @@
 <!-- $$$setActiveWindow[overload1]$$$setActiveWindowQWidget* -->
 <h3 class="fn" id="setActiveWindow"><a name="setActiveWindow"></a><code>[静态函数] </code><span class="type">void</span> QApplication::<span class="name">setActiveWindow</span>(<span class="type"><a href="qwidget.html">QWidget</a></span> *<i>active</i>)</h3>
 <p>Sets the active window to the <i>active</i> widget in response to a system event. The function is called from the platform specific event handlers.</p>
-<p><b>Warning:</b> This function does <i>not</i> set the keyboard focus to the active widget. Call <a href="qwidget.html#activateWindow">QWidget::activateWindow</a>() instead.</p>
+<p><b>警告：</b> This function does <i>not</i> set the keyboard focus to the active widget. Call <a href="qwidget.html#activateWindow">QWidget::activateWindow</a>() instead.</p>
 <p>It sets the <a href="qapplication.html#activeWindow">activeWindow</a>() 和 <a href="qapplication.html#focusWidget">focusWidget</a>() attributes and sends proper <a href="../qtcore/qevent.html#Type-enum">WindowActivate</a>/<a href="../qtcore/qevent.html#Type-enum">WindowDeactivate</a> 和 <a href="../qtcore/qevent.html#Type-enum">FocusIn</a>/<a href="../qtcore/qevent.html#Type-enum">FocusOut</a> events to all appropriate widgets. The window will then be painted in active state (e.g&#x2e; cursors in line edits will blink), and it will have tool tips enabled.</p>
 <p><b> 参见 </b><a href="qapplication.html#activeWindow">activeWindow</a>() 和 <a href="qwidget.html#activateWindow">QWidget::activateWindow</a>().</p>
 <!-- @@@setActiveWindow -->
 <!-- $$$setEffectEnabled[overload1]$$$setEffectEnabledQt::UIEffectbool -->
 <h3 class="fn" id="setEffectEnabled"><a name="setEffectEnabled"></a><code>[静态函数] </code><span class="type">void</span> QApplication::<span class="name">setEffectEnabled</span>(<span class="type">Qt::UIEffect</span> <i>effect</i>, <span class="type">bool</span> <i>enable</i> = true)</h3>
 <p>Enables the UI effect <i>effect</i> if <i>enable</i> is true, otherwise the effect will not be used.</p>
-<p><b>Note: </b>All effects are disabled on screens running at less than 16-bit color depth.</p><p><b> 参见 </b><a href="qapplication.html#isEffectEnabled">isEffectEnabled</a>(), <a href="../qtcore/qt.html#UIEffect-enum">Qt::UIEffect</a>, 和 <a href="../qtgui/qguiapplication.html#setDesktopSettingsAware">setDesktopSettingsAware</a>().</p>
+<p><b>注意： </b>All effects are disabled on screens running at less than 16-bit color depth.</p><p><b> 参见 </b><a href="qapplication.html#isEffectEnabled">isEffectEnabled</a>(), <a href="../qtcore/qt.html#UIEffect-enum">Qt::UIEffect</a>, 和 <a href="../qtgui/qguiapplication.html#setDesktopSettingsAware">setDesktopSettingsAware</a>().</p>
 <!-- @@@setEffectEnabled -->
 <!-- $$$setFont[overload1]$$$setFontconstQFont&constchar* -->
 <h3 class="fn" id="setFont"><a name="setFont"></a><code>[静态函数] </code><span class="type">void</span> QApplication::<span class="name">setFont</span>(const <span class="type"><a href="../qtgui/qfont.html">QFont</a></span> &amp;<i>font</i>, const <span class="type">char</span> *<i>className</i> = nullptr)</h3>
 <p>Changes the default application font to <i>font</i>. If <i>className</i> is passed, the change applies only to classes that inherit <i>className</i> (as reported by <a href="../qtcore/qobject.html#inherits">QObject::inherits</a>()).</p>
 <p>On application start-up, the default font depends on the window system. It can vary depending on both the window system version and the locale. This function lets you override the default font; but overriding may be a bad idea because, for example, some locales need extra large fonts to support their special characters.</p>
-<p><b>Warning:</b> Do not use this function in conjunction with <a href="stylesheet.html">Qt样式表</a>. The font of an application can be customized using the &quot;font&quot; style sheet property. To set a bold font for all QPushButtons, set the application <a href="qapplication.html#styleSheet-prop">styleSheet</a>() as &quot;<a href="qpushbutton.html">QPushButton</a> { font: bold }&quot;</p>
+<p><b>警告：</b> Do not use this function in conjunction with <a href="stylesheet.html">Qt样式表</a>. The font of an application can be customized using the &quot;font&quot; style sheet property. To set a bold font for all QPushButtons, set the application <a href="qapplication.html#styleSheet-prop">styleSheet</a>() as &quot;<a href="qpushbutton.html">QPushButton</a> { font: bold }&quot;</p>
 <p><b> 参见 </b><a href="qapplication.html#font">font</a>(), <a href="qapplication.html#fontMetrics">fontMetrics</a>(), 和 <a href="qwidget.html#font-prop">QWidget::setFont</a>().</p>
 <!-- @@@setFont -->
 <!-- $$$setNavigationMode[overload1]$$$setNavigationModeQt::NavigationMode -->
@@ -609,8 +609,8 @@
 <p>Changes the default application palette to <i>palette</i>.</p>
 <p>If <i>className</i> is passed, the change applies only to widgets that inherit <i>className</i> (as reported by <a href="../qtcore/qobject.html#inherits">QObject::inherits</a>()). If <i>className</i> is left 0, the change affects all widgets, thus overriding any previously set class specific palettes.</p>
 <p>The palette may be changed according to the current GUI style in <a href="qstyle.html#polish">QStyle::polish</a>().</p>
-<p><b>Warning:</b> Do not use this function in conjunction with <a href="stylesheet.html">Qt样式表</a>. When using style sheets, the palette of a widget can be customized using the &quot;color&quot;, &quot;background-color&quot;, &quot;selection-color&quot;, &quot;selection-background-color&quot; and &quot;alternate-background-color&quot;.</p>
-<p><b>Note: </b>Some styles do not use the palette for all drawing, for instance, if they make use of native theme engines. This is the case for the Windows Vista and <a href="../qtdoc/internationalization.html#macos">macOS</a> styles.</p><p><b> 参见 </b><a href="qwidget.html#palette-prop">QWidget::setPalette</a>(), <a href="qapplication.html#palette">palette</a>(), 和 <a href="qstyle.html#polish">QStyle::polish</a>().</p>
+<p><b>警告：</b> Do not use this function in conjunction with <a href="stylesheet.html">Qt样式表</a>. When using style sheets, the palette of a widget can be customized using the &quot;color&quot;, &quot;background-color&quot;, &quot;selection-color&quot;, &quot;selection-background-color&quot; and &quot;alternate-background-color&quot;.</p>
+<p><b>注意： </b>Some styles do not use the palette for all drawing, for instance, if they make use of native theme engines. This is the case for the Windows Vista and <a href="../qtdoc/internationalization.html#macos">macOS</a> styles.</p><p><b> 参见 </b><a href="qwidget.html#palette-prop">QWidget::setPalette</a>(), <a href="qapplication.html#palette">palette</a>(), 和 <a href="qstyle.html#polish">QStyle::polish</a>().</p>
 <!-- @@@setPalette -->
 <!-- $$$setStyle[overload1]$$$setStyleQStyle* -->
 <h3 class="fn" id="setStyle"><a name="setStyle"></a><code>[静态函数] </code><span class="type">void</span> QApplication::<span class="name">setStyle</span>(<span class="type"><a href="qstyle.html">QStyle</a></span> *<i>style</i>)</h3>
@@ -623,7 +623,7 @@
 </pre>
 <p>When switching application styles, the color palette is set back to the initial colors or the system defaults. This is necessary since certain styles have to adapt the color palette to be fully style-guide compliant.</p>
 <p>Setting the style before a palette has been set, i.e&#x2e;, before creating <a href="qapplication.html">QApplication</a>, will cause the application to use <a href="qstyle.html#standardPalette">QStyle::standardPalette</a>() for the palette.</p>
-<p><b>Warning:</b> Qt style sheets are currently not supported for custom <a href="qstyle.html">QStyle</a> subclasses. We plan to address this in some future release.</p>
+<p><b>警告：</b> Qt style sheets are currently not supported for custom <a href="qstyle.html">QStyle</a> subclasses. We plan to address this in some future release.</p>
 <p><b> 参见 </b><a href="qapplication.html#style">style</a>(), <a href="qstyle.html">QStyle</a>, <a href="qapplication.html#setPalette">setPalette</a>(), 和 <a href="../qtgui/qguiapplication.html#desktopSettingsAware">desktopSettingsAware</a>().</p>
 <!-- @@@setStyle -->
 <!-- $$$setStyle$$$setStyleconstQString& -->
@@ -632,7 +632,7 @@
 <p>Requests a <a href="qstyle.html">QStyle</a> object for <i>style</i> from the <a href="qstylefactory.html">QStyleFactory</a>.</p>
 <p>The string must be one of the <a href="qstylefactory.html#keys">QStyleFactory::keys</a>(), typically one of &quot;windows&quot;, &quot;windowsvista&quot;, &quot;fusion&quot;, or &quot;macintosh&quot;. Style names are case insensitive.</p>
 <p>Returns 0 if an unknown <i>style</i> is passed, otherwise the <a href="qstyle.html">QStyle</a> object returned is set as the application's GUI style.</p>
-<p><b>Warning:</b> To ensure that the application's style is set correctly, it is best to call this function before the <a href="qapplication.html">QApplication</a> constructor, if possible.</p>
+<p><b>警告：</b> To ensure that the application's style is set correctly, it is best to call this function before the <a href="qapplication.html">QApplication</a> constructor, if possible.</p>
 <!-- @@@setStyle -->
 <!-- $$$style[overload1]$$$style -->
 <h3 class="fn" id="style"><a name="style"></a><code>[静态函数] </code><span class="type"><a href="qstyle.html">QStyle</a></span> *QApplication::<span class="name">style</span>()</h3>
@@ -651,7 +651,7 @@
 <!-- $$$topLevelWidgets[overload1]$$$topLevelWidgets -->
 <h3 class="fn" id="topLevelWidgets"><a name="topLevelWidgets"></a><code>[静态函数] </code><span class="type">QWidgetList</span> QApplication::<span class="name">topLevelWidgets</span>()</h3>
 <p>Returns a list of the top-level widgets (windows) in the application.</p>
-<p><b>Note: </b>Some of the top-level widgets may be hidden, for example a tooltip if no tooltip is currently shown.</p><p>样例：</p>
+<p><b>注意： </b>Some of the top-level widgets may be hidden, for example a tooltip if no tooltip is currently shown.</p><p>样例：</p>
 <pre class="cpp">
 
   <span class="type">void</span> showAllHiddenTopLevelWidgets()

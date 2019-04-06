@@ -69,7 +69,7 @@
 <h2 id="details">详细描述</h2>
 <p>Provides a mechanism to generate buffer data from a job.</p>
 <p>The <a href="qt3drender-qbufferdatagenerator.html">Qt3DRender::QBufferDataGenerator</a> should be subclassed to provide a way to fill the data of a <a href="qt3drender-qbuffer.html">Qt3DRender::QBuffer</a>. Such functors are executed at runtime in a Qt 3D job (likely in parallel with many other jobs). When providing a functor you must implement the <a href="qt3drender-qbufferdatagenerator.html#operator-28-29">operator</a>() which will be called to generate the actual data. You must make sure that you have stored copies of anything you might need for it to execute properly. You should also implement the operator==. It will be used to compare with other functors and based on that allow the renderer to decide if a new functor should be executed or not.</p>
-<p><b>Note: </b>functors are useful when you can build data from a few set of attributes (e.g: building a sphere from a radius property). If you already have access to the buffer data, using Qt3DRender::QBuffer::setData() is likely more efficient.</p><pre class="cpp">
+<p><b>注意： </b>functors are useful when you can build data from a few set of attributes (e.g: building a sphere from a radius property). If you already have access to the buffer data, using Qt3DRender::QBuffer::setData() is likely more efficient.</p><pre class="cpp">
 
   <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> createSphereMeshVertexData(<span class="type">float</span> radius<span class="operator">,</span> <span class="type">int</span> rings<span class="operator">,</span> <span class="type">int</span> slices)
   {
@@ -130,7 +130,7 @@
 <!-- $$$operator==[overload1]$$$operator==constQt3DRender::QBufferDataGenerator& -->
 <h3 class="fn" id="operator-eq-eq"><a name="operator-eq-eq"></a><code>[纯虚函数] </code><span class="type">bool</span> QBufferDataGenerator::<span class="name">operator==</span>(const <span class="type">Qt3DRender::QBufferDataGenerator</span> &amp;<i>other</i>) const</h3>
 <p>Should be reimplemented to return true when two generators (the one you are comparing against and the <i>other</i> generator) are identical, false otherwise.</p>
-<p><b>Note: </b>The renderer uses this comparison to decide whether data for a buffer needs to be reuploaded or not when the functor on a <a href="qt3drender-qbuffer.html">Qt3DRender::QBuffer</a> changes.</p><!-- @@@operator== -->
+<p><b>注意： </b>The renderer uses this comparison to decide whether data for a buffer needs to be reuploaded or not when the functor on a <a href="qt3drender-qbuffer.html">Qt3DRender::QBuffer</a> changes.</p><!-- @@@operator== -->
 </div>
 <div class="vars">
 <h2>成员变量文档</h2>

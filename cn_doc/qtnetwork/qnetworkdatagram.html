@@ -158,7 +158,7 @@
 </ul>
 <p>If <a href="qnetworkdatagram.html">QNetworkDatagram</a> is modified in a future version of Qt to carry further metadata, this function will copy that metadata as appropriate.</p>
 <p>This datagram's destination address is not copied if it is an IPv4 address because it is not possible to tell an IPv4 broadcast address apart from a regular IPv4 address without an exhaustive search of all addresses assigned to this machine. Attempting to send a datagram with the sender address equal to the broadcast address is likely to fail. However, this should not affect the communication as network interfaces with multiple IPv4 addresses are uncommon, so the address the operating system will select will likely be one the peer will understand.</p>
-<p><b>Note: </b>This function comes with both rvalue- and lvalue-reference qualifier overloads, so it is a good idea to make sure this object is rvalue, if possible, before calling <a href="qnetworkdatagram.html#makeReply">makeReply</a>, so as to make better use of move semantics. To achieve that, the example above would use:</p><pre class="cpp">
+<p><b>注意： </b>This function comes with both rvalue- and lvalue-reference qualifier overloads, so it is a good idea to make sure this object is rvalue, if possible, before calling <a href="qnetworkdatagram.html#makeReply">makeReply</a>, so as to make better use of move semantics. To achieve that, the example above would use:</p><pre class="cpp">
 
       udpSocket<span class="operator">-</span><span class="operator">&gt;</span>writeDatagram(std<span class="operator">::</span>move(datagram)<span class="operator">.</span>makeReply(replyData));
 

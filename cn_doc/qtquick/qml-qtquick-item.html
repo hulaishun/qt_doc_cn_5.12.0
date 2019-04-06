@@ -270,7 +270,7 @@
 </pre>
 <p>In this example, we implement the shader effect manually. The <a href="../qtgraphicaleffects/qtgraphicaleffects-index.html">Qt Graphical Effects</a> module contains a suite of ready-made effects for use with Qt Quick.</p>
 <p>See <a href="qml-qtquick-shadereffect.html">ShaderEffect</a> for more information about using effects.</p>
-<p><b>Note: </b><a href="qml-qtquick-item.html#layer.enabled-prop">layer.enabled</a> is actually just a more convenient way of using <a href="qml-qtquick-shadereffectsource.html">ShaderEffectSource</a>.</p><a name="memory-and-performance"></a>
+<p><b>注意： </b><a href="qml-qtquick-item.html#layer.enabled-prop">layer.enabled</a> is actually just a more convenient way of using <a href="qml-qtquick-shadereffectsource.html">ShaderEffectSource</a>.</p><a name="memory-and-performance"></a>
 <h3 >Memory and Performance</h3>
 <p>When an item's layer is enabled, the scene graph will allocate memory in the GPU equal to <code>width x height x 4</code>. In memory constrained configurations, large layers should be used with care.</p>
 <p>In the <a href="../qtgui/qpainter.html">QPainter</a> / <a href="../qtwidgets/qwidget.html">QWidget</a> world, it is some times favorable to cache complex content in a pixmap, image or texture. In Qt Quick, because of the techniques already applied by the <a href="qtquick-visualcanvas-scenegraph-renderer.html">scene graph renderer</a>, this will in most cases not be the case. Excessive draw calls are already reduced because of batching and a cache will in most cases end up blending more pixels than the original content. The overhead of rendering to an offscreen and the blending involved with drawing the resulting texture is therefore often more costly than simply letting the item and its children be drawn normally.</p>
@@ -366,7 +366,7 @@
 <p><a href="qml-qtquick-item.html#anchors.fill-prop">anchors.fill</a> provides a convenient way for one item to have the same geometry as another item, and is equivalent to connecting all four directional anchors.</p>
 <p>To clear an anchor value, set it to <code>undefined</code>.</p>
 <p><a href="qml-qtquick-item.html#anchors.alignWhenCentered-prop">anchors.alignWhenCentered</a> (default <code>true</code>) forces centered anchors to align to a whole pixel; if the item being centered has an odd <a href="qml-qtquick-item.html#width-prop">width</a> or <a href="qml-qtquick-item.html#height-prop">height</a>, the item will be positioned on a whole pixel rather than being placed on a half-pixel. This ensures the item is painted crisply. There are cases where this is not desirable, for example when rotating the item jitters may be apparent as the center is rounded.</p>
-<p><b>Note: </b>You can only anchor an item to siblings or a parent.</p><p>For more information see <a href="qtquick-positioning-anchors.html">Anchor Layouts</a>.</p>
+<p><b>注意： </b>You can only anchor an item to siblings or a parent.</p><p>For more information see <a href="qtquick-positioning-anchors.html">Anchor Layouts</a>.</p>
 </div></div><!-- @@@anchors -->
 <br/>
 <!-- $$$antialiasing -->
@@ -574,7 +574,7 @@
   }
 
 </pre>
-<p><b>Note: </b>Using <a href="qml-qtquick-item.html#implicitWidth-prop">implicitWidth</a> of <a href="qml-qtquick-text.html">Text</a> or <a href="qml-qtquick-textedit.html">TextEdit</a> and setting the width explicitly incurs a performance penalty as the text must be laid out twice.</p></div></div><!-- @@@implicitHeight -->
+<p><b>注意： </b>Using <a href="qml-qtquick-item.html#implicitWidth-prop">implicitWidth</a> of <a href="qml-qtquick-text.html">Text</a> or <a href="qml-qtquick-textedit.html">TextEdit</a> and setting the width explicitly incurs a performance penalty as the text must be laid out twice.</p></div></div><!-- @@@implicitHeight -->
 <br/>
 <!-- $$$implicitWidth -->
 <div class="qmlitem"><div class="qmlproto">
@@ -606,7 +606,7 @@
   }
 
 </pre>
-<p><b>Note: </b>Using implicitWidth of <a href="qml-qtquick-text.html">Text</a> or <a href="qml-qtquick-textedit.html">TextEdit</a> and setting the width explicitly incurs a performance penalty as the text must be laid out twice.</p></div></div><!-- @@@implicitWidth -->
+<p><b>注意： </b>Using implicitWidth of <a href="qml-qtquick-text.html">Text</a> or <a href="qml-qtquick-textedit.html">TextEdit</a> and setting the width explicitly incurs a performance penalty as the text must be laid out twice.</p></div></div><!-- @@@implicitWidth -->
 <br/>
 <!-- $$$layer.effect -->
 <div class="qmlitem"><div class="qmlproto">
@@ -646,7 +646,7 @@
 <li><a href="qml-qtquick-shadereffectsource.html">ShaderEffectSource</a>.RGB - GL_RGB</li>
 <li><a href="qml-qtquick-shadereffectsource.html">ShaderEffectSource</a>.RGBA - GL_RGBA</li>
 </ul>
-<p><b>Note: </b><a href="qml-qtquick-shadereffectsource.html">ShaderEffectSource</a>.RGB and <a href="qml-qtquick-shadereffectsource.html">ShaderEffectSource</a>.Alpha should be used with caution, as support for these formats in the underlying hardare and driver is often not present.</p><p><b> 参见 </b><a href="qml-qtquick-item.html#item-layers">Item Layers</a>.</p>
+<p><b>注意： </b><a href="qml-qtquick-shadereffectsource.html">ShaderEffectSource</a>.RGB and <a href="qml-qtquick-shadereffectsource.html">ShaderEffectSource</a>.Alpha should be used with caution, as support for these formats in the underlying hardare and driver is often not present.</p><p><b> 参见 </b><a href="qml-qtquick-item.html#item-layers">Item Layers</a>.</p>
 </div></div><!-- @@@layer.format -->
 <br/>
 <!-- $$$layer.mipmap -->
@@ -657,7 +657,7 @@
 <a name="layer.mipmap-prop"></a><span class="name">layer.mipmap</span> : <span class="type"><a href="../qtqml/qml-bool.html">bool</a></span></p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>If this property is true, mipmaps are generated for the texture.</p>
-<p><b>Note: </b>Some OpenGL ES 2 implementations do not support mipmapping of non-power-of-two textures.</p><p><b> 参见 </b><a href="qml-qtquick-item.html#item-layers">Item Layers</a>.</p>
+<p><b>注意： </b>Some OpenGL ES 2 implementations do not support mipmapping of non-power-of-two textures.</p><p><b> 参见 </b><a href="qml-qtquick-item.html#item-layers">Item Layers</a>.</p>
 </div></div><!-- @@@layer.mipmap -->
 <br/>
 <!-- $$$layer.samplerName -->
@@ -682,7 +682,7 @@
 </div><div class="qmldoc"><p>This property allows requesting multisampled rendering in the layer.</p>
 <p>By default multisampling is enabled whenever multisampling is enabled for the entire window, assuming the scenegraph renderer in use and the underlying graphics API supports this.</p>
 <p>By setting the value to 2, 4, etc. multisampled rendering can be requested for a part of the scene without enabling multisampling for the entire scene. This way multisampling is applied only to a given subtree, which can lead to significant performance gains since multisampling is not applied to other parts of the scene.</p>
-<p><b>Note: </b>Enabling multisampling can be potentially expensive regardless of the layer's size, as it incurs a hardware and driver dependent performance and memory cost.</p><p><b>Note: </b>This property is only functional when support for multisample renderbuffers and framebuffer blits is available. Otherwise the value is silently ignored.</p><p>这个属性是在Qt 5.10版本中新增引入的。</p>
+<p><b>注意： </b>Enabling multisampling can be potentially expensive regardless of the layer's size, as it incurs a hardware and driver dependent performance and memory cost.</p><p><b>注意： </b>This property is only functional when support for multisample renderbuffers and framebuffer blits is available. Otherwise the value is silently ignored.</p><p>这个属性是在Qt 5.10版本中新增引入的。</p>
 </div></div><!-- @@@layer.samples -->
 <br/>
 <!-- $$$layer.smooth -->
@@ -731,7 +731,7 @@
 <a name="layer.textureSize-prop"></a><span class="name">layer.textureSize</span> : <span class="type"><a href="../qtqml/qml-size.html">size</a></span></p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>This property holds the requested pixel size of the layers texture. If it is empty, which is the default, the size of the item is used.</p>
-<p><b>Note: </b>Some platforms have a limit on how small framebuffer objects can be, which means the actual texture size might be larger than the requested size.</p><p><b> 参见 </b><a href="qml-qtquick-item.html#item-layers">Item Layers</a>.</p>
+<p><b>注意： </b>Some platforms have a limit on how small framebuffer objects can be, which means the actual texture size might be larger than the requested size.</p><p><b> 参见 </b><a href="qml-qtquick-item.html#item-layers">Item Layers</a>.</p>
 </div></div><!-- @@@layer.textureSize -->
 <br/>
 <!-- $$$layer.wrapMode -->
@@ -748,7 +748,7 @@
 <li><a href="qml-qtquick-shadereffectsource.html">ShaderEffectSource</a>.RepeatVertically - GL_CLAMP_TO_EDGE horizontally, GL_REPEAT vertically</li>
 <li><a href="qml-qtquick-shadereffectsource.html">ShaderEffectSource</a>.Repeat - GL_REPEAT both horizontally and vertically</li>
 </ul>
-<p><b>Note: </b>Some OpenGL ES 2 implementations do not support the GL_REPEAT wrap mode with non-power-of-two textures.</p><p><b> 参见 </b><a href="qml-qtquick-item.html#item-layers">Item Layers</a>.</p>
+<p><b>注意： </b>Some OpenGL ES 2 implementations do not support the GL_REPEAT wrap mode with non-power-of-two textures.</p><p><b> 参见 </b><a href="qml-qtquick-item.html#item-layers">Item Layers</a>.</p>
 </div></div><!-- @@@layer.wrapMode -->
 <br/>
 <!-- $$$opacity -->
@@ -805,7 +805,7 @@
 <a name="parent-prop"></a><span class="name">parent</span> : <span class="type"><a href="qml-qtquick-item.html">Item</a></span></p></td></tr>
 </table></div>
 </div><div class="qmldoc"><p>This property holds the visual parent of the item.</p>
-<p><b>Note: </b>The concept of the <i>visual parent</i> differs from that of the <i><a href="../qtcore/qobject.html">QObject</a> parent</i>. An item's visual parent may not necessarily be the same as its object parent. See <a href="qtquick-visualcanvas-visualparent.html">Concepts - Visual Parent in Qt Quick</a> for more details.</p></div></div><!-- @@@parent -->
+<p><b>注意： </b>The concept of the <i>visual parent</i> differs from that of the <i><a href="../qtcore/qobject.html">QObject</a> parent</i>. An item's visual parent may not necessarily be the same as its object parent. See <a href="qtquick-visualcanvas-visualparent.html">Concepts - Visual Parent in Qt Quick</a> for more details.</p></div></div><!-- @@@parent -->
 <br/>
 <!-- $$$resources -->
 <div class="qmlitem"><div class="qmlproto">
@@ -1015,7 +1015,7 @@
 <p>Setting this property directly affects the <code>visible</code> value of child items. When set to <code>false</code>, the <code>visible</code> values of all child items also become <code>false</code>. When set to <code>true</code>, the <code>visible</code> values of child items are returned to <code>true</code>, unless they have explicitly been set to <code>false</code>.</p>
 <p>(Because of this flow-on behavior, using the <code>visible</code> property may not have the intended effect if a property binding should only respond to explicit property changes. In such cases it may be better to use the <a href="qtquick-effects-topic.html#opacity">opacity</a> property instead.)</p>
 <p>If this property is set to <code>false</code>, the item will no longer receive mouse events, but will continue to receive key events and will retain the keyboard <a href="qml-qtquick-item.html#focus-prop">focus</a> if it has been set. (In contrast, setting the <a href="qml-qtquick-item.html#enabled-prop">enabled</a> property to <code>false</code> stops both mouse and keyboard events, and also removes focus from the item.)</p>
-<p><b>Note: </b>This property's value is only affected by changes to this property or the parent's <code>visible</code> property. It does not change, for example, if this item moves off-screen, or if the <a href="qtquick-effects-topic.html#opacity">opacity</a> changes to 0.</p><p><b> 参见 </b><a href="qtquick-effects-topic.html#opacity">opacity</a> 和 <a href="qml-qtquick-item.html#enabled-prop">enabled</a>.</p>
+<p><b>注意： </b>This property's value is only affected by changes to this property or the parent's <code>visible</code> property. It does not change, for example, if this item moves off-screen, or if the <a href="qtquick-effects-topic.html#opacity">opacity</a> changes to 0.</p><p><b> 参见 </b><a href="qtquick-effects-topic.html#opacity">opacity</a> 和 <a href="qml-qtquick-item.html#enabled-prop">enabled</a>.</p>
 </div></div><!-- @@@visible -->
 <br/>
 <!-- $$$visibleChildren -->
@@ -1275,7 +1275,7 @@
                          <span class="name">Qt</span>.<span class="name">size</span>(<span class="number">50</span>, <span class="number">50</span>));
 
 </pre>
-<p><b>Note: </b>This function will render the item to an offscreen surface and copy that surface from the GPU's memory into the CPU's memory, which can be quite costly. For &quot;live&quot; preview, use <a href="qml-qtquick-item.html#layer.enabled-prop">layers</a> or <a href="qml-qtquick-shadereffectsource.html">ShaderEffectSource</a>.</p></div></div><!-- @@@grabToImage -->
+<p><b>注意： </b>This function will render the item to an offscreen surface and copy that surface from the GPU's memory into the CPU's memory, which can be quite costly. For &quot;live&quot; preview, use <a href="qml-qtquick-item.html#layer.enabled-prop">layers</a> or <a href="qml-qtquick-shadereffectsource.html">ShaderEffectSource</a>.</p></div></div><!-- @@@grabToImage -->
 <br/>
 <!-- $$$mapFromGlobal -->
 <div class="qmlitem"><div class="qmlproto">

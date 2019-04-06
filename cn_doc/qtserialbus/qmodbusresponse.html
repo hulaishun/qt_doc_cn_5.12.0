@@ -102,7 +102,7 @@
   <span class="type"><a href="qmodbusresponse.html#QModbusResponse">QModbusResponse</a></span> response(<span class="type"><a href="qmodbusresponse.html#QModbusResponse">QModbusResponse</a></span><span class="operator">::</span>ReadCoils<span class="operator">,</span> <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span><span class="operator">::</span>fromHex(<span class="string">&quot;02cd01&quot;</span>));
 
 </pre>
-<p><b>Note: </b>When using the constructor taking the <code>QByteArray</code>, please make sure to convert the containing data to big-endian byte order before creating the request.</p><p>The same response can be created like this, if the values are know at compile time:</p>
+<p><b>注意： </b>When using the constructor taking the <code>QByteArray</code>, please make sure to convert the containing data to big-endian byte order before creating the request.</p><p>The same response can be created like this, if the values are know at compile time:</p>
 <pre class="cpp">
 
   <span class="type"><a href="../qtcore/qtglobal.html#quint8-typedef">quint8</a></span> payloadInBytes <span class="operator">=</span> <span class="number">2</span><span class="operator">,</span> outputHigh <span class="operator">=</span> <span class="number">0xcd</span><span class="operator">,</span> outputLow <span class="operator">=</span> <span class="number">0x01</span>;
@@ -138,7 +138,7 @@
 <!-- $$$QModbusResponse$$$QModbusResponseQModbusPdu::FunctionCodeArgs... -->
 <h3 class="fn" id="QModbusResponse-3"><a name="QModbusResponse-3"></a>QModbusResponse::<span class="name">QModbusResponse</span>(<span class="type"><a href="qmodbuspdu.html#FunctionCode-enum">QModbusPdu::FunctionCode</a></span> <i>code</i>, <span class="type">Args</span>... <i>data</i>)</h3>
 <p>Constructs a <a href="qmodbusresponse.html">QModbusResponse</a> with function code set to <i>code</i> and payload set to <i>data</i>. The data is converted and stored in big-endian byte order.</p>
-<p><b>Note: </b>Usage is limited <code>quint8</code> and <code>quint16</code> only. This is because <code>QDataStream</code> stream operators will not only append raw data, but also e.g&#x2e; size, count etc. for complex types.</p><!-- @@@QModbusResponse -->
+<p><b>注意： </b>Usage is limited <code>quint8</code> and <code>quint16</code> only. This is because <code>QDataStream</code> stream operators will not only append raw data, but also e.g&#x2e; size, count etc. for complex types.</p><!-- @@@QModbusResponse -->
 <!-- $$$calculateDataSize[overload1]$$$calculateDataSizeconstQModbusResponse& -->
 <h3 class="fn" id="calculateDataSize"><a name="calculateDataSize"></a><code>[静态函数] </code><span class="type">int</span> QModbusResponse::<span class="name">calculateDataSize</span>(const <span class="type"><a href="qmodbusresponse.html#QModbusResponse">QModbusResponse</a></span> &amp;<i>response</i>)</h3>
 <p>Calculates the expected data size for <i>response</i>, based on the response's function code and data. Returns the full size of the response's data part; <code>-1</code> if the size could not be properly calculated.</p>
@@ -167,7 +167,7 @@
 <!-- $$$operator>>[overload1]$$$operator>>QDataStream&QModbusResponse& -->
 <h3 class="fn" id="operator-gt-gt"><a name="operator-gt-gt"></a><span class="type"><a href="../qtcore/qdatastream.html">QDataStream</a></span> &amp;<span class="name">operator&gt;&gt;</span>(<span class="type"><a href="../qtcore/qdatastream.html">QDataStream</a></span> &amp;<i>stream</i>, <span class="type"><a href="qmodbusresponse.html#QModbusResponse">QModbusResponse</a></span> &amp;<i>pdu</i>)</h3>
 <p>Reads a <i>pdu</i> from the <i>stream</i> and returns a reference to the stream.</p>
-<p><b>Note: </b>The function might fail to properly stream PDU's with function code <a href="qmodbuspdu.html#FunctionCode-enum">QModbusPdu::Diagnostics</a> or <a href="qmodbuspdu.html#FunctionCode-enum">QModbusPdu::EncapsulatedInterfaceTransport</a> because of the missing size indicator inside the PDU. In particular this may happen when the PDU is embedded into a stream that doesn't end with the diagnostic/encapsulated request itself.</p><!-- @@@operator>> -->
+<p><b>注意： </b>The function might fail to properly stream PDU's with function code <a href="qmodbuspdu.html#FunctionCode-enum">QModbusPdu::Diagnostics</a> or <a href="qmodbuspdu.html#FunctionCode-enum">QModbusPdu::EncapsulatedInterfaceTransport</a> because of the missing size indicator inside the PDU. In particular this may happen when the PDU is embedded into a stream that doesn't end with the diagnostic/encapsulated request itself.</p><!-- @@@operator>> -->
 </div>
 <div class="macros">
 <h2>宏定义文档</h2>

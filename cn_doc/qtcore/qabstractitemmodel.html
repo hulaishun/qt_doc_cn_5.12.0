@@ -216,7 +216,7 @@
 <p>To sort the model, you can use <a href="qabstractitemmodel.html#sort">sort</a>().</p>
 <a name="subclassing"></a>
 <h3 >子类化</h3>
-<p><b>Note: </b>Some general guidelines for subclassing models are available in the <a href="../qtwidgets/model-view-programming.html#model-subclassing-reference">模型子类化参考</a>.</p><p>When subclassing <a href="qabstractitemmodel.html">QAbstractItemModel</a>, at the very least you must implement <a href="qabstractitemmodel.html#index">index</a>(), <a href="qabstractitemmodel.html#parent">parent</a>(), <a href="qabstractitemmodel.html#rowCount">rowCount</a>(), <a href="qabstractitemmodel.html#columnCount">columnCount</a>(), 和 <a href="qabstractitemmodel.html#data">data</a>(). These functions are used in all read-only models, and form the basis of editable models.</p>
+<p><b>注意： </b>Some general guidelines for subclassing models are available in the <a href="../qtwidgets/model-view-programming.html#model-subclassing-reference">模型子类化参考</a>.</p><p>When subclassing <a href="qabstractitemmodel.html">QAbstractItemModel</a>, at the very least you must implement <a href="qabstractitemmodel.html#index">index</a>(), <a href="qabstractitemmodel.html#parent">parent</a>(), <a href="qabstractitemmodel.html#rowCount">rowCount</a>(), <a href="qabstractitemmodel.html#columnCount">columnCount</a>(), 和 <a href="qabstractitemmodel.html#data">data</a>(). These functions are used in all read-only models, and form the basis of editable models.</p>
 <p>You can also reimplement <a href="qabstractitemmodel.html#hasChildren">hasChildren</a>() to provide special behavior for models where the implementation of <a href="qabstractitemmodel.html#rowCount">rowCount</a>() is expensive. This makes it possible for models to restrict the amount of data requested by views, and can be used as a way to implement lazy population of model data.</p>
 <p>To enable editing in your model, you must also implement <a href="qabstractitemmodel.html#setData">setData</a>(), and reimplement <a href="qabstractitemmodel.html#flags">flags</a>() to ensure that <code>ItemIsEditable</code> is returned. You can also reimplement <a href="qabstractitemmodel.html#headerData">headerData</a>() 和 <a href="qabstractitemmodel.html#setHeaderData">setHeaderData</a>() to control the way the headers for your model are presented.</p>
 <p>The <a href="qabstractitemmodel.html#dataChanged">dataChanged</a>() 和 <a href="qabstractitemmodel.html#headerDataChanged">headerDataChanged</a>() signals must be emitted explicitly when reimplementing the <a href="qabstractitemmodel.html#setData">setData</a>() 和 <a href="qabstractitemmodel.html#setHeaderData">setHeaderData</a>() functions, respectively.</p>
@@ -295,7 +295,7 @@
 <p>This appends the two new columns as columns 6, 7, and 8.</p>
 </td></tr>
 </table></div>
-<p><b>Note: </b>This function emits the <a href="qabstractitemmodel.html#columnsAboutToBeInserted">columnsAboutToBeInserted</a>() signal which connected views (or proxies) must handle before the data is inserted. Otherwise, the views may end up in an invalid state.</p><p><b> 参见 </b><a href="qabstractitemmodel.html#endInsertColumns">endInsertColumns</a>().</p>
+<p><b>注意： </b>This function emits the <a href="qabstractitemmodel.html#columnsAboutToBeInserted">columnsAboutToBeInserted</a>() signal which connected views (or proxies) must handle before the data is inserted. Otherwise, the views may end up in an invalid state.</p><p><b> 参见 </b><a href="qabstractitemmodel.html#endInsertColumns">endInsertColumns</a>().</p>
 <!-- @@@beginInsertColumns -->
 <!-- $$$beginInsertRows[overload1]$$$beginInsertRowsconstQModelIndex&intint -->
 <h3 class="fn" id="beginInsertRows"><a name="beginInsertRows"></a><code>[保护函数] </code><span class="type">void</span> QAbstractItemModel::<span class="name">beginInsertRows</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i>, <span class="type">int</span> <i>first</i>, <span class="type">int</span> <i>last</i>)</h3>
@@ -320,7 +320,7 @@
 <p>This appends the two new rows as rows 4 and 5.</p>
 </td></tr>
 </table></div>
-<p><b>Note: </b>This function emits the <a href="qabstractitemmodel.html#rowsAboutToBeInserted">rowsAboutToBeInserted</a>() signal which connected views (or proxies) must handle before the data is inserted. Otherwise, the views may end up in an invalid state.</p><p><b> 参见 </b><a href="qabstractitemmodel.html#endInsertRows">endInsertRows</a>().</p>
+<p><b>注意： </b>This function emits the <a href="qabstractitemmodel.html#rowsAboutToBeInserted">rowsAboutToBeInserted</a>() signal which connected views (or proxies) must handle before the data is inserted. Otherwise, the views may end up in an invalid state.</p><p><b> 参见 </b><a href="qabstractitemmodel.html#endInsertRows">endInsertRows</a>().</p>
 <!-- @@@beginInsertRows -->
 <!-- $$$beginMoveColumns[overload1]$$$beginMoveColumnsconstQModelIndex&intintconstQModelIndex&int -->
 <h3 class="fn" id="beginMoveColumns"><a name="beginMoveColumns"></a><code>[保护函数] </code><span class="type">bool</span> QAbstractItemModel::<span class="name">beginMoveColumns</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>sourceParent</i>, <span class="type">int</span> <i>sourceFirst</i>, <span class="type">int</span> <i>sourceLast</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>destinationParent</i>, <span class="type">int</span> <i>destinationChild</i>)</h3>
@@ -390,7 +390,7 @@
 </pre>
 </td></tr>
 </table></div>
-<p><b>Note: </b>This function emits the <a href="qabstractitemmodel.html#columnsAboutToBeRemoved">columnsAboutToBeRemoved</a>() signal which connected views (or proxies) must handle before the data is removed. Otherwise, the views may end up in an invalid state.</p><p><b> 参见 </b><a href="qabstractitemmodel.html#endRemoveColumns">endRemoveColumns</a>().</p>
+<p><b>注意： </b>This function emits the <a href="qabstractitemmodel.html#columnsAboutToBeRemoved">columnsAboutToBeRemoved</a>() signal which connected views (or proxies) must handle before the data is removed. Otherwise, the views may end up in an invalid state.</p><p><b> 参见 </b><a href="qabstractitemmodel.html#endRemoveColumns">endRemoveColumns</a>().</p>
 <!-- @@@beginRemoveColumns -->
 <!-- $$$beginRemoveRows[overload1]$$$beginRemoveRowsconstQModelIndex&intint -->
 <h3 class="fn" id="beginRemoveRows"><a name="beginRemoveRows"></a><code>[保护函数] </code><span class="type">void</span> QAbstractItemModel::<span class="name">beginRemoveRows</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i>, <span class="type">int</span> <i>first</i>, <span class="type">int</span> <i>last</i>)</h3>
@@ -406,13 +406,13 @@
 </pre>
 </td></tr>
 </table></div>
-<p><b>Note: </b>This function emits the <a href="qabstractitemmodel.html#rowsAboutToBeRemoved">rowsAboutToBeRemoved</a>() signal which connected views (or proxies) must handle before the data is removed. Otherwise, the views may end up in an invalid state.</p><p><b> 参见 </b><a href="qabstractitemmodel.html#endRemoveRows">endRemoveRows</a>().</p>
+<p><b>注意： </b>This function emits the <a href="qabstractitemmodel.html#rowsAboutToBeRemoved">rowsAboutToBeRemoved</a>() signal which connected views (or proxies) must handle before the data is removed. Otherwise, the views may end up in an invalid state.</p><p><b> 参见 </b><a href="qabstractitemmodel.html#endRemoveRows">endRemoveRows</a>().</p>
 <!-- @@@beginRemoveRows -->
 <!-- $$$beginResetModel[overload1]$$$beginResetModel -->
 <h3 class="fn" id="beginResetModel"><a name="beginResetModel"></a><code>[保护函数] </code><span class="type">void</span> QAbstractItemModel::<span class="name">beginResetModel</span>()</h3>
 <p>开始模型的重置操作。</p>
 <p>A reset operation resets the model to its current state in any attached views.</p>
-<p><b>Note: </b>Any views attached to this model will be reset as well.</p><p>When a model is reset it means that any previous data reported from the model is now invalid and has to be queried for again. This also means that the current item and any selected items will become invalid.</p>
+<p><b>注意： </b>Any views attached to this model will be reset as well.</p><p>When a model is reset it means that any previous data reported from the model is now invalid and has to be queried for again. This also means that the current item and any selected items will become invalid.</p>
 <p>When a model radically changes its data it can sometimes be easier to just call this function rather than emit <a href="qabstractitemmodel.html#dataChanged">dataChanged</a>() to inform other components when the underlying data source, or its structure, has changed.</p>
 <p>You must call this function before resetting any internal data structures in your model or proxy model.</p>
 <p>This function emits the signal <a href="qabstractitemmodel.html#modelAboutToBeReset">modelAboutToBeReset</a>().</p>
@@ -435,7 +435,7 @@
 <p>Returns <code>true</code> if there is more data available for <i>parent</i>; otherwise returns <code>false</code>.</p>
 <p>The default implementation always returns <code>false</code>.</p>
 <p>If canFetchMore() returns <code>true</code>, the <a href="qabstractitemmodel.html#fetchMore">fetchMore</a>() function should be called. This is the behavior of <a href="../qtwidgets/qabstractitemview.html">QAbstractItemView</a>, for example.</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#fetchMore">fetchMore</a>().</p>
 <!-- @@@canFetchMore -->
 <!-- $$$changePersistentIndex[overload1]$$$changePersistentIndexconstQModelIndex&constQModelIndex& -->
@@ -465,7 +465,7 @@
 <p>If <i>options</i> contains <code>DoNotUseParent</code>, then the checks that would call <a href="qabstractitemmodel.html#parent">parent</a>() are omitted; this allows calling this function from a <a href="qabstractitemmodel.html#parent">parent</a>() reimplementation (otherwise, this would result in endless recursion and a crash).</p>
 <p>If <i>options</i> does not contain <code>DoNotUseParent</code>, and it contains <code>ParentIsInvalid</code>, then an additional check is performed: the parent index is checked for not being valid. This is useful when implementing flat models such as lists or tables, where no model index should have a valid parent index.</p>
 <p>This function returns true if all the checks succeeded, and false otherwise. This allows to use the function in <a href="qtglobal.html#Q_ASSERT">Q_ASSERT</a> and similar other debugging mechanisms. If some check failed, a warning message will be printed in the <code>qt.core.qabstractitemmodel.checkindex</code> logging category, containing some information that may be useful for debugging the failure.</p>
-<p><b>Note: </b>This function is a debugging helper for implementing your own item models. When developing complex models, as well as when building complicated model hierarchies (e.g&#x2e; using proxy models), it is useful to call this function in order to catch bugs relative to illegal model indices (as defined above) accidentally passed to some <a href="qabstractitemmodel.html">QAbstractItemModel</a> API.</p><p><b>Warning:</b> Note that it's undefined behavior to pass illegal indices to item models, so applications must refrain from doing so, and not rely on any &quot;defensive&quot; programming that item models could employ to handle illegal indexes gracefully.</p>
+<p><b>注意： </b>This function is a debugging helper for implementing your own item models. When developing complex models, as well as when building complicated model hierarchies (e.g&#x2e; using proxy models), it is useful to call this function in order to catch bugs relative to illegal model indices (as defined above) accidentally passed to some <a href="qabstractitemmodel.html">QAbstractItemModel</a> API.</p><p><b>警告：</b> Note that it's undefined behavior to pass illegal indices to item models, so applications must refrain from doing so, and not rely on any &quot;defensive&quot; programming that item models could employ to handle illegal indexes gracefully.</p>
 <p>这个函数是在Qt 5.11版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qmodelindex.html">QModelIndex</a>.</p>
 <!-- @@@checkIndex -->
@@ -482,13 +482,13 @@
   }
 
 </pre>
-<p><b>Note: </b>When implementing a table based model, columnCount() should return 0 when the parent is valid.</p><p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>When implementing a table based model, columnCount() should return 0 when the parent is valid.</p><p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#rowCount">rowCount</a>().</p>
 <!-- @@@columnCount -->
 <!-- $$$columnsAboutToBeInserted[overload1]$$$columnsAboutToBeInsertedconstQModelIndex&intint -->
 <h3 class="fn" id="columnsAboutToBeInserted"><a name="columnsAboutToBeInserted"></a><code>[信号] </code><span class="type">void</span> QAbstractItemModel::<span class="name">columnsAboutToBeInserted</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i>, <span class="type">int</span> <i>first</i>, <span class="type">int</span> <i>last</i>)</h3>
 <p>This signal is emitted just before columns are inserted into the model. The new items will be positioned between <i>first</i> and <i>last</i> inclusive, under the given <i>parent</i> item.</p>
-<p><b>Note: </b>Components connected to this signal use it to adapt to changes in the model's dimensions. It can only be emitted by the <a href="qabstractitemmodel.html">QAbstractItemModel</a> implementation, and cannot be explicitly emitted in subclass code.</p><p><b>注意： </b>这是个私有信号，它可用于信号连接，但是不能由用户触发。</p>
+<p><b>注意： </b>Components connected to this signal use it to adapt to changes in the model's dimensions. It can only be emitted by the <a href="qabstractitemmodel.html">QAbstractItemModel</a> implementation, and cannot be explicitly emitted in subclass code.</p><p><b>注意： </b>这是个私有信号，它可用于信号连接，但是不能由用户触发。</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#insertColumns">insertColumns</a>() 和 <a href="qabstractitemmodel.html#beginInsertColumns">beginInsertColumns</a>().</p>
 <!-- @@@columnsAboutToBeInserted -->
 <!-- $$$columnsAboutToBeMoved[overload1]$$$columnsAboutToBeMovedconstQModelIndex&intintconstQModelIndex&int -->
@@ -502,13 +502,13 @@
 <!-- $$$columnsAboutToBeRemoved[overload1]$$$columnsAboutToBeRemovedconstQModelIndex&intint -->
 <h3 class="fn" id="columnsAboutToBeRemoved"><a name="columnsAboutToBeRemoved"></a><code>[信号] </code><span class="type">void</span> QAbstractItemModel::<span class="name">columnsAboutToBeRemoved</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i>, <span class="type">int</span> <i>first</i>, <span class="type">int</span> <i>last</i>)</h3>
 <p>This signal is emitted just before columns are removed from the model. The items to be removed are those between <i>first</i> and <i>last</i> inclusive, under the given <i>parent</i> item.</p>
-<p><b>Note: </b>Components connected to this signal use it to adapt to changes in the model's dimensions. It can only be emitted by the <a href="qabstractitemmodel.html">QAbstractItemModel</a> implementation, and cannot be explicitly emitted in subclass code.</p><p><b>注意： </b>这是个私有信号，它可用于信号连接，但是不能由用户触发。</p>
+<p><b>注意： </b>Components connected to this signal use it to adapt to changes in the model's dimensions. It can only be emitted by the <a href="qabstractitemmodel.html">QAbstractItemModel</a> implementation, and cannot be explicitly emitted in subclass code.</p><p><b>注意： </b>这是个私有信号，它可用于信号连接，但是不能由用户触发。</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#removeColumns">removeColumns</a>() 和 <a href="qabstractitemmodel.html#beginRemoveColumns">beginRemoveColumns</a>().</p>
 <!-- @@@columnsAboutToBeRemoved -->
 <!-- $$$columnsInserted[overload1]$$$columnsInsertedconstQModelIndex&intint -->
 <h3 class="fn" id="columnsInserted"><a name="columnsInserted"></a><code>[信号] </code><span class="type">void</span> QAbstractItemModel::<span class="name">columnsInserted</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i>, <span class="type">int</span> <i>first</i>, <span class="type">int</span> <i>last</i>)</h3>
 <p>This signal is emitted after columns have been inserted into the model. The new items are those between <i>first</i> and <i>last</i> inclusive, under the given <i>parent</i> item.</p>
-<p><b>Note: </b>Components connected to this signal use it to adapt to changes in the model's dimensions. It can only be emitted by the <a href="qabstractitemmodel.html">QAbstractItemModel</a> implementation, and cannot be explicitly emitted in subclass code.</p><p><b>注意： </b>这是个私有信号，它可用于信号连接，但是不能由用户触发。</p>
+<p><b>注意： </b>Components connected to this signal use it to adapt to changes in the model's dimensions. It can only be emitted by the <a href="qabstractitemmodel.html">QAbstractItemModel</a> implementation, and cannot be explicitly emitted in subclass code.</p><p><b>注意： </b>这是个私有信号，它可用于信号连接，但是不能由用户触发。</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#insertColumns">insertColumns</a>() 和 <a href="qabstractitemmodel.html#beginInsertColumns">beginInsertColumns</a>().</p>
 <!-- @@@columnsInserted -->
 <!-- $$$columnsMoved[overload1]$$$columnsMovedconstQModelIndex&intintconstQModelIndex&int -->
@@ -522,7 +522,7 @@
 <!-- $$$columnsRemoved[overload1]$$$columnsRemovedconstQModelIndex&intint -->
 <h3 class="fn" id="columnsRemoved"><a name="columnsRemoved"></a><code>[信号] </code><span class="type">void</span> QAbstractItemModel::<span class="name">columnsRemoved</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i>, <span class="type">int</span> <i>first</i>, <span class="type">int</span> <i>last</i>)</h3>
 <p>This signal is emitted after columns have been removed from the model. The removed items are those between <i>first</i> and <i>last</i> inclusive, under the given <i>parent</i> item.</p>
-<p><b>Note: </b>Components connected to this signal use it to adapt to changes in the model's dimensions. It can only be emitted by the <a href="qabstractitemmodel.html">QAbstractItemModel</a> implementation, and cannot be explicitly emitted in subclass code.</p><p><b>注意： </b>这是个私有信号，它可用于信号连接，但是不能由用户触发。</p>
+<p><b>注意： </b>Components connected to this signal use it to adapt to changes in the model's dimensions. It can only be emitted by the <a href="qabstractitemmodel.html">QAbstractItemModel</a> implementation, and cannot be explicitly emitted in subclass code.</p><p><b>注意： </b>这是个私有信号，它可用于信号连接，但是不能由用户触发。</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#removeColumns">removeColumns</a>() 和 <a href="qabstractitemmodel.html#beginRemoveColumns">beginRemoveColumns</a>().</p>
 <!-- @@@columnsRemoved -->
 <!-- $$$createIndex[overload1]$$$createIndexintintvoid* -->
@@ -540,7 +540,7 @@
 <!-- $$$data[overload1]$$$dataconstQModelIndex&int -->
 <h3 class="fn" id="data"><a name="data"></a><code>[纯虚函数] </code><span class="type"><a href="qvariant.html">QVariant</a></span> QAbstractItemModel::<span class="name">data</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>, <span class="type">int</span> <i>role</i> = Qt::DisplayRole) const</h3>
 <p>Returns the data stored under the given <i>role</i> for the item referred to by the <i>index</i>.</p>
-<p><b>Note: </b>If you do not have a value to return, return an <b>invalid</b> <a href="qvariant.html">QVariant</a> instead of returning 0.</p><p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>If you do not have a value to return, return an <b>invalid</b> <a href="qvariant.html">QVariant</a> instead of returning 0.</p><p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <p><b> 参见 </b><a href="qt.html#ItemDataRole-enum">Qt::ItemDataRole</a>, <a href="qabstractitemmodel.html#setData">setData</a>(), 和 <a href="qabstractitemmodel.html#headerData">headerData</a>().</p>
 <!-- @@@data -->
 <!-- $$$dataChanged[overload1]$$$dataChangedconstQModelIndex&constQModelIndex&constQVector<int>& -->
@@ -612,14 +612,14 @@
 <p>Fetches any available data for the items with the parent specified by the <i>parent</i> index.</p>
 <p>Reimplement this if you are populating your model incrementally.</p>
 <p>默认的代码实现什么都没有处理。</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#canFetchMore">canFetchMore</a>().</p>
 <!-- @@@fetchMore -->
 <!-- $$$flags[overload1]$$$flagsconstQModelIndex& -->
 <h3 class="fn" id="flags"><a name="flags"></a><code>[虚函数] </code><span class="type">Qt::ItemFlags</span> QAbstractItemModel::<span class="name">flags</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>) const</h3>
 <p>Returns the item flags for the given <i>index</i>.</p>
 <p>The base class implementation returns a combination of flags that enables the item (<code>ItemIsEnabled</code>) and allows it to be selected (<code>ItemIsSelectable</code>).</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <p><b> 参见 </b><a href="qt.html#ItemFlag-enum">Qt::ItemFlags</a>.</p>
 <!-- @@@flags -->
 <!-- $$$hasChildren[overload1]$$$hasChildrenconstQModelIndex& -->
@@ -627,19 +627,19 @@
 <p>Returns <code>true</code> if <i>parent</i> has any children; otherwise returns <code>false</code>.</p>
 <p>Use <a href="qabstractitemmodel.html#rowCount">rowCount</a>() on the parent to find out the number of children.</p>
 <p>Note that it is undefined behavior to report that a particular index hasChildren with this method if the same index has the flag <a href="qt.html#ItemFlag-enum">Qt::ItemNeverHasChildren</a> set.</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#parent">parent</a>() 和 <a href="qabstractitemmodel.html#index">index</a>().</p>
 <!-- @@@hasChildren -->
 <!-- $$$hasIndex[overload1]$$$hasIndexintintconstQModelIndex& -->
 <h3 class="fn" id="hasIndex"><a name="hasIndex"></a><span class="type">bool</span> QAbstractItemModel::<span class="name">hasIndex</span>(<span class="type">int</span> <i>row</i>, <span class="type">int</span> <i>column</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i> = QModelIndex()) const</h3>
 <p>Returns <code>true</code> if the model returns a valid <a href="qmodelindex.html">QModelIndex</a> for <i>row</i> and <i>column</i> with <i>parent</i>, otherwise returns <code>false</code>.</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <!-- @@@hasIndex -->
 <!-- $$$headerData[overload1]$$$headerDataintQt::Orientationint -->
 <h3 class="fn" id="headerData"><a name="headerData"></a><code>[虚函数] </code><span class="type"><a href="qvariant.html">QVariant</a></span> QAbstractItemModel::<span class="name">headerData</span>(<span class="type">int</span> <i>section</i>, <span class="type">Qt::Orientation</span> <i>orientation</i>, <span class="type">int</span> <i>role</i> = Qt::DisplayRole) const</h3>
 <p>Returns the data for the given <i>role</i> and <i>section</i> in the header with the specified <i>orientation</i>.</p>
 <p>For horizontal headers, the section number corresponds to the column number. Similarly, for vertical headers, the section number corresponds to the row number.</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <p><b> 参见 </b><a href="qt.html#ItemDataRole-enum">Qt::ItemDataRole</a>, <a href="qabstractitemmodel.html#setHeaderData">setHeaderData</a>(), 和 <a href="../qtwidgets/qheaderview.html">QHeaderView</a>.</p>
 <!-- @@@headerData -->
 <!-- $$$headerDataChanged[overload1]$$$headerDataChangedQt::Orientationintint -->
@@ -653,7 +653,7 @@
 <h3 class="fn" id="index"><a name="index"></a><code>[纯虚函数] </code><span class="type"><a href="qmodelindex.html">QModelIndex</a></span> QAbstractItemModel::<span class="name">index</span>(<span class="type">int</span> <i>row</i>, <span class="type">int</span> <i>column</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i> = QModelIndex()) const</h3>
 <p>Returns the index of the item in the model specified by the given <i>row</i>, <i>column</i> and <i>parent</i> index.</p>
 <p>When reimplementing this function in a subclass, call <a href="qabstractitemmodel.html#createIndex">createIndex</a>() to generate model indexes that other components can use to refer to items in your model.</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#createIndex">createIndex</a>().</p>
 <!-- @@@index -->
 <!-- $$$insertColumn[overload1]$$$insertColumnintconstQModelIndex& -->
@@ -676,12 +676,12 @@
 <!-- $$$insertRow[overload1]$$$insertRowintconstQModelIndex& -->
 <h3 class="fn" id="insertRow"><a name="insertRow"></a><span class="type">bool</span> QAbstractItemModel::<span class="name">insertRow</span>(<span class="type">int</span> <i>row</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i> = QModelIndex())</h3>
 <p>Inserts a single row before the given <i>row</i> in the child items of the <i>parent</i> specified.</p>
-<p><b>Note: </b>This function calls the virtual method <a href="qabstractitemmodel.html#insertRows">insertRows</a>.</p><p>Returns <code>true</code> if the row is inserted; otherwise returns <code>false</code>.</p>
+<p><b>注意： </b>This function calls the virtual method <a href="qabstractitemmodel.html#insertRows">insertRows</a>.</p><p>Returns <code>true</code> if the row is inserted; otherwise returns <code>false</code>.</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#insertRows">insertRows</a>(), <a href="qabstractitemmodel.html#insertColumn">insertColumn</a>(), 和 <a href="qabstractitemmodel.html#removeRow">removeRow</a>().</p>
 <!-- @@@insertRow -->
 <!-- $$$insertRows[overload1]$$$insertRowsintintconstQModelIndex& -->
 <h3 class="fn" id="insertRows"><a name="insertRows"></a><code>[虚函数] </code><span class="type">bool</span> QAbstractItemModel::<span class="name">insertRows</span>(<span class="type">int</span> <i>row</i>, <span class="type">int</span> <i>count</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i> = QModelIndex())</h3>
-<p><b>Note: </b>The base class implementation of this function does nothing and returns <code>false</code>.</p><p>On models that support this, inserts <i>count</i> rows into the model before the given <i>row</i>. Items in the new row will be children of the item represented by the <i>parent</i> model index.</p>
+<p><b>注意： </b>The base class implementation of this function does nothing and returns <code>false</code>.</p><p>On models that support this, inserts <i>count</i> rows into the model before the given <i>row</i>. Items in the new row will be children of the item represented by the <i>parent</i> model index.</p>
 <p>If <i>row</i> is 0, the rows are prepended to any existing rows in the parent.</p>
 <p>If <i>row</i> is <a href="qabstractitemmodel.html#rowCount">rowCount</a>(), the rows are appended to any existing rows in the parent.</p>
 <p>If <i>parent</i> has no children, a single column with <i>count</i> rows is inserted.</p>
@@ -724,7 +724,7 @@
 <p>Returns a list of indexes for the items in the column of the <i>start</i> index where data stored under the given <i>role</i> matches the specified <i>value</i>. The way the search is performed is defined by the <i>flags</i> given. The list that is returned may be empty. Note also that the order of results in the list may not correspond to the order in the model, if for example a proxy model is used. The order of the results can not be relied upon.</p>
 <p>The search begins from the <i>start</i> index, and continues until the number of matching data items equals <i>hits</i>, the search reaches the last row, or the search reaches <i>start</i> again - depending on whether <code>MatchWrap</code> is specified in <i>flags</i>. If you want to search for all matching items, use <i>hits</i> = -1.</p>
 <p>By default, this function will perform a wrapping, string-based comparison on all items, searching for items that begin with the search term specified by <i>value</i>.</p>
-<p><b>Note: </b>The default implementation of this function only searches columns. Reimplement this function to include a different search behavior.</p><p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>The default implementation of this function only searches columns. Reimplement this function to include a different search behavior.</p><p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <!-- @@@match -->
 <!-- $$$mimeData[overload1]$$$mimeDataconstQModelIndexList& -->
 <h3 class="fn" id="mimeData"><a name="mimeData"></a><code>[虚函数] </code><span class="type"><a href="qmimedata.html">QMimeData</a></span> *QAbstractItemModel::<span class="name">mimeData</span>(const <span class="type"><a href="qmodelindex.html#QModelIndexList-typedef">QModelIndexList</a></span> &amp;<i>indexes</i>) const</h3>
@@ -787,7 +787,7 @@
 <p>Returns the parent of the model item with the given <i>index</i>. If the item has no parent, an invalid <a href="qmodelindex.html">QModelIndex</a> is returned.</p>
 <p>A common convention used in models that expose tree data structures is that only items in the first column have children. For that case, when reimplementing this function in a subclass the column of the returned <a href="qmodelindex.html">QModelIndex</a> would be 0.</p>
 <p>When reimplementing this function in a subclass, be careful to avoid calling <a href="qmodelindex.html">QModelIndex</a> member functions, such as <a href="qmodelindex.html#parent">QModelIndex::parent</a>(), since indexes belonging to your model will simply call your implementation, leading to infinite recursion.</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#createIndex">createIndex</a>().</p>
 <!-- @@@parent -->
 <!-- $$$persistentIndexList[overload1]$$$persistentIndexList -->
@@ -862,7 +862,7 @@
   };
 
 </pre>
-<p><b>Note: </b>Due to a mistake, this slot is missing in Qt 5.0&#x2e;</p><p>这个函数是在Qt 4.8版本中新增引入的。</p>
+<p><b>注意： </b>Due to a mistake, this slot is missing in Qt 5.0&#x2e;</p><p>这个函数是在Qt 4.8版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#modelAboutToBeReset">modelAboutToBeReset</a>() 和 <a href="qabstractitemmodel.html#modelReset">modelReset</a>().</p>
 <!-- @@@resetInternalData -->
 <!-- $$$revert[overload1]$$$revert -->
@@ -889,13 +889,13 @@
 <!-- $$$rowCount[overload1]$$$rowCountconstQModelIndex& -->
 <h3 class="fn" id="rowCount"><a name="rowCount"></a><code>[纯虚函数] </code><span class="type">int</span> QAbstractItemModel::<span class="name">rowCount</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i> = QModelIndex()) const</h3>
 <p>Returns the number of rows under the given <i>parent</i>. When the parent is valid it means that rowCount is returning the number of children of parent.</p>
-<p><b>Note: </b>When implementing a table based model, rowCount() should return 0 when the parent is valid.</p><p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>When implementing a table based model, rowCount() should return 0 when the parent is valid.</p><p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#columnCount">columnCount</a>().</p>
 <!-- @@@rowCount -->
 <!-- $$$rowsAboutToBeInserted[overload1]$$$rowsAboutToBeInsertedconstQModelIndex&intint -->
 <h3 class="fn" id="rowsAboutToBeInserted"><a name="rowsAboutToBeInserted"></a><code>[信号] </code><span class="type">void</span> QAbstractItemModel::<span class="name">rowsAboutToBeInserted</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i>, <span class="type">int</span> <i>start</i>, <span class="type">int</span> <i>end</i>)</h3>
 <p>This signal is emitted just before rows are inserted into the model. The new items will be positioned between <i>start</i> and <i>end</i> inclusive, under the given <i>parent</i> item.</p>
-<p><b>Note: </b>Components connected to this signal use it to adapt to changes in the model's dimensions. It can only be emitted by the <a href="qabstractitemmodel.html">QAbstractItemModel</a> implementation, and cannot be explicitly emitted in subclass code.</p><p><b>注意： </b>这是个私有信号，它可用于信号连接，但是不能由用户触发。</p>
+<p><b>注意： </b>Components connected to this signal use it to adapt to changes in the model's dimensions. It can only be emitted by the <a href="qabstractitemmodel.html">QAbstractItemModel</a> implementation, and cannot be explicitly emitted in subclass code.</p><p><b>注意： </b>这是个私有信号，它可用于信号连接，但是不能由用户触发。</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#insertRows">insertRows</a>() 和 <a href="qabstractitemmodel.html#beginInsertRows">beginInsertRows</a>().</p>
 <!-- @@@rowsAboutToBeInserted -->
 <!-- $$$rowsAboutToBeMoved[overload1]$$$rowsAboutToBeMovedconstQModelIndex&intintconstQModelIndex&int -->
@@ -909,13 +909,13 @@
 <!-- $$$rowsAboutToBeRemoved[overload1]$$$rowsAboutToBeRemovedconstQModelIndex&intint -->
 <h3 class="fn" id="rowsAboutToBeRemoved"><a name="rowsAboutToBeRemoved"></a><code>[信号] </code><span class="type">void</span> QAbstractItemModel::<span class="name">rowsAboutToBeRemoved</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i>, <span class="type">int</span> <i>first</i>, <span class="type">int</span> <i>last</i>)</h3>
 <p>This signal is emitted just before rows are removed from the model. The items that will be removed are those between <i>first</i> and <i>last</i> inclusive, under the given <i>parent</i> item.</p>
-<p><b>Note: </b>Components connected to this signal use it to adapt to changes in the model's dimensions. It can only be emitted by the <a href="qabstractitemmodel.html">QAbstractItemModel</a> implementation, and cannot be explicitly emitted in subclass code.</p><p><b>注意： </b>这是个私有信号，它可用于信号连接，但是不能由用户触发。</p>
+<p><b>注意： </b>Components connected to this signal use it to adapt to changes in the model's dimensions. It can only be emitted by the <a href="qabstractitemmodel.html">QAbstractItemModel</a> implementation, and cannot be explicitly emitted in subclass code.</p><p><b>注意： </b>这是个私有信号，它可用于信号连接，但是不能由用户触发。</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#removeRows">removeRows</a>() 和 <a href="qabstractitemmodel.html#beginRemoveRows">beginRemoveRows</a>().</p>
 <!-- @@@rowsAboutToBeRemoved -->
 <!-- $$$rowsInserted[overload1]$$$rowsInsertedconstQModelIndex&intint -->
 <h3 class="fn" id="rowsInserted"><a name="rowsInserted"></a><code>[信号] </code><span class="type">void</span> QAbstractItemModel::<span class="name">rowsInserted</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i>, <span class="type">int</span> <i>first</i>, <span class="type">int</span> <i>last</i>)</h3>
 <p>This signal is emitted after rows have been inserted into the model. The new items are those between <i>first</i> and <i>last</i> inclusive, under the given <i>parent</i> item.</p>
-<p><b>Note: </b>Components connected to this signal use it to adapt to changes in the model's dimensions. It can only be emitted by the <a href="qabstractitemmodel.html">QAbstractItemModel</a> implementation, and cannot be explicitly emitted in subclass code.</p><p><b>注意： </b>这是个私有信号，它可用于信号连接，但是不能由用户触发。</p>
+<p><b>注意： </b>Components connected to this signal use it to adapt to changes in the model's dimensions. It can only be emitted by the <a href="qabstractitemmodel.html">QAbstractItemModel</a> implementation, and cannot be explicitly emitted in subclass code.</p><p><b>注意： </b>这是个私有信号，它可用于信号连接，但是不能由用户触发。</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#insertRows">insertRows</a>() 和 <a href="qabstractitemmodel.html#beginInsertRows">beginInsertRows</a>().</p>
 <!-- @@@rowsInserted -->
 <!-- $$$rowsMoved[overload1]$$$rowsMovedconstQModelIndex&intintconstQModelIndex&int -->
@@ -929,7 +929,7 @@
 <!-- $$$rowsRemoved[overload1]$$$rowsRemovedconstQModelIndex&intint -->
 <h3 class="fn" id="rowsRemoved"><a name="rowsRemoved"></a><code>[信号] </code><span class="type">void</span> QAbstractItemModel::<span class="name">rowsRemoved</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i>, <span class="type">int</span> <i>first</i>, <span class="type">int</span> <i>last</i>)</h3>
 <p>This signal is emitted after rows have been removed from the model. The removed items are those between <i>first</i> and <i>last</i> inclusive, under the given <i>parent</i> item.</p>
-<p><b>Note: </b>Components connected to this signal use it to adapt to changes in the model's dimensions. It can only be emitted by the <a href="qabstractitemmodel.html">QAbstractItemModel</a> implementation, and cannot be explicitly emitted in subclass code.</p><p><b>注意： </b>这是个私有信号，它可用于信号连接，但是不能由用户触发。</p>
+<p><b>注意： </b>Components connected to this signal use it to adapt to changes in the model's dimensions. It can only be emitted by the <a href="qabstractitemmodel.html">QAbstractItemModel</a> implementation, and cannot be explicitly emitted in subclass code.</p><p><b>注意： </b>这是个私有信号，它可用于信号连接，但是不能由用户触发。</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#removeRows">removeRows</a>() 和 <a href="qabstractitemmodel.html#beginRemoveRows">beginRemoveRows</a>().</p>
 <!-- @@@rowsRemoved -->
 <!-- $$$setData[overload1]$$$setDataconstQModelIndex&constQVariant&int -->
@@ -938,7 +938,7 @@
 <p>如果成功则返回 <code>true</code>；否则返回 <code>false</code>.</p>
 <p>The <a href="qabstractitemmodel.html#dataChanged">dataChanged</a>() signal should be emitted if the data was successfully set.</p>
 <p>The base class implementation returns <code>false</code>. This function and <a href="qabstractitemmodel.html#data">data</a>() must be reimplemented for editable models.</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <p><b> 参见 </b><a href="qt.html#ItemDataRole-enum">Qt::ItemDataRole</a>, <a href="qabstractitemmodel.html#data">data</a>(), 和 <a href="qabstractitemmodel.html#itemData">itemData</a>().</p>
 <!-- @@@setData -->
 <!-- $$$setHeaderData[overload1]$$$setHeaderDataintQt::OrientationconstQVariant&int -->
@@ -960,7 +960,7 @@
 <p>Returns the sibling at <i>row</i> and <i>column</i> for the item at <i>index</i>, or an invalid <a href="qmodelindex.html">QModelIndex</a> if there is no sibling at that location.</p>
 <p>sibling() is just a convenience function that finds the item's parent, and uses it to retrieve the index of the child item in the specified <i>row</i> and <i>column</i>.</p>
 <p>This method can optionally be overridden for implementation-specific optimization.</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#index">index</a>(), <a href="qmodelindex.html#row">QModelIndex::row</a>(), 和 <a href="qmodelindex.html#column">QModelIndex::column</a>().</p>
 <!-- @@@sibling -->
 <!-- $$$sort[overload1]$$$sortintQt::SortOrder -->
@@ -971,7 +971,7 @@
 <!-- $$$span[overload1]$$$spanconstQModelIndex& -->
 <h3 class="fn" id="span"><a name="span"></a><code>[虚函数] </code><span class="type"><a href="qsize.html">QSize</a></span> QAbstractItemModel::<span class="name">span</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>) const</h3>
 <p>Returns the row and column span of the item represented by <i>index</i>.</p>
-<p><b>Note: </b>Currently, span is not used.</p><!-- @@@span -->
+<p><b>注意： </b>Currently, span is not used.</p><!-- @@@span -->
 <!-- $$$submit[overload1]$$$submit -->
 <h3 class="fn" id="submit"><a name="submit"></a><code>[虚槽函数] </code><span class="type">bool</span> QAbstractItemModel::<span class="name">submit</span>()</h3>
 <p>Lets the model know that it should submit cached information to permanent storage. This function is typically used for row editing.</p>

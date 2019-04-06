@@ -122,7 +122,7 @@
 <h3 >Texture Atlasses</h3>
 <p>Some scene graph backends use texture atlasses, grouping multiple small textures into one large texture. If this is the case, the function <a href="qsgtexture.html#isAtlasTexture">isAtlasTexture</a>() will return true. Atlasses are used to aid the rendering algorithm to do better sorting which increases performance. The location of the texture inside the atlas is given with the <a href="qsgtexture.html#normalizedTextureSubRect">normalizedTextureSubRect</a>() function.</p>
 <p>If the texture is used in such a way that atlas is not preferable, the function <a href="qsgtexture.html#removedFromAtlas">removedFromAtlas</a>() can be used to extract a non-atlassed copy.</p>
-<p><b>Note: </b>All classes with QSG prefix should be used solely on the scene graph's rendering thread. See <a href="qtquick-visualcanvas-scenegraph.html#scene-graph-and-rendering">Scene Graph and Rendering</a> for more information.</p></div>
+<p><b>注意： </b>All classes with QSG prefix should be used solely on the scene graph's rendering thread. See <a href="qtquick-visualcanvas-scenegraph.html#scene-graph-and-rendering">Scene Graph and Rendering</a> for more information.</p></div>
 <p><b> 参见 </b><a href="qtquick-scenegraph-textureinsgnode-example.html">Scene Graph - Rendering FBOs</a> 和 <a href="qtquick-scenegraph-textureinthread-example.html">Scene Graph - Rendering FBOs in a thread</a>.</p>
 <!-- @@@QSGTexture -->
 <div class="types">
@@ -181,7 +181,7 @@
 <h3 class="fn" id="bind"><a name="bind"></a><code>[纯虚函数] </code><span class="type">void</span> QSGTexture::<span class="name">bind</span>()</h3>
 <p>Call this function to bind this texture to the current texture target.</p>
 <p>Binding a texture may also include uploading the texture data from a previously set <a href="../qtgui/qimage.html">QImage</a>.</p>
-<p><b>Warning:</b> This function can only be called from the rendering thread.</p>
+<p><b>警告：</b> This function can only be called from the rendering thread.</p>
 <!-- @@@bind -->
 <!-- $$$convertToNormalizedSourceRect[overload1]$$$convertToNormalizedSourceRectconstQRectF& -->
 <h3 class="fn" id="convertToNormalizedSourceRect"><a name="convertToNormalizedSourceRect"></a><span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> QSGTexture::<span class="name">convertToNormalizedSourceRect</span>(const <span class="type"><a href="../qtcore/qrectf.html">QRectF</a></span> &amp;<i>rect</i>) const</h3>
@@ -228,7 +228,7 @@
 <p>Removing a texture from an atlas is primarily useful when passing it to a shader that operates on the texture coordinates 0-1 instead of the texture subrect inside the atlas.</p>
 <p>If the texture is not part of a texture atlas, this function returns 0.</p>
 <p>Implementations of this function are recommended to return the same instance for multiple calls to limit memory usage.</p>
-<p><b>Warning:</b> This function can only be called from the rendering thread.</p>
+<p><b>警告：</b> This function can only be called from the rendering thread.</p>
 <!-- @@@removedFromAtlas -->
 <!-- $$$setAnisotropyLevel[overload1]$$$setAnisotropyLevelQSGTexture::AnisotropyLevel -->
 <h3 class="fn" id="setAnisotropyLevel"><a name="setAnisotropyLevel"></a><span class="type">void</span> QSGTexture::<span class="name">setAnisotropyLevel</span>(<span class="type"><a href="qsgtexture.html#AnisotropyLevel-enum">QSGTexture::AnisotropyLevel</a></span> <i>level</i>)</h3>
@@ -262,7 +262,7 @@
 <p>Returns the OpenGL texture id for this texture.</p>
 <p>The default value is 0, indicating that it is an invalid texture id.</p>
 <p>The function should at all times return the correct texture id.</p>
-<p><b>Warning:</b> This function can only be called from the rendering thread.</p>
+<p><b>警告：</b> This function can only be called from the rendering thread.</p>
 <!-- @@@textureId -->
 <!-- $$$textureSize[overload1]$$$textureSize -->
 <h3 class="fn" id="textureSize"><a name="textureSize"></a><code>[纯虚函数] </code><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QSGTexture::<span class="name">textureSize</span>() const</h3>

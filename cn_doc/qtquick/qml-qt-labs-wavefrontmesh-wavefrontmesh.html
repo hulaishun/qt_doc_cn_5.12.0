@@ -66,7 +66,7 @@
 <p><a href="qml-qt-labs-wavefrontmesh-wavefrontmesh.html">WavefrontMesh</a> reads the geometry from a Wavefront .obj file and generates a two-dimensional <a href="qsggeometry.html">geometry</a> from this. If the .obj file contains a three-dimensional shape, it will be orthographically projected, onto a plane. If defined, this is given by <a href="qml-qt-labs-wavefrontmesh-wavefrontmesh.html#projectionPlaneV-prop">projectionPlaneV</a> 和 <a href="qml-qt-labs-wavefrontmesh-wavefrontmesh.html#projectionPlaneW-prop">projectionPlaneW</a>. Otherwise, the first face encountered in the data will be used to determine the projection plane.</p>
 <p>If the file contains texture coordinates, these will also be used. Otherwise, the vertexes of the object will be normalized and used.</p>
 <p>The mesh can be used in a <a href="qml-qtquick-shadereffect.html">ShaderEffect</a> to define the shaded geometry. The geometry will be normalized before use, so the position and scale of the input objects have no impact on the result.</p>
-<p><b>Note: </b>Some Wavefront exporters will change the source scene's coordinate system before exporting it. This can cause unexpected results when Qt applies the projection. If the visual results are not as you expect, try checking the export parameters and the documentation of the editor tool to see if this is the case.</p><p>For instance, the following example takes an .obj file containing a standard torus and visualizes the automatically generated texture coordinates.</p>
+<p><b>注意： </b>Some Wavefront exporters will change the source scene's coordinate system before exporting it. This can cause unexpected results when Qt applies the projection. If the visual results are not as you expect, try checking the export parameters and the documentation of the editor tool to see if this is the case.</p><p>For instance, the following example takes an .obj file containing a standard torus and visualizes the automatically generated texture coordinates.</p>
 <div class="table"><table class="generic">
  <tr valign="top" class="odd"><td ><p class="centerAlign"><img src="images/qtlabs-wavefrontmesh.png" alt="" /></p></td><td ><pre class="qml">
 
@@ -102,7 +102,7 @@
 </pre>
 </td></tr>
 </table></div>
-<p><b>Note: </b>Since the input is a 3D torus, we need to define the projection plane. This would not be necessary when using a 2D shape as input. We use the XY plane in this case, because of the orientation of the input.</p><!-- @@@WavefrontMesh -->
+<p><b>注意： </b>Since the input is a 3D torus, we need to define the projection plane. This would not be necessary when using a 2D shape as input. We use the XY plane in this case, because of the orientation of the input.</p><!-- @@@WavefrontMesh -->
 <h2>属性文档</h2>
 <!-- $$$lastError -->
 <div class="qmlitem"><div class="qmlproto">
@@ -136,7 +136,7 @@
 </div><div class="qmldoc"><p>Since the Wavefront .obj format describes an object in 3D space, the coordinates have to be projected into 2D before they can be displayed in Qt Quick.</p>
 <p>This will be done in <a href="qml-qt-labs-wavefrontmesh-wavefrontmesh.html">WavefrontMesh</a> by an orthographic projection onto an appropriate plane.</p>
 <p>The projectionPlaneV is one of two vectors in the plane in 3D space. If either this, or <a href="qml-qt-labs-wavefrontmesh-wavefrontmesh.html#projectionPlaneW-prop">projectionPlaneW</a> is set to (0, 0, 0) (the default), then the plane will be detected based on the first encountered face in the data set.</p>
-<p><b>Note: </b>projectionPlaneV and <a href="qml-qt-labs-wavefrontmesh-wavefrontmesh.html#projectionPlaneW-prop">projectionPlaneW</a> cannot be parallel vectors.</p></div></div><!-- @@@projectionPlaneV -->
+<p><b>注意： </b>projectionPlaneV and <a href="qml-qt-labs-wavefrontmesh-wavefrontmesh.html#projectionPlaneW-prop">projectionPlaneW</a> cannot be parallel vectors.</p></div></div><!-- @@@projectionPlaneV -->
 <br/>
 <!-- $$$projectionPlaneW -->
 <div class="qmlitem"><div class="qmlproto">
@@ -148,7 +148,7 @@
 </div><div class="qmldoc"><p>Since the Wavefront .obj format describes an object in 3D space, the coordinates have to be projected into 2D before they can be displayed in Qt Quick.</p>
 <p>This will be done in <a href="qml-qt-labs-wavefrontmesh-wavefrontmesh.html">WavefrontMesh</a> by an orthographic projection onto an appropriate plane.</p>
 <p>The projectionPlaneW is one of two vectors in the plane in 3D space. If either this, or <a href="qml-qt-labs-wavefrontmesh-wavefrontmesh.html#projectionPlaneV-prop">projectionPlaneV</a> is set to (0, 0, 0) (the default), then the plane will be detected based on the first encountered face in the data set.</p>
-<p><b>Note: </b><a href="qml-qt-labs-wavefrontmesh-wavefrontmesh.html#projectionPlaneV-prop">projectionPlaneV</a> and projectionPlaneW cannot be parallel vectors.</p></div></div><!-- @@@projectionPlaneW -->
+<p><b>注意： </b><a href="qml-qt-labs-wavefrontmesh-wavefrontmesh.html#projectionPlaneV-prop">projectionPlaneV</a> and projectionPlaneW cannot be parallel vectors.</p></div></div><!-- @@@projectionPlaneW -->
 <br/>
 <!-- $$$source -->
 <div class="qmlitem"><div class="qmlproto">

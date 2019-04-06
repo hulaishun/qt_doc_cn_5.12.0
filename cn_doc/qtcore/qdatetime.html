@@ -154,7 +154,7 @@
 <p><a href="qdatetime.html">QDateTime</a> provides a full set of operators to compare two <a href="qdatetime.html">QDateTime</a> objects, where smaller means earlier and larger means later.</p>
 <p>You can increment (or decrement) a datetime by a given number of milliseconds using <a href="qdatetime.html#addMSecs">addMSecs</a>(), seconds using <a href="qdatetime.html#addSecs">addSecs</a>(), or days using <a href="qdatetime.html#addDays">addDays</a>(). Similarly, you can use <a href="qdatetime.html#addMonths">addMonths</a>() 和 <a href="qdatetime.html#addYears">addYears</a>(). The <a href="qdatetime.html#daysTo">daysTo</a>() function returns the number of days between two datetimes, <a href="qdatetime.html#secsTo">secsTo</a>() returns the number of seconds between two datetimes, and <a href="qdatetime.html#msecsTo">msecsTo</a>() returns the number of milliseconds between two datetimes.</p>
 <p><a href="qdatetime.html">QDateTime</a> can store datetimes as <a href="qt.html#TimeSpec-enum">local time</a> or as <a href="qt.html#TimeSpec-enum">UTC</a>. <a href="qdatetime.html#currentDateTime">QDateTime::currentDateTime</a>() returns a <a href="qdatetime.html">QDateTime</a> expressed as local time; use <a href="qdatetime.html#toUTC">toUTC</a>() to convert it to UTC. You can also use <a href="qdatetime.html#timeSpec">timeSpec</a>() to find out if a <a href="qdatetime.html">QDateTime</a> object stores a UTC time or a local time. Operations such as <a href="qdatetime.html#addSecs">addSecs</a>() 和 <a href="qdatetime.html#secsTo">secsTo</a>() are aware of daylight-saving time (DST).</p>
-<p><b>Note: </b><a href="qdatetime.html">QDateTime</a> does not account for leap seconds.</p><a name="remarks"></a>
+<p><b>注意： </b><a href="qdatetime.html">QDateTime</a> does not account for leap seconds.</p><a name="remarks"></a>
 <h3 >备注</h3>
 <a name="no-year-0"></a>
 <h4 >No Year 0</h4>
@@ -432,7 +432,7 @@
 <tr valign="top" class="odd"><td >yy</td><td >用两位数字(00到99)表示的年份</td></tr>
 <tr valign="top" class="even"><td >yyyy</td><td >用四位数字表示的年份</td></tr>
 </table></div>
-<p><b>Note: </b>Unlike the other version of this function, day and month names must be given in the user's local language. It is only possible to use the English names if the user's language is English.</p><p>These expressions may be used for the time part of the format string:</p>
+<p><b>注意： </b>Unlike the other version of this function, day and month names must be given in the user's local language. It is only possible to use the English names if the user's language is English.</p><p>These expressions may be used for the time part of the format string:</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th >表达式</th><th >输出</th></tr></thead>
 <tr valign="top" class="odd"><td >h</td><td >the hour without a leading zero (0 to 23 or 1 to 12 if AM/PM display)</td></tr>
@@ -712,7 +712,7 @@
 <p>If the <i>format</i> is <a href="qt.html#DateFormat-enum">Qt::DefaultLocaleShortDate</a> or <a href="qt.html#DateFormat-enum">Qt::DefaultLocaleLongDate</a>, the string format depends on the default application locale. This is the locale set with <a href="qlocale.html#setDefault">QLocale::setDefault</a>(), or the system locale if no default locale has been set. Identical to calling QLocale().<a href="qdatetime.html#toString">toString</a>(datetime, <a href="qlocale.html#FormatType-enum">QLocale::ShortFormat</a>) or QLocale().<a href="qdatetime.html#toString">toString</a>(datetime, <a href="qlocale.html#FormatType-enum">QLocale::LongFormat</a>).</p>
 <p>If the <i>format</i> is <a href="qt.html#DateFormat-enum">Qt::RFC2822Date</a>, the string is formatted following <a href="http://www.rfc-editor.org/rfc/rfc2822.txt">RFC 2822</a>.</p>
 <p>若日期值无效，则返回一个空的字符串。</p>
-<p><b>Warning:</b> The <a href="qt.html#DateFormat-enum">Qt::ISODate</a> format is only valid for years in the range 0 to 9999. This restriction may apply to locale-aware formats as well, depending on the locale settings.</p>
+<p><b>警告：</b> The <a href="qt.html#DateFormat-enum">Qt::ISODate</a> format is only valid for years in the range 0 to 9999. This restriction may apply to locale-aware formats as well, depending on the locale settings.</p>
 <p><b> 参见 </b><a href="qdatetime.html#fromString">fromString</a>(), <a href="qdate.html#toString">QDate::toString</a>(), <a href="qtime.html#toString">QTime::toString</a>(), 和 <a href="qlocale.html#toString">QLocale::toString</a>().</p>
 <!-- @@@toString -->
 <!-- $$$toTimeSpec[overload1]$$$toTimeSpecQt::TimeSpec -->

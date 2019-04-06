@@ -312,7 +312,7 @@
 <h3 class="fn" id="exec"><a name="exec"></a><code>[虚槽函数] </code><span class="type">int</span> QDialog::<span class="name">exec</span>()</h3>
 <p>Shows the dialog as a <a href="qdialog.html#modal-dialogs">modal dialog</a>, blocking until the user closes it. The function returns a <a href="qdialog.html#DialogCode-enum">DialogCode</a> result.</p>
 <p>If the dialog is <a href="../qtcore/qt.html#WindowModality-enum">application modal</a>, users cannot interact with any other window in the same application until they close the dialog. If the dialog is <a href="../qtcore/qt.html#WindowModality-enum">window modal</a>, only interaction with the parent window is blocked while the dialog is open. By default, the dialog is application modal.</p>
-<p><b>Note: </b>Avoid using this function; instead, use <code>open()</code>. Unlike exec(), <a href="qdialog.html#open">open</a>() is asynchronous, and does not spin an additional event loop. This prevents a series of dangerous bugs from happening (e.g&#x2e; deleting the dialog's parent while the dialog is open via exec()). When using <a href="qdialog.html#open">open</a>() you can connect to the <a href="qdialog.html#finished">finished</a>() signal of <a href="qdialog.html">QDialog</a> to be notified when the dialog is closed.</p><p><b> 参见 </b><a href="qdialog.html#open">open</a>(), <a href="qwidget.html#show">show</a>(), <a href="qdialog.html#result">result</a>(), 和 <a href="qwidget.html#windowModality-prop">setWindowModality</a>().</p>
+<p><b>注意： </b>Avoid using this function; instead, use <code>open()</code>. Unlike exec(), <a href="qdialog.html#open">open</a>() is asynchronous, and does not spin an additional event loop. This prevents a series of dangerous bugs from happening (e.g&#x2e; deleting the dialog's parent while the dialog is open via exec()). When using <a href="qdialog.html#open">open</a>() you can connect to the <a href="qdialog.html#finished">finished</a>() signal of <a href="qdialog.html">QDialog</a> to be notified when the dialog is closed.</p><p><b> 参见 </b><a href="qdialog.html#open">open</a>(), <a href="qwidget.html#show">show</a>(), <a href="qdialog.html#result">result</a>(), 和 <a href="qwidget.html#windowModality-prop">setWindowModality</a>().</p>
 <!-- @@@exec -->
 <!-- $$$finished[overload1]$$$finishedint -->
 <h3 class="fn" id="finished"><a name="finished"></a><code>[信号] </code><span class="type">void</span> QDialog::<span class="name">finished</span>(<span class="type">int</span> <i>result</i>)</h3>
@@ -354,13 +354,13 @@
 <!-- $$$result[overload1]$$$result -->
 <h3 class="fn" id="result"><a name="result"></a><span class="type">int</span> QDialog::<span class="name">result</span>() const</h3>
 <p>In general returns the modal dialog's result code, <code>Accepted</code> or <code>Rejected</code>.</p>
-<p><b>Note: </b>When called on a <a href="qmessagebox.html">QMessageBox</a> instance, the returned value is a value of the <a href="qmessagebox.html#StandardButton-enum">QMessageBox::StandardButton</a> enum.</p><p>Do not call this function if the dialog was constructed with the <a href="../qtcore/qt.html#WidgetAttribute-enum">Qt::WA_DeleteOnClose</a> attribute.</p>
+<p><b>注意： </b>When called on a <a href="qmessagebox.html">QMessageBox</a> instance, the returned value is a value of the <a href="qmessagebox.html#StandardButton-enum">QMessageBox::StandardButton</a> enum.</p><p>Do not call this function if the dialog was constructed with the <a href="../qtcore/qt.html#WidgetAttribute-enum">Qt::WA_DeleteOnClose</a> attribute.</p>
 <p><b> 参见 </b><a href="qdialog.html#setResult">setResult</a>().</p>
 <!-- @@@result -->
 <!-- $$$setResult[overload1]$$$setResultint -->
 <h3 class="fn" id="setResult"><a name="setResult"></a><span class="type">void</span> QDialog::<span class="name">setResult</span>(<span class="type">int</span> <i>i</i>)</h3>
 <p>Sets the modal dialog's result code to <i>i</i>.</p>
-<p><b>Note: </b>We recommend that you use one of the values defined by <a href="qdialog.html#DialogCode-enum">QDialog::DialogCode</a>.</p><p><b> 参见 </b><a href="qdialog.html#result">result</a>().</p>
+<p><b>注意： </b>We recommend that you use one of the values defined by <a href="qdialog.html#DialogCode-enum">QDialog::DialogCode</a>.</p><p><b> 参见 </b><a href="qdialog.html#result">result</a>().</p>
 <!-- @@@setResult -->
 <!-- $$$setVisible[overload1]$$$setVisiblebool -->
 <h3 class="fn" id="setVisible"><a name="setVisible"></a><code>[重载虚函数] </code><span class="type">void</span> QDialog::<span class="name">setVisible</span>(<span class="type">bool</span> <i>visible</i>)</h3>

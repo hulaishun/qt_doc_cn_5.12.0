@@ -184,7 +184,7 @@
 </pre>
 <p>Elements of the file's name can be extracted with <a href="qfileinfo.html#path">path</a>() 和 <a href="qfileinfo.html#fileName">fileName</a>(). The <a href="qfileinfo.html#fileName">fileName</a>()'s parts can be extracted with <a href="qfileinfo.html#baseName">baseName</a>(), <a href="qfileinfo.html#suffix">suffix</a>() or <a href="qfileinfo.html#completeSuffix">completeSuffix</a>(). <a href="qfileinfo.html">QFileInfo</a> objects to directories created by Qt classes will not have a trailing file separator. If you wish to use trailing separators in your own file info objects, just append one to the file name given to the constructors or <a href="qfileinfo.html#setFile">setFile</a>().</p>
 <p>The file's dates are returned by created(), <a href="qfileinfo.html#lastModified">lastModified</a>(), <a href="qfileinfo.html#lastRead">lastRead</a>() 和 <a href="qfileinfo.html#fileTime">fileTime</a>(). Information about the file's access permissions is obtained with <a href="qfileinfo.html#isReadable">isReadable</a>(), <a href="qfileinfo.html#isWritable">isWritable</a>() 和 <a href="qfileinfo.html#isExecutable">isExecutable</a>(). The file's ownership is available from <a href="qfileinfo.html#owner">owner</a>(), <a href="qfileinfo.html#ownerId">ownerId</a>(), <a href="qfileinfo.html#group">group</a>() 和 <a href="qfileinfo.html#groupId">groupId</a>(). You can examine a file's permissions and ownership in a single statement using the <a href="qfileinfo.html#permission">permission</a>() function.</p>
-<a name="ntfs-permissions"></a><p><b>Note: </b>On NTFS file systems, ownership and permissions checking is disabled by default for performance reasons. To enable it, include the following line:</p><pre class="cpp">
+<a name="ntfs-permissions"></a><p><b>注意： </b>On NTFS file systems, ownership and permissions checking is disabled by default for performance reasons. To enable it, include the following line:</p><pre class="cpp">
 
   <span class="keyword">extern</span> Q_CORE_EXPORT <span class="type">int</span> qt_ntfs_permission_lookup;
 
@@ -199,7 +199,7 @@
 <a name="performance-issues"></a>
 <h3 >Performance Issues</h3>
 <p>Some of <a href="qfileinfo.html">QFileInfo</a>'s functions query the file system, but for performance reasons, some functions only operate on the file name itself. For example: To return the absolute path of a relative file name, <a href="qfileinfo.html#absolutePath">absolutePath</a>() has to query the file system. The <a href="qfileinfo.html#path">path</a>() function, however, can work on the file name directly, and so it is faster.</p>
-<p><b>Note: </b>To speed up performance, <a href="qfileinfo.html">QFileInfo</a> caches information about the file.</p><p>Because files can be changed by other users or programs, or even by other parts of the same program, there is a function that refreshes the file information: <a href="qfileinfo.html#refresh">refresh</a>(). If you want to switch off a <a href="qfileinfo.html">QFileInfo</a>'s caching and force it to access the file system every time you request information from it call <a href="qfileinfo.html#setCaching">setCaching</a>(false).</p>
+<p><b>注意： </b>To speed up performance, <a href="qfileinfo.html">QFileInfo</a> caches information about the file.</p><p>Because files can be changed by other users or programs, or even by other parts of the same program, there is a function that refreshes the file information: <a href="qfileinfo.html#refresh">refresh</a>(). If you want to switch off a <a href="qfileinfo.html">QFileInfo</a>'s caching and force it to access the file system every time you request information from it call <a href="qfileinfo.html#setCaching">setCaching</a>(false).</p>
 </div>
 <p><b> 参见 </b><a href="qdir.html">QDir</a> 和 <a href="qfile.html">QFile</a>.</p>
 <!-- @@@QFileInfo -->
@@ -258,7 +258,7 @@
 
 </pre>
 <p>This function returns the same as <a href="qfileinfo.html#filePath">filePath</a>(), unless <a href="qfileinfo.html#isRelative">isRelative</a>() is true. In contrast to <a href="qfileinfo.html#canonicalFilePath">canonicalFilePath</a>(), symbolic links or redundant &quot;.&quot; or &quot;..&quot; elements are not necessarily removed.</p>
-<p><b>Warning:</b> If <a href="qfileinfo.html#filePath">filePath</a>() is empty the behavior of this function is undefined.</p>
+<p><b>警告：</b> If <a href="qfileinfo.html#filePath">filePath</a>() is empty the behavior of this function is undefined.</p>
 <p><b> 参见 </b><a href="qfileinfo.html#filePath">filePath</a>(), <a href="qfileinfo.html#canonicalFilePath">canonicalFilePath</a>(), 和 <a href="qfileinfo.html#isRelative">isRelative</a>().</p>
 <!-- @@@absoluteFilePath -->
 <!-- $$$absolutePath[overload1]$$$absolutePath -->
@@ -266,7 +266,7 @@
 <p>Returns a file's path absolute path. This doesn't include the file name.</p>
 <p>On Unix the absolute path will always begin with the root, '/', directory. On Windows this will always begin 'D:/' where D is a drive letter, except for network shares that are not mapped to a drive letter, in which case the path will begin '//sharename/'.</p>
 <p>In contrast to <a href="qfileinfo.html#canonicalPath">canonicalPath</a>() symbolic links or redundant &quot;.&quot; or &quot;..&quot; elements are not necessarily removed.</p>
-<p><b>Warning:</b> If <a href="qfileinfo.html#filePath">filePath</a>() is empty the behavior of this function is undefined.</p>
+<p><b>警告：</b> If <a href="qfileinfo.html#filePath">filePath</a>() is empty the behavior of this function is undefined.</p>
 <p><b> 参见 </b><a href="qfileinfo.html#absoluteFilePath">absoluteFilePath</a>(), <a href="qfileinfo.html#path">path</a>(), <a href="qfileinfo.html#canonicalPath">canonicalPath</a>(), <a href="qfileinfo.html#fileName">fileName</a>(), 和 <a href="qfileinfo.html#isRelative">isRelative</a>().</p>
 <!-- @@@absolutePath -->
 <!-- $$$baseName[overload1]$$$baseName -->
@@ -372,11 +372,11 @@
 <!-- $$$exists[overload1]$$$exists -->
 <h3 class="fn" id="exists"><a name="exists"></a><span class="type">bool</span> QFileInfo::<span class="name">exists</span>() const</h3>
 <p>Returns <code>true</code> if the file exists; otherwise returns <code>false</code>.</p>
-<p><b>Note: </b>If the file is a symlink that points to a non-existing file, false is returned.</p><!-- @@@exists -->
+<p><b>注意： </b>If the file is a symlink that points to a non-existing file, false is returned.</p><!-- @@@exists -->
 <!-- $$$exists$$$existsconstQString& -->
 <h3 class="fn" id="exists-1"><a name="exists-1"></a><code>[静态函数] </code><span class="type">bool</span> QFileInfo::<span class="name">exists</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>file</i>)</h3>
 <p>Returns <code>true</code> if the <i>file</i> exists; otherwise returns <code>false</code>.</p>
-<p><b>Note: </b>If <i>file</i> is a symlink that points to a non-existing file, false is returned.</p><p><b>Note: </b>Using this function is faster than using <code>QFileInfo(file).exists()</code> for file system access.</p><p>这个函数是在Qt 5.2版本中新增引入的。</p>
+<p><b>注意： </b>If <i>file</i> is a symlink that points to a non-existing file, false is returned.</p><p><b>注意： </b>Using this function is faster than using <code>QFileInfo(file).exists()</code> for file system access.</p><p>这个函数是在Qt 5.2版本中新增引入的。</p>
 <!-- @@@exists -->
 <!-- $$$fileName[overload1]$$$fileName -->
 <h3 class="fn" id="fileName"><a name="fileName"></a><span class="type"><a href="qstring.html">QString</a></span> QFileInfo::<span class="name">fileName</span>() const</h3>
@@ -455,7 +455,7 @@
 <!-- $$$isReadable[overload1]$$$isReadable -->
 <h3 class="fn" id="isReadable"><a name="isReadable"></a><span class="type">bool</span> QFileInfo::<span class="name">isReadable</span>() const</h3>
 <p>Returns <code>true</code> if the user can read the file; otherwise returns <code>false</code>.</p>
-<p><b>Note: </b>If the <a href="qfileinfo.html#ntfs-permissions">NTFS permissions</a> check has not been enabled, the result on Windows will merely reflect whether the file exists.</p><p><b> 参见 </b><a href="qfileinfo.html#isWritable">isWritable</a>(), <a href="qfileinfo.html#isExecutable">isExecutable</a>(), 和 <a href="qfileinfo.html#permission">permission</a>().</p>
+<p><b>注意： </b>If the <a href="qfileinfo.html#ntfs-permissions">NTFS permissions</a> check has not been enabled, the result on Windows will merely reflect whether the file exists.</p><p><b> 参见 </b><a href="qfileinfo.html#isWritable">isWritable</a>(), <a href="qfileinfo.html#isExecutable">isExecutable</a>(), 和 <a href="qfileinfo.html#permission">permission</a>().</p>
 <!-- @@@isReadable -->
 <!-- $$$isRelative[overload1]$$$isRelative -->
 <h3 class="fn" id="isRelative"><a name="isRelative"></a><span class="type">bool</span> QFileInfo::<span class="name">isRelative</span>() const</h3>
@@ -479,12 +479,12 @@
       fileName <span class="operator">=</span> info<span class="operator">.</span>symLinkTarget();
 
 </pre>
-<p><b>Note: </b>If the symlink points to a non existing file, <a href="qfileinfo.html#exists">exists</a>() returns false.</p><p><b> 参见 </b><a href="qfileinfo.html#isFile">isFile</a>(), <a href="qfileinfo.html#isDir">isDir</a>(), 和 <a href="qfileinfo.html#symLinkTarget">symLinkTarget</a>().</p>
+<p><b>注意： </b>If the symlink points to a non existing file, <a href="qfileinfo.html#exists">exists</a>() returns false.</p><p><b> 参见 </b><a href="qfileinfo.html#isFile">isFile</a>(), <a href="qfileinfo.html#isDir">isDir</a>(), 和 <a href="qfileinfo.html#symLinkTarget">symLinkTarget</a>().</p>
 <!-- @@@isSymLink -->
 <!-- $$$isWritable[overload1]$$$isWritable -->
 <h3 class="fn" id="isWritable"><a name="isWritable"></a><span class="type">bool</span> QFileInfo::<span class="name">isWritable</span>() const</h3>
 <p>Returns <code>true</code> if the user can write to the file; otherwise returns <code>false</code>.</p>
-<p><b>Note: </b>If the <a href="qfileinfo.html#ntfs-permissions">NTFS permissions</a> check has not been enabled, the result on Windows will merely reflect whether the file is marked as Read Only.</p><p><b> 参见 </b><a href="qfileinfo.html#isReadable">isReadable</a>(), <a href="qfileinfo.html#isExecutable">isExecutable</a>(), 和 <a href="qfileinfo.html#permission">permission</a>().</p>
+<p><b>注意： </b>If the <a href="qfileinfo.html#ntfs-permissions">NTFS permissions</a> check has not been enabled, the result on Windows will merely reflect whether the file is marked as Read Only.</p><p><b> 参见 </b><a href="qfileinfo.html#isReadable">isReadable</a>(), <a href="qfileinfo.html#isExecutable">isExecutable</a>(), 和 <a href="qfileinfo.html#permission">permission</a>().</p>
 <!-- @@@isWritable -->
 <!-- $$$lastModified[overload1]$$$lastModified -->
 <h3 class="fn" id="lastModified"><a name="lastModified"></a><span class="type"><a href="qdatetime.html">QDateTime</a></span> QFileInfo::<span class="name">lastModified</span>() const</h3>
@@ -530,7 +530,7 @@
 <h3 class="fn" id="permission"><a name="permission"></a><span class="type">bool</span> QFileInfo::<span class="name">permission</span>(<span class="type"><a href="qfiledevice.html#Permission-enum">QFile::Permissions</a></span> <i>permissions</i>) const</h3>
 <p>Tests for file permissions. The <i>permissions</i> argument can be several flags of type <a href="qfiledevice.html#Permission-enum">QFile::Permissions</a> OR-ed together to check for permission combinations.</p>
 <p>On systems where files do not have permissions this function always returns <code>true</code>.</p>
-<p><b>Note: </b>The result might be inaccurate on Windows if the <a href="qfileinfo.html#ntfs-permissions">NTFS permissions</a> check has not been enabled.</p><p>样例：</p>
+<p><b>注意： </b>The result might be inaccurate on Windows if the <a href="qfileinfo.html#ntfs-permissions">NTFS permissions</a> check has not been enabled.</p><p>样例：</p>
 <pre class="cpp">
 
   <span class="type"><a href="qfileinfo.html#QFileInfo">QFileInfo</a></span> fi(<span class="string">&quot;/tmp/archive.tar.gz&quot;</span>);
@@ -545,7 +545,7 @@
 <!-- $$$permissions[overload1]$$$permissions -->
 <h3 class="fn" id="permissions"><a name="permissions"></a><span class="type"><a href="qfiledevice.html#Permission-enum">QFile::Permissions</a></span> QFileInfo::<span class="name">permissions</span>() const</h3>
 <p>Returns the complete OR-ed together combination of <a href="qfiledevice.html#Permission-enum">QFile::Permissions</a> for the file.</p>
-<p><b>Note: </b>The result might be inaccurate on Windows if the <a href="qfileinfo.html#ntfs-permissions">NTFS permissions</a> check has not been enabled.</p><!-- @@@permissions -->
+<p><b>注意： </b>The result might be inaccurate on Windows if the <a href="qfileinfo.html#ntfs-permissions">NTFS permissions</a> check has not been enabled.</p><!-- @@@permissions -->
 <!-- $$$refresh[overload1]$$$refresh -->
 <h3 class="fn" id="refresh"><a name="refresh"></a><span class="type">void</span> QFileInfo::<span class="name">refresh</span>()</h3>
 <p>Refreshes the information about the file, i.e&#x2e; reads in information from the file system the next time a cached property is fetched.</p>
@@ -620,7 +620,7 @@
 <!-- $$$symLinkTarget[overload1]$$$symLinkTarget -->
 <h3 class="fn" id="symLinkTarget"><a name="symLinkTarget"></a><span class="type"><a href="qstring.html">QString</a></span> QFileInfo::<span class="name">symLinkTarget</span>() const</h3>
 <p>Returns the absolute path to the file or directory a symbolic link points to, or an empty string if the object isn't a symbolic link.</p>
-<p>This name may not represent an existing file; it is only a string. <a href="qfileinfo.html#exists">QFileInfo::exists</a>() returns <code>true</code> if the symlink points to an existing file.</p>
+<p>This name may not represent an existing file; it is only a string. <a href="qfileinfo.html#exists">QFileInfo::exists</a>() 若快捷方式指向一个已存在的文件则返回 <code>true</code> 。</p>
 <p>这个函数是在Qt 4.2版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qfileinfo.html#exists">exists</a>(), <a href="qfileinfo.html#isSymLink">isSymLink</a>(), <a href="qfileinfo.html#isDir">isDir</a>(), 和 <a href="qfileinfo.html#isFile">isFile</a>().</p>
 <!-- @@@symLinkTarget -->
@@ -642,8 +642,8 @@
 <h3 class="fn" id="operator-eq-eq"><a name="operator-eq-eq"></a><span class="type">bool</span> QFileInfo::<span class="name">operator==</span>(const <span class="type"><a href="qfileinfo.html#QFileInfo">QFileInfo</a></span> &amp;<i>fileinfo</i>) const</h3>
 <p>Returns <code>true</code> if this <a href="qfileinfo.html">QFileInfo</a> object refers to a file in the same location as <i>fileinfo</i>; otherwise returns <code>false</code>.</p>
 <p>Note that the result of comparing two empty <a href="qfileinfo.html">QFileInfo</a> objects, containing no file references (file paths that do not exist or are empty), is undefined.</p>
-<p><b>Warning:</b> This will not compare two different symbolic links pointing to the same file.</p>
-<p><b>Warning:</b> Long and short file names that refer to the same file on Windows are treated as if they referred to different files.</p>
+<p><b>警告：</b> This will not compare two different symbolic links pointing to the same file.</p>
+<p><b>警告：</b> Long and short file names that refer to the same file on Windows are treated as if they referred to different files.</p>
 <p><b> 参见 </b><a href="qfileinfo.html#operator-not-eq">operator!=</a>().</p>
 <!-- @@@operator== -->
 </div>

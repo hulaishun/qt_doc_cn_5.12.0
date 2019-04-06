@@ -189,7 +189,7 @@
 <p><a href="qsplitter.html">QSplitter</a> resizes its children dynamically by default. If you would rather have <a href="qsplitter.html">QSplitter</a> resize the children only at the end of a resize operation, call <a href="qsplitter.html#opaqueResize-prop">setOpaqueResize</a>(false).</p>
 <p>The initial distribution of size between the widgets is determined by multiplying the initial size with the stretch factor. You can also use <a href="qsplitter.html#setSizes">setSizes</a>() to set the sizes of all the widgets. The function <a href="qsplitter.html#sizes">sizes</a>() returns the sizes set by the user. Alternatively, you can save and restore the sizes of the widgets from a <a href="../qtcore/qbytearray.html">QByteArray</a> using <a href="qsplitter.html#saveState">saveState</a>() 和 <a href="qsplitter.html#restoreState">restoreState</a>() respectively.</p>
 <p>When you <a href="qwidget.html#hide">hide</a>() a child, its space will be distributed among the other children. It will be reinstated when you <a href="qwidget.html#show">show</a>() it again.</p>
-<p><b>Note: </b>Adding a <a href="qlayout.html">QLayout</a> to a <a href="qsplitter.html">QSplitter</a> is not supported (either through <a href="qwidget.html#setLayout">setLayout</a>() or making the <a href="qsplitter.html">QSplitter</a> a parent of the <a href="qlayout.html">QLayout</a>); use <a href="qsplitter.html#addWidget">addWidget</a>() instead (see example above).</p></div>
+<p><b>注意： </b>Adding a <a href="qlayout.html">QLayout</a> to a <a href="qsplitter.html">QSplitter</a> is not supported (either through <a href="qwidget.html#setLayout">setLayout</a>() or making the <a href="qsplitter.html">QSplitter</a> a parent of the <a href="qlayout.html">QLayout</a>); use <a href="qsplitter.html#addWidget">addWidget</a>() instead (see example above).</p></div>
 <p><b> 参见 </b><a href="qsplitterhandle.html">QSplitterHandle</a>, <a href="qhboxlayout.html">QHBoxLayout</a>, <a href="qvboxlayout.html">QVBoxLayout</a>, 和 <a href="qtabwidget.html">QTabWidget</a>.</p>
 <!-- @@@QSplitter -->
 <div class="types">
@@ -262,7 +262,7 @@
 <h3 class="fn" id="addWidget"><a name="addWidget"></a><span class="type">void</span> QSplitter::<span class="name">addWidget</span>(<span class="type"><a href="qwidget.html#QWidget">QWidget</a></span> *<i>widget</i>)</h3>
 <p>Adds the given <i>widget</i> to the splitter's layout after all the other items.</p>
 <p>If <i>widget</i> is already in the splitter, it will be moved to the new position.</p>
-<p><b>Note: </b>The splitter takes ownership of the widget.</p><p><b> 参见 </b><a href="qsplitter.html#insertWidget">insertWidget</a>(), <a href="qsplitter.html#widget">widget</a>(), 和 <a href="qsplitter.html#indexOf">indexOf</a>().</p>
+<p><b>注意： </b>The splitter takes ownership of the widget.</p><p><b> 参见 </b><a href="qsplitter.html#insertWidget">insertWidget</a>(), <a href="qsplitter.html#widget">widget</a>(), 和 <a href="qsplitter.html#indexOf">indexOf</a>().</p>
 <!-- @@@addWidget -->
 <!-- $$$changeEvent[overload1]$$$changeEventQEvent* -->
 <h3 class="fn" id="changeEvent"><a name="changeEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QSplitter::<span class="name">changeEvent</span>(<span class="type"><a href="../qtcore/qevent.html">QEvent</a></span> *<i>ev</i>)</h3>
@@ -316,7 +316,7 @@
 <p>Inserts the <i>widget</i> specified into the splitter's layout at the given <i>index</i>.</p>
 <p>If <i>widget</i> is already in the splitter, it will be moved to the new position.</p>
 <p>If <i>index</i> is an invalid index, then the widget will be inserted at the end.</p>
-<p><b>Note: </b>The splitter takes ownership of the widget.</p><p><b> 参见 </b><a href="qsplitter.html#addWidget">addWidget</a>(), <a href="qsplitter.html#indexOf">indexOf</a>(), 和 <a href="qsplitter.html#widget">widget</a>().</p>
+<p><b>注意： </b>The splitter takes ownership of the widget.</p><p><b> 参见 </b><a href="qsplitter.html#addWidget">addWidget</a>(), <a href="qsplitter.html#indexOf">indexOf</a>(), 和 <a href="qsplitter.html#widget">widget</a>().</p>
 <!-- @@@insertWidget -->
 <!-- $$$isCollapsible[overload1]$$$isCollapsibleint -->
 <h3 class="fn" id="isCollapsible"><a name="isCollapsible"></a><span class="type">bool</span> QSplitter::<span class="name">isCollapsible</span>(<span class="type">int</span> <i>index</i>) const</h3>
@@ -341,7 +341,7 @@
 <p>Replaces the widget in the splitter's layout at the given <i>index</i> by <i>widget</i>.</p>
 <p>Returns the widget that has just been replaced if <i>index</i> is valid and <i>widget</i> is not already a child of the splitter. Otherwise, it returns null and no replacement or addition is made.</p>
 <p>The geometry of the newly inserted widget will be the same as the widget it replaces. Its visible and collapsed states are also inherited.</p>
-<p><b>Note: </b>The splitter takes ownership of <i>widget</i> and sets the parent of the replaced widget to null.</p><p><b>Note: </b>Because <i>widget</i> gets <a href="qwidget.html#setParent">reparented</a> into the splitter, its <a href="qwidget.html#geometry-prop">geometry</a> may not be set right away, but only after <i>widget</i> will receive the appropriate events.</p><p>这个函数是在Qt 5.9版本中新增引入的。</p>
+<p><b>注意： </b>The splitter takes ownership of <i>widget</i> and sets the parent of the replaced widget to null.</p><p><b>注意： </b>Because <i>widget</i> gets <a href="qwidget.html#setParent">reparented</a> into the splitter, its <a href="qwidget.html#geometry-prop">geometry</a> may not be set right away, but only after <i>widget</i> will receive the appropriate events.</p><p>这个函数是在Qt 5.9版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qsplitter.html#insertWidget">insertWidget</a>() 和 <a href="qsplitter.html#indexOf">indexOf</a>().</p>
 <!-- @@@replaceWidget -->
 <!-- $$$resizeEvent[overload1]$$$resizeEventQResizeEvent* -->

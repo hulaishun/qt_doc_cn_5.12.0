@@ -183,7 +183,7 @@
 <p>The <a href="qfilesystemmodel.html">QFileSystemModel</a> class provides a data model for the local filesystem.</p>
 <p>This class provides access to the local filesystem, providing functions for renaming and removing files and directories, and for creating new directories. In the simplest case, it can be used with a suitable display widget as part of a browser or filter.</p>
 <p><a href="qfilesystemmodel.html">QFileSystemModel</a> can be accessed using the standard interface provided by <a href="../qtcore/qabstractitemmodel.html">QAbstractItemModel</a>, but it also provides some convenience functions that are specific to a directory model. The <a href="qfilesystemmodel.html#fileInfo">fileInfo</a>(), <a href="qfilesystemmodel.html#isDir">isDir</a>(), <a href="qfilesystemmodel.html#fileName">fileName</a>() 和 <a href="qfilesystemmodel.html#filePath">filePath</a>() functions provide information about the underlying files and directories related to items in the model. Directories can be created and removed using <a href="qfilesystemmodel.html#mkdir">mkdir</a>(), <a href="qfilesystemmodel.html#rmdir">rmdir</a>().</p>
-<p><b>Note: </b><a href="qfilesystemmodel.html">QFileSystemModel</a> requires an instance of <a href="qapplication.html">QApplication</a>.</p><a name="example-usage"></a>
+<p><b>注意： </b><a href="qfilesystemmodel.html">QFileSystemModel</a> requires an instance of <a href="qapplication.html">QApplication</a>.</p><a name="example-usage"></a>
 <h3 >Example Usage</h3>
 <p>A directory model that displays the contents of a default directory is usually constructed with a parent object:</p>
 <pre class="cpp">
@@ -399,13 +399,13 @@
 <!-- $$$remove[overload1]$$$removeconstQModelIndex& -->
 <h3 class="fn" id="remove"><a name="remove"></a><span class="type">bool</span> QFileSystemModel::<span class="name">remove</span>(const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>)</h3>
 <p>Removes the model item <i>index</i> from the file system model and <b>deletes the corresponding file from the file system</b>, returning true if successful. If the item cannot be removed, false is returned.</p>
-<p><b>Warning:</b> This function deletes files from the file system; it does <b>not</b> move them to a location where they can be recovered.</p>
+<p><b>警告：</b> This function deletes files from the file system; it does <b>not</b> move them to a location where they can be recovered.</p>
 <p><b> 参见 </b><a href="qfilesystemmodel.html#rmdir">rmdir</a>().</p>
 <!-- @@@remove -->
 <!-- $$$rmdir[overload1]$$$rmdirconstQModelIndex& -->
 <h3 class="fn" id="rmdir"><a name="rmdir"></a><span class="type">bool</span> QFileSystemModel::<span class="name">rmdir</span>(const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>)</h3>
 <p>Removes the directory corresponding to the model item <i>index</i> in the file system model and <b>deletes the corresponding directory from the file system</b>, returning true if successful. If the directory cannot be removed, false is returned.</p>
-<p><b>Warning:</b> This function deletes directories from the file system; it does <b>not</b> move them to a location where they can be recovered.</p>
+<p><b>警告：</b> This function deletes directories from the file system; it does <b>not</b> move them to a location where they can be recovered.</p>
 <p><b> 参见 </b><a href="qfilesystemmodel.html#remove">remove</a>().</p>
 <!-- @@@rmdir -->
 <!-- $$$rootDirectory[overload1]$$$rootDirectory -->
@@ -451,7 +451,7 @@
 <h3 class="fn" id="setRootPath"><a name="setRootPath"></a><span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> QFileSystemModel::<span class="name">setRootPath</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>newPath</i>)</h3>
 <p>Sets the directory that is being watched by the model to <i>newPath</i> by installing a <a href="../qtcore/qfilesystemwatcher.html">file system watcher</a> on it. Any changes to files and directories within this directory will be reflected in the model.</p>
 <p>If the path is changed, the <a href="qfilesystemmodel.html#rootPathChanged">rootPathChanged</a>() signal will be emitted.</p>
-<p><b>Note: </b>This function does not change the structure of the model or modify the data available to views. In other words, the &quot;root&quot; of the model is <i>not</i> changed to include only files and directories within the directory specified by <i>newPath</i> in the file system.</p><p><b> 参见 </b><a href="qfilesystemmodel.html#rootPath">rootPath</a>().</p>
+<p><b>注意： </b>This function does not change the structure of the model or modify the data available to views. In other words, the &quot;root&quot; of the model is <i>not</i> changed to include only files and directories within the directory specified by <i>newPath</i> in the file system.</p><p><b> 参见 </b><a href="qfilesystemmodel.html#rootPath">rootPath</a>().</p>
 <!-- @@@setRootPath -->
 <!-- $$$sibling[overload1]$$$siblingintintconstQModelIndex& -->
 <h3 class="fn" id="sibling"><a name="sibling"></a><code>[重载虚函数] </code><span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> QFileSystemModel::<span class="name">sibling</span>(<span class="type">int</span> <i>row</i>, <span class="type">int</span> <i>column</i>, const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>idx</i>) const</h3>

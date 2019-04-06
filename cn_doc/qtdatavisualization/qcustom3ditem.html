@@ -179,7 +179,7 @@
 <p>This property holds the item position as a <a href="../qtgui/qvector3d.html">QVector3D</a>.</p>
 <p>Defaults to <code>QVector3D(0.0, 0.0, 0.0)</code>.</p>
 <p>Item position is specified either in data coordinates or in absolute coordinates, depending on the <a href="qcustom3ditem.html#positionAbsolute-prop">positionAbsolute</a> property. When using absolute coordinates, values between <code>-1.0&#x2e;.&#x2e;1&#x2e;0</code> are within axis ranges.</p>
-<p><b>Note: </b>Items positioned outside any axis range are not rendered if <a href="qcustom3ditem.html#positionAbsolute-prop">positionAbsolute</a> is <code>false</code>, unless the item is a <a href="qcustom3dvolume.html">QCustom3DVolume</a> that would be partially visible and <a href="qcustom3ditem.html#scalingAbsolute-prop">scalingAbsolute</a> is also <code>false</code>. In that case, the visible portion of the volume will be rendered.</p><p><b>访问函数：</b></p>
+<p><b>注意： </b>Items positioned outside any axis range are not rendered if <a href="qcustom3ditem.html#positionAbsolute-prop">positionAbsolute</a> is <code>false</code>, unless the item is a <a href="qcustom3dvolume.html">QCustom3DVolume</a> that would be partially visible and <a href="qcustom3ditem.html#scalingAbsolute-prop">scalingAbsolute</a> is also <code>false</code>. In that case, the visible portion of the volume will be rendered.</p><p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QVector3D </td><td class="memItemRight bottomAlign"><span class="name"><b>position</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setPosition</b></span>(const QVector3D &amp;<i>position</i>)</td></tr>
@@ -240,7 +240,7 @@
 <p>This property holds whether item scaling is to be handled in data values or in absolute values.</p>
 <p>Defaults to <code>true</code>.</p>
 <p>Items with absolute scaling will be rendered at the same size, regardless of axis ranges. Items with data scaling will change their apparent size according to the axis ranges. If <a href="qcustom3ditem.html#positionAbsolute-prop">positionAbsolute</a> is <code>true</code>, this property is ignored and scaling is interpreted as an absolute value. If the item has rotation, the data scaling is calculated on the unrotated item. Similarly, for <a href="qcustom3dvolume.html">QCustom3DVolume</a> items, the range clipping is calculated on the unrotated item.</p>
-<p><b>Note: </b>Only absolute scaling is supported for <a href="qcustom3dlabel.html">QCustom3DLabel</a> items or for custom items used in <a href="qabstract3dgraph.html#polar-prop">polar</a> graphs.</p><p><b>Note: </b>The custom item's mesh must be normalized to the range <code>[-1 ,1]</code>, or the data scaling will not be accurate.</p><p>This property was introduced in  QtDataVisualization 1.2.</p>
+<p><b>注意： </b>Only absolute scaling is supported for <a href="qcustom3dlabel.html">QCustom3DLabel</a> items or for custom items used in <a href="qabstract3dgraph.html#polar-prop">polar</a> graphs.</p><p><b>注意： </b>The custom item's mesh must be normalized to the range <code>[-1 ,1]</code>, or the data scaling will not be accurate.</p><p>This property was introduced in  QtDataVisualization 1.2.</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b>isScalingAbsolute</b></span>() const</td></tr>
@@ -270,7 +270,7 @@
 <h3 class="fn" id="textureFile-prop"><a name="textureFile-prop"></a><span class="name">textureFile</span> : <span class="type"><a href="../qtcore/qstring.html">QString</a></span></h3>
 <p>This property holds the texture file name for the item.</p>
 <p>If both this property and the texture image are unset, a solid gray texture will be used.</p>
-<p><b>Note: </b>To conserve memory, the <a href="../qtgui/qimage.html">QImage</a> loaded from the file is cleared after a texture is created.</p><p><b>访问函数：</b></p>
+<p><b>注意： </b>To conserve memory, the <a href="../qtgui/qimage.html">QImage</a> loaded from the file is cleared after a texture is created.</p><p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><span class="name"><b>textureFile</b></span>() const</td></tr>
 <tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setTextureFile</b></span>(const QString &amp;<i>textureFile</i>)</td></tr>
@@ -312,13 +312,13 @@
 <!-- $$$setRotationAxisAndAngle[overload1]$$$setRotationAxisAndAngleconstQVector3D&float -->
 <h3 class="fn" id="setRotationAxisAndAngle"><a name="setRotationAxisAndAngle"></a><span class="type">void</span> QCustom3DItem::<span class="name">setRotationAxisAndAngle</span>(const <span class="type"><a href="../qtgui/qvector3d.html">QVector3D</a></span> &amp;<i>axis</i>, <span class="type">float</span> <i>angle</i>)</h3>
 <p>A convenience function to construct the rotation quaternion from <i>axis</i> and <i>angle</i>.</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="../qtcore/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <p><b> 参见 </b><a href="qcustom3ditem.html#rotation-prop">rotation</a>.</p>
 <!-- @@@setRotationAxisAndAngle -->
 <!-- $$$setTextureImage[overload1]$$$setTextureImageconstQImage& -->
 <h3 class="fn" id="setTextureImage"><a name="setTextureImage"></a><span class="type">void</span> QCustom3DItem::<span class="name">setTextureImage</span>(const <span class="type"><a href="../qtgui/qimage.html">QImage</a></span> &amp;<i>textureImage</i>)</h3>
 <p>Sets the value of <i>textureImage</i> as a <a href="../qtgui/qimage.html">QImage</a> for the item. The texture defaults to solid gray.</p>
-<p><b>Note: </b>To conserve memory, the given <a href="../qtgui/qimage.html">QImage</a> is cleared after a texture is created.</p><!-- @@@setTextureImage -->
+<p><b>注意： </b>To conserve memory, the given <a href="../qtgui/qimage.html">QImage</a> is cleared after a texture is created.</p><!-- @@@setTextureImage -->
 </div>
 <div class="vars">
 <h2>成员变量文档</h2>

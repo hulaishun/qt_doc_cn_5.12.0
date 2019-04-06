@@ -164,7 +164,7 @@
 <p><a href="qdirmodel.html">QDirModel</a> keeps a cache with file information. The cache needs to be updated with <a href="qdirmodel.html#refresh">refresh</a>().</p>
 <p><a href="qdirmodel.html">QDirModel</a> can be accessed using the standard interface provided by <a href="../qtcore/qabstractitemmodel.html">QAbstractItemModel</a>, but it also provides some convenience functions that are specific to a directory model. The <a href="qdirmodel.html#fileInfo">fileInfo</a>() 和 <a href="qdirmodel.html#isDir">isDir</a>() functions provide information about the underlying files and directories related to items in the model.</p>
 <p>Directories can be created and removed using <a href="qdirmodel.html#mkdir">mkdir</a>(), <a href="qdirmodel.html#rmdir">rmdir</a>(), and the model will be automatically updated to take the changes into account.</p>
-<p><b>Note: </b><a href="qdirmodel.html">QDirModel</a> requires an instance of <a href="qapplication.html">QApplication</a>.</p></div>
+<p><b>注意： </b><a href="qdirmodel.html">QDirModel</a> requires an instance of <a href="qapplication.html">QApplication</a>.</p></div>
 <p><b> 参见 </b><a href="qdirmodel.html#nameFilters">nameFilters</a>(), <a href="qdirmodel.html#setFilter">setFilter</a>(), <a href="qdirmodel.html#filter">filter</a>(), <a href="qlistview.html">QListView</a>, <a href="qtreeview.html">QTreeView</a>, <a href="qfilesystemmodel.html">QFileSystemModel</a>, <a href="qtwidgets-itemviews-dirview-example.html">Dir View Example</a>, 和 <a href="model-view-programming.html#model-classes">模型类</a>.</p>
 <!-- @@@QDirModel -->
 <div class="types">
@@ -335,13 +335,13 @@
 <!-- $$$remove[overload1]$$$removeconstQModelIndex& -->
 <h3 class="fn" id="remove"><a name="remove"></a><span class="type">bool</span> QDirModel::<span class="name">remove</span>(const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>)</h3>
 <p>Removes the model item <i>index</i> from the directory model and <b>deletes the corresponding file from the file system</b>, returning true if successful. If the item cannot be removed, false is returned.</p>
-<p><b>Warning:</b> This function deletes files from the file system; it does <b>not</b> move them to a location where they can be recovered.</p>
+<p><b>警告：</b> This function deletes files from the file system; it does <b>not</b> move them to a location where they can be recovered.</p>
 <p><b> 参见 </b><a href="qdirmodel.html#rmdir">rmdir</a>().</p>
 <!-- @@@remove -->
 <!-- $$$rmdir[overload1]$$$rmdirconstQModelIndex& -->
 <h3 class="fn" id="rmdir"><a name="rmdir"></a><span class="type">bool</span> QDirModel::<span class="name">rmdir</span>(const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>)</h3>
 <p>Removes the directory corresponding to the model item <i>index</i> in the directory model and <b>deletes the corresponding directory from the file system</b>, returning true if successful. If the directory cannot be removed, false is returned.</p>
-<p><b>Warning:</b> This function deletes directories from the file system; it does <b>not</b> move them to a location where they can be recovered.</p>
+<p><b>警告：</b> This function deletes directories from the file system; it does <b>not</b> move them to a location where they can be recovered.</p>
 <p><b> 参见 </b><a href="qdirmodel.html#remove">remove</a>().</p>
 <!-- @@@rmdir -->
 <!-- $$$rowCount[overload1]$$$rowCountconstQModelIndex& -->
@@ -352,7 +352,7 @@
 <!-- $$$setData[overload1]$$$setDataconstQModelIndex&constQVariant&int -->
 <h3 class="fn" id="setData"><a name="setData"></a><code>[重载虚函数] </code><span class="type">bool</span> QDirModel::<span class="name">setData</span>(const <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> &amp;<i>index</i>, const <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span> &amp;<i>value</i>, <span class="type">int</span> <i>role</i> = Qt::EditRole)</h3>
 <p>重新实现了父类函数接口 <a href="../qtcore/qabstractitemmodel.html#setData">QAbstractItemModel::setData</a>().</p>
-<p>Sets the data for the model item <i>index</i> with the given <i>role</i> to the data referenced by the <i>value</i>. Returns <code>true</code> if successful; otherwise returns <code>false</code>.</p>
+<p>Sets the data for the model item <i>index</i> with the given <i>role</i> to the data referenced by the <i>value</i>. 若成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
 <p><b> 参见 </b><a href="qdirmodel.html#data">data</a>() 和 <a href="../qtcore/qt.html#ItemDataRole-enum">Qt::ItemDataRole</a>.</p>
 <!-- @@@setData -->
 <!-- $$$setFilter[overload1]$$$setFilterQDir::Filters -->

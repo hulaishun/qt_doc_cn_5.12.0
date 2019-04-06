@@ -244,7 +244,7 @@
 <!-- $$$PaperSource$$$OnlyOne$$$Lower$$$Middle$$$Manual$$$Envelope$$$EnvelopeManual$$$Auto$$$Tractor$$$SmallFormat$$$LargeFormat$$$LargeCapacity$$$Cassette$$$FormSource$$$MaxPageSource$$$CustomSource$$$LastPaperSource$$$Upper -->
 <h3 class="fn" id="PaperSource-enum"><a name="PaperSource-enum"></a>enum QPrinter::<span class="name">PaperSource</span></h3>
 <p>This enum type specifies what paper source <a href="qprinter.html">QPrinter</a> is to use. <a href="qprinter.html">QPrinter</a> does not check that the paper source is available; it just uses this information to try and set the paper source. Whether it will set the paper source depends on whether the printer has that particular source.</p>
-<p><b>Warning:</b> This is currently only implemented for Windows.</p>
+<p><b>警告：</b> This is currently only implemented for Windows.</p>
 <div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QPrinter::Auto</code></td><td class="topAlign tblval"><code>6</code></td><td class="topAlign">&nbsp;</td></tr>
 <tr><td class="topAlign"><code>QPrinter::Cassette</code></td><td class="topAlign tblval"><code>11</code></td><td class="topAlign">&nbsp;</td></tr>
@@ -284,7 +284,7 @@
 <tr><td class="topAlign"><code>QPrinter::PrinterResolution</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">This value is deprecated. It is equivalent to ScreenResolution on Unix and HighResolution on Windows and Mac. Due to the difference between ScreenResolution and HighResolution, use of this value may lead to non-portable printer code.</td></tr>
 <tr><td class="topAlign"><code>QPrinter::HighResolution</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">On Windows, sets the printer resolution to that defined for the printer in use. For PDF printing, sets the resolution of the PDF driver to 1200 dpi.</td></tr>
 </table></div>
-<p><b>Note: </b>When rendering text on a <a href="qprinter.html">QPrinter</a> device, it is important to realize that the size of text, when specified in points, is independent of the resolution specified for the device itself. Therefore, it may be useful to specify the font size in pixels when combining text with graphics to ensure that their relative sizes are what you expect.</p><!-- @@@PrinterMode -->
+<p><b>注意： </b>When rendering text on a <a href="qprinter.html">QPrinter</a> device, it is important to realize that the size of text, when specified in points, is independent of the resolution specified for the device itself. Therefore, it may be useful to specify the font size in pixels when combining text with graphics to ensure that their relative sizes are what you expect.</p><!-- @@@PrinterMode -->
 <!-- $$$PrinterState$$$Idle$$$Active$$$Aborted$$$Error -->
 <h3 class="fn" id="PrinterState-enum"><a name="PrinterState-enum"></a>enum QPrinter::<span class="name">PrinterState</span></h3>
 <div class="table"><table class="valuelist"><tr><th class="tblConst">常量</th><th class="tblVal">值</th></tr>
@@ -376,7 +376,7 @@
 <h3 class="fn" id="fromPage"><a name="fromPage"></a><span class="type">int</span> QPrinter::<span class="name">fromPage</span>() const</h3>
 <p>Returns the number of the first page in a range of pages to be printed (the &quot;from page&quot; setting). Pages in a document are numbered according to the convention that the first page is page 1.</p>
 <p>By default, this function returns a special value of 0, meaning that the &quot;from page&quot; setting is unset.</p>
-<p><b>Note: </b>If fromPage() and <a href="qprinter.html#toPage">toPage</a>() both return 0, this indicates that <i>the whole document will be printed</i>.</p><p>这个函数是在Qt 4.1版本中新增引入的。</p>
+<p><b>注意： </b>If fromPage() and <a href="qprinter.html#toPage">toPage</a>() both return 0, this indicates that <i>the whole document will be printed</i>.</p><p>这个函数是在Qt 4.1版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qprinter.html#setFromTo">setFromTo</a>() 和 <a href="qprinter.html#toPage">toPage</a>().</p>
 <!-- @@@fromPage -->
 <!-- $$$fullPage[overload1]$$$fullPage -->
@@ -561,7 +561,7 @@
 <!-- $$$setFromTo[overload1]$$$setFromTointint -->
 <h3 class="fn" id="setFromTo"><a name="setFromTo"></a><span class="type">void</span> QPrinter::<span class="name">setFromTo</span>(<span class="type">int</span> <i>from</i>, <span class="type">int</span> <i>to</i>)</h3>
 <p>Sets the range of pages to be printed to cover the pages with numbers specified by <i>from</i> and <i>to</i>, where <i>from</i> corresponds to the first page in the range and <i>to</i> corresponds to the last.</p>
-<p><b>Note: </b>Pages in a document are numbered according to the convention that the first page is page 1. However, if <i>from</i> and <i>to</i> are both set to 0, the <i>whole document will be printed</i>.</p><p>This function is mostly used to set a default value that the user can override in the print dialog when you call setup().</p>
+<p><b>注意： </b>Pages in a document are numbered according to the convention that the first page is page 1. However, if <i>from</i> and <i>to</i> are both set to 0, the <i>whole document will be printed</i>.</p><p>This function is mostly used to set a default value that the user can override in the print dialog when you call setup().</p>
 <p>这个函数是在Qt 4.1版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qprinter.html#fromPage">fromPage</a>() 和 <a href="qprinter.html#toPage">toPage</a>().</p>
 <!-- @@@setFromTo -->
@@ -689,7 +689,7 @@
 <h3 class="fn" id="supportedPaperSources"><a name="supportedPaperSources"></a><span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qprinter.html#PaperSource-enum">QPrinter::PaperSource</a></span>&gt; QPrinter::<span class="name">supportedPaperSources</span>() const</h3>
 <p>Returns the supported paper sizes for this printer.</p>
 <p>The values will be either a value that matches an entry in the <a href="qprinter.html#PaperSource-enum">QPrinter::PaperSource</a> enum or a driver spesific value. The driver spesific values are greater than the constant DMBIN_USER declared in wingdi.h&#x2e;</p>
-<p><b>Warning:</b> This function is only available in windows.</p>
+<p><b>警告：</b> This function is only available in windows.</p>
 <!-- @@@supportedPaperSources -->
 <!-- $$$supportedResolutions[overload1]$$$supportedResolutions -->
 <h3 class="fn" id="supportedResolutions"><a name="supportedResolutions"></a><span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type">int</span>&gt; QPrinter::<span class="name">supportedResolutions</span>() const</h3>
@@ -707,7 +707,7 @@
 <h3 class="fn" id="toPage"><a name="toPage"></a><span class="type">int</span> QPrinter::<span class="name">toPage</span>() const</h3>
 <p>Returns the number of the last page in a range of pages to be printed (the &quot;to page&quot; setting). Pages in a document are numbered according to the convention that the first page is page 1.</p>
 <p>By default, this function returns a special value of 0, meaning that the &quot;to page&quot; setting is unset.</p>
-<p><b>Note: </b>If <a href="qprinter.html#fromPage">fromPage</a>() and toPage() both return 0, this indicates that <i>the whole document will be printed</i>.</p><p>The programmer is responsible for reading this setting and printing accordingly.</p>
+<p><b>注意： </b>If <a href="qprinter.html#fromPage">fromPage</a>() and toPage() both return 0, this indicates that <i>the whole document will be printed</i>.</p><p>The programmer is responsible for reading this setting and printing accordingly.</p>
 <p>这个函数是在Qt 4.1版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qprinter.html#setFromTo">setFromTo</a>() 和 <a href="qprinter.html#fromPage">fromPage</a>().</p>
 <!-- @@@toPage -->

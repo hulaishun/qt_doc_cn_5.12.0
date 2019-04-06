@@ -219,7 +219,7 @@
 <p>A <a href="qmenu.html">QMenu</a> can also provide a tear-off menu. A tear-off menu is a top-level window that contains a copy of the menu. This makes it possible for the user to &quot;tear off&quot; frequently used menus and position them in a convenient place on the screen. If you want this functionality for a particular menu, insert a tear-off handle with <a href="qmenu.html#tearOffEnabled-prop">setTearOffEnabled</a>(). When using tear-off menus, bear in mind that the concept isn't typically used on Microsoft Windows so some users may not be familiar with it. Consider using a <a href="qtoolbar.html">QToolBar</a> instead.</p>
 <p>Widgets can be inserted into menus with the <a href="qwidgetaction.html">QWidgetAction</a> class. Instances of this class are used to hold widgets, and are inserted into menus with the <a href="qmenu.html#addAction">addAction</a>() overload that takes a <a href="qaction.html">QAction</a>.</p>
 <p>Conversely, actions can be added to widgets with the <a href="qmenu.html#addAction">addAction</a>(), <a href="qwidget.html#addActions">addActions</a>() 和 <a href="qwidget.html#insertAction">insertAction</a>() functions.</p>
-<p><b>Warning:</b> To make <a href="qmenu.html">QMenu</a> visible on the screen, <a href="qmenu.html#exec">exec</a>() or <a href="qmenu.html#popup">popup</a>() should be used instead of <a href="qwidget.html#show">show</a>().</p>
+<p><b>警告：</b> To make <a href="qmenu.html">QMenu</a> visible on the screen, <a href="qmenu.html#exec">exec</a>() or <a href="qmenu.html#popup">popup</a>() should be used instead of <a href="qwidget.html#show">show</a>().</p>
 <a name="qmenu-on-macos-with-qt-build-against-cocoa"></a>
 <h3 >QMenu on macOS with Qt Build Against Cocoa</h3>
 <p><a href="qmenu.html">QMenu</a> can be inserted only once in a menu/menubar. Subsequent insertions will have no effect or will result in a disabled menu item.</p>
@@ -677,14 +677,14 @@
 <!-- $$$toNSMenu[overload1]$$$toNSMenu -->
 <h3 class="fn" id="toNSMenu"><a name="toNSMenu"></a><span class="type">NSMenu</span> *QMenu::<span class="name">toNSMenu</span>()</h3>
 <p>Returns the native NSMenu for this menu. Available on <a href="../qtdoc/internationalization.html#macos">macOS</a> only.</p>
-<p><b>Note: </b>Qt sets the delegate on the native menu. If you need to set your own delegate, make sure you save the original one and forward any calls to it.</p><p>这个函数是在Qt 5.2版本中新增引入的。</p>
+<p><b>注意： </b>Qt sets the delegate on the native menu. If you need to set your own delegate, make sure you save the original one and forward any calls to it.</p><p>这个函数是在Qt 5.2版本中新增引入的。</p>
 <!-- @@@toNSMenu -->
 <!-- $$$triggered[overload1]$$$triggeredQAction* -->
 <h3 class="fn" id="triggered"><a name="triggered"></a><code>[信号] </code><span class="type">void</span> QMenu::<span class="name">triggered</span>(<span class="type"><a href="qaction.html">QAction</a></span> *<i>action</i>)</h3>
 <p>This signal is emitted when an action in this menu is triggered.</p>
 <p><i>action</i> is the action that caused the signal to be emitted.</p>
 <p>Normally, you connect each menu action's <a href="qaction.html#triggered">triggered()</a> signal to its own custom slot, but sometimes you will want to connect several actions to a single slot, for example, when you have a group of closely related actions, such as &quot;left justify&quot;, &quot;center&quot;, &quot;right justify&quot;.</p>
-<p><b>Note: </b>This signal is emitted for the main parent menu in a hierarchy. Hence, only the parent menu needs to be connected to a slot; sub-menus need not be connected.</p><p><b> 参见 </b><a href="qmenu.html#hovered">hovered</a>() 和 <a href="qaction.html#triggered">QAction::triggered</a>().</p>
+<p><b>注意： </b>This signal is emitted for the main parent menu in a hierarchy. Hence, only the parent menu needs to be connected to a slot; sub-menus need not be connected.</p><p><b> 参见 </b><a href="qmenu.html#hovered">hovered</a>() 和 <a href="qaction.html#triggered">QAction::triggered</a>().</p>
 <!-- @@@triggered -->
 <!-- $$$wheelEvent[overload1]$$$wheelEventQWheelEvent* -->
 <h3 class="fn" id="wheelEvent"><a name="wheelEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QMenu::<span class="name">wheelEvent</span>(<span class="type"><a href="../qtgui/qwheelevent.html">QWheelEvent</a></span> *<i>e</i>)</h3>

@@ -222,7 +222,7 @@
 <a name="thread-affinity"></a>
 <h3 >Thread Affinity</h3>
 <p>A <a href="qobject.html">QObject</a> instance is said to have a <i>thread affinity</i>, or that it <i>lives</i> in a certain thread. When a <a href="qobject.html">QObject</a> receives a <a href="qt.html#ConnectionType-enum">queued signal</a> or a <a href="eventsandfilters.html#sending-events">posted event</a>, the slot or event handler will run in the thread that the object lives in.</p>
-<p><b>Note: </b>If a <a href="qobject.html">QObject</a> has no thread affinity (that is, if <a href="qobject.html#thread">thread</a>() returns zero), or if it lives in a thread that has no running event loop, then it cannot receive queued signals or posted events.</p><p>By default, a <a href="qobject.html">QObject</a> lives in the thread in which it is created. An object's thread affinity can be queried using <a href="qobject.html#thread">thread</a>() and changed using <a href="qobject.html#moveToThread">moveToThread</a>().</p>
+<p><b>注意： </b>If a <a href="qobject.html">QObject</a> has no thread affinity (that is, if <a href="qobject.html#thread">thread</a>() returns zero), or if it lives in a thread that has no running event loop, then it cannot receive queued signals or posted events.</p><p>By default, a <a href="qobject.html">QObject</a> lives in the thread in which it is created. An object's thread affinity can be queried using <a href="qobject.html#thread">thread</a>() and changed using <a href="qobject.html#moveToThread">moveToThread</a>().</p>
 <p>All QObjects must live in the same thread as their parent. Consequently:</p>
 <ul>
 <li><a href="qobject.html#setParent">setParent</a>() will fail if the two QObjects involved live in different threads.</li>
@@ -230,7 +230,7 @@
 <li><a href="qobject.html#moveToThread">moveToThread</a>() will fail if the <a href="qobject.html">QObject</a> has a parent.</li>
 <li>If QObjects are created within <a href="qthread.html#run">QThread::run</a>(), they cannot become children of the <a href="qthread.html">QThread</a> object because the <a href="qthread.html">QThread</a> does not live in the thread that calls <a href="qthread.html#run">QThread::run</a>().</li>
 </ul>
-<p><b>Note: </b>A <a href="qobject.html">QObject</a>'s member variables <i>do not</i> automatically become its children. The parent-child relationship must be set by either passing a pointer to the child's <a href="qobject.html#QObject">constructor</a>, or by calling <a href="qobject.html#setParent">setParent</a>(). Without this step, the object's member variables will remain in the old thread when <a href="qobject.html#moveToThread">moveToThread</a>() is called.</p><a name="no-copy-constructor"></a><a name="no-copy-constructor-or-assignment-operator"></a>
+<p><b>注意： </b>A <a href="qobject.html">QObject</a>'s member variables <i>do not</i> automatically become its children. The parent-child relationship must be set by either passing a pointer to the child's <a href="qobject.html#QObject">constructor</a>, or by calling <a href="qobject.html#setParent">setParent</a>(). Without this step, the object's member variables will remain in the old thread when <a href="qobject.html#moveToThread">moveToThread</a>() is called.</p><a name="no-copy-constructor"></a><a name="no-copy-constructor-or-assignment-operator"></a>
 <h3 >No Copy Constructor or Assignment Operator</h3>
 <p><a href="qobject.html">QObject</a> has neither a copy constructor nor an assignment operator. This is by design. Actually, they are declared, but in a <code>private</code> section with the macro <a href="qobject.html#Q_DISABLE_COPY">Q_DISABLE_COPY</a>(). In fact, all Qt classes derived from <a href="qobject.html">QObject</a> (direct or indirect) use this macro to declare their copy constructor and assignment operator to be private. The reasoning is found in the discussion on <a href="object.html#identity-vs-value">Identity vs Value</a> on the Qt <a href="object.html">对象模型</a> page.</p>
 <p>The main consequence is that you should use pointers to <a href="qobject.html">QObject</a> (or to your <a href="qobject.html">QObject</a> subclass) where you might otherwise be tempted to use your <a href="qobject.html">QObject</a> subclass as a value. For example, without a copy constructor, you can't use a subclass of <a href="qobject.html">QObject</a> as the value to be stored in one of the container classes. You must store pointers.</p>
@@ -286,15 +286,15 @@
 <p>The parent of an object may be viewed as the object's owner. For instance, a <a href="../qtwidgets/qdialog.html">dialog box</a> is the parent of the <b>OK</b> and <b>Cancel</b> buttons it contains.</p>
 <p>The destructor of a parent object destroys all child objects.</p>
 <p>Setting <i>parent</i> to 0 constructs an object with no parent. If the object is a widget, it will become a top-level window.</p>
-<p><b>Note: </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
+<p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <p><b> 参见 </b><a href="qobject.html#parent">parent</a>(), <a href="qobject.html#findChild">findChild</a>(), 和 <a href="qobject.html#findChildren">findChildren</a>().</p>
 <!-- @@@QObject -->
 <!-- $$$~QObject[overload1]$$$~QObject -->
 <h3 class="fn" id="dtor.QObject"><a name="dtor.QObject"></a><code>[虚函数] </code>QObject::<span class="name">~QObject</span>()</h3>
 <p>Destroys the object, deleting all its child objects.</p>
 <p>All signals to and from the object are automatically disconnected, and any pending posted events for the object are removed from the event queue. However, it is often safer to use <a href="qobject.html#deleteLater">deleteLater</a>() rather than deleting a <a href="qobject.html">QObject</a> subclass directly.</p>
-<p><b>Warning:</b> All child objects are deleted. If any of these objects are on the stack or global, sooner or later your program will crash. We do not recommend holding pointers to child objects from outside the parent. If you still do, the <a href="qobject.html#destroyed">destroyed</a>() signal gives you an opportunity to detect when an object is destroyed.</p>
-<p><b>Warning:</b> Deleting a <a href="qobject.html">QObject</a> while pending events are waiting to be delivered can cause a crash. You must not delete the <a href="qobject.html">QObject</a> directly if it exists in a different thread than the one currently executing. Use <a href="qobject.html#deleteLater">deleteLater</a>() instead, which will cause the event loop to delete the object after all pending events have been delivered to it.</p>
+<p><b>警告：</b> All child objects are deleted. If any of these objects are on the stack or global, sooner or later your program will crash. We do not recommend holding pointers to child objects from outside the parent. If you still do, the <a href="qobject.html#destroyed">destroyed</a>() signal gives you an opportunity to detect when an object is destroyed.</p>
+<p><b>警告：</b> Deleting a <a href="qobject.html">QObject</a> while pending events are waiting to be delivered can cause a crash. You must not delete the <a href="qobject.html">QObject</a> directly if it exists in a different thread than the one currently executing. Use <a href="qobject.html#deleteLater">deleteLater</a>() instead, which will cause the event loop to delete the object after all pending events have been delivered to it.</p>
 <p><b> 参见 </b><a href="qobject.html#deleteLater">deleteLater</a>().</p>
 <!-- @@@~QObject -->
 <!-- $$$blockSignals[overload1]$$$blockSignalsbool -->
@@ -376,7 +376,7 @@
 <p>If a signal is connected to several slots, the slots are activated in the same order in which the connections were made, when the signal is emitted.</p>
 <p>The function returns a <a href="qmetaobject-connection.html">QMetaObject::Connection</a> that represents a handle to a connection if it successfully connects the signal to the slot. The connection handle will be invalid if it cannot create the connection, for example, if <a href="qobject.html">QObject</a> is unable to verify the existence of either <i>signal</i> or <i>method</i>, or if their signatures aren't compatible. You can check if the handle is valid by casting it to a bool.</p>
 <p>By default, a signal is emitted for every connection you make; two signals are emitted for duplicate connections. You can break all of these connections with a single <a href="qobject.html#disconnect">disconnect</a>() call. If you pass the <a href="qt.html#ConnectionType-enum">Qt::UniqueConnection</a> <i>type</i>, the connection will only be made if it is not a duplicate. If there is already a duplicate (exact same signal to the exact same slot on the same objects), the connection will fail and connect will return an invalid <a href="qmetaobject-connection.html">QMetaObject::Connection</a>.</p>
-<p><b>Note: </b>Qt::UniqueConnections do not work for lambdas, non-member functions and functors; they only apply to connecting to member functions.</p><p>The optional <i>type</i> parameter describes the type of connection to establish. In particular, it determines whether a particular signal is delivered to a slot immediately or queued for delivery at a later time. If the signal is queued, the parameters must be of types that are known to Qt's meta-object system, because Qt needs to copy the arguments to store them in an event behind the scenes. If you try to use a queued connection and get the error message</p>
+<p><b>注意： </b>Qt::UniqueConnections do not work for lambdas, non-member functions and functors; they only apply to connecting to member functions.</p><p>The optional <i>type</i> parameter describes the type of connection to establish. In particular, it determines whether a particular signal is delivered to a slot immediately or queued for delivery at a later time. If the signal is queued, the parameters must be of types that are known to Qt's meta-object system, because Qt needs to copy the arguments to store them in an event behind the scenes. If you try to use a queued connection and get the error message</p>
 <pre class="cpp">
 
   <span class="type"><a href="qobject.html#QObject">QObject</a></span><span class="operator">::</span>connect: Cannot queue arguments of type <span class="char">'MyType'</span>
@@ -467,7 +467,7 @@
 <h3 class="fn" id="connect-5"><a name="connect-5"></a><code>[静态函数] </code><span class="type"><a href="qmetaobject-connection.html">QMetaObject::Connection</a></span> QObject::<span class="name">connect</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>sender</i>, <span class="type">PointerToMemberFunction</span> <i>signal</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>context</i>, <span class="type">Functor</span> <i>functor</i>, <span class="type">Qt::ConnectionType</span> <i>type</i> = Qt::AutoConnection)</h3>
 <p>This function overloads <a href="qobject.html#connect">connect</a>().</p>
 <p>Creates a connection of a given <i>type</i> from <i>signal</i> in <i>sender</i> object to <i>functor</i> to be placed in a specific event loop of <i>context</i>, and returns a handle to the connection.</p>
-<p><b>Note: </b>Qt::UniqueConnections do not work for lambdas, non-member functions and functors; they only apply to connecting to member functions.</p><p>The signal must be a function declared as a signal in the header. The slot function can be any function or functor that can be connected to the signal. A function can be connected to a given signal if the signal has at least as many argument as the slot. A functor can be connected to a signal if they have exactly the same number of arguments. There must exist implicit conversion between the types of the corresponding arguments in the signal and the slot.</p>
+<p><b>注意： </b>Qt::UniqueConnections do not work for lambdas, non-member functions and functors; they only apply to connecting to member functions.</p><p>The signal must be a function declared as a signal in the header. The slot function can be any function or functor that can be connected to the signal. A function can be connected to a given signal if the signal has at least as many argument as the slot. A functor can be connected to a signal if they have exactly the same number of arguments. There must exist implicit conversion between the types of the corresponding arguments in the signal and the slot.</p>
 <p>样例：</p>
 <pre class="cpp">
 
@@ -503,8 +503,8 @@
   }
 
 </pre>
-<p><b>Warning:</b> This function violates the object-oriented principle of modularity. However, it might be useful when you need to perform expensive initialization only if something is connected to a signal.</p>
-<p><b>Warning:</b> This function is called from the thread which performs the connection, which may be a different thread from the thread in which this object lives.</p>
+<p><b>警告：</b> This function violates the object-oriented principle of modularity. However, it might be useful when you need to perform expensive initialization only if something is connected to a signal.</p>
+<p><b>警告：</b> This function is called from the thread which performs the connection, which may be a different thread from the thread in which this object lives.</p>
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qobject.html#connect">connect</a>() 和 <a href="qobject.html#disconnectNotify">disconnectNotify</a>().</p>
 <!-- @@@connectNotify -->
@@ -646,7 +646,7 @@
 <p>If <i>signal</i> is 0, it disconnects <i>receiver</i> and <i>method</i> from any signal. If not, only the specified signal is disconnected.</p>
 <p>If <i>receiver</i> is 0, it disconnects anything connected to <i>signal</i>. If not, slots in objects other than <i>receiver</i> are not disconnected.</p>
 <p>If <i>method</i> is 0, it disconnects anything that is connected to <i>receiver</i>. If not, only slots named <i>method</i> will be disconnected, and all other slots are left alone. The <i>method</i> must be 0 if <i>receiver</i> is left out, so you cannot disconnect a specifically-named slot on all objects.</p>
-<p><b>Note: </b>It is not possible to use this overload to diconnect signals connected to functors or lambda expressions. That is because it is not possible to compare them. Instead, use the overload that takes a <a href="qmetaobject-connection.html">QMetaObject::Connection</a></p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
+<p><b>注意： </b>It is not possible to use this overload to diconnect signals connected to functors or lambda expressions. That is because it is not possible to compare them. Instead, use the overload that takes a <a href="qmetaobject-connection.html">QMetaObject::Connection</a></p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p><b> 参见 </b><a href="qobject.html#connect">connect</a>().</p>
 <!-- @@@disconnect -->
 <!-- $$$disconnectNotify[overload1]$$$disconnectNotifyconstQMetaMethod& -->
@@ -654,20 +654,20 @@
 <p>This virtual function is called when something has been disconnected from <i>signal</i> in this object.</p>
 <p>See <a href="qobject.html#connectNotify">connectNotify</a>() for an example of how to compare <i>signal</i> with a specific signal.</p>
 <p>If all signals were disconnected from this object (e.g&#x2e;, the signal argument to <a href="qobject.html#disconnect">disconnect</a>() was 0), disconnectNotify() is only called once, and the <i>signal</i> will be an invalid <a href="qmetamethod.html">QMetaMethod</a> (<a href="qmetamethod.html#isValid">QMetaMethod::isValid</a>() returns <code>false</code>).</p>
-<p><b>Warning:</b> This function violates the object-oriented principle of modularity. However, it might be useful for optimizing access to expensive resources.</p>
-<p><b>Warning:</b> This function is called from the thread which performs the disconnection, which may be a different thread from the thread in which this object lives. This function may also be called with a <a href="qobject.html">QObject</a> internal mutex locked. It is therefore not allowed to re-enter any of any <a href="qobject.html">QObject</a> functions from your reimplementation and if you lock a mutex in your reimplementation, make sure that you don't call <a href="qobject.html">QObject</a> functions with that mutex held in other places or it will result in a deadlock.</p>
+<p><b>警告：</b> This function violates the object-oriented principle of modularity. However, it might be useful for optimizing access to expensive resources.</p>
+<p><b>警告：</b> This function is called from the thread which performs the disconnection, which may be a different thread from the thread in which this object lives. This function may also be called with a <a href="qobject.html">QObject</a> internal mutex locked. It is therefore not allowed to re-enter any of any <a href="qobject.html">QObject</a> functions from your reimplementation and if you lock a mutex in your reimplementation, make sure that you don't call <a href="qobject.html">QObject</a> functions with that mutex held in other places or it will result in a deadlock.</p>
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qobject.html#disconnect">disconnect</a>() 和 <a href="qobject.html#connectNotify">connectNotify</a>().</p>
 <!-- @@@disconnectNotify -->
 <!-- $$$dumpObjectInfo[overload1]$$$dumpObjectInfo -->
 <h3 class="fn" id="dumpObjectInfo"><a name="dumpObjectInfo"></a><span class="type">void</span> QObject::<span class="name">dumpObjectInfo</span>() const</h3>
 <p>Dumps information about signal connections, etc. for this object to the debug output.</p>
-<p><b>Note: </b>before Qt 5.9, this function was not const.</p><p><b> 参见 </b><a href="qobject.html#dumpObjectTree">dumpObjectTree</a>().</p>
+<p><b>注意： </b>before Qt 5.9, this function was not const.</p><p><b> 参见 </b><a href="qobject.html#dumpObjectTree">dumpObjectTree</a>().</p>
 <!-- @@@dumpObjectInfo -->
 <!-- $$$dumpObjectTree[overload1]$$$dumpObjectTree -->
 <h3 class="fn" id="dumpObjectTree"><a name="dumpObjectTree"></a><span class="type">void</span> QObject::<span class="name">dumpObjectTree</span>() const</h3>
 <p>Dumps a tree of children to the debug output.</p>
-<p><b>Note: </b>before Qt 5.9, this function was not const.</p><p><b> 参见 </b><a href="qobject.html#dumpObjectInfo">dumpObjectInfo</a>().</p>
+<p><b>注意： </b>before Qt 5.9, this function was not const.</p><p><b> 参见 </b><a href="qobject.html#dumpObjectInfo">dumpObjectInfo</a>().</p>
 <!-- @@@dumpObjectTree -->
 <!-- $$$dynamicPropertyNames[overload1]$$$dynamicPropertyNames -->
 <h3 class="fn" id="dynamicPropertyNames"><a name="dynamicPropertyNames"></a><span class="type"><a href="qlist.html">QList</a></span>&lt;<span class="type"><a href="qbytearray.html">QByteArray</a></span>&gt; QObject::<span class="name">dynamicPropertyNames</span>() const</h3>
@@ -755,7 +755,7 @@
 
 </pre>
 <p>Notice in the example above that unhandled events are passed to the base class's eventFilter() function, since the base class might have reimplemented eventFilter() for its own internal purposes.</p>
-<p><b>Warning:</b> If you delete the receiver object in this function, be sure to return true. Otherwise, Qt will forward the event to the deleted object and the program might crash.</p>
+<p><b>警告：</b> If you delete the receiver object in this function, be sure to return true. Otherwise, Qt will forward the event to the deleted object and the program might crash.</p>
 <p><b> 参见 </b><a href="qobject.html#installEventFilter">installEventFilter</a>().</p>
 <!-- @@@eventFilter -->
 <!-- $$$findChild[overload1]$$$findChildconstQString&Qt::FindChildOptions -->
@@ -890,7 +890,7 @@
 
 </pre>
 <p>The <a href="../qtwidgets/qshortcut.html">QShortcut</a> class, for example, uses this technique to intercept shortcut key presses.</p>
-<p><b>Warning:</b> If you delete the receiver object in your <a href="qobject.html#eventFilter">eventFilter</a>() function, be sure to return true. If you return false, Qt sends the event to the deleted object and the program will crash.</p>
+<p><b>警告：</b> If you delete the receiver object in your <a href="qobject.html#eventFilter">eventFilter</a>() function, be sure to return true. If you return false, Qt sends the event to the deleted object and the program will crash.</p>
 <p>Note that the filtering object must be in the same thread as this object. If <i>filterObj</i> is in a different thread, this function does nothing. If either <i>filterObj</i> or this object are moved to a different thread after calling this function, the event filter will not be called until both objects have the same thread affinity again (it is <i>not</i> removed).</p>
 <p><b> 参见 </b><a href="qobject.html#removeEventFilter">removeEventFilter</a>(), <a href="qobject.html#eventFilter">eventFilter</a>(), 和 <a href="qobject.html#event">event</a>().</p>
 <!-- @@@installEventFilter -->
@@ -909,7 +909,7 @@
 
 </pre>
 <p>As the code snippet above illustrates, you can use this function to avoid emitting a signal that nobody listens to.</p>
-<p><b>Warning:</b> This function violates the object-oriented principle of modularity. However, it might be useful when you need to perform expensive initialization only if something is connected to a signal.</p>
+<p><b>警告：</b> This function violates the object-oriented principle of modularity. However, it might be useful when you need to perform expensive initialization only if something is connected to a signal.</p>
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <!-- @@@isSignalConnected -->
 <!-- $$$isWidgetType[overload1]$$$isWidgetType -->
@@ -957,7 +957,7 @@
 <p>If <i>targetThread</i> is zero, all event processing for this object and its children stops.</p>
 <p>Note that all active timers for the object will be reset. The timers are first stopped in the current thread and restarted (with the same interval) in the <i>targetThread</i>. As a result, constantly moving an object between threads can postpone timer events indefinitely.</p>
 <p>A <a href="qevent.html#Type-enum">QEvent::ThreadChange</a> event is sent to this object just before the thread affinity is changed. You can handle this event to perform any special processing. Note that any new events that are posted to this object will be handled in the <i>targetThread</i>.</p>
-<p><b>Warning:</b> This function is <i>not</i> thread-safe; the current thread must be same as the current thread affinity. In other words, this function can only &quot;push&quot; an object from the current thread to another thread, it cannot &quot;pull&quot; an object from any arbitrary thread to the current thread.</p>
+<p><b>警告：</b> This function is <i>not</i> thread-safe; the current thread must be same as the current thread affinity. In other words, this function can only &quot;push&quot; an object from the current thread to another thread, it cannot &quot;pull&quot; an object from any arbitrary thread to the current thread.</p>
 <p><b> 参见 </b><a href="qobject.html#thread">thread</a>().</p>
 <!-- @@@moveToThread -->
 <!-- $$$objectNameChanged -->
@@ -992,7 +992,7 @@
   }
 
 </pre>
-<p><b>Warning:</b> This function violates the object-oriented principle of modularity. However, it might be useful when you need to perform expensive initialization only if something is connected to a signal.</p>
+<p><b>警告：</b> This function violates the object-oriented principle of modularity. However, it might be useful when you need to perform expensive initialization only if something is connected to a signal.</p>
 <p><b> 参见 </b><a href="qobject.html#isSignalConnected">isSignalConnected</a>().</p>
 <!-- @@@receivers -->
 <!-- $$$removeEventFilter[overload1]$$$removeEventFilterQObject* -->
@@ -1006,16 +1006,16 @@
 <h3 class="fn" id="sender"><a name="sender"></a><code>[保护函数] </code><span class="type"><a href="qobject.html#QObject">QObject</a></span> *QObject::<span class="name">sender</span>() const</h3>
 <p>Returns a pointer to the object that sent the signal, if called in a slot activated by a signal; otherwise it returns 0. The pointer is valid only during the execution of the slot that calls this function from this object's thread context.</p>
 <p>The pointer returned by this function becomes invalid if the sender is destroyed, or if the slot is disconnected from the sender's signal.</p>
-<p><b>Warning:</b> This function violates the object-oriented principle of modularity. However, getting access to the sender might be useful when many signals are connected to a single slot.</p>
-<p><b>Warning:</b> As mentioned above, the return value of this function is not valid when the slot is called via a <a href="qt.html#ConnectionType-enum">Qt::DirectConnection</a> from a thread different from this object's thread. Do not use this function in this type of scenario.</p>
+<p><b>警告：</b> This function violates the object-oriented principle of modularity. However, getting access to the sender might be useful when many signals are connected to a single slot.</p>
+<p><b>警告：</b> As mentioned above, the return value of this function is not valid when the slot is called via a <a href="qt.html#ConnectionType-enum">Qt::DirectConnection</a> from a thread different from this object's thread. Do not use this function in this type of scenario.</p>
 <p><b> 参见 </b><a href="qobject.html#senderSignalIndex">senderSignalIndex</a>().</p>
 <!-- @@@sender -->
 <!-- $$$senderSignalIndex[overload1]$$$senderSignalIndex -->
 <h3 class="fn" id="senderSignalIndex"><a name="senderSignalIndex"></a><code>[保护函数] </code><span class="type">int</span> QObject::<span class="name">senderSignalIndex</span>() const</h3>
 <p>Returns the meta-method index of the signal that called the currently executing slot, which is a member of the class returned by <a href="qobject.html#sender">sender</a>(). If called outside of a slot activated by a signal, -1 is returned.</p>
 <p>For signals with default parameters, this function will always return the index with all parameters, regardless of which was used with <a href="qobject.html#connect">connect</a>(). For example, the signal <code>destroyed(QObject *obj = 0)</code> will have two different indexes (with and without the parameter), but this function will always return the index with a parameter. This does not apply when overloading signals with different parameters.</p>
-<p><b>Warning:</b> This function violates the object-oriented principle of modularity. However, getting access to the signal index might be useful when many signals are connected to a single slot.</p>
-<p><b>Warning:</b> The return value of this function is not valid when the slot is called via a <a href="qt.html#ConnectionType-enum">Qt::DirectConnection</a> from a thread different from this object's thread. Do not use this function in this type of scenario.</p>
+<p><b>警告：</b> This function violates the object-oriented principle of modularity. However, getting access to the signal index might be useful when many signals are connected to a single slot.</p>
+<p><b>警告：</b> The return value of this function is not valid when the slot is called via a <a href="qt.html#ConnectionType-enum">Qt::DirectConnection</a> from a thread different from this object's thread. Do not use this function in this type of scenario.</p>
 <p>这个函数是在Qt 4.8版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qobject.html#sender">sender</a>(), <a href="qmetaobject.html#indexOfSignal">QMetaObject::indexOfSignal</a>(), 和 <a href="qmetaobject.html#method">QMetaObject::method</a>().</p>
 <!-- @@@senderSignalIndex -->
@@ -1174,7 +1174,7 @@
 
 </pre>
 <p>See <a href="../qtdoc/i18n-source-translation.html">Writing Source Code for Translation</a> for a detailed description of Qt's translation mechanisms in general, and the <a href="../qtdoc/i18n-source-translation.html#disambiguation">Disambiguation</a> section for information on disambiguation.</p>
-<p><b>Warning:</b> This method is reentrant only if all translators are installed <i>before</i> calling this method. Installing or removing translators while performing translations is not supported. Doing so will probably result in crashes or other undesirable behavior.</p>
+<p><b>警告：</b> This method is reentrant only if all translators are installed <i>before</i> calling this method. Installing or removing translators while performing translations is not supported. Doing so will probably result in crashes or other undesirable behavior.</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#translate">QCoreApplication::translate</a>() 和 <a href="../qtdoc/internationalization.html">Qt国际化</a>.</p>
 <!-- @@@tr -->
 </div>
@@ -1220,7 +1220,7 @@
 </pre>
 <p>The <a href="qobject.html#qobject_cast">qobject_cast</a>() function behaves similarly to the standard C++ <code>dynamic_cast()</code>, with the advantages that it doesn't require RTTI support and it works across dynamic library boundaries.</p>
 <p><a href="qobject.html#qobject_cast">qobject_cast</a>() can also be used in conjunction with interfaces; see the <a href="../qtwidgets/qtwidgets-tools-plugandpaint-app-example.html">Plug &amp; Paint</a> example for details.</p>
-<p><b>Warning:</b> If T isn't declared with the <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro, this function's return value is undefined.</p>
+<p><b>警告：</b> If T isn't declared with the <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro, this function's return value is undefined.</p>
 <p><b> 参见 </b><a href="qobject.html#inherits">QObject::inherits</a>().</p>
 <!-- @@@ -->
 <!-- $$$QObjectList -->
@@ -1231,7 +1231,7 @@
 <h3 class="fn" id="qFindChildren"><a name="qFindChildren"></a><span class="type"><a href="qlist.html">QList</a></span>&lt;<span class="type">T</span>&gt; <span class="name">qFindChildren</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>obj</i>, const <span class="type"><a href="qregexp.html">QRegExp</a></span> &amp;<i>regExp</i>)</h3>
 <p>This function overloads qFindChildren().</p>
 <p>This function is equivalent to <i>obj</i>-&gt;<a href="qobject.html#findChildren">findChildren</a>&lt;T&gt;(<i>regExp</i>).</p>
-<p><b>Note: </b>This function was provided as a workaround for MSVC 6 which did not support member template functions. It is advised to use the other form in new code.</p><p><b> 参见 </b><a href="qobject.html#findChildren">QObject::findChildren</a>().</p>
+<p><b>注意： </b>This function was provided as a workaround for MSVC 6 which did not support member template functions. It is advised to use the other form in new code.</p><p><b> 参见 </b><a href="qobject.html#findChildren">QObject::findChildren</a>().</p>
 <!-- @@@qFindChildren -->
 <!-- $$$qobject_cast[overload1]$$$qobject_castQObject* -->
 <h3 class="fn" id="qobject_cast"><a name="qobject_cast"></a><span class="type">T</span> <span class="name">qobject_cast</span>(<span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>object</i>)</h3>
@@ -1368,14 +1368,14 @@
 
 </pre>
 <p>The declaration of the flags themselves is performed in the public section of the <a href="qlibrary.html">QLibrary</a> class itself, using the <a href="qflags.html#Q_DECLARE_FLAGS">Q_DECLARE_FLAGS</a>() macro.</p>
-<p><b>Note: </b>The Q_FLAG macro takes care of registering individual flag values with the meta-object system, so it is unnecessary to use <a href="qobject.html#Q_ENUM">Q_ENUM</a>() in addition to this macro.</p><p>这个函数是在Qt 5.5版本中新增引入的。</p>
+<p><b>注意： </b>The Q_FLAG macro takes care of registering individual flag values with the meta-object system, so it is unnecessary to use <a href="qobject.html#Q_ENUM">Q_ENUM</a>() in addition to this macro.</p><p>这个函数是在Qt 5.5版本中新增引入的。</p>
 <p><b> 参见 </b><a href="properties.html">Qt属性系统</a>.</p>
 <!-- @@@Q_FLAG -->
 <!-- $$$Q_FLAG_NS[overload1]$$$Q_FLAG_NS... -->
 <h3 class="fn" id="Q_FLAG_NS"><a name="Q_FLAG_NS"></a><span class="name">Q_FLAG_NS</span>(<i> ...</i>)</h3>
 <p>This macro registers a single <a href="qflags.html">flags type</a> with the meta-object system. It is used in a namespace that has the <a href="qobject.html#Q_NAMESPACE">Q_NAMESPACE</a> macro, to declare that values of a given enum can be used as flags and combined using the bitwise OR operator. It is the same as <a href="qobject.html#Q_FLAG">Q_FLAG</a> but in a namespace.</p>
 <p>The macro must be placed after the enum declaration.</p>
-<p><b>Note: </b>The Q_FLAG_NS macro takes care of registering individual flag values with the meta-object system, so it is unnecessary to use <a href="qobject.html#Q_ENUM_NS">Q_ENUM_NS</a>() in addition to this macro.</p><p>这个函数是在Qt 5.8版本中新增引入的。</p>
+<p><b>注意： </b>The Q_FLAG_NS macro takes care of registering individual flag values with the meta-object system, so it is unnecessary to use <a href="qobject.html#Q_ENUM_NS">Q_ENUM_NS</a>() in addition to this macro.</p><p>这个函数是在Qt 5.8版本中新增引入的。</p>
 <p><b> 参见 </b><a href="properties.html">Qt属性系统</a>.</p>
 <!-- @@@Q_FLAG_NS -->
 <!-- $$$Q_GADGET[overload1]$$$Q_GADGET -->
@@ -1461,7 +1461,7 @@
   };
 
 </pre>
-<p><b>Note: </b>This macro requires the class to be a subclass of <a href="qobject.html">QObject</a>. Use <a href="qobject.html#Q_GADGET">Q_GADGET</a> instead of Q_OBJECT to enable the meta object system's support for enums in a class that is not a <a href="qobject.html">QObject</a> subclass.</p><p><b> 参见 </b><a href="metaobjects.html">元对象系统</a>, <a href="signalsandslots.html">信号和槽函数</a>, 和 <a href="properties.html">Qt属性系统</a>.</p>
+<p><b>注意： </b>This macro requires the class to be a subclass of <a href="qobject.html">QObject</a>. Use <a href="qobject.html#Q_GADGET">Q_GADGET</a> instead of Q_OBJECT to enable the meta object system's support for enums in a class that is not a <a href="qobject.html">QObject</a> subclass.</p><p><b> 参见 </b><a href="metaobjects.html">元对象系统</a>, <a href="signalsandslots.html">信号和槽函数</a>, 和 <a href="properties.html">Qt属性系统</a>.</p>
 <!-- @@@Q_OBJECT -->
 <!-- $$$Q_PROPERTY[overload1]$$$Q_PROPERTY... -->
 <h3 class="fn" id="Q_PROPERTY"><a name="Q_PROPERTY"></a><span class="name">Q_PROPERTY</span>(<i> ...</i>)</h3>

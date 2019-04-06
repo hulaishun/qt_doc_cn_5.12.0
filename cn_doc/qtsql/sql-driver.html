@@ -73,11 +73,11 @@
 <tr valign="top" class="even"><td ><a href="sql-driver.html#qpsql">QPSQL</a></td><td >PostgreSQL (versions 7.3 and above)</td></tr>
 <tr valign="top" class="odd"><td ><a href="sql-driver.html#qsqlite2">QSQLITE2</a></td><td ><a href="qtsql-attribution-sqlite.html">SQLite</a> version 2</td></tr>
 <tr valign="top" class="even"><td ><a href="sql-driver.html#qsqlite">QSQLITE</a></td><td ><a href="qtsql-attribution-sqlite.html">SQLite</a> version 3</td></tr>
-<tr valign="top" class="odd"><td ><a href="sql-driver.html#qtds">QTDS</a></td><td >Sybase Adaptive Server<p><b>Note: </b>obsolete from Qt 4.7</p></td></tr>
+<tr valign="top" class="odd"><td ><a href="sql-driver.html#qtds">QTDS</a></td><td >Sybase Adaptive Server<p><b>注意： </b>obsolete from Qt 4.7</p></td></tr>
 </table></div>
 <p><a href="qtsql-attribution-sqlite.html">SQLite</a> is the in-process database system with the best test coverage and support on all platforms. Oracle via OCI, PostgreSQL, and MySQL through either ODBC or a native driver are well-tested on Windows and Linux. The completeness of the support for other systems depends on the availability and quality of client libraries.</p>
 <p><b>Note:</b> To build a driver plugin you need to have the appropriate client library for your Database Management System (DBMS). This provides access to the API exposed by the DBMS, and is typically shipped with it. Most installation programs also allow you to install &quot;development libraries&quot;, and these are what you need. These libraries are responsible for the low-level communication with the DBMS.</p>
-<p><b>Note: </b>When using Qt under Open Source terms but with a proprietary database, verify the client library's license compatibility with the LGPL.</p><a name="building"></a><a name="building-the-drivers"></a>
+<p><b>注意： </b>When using Qt under Open Source terms but with a proprietary database, verify the client library's license compatibility with the LGPL.</p><a name="building"></a><a name="building-the-drivers"></a>
 <h2 id="building-the-drivers">Building the Drivers</h2>
 <p>The Qt <code>configure</code> script tries to automatically detect the available client libraries on your machine. Run <code>configure -help</code> to see what drivers can be built. You should get an output similar to this:</p>
 <pre class="cpp">
@@ -303,7 +303,7 @@
 <a name="qpsql-forward-only-query-support"></a>
 <h4 >QPSQL Forward-only query support</h4>
 <p>To use forward-only queries, you must build the QPSQL plugin with PostreSQL client library version 9.2 or later. If the plugin is built with an older version, then forward-only mode will not be available - calling <a href="qsqlquery.html#setForwardOnly">QSqlQuery::setForwardOnly</a>() with <code>true</code> will have no effect.</p>
-<p><b>Warning:</b> If you build the QPSQL plugin with PostgreSQL version 9.2 or later, then you must distribute your application with libpq version 9.2 or later. Otherwise, loading the QPSQL plugin will fail with the following message:</p>
+<p><b>警告：</b> If you build the QPSQL plugin with PostgreSQL version 9.2 or later, then you must distribute your application with libpq version 9.2 or later. Otherwise, loading the QPSQL plugin will fail with the following message:</p>
 <pre class="cpp">
 
   <span class="type"><a href="qsqldatabase.html">QSqlDatabase</a></span>: QPSQL driver <span class="keyword">not</span> loaded
@@ -346,7 +346,7 @@
 
 </pre>
 <p>This problem will not occur if query1 and query2 use different database connections, or if we execute query2 after the while loop.</p>
-<p><b>Note: </b>Some methods of <a href="qsqldatabase.html">QSqlDatabase</a> like tables(), primaryIndex() implicity execute SQL queries, so these also cannot be used while navigating the results of forward-only query.</p><p><b>Note: </b>QPSQL will print the following warning if it detects a loss of query results:</p><pre class="cpp">
+<p><b>注意： </b>Some methods of <a href="qsqldatabase.html">QSqlDatabase</a> like tables(), primaryIndex() implicity execute SQL queries, so these also cannot be used while navigating the results of forward-only query.</p><p><b>注意： </b>QPSQL will print the following warning if it detects a loss of query results:</p><pre class="cpp">
 
   <span class="type">QPSQLDriver</span><span class="operator">::</span>getResult: Query results lost <span class="operator">-</span> probably discarded on executing another SQL query<span class="operator">.</span>
 
@@ -375,7 +375,7 @@
 <p>Users of <a href="https://mingw-w64.org/">MinGW</a> may wish to consult the following online document: <a href="http://www.postgresql.org/docs/current/static/installation-platform-notes.html#INSTALLATION-NOTES-MINGW">PostgreSQL MinGW/Native Windows</a>.</p>
 <a name="qtds"></a><a name="qtds-for-sybase-adaptive-server"></a>
 <h3 >QTDS for Sybase Adaptive Server</h3>
-<p><b>Note: </b>TDS is no longer used by MS Sql Server, and is superseded by <a href="sql-driver.html#qodbc">ODBC</a>. QTDS is obsolete from Qt 4.7&#x2e;</p><p>It is not possible to set the port with <a href="qsqldatabase.html#setPort">QSqlDatabase::setPort</a>() due to limitations in the Sybase client library. Refer to the Sybase documentation for information on how to set up a Sybase client configuration file to enable connections to databases on non-default ports.</p>
+<p><b>注意： </b>TDS is no longer used by MS Sql Server, and is superseded by <a href="sql-driver.html#qodbc">ODBC</a>. QTDS is obsolete from Qt 4.7&#x2e;</p><p>It is not possible to set the port with <a href="qsqldatabase.html#setPort">QSqlDatabase::setPort</a>() due to limitations in the Sybase client library. Refer to the Sybase documentation for information on how to set up a Sybase client configuration file to enable connections to databases on non-default ports.</p>
 <a name="how-to-build-the-qtds-plugin-on-unix-and-macos"></a>
 <h4 >How to Build the QTDS Plugin on Unix and macOS</h4>
 <p>Under Unix, two libraries are available which support the TDS protocol:</p>

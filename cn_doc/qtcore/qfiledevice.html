@@ -211,8 +211,8 @@
 <tr><td class="topAlign"><code>QFileDevice::WriteOther</code></td><td class="topAlign tblval"><code>0x0002</code></td><td class="topAlign">The file is writable by anyone.</td></tr>
 <tr><td class="topAlign"><code>QFileDevice::ExeOther</code></td><td class="topAlign tblval"><code>0x0001</code></td><td class="topAlign">The file is executable by anyone.</td></tr>
 </table></div>
-<p><b>Warning:</b> Because of differences in the platforms supported by Qt, the semantics of ReadUser, WriteUser and ExeUser are platform-dependent: On Unix, the rights of the owner of the file are returned and on Windows the rights of the current user are returned. This behavior might change in a future Qt version.</p>
-<p><b>Note: </b>On NTFS file systems, ownership and permissions checking is disabled by default for performance reasons. To enable it, include the following line:</p><pre class="cpp">
+<p><b>警告：</b> Because of differences in the platforms supported by Qt, the semantics of ReadUser, WriteUser and ExeUser are platform-dependent: On Unix, the rights of the owner of the file are returned and on Windows the rights of the current user are returned. This behavior might change in a future Qt version.</p>
+<p><b>注意： </b>On NTFS file systems, ownership and permissions checking is disabled by default for performance reasons. To enable it, include the following line:</p><pre class="cpp">
 
   <span class="keyword">extern</span> Q_CORE_EXPORT <span class="type">int</span> qt_ntfs_permission_lookup;
 
@@ -266,7 +266,7 @@
 <!-- @@@fileTime -->
 <!-- $$$flush[overload1]$$$flush -->
 <h3 class="fn" id="flush"><a name="flush"></a><span class="type">bool</span> QFileDevice::<span class="name">flush</span>()</h3>
-<p>Flushes any buffered data to the file. Returns <code>true</code> if successful; otherwise returns <code>false</code>.</p>
+<p>Flushes any buffered data to the file. 若成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
 <!-- @@@flush -->
 <!-- $$$handle[overload1]$$$handle -->
 <h3 class="fn" id="handle"><a name="handle"></a><span class="type">int</span> QFileDevice::<span class="name">handle</span>() const</h3>
@@ -310,7 +310,7 @@
 <!-- $$$resize[overload1]$$$resizeqint64 -->
 <h3 class="fn" id="resize"><a name="resize"></a><code>[虚函数] </code><span class="type">bool</span> QFileDevice::<span class="name">resize</span>(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> <i>sz</i>)</h3>
 <p>Sets the file size (in bytes) <i>sz</i>. Returns <code>true</code> if the resize succeeds; false otherwise. If <i>sz</i> is larger than the file currently is, the new bytes will be set to 0; if <i>sz</i> is smaller, the file is simply truncated.</p>
-<p><b>Warning:</b> This function can fail if the file doesn't exist.</p>
+<p><b>警告：</b> 若文件不存在则该函数将失败。</p>
 <p><b> 参见 </b><a href="qfiledevice.html#size">size</a>().</p>
 <!-- @@@resize -->
 <!-- $$$seek[overload1]$$$seekqint64 -->
@@ -322,13 +322,13 @@
 <!-- $$$setFileTime[overload1]$$$setFileTimeconstQDateTime&QFileDevice::FileTime -->
 <h3 class="fn" id="setFileTime"><a name="setFileTime"></a><span class="type">bool</span> QFileDevice::<span class="name">setFileTime</span>(const <span class="type"><a href="qdatetime.html">QDateTime</a></span> &amp;<i>newDate</i>, <span class="type"><a href="qfiledevice.html#FileTime-enum">QFileDevice::FileTime</a></span> <i>fileTime</i>)</h3>
 <p>Sets the file time specified by <i>fileTime</i> to <i>newDate</i>, returning true if successful; otherwise returns false.</p>
-<p><b>Note: </b>The file must be open to use this function.</p><p>这个函数是在Qt 5.10版本中新增引入的。</p>
+<p><b>注意： </b>The file must be open to use this function.</p><p>这个函数是在Qt 5.10版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qfiledevice.html#fileTime">fileTime</a>() 和 <a href="qfiledevice.html#FileTime-enum">FileTime</a>.</p>
 <!-- @@@setFileTime -->
 <!-- $$$setPermissions[overload1]$$$setPermissionsQFileDevice::Permissions -->
 <h3 class="fn" id="setPermissions"><a name="setPermissions"></a><code>[虚函数] </code><span class="type">bool</span> QFileDevice::<span class="name">setPermissions</span>(<span class="type"><a href="qfiledevice.html#Permission-enum">QFileDevice::Permissions</a></span> <i>permissions</i>)</h3>
-<p>Sets the permissions for the file to the <i>permissions</i> specified. Returns <code>true</code> if successful, or <code>false</code> if the permissions cannot be modified.</p>
-<p><b>Warning:</b> This function does not manipulate ACLs, which may limit its effectiveness.</p>
+<p>Sets the permissions for the file to the <i>permissions</i> specified. 若成功则返回 <code>true</code> ；若权限不能被修改则返回 <code>false</code>。</p>
+<p><b>警告：</b> This function does not manipulate ACLs, which may limit its effectiveness.</p>
 <p><b> 参见 </b><a href="qfiledevice.html#permissions">permissions</a>().</p>
 <!-- @@@setPermissions -->
 <!-- $$$size[overload1]$$$size -->

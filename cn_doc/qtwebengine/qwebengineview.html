@@ -323,7 +323,7 @@
 <!-- $$$createWindow[overload1]$$$createWindowQWebEnginePage::WebWindowType -->
 <h3 class="fn" id="createWindow"><a name="createWindow"></a><code>[虚保护函数] </code><span class="type"><a href="qwebengineview.html#QWebEngineView">QWebEngineView</a></span> *QWebEngineView::<span class="name">createWindow</span>(<span class="type"><a href="qwebenginepage.html#WebWindowType-enum">QWebEnginePage::WebWindowType</a></span> <i>type</i>)</h3>
 <p>This function is called from the <a href="qwebenginepage.html#createWindow">createWindow()</a> method of the associated <a href="qwebenginepage.html">QWebEnginePage</a> each time the page wants to create a new window of the given <i>type</i>. For example, when a JavaScript request to open a document in a new window is issued.</p>
-<p><b>Note: </b>If the <code>createWindow()</code> method of the associated page is reimplemented, this method is not called, unless explicitly done so in the reimplementation.</p><p><b> 参见 </b><a href="qwebenginepage.html#createWindow">QWebEnginePage::createWindow</a>().</p>
+<p><b>注意： </b>If the <code>createWindow()</code> method of the associated page is reimplemented, this method is not called, unless explicitly done so in the reimplementation.</p><p><b> 参见 </b><a href="qwebenginepage.html#createWindow">QWebEnginePage::createWindow</a>().</p>
 <!-- @@@createWindow -->
 <!-- $$$dragEnterEvent[overload1]$$$dragEnterEventQDragEnterEvent* -->
 <h3 class="fn" id="dragEnterEvent"><a name="dragEnterEvent"></a><code>[重载虚保护函数] </code><span class="type">void</span> QWebEngineView::<span class="name">dragEnterEvent</span>(<span class="type"><a href="../qtgui/qdragenterevent.html">QDragEnterEvent</a></span> *<i>e</i>)</h3>
@@ -391,7 +391,7 @@
 <!-- $$$load[overload1]$$$loadconstQUrl& -->
 <h3 class="fn" id="load"><a name="load"></a><span class="type">void</span> QWebEngineView::<span class="name">load</span>(const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>url</i>)</h3>
 <p>Loads the specified <i>url</i> and displays it.</p>
-<p><b>Note: </b>The view remains the same until enough data has arrived to display the new URL.</p><p><b> 参见 </b>load(), <a href="qwebengineview.html#url-prop">setUrl</a>(), <a href="qwebengineview.html#url-prop">url</a>(), <a href="qwebengineview.html#urlChanged">urlChanged</a>(), 和 <a href="../qtcore/qurl.html#fromUserInput">QUrl::fromUserInput</a>().</p>
+<p><b>注意： </b>The view remains the same until enough data has arrived to display the new URL.</p><p><b> 参见 </b>load(), <a href="qwebengineview.html#url-prop">setUrl</a>(), <a href="qwebengineview.html#url-prop">url</a>(), <a href="qwebengineview.html#urlChanged">urlChanged</a>(), 和 <a href="../qtcore/qurl.html#fromUserInput">QUrl::fromUserInput</a>().</p>
 <!-- @@@load -->
 <!-- $$$load$$$loadconstQWebEngineHttpRequest& -->
 <h3 class="fn" id="load-1"><a name="load-1"></a><span class="type">void</span> QWebEngineView::<span class="name">load</span>(const <span class="type"><a href="qwebenginehttprequest.html">QWebEngineHttpRequest</a></span> &amp;<i>request</i>)</h3>
@@ -437,7 +437,7 @@
 <!-- $$$selectionChanged[overload1]$$$selectionChanged -->
 <h3 class="fn" id="selectionChanged"><a name="selectionChanged"></a><code>[信号] </code><span class="type">void</span> QWebEngineView::<span class="name">selectionChanged</span>()</h3>
 <p>只要选中内容发生变化，就会触发该信号。</p>
-<p><b>Note: </b>When using the mouse to select text by left-clicking and dragging, the signal will be emitted for each new character selected, and not upon releasing the left mouse button.</p><p><b> 参见 </b><a href="qwebengineview.html#selectedText-prop">selectedText</a>().</p>
+<p><b>注意： </b>When using the mouse to select text by left-clicking and dragging, the signal will be emitted for each new character selected, and not upon releasing the left mouse button.</p><p><b> 参见 </b><a href="qwebengineview.html#selectedText-prop">selectedText</a>().</p>
 <!-- @@@selectionChanged -->
 <!-- $$$setContent[overload1]$$$setContentconstQByteArray&constQString&constQUrl& -->
 <h3 class="fn" id="setContent"><a name="setContent"></a><span class="type">void</span> QWebEngineView::<span class="name">setContent</span>(const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>data</i>, const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>mimeType</i> = QString(), const <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> &amp;<i>baseUrl</i> = QUrl())</h3>
@@ -453,8 +453,8 @@
 <p>The HTML document is loaded immediately, whereas external objects are loaded asynchronously.</p>
 <p>When using this method, Qt WebEngine assumes that external resources, such as JavaScript programs or style sheets, are encoded in UTF-8 unless otherwise specified. For example, the encoding of an external script can be specified through the <code>charset</code> attribute of the HTML script tag. Alternatively, the encoding can be specified by the web server.</p>
 <p>This is a convenience function equivalent to <code>setContent(html, &quot;text/html;charset=UTF-8&quot;, baseUrl)</code>.</p>
-<p><b>Warning:</b> This function works only for HTML. For other MIME types (such as XHTML or SVG), <a href="qwebengineview.html#setContent">setContent</a>() should be used instead.</p>
-<p><b>Note: </b>Content larger than 2 MB cannot be displayed, because setHtml() converts the provided HTML to percent-encoding and places <code>data</code>: in front of it to create the URL that it navigates to. Thereby, the provided code becomes a URL that exceeds the 2 MB limit set by Chromium. If the content is too large, the <a href="qwebengineview.html#loadFinished">loadFinished</a>() signal is triggered with <code>success=false</code>.</p><p><b> 参见 </b><a href="qwebengineview.html#load">load</a>(), <a href="qwebengineview.html#setContent">setContent</a>(), <a href="qwebenginepage.html#toHtml">QWebEnginePage::toHtml</a>(), 和 <a href="qwebenginepage.html#setContent">QWebEnginePage::setContent</a>().</p>
+<p><b>警告：</b> This function works only for HTML. For other MIME types (such as XHTML or SVG), <a href="qwebengineview.html#setContent">setContent</a>() should be used instead.</p>
+<p><b>注意： </b>Content larger than 2 MB cannot be displayed, because setHtml() converts the provided HTML to percent-encoding and places <code>data</code>: in front of it to create the URL that it navigates to. Thereby, the provided code becomes a URL that exceeds the 2 MB limit set by Chromium. If the content is too large, the <a href="qwebengineview.html#loadFinished">loadFinished</a>() signal is triggered with <code>success=false</code>.</p><p><b> 参见 </b><a href="qwebengineview.html#load">load</a>(), <a href="qwebengineview.html#setContent">setContent</a>(), <a href="qwebenginepage.html#toHtml">QWebEnginePage::toHtml</a>(), 和 <a href="qwebenginepage.html#setContent">QWebEnginePage::setContent</a>().</p>
 <!-- @@@setHtml -->
 <!-- $$$setPage[overload1]$$$setPageQWebEnginePage* -->
 <h3 class="fn" id="setPage"><a name="setPage"></a><span class="type">void</span> QWebEngineView::<span class="name">setPage</span>(<span class="type"><a href="qwebenginepage.html">QWebEnginePage</a></span> *<i>page</i>)</h3>

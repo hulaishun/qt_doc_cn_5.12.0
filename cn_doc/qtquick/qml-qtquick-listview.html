@@ -240,7 +240,7 @@
   }
 
 </pre>
-<p><b>Note: </b>Views do not enable <i>clip</i> automatically. If the view is not clipped by another item or the screen, it will be necessary to set <i>clip: true</i> in order to have the out of view items clipped nicely.</p><a name="listview-layouts"></a>
+<p><b>注意： </b>Views do not enable <i>clip</i> automatically. If the view is not clipped by another item or the screen, it will be necessary to set <i>clip: true</i> in order to have the out of view items clipped nicely.</p><a name="listview-layouts"></a>
 <h2 id="listview-layouts">ListView Layouts</h2>
 <p>The layout of the items in a <a href="qml-qtquick-listview.html">ListView</a> can be controlled by these properties:</p>
 <ul>
@@ -311,7 +311,7 @@
 </pre>
 <p>Whenever an item is added to the above view, the item will be animated from the position (100,100) to its final x,y position within the view, over one second. The transition only applies to the new items that are added to the view; it does not apply to the items below that are displaced by the addition of the new items. To animate the displaced items, set the <a href="qml-qtquick-listview.html#displaced-prop">displaced</a> or <a href="qml-qtquick-listview.html#addDisplaced-prop">addDisplaced</a> properties.</p>
 <p>For more details and examples on how to use view transitions, see the <a href="qml-qtquick-viewtransition.html">ViewTransition</a> documentation.</p>
-<p><b>Note: </b>This transition is not applied to the items that are created when the view is initially populated, or when the view's <a href="qml-qtquick-listview.html#model-prop">model</a> changes. (In those cases, the <a href="qml-qtquick-listview.html#populate-prop">populate</a> transition is applied instead.) Additionally, this transition should <i>not</i> animate the height of the new item; doing so will cause any items beneath the new item to be laid out at the wrong position. Instead, the height can be animated within the onAdd handler in the delegate.</p><p><b> 参见 </b><a href="qml-qtquick-listview.html#addDisplaced-prop">addDisplaced</a>, <a href="qml-qtquick-listview.html#populate-prop">populate</a>, 和 <a href="qml-qtquick-viewtransition.html">ViewTransition</a>.</p>
+<p><b>注意： </b>This transition is not applied to the items that are created when the view is initially populated, or when the view's <a href="qml-qtquick-listview.html#model-prop">model</a> changes. (In those cases, the <a href="qml-qtquick-listview.html#populate-prop">populate</a> transition is applied instead.) Additionally, this transition should <i>not</i> animate the height of the new item; doing so will cause any items beneath the new item to be laid out at the wrong position. Instead, the height can be animated within the onAdd handler in the delegate.</p><p><b> 参见 </b><a href="qml-qtquick-listview.html#addDisplaced-prop">addDisplaced</a>, <a href="qml-qtquick-listview.html#populate-prop">populate</a>, 和 <a href="qml-qtquick-viewtransition.html">ViewTransition</a>.</p>
 </div></div><!-- @@@add -->
 <br/>
 <!-- $$$addDisplaced -->
@@ -336,7 +336,7 @@
 <p>Whenever an item is added to the above view, all items beneath the new item are displaced, causing them to move down (or sideways, if horizontally orientated) within the view. As this displacement occurs, the items' movement to their new x,y positions within the view will be animated by a <a href="qml-qtquick-numberanimation.html">NumberAnimation</a> over one second, as specified. This transition is not applied to the new item that has been added to the view; to animate the added items, set the <a href="qml-qtquick-listview.html#add-prop">add</a> property.</p>
 <p>If an item is displaced by multiple types of operations at the same time, it is not defined as to whether the addDisplaced, <a href="qml-qtquick-listview.html#moveDisplaced-prop">moveDisplaced</a> or <a href="qml-qtquick-listview.html#removeDisplaced-prop">removeDisplaced</a> transition will be applied. Additionally, if it is not necessary to specify different transitions depending on whether an item is displaced by an add, move or remove operation, consider setting the <a href="qml-qtquick-listview.html#displaced-prop">displaced</a> property instead.</p>
 <p>For more details and examples on how to use view transitions, see the <a href="qml-qtquick-viewtransition.html">ViewTransition</a> documentation.</p>
-<p><b>Note: </b>This transition is not applied to the items that are created when the view is initially populated, or when the view's <a href="qml-qtquick-listview.html#model-prop">model</a> changes. In those cases, the <a href="qml-qtquick-listview.html#populate-prop">populate</a> transition is applied instead.</p><p><b> 参见 </b><a href="qml-qtquick-listview.html#displaced-prop">displaced</a>, <a href="qml-qtquick-listview.html#add-prop">add</a>, <a href="qml-qtquick-listview.html#populate-prop">populate</a>, 和 <a href="qml-qtquick-viewtransition.html">ViewTransition</a>.</p>
+<p><b>注意： </b>This transition is not applied to the items that are created when the view is initially populated, or when the view's <a href="qml-qtquick-listview.html#model-prop">model</a> changes. In those cases, the <a href="qml-qtquick-listview.html#populate-prop">populate</a> transition is applied instead.</p><p><b> 参见 </b><a href="qml-qtquick-listview.html#displaced-prop">displaced</a>, <a href="qml-qtquick-listview.html#add-prop">add</a>, <a href="qml-qtquick-listview.html#populate-prop">populate</a>, 和 <a href="qml-qtquick-viewtransition.html">ViewTransition</a>.</p>
 </div></div><!-- @@@addDisplaced -->
 <br/>
 <!-- $$$cacheBuffer -->
@@ -350,7 +350,7 @@
 <p>If this value is greater than zero, the view may keep as many delegates instantiated as it can fit within the buffer specified. For example, if in a vertical view the delegate is 20 pixels high and <code>cacheBuffer</code> is set to 40, then up to 2 delegates above and 2 delegates below the visible area may be created/retained. The buffered delegates are created asynchronously, allowing creation to occur across multiple frames and reducing the likelihood of skipping frames. In order to improve painting performance delegates outside the visible area are not painted.</p>
 <p>The default value of this property is platform dependent, but will usually be a value greater than zero. Negative values are ignored.</p>
 <p>Note that cacheBuffer is not a pixel buffer - it only maintains additional instantiated delegates.</p>
-<p><b>Note: </b>Setting this property is not a replacement for creating efficient delegates. It can improve the smoothness of scrolling behavior at the expense of additional memory usage. The fewer objects and bindings in a delegate, the faster a view can be scrolled. It is important to realize that setting a cacheBuffer will only postpone issues caused by slow-loading delegates, it is not a solution for this scenario.</p><p>The cacheBuffer operates outside of any display margins specified by <a href="qml-qtquick-listview.html#displayMarginBeginning-prop">displayMarginBeginning</a> or <a href="qml-qtquick-listview.html#displayMarginEnd-prop">displayMarginEnd</a>.</p>
+<p><b>注意： </b>Setting this property is not a replacement for creating efficient delegates. It can improve the smoothness of scrolling behavior at the expense of additional memory usage. The fewer objects and bindings in a delegate, the faster a view can be scrolled. It is important to realize that setting a cacheBuffer will only postpone issues caused by slow-loading delegates, it is not a solution for this scenario.</p><p>The cacheBuffer operates outside of any display margins specified by <a href="qml-qtquick-listview.html#displayMarginBeginning-prop">displayMarginBeginning</a> or <a href="qml-qtquick-listview.html#displayMarginEnd-prop">displayMarginEnd</a>.</p>
 </div></div><!-- @@@cacheBuffer -->
 <br/>
 <!-- $$$count -->
@@ -409,7 +409,7 @@
 <p>The <a href="qml-qtquick-listview.html">ListView</a> will lay out the items based on the size of the root item in the delegate.</p>
 <p>It is recommended that the delegate's size be a whole number to avoid sub-pixel alignment of items.</p>
 <p>The default <a href="qquickitem.html#z-prop">stacking order</a> of delegate instances is <code>1</code>.</p>
-<p><b>Note: </b>Delegates are instantiated as needed and may be destroyed at any time. They are parented to <a href="qml-qtquick-listview.html">ListView</a>'s <a href="qml-qtquick-flickable.html#contentItem-prop">contentItem</a>, not to the view itself. State should <i>never</i> be stored in a delegate.</p><p><b> 参见 </b><a href="qml-qtquick-listview.html#stacking-order-in-listview">Stacking Order in ListView</a>.</p>
+<p><b>注意： </b>Delegates are instantiated as needed and may be destroyed at any time. They are parented to <a href="qml-qtquick-listview.html">ListView</a>'s <a href="qml-qtquick-flickable.html#contentItem-prop">contentItem</a>, not to the view itself. State should <i>never</i> be stored in a delegate.</p><p><b> 参见 </b><a href="qml-qtquick-listview.html#stacking-order-in-listview">Stacking Order in ListView</a>.</p>
 </div></div><!-- @@@delegate -->
 <br/>
 <!-- $$$displaced -->
@@ -517,7 +517,7 @@
 <li><a href="qml-qtquick-listview.html">ListView</a>.OverlayFooter - the footer is positioned in the end of the view.</li>
 <li><a href="qml-qtquick-listview.html">ListView</a>.PullBackFooter - the footer is positioned in the end of the view. The footer can be pushed away by moving the content backwards, and pulled back by moving the content forwards.</li>
 </ul>
-<p><b>Note: </b>This property has no effect on the <a href="qquickitem.html#z-prop">stacking order</a> of the footer. For example, if the footer should be shown above the <a href="qml-qtquick-listview.html#delegate-prop">delegate</a> items when using <code>ListView.OverlayFooter</code>, its Z value should be set to a value higher than that of the delegates. For more information, see <a href="qml-qtquick-listview.html#stacking-order-in-listview">Stacking Order in ListView</a>.</p><p>这个属性是在Qt 5.4版本中新增引入的。</p>
+<p><b>注意： </b>This property has no effect on the <a href="qquickitem.html#z-prop">stacking order</a> of the footer. For example, if the footer should be shown above the <a href="qml-qtquick-listview.html#delegate-prop">delegate</a> items when using <code>ListView.OverlayFooter</code>, its Z value should be set to a value higher than that of the delegates. For more information, see <a href="qml-qtquick-listview.html#stacking-order-in-listview">Stacking Order in ListView</a>.</p><p>这个属性是在Qt 5.4版本中新增引入的。</p>
 </div></div><!-- @@@footerPositioning -->
 <br/>
 <!-- $$$header -->
@@ -558,7 +558,7 @@
 <li><a href="qml-qtquick-listview.html">ListView</a>.OverlayHeader - the header is positioned in the beginning of the view.</li>
 <li><a href="qml-qtquick-listview.html">ListView</a>.PullBackHeader - the header is positioned in the beginning of the view. The header can be pushed away by moving the content forwards, and pulled back by moving the content backwards.</li>
 </ul>
-<p><b>Note: </b>This property has no effect on the <a href="qquickitem.html#z-prop">stacking order</a> of the header. For example, if the header should be shown above the <a href="qml-qtquick-listview.html#delegate-prop">delegate</a> items when using <code>ListView.OverlayHeader</code>, its Z value should be set to a value higher than that of the delegates. For more information, see <a href="qml-qtquick-listview.html#stacking-order-in-listview">Stacking Order in ListView</a>.</p><p>这个属性是在Qt 5.4版本中新增引入的。</p>
+<p><b>注意： </b>This property has no effect on the <a href="qquickitem.html#z-prop">stacking order</a> of the header. For example, if the header should be shown above the <a href="qml-qtquick-listview.html#delegate-prop">delegate</a> items when using <code>ListView.OverlayHeader</code>, its Z value should be set to a value higher than that of the delegates. For more information, see <a href="qml-qtquick-listview.html#stacking-order-in-listview">Stacking Order in ListView</a>.</p><p>这个属性是在Qt 5.4版本中新增引入的。</p>
 </div></div><!-- @@@headerPositioning -->
 <br/>
 <!-- $$$highlight -->
@@ -957,7 +957,7 @@
 <ul>
 <li>ViewSection.InlineLabels - section labels are shown inline between the item delegates separating sections (default).</li>
 <li>ViewSection.CurrentLabelAtStart - the current section label sticks to the start of the view as it is moved.</li>
-<li>ViewSection.NextLabelAtEnd - the next section label (beyond all visible sections) sticks to the end of the view as it is moved.<p><b>Note: </b>Enabling <code>ViewSection.NextLabelAtEnd</code> requires the view to scan ahead for the next section, which has performance implications, especially for slower models.</p></li>
+<li>ViewSection.NextLabelAtEnd - the next section label (beyond all visible sections) sticks to the end of the view as it is moved.<p><b>注意： </b>Enabling <code>ViewSection.NextLabelAtEnd</code> requires the view to scan ahead for the next section, which has performance implications, especially for slower models.</p></li>
 </ul>
 <p>Each item in the list has attached properties named <code>ListView.section</code>, <code>ListView.previousSection</code> and <code>ListView.nextSection</code>.</p>
 <p>For example, here is a <a href="qml-qtquick-listview.html">ListView</a> that displays a list of animals, separated into sections. Each item in the <a href="qml-qtquick-listview.html">ListView</a> is placed in a different section depending on the &quot;size&quot; property of the model item. The <code>sectionHeading</code> delegate component provides the light blue bar that marks the beginning of each section.</p>
@@ -993,7 +993,7 @@
       }
 
 </pre>
-<p class="centerAlign"><img src="images/qml-listview-sections-example.png" alt="" /></p><p><b>Note: </b>Adding sections to a <a href="qml-qtquick-listview.html">ListView</a> does not automatically re-order the list items by the section criteria. If the model is not ordered by section, then it is possible that the sections created will not be unique; each boundary between differing sections will result in a section header being created even if that section exists elsewhere.</p><p><b> 参见 </b><a href="qtquick-views-example.html">ListView examples</a> 和 <a href="qml-qtquick-listview.html#stacking-order-in-listview">Stacking Order in ListView</a>.</p>
+<p class="centerAlign"><img src="images/qml-listview-sections-example.png" alt="" /></p><p><b>注意： </b>Adding sections to a <a href="qml-qtquick-listview.html">ListView</a> does not automatically re-order the list items by the section criteria. If the model is not ordered by section, then it is possible that the sections created will not be unique; each boundary between differing sections will result in a section header being created even if that section exists elsewhere.</p><p><b> 参见 </b><a href="qtquick-views-example.html">ListView examples</a> 和 <a href="qml-qtquick-listview.html#stacking-order-in-listview">Stacking Order in ListView</a>.</p>
 </div></div><!-- @@@section -->
 <br/>
 <!-- $$$snapMode -->

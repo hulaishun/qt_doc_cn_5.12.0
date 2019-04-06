@@ -165,7 +165,7 @@
 </ul>
 <p><a href="qstringview.html">QStringView</a> can also be used as the return value of a function. If you call a function returning <a href="qstringview.html">QStringView</a>, take extra care to not keep the <a href="qstringview.html">QStringView</a> around longer than the function promises to keep the referenced string data alive. If in doubt, obtain a strong reference to the data by calling <a href="qstringview.html#toString">toString</a>() to convert the <a href="qstringview.html">QStringView</a> into a <a href="qstring.html">QString</a>.</p>
 <p><a href="qstringview.html">QStringView</a> is a <i>Literal Type</i>, but since it stores data as <code>char16_t</code>, iteration is not <code>constexpr</code> (casts from <code>const char16_t*</code> to <code>const QChar*</code>, which is not allowed in <code>constexpr</code> functions). You can use an indexed loop and/or <a href="qstringview.html#utf16">utf16</a>() in <code>constexpr</code> contexts instead.</p>
-<p><b>Note: </b>We strongly discourage the use of <a href="qlist.html">QList</a>&lt;<a href="qstringview.html">QStringView</a>&gt;, because <a href="qlist.html">QList</a> is a very inefficient container for QStringViews (it would heap-allocate every element). Use <a href="qvector.html">QVector</a> (or std::vector) to hold QStringViews instead.</p></div>
+<p><b>注意： </b>We strongly discourage the use of <a href="qlist.html">QList</a>&lt;<a href="qstringview.html">QStringView</a>&gt;, because <a href="qlist.html">QList</a> is a very inefficient container for QStringViews (it would heap-allocate every element). Use <a href="qvector.html">QVector</a> (or std::vector) to hold QStringViews instead.</p></div>
 <p><b> 参见 </b><a href="qstring.html">QString</a> 和 <a href="qstringref.html">QStringRef</a>.</p>
 <!-- @@@QStringView -->
 <div class="types">
@@ -321,7 +321,7 @@
 <h3 class="fn" id="back"><a name="back"></a><span class="type"><a href="qchar.html">QChar</a></span> QStringView::<span class="name">back</span>() const</h3>
 <p>Returns the last character in the string. Same as <a href="qstringview.html#last">last</a>().</p>
 <p>This function is provided for STL compatibility.</p>
-<p><b>Warning:</b> Calling this function on an empty string view constitutes undefined behavior.</p>
+<p><b>警告：</b> Calling this function on an empty string view constitutes undefined behavior.</p>
 <p><b> 参见 </b><a href="qstringview.html#front">front</a>(), <a href="qstringview.html#first">first</a>(), 和 <a href="qstringview.html#last">last</a>().</p>
 <!-- @@@back -->
 <!-- $$$begin[overload1]$$$begin -->
@@ -346,13 +346,13 @@
 <h3 class="fn" id="chop"><a name="chop"></a><span class="type">void</span> QStringView::<span class="name">chop</span>(<span class="type">qsizetype</span> <i>length</i>)</h3>
 <p>Truncates this string view by <i>length</i> characters.</p>
 <p>Same as <code>*this = left(size() - length)</code>.</p>
-<p><b>Note: </b>The behavior is undefined when <i>length</i> &lt; 0 or <i>length</i> &gt; <a href="qstringview.html#size">size</a>().</p><p><b> 参见 </b><a href="qstringview.html#mid">mid</a>(), <a href="qstringview.html#left">left</a>(), <a href="qstringview.html#right">right</a>(), <a href="qstringview.html#chopped">chopped</a>(), 和 <a href="qstringview.html#truncate">truncate</a>().</p>
+<p><b>注意： </b>The behavior is undefined when <i>length</i> &lt; 0 or <i>length</i> &gt; <a href="qstringview.html#size">size</a>().</p><p><b> 参见 </b><a href="qstringview.html#mid">mid</a>(), <a href="qstringview.html#left">left</a>(), <a href="qstringview.html#right">right</a>(), <a href="qstringview.html#chopped">chopped</a>(), 和 <a href="qstringview.html#truncate">truncate</a>().</p>
 <!-- @@@chop -->
 <!-- $$$chopped[overload1]$$$choppedqsizetype -->
 <h3 class="fn" id="chopped"><a name="chopped"></a><span class="type"><a href="qstringview.html#QStringView">QStringView</a></span> QStringView::<span class="name">chopped</span>(<span class="type">qsizetype</span> <i>length</i>) const</h3>
 <p>Returns the substring of length <a href="qstringview.html#size">size</a>() - <i>length</i> starting at the beginning of this object.</p>
 <p>Same as <code>left(size() - length)</code>.</p>
-<p><b>Note: </b>The behavior is undefined when <i>length</i> &lt; 0 or <i>length</i> &gt; <a href="qstringview.html#size">size</a>().</p><p><b> 参见 </b><a href="qstringview.html#mid">mid</a>(), <a href="qstringview.html#left">left</a>(), <a href="qstringview.html#right">right</a>(), <a href="qstringview.html#chop">chop</a>(), 和 <a href="qstringview.html#truncate">truncate</a>().</p>
+<p><b>注意： </b>The behavior is undefined when <i>length</i> &lt; 0 or <i>length</i> &gt; <a href="qstringview.html#size">size</a>().</p><p><b> 参见 </b><a href="qstringview.html#mid">mid</a>(), <a href="qstringview.html#left">left</a>(), <a href="qstringview.html#right">right</a>(), <a href="qstringview.html#chop">chop</a>(), 和 <a href="qstringview.html#truncate">truncate</a>().</p>
 <!-- @@@chopped -->
 <!-- $$$compare[overload1]$$$compareQStringViewQt::CaseSensitivity -->
 <h3 class="fn" id="compare"><a name="compare"></a><span class="type">int</span> QStringView::<span class="name">compare</span>(<span class="type"><a href="qstringview.html#QStringView">QStringView</a></span> <i>other</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive) const</h3>
@@ -376,7 +376,7 @@
 <!-- $$$data[overload1]$$$data -->
 <h3 class="fn" id="data"><a name="data"></a><span class="type"><a href="qstringview.html#const_pointer-typedef">QStringView::const_pointer</a></span> QStringView::<span class="name">data</span>() const</h3>
 <p>Returns a const pointer to the first character in the string.</p>
-<p><b>Note: </b>The character array represented by the return value is <i>not</i> null-terminated.</p><p><b> 参见 </b><a href="qstringview.html#begin">begin</a>(), <a href="qstringview.html#end">end</a>(), 和 <a href="qstringview.html#utf16">utf16</a>().</p>
+<p><b>注意： </b>The character array represented by the return value is <i>not</i> null-terminated.</p><p><b> 参见 </b><a href="qstringview.html#begin">begin</a>(), <a href="qstringview.html#end">end</a>(), 和 <a href="qstringview.html#utf16">utf16</a>().</p>
 <!-- @@@data -->
 <!-- $$$empty[overload1]$$$empty -->
 <h3 class="fn" id="empty"><a name="empty"></a><span class="type">bool</span> QStringView::<span class="name">empty</span>() const</h3>
@@ -394,14 +394,14 @@
 <h3 class="fn" id="first"><a name="first"></a><span class="type"><a href="qchar.html">QChar</a></span> QStringView::<span class="name">first</span>() const</h3>
 <p>Returns the first character in the string. Same as <a href="qstringview.html#front">front</a>().</p>
 <p>This function is provided for compatibility with other Qt containers.</p>
-<p><b>Warning:</b> Calling this function on an empty string view constitutes undefined behavior.</p>
+<p><b>警告：</b> Calling this function on an empty string view constitutes undefined behavior.</p>
 <p><b> 参见 </b><a href="qstringview.html#front">front</a>(), <a href="qstringview.html#back">back</a>(), 和 <a href="qstringview.html#last">last</a>().</p>
 <!-- @@@first -->
 <!-- $$$front[overload1]$$$front -->
 <h3 class="fn" id="front"><a name="front"></a><span class="type"><a href="qchar.html">QChar</a></span> QStringView::<span class="name">front</span>() const</h3>
 <p>Returns the first character in the string. Same as <a href="qstringview.html#first">first</a>().</p>
 <p>This function is provided for STL compatibility.</p>
-<p><b>Warning:</b> Calling this function on an empty string view constitutes undefined behavior.</p>
+<p><b>警告：</b> Calling this function on an empty string view constitutes undefined behavior.</p>
 <p><b> 参见 </b><a href="qstringview.html#back">back</a>(), <a href="qstringview.html#first">first</a>(), 和 <a href="qstringview.html#last">last</a>().</p>
 <!-- @@@front -->
 <!-- $$$isEmpty[overload1]$$$isEmpty -->
@@ -426,31 +426,31 @@
 <h3 class="fn" id="last"><a name="last"></a><span class="type"><a href="qchar.html">QChar</a></span> QStringView::<span class="name">last</span>() const</h3>
 <p>Returns the last character in the string. Same as <a href="qstringview.html#back">back</a>().</p>
 <p>This function is provided for compatibility with other Qt containers.</p>
-<p><b>Warning:</b> Calling this function on an empty string view constitutes undefined behavior.</p>
+<p><b>警告：</b> Calling this function on an empty string view constitutes undefined behavior.</p>
 <p><b> 参见 </b><a href="qstringview.html#back">back</a>(), <a href="qstringview.html#front">front</a>(), 和 <a href="qstringview.html#first">first</a>().</p>
 <!-- @@@last -->
 <!-- $$$left[overload1]$$$leftqsizetype -->
 <h3 class="fn" id="left"><a name="left"></a><span class="type"><a href="qstringview.html#QStringView">QStringView</a></span> QStringView::<span class="name">left</span>(<span class="type">qsizetype</span> <i>length</i>) const</h3>
 <p>Returns the substring of length <i>length</i> starting at position 0 in this object.</p>
-<p><b>Note: </b>The behavior is undefined when <i>length</i> &lt; 0 or <i>length</i> &gt; <a href="qstringview.html#size">size</a>().</p><p><b> 参见 </b><a href="qstringview.html#mid">mid</a>(), <a href="qstringview.html#right">right</a>(), <a href="qstringview.html#chopped">chopped</a>(), <a href="qstringview.html#chop">chop</a>(), 和 <a href="qstringview.html#truncate">truncate</a>().</p>
+<p><b>注意： </b>The behavior is undefined when <i>length</i> &lt; 0 or <i>length</i> &gt; <a href="qstringview.html#size">size</a>().</p><p><b> 参见 </b><a href="qstringview.html#mid">mid</a>(), <a href="qstringview.html#right">right</a>(), <a href="qstringview.html#chopped">chopped</a>(), <a href="qstringview.html#chop">chop</a>(), 和 <a href="qstringview.html#truncate">truncate</a>().</p>
 <!-- @@@left -->
 <!-- $$$length[overload1]$$$length -->
 <h3 class="fn" id="length"><a name="length"></a><span class="type">int</span> QStringView::<span class="name">length</span>() const</h3>
 <p>等同于 <a href="qstringview.html#size">size</a>(), except returns the result as an <code>int</code>.</p>
 <p>This function is provided for compatibility with other Qt containers.</p>
-<p><b>Warning:</b> <a href="qstringview.html">QStringView</a> can represent strings with more than 2<sup>31</sup> characters. Calling this function on a string view for which <a href="qstringview.html#size">size</a>() returns a value greater than <code>INT_MAX</code> constitutes undefined behavior.</p>
+<p><b>警告：</b> <a href="qstringview.html">QStringView</a> can represent strings with more than 2<sup>31</sup> characters. Calling this function on a string view for which <a href="qstringview.html#size">size</a>() returns a value greater than <code>INT_MAX</code> constitutes undefined behavior.</p>
 <p><b> 参见 </b><a href="qstringview.html#empty">empty</a>(), <a href="qstringview.html#isEmpty">isEmpty</a>(), <a href="qstringview.html#isNull">isNull</a>(), 和 <a href="qstringview.html#size">size</a>().</p>
 <!-- @@@length -->
 <!-- $$$mid[overload1]$$$midqsizetype -->
 <h3 class="fn" id="mid"><a name="mid"></a><span class="type"><a href="qstringview.html#QStringView">QStringView</a></span> QStringView::<span class="name">mid</span>(<span class="type">qsizetype</span> <i>start</i>) const</h3>
 <p>Returns the substring starting at position <i>start</i> in this object, and extending to the end of the string.</p>
-<p><b>Note: </b>The behavior is undefined when <i>start</i> &lt; 0 or <i>start</i> &gt; <a href="qstringview.html#size">size</a>().</p><p><b> 参见 </b><a href="qstringview.html#left">left</a>(), <a href="qstringview.html#right">right</a>(), <a href="qstringview.html#chopped">chopped</a>(), <a href="qstringview.html#chop">chop</a>(), 和 <a href="qstringview.html#truncate">truncate</a>().</p>
+<p><b>注意： </b>The behavior is undefined when <i>start</i> &lt; 0 or <i>start</i> &gt; <a href="qstringview.html#size">size</a>().</p><p><b> 参见 </b><a href="qstringview.html#left">left</a>(), <a href="qstringview.html#right">right</a>(), <a href="qstringview.html#chopped">chopped</a>(), <a href="qstringview.html#chop">chop</a>(), 和 <a href="qstringview.html#truncate">truncate</a>().</p>
 <!-- @@@mid -->
 <!-- $$$mid$$$midqsizetypeqsizetype -->
 <h3 class="fn" id="mid-1"><a name="mid-1"></a><span class="type"><a href="qstringview.html#QStringView">QStringView</a></span> QStringView::<span class="name">mid</span>(<span class="type">qsizetype</span> <i>start</i>, <span class="type">qsizetype</span> <i>length</i>) const</h3>
 <p>这是一个重载函数。</p>
 <p>Returns the substring of length <i>length</i> starting at position <i>start</i> in this object.</p>
-<p><b>Note: </b>The behavior is undefined when <i>start</i> &lt; 0, <i>length</i> &lt; 0, or <i>start</i> + <i>length</i> &gt; <a href="qstringview.html#size">size</a>().</p><p><b> 参见 </b><a href="qstringview.html#left">left</a>(), <a href="qstringview.html#right">right</a>(), <a href="qstringview.html#chopped">chopped</a>(), <a href="qstringview.html#chop">chop</a>(), 和 <a href="qstringview.html#truncate">truncate</a>().</p>
+<p><b>注意： </b>The behavior is undefined when <i>start</i> &lt; 0, <i>length</i> &lt; 0, or <i>start</i> + <i>length</i> &gt; <a href="qstringview.html#size">size</a>().</p><p><b> 参见 </b><a href="qstringview.html#left">left</a>(), <a href="qstringview.html#right">right</a>(), <a href="qstringview.html#chopped">chopped</a>(), <a href="qstringview.html#chop">chop</a>(), 和 <a href="qstringview.html#truncate">truncate</a>().</p>
 <!-- @@@mid -->
 <!-- $$$rbegin[overload1]$$$rbegin -->
 <h3 class="fn" id="rbegin"><a name="rbegin"></a><span class="type"><a href="qstringview.html#const_reverse_iterator-typedef">QStringView::const_reverse_iterator</a></span> QStringView::<span class="name">rbegin</span>() const</h3>
@@ -467,7 +467,7 @@
 <!-- $$$right[overload1]$$$rightqsizetype -->
 <h3 class="fn" id="right"><a name="right"></a><span class="type"><a href="qstringview.html#QStringView">QStringView</a></span> QStringView::<span class="name">right</span>(<span class="type">qsizetype</span> <i>length</i>) const</h3>
 <p>Returns the substring of length <i>length</i> starting at position <a href="qstringview.html#size">size</a>() - <i>length</i> in this object.</p>
-<p><b>Note: </b>The behavior is undefined when <i>length</i> &lt; 0 or <i>length</i> &gt; <a href="qstringview.html#size">size</a>().</p><p><b> 参见 </b><a href="qstringview.html#mid">mid</a>(), <a href="qstringview.html#left">left</a>(), <a href="qstringview.html#chopped">chopped</a>(), <a href="qstringview.html#chop">chop</a>(), 和 <a href="qstringview.html#truncate">truncate</a>().</p>
+<p><b>注意： </b>The behavior is undefined when <i>length</i> &lt; 0 or <i>length</i> &gt; <a href="qstringview.html#size">size</a>().</p><p><b> 参见 </b><a href="qstringview.html#mid">mid</a>(), <a href="qstringview.html#left">left</a>(), <a href="qstringview.html#chopped">chopped</a>(), <a href="qstringview.html#chop">chop</a>(), 和 <a href="qstringview.html#truncate">truncate</a>().</p>
 <!-- @@@right -->
 <!-- $$$size[overload1]$$$size -->
 <h3 class="fn" id="size"><a name="size"></a><span class="type">qsizetype</span> QStringView::<span class="name">size</span>() const</h3>
@@ -491,7 +491,7 @@
 <h3 class="fn" id="toString"><a name="toString"></a><span class="type"><a href="qstring.html">QString</a></span> QStringView::<span class="name">toString</span>() const</h3>
 <p>Returns a deep copy of this string view's data as a <a href="qstring.html">QString</a>.</p>
 <p>The return value will be the null <a href="qstring.html">QString</a> if and only if this string view is null.</p>
-<p><b>Warning:</b> <a href="qstringview.html">QStringView</a> can store strings with more than 2<sup>30</sup> characters while <a href="qstring.html">QString</a> cannot. Calling this function on a string view for which <a href="qstringview.html#size">size</a>() returns a value greater than <code>INT_MAX / 2</code> constitutes undefined behavior.</p>
+<p><b>警告：</b> <a href="qstringview.html">QStringView</a> can store strings with more than 2<sup>30</sup> characters while <a href="qstring.html">QString</a> cannot. Calling this function on a string view for which <a href="qstringview.html#size">size</a>() returns a value greater than <code>INT_MAX / 2</code> constitutes undefined behavior.</p>
 <!-- @@@toString -->
 <!-- $$$toUcs4[overload1]$$$toUcs4 -->
 <h3 class="fn" id="toUcs4"><a name="toUcs4"></a><span class="type"><a href="qvector.html">QVector</a></span>&lt;<span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span>&gt; QStringView::<span class="name">toUcs4</span>() const</h3>
@@ -515,13 +515,13 @@
 <h3 class="fn" id="truncate"><a name="truncate"></a><span class="type">void</span> QStringView::<span class="name">truncate</span>(<span class="type">qsizetype</span> <i>length</i>)</h3>
 <p>Truncates this string view to length <i>length</i>.</p>
 <p>Same as <code>*this = left(length)</code>.</p>
-<p><b>Note: </b>The behavior is undefined when <i>length</i> &lt; 0 or <i>length</i> &gt; <a href="qstringview.html#size">size</a>().</p><p><b> 参见 </b><a href="qstringview.html#mid">mid</a>(), <a href="qstringview.html#left">left</a>(), <a href="qstringview.html#right">right</a>(), <a href="qstringview.html#chopped">chopped</a>(), 和 <a href="qstringview.html#chop">chop</a>().</p>
+<p><b>注意： </b>The behavior is undefined when <i>length</i> &lt; 0 or <i>length</i> &gt; <a href="qstringview.html#size">size</a>().</p><p><b> 参见 </b><a href="qstringview.html#mid">mid</a>(), <a href="qstringview.html#left">left</a>(), <a href="qstringview.html#right">right</a>(), <a href="qstringview.html#chopped">chopped</a>(), 和 <a href="qstringview.html#chop">chop</a>().</p>
 <!-- @@@truncate -->
 <!-- $$$utf16[overload1]$$$utf16 -->
 <h3 class="fn" id="utf16"><a name="utf16"></a>const <span class="type"><a href="qstringview.html#storage_type-typedef">QStringView::storage_type</a></span> *QStringView::<span class="name">utf16</span>() const</h3>
 <p>Returns a const pointer to the first character in the string.</p>
 <p><code>storage_type</code> is <code>char16_t</code>.</p>
-<p><b>Note: </b>The character array represented by the return value is <i>not</i> null-terminated.</p><p><b> 参见 </b><a href="qstringview.html#begin">begin</a>(), <a href="qstringview.html#end">end</a>(), 和 <a href="qstringview.html#data">data</a>().</p>
+<p><b>注意： </b>The character array represented by the return value is <i>not</i> null-terminated.</p><p><b> 参见 </b><a href="qstringview.html#begin">begin</a>(), <a href="qstringview.html#end">end</a>(), 和 <a href="qstringview.html#data">data</a>().</p>
 <!-- @@@utf16 -->
 <!-- $$$operator[][overload1]$$$operator[]qsizetype -->
 <h3 class="fn" id="operator-5b-5d"><a name="operator-5b-5d"></a><span class="type"><a href="qchar.html">QChar</a></span> QStringView::<span class="name">operator[]</span>(<span class="type">qsizetype</span> <i>n</i>) const</h3>

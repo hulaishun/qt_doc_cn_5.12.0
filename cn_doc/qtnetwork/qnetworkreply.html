@@ -169,7 +169,7 @@
 <p><a href="qnetworkreply.html">QNetworkReply</a> is a sequential-access <a href="../qtcore/qiodevice.html">QIODevice</a>, which means that once data is read from the object, it no longer kept by the device. It is therefore the application's responsibility to keep this data if it needs to. Whenever more data is received from the network and processed, the <a href="../qtcore/qiodevice.html#readyRead">readyRead</a>() signal is emitted.</p>
 <p>The <a href="qnetworkreply.html#downloadProgress">downloadProgress</a>() signal is also emitted when data is received, but the number of bytes contained in it may not represent the actual bytes received, if any transformation is done to the contents (for example, decompressing and removing the protocol overhead).</p>
 <p>Even though <a href="qnetworkreply.html">QNetworkReply</a> is a <a href="../qtcore/qiodevice.html">QIODevice</a> connected to the contents of the reply, it also emits the <a href="qnetworkreply.html#uploadProgress">uploadProgress</a>() signal, which indicates the progress of the upload for operations that have such content.</p>
-<p><b>Note: </b>Do not delete the object in the slot connected to the <a href="qnetworkreply.html#error">error</a>() or <a href="qnetworkreply.html#finished">finished</a>() signal. Use <a href="../qtcore/qobject.html#deleteLater">deleteLater</a>().</p></div>
+<p><b>注意： </b>Do not delete the object in the slot connected to the <a href="qnetworkreply.html#error">error</a>() or <a href="qnetworkreply.html#finished">finished</a>() signal. Use <a href="../qtcore/qobject.html#deleteLater">deleteLater</a>().</p></div>
 <p><b> 参见 </b><a href="qnetworkrequest.html">QNetworkRequest</a> 和 <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>.</p>
 <!-- @@@QNetworkReply -->
 <div class="types">
@@ -180,7 +180,7 @@
 <div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QNetworkReply::NoError</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">no error condition.</td></tr>
 </table></div>
-<p><b>Note: </b>When the HTTP protocol returns a redirect no error will be reported. You can check if there is a redirect with the <a href="qnetworkrequest.html#Attribute-enum">QNetworkRequest::RedirectionTargetAttribute</a> attribute.</p><div class="table"><table class="valuelist"><tr valign="top" class="even"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
+<p><b>注意： </b>When the HTTP protocol returns a redirect no error will be reported. You can check if there is a redirect with the <a href="qnetworkrequest.html#Attribute-enum">QNetworkRequest::RedirectionTargetAttribute</a> attribute.</p><div class="table"><table class="valuelist"><tr valign="top" class="even"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
 <tr><td class="topAlign"><code>QNetworkReply::ConnectionRefusedError</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">the remote server refused the connection (the server is not accepting requests)</td></tr>
 <tr><td class="topAlign"><code>QNetworkReply::RemoteHostClosedError</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">the remote server closed the connection prematurely, before the entire reply was received and processed</td></tr>
 <tr><td class="topAlign"><code>QNetworkReply::HostNotFoundError</code></td><td class="topAlign tblval"><code>3</code></td><td class="topAlign">the remote host name was not found (invalid hostname)</td></tr>
@@ -280,7 +280,7 @@
 <h3 class="fn" id="error-1"><a name="error-1"></a><code>[信号] </code><span class="type">void</span> QNetworkReply::<span class="name">error</span>(<span class="type"><a href="qnetworkreply.html#NetworkError-enum">QNetworkReply::NetworkError</a></span> <i>code</i>)</h3>
 <p>This signal is emitted when the reply detects an error in processing. The <a href="qnetworkreply.html#finished">finished</a>() signal will probably follow, indicating that the connection is over.</p>
 <p>The <i>code</i> parameter contains the code of the error that was detected. Call <a href="../qtcore/qiodevice.html#errorString">errorString</a>() to obtain a textual representation of the error condition.</p>
-<p><b>Note: </b>Do not delete the object in the slot connected to this signal. Use <a href="../qtcore/qobject.html#deleteLater">deleteLater</a>().</p><p><b>Note:</b> Signal <i>error</i> is overloaded in this class. To connect to this signal by using the function pointer syntax, Qt provides a convenient helper for obtaining the function pointer as shown in this example:<pre class="cpp">
+<p><b>注意： </b>Do not delete the object in the slot connected to this signal. Use <a href="../qtcore/qobject.html#deleteLater">deleteLater</a>().</p><p><b>Note:</b> Signal <i>error</i> is overloaded in this class. To connect to this signal by using the function pointer syntax, Qt provides a convenient helper for obtaining the function pointer as shown in this example:<pre class="cpp">
 
   connect(networkReply<span class="operator">,</span> <span class="type">QOverload</span><span class="operator">&lt;</span><span class="type"><a href="qnetworkreply.html#QNetworkReply">QNetworkReply</a></span><span class="operator">::</span>NetworkError<span class="operator">&gt;</span><span class="operator">::</span>of(<span class="operator">&amp;</span><span class="type"><a href="qnetworkreply.html#QNetworkReply">QNetworkReply</a></span><span class="operator">::</span>error)<span class="operator">,</span>
       <span class="operator">[</span><span class="operator">=</span><span class="operator">]</span>(<span class="type"><a href="qnetworkreply.html#QNetworkReply">QNetworkReply</a></span><span class="operator">::</span>NetworkError code){ <span class="comment">/* ... */</span> });
@@ -293,7 +293,7 @@
 <p>This signal is emitted when the reply has finished processing. After this signal is emitted, there will be no more updates to the reply's data or metadata.</p>
 <p>Unless <a href="qnetworkreply.html#close">close</a>() or <a href="qnetworkreply.html#abort">abort</a>() have been called, the reply will be still be opened for reading, so the data can be retrieved by calls to <a href="../qtcore/qiodevice.html#read-1">read</a>() or <a href="../qtcore/qiodevice.html#readAll">readAll</a>(). In particular, if no calls to <a href="../qtcore/qiodevice.html#read-1">read</a>() were made as a result of <a href="../qtcore/qiodevice.html#readyRead">readyRead</a>(), a call to <a href="../qtcore/qiodevice.html#readAll">readAll</a>() will retrieve the full contents in a <a href="../qtcore/qbytearray.html">QByteArray</a>.</p>
 <p>This signal is emitted in tandem with <a href="qnetworkaccessmanager.html#finished">QNetworkAccessManager::finished</a>() where that signal's reply parameter is this object.</p>
-<p><b>Note: </b>Do not delete the object in the slot connected to this signal. Use <a href="../qtcore/qobject.html#deleteLater">deleteLater</a>().</p><p>You can also use <a href="qnetworkreply.html#isFinished">isFinished</a>() to check if a <a href="qnetworkreply.html">QNetworkReply</a> has finished even before you receive the finished() signal.</p>
+<p><b>注意： </b>Do not delete the object in the slot connected to this signal. Use <a href="../qtcore/qobject.html#deleteLater">deleteLater</a>().</p><p>You can also use <a href="qnetworkreply.html#isFinished">isFinished</a>() to check if a <a href="qnetworkreply.html">QNetworkReply</a> has finished even before you receive the finished() signal.</p>
 <p><b> 参见 </b><a href="qnetworkreply.html#setFinished">setFinished</a>(), <a href="qnetworkaccessmanager.html#finished">QNetworkAccessManager::finished</a>(), 和 <a href="qnetworkreply.html#isFinished">isFinished</a>().</p>
 <!-- @@@finished -->
 <!-- $$$hasRawHeader[overload1]$$$hasRawHeaderconstQByteArray& -->
@@ -309,15 +309,15 @@
 <!-- $$$ignoreSslErrors[overload1]$$$ignoreSslErrors -->
 <h3 class="fn" id="ignoreSslErrors"><a name="ignoreSslErrors"></a><code>[虚槽函数] </code><span class="type">void</span> QNetworkReply::<span class="name">ignoreSslErrors</span>()</h3>
 <p>If this function is called, SSL errors related to network connection will be ignored, including certificate validation errors.</p>
-<p><b>Warning:</b> Be sure to always let the user inspect the errors reported by the <a href="qnetworkreply.html#sslErrors">sslErrors</a>() signal, and only call this method upon confirmation from the user that proceeding is ok. If there are unexpected errors, the reply should be aborted. Calling this method without inspecting the actual errors will most likely pose a security risk for your application. Use it with great care!</p>
+<p><b>警告：</b> Be sure to always let the user inspect the errors reported by the <a href="qnetworkreply.html#sslErrors">sslErrors</a>() signal, and only call this method upon confirmation from the user that proceeding is ok. If there are unexpected errors, the reply should be aborted. Calling this method without inspecting the actual errors will most likely pose a security risk for your application. Use it with great care!</p>
 <p>This function can be called from the slot connected to the <a href="qnetworkreply.html#sslErrors">sslErrors</a>() signal, which indicates which errors were found.</p>
-<p><b>Note: </b>If HTTP Strict Transport Security is enabled for <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>, this function has no effect.</p><p><b> 参见 </b><a href="qnetworkreply.html#sslConfiguration">sslConfiguration</a>(), <a href="qnetworkreply.html#sslErrors">sslErrors</a>(), 和 <a href="qsslsocket.html#ignoreSslErrors">QSslSocket::ignoreSslErrors</a>().</p>
+<p><b>注意： </b>If HTTP Strict Transport Security is enabled for <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>, this function has no effect.</p><p><b> 参见 </b><a href="qnetworkreply.html#sslConfiguration">sslConfiguration</a>(), <a href="qnetworkreply.html#sslErrors">sslErrors</a>(), 和 <a href="qsslsocket.html#ignoreSslErrors">QSslSocket::ignoreSslErrors</a>().</p>
 <!-- @@@ignoreSslErrors -->
 <!-- $$$ignoreSslErrors$$$ignoreSslErrorsconstQList<QSslError>& -->
 <h3 class="fn" id="ignoreSslErrors-1"><a name="ignoreSslErrors-1"></a><span class="type">void</span> QNetworkReply::<span class="name">ignoreSslErrors</span>(const <span class="type"><a href="../qtcore/qlist.html">QList</a></span>&lt;<span class="type"><a href="qsslerror.html">QSslError</a></span>&gt; &amp;<i>errors</i>)</h3>
 <p>这是一个重载函数。</p>
 <p>If this function is called, the SSL errors given in <i>errors</i> will be ignored.</p>
-<p><b>Note: </b>Because most SSL errors are associated with a certificate, for most of them you must set the expected certificate this SSL error is related to. If, for instance, you want to issue a request to a server that uses a self-signed certificate, consider the following snippet:</p><pre class="cpp">
+<p><b>注意： </b>Because most SSL errors are associated with a certificate, for most of them you must set the expected certificate this SSL error is related to. If, for instance, you want to issue a request to a server that uses a self-signed certificate, consider the following snippet:</p><pre class="cpp">
 
   <span class="type"><a href="../qtcore/qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qsslcertificate.html">QSslCertificate</a></span><span class="operator">&gt;</span> cert <span class="operator">=</span> <span class="type"><a href="qsslcertificate.html">QSslCertificate</a></span><span class="operator">::</span>fromPath(QLatin1String(<span class="string">&quot;server-certificate.pem&quot;</span>));
   <span class="type"><a href="qsslerror.html">QSslError</a></span> error(<span class="type"><a href="qsslerror.html">QSslError</a></span><span class="operator">::</span>SelfSignedCertificate<span class="operator">,</span> cert<span class="operator">.</span>at(<span class="number">0</span>));
@@ -330,7 +330,7 @@
 
 </pre>
 <p>Multiple calls to this function will replace the list of errors that were passed in previous calls. You can clear the list of errors you want to ignore by calling this function with an empty list.</p>
-<p><b>Note: </b>If HTTP Strict Transport Security is enabled for <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>, this function has no effect.</p><p>这个函数是在Qt 4.6版本中新增引入的。</p>
+<p><b>注意： </b>If HTTP Strict Transport Security is enabled for <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>, this function has no effect.</p><p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qnetworkreply.html#sslConfiguration">sslConfiguration</a>(), <a href="qnetworkreply.html#sslErrors">sslErrors</a>(), <a href="qsslsocket.html#ignoreSslErrors">QSslSocket::ignoreSslErrors</a>(), 和 <a href="qnetworkaccessmanager.html#setStrictTransportSecurityEnabled">QNetworkAccessManager::setStrictTransportSecurityEnabled</a>().</p>
 <!-- @@@ignoreSslErrors -->
 <!-- $$$ignoreSslErrorsImplementation[overload1]$$$ignoreSslErrorsImplementationconstQList<QSslError>& -->
@@ -369,7 +369,7 @@
 <h3 class="fn" id="preSharedKeyAuthenticationRequired"><a name="preSharedKeyAuthenticationRequired"></a><code>[信号] </code><span class="type">void</span> QNetworkReply::<span class="name">preSharedKeyAuthenticationRequired</span>(<span class="type"><a href="qsslpresharedkeyauthenticator.html">QSslPreSharedKeyAuthenticator</a></span> *<i>authenticator</i>)</h3>
 <p>This signal is emitted if the SSL/TLS handshake negotiates a PSK ciphersuite, and therefore a PSK authentication is then required.</p>
 <p>When using PSK, the client must send to the server a valid identity and a valid pre shared key, in order for the SSL handshake to continue. Applications can provide this information in a slot connected to this signal, by filling in the passed <i>authenticator</i> object according to their needs.</p>
-<p><b>Note: </b>Ignoring this signal, or failing to provide the required credentials, will cause the handshake to fail, and therefore the connection to be aborted.</p><p><b>Note: </b>The <i>authenticator</i> object is owned by the reply and must not be deleted by the application.</p><p>这个函数是在Qt 5.5版本中新增引入的。</p>
+<p><b>注意： </b>Ignoring this signal, or failing to provide the required credentials, will cause the handshake to fail, and therefore the connection to be aborted.</p><p><b>注意： </b>The <i>authenticator</i> object is owned by the reply and must not be deleted by the application.</p><p>这个函数是在Qt 5.5版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qsslpresharedkeyauthenticator.html">QSslPreSharedKeyAuthenticator</a>.</p>
 <!-- @@@preSharedKeyAuthenticationRequired -->
 <!-- $$$rawHeader[overload1]$$$rawHeaderconstQByteArray& -->
@@ -433,7 +433,7 @@
 <!-- $$$setOperation[overload1]$$$setOperationQNetworkAccessManager::Operation -->
 <h3 class="fn" id="setOperation"><a name="setOperation"></a><code>[保护函数] </code><span class="type">void</span> QNetworkReply::<span class="name">setOperation</span>(<span class="type"><a href="qnetworkaccessmanager.html#Operation-enum">QNetworkAccessManager::Operation</a></span> <i>operation</i>)</h3>
 <p>Sets the associated operation for this object to be <i>operation</i>. This value will be returned by <a href="qnetworkreply.html#operation">operation</a>().</p>
-<p><b>Note: </b>The operation should be set when this object is created and not changed again.</p><p><b> 参见 </b><a href="qnetworkreply.html#operation">operation</a>() 和 <a href="qnetworkreply.html#setRequest">setRequest</a>().</p>
+<p><b>注意： </b>The operation should be set when this object is created and not changed again.</p><p><b> 参见 </b><a href="qnetworkreply.html#operation">operation</a>() 和 <a href="qnetworkreply.html#setRequest">setRequest</a>().</p>
 <!-- @@@setOperation -->
 <!-- $$$setRawHeader[overload1]$$$setRawHeaderconstQByteArray&constQByteArray& -->
 <h3 class="fn" id="setRawHeader"><a name="setRawHeader"></a><code>[保护函数] </code><span class="type">void</span> QNetworkReply::<span class="name">setRawHeader</span>(const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>headerName</i>, const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>value</i>)</h3>
@@ -451,7 +451,7 @@
 <!-- $$$setRequest[overload1]$$$setRequestconstQNetworkRequest& -->
 <h3 class="fn" id="setRequest"><a name="setRequest"></a><code>[保护函数] </code><span class="type">void</span> QNetworkReply::<span class="name">setRequest</span>(const <span class="type"><a href="qnetworkrequest.html">QNetworkRequest</a></span> &amp;<i>request</i>)</h3>
 <p>Sets the associated request for this object to be <i>request</i>. This value will be returned by <a href="qnetworkreply.html#request">request</a>().</p>
-<p><b>Note: </b>The request should be set when this object is created and not changed again.</p><p><b> 参见 </b><a href="qnetworkreply.html#request">request</a>() 和 <a href="qnetworkreply.html#setOperation">setOperation</a>().</p>
+<p><b>注意： </b>The request should be set when this object is created and not changed again.</p><p><b> 参见 </b><a href="qnetworkreply.html#request">request</a>() 和 <a href="qnetworkreply.html#setOperation">setOperation</a>().</p>
 <!-- @@@setRequest -->
 <!-- $$$setSslConfiguration[overload1]$$$setSslConfigurationconstQSslConfiguration& -->
 <h3 class="fn" id="setSslConfiguration"><a name="setSslConfiguration"></a><span class="type">void</span> QNetworkReply::<span class="name">setSslConfiguration</span>(const <span class="type"><a href="qsslconfiguration.html">QSslConfiguration</a></span> &amp;<i>config</i>)</h3>

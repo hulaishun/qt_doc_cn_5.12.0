@@ -111,7 +111,7 @@
 <p>The most common way to use this class is to bind to an address and port using <a href="qabstractsocket.html#bind">bind</a>(), then call <a href="qudpsocket.html#writeDatagram">writeDatagram</a>() 和 <a href="qudpsocket.html#readDatagram">readDatagram</a>() / <a href="qudpsocket.html#receiveDatagram">receiveDatagram</a>() to transfer data. If you want to use the standard <a href="../qtcore/qiodevice.html">QIODevice</a> functions <a href="../qtcore/qiodevice.html#read-1">read</a>(), <a href="../qtcore/qiodevice.html#readLine-1">readLine</a>(), <a href="../qtcore/qiodevice.html#write-2">write</a>(), etc., you must first connect the socket directly to a peer by calling <a href="qabstractsocket.html#connectToHost">connectToHost</a>().</p>
 <p>The socket emits the <a href="../qtcore/qiodevice.html#bytesWritten">bytesWritten</a>() signal every time a datagram is written to the network. If you just want to send datagrams, you don't need to call <a href="qabstractsocket.html#bind">bind</a>().</p>
 <p>The <a href="../qtcore/qiodevice.html#readyRead">readyRead</a>() signal is emitted whenever datagrams arrive. In that case, <a href="qudpsocket.html#hasPendingDatagrams">hasPendingDatagrams</a>() returns <code>true</code>. Call <a href="qudpsocket.html#pendingDatagramSize">pendingDatagramSize</a>() to obtain the size of the first pending datagram, and <a href="qudpsocket.html#readDatagram">readDatagram</a>() or <a href="qudpsocket.html#receiveDatagram">receiveDatagram</a>() to read it.</p>
-<p><b>Note: </b>An incoming datagram should be read when you receive the <a href="../qtcore/qiodevice.html#readyRead">readyRead</a>() signal, otherwise this signal will not be emitted for the next datagram.</p><p>样例：</p>
+<p><b>注意： </b>An incoming datagram should be read when you receive the <a href="../qtcore/qiodevice.html#readyRead">readyRead</a>() signal, otherwise this signal will not be emitted for the next datagram.</p><p>样例：</p>
 <pre class="cpp">
 
   <span class="type">void</span> Server<span class="operator">::</span>initSocket()
@@ -167,7 +167,7 @@
 <p>Joins the multicast group specified by <i>groupAddress</i> on the default interface chosen by the operating system. The socket must be in <a href="qabstractsocket.html#SocketState-enum">BoundState</a>, otherwise an error occurs.</p>
 <p>Note that if you are attempting to join an IPv4 group, your socket must not be bound using IPv6 (or in dual mode, using <a href="qhostaddress.html#SpecialAddress-enum">QHostAddress::Any</a>). You must use <a href="qhostaddress.html#SpecialAddress-enum">QHostAddress::AnyIPv4</a> instead.</p>
 <p>This function returns <code>true</code> if successful; otherwise it returns <code>false</code> and sets the socket error accordingly.</p>
-<p><b>Note: </b>Joining IPv6 multicast groups without an interface selection is not supported in all operating systems. Consider using the overload where the interface is specified.</p><p>这个函数是在Qt 4.8版本中新增引入的。</p>
+<p><b>注意： </b>Joining IPv6 multicast groups without an interface selection is not supported in all operating systems. Consider using the overload where the interface is specified.</p><p>这个函数是在Qt 4.8版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qudpsocket.html#leaveMulticastGroup">leaveMulticastGroup</a>().</p>
 <!-- @@@joinMulticastGroup -->
 <!-- $$$joinMulticastGroup$$$joinMulticastGroupconstQHostAddress&constQNetworkInterface& -->
@@ -181,14 +181,14 @@
 <h3 class="fn" id="leaveMulticastGroup"><a name="leaveMulticastGroup"></a><span class="type">bool</span> QUdpSocket::<span class="name">leaveMulticastGroup</span>(const <span class="type"><a href="qhostaddress.html">QHostAddress</a></span> &amp;<i>groupAddress</i>)</h3>
 <p>Leaves the multicast group specified by <i>groupAddress</i> on the default interface chosen by the operating system. The socket must be in <a href="qabstractsocket.html#SocketState-enum">BoundState</a>, otherwise an error occurs.</p>
 <p>This function returns <code>true</code> if successful; otherwise it returns <code>false</code> and sets the socket error accordingly.</p>
-<p><b>Note: </b>This function should be called with the same arguments as were passed to <a href="qudpsocket.html#joinMulticastGroup">joinMulticastGroup</a>().</p><p>这个函数是在Qt 4.8版本中新增引入的。</p>
+<p><b>注意： </b>This function should be called with the same arguments as were passed to <a href="qudpsocket.html#joinMulticastGroup">joinMulticastGroup</a>().</p><p>这个函数是在Qt 4.8版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qudpsocket.html#joinMulticastGroup">joinMulticastGroup</a>().</p>
 <!-- @@@leaveMulticastGroup -->
 <!-- $$$leaveMulticastGroup$$$leaveMulticastGroupconstQHostAddress&constQNetworkInterface& -->
 <h3 class="fn" id="leaveMulticastGroup-1"><a name="leaveMulticastGroup-1"></a><span class="type">bool</span> QUdpSocket::<span class="name">leaveMulticastGroup</span>(const <span class="type"><a href="qhostaddress.html">QHostAddress</a></span> &amp;<i>groupAddress</i>, const <span class="type"><a href="qnetworkinterface.html">QNetworkInterface</a></span> &amp;<i>iface</i>)</h3>
 <p>这是一个重载函数。</p>
 <p>Leaves the multicast group specified by <i>groupAddress</i> on the interface <i>iface</i>.</p>
-<p><b>Note: </b>This function should be called with the same arguments as were passed to <a href="qudpsocket.html#joinMulticastGroup">joinMulticastGroup</a>().</p><p>这个函数是在Qt 4.8版本中新增引入的。</p>
+<p><b>注意： </b>This function should be called with the same arguments as were passed to <a href="qudpsocket.html#joinMulticastGroup">joinMulticastGroup</a>().</p><p>这个函数是在Qt 4.8版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qudpsocket.html#joinMulticastGroup">joinMulticastGroup</a>().</p>
 <!-- @@@leaveMulticastGroup -->
 <!-- $$$multicastInterface[overload1]$$$multicastInterface -->
@@ -227,7 +227,7 @@
 <p>Sends the datagram at <i>data</i> of size <i>size</i> to the host address <i>address</i> at port <i>port</i>. Returns the number of bytes sent on success; otherwise returns -1.</p>
 <p>Datagrams are always written as one block. The maximum size of a datagram is highly platform-dependent, but can be as low as 8192 bytes. If the datagram is too large, this function will return -1 and <a href="qabstractsocket.html#error">error</a>() will return <a href="qabstractsocket.html#SocketError-enum">DatagramTooLargeError</a>.</p>
 <p>Sending datagrams larger than 512 bytes is in general disadvised, as even if they are sent successfully, they are likely to be fragmented by the IP layer before arriving at their final destination.</p>
-<p><b>Warning:</b> Calling this function on a connected UDP socket may result in an error and no packet being sent. If you are using a connected socket, use <a href="../qtcore/qiodevice.html#write-2">write</a>() to send datagrams.</p>
+<p><b>警告：</b> Calling this function on a connected UDP socket may result in an error and no packet being sent. If you are using a connected socket, use <a href="../qtcore/qiodevice.html#write-2">write</a>() to send datagrams.</p>
 <p><b> 参见 </b><a href="qudpsocket.html#readDatagram">readDatagram</a>() 和 <a href="../qtcore/qiodevice.html#write-2">write</a>().</p>
 <!-- @@@writeDatagram -->
 <!-- $$$writeDatagram$$$writeDatagramconstQNetworkDatagram& -->
@@ -236,7 +236,7 @@
 <p>Sends the datagram <i>datagram</i> to the host address and port numbers contained in <i>datagram</i>, using the network interface and hop count limits also set there. If the destination address and port numbers are unset, this function will send to the address that was passed to <a href="qabstractsocket.html#connectToHost">connectToHost</a>().</p>
 <p>If the destination address is IPv6 with a non-empty <a href="qhostaddress.html#scopeId">scope id</a> but differs from the interface index in <i>datagram</i>, it is undefined which interface the operating system will choose to send on.</p>
 <p>The function returns the number of bytes sent if it succeeded or -1 if it encountered an error.</p>
-<p><b>Warning:</b> Calling this function on a connected UDP socket may result in an error and no packet being sent. If you are using a connected socket, use <a href="../qtcore/qiodevice.html#write-2">write</a>() to send datagrams.</p>
+<p><b>警告：</b> Calling this function on a connected UDP socket may result in an error and no packet being sent. If you are using a connected socket, use <a href="../qtcore/qiodevice.html#write-2">write</a>() to send datagrams.</p>
 <p><b> 参见 </b><a href="qnetworkdatagram.html#setDestination">QNetworkDatagram::setDestination</a>(), <a href="qnetworkdatagram.html#setHopLimit">QNetworkDatagram::setHopLimit</a>(), 和 <a href="qnetworkdatagram.html#setInterfaceIndex">QNetworkDatagram::setInterfaceIndex</a>().</p>
 <!-- @@@writeDatagram -->
 <!-- $$$writeDatagram$$$writeDatagramconstQByteArray&constQHostAddress&quint16 -->

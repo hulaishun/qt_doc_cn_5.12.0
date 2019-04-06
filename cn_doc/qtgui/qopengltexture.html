@@ -599,7 +599,7 @@
 <p>Once storage has been allocated it is no longer possible to change these properties.</p>
 <p>If supported <a href="qopengltexture.html">QOpenGLTexture</a> makes use of immutable texture storage.</p>
 <p>Once storage has been allocated for the texture then pixel data can be uploaded via one of the <a href="qopengltexture.html#setData">setData</a>() overloads.</p>
-<p><b>Note: </b>If immutable texture storage is not available, then a default pixel format and pixel type will be used to create the mutable storage. You can use the other allocateStorage() overload to specify exactly the pixel format and the pixel type to use when allocating mutable storage; this is particulary useful under certain OpenGL ES implementations (notably, OpenGL ES 2), where the pixel format and the pixel type used at allocation time must perfectly match the format and the type passed to any subsequent <a href="qopengltexture.html#setData">setData</a>() call.</p><p><b> 参见 </b><a href="qopengltexture.html#isStorageAllocated">isStorageAllocated</a>() 和 <a href="qopengltexture.html#setData">setData</a>().</p>
+<p><b>注意： </b>If immutable texture storage is not available, then a default pixel format and pixel type will be used to create the mutable storage. You can use the other allocateStorage() overload to specify exactly the pixel format and the pixel type to use when allocating mutable storage; this is particulary useful under certain OpenGL ES implementations (notably, OpenGL ES 2), where the pixel format and the pixel type used at allocation time must perfectly match the format and the type passed to any subsequent <a href="qopengltexture.html#setData">setData</a>() call.</p><p><b> 参见 </b><a href="qopengltexture.html#isStorageAllocated">isStorageAllocated</a>() 和 <a href="qopengltexture.html#setData">setData</a>().</p>
 <!-- @@@allocateStorage -->
 <!-- $$$allocateStorage$$$allocateStorageQOpenGLTexture::PixelFormatQOpenGLTexture::PixelType -->
 <h3 class="fn" id="allocateStorage-1"><a name="allocateStorage-1"></a><span class="type">void</span> QOpenGLTexture::<span class="name">allocateStorage</span>(<span class="type"><a href="qopengltexture.html#PixelFormat-enum">QOpenGLTexture::PixelFormat</a></span> <i>pixelFormat</i>, <span class="type"><a href="qopengltexture.html#PixelType-enum">QOpenGLTexture::PixelType</a></span> <i>pixelType</i>)</h3>
@@ -708,7 +708,7 @@
 <!-- $$$generateMipMaps[overload1]$$$generateMipMaps -->
 <h3 class="fn" id="generateMipMaps"><a name="generateMipMaps"></a><span class="type">void</span> QOpenGLTexture::<span class="name">generateMipMaps</span>()</h3>
 <p>Generates mipmaps for this texture object from mipmap level 0. If you are using a texture target and filtering option that requires mipmaps and you have disabled automatic mipmap generation then you need to call this function or the overload to create the mipmap chain.</p>
-<p><b>Note: </b>Mipmap generation is not supported for compressed textures with OpenGL ES 2.0&#x2e;</p><p><b> 参见 </b><a href="qopengltexture.html#setAutoMipMapGenerationEnabled">setAutoMipMapGenerationEnabled</a>(), <a href="qopengltexture.html#setMipLevels">setMipLevels</a>(), 和 <a href="qopengltexture.html#mipLevels">mipLevels</a>().</p>
+<p><b>注意： </b>Mipmap generation is not supported for compressed textures with OpenGL ES 2.0&#x2e;</p><p><b> 参见 </b><a href="qopengltexture.html#setAutoMipMapGenerationEnabled">setAutoMipMapGenerationEnabled</a>(), <a href="qopengltexture.html#setMipLevels">setMipLevels</a>(), 和 <a href="qopengltexture.html#mipLevels">mipLevels</a>().</p>
 <!-- @@@generateMipMaps -->
 <!-- $$$generateMipMaps$$$generateMipMapsintbool -->
 <h3 class="fn" id="generateMipMaps-1"><a name="generateMipMaps-1"></a><span class="type">void</span> QOpenGLTexture::<span class="name">generateMipMaps</span>(<span class="type">int</span> <i>baseLevel</i>, <span class="type">bool</span> <i>resetBaseLevel</i> = true)</h3>
@@ -853,12 +853,12 @@
 <h3 class="fn" id="setAutoMipMapGenerationEnabled"><a name="setAutoMipMapGenerationEnabled"></a><span class="type">void</span> QOpenGLTexture::<span class="name">setAutoMipMapGenerationEnabled</span>(<span class="type">bool</span> <i>enabled</i>)</h3>
 <p>If <i>enabled</i> is <code>true</code>, enables automatic mipmap generation for this texture object to occur whenever the level 0 mipmap data is set via <a href="qopengltexture.html#setData">setData</a>().</p>
 <p>The automatic mipmap generation is enabled by default.</p>
-<p><b>Note: </b>Mipmap generation is not supported for compressed textures with OpenGL ES 2.0&#x2e;</p><p><b> 参见 </b><a href="qopengltexture.html#isAutoMipMapGenerationEnabled">isAutoMipMapGenerationEnabled</a>() 和 <a href="qopengltexture.html#generateMipMaps">generateMipMaps</a>().</p>
+<p><b>注意： </b>Mipmap generation is not supported for compressed textures with OpenGL ES 2.0&#x2e;</p><p><b> 参见 </b><a href="qopengltexture.html#isAutoMipMapGenerationEnabled">isAutoMipMapGenerationEnabled</a>() 和 <a href="qopengltexture.html#generateMipMaps">generateMipMaps</a>().</p>
 <!-- @@@setAutoMipMapGenerationEnabled -->
 <!-- $$$setBorderColor[overload1]$$$setBorderColorQColor -->
 <h3 class="fn" id="setBorderColor"><a name="setBorderColor"></a><span class="type">void</span> QOpenGLTexture::<span class="name">setBorderColor</span>(<span class="type"><a href="qcolor.html">QColor</a></span> <i>color</i>)</h3>
 <p>Sets the border color of the texture to <i>color</i>.</p>
-<p><b>Note: </b>This function has no effect on Mac and Qt built for OpenGL ES 2.</p><p><b> 参见 </b><a href="qopengltexture.html#borderColor">borderColor</a>().</p>
+<p><b>注意： </b>This function has no effect on Mac and Qt built for OpenGL ES 2.</p><p><b> 参见 </b><a href="qopengltexture.html#borderColor">borderColor</a>().</p>
 <!-- @@@setBorderColor -->
 <!-- $$$setBorderColor$$$setBorderColorfloatfloatfloatfloat -->
 <h3 class="fn" id="setBorderColor-1"><a name="setBorderColor-1"></a><span class="type">void</span> QOpenGLTexture::<span class="name">setBorderColor</span>(<span class="type">float</span> <i>r</i>, <span class="type">float</span> <i>g</i>, <span class="type">float</span> <i>b</i>, <span class="type">float</span> <i>a</i>)</h3>
@@ -944,7 +944,7 @@
 <h3 class="fn" id="setDepthStencilMode"><a name="setDepthStencilMode"></a><span class="type">void</span> QOpenGLTexture::<span class="name">setDepthStencilMode</span>(<span class="type"><a href="qopengltexture.html#DepthStencilMode-enum">QOpenGLTexture::DepthStencilMode</a></span> <i>mode</i>)</h3>
 <p>If using a texture that has a combined depth/stencil format this function sets which component of the texture is accessed to <i>mode</i>.</p>
 <p>When the parameter is set to <a href="qopengltexture.html#DepthStencilMode-enum">DepthMode</a>, then accessing it from the shader will access the depth component as a single float, as normal. But when the parameter is set to <a href="qopengltexture.html#DepthStencilMode-enum">StencilMode</a>, the shader will access the stencil component.</p>
-<p><b>Note: </b>This function has no effect on Mac and Qt built for OpenGL ES 2.</p><p>这个函数是在Qt 5.4版本中新增引入的。</p>
+<p><b>注意： </b>This function has no effect on Mac and Qt built for OpenGL ES 2.</p><p>这个函数是在Qt 5.4版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qopengltexture.html#depthStencilMode">depthStencilMode</a>().</p>
 <!-- @@@setDepthStencilMode -->
 <!-- $$$setFixedSamplePositions[overload1]$$$setFixedSamplePositionsbool -->
@@ -969,12 +969,12 @@
 <!-- $$$setLevelOfDetailRange[overload1]$$$setLevelOfDetailRangefloatfloat -->
 <h3 class="fn" id="setLevelOfDetailRange"><a name="setLevelOfDetailRange"></a><span class="type">void</span> QOpenGLTexture::<span class="name">setLevelOfDetailRange</span>(<span class="type">float</span> <i>min</i>, <span class="type">float</span> <i>max</i>)</h3>
 <p>Sets the minimum level of detail parameters to <i>min</i> and the maximum level to <i>max</i>.</p>
-<p><b>Note: </b>This function has no effect on Qt built for OpenGL ES 2.</p><p><b> 参见 </b><a href="qopengltexture.html#levelOfDetailRange">levelOfDetailRange</a>(), <a href="qopengltexture.html#setMinimumLevelOfDetail">setMinimumLevelOfDetail</a>(), 和 <a href="qopengltexture.html#setMaximumLevelOfDetail">setMaximumLevelOfDetail</a>().</p>
+<p><b>注意： </b>This function has no effect on Qt built for OpenGL ES 2.</p><p><b> 参见 </b><a href="qopengltexture.html#levelOfDetailRange">levelOfDetailRange</a>(), <a href="qopengltexture.html#setMinimumLevelOfDetail">setMinimumLevelOfDetail</a>(), 和 <a href="qopengltexture.html#setMaximumLevelOfDetail">setMaximumLevelOfDetail</a>().</p>
 <!-- @@@setLevelOfDetailRange -->
 <!-- $$$setLevelofDetailBias[overload1]$$$setLevelofDetailBiasfloat -->
 <h3 class="fn" id="setLevelofDetailBias"><a name="setLevelofDetailBias"></a><span class="type">void</span> QOpenGLTexture::<span class="name">setLevelofDetailBias</span>(<span class="type">float</span> <i>bias</i>)</h3>
 <p>Sets the level of detail bias to <i>bias</i>. Level of detail bias affects the point at which mipmapping levels change. Increasing values for level of detail bias makes the overall images blurrier or smoother. Decreasing values make the overall images sharper.</p>
-<p><b>Note: </b>This function has no effect on Qt built for OpenGL ES 2.</p><p><b> 参见 </b><a href="qopengltexture.html#levelofDetailBias">levelofDetailBias</a>().</p>
+<p><b>注意： </b>This function has no effect on Qt built for OpenGL ES 2.</p><p><b> 参见 </b><a href="qopengltexture.html#levelofDetailBias">levelofDetailBias</a>().</p>
 <!-- @@@setLevelofDetailBias -->
 <!-- $$$setMagnificationFilter[overload1]$$$setMagnificationFilterQOpenGLTexture::Filter -->
 <h3 class="fn" id="setMagnificationFilter"><a name="setMagnificationFilter"></a><span class="type">void</span> QOpenGLTexture::<span class="name">setMagnificationFilter</span>(<span class="type"><a href="qopengltexture.html#Filter-enum">QOpenGLTexture::Filter</a></span> <i>filter</i>)</h3>
@@ -989,7 +989,7 @@
 <!-- $$$setMaximumLevelOfDetail[overload1]$$$setMaximumLevelOfDetailfloat -->
 <h3 class="fn" id="setMaximumLevelOfDetail"><a name="setMaximumLevelOfDetail"></a><span class="type">void</span> QOpenGLTexture::<span class="name">setMaximumLevelOfDetail</span>(<span class="type">float</span> <i>value</i>)</h3>
 <p>Sets the maximum level of detail to <i>value</i>. This limits the selection of lowest resolution mipmap (highest mipmap level). The default value is 1000.</p>
-<p><b>Note: </b>This function has no effect on Qt built for OpenGL ES 2.</p><p><b> 参见 </b><a href="qopengltexture.html#maximumLevelOfDetail">maximumLevelOfDetail</a>(), <a href="qopengltexture.html#setMinimumLevelOfDetail">setMinimumLevelOfDetail</a>(), 和 <a href="qopengltexture.html#setLevelOfDetailRange">setLevelOfDetailRange</a>().</p>
+<p><b>注意： </b>This function has no effect on Qt built for OpenGL ES 2.</p><p><b> 参见 </b><a href="qopengltexture.html#maximumLevelOfDetail">maximumLevelOfDetail</a>(), <a href="qopengltexture.html#setMinimumLevelOfDetail">setMinimumLevelOfDetail</a>(), 和 <a href="qopengltexture.html#setLevelOfDetailRange">setLevelOfDetailRange</a>().</p>
 <!-- @@@setMaximumLevelOfDetail -->
 <!-- $$$setMinMagFilters[overload1]$$$setMinMagFiltersQOpenGLTexture::FilterQOpenGLTexture::Filter -->
 <h3 class="fn" id="setMinMagFilters"><a name="setMinMagFilters"></a><span class="type">void</span> QOpenGLTexture::<span class="name">setMinMagFilters</span>(<span class="type"><a href="qopengltexture.html#Filter-enum">QOpenGLTexture::Filter</a></span> <i>minificationFilter</i>, <span class="type"><a href="qopengltexture.html#Filter-enum">QOpenGLTexture::Filter</a></span> <i>magnificationFilter</i>)</h3>
@@ -1004,17 +1004,17 @@
 <!-- $$$setMinimumLevelOfDetail[overload1]$$$setMinimumLevelOfDetailfloat -->
 <h3 class="fn" id="setMinimumLevelOfDetail"><a name="setMinimumLevelOfDetail"></a><span class="type">void</span> QOpenGLTexture::<span class="name">setMinimumLevelOfDetail</span>(<span class="type">float</span> <i>value</i>)</h3>
 <p>Sets the minimum level of detail to <i>value</i>. This limits the selection of highest resolution mipmap (lowest mipmap level). The default value is -1000.</p>
-<p><b>Note: </b>This function has no effect on Qt built for OpenGL ES 2.</p><p><b> 参见 </b><a href="qopengltexture.html#minimumLevelOfDetail">minimumLevelOfDetail</a>(), <a href="qopengltexture.html#setMaximumLevelOfDetail">setMaximumLevelOfDetail</a>(), 和 <a href="qopengltexture.html#setLevelOfDetailRange">setLevelOfDetailRange</a>().</p>
+<p><b>注意： </b>This function has no effect on Qt built for OpenGL ES 2.</p><p><b> 参见 </b><a href="qopengltexture.html#minimumLevelOfDetail">minimumLevelOfDetail</a>(), <a href="qopengltexture.html#setMaximumLevelOfDetail">setMaximumLevelOfDetail</a>(), 和 <a href="qopengltexture.html#setLevelOfDetailRange">setLevelOfDetailRange</a>().</p>
 <!-- @@@setMinimumLevelOfDetail -->
 <!-- $$$setMipBaseLevel[overload1]$$$setMipBaseLevelint -->
 <h3 class="fn" id="setMipBaseLevel"><a name="setMipBaseLevel"></a><span class="type">void</span> QOpenGLTexture::<span class="name">setMipBaseLevel</span>(<span class="type">int</span> <i>baseLevel</i>)</h3>
 <p>Sets the base mipmap level used for all texture lookups with this texture to <i>baseLevel</i>.</p>
-<p><b>Note: </b>This function has no effect on Qt built for OpenGL ES 2.</p><p><b> 参见 </b><a href="qopengltexture.html#mipBaseLevel">mipBaseLevel</a>(), <a href="qopengltexture.html#setMipMaxLevel">setMipMaxLevel</a>(), 和 <a href="qopengltexture.html#setMipLevelRange">setMipLevelRange</a>().</p>
+<p><b>注意： </b>This function has no effect on Qt built for OpenGL ES 2.</p><p><b> 参见 </b><a href="qopengltexture.html#mipBaseLevel">mipBaseLevel</a>(), <a href="qopengltexture.html#setMipMaxLevel">setMipMaxLevel</a>(), 和 <a href="qopengltexture.html#setMipLevelRange">setMipLevelRange</a>().</p>
 <!-- @@@setMipBaseLevel -->
 <!-- $$$setMipLevelRange[overload1]$$$setMipLevelRangeintint -->
 <h3 class="fn" id="setMipLevelRange"><a name="setMipLevelRange"></a><span class="type">void</span> QOpenGLTexture::<span class="name">setMipLevelRange</span>(<span class="type">int</span> <i>baseLevel</i>, <span class="type">int</span> <i>maxLevel</i>)</h3>
 <p>Sets the range of mipmap levels that can be used for texture lookups with this texture to range from <i>baseLevel</i> to <i>maxLevel</i>.</p>
-<p><b>Note: </b>This function has no effect on Qt built for OpenGL ES 2.</p><p><b> 参见 </b><a href="qopengltexture.html#setMipBaseLevel">setMipBaseLevel</a>(), <a href="qopengltexture.html#setMipMaxLevel">setMipMaxLevel</a>(), 和 <a href="qopengltexture.html#mipLevelRange">mipLevelRange</a>().</p>
+<p><b>注意： </b>This function has no effect on Qt built for OpenGL ES 2.</p><p><b> 参见 </b><a href="qopengltexture.html#setMipBaseLevel">setMipBaseLevel</a>(), <a href="qopengltexture.html#setMipMaxLevel">setMipMaxLevel</a>(), 和 <a href="qopengltexture.html#mipLevelRange">mipLevelRange</a>().</p>
 <!-- @@@setMipLevelRange -->
 <!-- $$$setMipLevels[overload1]$$$setMipLevelsint -->
 <h3 class="fn" id="setMipLevels"><a name="setMipLevels"></a><span class="type">void</span> QOpenGLTexture::<span class="name">setMipLevels</span>(<span class="type">int</span> <i>levels</i>)</h3>
@@ -1025,7 +1025,7 @@
 <!-- $$$setMipMaxLevel[overload1]$$$setMipMaxLevelint -->
 <h3 class="fn" id="setMipMaxLevel"><a name="setMipMaxLevel"></a><span class="type">void</span> QOpenGLTexture::<span class="name">setMipMaxLevel</span>(<span class="type">int</span> <i>maxLevel</i>)</h3>
 <p>Sets the maximum mipmap level used for all texture lookups with this texture to <i>maxLevel</i>.</p>
-<p><b>Note: </b>This function has no effect on Qt built for OpenGL ES 2.</p><p><b> 参见 </b><a href="qopengltexture.html#mipMaxLevel">mipMaxLevel</a>(), <a href="qopengltexture.html#setMipBaseLevel">setMipBaseLevel</a>(), 和 <a href="qopengltexture.html#setMipLevelRange">setMipLevelRange</a>().</p>
+<p><b>注意： </b>This function has no effect on Qt built for OpenGL ES 2.</p><p><b> 参见 </b><a href="qopengltexture.html#mipMaxLevel">mipMaxLevel</a>(), <a href="qopengltexture.html#setMipBaseLevel">setMipBaseLevel</a>(), 和 <a href="qopengltexture.html#setMipLevelRange">setMipLevelRange</a>().</p>
 <!-- @@@setMipMaxLevel -->
 <!-- $$$setSamples[overload1]$$$setSamplesint -->
 <h3 class="fn" id="setSamples"><a name="setSamples"></a><span class="type">void</span> QOpenGLTexture::<span class="name">setSamples</span>(<span class="type">int</span> <i>samples</i>)</h3>
@@ -1044,7 +1044,7 @@
 <p>GLSL shaders are able to reorder the components of the vec4 returned by texture functions. It is also desirable to be able to control this reordering from CPU side code. This is made possible by swizzle masks since OpenGL 3.3&#x2e;</p>
 <p>Each component of the texture can be mapped to one of the <a href="qopengltexture.html#SwizzleValue-enum">SwizzleValue</a> options.</p>
 <p>This function maps <i>component</i> to the output <i>value</i>.</p>
-<p><b>Note: </b>This function has no effect on Mac and Qt built for OpenGL ES 2.</p><p><b> 参见 </b><a href="qopengltexture.html#swizzleMask">swizzleMask</a>().</p>
+<p><b>注意： </b>This function has no effect on Mac and Qt built for OpenGL ES 2.</p><p><b> 参见 </b><a href="qopengltexture.html#swizzleMask">swizzleMask</a>().</p>
 <!-- @@@setSwizzleMask -->
 <!-- $$$setSwizzleMask$$$setSwizzleMaskQOpenGLTexture::SwizzleValueQOpenGLTexture::SwizzleValueQOpenGLTexture::SwizzleValueQOpenGLTexture::SwizzleValue -->
 <h3 class="fn" id="setSwizzleMask-1"><a name="setSwizzleMask-1"></a><span class="type">void</span> QOpenGLTexture::<span class="name">setSwizzleMask</span>(<span class="type"><a href="qopengltexture.html#SwizzleValue-enum">QOpenGLTexture::SwizzleValue</a></span> <i>r</i>, <span class="type"><a href="qopengltexture.html#SwizzleValue-enum">QOpenGLTexture::SwizzleValue</a></span> <i>g</i>, <span class="type"><a href="qopengltexture.html#SwizzleValue-enum">QOpenGLTexture::SwizzleValue</a></span> <i>b</i>, <span class="type"><a href="qopengltexture.html#SwizzleValue-enum">QOpenGLTexture::SwizzleValue</a></span> <i>a</i>)</h3>

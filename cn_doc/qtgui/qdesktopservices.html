@@ -92,7 +92,7 @@
 </pre>
 <p>If inside the handler you decide that you can't open the requested URL, you can just call <a href="qdesktopservices.html#openUrl">QDesktopServices::openUrl</a>() again with the same argument, and it will try to open the URL using the appropriate mechanism for the user's desktop environment.</p>
 <p>Combined with platform specific settings, the schemes registered by the <a href="qdesktopservices.html#openUrl">openUrl</a>() function can also be exposed to other applications, opening up for application deep linking or a very basic URL-based IPC mechanism.</p>
-<p><b>Note: </b>Since Qt 5, storageLocation() and displayName() are replaced by functionality provided by the <a href="../qtcore/qstandardpaths.html">QStandardPaths</a> class.</p></div>
+<p><b>注意： </b>Since Qt 5, storageLocation() and displayName() are replaced by functionality provided by the <a href="../qtcore/qstandardpaths.html">QStandardPaths</a> class.</p></div>
 <p><b> 参见 </b><a href="../qtwidgets/qsystemtrayicon.html">QSystemTrayIcon</a>, <a href="../qtcore/qprocess.html">QProcess</a>, 和 <a href="../qtcore/qstandardpaths.html">QStandardPaths</a>.</p>
 <!-- @@@QDesktopServices -->
 <div class="types">
@@ -120,9 +120,9 @@
   mailto:user@foo<span class="operator">.</span>com<span class="operator">?</span>subject<span class="operator">=</span>Test<span class="operator">&amp;</span>body<span class="operator">=</span>Just a test
 
 </pre>
-<p><b>Warning:</b> Although many e-mail clients can send attachments and are Unicode-aware, the user may have configured their client without these features. Also, certain e-mail clients (e.g&#x2e;, Lotus Notes) have problems with long URLs.</p>
-<p><b>Warning:</b> A return value of <code>true</code> indicates that the application has successfully requested the operating system to open the URL in an external application. The external application may still fail to launch or fail to open the requested URL. This result will not be reported back to the application.</p>
-<p><b>Warning:</b> URLs passed to this function on iOS will not load unless their schemes are listed in the <code>LSApplicationQueriesSchemes</code> key of the application's Info.plist file. For more information, see the Apple Developer Documentation for <a href="https://developer.apple.com/documentation/uikit/uiapplication/1622952-canopenurl">canOpenURL(_:)</a>. For example, the following lines enable URLs with the HTTPS scheme:</p>
+<p><b>警告：</b> Although many e-mail clients can send attachments and are Unicode-aware, the user may have configured their client without these features. Also, certain e-mail clients (e.g&#x2e;, Lotus Notes) have problems with long URLs.</p>
+<p><b>警告：</b> A return value of <code>true</code> indicates that the application has successfully requested the operating system to open the URL in an external application. The external application may still fail to launch or fail to open the requested URL. This result will not be reported back to the application.</p>
+<p><b>警告：</b> URLs passed to this function on iOS will not load unless their schemes are listed in the <code>LSApplicationQueriesSchemes</code> key of the application's Info.plist file. For more information, see the Apple Developer Documentation for <a href="https://developer.apple.com/documentation/uikit/uiapplication/1622952-canopenurl">canOpenURL(_:)</a>. For example, the following lines enable URLs with the HTTPS scheme:</p>
 <pre class="cpp">
 
   <span class="operator">&lt;</span>key<span class="operator">&gt;</span>LSApplicationQueriesSchemes<span class="operator">&lt;</span><span class="operator">/</span>key<span class="operator">&gt;</span>

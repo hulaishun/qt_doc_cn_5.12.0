@@ -203,7 +203,7 @@
 <a name="accessing-command-line-arguments"></a>
 <h3 >Accessing Command Line Arguments</h3>
 <p>The command line arguments which are passed to <a href="qcoreapplication.html">QCoreApplication</a>'s constructor should be accessed using the <a href="qcoreapplication.html#arguments">arguments</a>() function.</p>
-<p><b>Note: </b><a href="qcoreapplication.html">QCoreApplication</a> removes option <code>-qmljsdebugger=&quot;..&#x2e;&quot;</code>. It parses the argument of <code>qmljsdebugger</code>, and then removes this option plus its argument.</p><p>For more advanced command line option handling, create a <a href="qcommandlineparser.html">QCommandLineParser</a>.</p>
+<p><b>注意： </b><a href="qcoreapplication.html">QCoreApplication</a> removes option <code>-qmljsdebugger=&quot;..&#x2e;&quot;</code>. It parses the argument of <code>qmljsdebugger</code>, and then removes this option plus its argument.</p><p>For more advanced command line option handling, create a <a href="qcommandlineparser.html">QCommandLineParser</a>.</p>
 <a name="locale-settings"></a>
 <h3 >Locale Settings</h3>
 <p>On Unix/Linux Qt is configured to use the system locale settings by default. This can cause a conflict when using POSIX functions, for instance, when converting between data types such as floats and strings, since the notation may differ between locales. To get around this problem, call the POSIX function <code>setlocale(LC_NUMERIC,&quot;C&quot;)</code> right after initializing <a href="../qtwidgets/qapplication.html">QApplication</a>, <a href="../qtgui/qguiapplication.html">QGuiApplication</a> or <a href="qcoreapplication.html">QCoreApplication</a> to reset the locale that is used for number formatting to &quot;C&quot;-locale.</p>
@@ -289,7 +289,7 @@
 <h3 class="fn" id="QCoreApplication"><a name="QCoreApplication"></a>QCoreApplication::<span class="name">QCoreApplication</span>(<span class="type">int</span> &amp;<i>argc</i>, <span class="type">char</span> **<i>argv</i>)</h3>
 <p>Constructs a Qt core application. Core applications are applications without a graphical user interface. Such applications are used at the console or as server processes.</p>
 <p>The <i>argc</i> and <i>argv</i> arguments are processed by the application, and made available in a more convenient form by the <a href="qcoreapplication.html#arguments">arguments</a>() function.</p>
-<p><b>Warning:</b> The data referred to by <i>argc</i> and <i>argv</i> must stay valid for the entire lifetime of the <a href="qcoreapplication.html">QCoreApplication</a> object. In addition, <i>argc</i> must be greater than zero and <i>argv</i> must contain at least one valid character string.</p>
+<p><b>警告：</b> The data referred to by <i>argc</i> and <i>argv</i> must stay valid for the entire lifetime of the <a href="qcoreapplication.html">QCoreApplication</a> object. In addition, <i>argc</i> must be greater than zero and <i>argv</i> must contain at least one valid character string.</p>
 <!-- @@@QCoreApplication -->
 <!-- $$$~QCoreApplication[overload1]$$$~QCoreApplication -->
 <h3 class="fn" id="dtor.QCoreApplication"><a name="dtor.QCoreApplication"></a><code>[虚函数] </code>QCoreApplication::<span class="name">~QCoreApplication</span>()</h3>
@@ -314,14 +314,14 @@
 <p>Returns the directory that contains the application executable.</p>
 <p>For example, if you have installed Qt in the <code>C:\Qt</code> directory, and you run the <code>regexp</code> example, this function will return &quot;C:/Qt/examples/tools/regexp&quot;.</p>
 <p>On <a href="../qtdoc/internationalization.html#macos">macOS</a> and iOS this will point to the directory actually containing the executable, which may be inside an application bundle (if the application is bundled).</p>
-<p><b>Warning:</b> On Linux, this function will try to get the path from the <code>/proc</code> file system. If that fails, it assumes that <code>argv[0]</code> contains the absolute file name of the executable. The function also assumes that the current directory has not been changed by the application.</p>
+<p><b>警告：</b> On Linux, this function will try to get the path from the <code>/proc</code> file system. If that fails, it assumes that <code>argv[0]</code> contains the absolute file name of the executable. The function also assumes that the current directory has not been changed by the application.</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#applicationFilePath">applicationFilePath</a>().</p>
 <!-- @@@applicationDirPath -->
 <!-- $$$applicationFilePath[overload1]$$$applicationFilePath -->
 <h3 class="fn" id="applicationFilePath"><a name="applicationFilePath"></a><code>[静态函数] </code><span class="type"><a href="qstring.html">QString</a></span> QCoreApplication::<span class="name">applicationFilePath</span>()</h3>
 <p>Returns the file path of the application executable.</p>
 <p>For example, if you have installed Qt in the <code>/usr/local/qt</code> directory, and you run the <code>regexp</code> example, this function will return &quot;/usr/local/qt/examples/tools/regexp/regexp&quot;.</p>
-<p><b>Warning:</b> On Linux, this function will try to get the path from the <code>/proc</code> file system. If that fails, it assumes that <code>argv[0]</code> contains the absolute file name of the executable. The function also assumes that the current directory has not been changed by the application.</p>
+<p><b>警告：</b> On Linux, this function will try to get the path from the <code>/proc</code> file system. If that fails, it assumes that <code>argv[0]</code> contains the absolute file name of the executable. The function also assumes that the current directory has not been changed by the application.</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#applicationDirPath">applicationDirPath</a>().</p>
 <!-- @@@applicationFilePath -->
 <!-- $$$applicationPid[overload1]$$$applicationPid -->
@@ -334,7 +334,7 @@
 <p>Returns the list of command-line arguments.</p>
 <p>Usually arguments().at(0) is the program name, arguments().at(1) is the first argument, and arguments().last() is the last argument. See the note below about Windows.</p>
 <p>Calling this function is slow - you should store the result in a variable when parsing the command line.</p>
-<p><b>Warning:</b> On Unix, this list is built from the argc and argv parameters passed to the constructor in the main() function. The string-data in argv is interpreted using <a href="qstring.html#fromLocal8Bit">QString::fromLocal8Bit</a>(); hence it is not possible to pass, for example, Japanese command line arguments on a system that runs in a Latin1 locale. Most modern Unix systems do not have this limitation, as they are Unicode-based.</p>
+<p><b>警告：</b> On Unix, this list is built from the argc and argv parameters passed to the constructor in the main() function. The string-data in argv is interpreted using <a href="qstring.html#fromLocal8Bit">QString::fromLocal8Bit</a>(); hence it is not possible to pass, for example, Japanese command line arguments on a system that runs in a Latin1 locale. Most modern Unix systems do not have this limitation, as they are Unicode-based.</p>
 <p>On Windows, the list is built from the argc and argv parameters only if modified argv/argc parameters are passed to the constructor. In that case, encoding problems might occur.</p>
 <p>Otherwise, the arguments() are constructed from the return value of <a href="http://msdn2.microsoft.com/en-us/library/ms683156(VS.85).aspx">GetCommandLine()</a>. As a result of this, the string given by arguments().at(0) might not be the program name on Windows, depending on how the application was started.</p>
 <p>这个函数是在Qt 4.1版本中新增引入的。</p>
@@ -377,7 +377,7 @@
 <p>The event filter <i>filterObj</i> receives events via its <a href="qabstractnativeeventfilter.html#nativeEventFilter">nativeEventFilter()</a> function, which is called for all native events received in the main thread.</p>
 <p>The <a href="qabstractnativeeventfilter.html#nativeEventFilter">QAbstractNativeEventFilter::nativeEventFilter</a>() function should return true if the event should be filtered, i.e&#x2e; stopped. It should return false to allow normal Qt processing to continue: the native event can then be translated into a <a href="qevent.html">QEvent</a> and handled by the standard Qt <a href="qevent.html">event</a> filtering, e.g&#x2e; <a href="qobject.html#installEventFilter">QObject::installEventFilter</a>().</p>
 <p>If multiple event filters are installed, the filter that was installed last is activated first.</p>
-<p><b>Note: </b>The filter function set here receives native messages, i.e&#x2e; MSG or XCB event structs.</p><p><b>Note: </b>Native event filters will be disabled in the application when the <a href="qt.html#ApplicationAttribute-enum">Qt::AA_PluginApplication</a> attribute is set.</p><p>For maximum portability, you should always try to use <a href="qevent.html">QEvent</a> 和 <a href="qobject.html#installEventFilter">QObject::installEventFilter</a>() whenever possible.</p>
+<p><b>注意： </b>The filter function set here receives native messages, i.e&#x2e; MSG or XCB event structs.</p><p><b>注意： </b>Native event filters will be disabled in the application when the <a href="qt.html#ApplicationAttribute-enum">Qt::AA_PluginApplication</a> attribute is set.</p><p>For maximum portability, you should always try to use <a href="qevent.html">QEvent</a> 和 <a href="qobject.html#installEventFilter">QObject::installEventFilter</a>() whenever possible.</p>
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qobject.html#installEventFilter">QObject::installEventFilter</a>().</p>
 <!-- @@@installNativeEventFilter -->
@@ -427,7 +427,7 @@
 <li>Installing an event filter on the object. Such an event filter gets all the events, including Tab and Shift+Tab key press events, as long as they do not change the focus widget.</li>
 </ol>
 <p><b>Future direction:</b> This function will not be called for objects that live outside the main thread in Qt 6. Applications that need that functionality should find other solutions for their event inspection needs in the meantime. The change may be extended to the main thread, causing this function to be deprecated.</p>
-<p><b>Warning:</b> If you override this function, you must ensure all threads that process events stop doing so before your application object begins destruction. This includes threads started by other libraries that you may be using, but does not apply to Qt's own threads.</p>
+<p><b>警告：</b> If you override this function, you must ensure all threads that process events stop doing so before your application object begins destruction. This includes threads started by other libraries that you may be using, but does not apply to Qt's own threads.</p>
 <p><b> 参见 </b><a href="qobject.html#event">QObject::event</a>() 和 <a href="qcoreapplication.html#installNativeEventFilter">installNativeEventFilter</a>().</p>
 <!-- @@@notify -->
 <!-- $$$postEvent[overload1]$$$postEventQObject*QEvent*int -->
@@ -517,7 +517,7 @@
 <p>Immediately dispatches all events which have been previously queued with <a href="qcoreapplication.html#postEvent">QCoreApplication::postEvent</a>() and which are for the object <i>receiver</i> and have the event type <i>event_type</i>.</p>
 <p>Events from the window system are <i>not</i> dispatched by this function, but by <a href="qcoreapplication.html#processEvents">processEvents</a>().</p>
 <p>If <i>receiver</i> is null, the events of <i>event_type</i> are sent for all objects. If <i>event_type</i> is 0, all the events are sent for <i>receiver</i>.</p>
-<p><b>Note: </b>This method must be called from the thread in which its <a href="qobject.html">QObject</a> parameter, <i>receiver</i>, lives.</p><p><b> 参见 </b><a href="qcoreapplication-obsolete.html#flush">flush</a>() 和 <a href="qcoreapplication.html#postEvent">postEvent</a>().</p>
+<p><b>注意： </b>This method must be called from the thread in which its <a href="qobject.html">QObject</a> parameter, <i>receiver</i>, lives.</p><p><b> 参见 </b><a href="qcoreapplication-obsolete.html#flush">flush</a>() 和 <a href="qcoreapplication.html#postEvent">postEvent</a>().</p>
 <!-- @@@sendPostedEvents -->
 <!-- $$$setAttribute[overload1]$$$setAttributeQt::ApplicationAttributebool -->
 <h3 class="fn" id="setAttribute"><a name="setAttribute"></a><code>[静态函数] </code><span class="type">void</span> QCoreApplication::<span class="name">setAttribute</span>(<span class="type">Qt::ApplicationAttribute</span> <i>attribute</i>, <span class="type">bool</span> <i>on</i> = true)</h3>
@@ -540,7 +540,7 @@
 <p>Allows the application to run setuid on UNIX platforms if <i>allow</i> is true.</p>
 <p>If <i>allow</i> is false (the default) and Qt detects the application is running with an effective user id different than the real user id, the application will be aborted when a <a href="qcoreapplication.html">QCoreApplication</a> instance is created.</p>
 <p>Qt is not an appropriate solution for setuid programs due to its large attack surface. However some applications may be required to run in this manner for historical reasons. This flag will prevent Qt from aborting the application when this is detected, and must be set before a <a href="qcoreapplication.html">QCoreApplication</a> instance is created.</p>
-<p><b>Note: </b>It is strongly recommended not to enable this option since it introduces security risks.</p><p>这个函数是在Qt 5.3版本中新增引入的。</p>
+<p><b>注意： </b>It is strongly recommended not to enable this option since it introduces security risks.</p><p>这个函数是在Qt 5.3版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#isSetuidAllowed">isSetuidAllowed</a>().</p>
 <!-- @@@setSetuidAllowed -->
 <!-- $$$startingUp[overload1]$$$startingUp -->
@@ -625,13 +625,13 @@
 
 </pre>
 <p>By selecting the right parent object, this can often be made to clean up the module's data at the right moment.</p>
-<p><b>Note: </b>This function has been thread-safe since Qt 5.10.</p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
+<p><b>注意： </b>This function has been thread-safe since Qt 5.10.</p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#qRemovePostRoutine">qRemovePostRoutine</a>().</p>
 <!-- @@@qAddPostRoutine -->
 <!-- $$$qRemovePostRoutine[overload1]$$$qRemovePostRoutineQtCleanUpFunction -->
 <h3 class="fn" id="qRemovePostRoutine"><a name="qRemovePostRoutine"></a><span class="type">void</span> <span class="name">qRemovePostRoutine</span>(<span class="type">QtCleanUpFunction</span> <i>ptr</i>)</h3>
 <p>Removes the cleanup routine specified by <i>ptr</i> from the list of routines called by the <a href="qcoreapplication.html">QCoreApplication</a> destructor. The routine must have been previously added to the list by a call to <a href="qcoreapplication.html#qAddPostRoutine">qAddPostRoutine</a>(), otherwise this function has no effect.</p>
-<p><b>Note: </b>This function has been thread-safe since Qt 5.10.</p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
+<p><b>注意： </b>This function has been thread-safe since Qt 5.10.</p><p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <p>这个函数是在Qt 5.3版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qcoreapplication.html#qAddPostRoutine">qAddPostRoutine</a>().</p>
 <!-- @@@qRemovePostRoutine -->
@@ -656,7 +656,7 @@
 </pre>
 <p>Note that the startup function will run at the end of the <a href="qcoreapplication.html">QCoreApplication</a> constructor, before any GUI initialization. If GUI code is required in the function, use a timer (or a queued invocation) to perform the initialization later on, from the event loop.</p>
 <p>If <a href="qcoreapplication.html">QCoreApplication</a> is deleted and another <a href="qcoreapplication.html">QCoreApplication</a> is created, the startup function will be invoked again.</p>
-<p><b>Note: </b>This macro is not suitable for use in library code that is then statically linked into an application since the function may not be called at all due to being eliminated by the linker.</p><p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
+<p><b>注意： </b>This macro is not suitable for use in library code that is then statically linked into an application since the function may not be called at all due to being eliminated by the linker.</p><p><b>Note:</b> This function is <a href="../qtdoc/threads-reentrancy.html">可重入的。</a></p>
 <p>这个函数是在Qt 5.1版本中新增引入的。</p>
 <!-- @@@Q_COREAPP_STARTUP_FUNCTION -->
 <!-- $$$Q_DECLARE_TR_FUNCTIONS[overload1]$$$Q_DECLARE_TR_FUNCTIONS -->
