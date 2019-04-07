@@ -163,7 +163,7 @@
 <!-- $$$QDir-description -->
 <div class="descr">
 <h2 id="details">详细描述</h2>
-<p>The <a href="qdir.html">QDir</a> class provides access to directory structures and their contents.</p>
+<p> <a href="qdir.html">QDir</a>类提供了对目录结构和目录内容的访问。 </p>
 <p>A <a href="qdir.html">QDir</a> is used to manipulate path names, access information regarding paths and files, and manipulate the underlying file system. It can also be used to access Qt's <a href="resources.html">resource system</a>.</p>
 <p>Qt uses &quot;/&quot; as a universal directory separator in the same way that &quot;/&quot; is used as a path separator in URLs. If you always use &quot;/&quot; as a directory separator, Qt will translate your paths to conform to the underlying operating system.</p>
 <p>A <a href="qdir.html">QDir</a> can point to a file using either a relative or an absolute path. Absolute paths begin with the directory separator (optionally preceded by a drive specification under Windows). Relative file names begin with a directory name or a file name and specify a path relative to the current directory.</p>
@@ -361,7 +361,7 @@
 <!-- @@@~QDir -->
 <!-- $$$absoluteFilePath[overload1]$$$absoluteFilePathconstQString& -->
 <h3 class="fn" id="absoluteFilePath"><a name="absoluteFilePath"></a><span class="type"><a href="qstring.html">QString</a></span> QDir::<span class="name">absoluteFilePath</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>) const</h3>
-<p>Returns the absolute path name of a file in the directory. Does <i>not</i> check if the file actually exists in the directory; but see <a href="qdir.html#exists-1">exists</a>(). Redundant multiple separators or &quot;.&quot; and &quot;..&quot; directories in <i>fileName</i> are not removed (see <a href="qdir.html#cleanPath">cleanPath</a>()).</p>
+<p>返回当前目录下的文件绝对路径名称。 Does <i>not</i> check if the file actually exists in the directory; but see <a href="qdir.html#exists-1">exists</a>(). Redundant multiple separators or &quot;.&quot; and &quot;..&quot; directories in <i>fileName</i> are not removed (see <a href="qdir.html#cleanPath">cleanPath</a>()).</p>
 <p><b> 参见 </b><a href="qdir.html#relativeFilePath">relativeFilePath</a>(), <a href="qdir.html#filePath">filePath</a>(), 和 <a href="qdir.html#canonicalPath">canonicalPath</a>().</p>
 <!-- @@@absoluteFilePath -->
 <!-- $$$absolutePath[overload1]$$$absolutePath -->
@@ -416,8 +416,8 @@
 <!-- @@@cleanPath -->
 <!-- $$$count[overload1]$$$count -->
 <h3 class="fn" id="count"><a name="count"></a><span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> QDir::<span class="name">count</span>() const</h3>
-<p>Returns the total number of directories and files in the directory.</p>
-<p>Equivalent to <a href="qdir.html#entryList">entryList</a>().count().</p>
+<p>返回当前目录下的所有子目录和文件的数量。</p>
+<p>等同于 <a href="qdir.html#entryList">entryList</a>().count().</p>
 <p><b> 参见 </b><a href="qdir.html#operator-5b-5d">operator[]</a>() 和 <a href="qdir.html#entryList">entryList</a>().</p>
 <!-- @@@count -->
 <!-- $$$current[overload1]$$$current -->
@@ -447,7 +447,7 @@
 <h3 class="fn" id="entryInfoList"><a name="entryInfoList"></a><span class="type"><a href="qfileinfo.html#QFileInfoList-typedef">QFileInfoList</a></span> QDir::<span class="name">entryInfoList</span>(const <span class="type"><a href="qstringlist.html">QStringList</a></span> &amp;<i>nameFilters</i>, <span class="type"><a href="qdir.html#Filter-enum">QDir::Filters</a></span> <i>filters</i> = NoFilter, <span class="type"><a href="qdir.html#SortFlag-enum">QDir::SortFlags</a></span> <i>sort</i> = NoSort) const</h3>
 <p>Returns a list of <a href="qfileinfo.html">QFileInfo</a> objects for all the files and directories in the directory, ordered according to the name and attribute filters previously set with <a href="qdir.html#setNameFilters">setNameFilters</a>() 和 <a href="qdir.html#setFilter">setFilter</a>(), and sorted according to the flags set with <a href="qdir.html#setSorting">setSorting</a>().</p>
 <p>The name filter, file attribute filter, and sorting specification can be overridden using the <i>nameFilters</i>, <i>filters</i>, and <i>sort</i> arguments.</p>
-<p>Returns an empty list if the directory is unreadable, does not exist, or if nothing matches the specification.</p>
+<p>若目录不可读、不存在或与规范不匹配，则返回空列表。</p>
 <p><b> 参见 </b><a href="qdir.html#entryList">entryList</a>(), <a href="qdir.html#setNameFilters">setNameFilters</a>(), <a href="qdir.html#setSorting">setSorting</a>(), <a href="qdir.html#setFilter">setFilter</a>(), <a href="qdir.html#isReadable">isReadable</a>(), 和 <a href="qdir.html#exists-1">exists</a>().</p>
 <!-- @@@entryInfoList -->
 <!-- $$$entryInfoList$$$entryInfoListQDir::FiltersQDir::SortFlags -->
@@ -455,14 +455,14 @@
 <p>这是一个重载函数。</p>
 <p>Returns a list of <a href="qfileinfo.html">QFileInfo</a> objects for all the files and directories in the directory, ordered according to the name and attribute filters previously set with <a href="qdir.html#setNameFilters">setNameFilters</a>() 和 <a href="qdir.html#setFilter">setFilter</a>(), and sorted according to the flags set with <a href="qdir.html#setSorting">setSorting</a>().</p>
 <p>The attribute filter and sorting specifications can be overridden using the <i>filters</i> and <i>sort</i> arguments.</p>
-<p>Returns an empty list if the directory is unreadable, does not exist, or if nothing matches the specification.</p>
+<p>若目录不可读、不存在或与规范不匹配，则返回空列表。</p>
 <p><b> 参见 </b><a href="qdir.html#entryList">entryList</a>(), <a href="qdir.html#setNameFilters">setNameFilters</a>(), <a href="qdir.html#setSorting">setSorting</a>(), <a href="qdir.html#setFilter">setFilter</a>(), <a href="qdir.html#isReadable">isReadable</a>(), 和 <a href="qdir.html#exists-1">exists</a>().</p>
 <!-- @@@entryInfoList -->
 <!-- $$$entryList[overload1]$$$entryListconstQStringList&QDir::FiltersQDir::SortFlags -->
 <h3 class="fn" id="entryList"><a name="entryList"></a><span class="type"><a href="qstringlist.html">QStringList</a></span> QDir::<span class="name">entryList</span>(const <span class="type"><a href="qstringlist.html">QStringList</a></span> &amp;<i>nameFilters</i>, <span class="type"><a href="qdir.html#Filter-enum">QDir::Filters</a></span> <i>filters</i> = NoFilter, <span class="type"><a href="qdir.html#SortFlag-enum">QDir::SortFlags</a></span> <i>sort</i> = NoSort) const</h3>
 <p>Returns a list of the names of all the files and directories in the directory, ordered according to the name and attribute filters previously set with <a href="qdir.html#setNameFilters">setNameFilters</a>() 和 <a href="qdir.html#setFilter">setFilter</a>(), and sorted according to the flags set with <a href="qdir.html#setSorting">setSorting</a>().</p>
 <p>The name filter, file attribute filter, and sorting specification can be overridden using the <i>nameFilters</i>, <i>filters</i>, and <i>sort</i> arguments.</p>
-<p>Returns an empty list if the directory is unreadable, does not exist, or if nothing matches the specification.</p>
+<p>若目录不可读、不存在或与规范不匹配，则返回空列表。</p>
 <p><b> 参见 </b><a href="qdir.html#entryInfoList">entryInfoList</a>(), <a href="qdir.html#setNameFilters">setNameFilters</a>(), <a href="qdir.html#setSorting">setSorting</a>(), 和 <a href="qdir.html#setFilter">setFilter</a>().</p>
 <!-- @@@entryList -->
 <!-- $$$entryList$$$entryListQDir::FiltersQDir::SortFlags -->
@@ -470,7 +470,7 @@
 <p>这是一个重载函数。</p>
 <p>Returns a list of the names of all the files and directories in the directory, ordered according to the name and attribute filters previously set with <a href="qdir.html#setNameFilters">setNameFilters</a>() 和 <a href="qdir.html#setFilter">setFilter</a>(), and sorted according to the flags set with <a href="qdir.html#setSorting">setSorting</a>().</p>
 <p>The attribute filter and sorting specifications can be overridden using the <i>filters</i> and <i>sort</i> arguments.</p>
-<p>Returns an empty list if the directory is unreadable, does not exist, or if nothing matches the specification.</p>
+<p>若目录不可读、不存在或与规范不匹配，则返回空列表。</p>
 <p><b>注意： </b>To list symlinks that point to non existing files, <a href="qdir.html#Filter-enum">System</a> must be passed to the filter.</p><p><b> 参见 </b><a href="qdir.html#entryInfoList">entryInfoList</a>(), <a href="qdir.html#setNameFilters">setNameFilters</a>(), <a href="qdir.html#setSorting">setSorting</a>(), 和 <a href="qdir.html#setFilter">setFilter</a>().</p>
 <!-- @@@entryList -->
 <!-- $$$exists[overload1]$$$existsconstQString& -->
@@ -488,7 +488,7 @@
 <!-- @@@exists -->
 <!-- $$$filePath[overload1]$$$filePathconstQString& -->
 <h3 class="fn" id="filePath"><a name="filePath"></a><span class="type"><a href="qstring.html">QString</a></span> QDir::<span class="name">filePath</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>) const</h3>
-<p>Returns the path name of a file in the directory. Does <i>not</i> check if the file actually exists in the directory; but see <a href="qdir.html#exists-1">exists</a>(). If the <a href="qdir.html">QDir</a> is relative the returned path name will also be relative. Redundant multiple separators or &quot;.&quot; and &quot;..&quot; directories in <i>fileName</i> are not removed (see <a href="qdir.html#cleanPath">cleanPath</a>()).</p>
+<p>返回当前目录下的文件路径名称。 Does <i>not</i> check if the file actually exists in the directory; but see <a href="qdir.html#exists-1">exists</a>(). If the <a href="qdir.html">QDir</a> is relative the returned path name will also be relative. Redundant multiple separators or &quot;.&quot; and &quot;..&quot; directories in <i>fileName</i> are not removed (see <a href="qdir.html#cleanPath">cleanPath</a>()).</p>
 <p><b> 参见 </b><a href="qdir.html#dirName">dirName</a>(), <a href="qdir.html#absoluteFilePath">absoluteFilePath</a>(), <a href="qdir.html#isRelative">isRelative</a>(), 和 <a href="qdir.html#canonicalPath">canonicalPath</a>().</p>
 <!-- @@@filePath -->
 <!-- $$$filter[overload1]$$$filter -->
@@ -532,18 +532,18 @@
 <!-- @@@homePath -->
 <!-- $$$isAbsolute[overload1]$$$isAbsolute -->
 <h3 class="fn" id="isAbsolute"><a name="isAbsolute"></a><span class="type">bool</span> QDir::<span class="name">isAbsolute</span>() const</h3>
-<p>Returns <code>true</code> if the directory's path is absolute; otherwise returns <code>false</code>. See <a href="qdir.html#isAbsolutePath">isAbsolutePath</a>().</p>
+<p>若当前目录是个绝对路径，则返回 <code>true</code>；否则则返回 <code>false</code>。 See <a href="qdir.html#isAbsolutePath">isAbsolutePath</a>().</p>
 <p><b> 参见 </b><a href="qdir.html#isRelative">isRelative</a>(), <a href="qdir.html#makeAbsolute">makeAbsolute</a>(), 和 <a href="qdir.html#cleanPath">cleanPath</a>().</p>
 <!-- @@@isAbsolute -->
 <!-- $$$isAbsolutePath[overload1]$$$isAbsolutePathconstQString& -->
 <h3 class="fn" id="isAbsolutePath"><a name="isAbsolutePath"></a><code>[静态函数] </code><span class="type">bool</span> QDir::<span class="name">isAbsolutePath</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>path</i>)</h3>
-<p>Returns <code>true</code> if <i>path</i> is absolute; returns <code>false</code> if it is relative.</p>
+<p>若路径<i>path</i>是个绝对路径，则返回 <code>true</code>；若是个相对路径，则返回 <code>false</code>。</p>
 <p><b> 参见 </b><a href="qdir.html#isAbsolute">isAbsolute</a>(), <a href="qdir.html#isRelativePath">isRelativePath</a>(), <a href="qdir.html#makeAbsolute">makeAbsolute</a>(), 和 <a href="qdir.html#cleanPath">cleanPath</a>().</p>
 <!-- @@@isAbsolutePath -->
 <!-- $$$isEmpty[overload1]$$$isEmptyQDir::Filters -->
 <h3 class="fn" id="isEmpty"><a name="isEmpty"></a><span class="type">bool</span> QDir::<span class="name">isEmpty</span>(<span class="type"><a href="qdir.html#Filter-enum">QDir::Filters</a></span> <i>filters</i> = Filters(AllEntries | NoDotAndDotDot)) const</h3>
 <p>返回目录是否为空。</p>
-<p>Equivalent to <code>count() == 0</code> with filters <code>QDir::AllEntries | QDir::NoDotAndDotDot</code>, but faster as it just checks whether the directory contains at least one entry.</p>
+<p>等同于 <code>count() == 0</code> with filters <code>QDir::AllEntries | QDir::NoDotAndDotDot</code>, but faster as it just checks whether the directory contains at least one entry.</p>
 <p><b>注意： </b>Unless you set the <i>filters</i> flags to include <code>QDir::NoDotAndDotDot</code> (as the default value does), no directory is empty.</p><p>这个函数是在Qt 5.9版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qdir.html#count">count</a>(), <a href="qdir.html#entryList">entryList</a>(), 和 <a href="qdir.html#setFilter">setFilter</a>().</p>
 <!-- @@@isEmpty -->
@@ -555,17 +555,17 @@
 <!-- @@@isReadable -->
 <!-- $$$isRelative[overload1]$$$isRelative -->
 <h3 class="fn" id="isRelative"><a name="isRelative"></a><span class="type">bool</span> QDir::<span class="name">isRelative</span>() const</h3>
-<p>Returns <code>true</code> if the directory path is relative; otherwise returns false. (Under Unix a path is relative if it does not start with a &quot;/&quot;).</p>
+<p>若目录路径是个相对路径，则返回 <code>true</code>；否则则返回 <code>false</code>。 (Under Unix a path is relative if it does not start with a &quot;/&quot;).</p>
 <p><b> 参见 </b><a href="qdir.html#makeAbsolute">makeAbsolute</a>(), <a href="qdir.html#isAbsolute">isAbsolute</a>(), <a href="qdir.html#isAbsolutePath">isAbsolutePath</a>(), 和 <a href="qdir.html#cleanPath">cleanPath</a>().</p>
 <!-- @@@isRelative -->
 <!-- $$$isRelativePath[overload1]$$$isRelativePathconstQString& -->
 <h3 class="fn" id="isRelativePath"><a name="isRelativePath"></a><code>[静态函数] </code><span class="type">bool</span> QDir::<span class="name">isRelativePath</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>path</i>)</h3>
-<p>Returns <code>true</code> if <i>path</i> is relative; returns <code>false</code> if it is absolute.</p>
+<p>若路径<i>path</i>是个相对路径，则返回 <code>true</code>；若是个绝对路径，则返回 <code>false</code>。</p>
 <p><b> 参见 </b><a href="qdir.html#isRelative">isRelative</a>(), <a href="qdir.html#isAbsolutePath">isAbsolutePath</a>(), 和 <a href="qdir.html#makeAbsolute">makeAbsolute</a>().</p>
 <!-- @@@isRelativePath -->
 <!-- $$$isRoot[overload1]$$$isRoot -->
 <h3 class="fn" id="isRoot"><a name="isRoot"></a><span class="type">bool</span> QDir::<span class="name">isRoot</span>() const</h3>
-<p>Returns <code>true</code> if the directory is the root directory; otherwise returns <code>false</code>.</p>
+<p>若目录是个根目录则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
 <p>Note: If the directory is a symbolic link to the root directory this function returns <code>false</code>. If you want to test for this use <a href="qdir.html#canonicalPath">canonicalPath</a>(), e.g&#x2e;</p>
 <pre class="cpp">
 
@@ -601,17 +601,17 @@
 <!-- @@@match -->
 <!-- $$$mkdir[overload1]$$$mkdirconstQString& -->
 <h3 class="fn" id="mkdir"><a name="mkdir"></a><span class="type">bool</span> QDir::<span class="name">mkdir</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>dirName</i>) const</h3>
-<p>Creates a sub-directory called <i>dirName</i>.</p>
-<p>Returns <code>true</code> on success; otherwise returns <code>false</code>.</p>
-<p>If the directory already exists when this function is called, it will return false.</p>
+<p>创建子目录 <i>dirName</i>。</p>
+<p>若成功则返回 <code>true</code>；否则则返回 <code>false</code>。</p>
+<p>若调用此函数时目录已存在，则将返回false。</p>
 <p><b> 参见 </b><a href="qdir.html#rmdir">rmdir</a>().</p>
 <!-- @@@mkdir -->
 <!-- $$$mkpath[overload1]$$$mkpathconstQString& -->
 <h3 class="fn" id="mkpath"><a name="mkpath"></a><span class="type">bool</span> QDir::<span class="name">mkpath</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>dirPath</i>) const</h3>
-<p>Creates the directory path <i>dirPath</i>.</p>
-<p>The function will create all parent directories necessary to create the directory.</p>
+<p>创建目录路径 <i>dirPath</i>。</p>
+<p>该函数将创建该目录被创建所需的所有父目录。</p>
 <p>如果成功则返回 <code>true</code>；否则返回 <code>false</code>.</p>
-<p>If the path already exists when this function is called, it will return true.</p>
+<p>若调用此函数时目录已存在，则将返回true。</p>
 <p><b> 参见 </b><a href="qdir.html#rmpath">rmpath</a>().</p>
 <!-- @@@mkpath -->
 <!-- $$$nameFilters[overload1]$$$nameFilters -->
@@ -645,13 +645,13 @@
 <!-- @@@relativeFilePath -->
 <!-- $$$remove[overload1]$$$removeconstQString& -->
 <h3 class="fn" id="remove"><a name="remove"></a><span class="type">bool</span> QDir::<span class="name">remove</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>)</h3>
-<p>Removes the file, <i>fileName</i>.</p>
-<p>Returns <code>true</code> if the file is removed successfully; otherwise returns <code>false</code>.</p>
+<p>删除文件 <i>fileName</i>。</p>
+<p>若文件已成功删除则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
 <!-- @@@remove -->
 <!-- $$$removeRecursively[overload1]$$$removeRecursively -->
 <h3 class="fn" id="removeRecursively"><a name="removeRecursively"></a><span class="type">bool</span> QDir::<span class="name">removeRecursively</span>()</h3>
 <p>删除目录，包括目录的所有内容。</p>
-<p>Returns <code>true</code> if successful, otherwise false.</p>
+<p>若已成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
 <p>If a file or directory cannot be removed, removeRecursively() keeps going and attempts to delete as many files and sub-directories as possible, then returns <code>false</code>.</p>
 <p>If the directory was already removed, the method returns <code>true</code> (expected result already reached).</p>
 <p>Note: this function is meant for removing a small application-internal directory (such as a temporary directory), but not user-visible directories. For user-visible operations, it is rather recommended to report errors more precisely to the user, to offer solutions in case of errors, to show progress during the deletion since it could take several minutes, etc.</p>
@@ -666,14 +666,14 @@
 <!-- @@@rename -->
 <!-- $$$rmdir[overload1]$$$rmdirconstQString& -->
 <h3 class="fn" id="rmdir"><a name="rmdir"></a><span class="type">bool</span> QDir::<span class="name">rmdir</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>dirName</i>) const</h3>
-<p>Removes the directory specified by <i>dirName</i>.</p>
-<p>The directory must be empty for rmdir() to succeed.</p>
+<p>删除指定的目录 <i>dirName</i>。</p>
+<p>该目录必须为空才能确保rmdir()函数执行成功。</p>
 <p>如果成功则返回 <code>true</code>；否则返回 <code>false</code>.</p>
 <p><b> 参见 </b><a href="qdir.html#mkdir">mkdir</a>().</p>
 <!-- @@@rmdir -->
 <!-- $$$rmpath[overload1]$$$rmpathconstQString& -->
 <h3 class="fn" id="rmpath"><a name="rmpath"></a><span class="type">bool</span> QDir::<span class="name">rmpath</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>dirPath</i>) const</h3>
-<p>Removes the directory path <i>dirPath</i>.</p>
+<p>删除指定的目录 <i>dirPath</i>。</p>
 <p>The function will remove all parent directories in <i>dirPath</i>, provided that they are empty. This is the opposite of mkpath(dirPath).</p>
 <p>如果成功则返回 <code>true</code>；否则返回 <code>false</code>.</p>
 <p><b> 参见 </b><a href="qdir.html#mkpath">mkpath</a>().</p>
@@ -693,7 +693,7 @@
 <!-- @@@rootPath -->
 <!-- $$$searchPaths[overload1]$$$searchPathsconstQString& -->
 <h3 class="fn" id="searchPaths"><a name="searchPaths"></a><code>[静态函数] </code><span class="type"><a href="qstringlist.html">QStringList</a></span> QDir::<span class="name">searchPaths</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>prefix</i>)</h3>
-<p>Returns the search paths for <i>prefix</i>.</p>
+<p>返回前缀 <i>prefix</i> 的搜索路径。</p>
 <p>这个函数是在Qt 4.3版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qdir.html#setSearchPaths">setSearchPaths</a>() 和 <a href="qdir.html#addSearchPath">addSearchPath</a>().</p>
 <!-- @@@searchPaths -->
@@ -765,7 +765,7 @@
 <!-- @@@sorting -->
 <!-- $$$swap[overload1]$$$swapQDir& -->
 <h3 class="fn" id="swap"><a name="swap"></a><span class="type">void</span> QDir::<span class="name">swap</span>(<span class="type"><a href="qdir.html#QDir">QDir</a></span> &amp;<i>other</i>)</h3>
-<p>Swaps this <a href="qdir.html">QDir</a> instance with <i>other</i>. This function is very fast and never fails.</p>
+<p>交换当前目录 <a href="qdir.html">QDir</a> 实例和其他目录 <i>other</i>。该函数巨快且从未失手过。</p>
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <!-- @@@swap -->
 <!-- $$$temp[overload1]$$$temp -->
