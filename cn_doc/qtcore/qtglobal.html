@@ -523,7 +523,7 @@
 <!-- @@@qAsConst -->
 <!-- $$$qBound[overload1]$$$qBoundconstT&constT&constT& -->
 <h3 class="fn" id="qBound"><a name="qBound"></a>const <span class="type">T</span> &amp;<span class="name">qBound</span>(const <span class="type">T</span> &amp;<i>min</i>, const <span class="type">T</span> &amp;<i>val</i>, const <span class="type">T</span> &amp;<i>max</i>)</h3>
-<p>Returns <i>val</i> bounded by <i>min</i> and <i>max</i>. This is equivalent to <a href="qtglobal.html#qMaxx">qMax</a>(<i>min</i>, <a href="qtglobal.html#qMinx">qMin</a>(<i>val</i>, <i>max</i>)).</p>
+<p>Returns <i>val</i> bounded by <i>min</i> and <i>max</i>. This 等同于 <a href="qtglobal.html#qMaxx">qMax</a>(<i>min</i>, <a href="qtglobal.html#qMinx">qMin</a>(<i>val</i>, <i>max</i>)).</p>
 <p>样例：</p>
 <pre class="cpp">
 
@@ -992,7 +992,7 @@
 <!-- @@@QT_DISABLE_DEPRECATED_BEFORE -->
 <!-- $$$QT_POINTER_SIZE[overload1]$$$QT_POINTER_SIZE -->
 <h3 class="fn" id="QT_POINTER_SIZE"><a name="QT_POINTER_SIZE"></a><span class="name">QT_POINTER_SIZE</span></h3>
-<p>Expands to the size of a pointer in bytes (4 or 8). This is equivalent to <code>sizeof(void *)</code> but can be used in a preprocessor directive.</p>
+<p>Expands to the size of a pointer in bytes (4 or 8). This 等同于 <code>sizeof(void *)</code> but can be used in a preprocessor directive.</p>
 <!-- @@@QT_POINTER_SIZE -->
 <!-- $$$QT_REQUIRE_VERSION[overload1]$$$QT_REQUIRE_VERSIONintchar**constchar* -->
 <h3 class="fn" id="QT_REQUIRE_VERSION"><a name="QT_REQUIRE_VERSION"></a><span class="name">QT_REQUIRE_VERSION</span>(<span class="type">int</span> <i>argc</i>,  <span class="type">char</span> **<i>argv</i>,  const <span class="type">char</span> *<i>version</i>)</h3>
@@ -1289,7 +1289,7 @@
 <h3 class="fn" id="Q_ASSUME"><a name="Q_ASSUME"></a><span class="type">void</span> <span class="name">Q_ASSUME</span>(<span class="type">bool</span> <i>expr</i>)</h3>
 <p>Causes the compiler to assume that <i>expr</i> is <code>true</code>. This macro is useful for improving code generation, by providing the compiler with hints about conditions that it would not otherwise know about. However, there is no guarantee that the compiler will actually use those hints.</p>
 <p>This macro could be considered a &quot;lighter&quot; version of <a href="qtglobal.html#Q_ASSERT">Q_ASSERT</a>(). While <a href="qtglobal.html#Q_ASSERT">Q_ASSERT</a> will abort the program's execution if the condition is <code>false</code>, Q_ASSUME will tell the compiler not to generate code for those conditions. Therefore, it is important that the assumptions always hold, otherwise undefined behaviour may occur.</p>
-<p>If <i>expr</i> is a constantly <code>false</code> condition, Q_ASSUME will tell the compiler that the current code execution cannot be reached. That is, Q_ASSUME(false) is equivalent to <a href="qtglobal.html#Q_UNREACHABLE">Q_UNREACHABLE</a>().</p>
+<p>If <i>expr</i> is a constantly <code>false</code> condition, Q_ASSUME will tell the compiler that the current code execution cannot be reached. That is, Q_ASSUME(false) 等同于 <a href="qtglobal.html#Q_UNREACHABLE">Q_UNREACHABLE</a>().</p>
 <p>In debug builds the condition is enforced by an assert to facilitate debugging.</p>
 <p><b>注意： </b><a href="qtglobal.html#Q_LIKELY">Q_LIKELY</a>() tells the compiler that the expression is likely, but not the only possibility. Q_ASSUME tells the compiler that it is the only possibility.</p><p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qtglobal.html#Q_ASSERT">Q_ASSERT</a>(), <a href="qtglobal.html#Q_UNREACHABLE">Q_UNREACHABLE</a>(), 和 <a href="qtglobal.html#Q_LIKELY">Q_LIKELY</a>().</p>
@@ -1986,7 +1986,7 @@
   }
 
 </pre>
-<p>It is equivalent to <code>for (;;)</code>.</p>
+<p>It 等同于 <code>for (;;)</code>.</p>
 <p>If you're worried about namespace pollution, you can disable this macro by adding the following line to your <code>.pro</code> file:</p>
 <pre class="cpp">
 
@@ -2092,13 +2092,13 @@
 <!-- @@@qMove -->
 <!-- $$$qPrintable[overload1]$$$qPrintableconstQString& -->
 <h3 class="fn" id="qPrintable"><a name="qPrintable"></a>const <span class="type">char</span> *<span class="name">qPrintable</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>str</i>)</h3>
-<p>Returns <i>str</i> as a <code>const char *</code>. This is equivalent to <i>str</i>.toLocal8Bit().constData().</p>
+<p>Returns <i>str</i> as a <code>const char *</code>. This 等同于 <i>str</i>.toLocal8Bit().constData().</p>
 <p>The char pointer will be invalid after the statement in which qPrintable() is used. This is because the array returned by <a href="qstring.html#toLocal8Bit">QString::toLocal8Bit</a>() will fall out of scope.</p>
 <p><b>注意： </b><a href="qtglobal.html#qDebug">qDebug</a>(), <a href="qtglobal.html#qInfo">qInfo</a>(), <a href="qtglobal.html#qWarning">qWarning</a>(), <a href="qtglobal.html#qCritical">qCritical</a>(), <a href="qtglobal.html#qFatal">qFatal</a>() expect %s arguments to be UTF-8 encoded, while qPrintable() converts to local 8-bit encoding. Therefore <a href="qtglobal.html#qUtf8Printable">qUtf8Printable</a>() should be used for logging strings instead of qPrintable().</p><p><b> 参见 </b><a href="qtglobal.html#qUtf8Printable">qUtf8Printable</a>().</p>
 <!-- @@@qPrintable -->
 <!-- $$$qUtf16Printable[overload1]$$$qUtf16PrintableconstQString& -->
 <h3 class="fn" id="qUtf16Printable"><a name="qUtf16Printable"></a>const <span class="type">wchar_t</span> *<span class="name">qUtf16Printable</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>str</i>)</h3>
-<p>Returns <i>str</i> as a <code>const ushort *</code>, but cast to a <code>const wchar_t *</code> to avoid warnings. This is equivalent to <i>str</i>.utf16() plus some casting.</p>
+<p>Returns <i>str</i> as a <code>const ushort *</code>, but cast to a <code>const wchar_t *</code> to avoid warnings. This 等同于 <i>str</i>.utf16() plus some casting.</p>
 <p>The only useful thing you can do with the return value of this macro is to pass it to <a href="qstring.html#asprintf">QString::asprintf</a>() for use in a <code>%ls</code> conversion. In particular, the return value is <i>not</i> a valid <code>const wchar_t*</code>!</p>
 <p>In general, the pointer will be invalid after the statement in which qUtf16Printable() is used. This is because the pointer may have been obtained from a temporary expression, which will fall out of scope.</p>
 <p>样例：</p>
@@ -2112,7 +2112,7 @@
 <!-- @@@qUtf16Printable -->
 <!-- $$$qUtf8Printable[overload1]$$$qUtf8PrintableconstQString& -->
 <h3 class="fn" id="qUtf8Printable"><a name="qUtf8Printable"></a>const <span class="type">char</span> *<span class="name">qUtf8Printable</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>str</i>)</h3>
-<p>Returns <i>str</i> as a <code>const char *</code>. This is equivalent to <i>str</i>.toUtf8().constData().</p>
+<p>Returns <i>str</i> as a <code>const char *</code>. This 等同于 <i>str</i>.toUtf8().constData().</p>
 <p>The char pointer will be invalid after the statement in which qUtf8Printable() is used. This is because the array returned by <a href="qstring.html#toUtf8">QString::toUtf8</a>() will fall out of scope.</p>
 <p>样例：</p>
 <pre class="cpp">
