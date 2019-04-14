@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- qmessagebox.cpp -->
-  <title>QMessageBox Class | Qt Widgets 5.12</title>
+  <title>QMessageBox Class | Qt部件模块 5.12</title>
   <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
   <script type="text/javascript">
     document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
@@ -46,10 +46,10 @@
 <li class="level1"><a href="#static-public-members">静态公共成员</a></li>
 <li class="level1"><a href="#reimplemented-protected-functions">重新实现的保护函数</a></li>
 <li class="level1"><a href="#details">详细描述</a></li>
-<li class="level2"><a href="#the-property-based-api">The Property-based API</a></li>
-<li class="level2"><a href="#the-static-functions-api">The Static Functions API</a></li>
-<li class="level2"><a href="#advanced-usage">Advanced Usage</a></li>
-<li class="level2"><a href="#default-and-escape-keys">Default and Escape Keys</a></li>
+<li class="level2"><a href="#the-property-based-api">基于属性的API</a></li>
+<li class="level2"><a href="#the-static-functions-api">静态函数的API</a></li>
+<li class="level2"><a href="#advanced-usage">高级用法</a></li>
+<li class="level2"><a href="#default-and-escape-keys">默认键和转义键</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
@@ -217,7 +217,7 @@
 <p>A message box displays a primary <a href="qmessagebox.html#text-prop">text</a> to alert the user to a situation, an <a href="qmessagebox.html#informativeText-prop">informative text</a> to further explain the alert or to ask the user a question, and an optional <a href="qmessagebox.html#detailedText-prop">detailed text</a> to provide even more data if the user requests it. A message box can also display an <a href="qmessagebox.html#icon-prop">icon</a> 和 <a href="qmessagebox.html#standardButtons-prop">standard buttons</a> for accepting a user response.</p>
 <p>Two APIs for using <a href="qmessagebox.html">QMessageBox</a> are provided, the property-based API, and the static functions. Calling one of the static functions is the simpler approach, but it is less flexible than using the property-based API, and the result is less informative. Using the property-based API is recommended.</p>
 <a name="the-property-based-api"></a>
-<h3 >The Property-based API</h3>
+<h3 >基于属性的API</h3>
 <p>To use the property-based API, construct an instance of <a href="qmessagebox.html">QMessageBox</a>, set the desired properties, and call <a href="qmessagebox.html#exec">exec</a>() to show the message. The simplest configuration is to set only the <a href="qmessagebox.html#text-prop">message text</a> property.</p>
 <pre class="cpp">
 
@@ -277,7 +277,7 @@
 <p><a href="qmessagebox.html#Icon-enum">Predefined icons</a> are not defined by <a href="qmessagebox.html">QMessageBox</a>, but provided by the style. The default value is <a href="qmessagebox.html#Icon-enum">No Icon</a>. The message boxes are otherwise the same for all cases. When using a standard icon, use the one recommended in the table, or use the one recommended by the style guidelines for your platform. If none of the standard icons is right for your message box, you can use a custom icon by setting the <a href="qmessagebox.html#iconPixmap-prop">icon pixmap</a> property instead of setting the <a href="qmessagebox.html#icon-prop">icon</a> property.</p>
 <p>In summary, to set an icon, use <i>either</i> <a href="qmessagebox.html#icon-prop">setIcon</a>() for one of the standard icons, <i>or</i> <a href="qmessagebox.html#iconPixmap-prop">setIconPixmap</a>() for a custom icon.</p>
 <a name="the-static-functions-api"></a>
-<h3 >The Static Functions API</h3>
+<h3 >静态函数的API</h3>
 <p>Building message boxes with the static functions API, although convenient, is less flexible than using the property-based API, because the static function signatures lack parameters for setting the <a href="qmessagebox.html#informativeText-prop">informative text</a> 和 <a href="qmessagebox.html#detailedText-prop">detailed text</a> properties. One work-around for this has been to use the <code>title</code> parameter as the message box main text and the <code>text</code> parameter as the message box informative text. Because this has the obvious drawback of making a less readable message box, platform guidelines do not recommend it. The <i>Microsoft Windows User Interface Guidelines</i> recommend using the <a href="../qtcore/qcoreapplication.html#applicationName-prop">application name</a> as the <a href="qmessagebox.html#setWindowTitle">window's title</a>, which means that if you have an informative text in addition to your main text, you must concatenate it to the <code>text</code> parameter.</p>
 <p>Note that the static function signatures have changed with respect to their button parameters, which are now used to set the <a href="qmessagebox.html#standardButtons-prop">standard buttons</a> and the <a href="qmessagebox.html#defaultButton">default button</a>.</p>
 <p>Static functions are available for creating <a href="qmessagebox.html#information">information</a>(), <a href="qmessagebox.html#question">question</a>(), <a href="qmessagebox.html#warning">warning</a>(), 和 <a href="qmessagebox.html#critical">critical</a>() message boxes.</p>
@@ -293,7 +293,7 @@
 </pre>
 <p>The <a href="qtwidgets-dialogs-standarddialogs-example.html">Standard Dialogs</a> example shows how to use <a href="qmessagebox.html">QMessageBox</a> and the other built-in Qt dialogs.</p>
 <a name="advanced-usage"></a>
-<h3 >Advanced Usage</h3>
+<h3 >高级用法</h3>
 <p>If the <a href="qmessagebox.html#StandardButton-enum">standard buttons</a> are not flexible enough for your message box, you can use the <a href="qmessagebox.html#addButton">addButton</a>() overload that takes a text and a <a href="qmessagebox.html#ButtonRole-enum">ButtonRole</a> to add custom buttons. The <a href="qmessagebox.html#ButtonRole-enum">ButtonRole</a> is used by <a href="qmessagebox.html">QMessageBox</a> to determine the ordering of the buttons on screen (which varies according to the platform). You can test the value of <a href="qmessagebox.html#clickedButton">clickedButton</a>() after calling <a href="qmessagebox.html#exec">exec</a>(). For example,</p>
 <pre class="cpp">
 
@@ -311,7 +311,7 @@
 
 </pre>
 <a name="default-and-escape-keys"></a>
-<h3 >Default and Escape Keys</h3>
+<h3 >默认键和转义键</h3>
 <p>The default button (i.e&#x2e;, the button activated when <b>Enter</b> is pressed) can be specified using <a href="qmessagebox.html#setDefaultButton">setDefaultButton</a>(). If a default button is not specified, <a href="qmessagebox.html">QMessageBox</a> tries to find one based on the <a href="qmessagebox.html#ButtonRole-enum">button roles</a> of the buttons used in the message box.</p>
 <p>The escape button (the button activated when <b>Esc</b> is pressed) can be specified using <a href="qmessagebox.html#setEscapeButton">setEscapeButton</a>(). If an escape button is not specified, <a href="qmessagebox.html">QMessageBox</a> tries to find one using these rules:</p>
 <ol class="1" type="1"><li>If there is only one button, it is the button activated when <b>Esc</b> is pressed.</li>
