@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- qsequentialanimationgroup.cpp -->
-  <title>QSequentialAnimationGroup Class | Qt核心模块 5.12</title>
+  <title>串行动画分组类 | Qt核心模块 5.12</title>
   <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
   <script type="text/javascript">
     document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
@@ -48,9 +48,9 @@
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title">QSequentialAnimationGroup Class</h1>
+<h1 class="title">串行动画分组类</h1>
 <!-- $$$QSequentialAnimationGroup-brief -->
-<p>The <a href="qsequentialanimationgroup.html">QSequentialAnimationGroup</a> class provides a sequential group of animations. <a href="#details">更多详情...</a></p>
+<p><a href="qsequentialanimationgroup.html">QSequentialAnimationGroup</a>类提供了动画的串行分组。 <a href="#details">更多详情...</a></p>
 <!-- @@@QSequentialAnimationGroup -->
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> 头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QSequentialAnimationGroup&gt;</span>
@@ -132,7 +132,7 @@
 <!-- $$$QSequentialAnimationGroup-description -->
 <div class="descr">
 <h2 id="details">详细描述</h2>
-<p>The <a href="qsequentialanimationgroup.html">QSequentialAnimationGroup</a> class provides a sequential group of animations.</p>
+<p><a href="qsequentialanimationgroup.html">QSequentialAnimationGroup</a>类提供了动画的串行分组。</p>
 <p><a href="qsequentialanimationgroup.html">QSequentialAnimationGroup</a> is a <a href="qanimationgroup.html">QAnimationGroup</a> that runs its animations in sequence, i.e&#x2e;, it starts one animation after another has finished playing. The animations are played in the order they are added to the group (using <a href="qanimationgroup.html#addAnimation">addAnimation()</a> or <a href="qanimationgroup.html#insertAnimation">insertAnimation()</a>). The animation group finishes when its last animation has finished.</p>
 <p>At each moment there is at most one animation that is active in the group; it is returned by <a href="qsequentialanimationgroup.html#currentAnimation-prop">currentAnimation</a>(). An empty group has no current animation.</p>
 <p>A sequential animation group can be treated as any other animation, i.e&#x2e;, it can be started, stopped, and added to other groups. You can also call <a href="qsequentialanimationgroup.html#addPause">addPause</a>() or <a href="qsequentialanimationgroup.html#insertPause">insertPause</a>() to add a pause to a sequential animation group.</p>
@@ -157,7 +157,7 @@
 <h2>属性文档</h2>
 <!-- $$$currentAnimation-prop$$$currentAnimation$$$currentAnimationChangedQAbstractAnimation* -->
 <h3 class="fn" id="currentAnimation-prop"><a name="currentAnimation-prop"></a><span class="name">currentAnimation</span> : <span class="type"><a href="qabstractanimation.html#QAbstractAnimation">QAbstractAnimation</a></span>* const</h3>
-<p>Returns the animation in the current time.</p>
+<p>返回在当前时间下的动画。</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QAbstractAnimation *</td><td class="memItemRight bottomAlign"><span class="name"><b>currentAnimation</b></span>() const</td></tr>
@@ -172,7 +172,7 @@
 <h2>成员函数文档</h2>
 <!-- $$$QSequentialAnimationGroup[overload1]$$$QSequentialAnimationGroupQObject* -->
 <h3 class="fn" id="QSequentialAnimationGroup"><a name="QSequentialAnimationGroup"></a>QSequentialAnimationGroup::<span class="name">QSequentialAnimationGroup</span>(<span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
-<p>Constructs a <a href="qsequentialanimationgroup.html">QSequentialAnimationGroup</a>. <i>parent</i> is passed to <a href="qobject.html">QObject</a>'s constructor.</p>
+<p>构造函数，创建一个串行动画分组 <a href="qsequentialanimationgroup.html">QSequentialAnimationGroup</a>。参数 <i>parent</i>传给了父类 <a href="qobject.html">QObject</a>的构造函数。</p>
 <!-- @@@QSequentialAnimationGroup -->
 <!-- $$$~QSequentialAnimationGroup[overload1]$$$~QSequentialAnimationGroup -->
 <h3 class="fn" id="dtor.QSequentialAnimationGroup"><a name="dtor.QSequentialAnimationGroup"></a><code>[虚函数] </code>QSequentialAnimationGroup::<span class="name">~QSequentialAnimationGroup</span>()</h3>
@@ -180,12 +180,12 @@
 <!-- @@@~QSequentialAnimationGroup -->
 <!-- $$$addPause[overload1]$$$addPauseint -->
 <h3 class="fn" id="addPause"><a name="addPause"></a><span class="type"><a href="qpauseanimation.html">QPauseAnimation</a></span> *QSequentialAnimationGroup::<span class="name">addPause</span>(<span class="type">int</span> <i>msecs</i>)</h3>
-<p>Adds a pause of <i>msecs</i> to this animation group. The pause is considered as a special type of animation, thus <a href="qanimationgroup.html#animationCount">animationCount</a> will be increased by one.</p>
+<p>增加<i>msecs</i>毫秒的暂停到动画分组中。此暂停被当做动画的的一个特殊类型。因此 <a href="qanimationgroup.html#animationCount">animationCount</a> 将计数加1。</p>
 <p><b> 参见 </b><a href="qsequentialanimationgroup.html#insertPause">insertPause</a>() 和 <a href="qanimationgroup.html#addAnimation">QAnimationGroup::addAnimation</a>().</p>
 <!-- @@@addPause -->
 <!-- $$$currentAnimationChanged -->
 <h3 class="fn" id="currentAnimationChanged"><a name="currentAnimationChanged"></a><code>[信号] </code><span class="type">void</span> QSequentialAnimationGroup::<span class="name">currentAnimationChanged</span>(<span class="type"><a href="qabstractanimation.html#QAbstractAnimation">QAbstractAnimation</a></span> *<i>current</i>)</h3>
-<p><a href="qsequentialanimationgroup.html">QSequentialAnimationGroup</a> emits this signal when <a href="qsequentialanimationgroup.html#currentAnimation-prop">currentAnimation</a> has been changed. <i>current</i> is the current animation.</p>
+<p>当<a href="qsequentialanimationgroup.html#currentAnimation-prop">currentAnimation</a>发生改变后，<a href="qsequentialanimationgroup.html">QSequentialAnimationGroup</a>将触发该信号。 <i>current</i> 是当前动画。</p>
 <p><b>注意：</b> 此通知信号来自于属性 <a href="qsequentialanimationgroup.html#currentAnimation-prop">currentAnimation</a>. </p><p><b> 参见 </b><a href="qsequentialanimationgroup.html#currentAnimation-prop">currentAnimation</a>().</p>
 <!-- @@@currentAnimationChanged -->
 <!-- $$$duration[overload1]$$$duration -->
@@ -198,7 +198,7 @@
 <!-- @@@event -->
 <!-- $$$insertPause[overload1]$$$insertPauseintint -->
 <h3 class="fn" id="insertPause"><a name="insertPause"></a><span class="type"><a href="qpauseanimation.html">QPauseAnimation</a></span> *QSequentialAnimationGroup::<span class="name">insertPause</span>(<span class="type">int</span> <i>index</i>, <span class="type">int</span> <i>msecs</i>)</h3>
-<p>Inserts a pause of <i>msecs</i> milliseconds at <i>index</i> in this animation group.</p>
+<p>增加<i>msecs</i>毫秒的暂停到动画分组的<i>index</i>位置下。</p>
 <p><b> 参见 </b><a href="qsequentialanimationgroup.html#addPause">addPause</a>() 和 <a href="qanimationgroup.html#insertAnimation">QAnimationGroup::insertAnimation</a>().</p>
 <!-- @@@insertPause -->
 <!-- $$$updateCurrentTime[overload1]$$$updateCurrentTimeint -->

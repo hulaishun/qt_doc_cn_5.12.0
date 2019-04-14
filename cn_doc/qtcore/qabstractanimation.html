@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- qabstractanimation.cpp -->
-  <title>QAbstractAnimation Class | Qt核心模块 5.12</title>
+  <title>抽象动画类 | Qt核心模块 5.12</title>
   <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
   <script type="text/javascript">
     document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
@@ -50,9 +50,9 @@
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title">QAbstractAnimation Class</h1>
+<h1 class="title">抽象动画类</h1>
 <!-- $$$QAbstractAnimation-brief -->
-<p>The <a href="qabstractanimation.html">QAbstractAnimation</a> class is the base of all animations. <a href="#details">更多详情...</a></p>
+<p><a href="qabstractanimation.html">QAbstractAnimation</a>类是所有动画的基类。 <a href="#details">更多详情...</a></p>
 <!-- @@@QAbstractAnimation -->
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> 头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QAbstractAnimation&gt;</span>
@@ -161,7 +161,7 @@
 <!-- $$$QAbstractAnimation-description -->
 <div class="descr">
 <h2 id="details">详细描述</h2>
-<p>The <a href="qabstractanimation.html">QAbstractAnimation</a> class is the base of all animations.</p>
+<p><a href="qabstractanimation.html">QAbstractAnimation</a>类是所有动画的基类。</p>
 <p>The class defines the functions for the functionality shared by all animations. By inheriting this class, you can create custom animations that plug into the rest of the animation framework.</p>
 <p>The progress of an animation is given by its current time (<a href="qabstractanimation.html#currentLoopTime">currentLoopTime</a>()), which is measured in milliseconds from the start of the animation (0) to its end (<a href="qabstractanimation.html#duration">duration</a>()). The value is updated automatically while the animation is running. It can also be set directly with <a href="qabstractanimation.html#currentTime-prop">setCurrentTime</a>().</p>
 <p>At any point an animation is in one of three states: <a href="qabstractanimation.html#State-enum">Running</a>, <a href="qabstractanimation.html#State-enum">Stopped</a>, or <a href="qabstractanimation.html#State-enum">Paused</a>--as defined by the <a href="qabstractanimation.html#State-enum">State</a> enum. The current state can be changed by calling <a href="qabstractanimation.html#start">start</a>(), <a href="qabstractanimation.html#stop">stop</a>(), <a href="qabstractanimation.html#pause">pause</a>(), or <a href="qabstractanimation.html#resume">resume</a>(). An animation will always reset its <a href="qabstractanimation.html#currentTime-prop">current time</a> when it is started. If paused, it will continue with the same current time when resumed. When an animation is stopped, it cannot be resumed, but will keep its current time (until started again). <a href="qabstractanimation.html">QAbstractAnimation</a> will emit <a href="qabstractanimation.html#stateChanged">stateChanged</a>() whenever its state changes.</p>
@@ -176,16 +176,16 @@
 <!-- $$$DeletionPolicy$$$KeepWhenStopped$$$DeleteWhenStopped -->
 <h3 class="fn" id="DeletionPolicy-enum"><a name="DeletionPolicy-enum"></a>enum QAbstractAnimation::<span class="name">DeletionPolicy</span></h3>
 <div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
-<tr><td class="topAlign"><code>QAbstractAnimation::KeepWhenStopped</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">The animation will not be deleted when stopped.</td></tr>
-<tr><td class="topAlign"><code>QAbstractAnimation::DeleteWhenStopped</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">The animation will be automatically deleted when stopped.</td></tr>
+<tr><td class="topAlign"><code>QAbstractAnimation::KeepWhenStopped</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">当动画停止后动画也不会被删除。</td></tr>
+<tr><td class="topAlign"><code>QAbstractAnimation::DeleteWhenStopped</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">当动画停止后动画将自动被删除。</td></tr>
 </table></div>
 <!-- @@@DeletionPolicy -->
 <!-- $$$Direction$$$Forward$$$Backward -->
 <h3 class="fn" id="Direction-enum"><a name="Direction-enum"></a>enum QAbstractAnimation::<span class="name">方向</span></h3>
-<p>This enum describes the direction of the animation when in <a href="qabstractanimation.html#State-enum">Running</a> state.</p>
+<p>以下枚举值描述了处于 <a href="qabstractanimation.html#State-enum">正在运行</a>状态下的动画的方向。</p>
 <div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">常量</th><th class="tblval">值</th><th class="tbldscr">描述</th></tr>
-<tr><td class="topAlign"><code>QAbstractAnimation::Forward</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">The current time of the animation increases with time (i.e&#x2e;, moves from 0 and towards the end / duration).</td></tr>
-<tr><td class="topAlign"><code>QAbstractAnimation::Backward</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">The current time of the animation decreases with time (i.e&#x2e;, moves from the end / duration and towards 0).</td></tr>
+<tr><td class="topAlign"><code>QAbstractAnimation::Forward</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">增加此动画的当前时间 (i.e&#x2e;, 从0 移动到 结束点/时长)。</td></tr>
+<tr><td class="topAlign"><code>QAbstractAnimation::Backward</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">减少此动画的当前时间 (i.e&#x2e;, 从结束点/时长 移动到 0)。</td></tr>
 </table></div>
 <p><b> 参见 </b><a href="qabstractanimation.html#direction-prop">direction</a>.</p>
 <!-- @@@Direction -->
@@ -246,7 +246,7 @@
 <!-- $$$duration-prop$$$duration -->
 <h3 class="fn" id="duration-prop"><a name="duration-prop"></a><span class="name">duration</span> : const <span class="type">int</span></h3>
 <p>此属性包含了当前动画的时长。</p>
-<p>If the duration is -1, it means that the duration is undefined. In this case, <a href="qabstractanimation.html#loopCount-prop">loopCount</a> is ignored.</p>
+<p>若时长为-1，则表明时长未定义。在这种情况下 <a href="qabstractanimation.html#loopCount-prop">loopCount</a> 将被忽略。</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> virtual int </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qabstractanimation.html#duration">duration</a></b></span>() const = 0</td></tr>
@@ -254,7 +254,7 @@
 <!-- @@@duration -->
 <!-- $$$loopCount-prop$$$loopCount$$$setLoopCountint -->
 <h3 class="fn" id="loopCount-prop"><a name="loopCount-prop"></a><span class="name">loopCount</span> : <span class="type">int</span></h3>
-<p>This property holds the loop count of the animation</p>
+<p>此属性包含了动画的循环次数。</p>
 <p>This property describes the loop count of the animation as an integer. By default this value is 1, indicating that the animation should run once only, and then stop. By changing it you can let the animation loop several times. With a value of 0, the animation will not run at all, and with a value of -1, the animation will loop forever until stopped. It is not supported to have loop on an animation that has an undefined duration. It will only run once.</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
@@ -265,7 +265,7 @@
 <!-- $$$state-prop$$$state$$$stateChangedQAbstractAnimation::StateQAbstractAnimation::State -->
 <h3 class="fn" id="state-prop"><a name="state-prop"></a><span class="name">state</span> : const <span class="type"><a href="qabstractanimation.html#State-enum">State</a></span></h3>
 <p>动画的状态。</p>
-<p>此属性描述了动画的当前状态。 When the animation state changes, <a href="qabstractanimation.html">QAbstractAnimation</a> emits the <a href="qabstractanimation.html#stateChanged">stateChanged</a>() signal.</p>
+<p>此属性描述了动画的当前状态。 当动画状态发生了改变, <a href="qabstractanimation.html">QAbstractAnimation</a>将触发信号 <a href="qabstractanimation.html#stateChanged">stateChanged</a>()。</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QAbstractAnimation::State </td><td class="memItemRight bottomAlign"><span class="name"><b>state</b></span>() const</td></tr>
@@ -280,16 +280,16 @@
 <h2>成员函数文档</h2>
 <!-- $$$QAbstractAnimation[overload1]$$$QAbstractAnimationQObject* -->
 <h3 class="fn" id="QAbstractAnimation"><a name="QAbstractAnimation"></a>QAbstractAnimation::<span class="name">QAbstractAnimation</span>(<span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
-<p>Constructs the <a href="qabstractanimation.html">QAbstractAnimation</a> base class, and passes <i>parent</i> to <a href="qobject.html">QObject</a>'s constructor.</p>
+<p>构造函数，创建一个抽象动画 <a href="qabstractanimation.html">QAbstractAnimation</a> 的基类对象，参数 <i>parent</i>传给了父类 <a href="qobject.html">QObject</a>的构造函数。</p>
 <p><b> 参见 </b><a href="qvariantanimation.html">QVariantAnimation</a> 和 <a href="qanimationgroup.html">QAnimationGroup</a>.</p>
 <!-- @@@QAbstractAnimation -->
 <!-- $$$~QAbstractAnimation[overload1]$$$~QAbstractAnimation -->
 <h3 class="fn" id="dtor.QAbstractAnimation"><a name="dtor.QAbstractAnimation"></a><code>[虚函数] </code>QAbstractAnimation::<span class="name">~QAbstractAnimation</span>()</h3>
-<p>Stops the animation if it's running, then destroys the <a href="qabstractanimation.html">QAbstractAnimation</a>. If the animation is part of a <a href="qanimationgroup.html">QAnimationGroup</a>, it is automatically removed before it's destroyed.</p>
+<p>析构函数，若动画还在运行则停止，并且释放 <a href="qabstractanimation.html">QAbstractAnimation</a>。若动画是<a href="qanimationgroup.html">QAnimationGroup</a>的一部分，则在被释放之前自动被删除。</p>
 <!-- @@@~QAbstractAnimation -->
 <!-- $$$currentLoopChanged -->
 <h3 class="fn" id="currentLoopChanged"><a name="currentLoopChanged"></a><code>[信号] </code><span class="type">void</span> QAbstractAnimation::<span class="name">currentLoopChanged</span>(<span class="type">int</span> <i>currentLoop</i>)</h3>
-<p><a href="qabstractanimation.html">QAbstractAnimation</a> emits this signal whenever the current loop changes. <i>currentLoop</i> is the current loop.</p>
+<p><a href="qabstractanimation.html">QAbstractAnimation</a> 将触发该信号，只要当前循环次数一发送变化。 <i>currentLoop</i> 是当前循环次数。</p>
 <p><b>注意：</b> 此通知信号来自于属性 <a href="qabstractanimation.html#currentLoop-prop">currentLoop</a>. </p><p><b> 参见 </b><a href="qabstractanimation.html#currentLoop-prop">currentLoop</a>() 和 <a href="qabstractanimation.html#loopCount-prop">loopCount</a>().</p>
 <!-- @@@currentLoopChanged -->
 <!-- $$$currentLoopTime[overload1]$$$currentLoopTime -->
@@ -315,13 +315,13 @@
 <!-- @@@event -->
 <!-- $$$finished[overload1]$$$finished -->
 <h3 class="fn" id="finished"><a name="finished"></a><code>[信号] </code><span class="type">void</span> QAbstractAnimation::<span class="name">finished</span>()</h3>
-<p><a href="qabstractanimation.html">QAbstractAnimation</a> emits this signal after the animation has stopped and has reached the end.</p>
+<p><a href="qabstractanimation.html">QAbstractAnimation</a> 将触发该信号，只要动画已停止或动画已到达最后。</p>
 <p>该信号被触发于之后 <a href="qabstractanimation.html#stateChanged">stateChanged</a>().</p>
 <p><b> 参见 </b><a href="qabstractanimation.html#stateChanged">stateChanged</a>().</p>
 <!-- @@@finished -->
 <!-- $$$group[overload1]$$$group -->
 <h3 class="fn" id="group"><a name="group"></a><span class="type"><a href="qanimationgroup.html">QAnimationGroup</a></span> *QAbstractAnimation::<span class="name">group</span>() const</h3>
-<p>If this animation is part of a <a href="qanimationgroup.html">QAnimationGroup</a>, this function returns a pointer to the group; otherwise, it returns 0.</p>
+<p>若动画是 <a href="qanimationgroup.html">QAnimationGroup</a>的一部分, 该函数将返回指向动画组的指针；否则将返回0。</p>
 <p><b> 参见 </b><a href="qanimationgroup.html#addAnimation">QAnimationGroup::addAnimation</a>().</p>
 <!-- @@@group -->
 <!-- $$$pause[overload1]$$$pause -->
@@ -336,14 +336,14 @@
 <!-- @@@resume -->
 <!-- $$$setPaused[overload1]$$$setPausedbool -->
 <h3 class="fn" id="setPaused"><a name="setPaused"></a><code>[槽函数] </code><span class="type">void</span> QAbstractAnimation::<span class="name">setPaused</span>(<span class="type">bool</span> <i>paused</i>)</h3>
-<p>If <i>paused</i> is true, the animation is paused. If <i>paused</i> is false, the animation is resumed.</p>
+<p>若<i>paused</i>是true, 将暂停此动画。若 <i>paused</i>是false, 将继续此动画。</p>
 <p><b> 参见 </b><a href="qabstractanimation.html#state-prop">state</a>(), <a href="qabstractanimation.html#pause">pause</a>(), 和 <a href="qabstractanimation.html#resume">resume</a>().</p>
 <!-- @@@setPaused -->
 <!-- $$$start[overload1]$$$startQAbstractAnimation::DeletionPolicy -->
 <h3 class="fn" id="start"><a name="start"></a><code>[槽函数] </code><span class="type">void</span> QAbstractAnimation::<span class="name">start</span>(<span class="type"><a href="qabstractanimation.html#DeletionPolicy-enum">QAbstractAnimation::DeletionPolicy</a></span> <i>policy</i> = KeepWhenStopped)</h3>
 <p>Starts the animation. The <i>policy</i> argument says whether or not the animation should be deleted when it's done. When the animation starts, the <a href="qabstractanimation.html#stateChanged">stateChanged</a>() signal is emitted, and <a href="qabstractanimation.html#state-prop">state</a>() returns Running. When control reaches the event loop, the animation will run by itself, periodically calling <a href="qabstractanimation.html#updateCurrentTime">updateCurrentTime</a>() as the animation progresses.</p>
 <p>If the animation is currently stopped or has already reached the end, calling start() will rewind the animation and start again from the beginning. When the animation reaches the end, the animation will either stop, or if the loop level is more than 1, it will rewind and continue from the beginning.</p>
-<p>If the animation is already running, this function does nothing.</p>
+<p>若此动画已经正在运行，则此函数不做任何事情。</p>
 <p><b> 参见 </b><a href="qabstractanimation.html#stop">stop</a>() 和 <a href="qabstractanimation.html#state-prop">state</a>().</p>
 <!-- @@@start -->
 <!-- $$$stateChanged -->

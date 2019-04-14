@@ -137,7 +137,7 @@
 <!-- $$$addAnimation[overload1]$$$addAnimationQAbstractAnimation* -->
 <h3 class="fn" id="addAnimation"><a name="addAnimation"></a><span class="type">void</span> QAnimationGroup::<span class="name">addAnimation</span>(<span class="type"><a href="qabstractanimation.html#QAbstractAnimation">QAbstractAnimation</a></span> *<i>animation</i>)</h3>
 <p>Adds <i>animation</i> to this group. This will call <a href="qanimationgroup.html#insertAnimation">insertAnimation</a> with index equals to <a href="qanimationgroup.html#animationCount">animationCount</a>().</p>
-<p><b>注意： </b>The group takes ownership of the animation.</p><p><b> 参见 </b><a href="qanimationgroup.html#removeAnimation">removeAnimation</a>().</p>
+<p><b>注意： </b>分组拥有动画的所有权。</p><p><b> 参见 </b><a href="qanimationgroup.html#removeAnimation">removeAnimation</a>().</p>
 <!-- @@@addAnimation -->
 <!-- $$$animationAt[overload1]$$$animationAtint -->
 <h3 class="fn" id="animationAt"><a name="animationAt"></a><span class="type"><a href="qabstractanimation.html#QAbstractAnimation">QAbstractAnimation</a></span> *QAnimationGroup::<span class="name">animationAt</span>(<span class="type">int</span> <i>index</i>) const</h3>
@@ -160,23 +160,23 @@
 <!-- @@@event -->
 <!-- $$$indexOfAnimation[overload1]$$$indexOfAnimationQAbstractAnimation* -->
 <h3 class="fn" id="indexOfAnimation"><a name="indexOfAnimation"></a><span class="type">int</span> QAnimationGroup::<span class="name">indexOfAnimation</span>(<span class="type"><a href="qabstractanimation.html#QAbstractAnimation">QAbstractAnimation</a></span> *<i>animation</i>) const</h3>
-<p>Returns the index of <i>animation</i>. The returned index can be passed to the other functions that take an index as an argument.</p>
+<p>返回动画 <i>animation</i>的索引值。返回的索引值可以传给将索引值作为参数的其他函数。</p>
 <p><b> 参见 </b><a href="qanimationgroup.html#insertAnimation">insertAnimation</a>(), <a href="qanimationgroup.html#animationAt">animationAt</a>(), 和 <a href="qanimationgroup.html#takeAnimation">takeAnimation</a>().</p>
 <!-- @@@indexOfAnimation -->
 <!-- $$$insertAnimation[overload1]$$$insertAnimationintQAbstractAnimation* -->
 <h3 class="fn" id="insertAnimation"><a name="insertAnimation"></a><span class="type">void</span> QAnimationGroup::<span class="name">insertAnimation</span>(<span class="type">int</span> <i>index</i>, <span class="type"><a href="qabstractanimation.html#QAbstractAnimation">QAbstractAnimation</a></span> *<i>animation</i>)</h3>
-<p>Inserts <i>animation</i> into this animation group at <i>index</i>. If <i>index</i> is 0 the animation is inserted at the beginning. If <i>index</i> is <a href="qanimationgroup.html#animationCount">animationCount</a>(), the animation is inserted at the end.</p>
-<p><b>注意： </b>The group takes ownership of the animation.</p><p><b> 参见 </b><a href="qanimationgroup.html#takeAnimation">takeAnimation</a>(), <a href="qanimationgroup.html#addAnimation">addAnimation</a>(), <a href="qanimationgroup.html#indexOfAnimation">indexOfAnimation</a>(), 和 <a href="qanimationgroup.html#removeAnimation">removeAnimation</a>().</p>
+<p>增加动画 <i>animation</i> 到动画分组的 <i>index</i>位置。 若 <i>index</i> 是0，则将动画插入到分组的头部。若 <i>index</i> 是 <a href="qanimationgroup.html#animationCount">animationCount</a>()，则将动画插入到分组的尾部。</p>
+<p><b>注意： </b>分组拥有动画的所有权。</p><p><b> 参见 </b><a href="qanimationgroup.html#takeAnimation">takeAnimation</a>(), <a href="qanimationgroup.html#addAnimation">addAnimation</a>(), <a href="qanimationgroup.html#indexOfAnimation">indexOfAnimation</a>(), 和 <a href="qanimationgroup.html#removeAnimation">removeAnimation</a>().</p>
 <!-- @@@insertAnimation -->
 <!-- $$$removeAnimation[overload1]$$$removeAnimationQAbstractAnimation* -->
 <h3 class="fn" id="removeAnimation"><a name="removeAnimation"></a><span class="type">void</span> QAnimationGroup::<span class="name">removeAnimation</span>(<span class="type"><a href="qabstractanimation.html#QAbstractAnimation">QAbstractAnimation</a></span> *<i>animation</i>)</h3>
-<p>Removes <i>animation</i> from this group. The ownership of <i>animation</i> is transferred to the caller.</p>
+<p>从分组中删除动画<i>animation</i>。动画<i>animation</i>的所有权将传输给调用者。</p>
 <p><b> 参见 </b><a href="qanimationgroup.html#takeAnimation">takeAnimation</a>(), <a href="qanimationgroup.html#insertAnimation">insertAnimation</a>(), 和 <a href="qanimationgroup.html#addAnimation">addAnimation</a>().</p>
 <!-- @@@removeAnimation -->
 <!-- $$$takeAnimation[overload1]$$$takeAnimationint -->
 <h3 class="fn" id="takeAnimation"><a name="takeAnimation"></a><span class="type"><a href="qabstractanimation.html#QAbstractAnimation">QAbstractAnimation</a></span> *QAnimationGroup::<span class="name">takeAnimation</span>(<span class="type">int</span> <i>index</i>)</h3>
-<p>Returns the animation at <i>index</i> and removes it from the animation group.</p>
-<p><b>注意： </b>The ownership of the animation is transferred to the caller.</p><p><b> 参见 </b><a href="qanimationgroup.html#removeAnimation">removeAnimation</a>(), <a href="qanimationgroup.html#addAnimation">addAnimation</a>(), <a href="qanimationgroup.html#insertAnimation">insertAnimation</a>(), 和 <a href="qanimationgroup.html#indexOfAnimation">indexOfAnimation</a>().</p>
+<p>返回位于 <i>index</i>的动画，并且从动画分组中删除它。</p>
+<p><b>注意： </b>动画的所有权将传输给调用者。</p><p><b> 参见 </b><a href="qanimationgroup.html#removeAnimation">removeAnimation</a>(), <a href="qanimationgroup.html#addAnimation">addAnimation</a>(), <a href="qanimationgroup.html#insertAnimation">insertAnimation</a>(), 和 <a href="qanimationgroup.html#indexOfAnimation">indexOfAnimation</a>().</p>
 <!-- @@@takeAnimation -->
 </div>
 <div class="vars">

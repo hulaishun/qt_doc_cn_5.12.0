@@ -218,7 +218,7 @@
 <h2>属性文档</h2>
 <!-- $$$currentValue-prop$$$currentValue$$$valueChangedconstQVariant& -->
 <h3 class="fn" id="currentValue-prop"><a name="currentValue-prop"></a><span class="name">currentValue</span> : const <span class="type"><a href="qvariant.html">QVariant</a></span></h3>
-<p>This property holds the current value of the animation.</p>
+<p>此属性包含了动画的当前值。</p>
 <p>This property describes the current value; an interpolated value between the <a href="qvariantanimation.html#startValue-prop">start value</a> and the <a href="qvariantanimation.html#endValue-prop">end value</a>, using the current time for progress. The value itself is obtained from <a href="qvariantanimation.html#interpolated">interpolated</a>(), which is called repeatedly as the animation is running.</p>
 <p><a href="qvariantanimation.html">QVariantAnimation</a> calls the virtual <a href="qvariantanimation.html#updateCurrentValue">updateCurrentValue</a>() function when the current value changes. This is particularly useful for subclasses that need to track updates. For example, <a href="qpropertyanimation.html">QPropertyAnimation</a> uses this function to animate Qt <a href="properties.html">properties</a>.</p>
 <p><b>访问函数：</b></p>
@@ -234,7 +234,7 @@
 <!-- $$$duration-prop$$$duration$$$setDurationint -->
 <h3 class="fn" id="duration-prop"><a name="duration-prop"></a><span class="name">duration</span> : <span class="type">int</span></h3>
 <p>此属性包含了当前动画的时长。</p>
-<p>此属性描述了当前动画的时长，单位为毫秒。默认间隔是250毫秒。</p>
+<p>此属性描述了当前动画的时长，单位为毫秒。默认时长是250毫秒。</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> virtual int </td><td class="memItemRight bottomAlign"><span class="name"><b>duration</b></span>() const override</td></tr>
@@ -245,7 +245,7 @@
 <!-- $$$easingCurve-prop$$$easingCurve$$$setEasingCurveconstQEasingCurve& -->
 <h3 class="fn" id="easingCurve-prop"><a name="easingCurve-prop"></a><span class="name">easingCurve</span> : <span class="type"><a href="qeasingcurve.html">QEasingCurve</a></span></h3>
 <p>此属性包含了当前动画的变化曲线。</p>
-<p>This property defines the easing curve of the animation. By default, a linear easing curve is used, resulting in linear interpolation. Other curves are provided, for instance, <a href="qeasingcurve.html#Type-enum">QEasingCurve::InCirc</a>, which provides a circular entry curve. Another example is <a href="qeasingcurve.html#Type-enum">QEasingCurve::InOutElastic</a>, which provides an elastic effect on the values of the interpolated variant.</p>
+<p>此属性定义了动画的变化曲线。 By default, a linear easing curve is used, resulting in linear interpolation. Other curves are provided, for instance, <a href="qeasingcurve.html#Type-enum">QEasingCurve::InCirc</a>, which provides a circular entry curve. Another example is <a href="qeasingcurve.html#Type-enum">QEasingCurve::InOutElastic</a>, which provides an elastic effect on the values of the interpolated variant.</p>
 <p><a href="qvariantanimation.html">QVariantAnimation</a> will use the <a href="qeasingcurve.html#valueForProgress">QEasingCurve::valueForProgress</a>() to transform the &quot;normalized progress&quot; (<a href="qabstractanimation.html#currentTime-prop">currentTime</a> / <a href="qabstractanimation.html#totalDuration">totalDuration</a>) of the animation into the effective progress actually used by the animation. It is this effective progress that will be the progress when <a href="qvariantanimation.html#interpolated">interpolated</a>() is called. Also, the steps in the <a href="qvariantanimation.html#keyValues">keyValues</a> are referring to this effective progress.</p>
 <p>The easing curve is used with the interpolator, the <a href="qvariantanimation.html#interpolated">interpolated</a>() virtual function, and the animation's duration to control how the current value changes as the animation progresses.</p>
 <p><b>访问函数：</b></p>
@@ -256,8 +256,8 @@
 <!-- @@@easingCurve -->
 <!-- $$$endValue-prop$$$endValue$$$setEndValueconstQVariant& -->
 <h3 class="fn" id="endValue-prop"><a name="endValue-prop"></a><span class="name">endValue</span> : <span class="type"><a href="qvariant.html">QVariant</a></span></h3>
-<p>This property holds the end value of the animation</p>
-<p>This property describes the end value of the animation.</p>
+<p>此属性包含了动画的终点值。</p>
+<p>此属性描述了动画的终点值。</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QVariant </td><td class="memItemRight bottomAlign"><span class="name"><b>endValue</b></span>() const</td></tr>
@@ -267,8 +267,8 @@
 <!-- @@@endValue -->
 <!-- $$$startValue-prop$$$startValue$$$setStartValueconstQVariant& -->
 <h3 class="fn" id="startValue-prop"><a name="startValue-prop"></a><span class="name">startValue</span> : <span class="type"><a href="qvariant.html">QVariant</a></span></h3>
-<p>This property holds the optional start value of the animation</p>
-<p>This property describes the optional start value of the animation. If omitted, or if a null <a href="qvariant.html">QVariant</a> is assigned as the start value, the animation will use the current position of the end when the animation is started.</p>
+<p>此属性包含了动画的可选起点值。</p>
+<p>此属性描述了动画的可选起点值。 If omitted, or if a null <a href="qvariant.html">QVariant</a> is assigned as the start value, the animation will use the current position of the end when the animation is started.</p>
 <p><b>访问函数：</b></p>
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft topAlign rightAlign"> QVariant </td><td class="memItemRight bottomAlign"><span class="name"><b>startValue</b></span>() const</td></tr>
@@ -281,11 +281,11 @@
 <h2>成员函数文档</h2>
 <!-- $$$QVariantAnimation[overload1]$$$QVariantAnimationQObject* -->
 <h3 class="fn" id="QVariantAnimation"><a name="QVariantAnimation"></a>QVariantAnimation::<span class="name">QVariantAnimation</span>(<span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
-<p>Construct a <a href="qvariantanimation.html">QVariantAnimation</a> object. <i>parent</i> is passed to <a href="qabstractanimation.html">QAbstractAnimation</a>'s constructor.</p>
+<p>构造函数，创建一个变量动画 <a href="qvariantanimation.html">QVariantAnimation</a>的对象。参数 <i>parent</i>传给了<a href="qabstractanimation.html">QAbstractAnimation</a>的构造函数。</p>
 <!-- @@@QVariantAnimation -->
 <!-- $$$~QVariantAnimation[overload1]$$$~QVariantAnimation -->
 <h3 class="fn" id="dtor.QVariantAnimation"><a name="dtor.QVariantAnimation"></a><code>[虚函数] </code>QVariantAnimation::<span class="name">~QVariantAnimation</span>()</h3>
-<p>Destroys the animation.</p>
+<p>析构函数，释放动画。</p>
 <!-- @@@~QVariantAnimation -->
 <!-- $$$event[overload1]$$$eventQEvent* -->
 <h3 class="fn" id="event"><a name="event"></a><code>[重载虚保护函数] </code><span class="type">bool</span> QVariantAnimation::<span class="name">event</span>(<span class="type"><a href="qevent.html">QEvent</a></span> *<i>event</i>)</h3>
