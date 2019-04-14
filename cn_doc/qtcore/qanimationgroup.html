@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- qanimationgroup.cpp -->
-  <title>QAnimationGroup Class | Qt核心模块 5.12</title>
+  <title>动画组类 | Qt核心模块 5.12</title>
   <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
   <script type="text/javascript">
     document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
@@ -45,9 +45,9 @@
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title">QAnimationGroup Class</h1>
+<h1 class="title">动画组类</h1>
 <!-- $$$QAnimationGroup-brief -->
-<p>The <a href="qanimationgroup.html">QAnimationGroup</a> class is an abstract base class for groups of animations. <a href="#details">更多详情...</a></p>
+<p><a href="qanimationgroup.html">QAnimationGroup</a>类是动画分组的抽象基类。 <a href="#details">更多详情...</a></p>
 <!-- @@@QAnimationGroup -->
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> 头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QAnimationGroup&gt;</span>
@@ -109,7 +109,7 @@
 <!-- $$$QAnimationGroup-description -->
 <div class="descr">
 <h2 id="details">详细描述</h2>
-<p>The <a href="qanimationgroup.html">QAnimationGroup</a> class is an abstract base class for groups of animations.</p>
+<p><a href="qanimationgroup.html">QAnimationGroup</a>类是动画分组的抽象基类。</p>
 <p>An animation group is a container for animations (subclasses of <a href="qabstractanimation.html">QAbstractAnimation</a>). A group is usually responsible for managing the <a href="qabstractanimation.html#State-enum">state</a> of its animations, i.e&#x2e;, it decides when to start, stop, resume, and pause them. Currently, Qt provides two such groups: <a href="qparallelanimationgroup.html">QParallelAnimationGroup</a> 和 <a href="qsequentialanimationgroup.html">QSequentialAnimationGroup</a>. Look up their class descriptions for details.</p>
 <p>Since <a href="qanimationgroup.html">QAnimationGroup</a> inherits from <a href="qabstractanimation.html">QAbstractAnimation</a>, you can combine groups, and easily construct complex animation graphs. You can query <a href="qabstractanimation.html">QAbstractAnimation</a> for the group it belongs to (using the <a href="qabstractanimation.html#group">group()</a> function).</p>
 <p>To start a top-level animation group, you simply use the <a href="qabstractanimation.html#start">start()</a> function from <a href="qabstractanimation.html">QAbstractAnimation</a>. By a top-level animation group, we think of a group that itself is not contained within another group. Starting sub groups directly is not supported, and may lead to unexpected behavior.</p>
@@ -128,11 +128,11 @@
 <h2>成员函数文档</h2>
 <!-- $$$QAnimationGroup[overload1]$$$QAnimationGroupQObject* -->
 <h3 class="fn" id="QAnimationGroup"><a name="QAnimationGroup"></a>QAnimationGroup::<span class="name">QAnimationGroup</span>(<span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
-<p>Constructs a <a href="qanimationgroup.html">QAnimationGroup</a>. <i>parent</i> is passed to <a href="qobject.html">QObject</a>'s constructor.</p>
+<p>构造函数，创建一个动画分组 <a href="qanimationgroup.html">QAnimationGroup</a> 的对象，参数 <i>parent</i>传给了父类 <a href="qobject.html">QObject</a>的构造函数。</p>
 <!-- @@@QAnimationGroup -->
 <!-- $$$~QAnimationGroup[overload1]$$$~QAnimationGroup -->
 <h3 class="fn" id="dtor.QAnimationGroup"><a name="dtor.QAnimationGroup"></a><code>[虚函数] </code>QAnimationGroup::<span class="name">~QAnimationGroup</span>()</h3>
-<p>Destroys the animation group. It will also destroy all its animations.</p>
+<p>析构函数，释放动画分组。也将释放其所拥有关联的动画。</p>
 <!-- @@@~QAnimationGroup -->
 <!-- $$$addAnimation[overload1]$$$addAnimationQAbstractAnimation* -->
 <h3 class="fn" id="addAnimation"><a name="addAnimation"></a><span class="type">void</span> QAnimationGroup::<span class="name">addAnimation</span>(<span class="type"><a href="qabstractanimation.html#QAbstractAnimation">QAbstractAnimation</a></span> *<i>animation</i>)</h3>
@@ -146,12 +146,12 @@
 <!-- @@@animationAt -->
 <!-- $$$animationCount[overload1]$$$animationCount -->
 <h3 class="fn" id="animationCount"><a name="animationCount"></a><span class="type">int</span> QAnimationGroup::<span class="name">animationCount</span>() const</h3>
-<p>Returns the number of animations managed by this group.</p>
+<p>返回此动画分组所关联的所有动画的数量。</p>
 <p><b> 参见 </b><a href="qanimationgroup.html#indexOfAnimation">indexOfAnimation</a>(), <a href="qanimationgroup.html#addAnimation">addAnimation</a>(), 和 <a href="qanimationgroup.html#animationAt">animationAt</a>().</p>
 <!-- @@@animationCount -->
 <!-- $$$clear[overload1]$$$clear -->
 <h3 class="fn" id="clear"><a name="clear"></a><span class="type">void</span> QAnimationGroup::<span class="name">clear</span>()</h3>
-<p>Removes and deletes all animations in this animation group, and resets the current time to 0.</p>
+<p>删除并释放此动画分组内的所有动画，并且重设当前时间为0。</p>
 <p><b> 参见 </b><a href="qanimationgroup.html#addAnimation">addAnimation</a>() 和 <a href="qanimationgroup.html#removeAnimation">removeAnimation</a>().</p>
 <!-- @@@clear -->
 <!-- $$$event[overload1]$$$eventQEvent* -->
