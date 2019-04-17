@@ -146,7 +146,7 @@
 <p>The size of the file is returned by <a href="qfile.html#size">size</a>(). You can get the current file position using <a href="qfiledevice.html#pos">pos</a>(), or move to a new file position using <a href="qfiledevice.html#seek">seek</a>(). If you've reached the end of the file, <a href="qfiledevice.html#atEnd">atEnd</a>() returns <code>true</code>.</p>
 <a name="reading-files-directly"></a>
 <h3 >直接读取文件</h3>
-<p>The following example reads a text file line by line:</p>
+<p>如下样例逐行读取文本文件：</p>
 <pre class="cpp">
 
       <span class="type"><a href="qfile.html#QFile">QFile</a></span> file(<span class="string">&quot;in.txt&quot;</span>);
@@ -256,14 +256,14 @@
 <!-- $$$copy[overload1]$$$copyconstQString& -->
 <h3 class="fn" id="copy"><a name="copy"></a><span class="type">bool</span> QFile::<span class="name">copy</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>newName</i>)</h3>
 <p>Copies the file currently specified by <a href="qfile.html#fileName">fileName</a>() to a file called <i>newName</i>. 若成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
-<p>Note that if a file with the name <i>newName</i> already exists, copy() returns <code>false</code> (i.e&#x2e; <a href="qfile.html">QFile</a> will not overwrite it).</p>
+<p>注意：若文件名为 <i>newName</i> 的文件已存在，则拷贝函数 copy() 将返回 <code>false</code> (i.e&#x2e; <a href="qfile.html">QFile</a> 将不会重写覆盖它)。</p>
 <p>源文件在它被拷贝之前将被关闭。</p>
 <p><b> 参见 </b><a href="qfile.html#setFileName">setFileName</a>().</p>
 <!-- @@@copy -->
 <!-- $$$copy$$$copyconstQString&constQString& -->
 <h3 class="fn" id="copy-1"><a name="copy-1"></a><code>[静态函数] </code><span class="type">bool</span> QFile::<span class="name">copy</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>newName</i>)</h3>
 <p>这是一个重载函数。</p>
-<p>Copies the file <i>fileName</i> to <i>newName</i>. 若成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
+<p>拷贝文件从源文件 <i>fileName</i> 到新文件 <i>newName</i>。 若成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
 <p>若参数<i>newName</i>所描述的文件已存在， <a href="qfile.html#copy">copy</a>()则返回 <code>false</code> (i.e&#x2e;, <a href="qfile.html">QFile</a> 将不会重写它)。</p>
 <p><b> 参见 </b><a href="qfile.html#rename">rename</a>().</p>
 <!-- @@@copy -->
@@ -275,7 +275,7 @@
 <!-- $$$decodeName$$$decodeNameconstchar* -->
 <h3 class="fn" id="decodeName-1"><a name="decodeName-1"></a><code>[静态函数] </code><span class="type"><a href="qstring.html">QString</a></span> QFile::<span class="name">decodeName</span>(const <span class="type">char</span> *<i>localFileName</i>)</h3>
 <p>这是一个重载函数。</p>
-<p>Returns the Unicode version of the given <i>localFileName</i>. See <a href="qfile.html#encodeName">encodeName</a>() for details.</p>
+<p>Returns the Unicode version of the given <i>localFileName</i>. 参加 <a href="qfile.html#encodeName">encodeName</a>() 可了解更多详情。</p>
 <!-- @@@decodeName -->
 <!-- $$$encodeName[overload1]$$$encodeNameconstQString& -->
 <h3 class="fn" id="encodeName"><a name="encodeName"></a><code>[静态函数] </code><span class="type"><a href="qbytearray.html">QByteArray</a></span> QFile::<span class="name">encodeName</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>)</h3>
@@ -289,7 +289,7 @@
 <!-- $$$exists$$$exists -->
 <h3 class="fn" id="exists-1"><a name="exists-1"></a><span class="type">bool</span> QFile::<span class="name">exists</span>() const</h3>
 <p>这是一个重载函数。</p>
-<p>Returns <code>true</code> if the file specified by <a href="qfile.html#fileName">fileName</a>() exists; otherwise returns <code>false</code>.</p>
+<p>若指定的文件 <a href="qfile.html#fileName">fileName</a>() 已存在，则返回 <code>true</code>；否则返回 <code>false</code>。</p>
 <p><b> 参见 </b><a href="qfile.html#fileName">fileName</a>() 和 <a href="qfile.html#setFileName">setFileName</a>().</p>
 <!-- @@@exists -->
 <!-- $$$fileName[overload1]$$$fileName -->
@@ -385,7 +385,7 @@
 <!-- @@@remove -->
 <!-- $$$rename[overload1]$$$renameconstQString& -->
 <h3 class="fn" id="rename"><a name="rename"></a><span class="type">bool</span> QFile::<span class="name">rename</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>newName</i>)</h3>
-<p>Renames the file currently specified by <a href="qfile.html#fileName">fileName</a>() to <i>newName</i>. 若成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
+<p>将由 <a href="qfile.html#fileName">fileName</a>()指定的当前源文件重命名为新文件 <i>newName</i>。 若成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
 <p>若参数<i>newName</i>所描述的文件已存在， 重命名函数则返回 <code>false</code> (i.e&#x2e;, <a href="qfile.html">QFile</a> 将不会重写它)。</p>
 <p>文件在它被重命名之前将被关闭。</p>
 <p>If the rename operation fails, Qt will attempt to copy this file's contents to <i>newName</i>, and then remove this file, keeping only <i>newName</i>. If that copy operation fails or this file can't be removed, the destination file <i>newName</i> is removed to restore the old state.</p>
@@ -394,8 +394,8 @@
 <!-- $$$rename$$$renameconstQString&constQString& -->
 <h3 class="fn" id="rename-1"><a name="rename-1"></a><code>[静态函数] </code><span class="type">bool</span> QFile::<span class="name">rename</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>oldName</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>newName</i>)</h3>
 <p>这是一个重载函数。</p>
-<p>Renames the file <i>oldName</i> to <i>newName</i>. 若成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
-<p>If a file with the name <i>newName</i> already exists, <a href="qfile.html#rename">rename</a>() returns <code>false</code> (i.e&#x2e;, <a href="qfile.html">QFile</a> will not overwrite it).</p>
+<p>将源文件 <i>oldName</i> 重命名为新文件 <i>newName</i>。 若成功则返回 <code>true</code> ；否则则返回 <code>false</code>。</p>
+<p>若文件名为 <i>newName</i>的文件已存在， <a href="qfile.html#rename">rename</a>() 将返回 <code>false</code> (i.e&#x2e;, <a href="qfile.html">QFile</a> 将不会重写覆盖它)。</p>
 <p><b> 参见 </b><a href="qfile.html#rename">rename</a>().</p>
 <!-- @@@rename -->
 <!-- $$$resize[overload1]$$$resizeqint64 -->
@@ -405,13 +405,13 @@
 <!-- $$$resize$$$resizeconstQString&qint64 -->
 <h3 class="fn" id="resize-1"><a name="resize-1"></a><code>[静态函数] </code><span class="type">bool</span> QFile::<span class="name">resize</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>, <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> <i>sz</i>)</h3>
 <p>这是一个重载函数。</p>
-<p>Sets <i>fileName</i> to size (in bytes) <i>sz</i>. Returns <code>true</code> if the resize succeeds; false otherwise. If <i>sz</i> is larger than <i>fileName</i> currently is the new bytes will be set to 0, if <i>sz</i> is smaller the file is simply truncated.</p>
+<p>Sets <i>fileName</i> to size (in bytes) <i>sz</i>. 若重设大小成功则返回 <code>true</code>；否则则返回<code>false</code>。 If <i>sz</i> is larger than <i>fileName</i> currently is the new bytes will be set to 0, if <i>sz</i> is smaller the file is simply truncated.</p>
 <p><b>警告：</b> 若文件不存在则该函数将失败。</p>
 <p><b> 参见 </b><a href="qfile.html#resize">resize</a>().</p>
 <!-- @@@resize -->
 <!-- $$$setFileName[overload1]$$$setFileNameconstQString& -->
 <h3 class="fn" id="setFileName"><a name="setFileName"></a><span class="type">void</span> QFile::<span class="name">setFileName</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>name</i>)</h3>
-<p>Sets the <i>name</i> of the file. The name can have no path, a relative path, or an absolute path.</p>
+<p>设置文件名称为 <i>name</i>。 文件名称可能没有路径，相同路径或绝对路径。</p>
 <p>若该文件已经被打开，则不要再次调用此函数。</p>
 <p>If the file name has no path or a relative path, the path used will be the application's current directory path <i>at the time of the <a href="qfile.html#open">open</a>()</i> call.</p>
 <p>样例：</p>
@@ -424,13 +424,13 @@
   file<span class="operator">.</span>open(<span class="type"><a href="qiodevice.html#QIODevice">QIODevice</a></span><span class="operator">::</span>ReadOnly);      <span class="comment">// opens &quot;/home/readme.txt&quot; under Unix</span>
 
 </pre>
-<p>Note that the directory separator &quot;/&quot; works for all operating systems supported by Qt.</p>
+<p>注意：所有操作系统上，Qt都支持目录分隔符 &quot;/&quot。</p>
 <p><b> 参见 </b><a href="qfile.html#fileName">fileName</a>(), <a href="qfileinfo.html">QFileInfo</a>, 和 <a href="qdir.html">QDir</a>.</p>
 <!-- @@@setFileName -->
 <!-- $$$setPermissions[overload1]$$$setPermissionsQFileDevice::Permissions -->
 <h3 class="fn" id="setPermissions"><a name="setPermissions"></a><code>[重载虚函数] </code><span class="type">bool</span> QFile::<span class="name">setPermissions</span>(<span class="type"><a href="qfiledevice.html#Permission-enum">QFileDevice::Permissions</a></span> <i>permissions</i>)</h3>
 <p>重新实现了父类函数接口 <a href="qfiledevice.html#setPermissions">QFileDevice::setPermissions</a>().</p>
-<p>Sets the permissions for the file to the <i>permissions</i> specified. 若成功则返回 <code>true</code> ；若权限不能被修改则返回 <code>false</code>。</p>
+<p>设置文件权限为指定的权限值 <i>permissions</i>。 若成功则返回 <code>true</code> ；若权限不能被修改则返回 <code>false</code>。</p>
 <p><b>警告：</b> This function does not manipulate ACLs, which may limit its effectiveness.</p>
 <p><b> 参见 </b><a href="qfile.html#permissions">permissions</a>() 和 <a href="qfile.html#setFileName">setFileName</a>().</p>
 <!-- @@@setPermissions -->
@@ -446,14 +446,14 @@
 <!-- $$$symLinkTarget[overload1]$$$symLinkTargetconstQString& -->
 <h3 class="fn" id="symLinkTarget"><a name="symLinkTarget"></a><code>[静态函数] </code><span class="type"><a href="qstring.html">QString</a></span> QFile::<span class="name">symLinkTarget</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>fileName</i>)</h3>
 <p>Returns the absolute path of the file or directory referred to by the symlink (or shortcut on Windows) specified by <i>fileName</i>, or returns an empty string if the <i>fileName</i> does not correspond to a symbolic link.</p>
-<p>This name may not represent an existing file; it is only a string. <a href="qfile.html#exists-1">QFile::exists</a>() 若快捷方式指向一个已存在的文件则返回 <code>true</code> 。</p>
+<p>此名称可能不代表现有文件，它可能只是一个字符串。 <a href="qfile.html#exists-1">QFile::exists</a>() 若快捷方式指向一个已存在的文件则返回 <code>true</code> 。</p>
 <p>这个函数是在Qt 4.2版本中新增引入的。</p>
 <!-- @@@symLinkTarget -->
 <!-- $$$symLinkTarget$$$symLinkTarget -->
 <h3 class="fn" id="symLinkTarget-1"><a name="symLinkTarget-1"></a><span class="type"><a href="qstring.html">QString</a></span> QFile::<span class="name">symLinkTarget</span>() const</h3>
 <p>这是一个重载函数。</p>
 <p>Returns the absolute path of the file or directory a symlink (or shortcut on Windows) points to, or a an empty string if the object isn't a symbolic link.</p>
-<p>This name may not represent an existing file; it is only a string. <a href="qfile.html#exists-1">QFile::exists</a>() 若快捷方式指向一个已存在的文件则返回 <code>true</code> 。</p>
+<p>此名称可能不代表现有文件，它可能只是一个字符串。 <a href="qfile.html#exists-1">QFile::exists</a>() 若快捷方式指向一个已存在的文件则返回 <code>true</code> 。</p>
 <p>这个函数是在Qt 4.2版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qfile.html#fileName">fileName</a>() 和 <a href="qfile.html#setFileName">setFileName</a>().</p>
 <!-- @@@symLinkTarget -->
