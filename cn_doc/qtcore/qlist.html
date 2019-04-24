@@ -716,7 +716,7 @@
 <!-- @@@removeAll -->
 <!-- $$$removeAt[overload1]$$$removeAtint -->
 <h3 class="fn" id="removeAt"><a name="removeAt"></a><span class="type">void</span> QList::<span class="name">removeAt</span>(<span class="type">int</span> <i>i</i>)</h3>
-<p>Removes the item at index position <i>i</i>. <i>i</i> must be a valid index position in the list (i.e&#x2e;, 0 &lt;= <i>i</i> &lt; <a href="qlist.html#size">size</a>()).</p>
+<p>删除位于索引值<i>i</i>处的项。 <i>i</i> must be a valid index position in the list (i.e&#x2e;, 0 &lt;= <i>i</i> &lt; <a href="qlist.html#size">size</a>()).</p>
 <p><b> 参见 </b><a href="qlist.html#takeAt">takeAt</a>(), <a href="qlist.html#removeFirst">removeFirst</a>(), <a href="qlist.html#removeLast">removeLast</a>(), 和 <a href="qlist.html#removeOne">removeOne</a>().</p>
 <!-- @@@removeAt -->
 <!-- $$$removeFirst[overload1]$$$removeFirst -->
@@ -775,7 +775,7 @@
 <!-- @@@size -->
 <!-- $$$startsWith[overload1]$$$startsWithconstT& -->
 <h3 class="fn" id="startsWith"><a name="startsWith"></a><span class="type">bool</span> QList::<span class="name">startsWith</span>(const <span class="type">T</span> &amp;<i>value</i>) const</h3>
-<p>Returns <code>true</code> if this list is not empty and its first item is equal to <i>value</i>; otherwise returns <code>false</code>.</p>
+<p>若当前列表不为空且第一项的值等于<i>value</i>，则返回<code>true</code>；否则则返回 <code>false</code>。</p>
 <p>这个函数是在Qt 4.5版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qlist.html#isEmpty">isEmpty</a>() 和 <a href="qlist.html#contains">contains</a>().</p>
 <!-- @@@startsWith -->
@@ -786,7 +786,7 @@
 <!-- @@@swap -->
 <!-- $$$swap$$$swapintint -->
 <h3 class="fn" id="swap-1"><a name="swap-1"></a><span class="type">void</span> QList::<span class="name">swap</span>(<span class="type">int</span> <i>i</i>, <span class="type">int</span> <i>j</i>)</h3>
-<p>Exchange the item at index position <i>i</i> with the item at index position <i>j</i>. This function assumes that both <i>i</i> and <i>j</i> are at least 0 but less than <a href="qlist.html#size">size</a>(). To avoid failure, test that both <i>i</i> and <i>j</i> are at least 0 and less than <a href="qlist.html#size">size</a>().</p>
+<p>交换位于索引值为<i>i</i>的项和位于索引值为<i>j</i>的项。 This function assumes that both <i>i</i> and <i>j</i> are at least 0 but less than <a href="qlist.html#size">size</a>(). To avoid failure, test that both <i>i</i> and <i>j</i> are at least 0 and less than <a href="qlist.html#size">size</a>().</p>
 <p>样例：</p>
 <pre class="cpp">
 
@@ -800,21 +800,21 @@
 <!-- @@@swap -->
 <!-- $$$takeAt[overload1]$$$takeAtint -->
 <h3 class="fn" id="takeAt"><a name="takeAt"></a><span class="type">T</span> QList::<span class="name">takeAt</span>(<span class="type">int</span> <i>i</i>)</h3>
-<p>Removes the item at index position <i>i</i> and returns it. <i>i</i> must be a valid index position in the list (i.e&#x2e;, 0 &lt;= <i>i</i> &lt; <a href="qlist.html#size">size</a>()).</p>
-<p>If you don't use the return value, <a href="qlist.html#removeAt">removeAt</a>() is more efficient.</p>
+<p>删除位于索引值<i>i</i>处的项，并返回该项。 <i>i</i> must be a valid index position in the list (i.e&#x2e;, 0 &lt;= <i>i</i> &lt; <a href="qlist.html#size">size</a>()).</p>
+<p>你若不适用返回的项值， <a href="qlist.html#removeAt">removeAt</a>() 将更高效。</p>
 <p><b> 参见 </b><a href="qlist.html#removeAt">removeAt</a>(), <a href="qlist.html#takeFirst">takeFirst</a>(), 和 <a href="qlist.html#takeLast">takeLast</a>().</p>
 <!-- @@@takeAt -->
 <!-- $$$takeFirst[overload1]$$$takeFirst -->
 <h3 class="fn" id="takeFirst"><a name="takeFirst"></a><span class="type">T</span> QList::<span class="name">takeFirst</span>()</h3>
-<p>删除当前列表中的第一项并并返回第一项。 This is the same as <a href="qlist.html#takeAt">takeAt</a>(0). This function assumes the list is not empty. To avoid failure, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
-<p>If this list is not shared, this operation takes <a href="containers.html#algorithmic-complexity">常量级时间</a>.</p>
-<p>If you don't use the return value, <a href="qlist.html#removeFirst">removeFirst</a>() is more efficient.</p>
+<p>删除当前列表中的第一项并并返回第一项。 这等同于 <a href="qlist.html#takeAt">takeAt</a>(0). 该函数假设当前列表不是空列表。 To avoid failure, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
+<p>若当前列表不是共享，则此操作的消耗为 <a href="containers.html#algorithmic-complexity">常量级时间</a>.</p>
+<p>你若不适用返回的项值， <a href="qlist.html#removeFirst">removeFirst</a>() 将更高效。</p>
 <p><b> 参见 </b><a href="qlist.html#takeLast">takeLast</a>(), <a href="qlist.html#takeAt">takeAt</a>(), 和 <a href="qlist.html#removeFirst">removeFirst</a>().</p>
 <!-- @@@takeFirst -->
 <!-- $$$takeLast[overload1]$$$takeLast -->
 <h3 class="fn" id="takeLast"><a name="takeLast"></a><span class="type">T</span> QList::<span class="name">takeLast</span>()</h3>
-<p>删除当前列表中的最后一项并并返回最后一项。 This is the same as <a href="qlist.html#takeAt">takeAt</a>(<a href="qlist.html#size">size</a>() - 1). This function assumes the list is not empty. To avoid failure, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
-<p>If this list is not shared, this operation takes <a href="containers.html#algorithmic-complexity">常量级时间</a>.</p>
+<p>删除当前列表中的最后一项并并返回最后一项。 这等同于 <a href="qlist.html#takeAt">takeAt</a>(<a href="qlist.html#size">size</a>() - 1). 该函数假设当前列表不是空列表。 To avoid failure, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
+<p>若当前列表不是共享，则此操作的消耗为 <a href="containers.html#algorithmic-complexity">常量级时间</a>.</p>
 <p>If you don't use the return value, <a href="qlist.html#removeLast">removeLast</a>() is more efficient.</p>
 <p><b> 参见 </b><a href="qlist.html#takeFirst">takeFirst</a>(), <a href="qlist.html#takeAt">takeAt</a>(), 和 <a href="qlist.html#removeLast">removeLast</a>().</p>
 <!-- @@@takeLast -->
@@ -865,8 +865,8 @@
 <!-- @@@toVector -->
 <!-- $$$value[overload1]$$$valueint -->
 <h3 class="fn" id="value"><a name="value"></a><span class="type">T</span> QList::<span class="name">value</span>(<span class="type">int</span> <i>i</i>) const</h3>
-<p>Returns the value at index position <i>i</i> in the list.</p>
-<p>If the index <i>i</i> is out of bounds, the function returns a <a href="containers.html#default-constructed-value">default-constructed value</a>. If you are certain that the index is going to be within bounds, you can use <a href="qlist.html#at">at</a>() instead, which is slightly faster.</p>
+<p>返回当前列表中位于索引值 <i>i</i>下的项值。</p>
+<p>若索引值 <i>i</i> 越界，则该函数将返回 <a href="containers.html#default-constructed-value">default-constructed value</a>. If you are certain that the index is going to be within bounds, you can use <a href="qlist.html#at">at</a>() instead, which is slightly faster.</p>
 <p><b> 参见 </b><a href="qlist.html#at">at</a>() 和 <a href="qlist.html#operator-5b-5d">operator[]</a>().</p>
 <!-- @@@value -->
 <!-- $$$value$$$valueintconstT& -->
@@ -876,8 +876,8 @@
 <!-- @@@value -->
 <!-- $$$operator!=[overload1]$$$operator!=constQList<T>& -->
 <h3 class="fn" id="operator-not-eq"><a name="operator-not-eq"></a><span class="type">bool</span> QList::<span class="name">operator!=</span>(const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>) const</h3>
-<p>Returns <code>true</code> if <i>other</i> is not equal to this list; otherwise returns <code>false</code>.</p>
-<p>Two lists are considered equal if they contain the same values in the same order.</p>
+<p>若其他列表 <i>other</i>不等于当前列表，则返回 <code>true</code>；否则则返回 <code>false</code>。</p>
+<p>只要两个列表以相同的顺序包含相同的项值，就认为他们是相等的。</p>
 <p>该函数要求值类型的列表元素实现了 <code>operator==()</code>.</p>
 <p><b> 参见 </b><a href="qlist.html#operator-eq-eq">operator==</a>().</p>
 <!-- @@@operator!= -->
@@ -888,7 +888,7 @@
 <!-- @@@operator+ -->
 <!-- $$$operator+=[overload1]$$$operator+=constQList<T>& -->
 <h3 class="fn" id="operator-2b-eq"><a name="operator-2b-eq"></a><span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;QList::<span class="name">operator+=</span>(const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>)</h3>
-<p>Appends the items of the <i>other</i> list to this list and returns a reference to this list.</p>
+<p>追加其他列表<i>other</i>中的所有项到当前列表中，并返回当前列表的引用。</p>
 <p><b> 参见 </b><a href="qlist.html#operator-2b">operator+</a>() 和 <a href="qlist.html#append">append</a>().</p>
 <!-- @@@operator+= -->
 <!-- $$$operator+=$$$operator+=constT& -->
@@ -899,7 +899,7 @@
 <!-- @@@operator+= -->
 <!-- $$$operator<<[overload1]$$$operator<<constQList<T>& -->
 <h3 class="fn" id="operator-lt-lt"><a name="operator-lt-lt"></a><span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;QList::<span class="name">operator&lt;&lt;</span>(const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>)</h3>
-<p>Appends the items of the <i>other</i> list to this list and returns a reference to this list.</p>
+<p>追加其他列表<i>other</i>中的所有项到当前列表中，并返回当前列表的引用。</p>
 <p><b> 参见 </b><a href="qlist.html#operator-2b-eq">operator+=</a>() 和 <a href="qlist.html#append">append</a>().</p>
 <!-- @@@operator<< -->
 <!-- $$$operator<<$$$operator<<constT& -->
@@ -909,7 +909,7 @@
 <!-- @@@operator<< -->
 <!-- $$$operator=[overload1]$$$operator=constQList<T>& -->
 <h3 class="fn" id="operator-eq"><a name="operator-eq"></a><span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;QList::<span class="name">operator=</span>(const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>)</h3>
-<p>Assigns <i>other</i> to this list and returns a reference to this list.</p>
+<p>赋值其他列表<i>other</i>中的所有项到当前列表中，并返回当前列表的引用。</p>
 <!-- @@@operator= -->
 <!-- $$$operator=$$$operator=QList<T>&& -->
 <h3 class="fn" id="operator-eq-1"><a name="operator-eq-1"></a><span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;QList::<span class="name">operator=</span>(<span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;&amp;<i>other</i>)</h3>
@@ -918,8 +918,8 @@
 <!-- @@@operator= -->
 <!-- $$$operator==[overload1]$$$operator==constQList<T>& -->
 <h3 class="fn" id="operator-eq-eq"><a name="operator-eq-eq"></a><span class="type">bool</span> QList::<span class="name">operator==</span>(const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>) const</h3>
-<p>Returns <code>true</code> if <i>other</i> is equal to this list; otherwise returns false.</p>
-<p>Two lists are considered equal if they contain the same values in the same order.</p>
+<p>若其他列表 <i>other</i> 等于当前列表，则返回 <code>true</code>；否则则返回 <code>false</code>。</p>
+<p>只要两个列表以相同的顺序包含相同的项值，就认为他们是相等的。</p>
 <p>该函数要求值类型的列表元素实现了 <code>operator==()</code>.</p>
 <p><b> 参见 </b><a href="qlist.html#operator-not-eq">operator!=</a>().</p>
 <!-- @@@operator== -->
@@ -956,7 +956,7 @@
 <h3 class="fn" id="operator-lt-lt-2"><a name="operator-lt-lt-2"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp;<span class="name">operator&lt;&lt;</span>(<span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp;<i>out</i>, const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>list</i>)</h3>
 <p>Writes the list <i>list</i> to stream <i>out</i>.</p>
 <p>该函数要求值类型的列表元素实现了 <code>operator&lt;&lt;()</code>.</p>
-<p><b> 参见 </b><a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
+<p><b> 参见 </b><a href="datastreamformat.html">数据流运算符的格式</a>.</p>
 <!-- @@@operator<< -->
 <!-- $$$operator<=[overload1]$$$operator<=constQList<T>&constQList<T>& -->
 <h3 class="fn" id="operator-lt-eq"><a name="operator-lt-eq"></a><span class="type">bool</span> <span class="name">operator&lt;=</span>(const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>lhs</i>, const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>rhs</i>)</h3>
@@ -980,7 +980,7 @@
 <h3 class="fn" id="operator-gt-gt"><a name="operator-gt-gt"></a><span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp;<span class="name">operator&gt;&gt;</span>(<span class="type"><a href="qdatastream.html">QDataStream</a></span> &amp;<i>in</i>, <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>list</i>)</h3>
 <p>Reads a list from stream <i>in</i> into <i>list</i>.</p>
 <p>该函数要求值类型的列表元素实现了 <code>operator&gt;&gt;()</code>.</p>
-<p><b> 参见 </b><a href="datastreamformat.html">Format of the QDataStream operators</a>.</p>
+<p><b> 参见 </b><a href="datastreamformat.html">数据流运算符的格式</a>.</p>
 <!-- @@@operator>> -->
 </div>
 <div class="macros">
