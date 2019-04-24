@@ -213,7 +213,7 @@
 <ul>
 <li><a href="qvector.html">QVector</a> should be your default first choice. <a href="qvector.html">QVector</a>&lt;T&gt; will usually give better performance than <a href="qlist.html">QList</a>&lt;T&gt;, because <a href="qvector.html">QVector</a>&lt;T&gt; always stores its items sequentially in memory, where <a href="qlist.html">QList</a>&lt;T&gt; will allocate its items on the heap unless <code>sizeof(T) &lt;= sizeof(void*)</code> and T has been declared to be either a <code>Q_MOVABLE_TYPE</code> or a <code>Q_PRIMITIVE_TYPE</code> using <a href="qtglobal.html#Q_DECLARE_TYPEINFO">Q_DECLARE_TYPEINFO</a>. See the <a href="http://marcmutz.wordpress.com/effective-qt/containers/#containers-qlist">Pros and Cons of Using QList</a> for an explanation.</li>
 <li>However, <a href="qlist.html">QList</a> is used throughout the Qt APIs for passing parameters and for returning values. Use <a href="qlist.html">QList</a> to interface with those APIs.</li>
-<li>If you need a real linked list, which guarantees <a href="containers.html#algorithmic-complexity">constant time</a> insertions mid-list and uses iterators to items rather than indexes, use <a href="qlinkedlist.html">QLinkedList</a>.</li>
+<li>If you need a real linked list, which guarantees <a href="containers.html#algorithmic-complexity">常量级时间</a> insertions mid-list and uses iterators to items rather than indexes, use <a href="qlinkedlist.html">QLinkedList</a>.</li>
 </ul>
 <p><b>注意： </b><a href="qvector.html">QVector</a> 和 <a href="qvarlengtharray.html">QVarLengthArray</a> both guarantee C-compatible array layout. <a href="qlist.html">QList</a> does not. This might be important if your application must interface with a C API.</p><p><b>注意： </b>Iterators into a <a href="qlinkedlist.html">QLinkedList</a> and references into heap-allocating QLists remain valid as long as the referenced items remain in the container. This is not true for iterators and references into a <a href="qvector.html">QVector</a> and non-heap-allocating QLists.</p><p>Here's an example of a <a href="qvector.html">QVector</a> that stores integers and a <a href="qvector.html">QVector</a> that stores <a href="qstring.html">QString</a> values:</p>
 <pre class="cpp">
@@ -414,7 +414,7 @@
 <!-- $$$QVector$$$QVectorconstQVector<T>& -->
 <h3 class="fn" id="QVector-3"><a name="QVector-3"></a>QVector::<span class="name">QVector</span>(const <span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>)</h3>
 <p>拷贝构造函数，参数为 <i>other</i>。</p>
-<p>This operation takes <a href="containers.html#algorithmic-complexity">constant time</a>, because <a href="qvector.html">QVector</a> is <a href="implicit-sharing.html">implicitly shared</a>. This makes returning a <a href="qvector.html">QVector</a> from a function very fast. If a shared instance is modified, it will be copied (copy-on-write), and that takes <a href="containers.html#algorithmic-complexity">linear time</a>.</p>
+<p>This operation takes <a href="containers.html#algorithmic-complexity">常量级时间</a>, because <a href="qvector.html">QVector</a> is <a href="implicit-sharing.html">implicitly shared</a>. This makes returning a <a href="qvector.html">QVector</a> from a function very fast. If a shared instance is modified, it will be copied (copy-on-write), and that takes <a href="containers.html#algorithmic-complexity">linear time</a>.</p>
 <p><b> 参见 </b><a href="qvector.html#operator-eq">operator=</a>().</p>
 <!-- @@@QVector -->
 <!-- $$$QVector$$$QVectorQVector<T>&& -->
@@ -942,7 +942,7 @@
 <!-- @@@takeFirst -->
 <!-- $$$takeLast[overload1]$$$takeLast -->
 <h3 class="fn" id="takeLast"><a name="takeLast"></a><span class="type">T</span> QVector::<span class="name">takeLast</span>()</h3>
-<p>Removes the last item in the list and returns it. This function assumes the vector is not empty. To avoid failure, call <a href="qvector.html#isEmpty">isEmpty</a>() before calling this function.</p>
+<p>删除当前列表中的最后一项并并返回最后一项。 This function assumes the vector is not empty. To avoid failure, call <a href="qvector.html#isEmpty">isEmpty</a>() before calling this function.</p>
 <p>If you don't use the return value, <a href="qvector.html#removeLast">removeLast</a>() is more efficient.</p>
 <p>这个函数是在Qt 5.1版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qvector.html#takeFirst">takeFirst</a>() 和 <a href="qvector.html#removeLast">removeLast</a>().</p>
@@ -984,7 +984,7 @@
 <!-- $$$value$$$valueintconstT& -->
 <h3 class="fn" id="value-1"><a name="value-1"></a><span class="type">T</span> QVector::<span class="name">value</span>(<span class="type">int</span> <i>i</i>, const <span class="type">T</span> &amp;<i>defaultValue</i>) const</h3>
 <p>这是一个重载函数。</p>
-<p>If the index <i>i</i> is out of bounds, the function returns <i>defaultValue</i>.</p>
+<p>若索引值 <i>i</i> 越界，则该函数将返回默认值 <i>defaultValue</i>。</p>
 <!-- @@@value -->
 <!-- $$$operator!=[overload1]$$$operator!=constQVector<T>& -->
 <h3 class="fn" id="operator-not-eq"><a name="operator-not-eq"></a><span class="type">bool</span> QVector::<span class="name">operator!=</span>(const <span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>) const</h3>

@@ -192,7 +192,7 @@
 <ul>
 <li><a href="qvector.html">QVector</a> should be your default first choice. <a href="qvector.html">QVector</a>&lt;T&gt; will usually give better performance than <a href="qlist.html">QList</a>&lt;T&gt;, because <a href="qvector.html">QVector</a>&lt;T&gt; always stores its items sequentially in memory, where <a href="qlist.html">QList</a>&lt;T&gt; will allocate its items on the heap unless <code>sizeof(T) &lt;= sizeof(void*)</code> and T has been declared to be either a <code>Q_MOVABLE_TYPE</code> or a <code>Q_PRIMITIVE_TYPE</code> using <a href="qtglobal.html#Q_DECLARE_TYPEINFO">Q_DECLARE_TYPEINFO</a>. See the <a href="http://marcmutz.wordpress.com/effective-qt/containers/#containers-qlist">Pros and Cons of Using QList</a> for an explanation.</li>
 <li>However, <a href="qlist.html">QList</a> is used throughout the Qt APIs for passing parameters and for returning values. Use <a href="qlist.html">QList</a> to interface with those APIs.</li>
-<li>If you need a real linked list, which guarantees <a href="containers.html#algorithmic-complexity">constant time</a> insertions mid-list and uses iterators to items rather than indexes, use <a href="qlinkedlist.html">QLinkedList</a>.</li>
+<li>If you need a real linked list, which guarantees <a href="containers.html#algorithmic-complexity">常量级时间</a> insertions mid-list and uses iterators to items rather than indexes, use <a href="qlinkedlist.html">QLinkedList</a>.</li>
 </ul>
 <p><b>注意： </b><a href="qvector.html">QVector</a> 和 <a href="qvarlengtharray.html">QVarLengthArray</a> both guarantee C-compatible array layout. <a href="qlist.html">QList</a> does not. This might be important if your application must interface with a C API.</p><p><b>注意： </b>Iterators into a <a href="qlinkedlist.html">QLinkedList</a> and references into heap-allocating QLists remain valid as long as the referenced items remain in the container. This is not true for iterators and references into a <a href="qvector.html">QVector</a> and non-heap-allocating QLists.</p><p>Internally, <a href="qlist.html">QList</a>&lt;T&gt; is represented as an array of T if <code>sizeof(T) &lt;= sizeof(void*)</code> and T has been declared to be either a <code>Q_MOVABLE_TYPE</code> or a <code>Q_PRIMITIVE_TYPE</code> using <a href="qtglobal.html#Q_DECLARE_TYPEINFO">Q_DECLARE_TYPEINFO</a>. Otherwise, <a href="qlist.html">QList</a>&lt;T&gt; is represented as an array of T* and the items are allocated on the heap.</p>
 <p>The array representation allows very fast insertions and index-based access. The <a href="qlist.html#prepend">prepend</a>() 和 <a href="qlist.html#append">append</a>() operations are also very fast because <a href="qlist.html">QList</a> preallocates memory at both ends of its internal array. (See <a href="containers.html#algorithmic-complexity">算法复杂度</a> for details.</p>
@@ -226,7 +226,7 @@
       list<span class="operator">[</span><span class="number">0</span><span class="operator">]</span> <span class="operator">=</span> <span class="string">&quot;Robert&quot;</span>;
 
 </pre>
-<p>Because <a href="qlist.html">QList</a> is implemented as an array of pointers for types that are larger than a pointer or are not movable, this operation requires (<a href="containers.html#algorithmic-complexity">constant time</a>). For read-only access, an alternative syntax is to use <a href="qlist.html#at">at</a>():</p>
+<p>Because <a href="qlist.html">QList</a> is implemented as an array of pointers for types that are larger than a pointer or are not movable, this operation requires (<a href="containers.html#algorithmic-complexity">常量级时间</a>). For read-only access, an alternative syntax is to use <a href="qlist.html#at">at</a>():</p>
 <pre class="cpp">
 
   <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> list<span class="operator">.</span>size(); <span class="operator">+</span><span class="operator">+</span>i) {
@@ -245,7 +245,7 @@
       <span class="keyword">delete</span> list<span class="operator">.</span>takeFirst();
 
 </pre>
-<p>Inserting and removing items at either end of the list is very fast (<a href="containers.html#algorithmic-complexity">constant time</a> in most cases), because <a href="qlist.html">QList</a> preallocates extra space on both sides of its internal buffer to allow for fast growth at both ends of the list.</p>
+<p>Inserting and removing items at either end of the list is very fast (<a href="containers.html#algorithmic-complexity">常量级时间</a> in most cases), because <a href="qlist.html">QList</a> preallocates extra space on both sides of its internal buffer to allow for fast growth at both ends of the list.</p>
 <p>If you want to find all occurrences of a particular value in a list, use <a href="qlist.html#indexOf">indexOf</a>() or <a href="qlist.html#lastIndexOf">lastIndexOf</a>(). The former searches forward starting from a given index position, the latter searches backward. Both return the index of a matching item if they find it; otherwise, they return -1. For example:</p>
 <pre class="cpp">
 
@@ -337,7 +337,7 @@
 <!-- $$$QList$$$QListconstQList<T>& -->
 <h3 class="fn" id="QList-1"><a name="QList-1"></a>QList::<span class="name">QList</span>(const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>)</h3>
 <p>拷贝构造函数，参数为 <i>other</i>。</p>
-<p>This operation takes <a href="containers.html#algorithmic-complexity">constant time</a>, because <a href="qlist.html">QList</a> is <a href="implicit-sharing.html">implicitly shared</a>. This makes returning a <a href="qlist.html">QList</a> from a function very fast. If a shared instance is modified, it will be copied (copy-on-write), and that takes <a href="containers.html#algorithmic-complexity">linear time</a>.</p>
+<p>This operation takes <a href="containers.html#algorithmic-complexity">常量级时间</a>, because <a href="qlist.html">QList</a> is <a href="implicit-sharing.html">implicitly shared</a>. This makes returning a <a href="qlist.html">QList</a> from a function very fast. If a shared instance is modified, it will be copied (copy-on-write), and that takes <a href="containers.html#algorithmic-complexity">linear time</a>.</p>
 <p><b> 参见 </b><a href="qlist.html#operator-eq">operator=</a>().</p>
 <!-- @@@QList -->
 <!-- $$$QList$$$QListQList<T>&& -->
@@ -369,7 +369,7 @@
 
 </pre>
 <p>此函数等同于 list.insert(<a href="qlist.html#size">size</a>(), <i>value</i>).</p>
-<p>If this list is not shared, this operation is typically very fast (amortized <a href="containers.html#algorithmic-complexity">constant time</a>), because <a href="qlist.html">QList</a> preallocates extra space on both sides of its internal buffer to allow for fast growth at both ends of the list.</p>
+<p>If this list is not shared, this operation is typically very fast (amortized <a href="containers.html#algorithmic-complexity">常量级时间</a>), because <a href="qlist.html">QList</a> preallocates extra space on both sides of its internal buffer to allow for fast growth at both ends of the list.</p>
 <p><b> 参见 </b><a href="qlist.html#operator-lt-lt">operator&lt;&lt;</a>(), <a href="qlist.html#prepend">prepend</a>(), 和 <a href="qlist.html#insert">insert</a>().</p>
 <!-- @@@append -->
 <!-- $$$append$$$appendconstQList<T>& -->
@@ -382,7 +382,7 @@
 <!-- $$$at[overload1]$$$atint -->
 <h3 class="fn" id="at"><a name="at"></a>const <span class="type">T</span> &amp;QList::<span class="name">at</span>(<span class="type">int</span> <i>i</i>) const</h3>
 <p>Returns the item at index position <i>i</i> in the list. <i>i</i> must be a valid index position in the list (i.e&#x2e;, 0 &lt;= <i>i</i> &lt; <a href="qlist.html#size">size</a>()).</p>
-<p>This function is very fast (<a href="containers.html#algorithmic-complexity">constant time</a>).</p>
+<p>此函数非常快 (<a href="containers.html#algorithmic-complexity">常量级时间</a>).</p>
 <p><b> 参见 </b><a href="qlist.html#value">value</a>() 和 <a href="qlist.html#operator-5b-5d">operator[]</a>().</p>
 <!-- @@@at -->
 <!-- $$$back[overload1]$$$back -->
@@ -431,13 +431,13 @@
 <!-- @@@constEnd -->
 <!-- $$$constFirst[overload1]$$$constFirst -->
 <h3 class="fn" id="constFirst"><a name="constFirst"></a>const <span class="type">T</span> &amp;QList::<span class="name">constFirst</span>() const</h3>
-<p>Returns a const reference to the first item in the list。列表不允许为空值。若列表有可能为空值，则务必在调用此函数之前调用 <a href="qlist.html#isEmpty">isEmpty</a>()来加以判断，做好提前规避。</p>
+<p>返回当前列表中第一项的const引用。列表不允许为空值。若列表有可能为空值，则务必在调用此函数之前调用 <a href="qlist.html#isEmpty">isEmpty</a>()来加以判断，做好提前规避。</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qlist.html#constLast">constLast</a>(), <a href="qlist.html#isEmpty">isEmpty</a>(), 和 <a href="qlist.html#first">first</a>().</p>
 <!-- @@@constFirst -->
 <!-- $$$constLast[overload1]$$$constLast -->
 <h3 class="fn" id="constLast"><a name="constLast"></a>const <span class="type">T</span> &amp;QList::<span class="name">constLast</span>() const</h3>
-<p>Returns a reference to the last item in the list。列表不允许为空值。若列表有可能为空值，则务必在调用此函数之前调用 <a href="qlist.html#isEmpty">isEmpty</a>()来加以判断，做好提前规避。</p>
+<p>返回当前列表中最后一项的引用。列表不允许为空值。若列表有可能为空值，则务必在调用此函数之前调用 <a href="qlist.html#isEmpty">isEmpty</a>()来加以判断，做好提前规避。</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qlist.html#constFirst">constFirst</a>(), <a href="qlist.html#isEmpty">isEmpty</a>(), 和 <a href="qlist.html#last">last</a>().</p>
 <!-- @@@constLast -->
@@ -455,7 +455,7 @@
 <!-- @@@count -->
 <!-- $$$count$$$count -->
 <h3 class="fn" id="count-1"><a name="count-1"></a><span class="type">int</span> QList::<span class="name">count</span>() const</h3>
-<p>Returns the number of items in the list. This is effectively the same as <a href="qlist.html#size">size</a>().</p>
+<p>返回当前列表中所有项的数量。 这实际上等同于 <a href="qlist.html#size">size</a>().</p>
 <!-- @@@count -->
 <!-- $$$crbegin[overload1]$$$crbegin -->
 <h3 class="fn" id="crbegin"><a name="crbegin"></a><span class="type"><a href="qlist.html#const_reverse_iterator-typedef">QList::const_reverse_iterator</a></span> QList::<span class="name">crbegin</span>() const</h3>
@@ -500,7 +500,7 @@
 <!-- @@@erase -->
 <!-- $$$first[overload1]$$$first -->
 <h3 class="fn" id="first"><a name="first"></a><span class="type">T</span> &amp;QList::<span class="name">first</span>()</h3>
-<p>Returns a reference to the first item in the list。列表不允许为空值。若列表有可能为空值，则务必在调用此函数之前调用 <a href="qlist.html#isEmpty">isEmpty</a>()来加以判断，做好提前规避。</p>
+<p>返回当前列表中第一项的引用。列表不允许为空值。若列表有可能为空值，则务必在调用此函数之前调用 <a href="qlist.html#isEmpty">isEmpty</a>()来加以判断，做好提前规避。</p>
 <p><b> 参见 </b><a href="qlist.html#constFirst">constFirst</a>(), <a href="qlist.html#last">last</a>(), 和 <a href="qlist.html#isEmpty">isEmpty</a>().</p>
 <!-- @@@first -->
 <!-- $$$first$$$first -->
@@ -605,7 +605,7 @@
 <!-- @@@isEmpty -->
 <!-- $$$last[overload1]$$$last -->
 <h3 class="fn" id="last"><a name="last"></a><span class="type">T</span> &amp;QList::<span class="name">last</span>()</h3>
-<p>Returns a reference to the last item in the list。列表不允许为空值。若列表有可能为空值，则务必在调用此函数之前调用 <a href="qlist.html#isEmpty">isEmpty</a>()来加以判断，做好提前规避。</p>
+<p>返回当前列表中最后一项的引用。列表不允许为空值。若列表有可能为空值，则务必在调用此函数之前调用 <a href="qlist.html#isEmpty">isEmpty</a>()来加以判断，做好提前规避。</p>
 <p><b> 参见 </b><a href="qlist.html#constLast">constLast</a>(), <a href="qlist.html#first">first</a>(), 和 <a href="qlist.html#isEmpty">isEmpty</a>().</p>
 <!-- @@@last -->
 <!-- $$$last$$$last -->
@@ -632,7 +632,7 @@
 <!-- @@@lastIndexOf -->
 <!-- $$$length[overload1]$$$length -->
 <h3 class="fn" id="length"><a name="length"></a><span class="type">int</span> QList::<span class="name">length</span>() const</h3>
-<p>This function is identical to <a href="qlist.html#count-1">count</a>().</p>
+<p>此函数等同于 <a href="qlist.html#count-1">count</a>().</p>
 <p>这个函数是在Qt 4.5版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qlist.html#count-1">count</a>().</p>
 <!-- @@@length -->
@@ -677,7 +677,7 @@
 
 </pre>
 <p>此函数等同于 list.insert(0, <i>value</i>).</p>
-<p>If this list is not shared, this operation is typically very fast (amortized <a href="containers.html#algorithmic-complexity">constant time</a>), because <a href="qlist.html">QList</a> preallocates extra space on both sides of its internal buffer to allow for fast growth at both ends of the list.</p>
+<p>If this list is not shared, this operation is typically very fast (amortized <a href="containers.html#algorithmic-complexity">常量级时间</a>), because <a href="qlist.html">QList</a> preallocates extra space on both sides of its internal buffer to allow for fast growth at both ends of the list.</p>
 <p><b> 参见 </b><a href="qlist.html#append">append</a>() 和 <a href="qlist.html#insert">insert</a>().</p>
 <!-- @@@prepend -->
 <!-- $$$push_back[overload1]$$$push_backconstT& -->
@@ -721,12 +721,12 @@
 <!-- @@@removeAt -->
 <!-- $$$removeFirst[overload1]$$$removeFirst -->
 <h3 class="fn" id="removeFirst"><a name="removeFirst"></a><span class="type">void</span> QList::<span class="name">removeFirst</span>()</h3>
-<p>Removes the first item in the list. 调用此函数等同于调用 <a href="qlist.html#removeAt">removeAt</a>(0)。列表不允许为空值。若列表有可能为空值，则务必在调用此函数之前调用 <a href="qlist.html#isEmpty">isEmpty</a>()来加以判断，做好提前规避。</p>
+<p>删除当前列表中的第一项。 调用此函数等同于调用 <a href="qlist.html#removeAt">removeAt</a>(0)。列表不允许为空值。若列表有可能为空值，则务必在调用此函数之前调用 <a href="qlist.html#isEmpty">isEmpty</a>()来加以判断，做好提前规避。</p>
 <p><b> 参见 </b><a href="qlist.html#removeAt">removeAt</a>() 和 <a href="qlist.html#takeFirst">takeFirst</a>().</p>
 <!-- @@@removeFirst -->
 <!-- $$$removeLast[overload1]$$$removeLast -->
 <h3 class="fn" id="removeLast"><a name="removeLast"></a><span class="type">void</span> QList::<span class="name">removeLast</span>()</h3>
-<p>Removes the last item in the list. 调用此函数等同于调用 <a href="qlist.html#removeAt">removeAt</a>(<a href="qlist.html#size">size</a>() - 1)。列表不允许为空值。若列表有可能为空值，则务必在调用此函数之前调用 <a href="qlist.html#isEmpty">isEmpty</a>()来加以判断，做好提前规避。</p>
+<p>删除当前列表中的最后一项。 调用此函数等同于调用 <a href="qlist.html#removeAt">removeAt</a>(<a href="qlist.html#size">size</a>() - 1)。列表不允许为空值。若列表有可能为空值，则务必在调用此函数之前调用 <a href="qlist.html#isEmpty">isEmpty</a>()来加以判断，做好提前规避。</p>
 <p><b> 参见 </b><a href="qlist.html#removeAt">removeAt</a>() 和 <a href="qlist.html#takeLast">takeLast</a>().</p>
 <!-- @@@removeLast -->
 <!-- $$$removeOne[overload1]$$$removeOneconstT& -->
@@ -806,15 +806,15 @@
 <!-- @@@takeAt -->
 <!-- $$$takeFirst[overload1]$$$takeFirst -->
 <h3 class="fn" id="takeFirst"><a name="takeFirst"></a><span class="type">T</span> QList::<span class="name">takeFirst</span>()</h3>
-<p>Removes the first item in the list and returns it. This is the same as <a href="qlist.html#takeAt">takeAt</a>(0). This function assumes the list is not empty. To avoid failure, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
-<p>If this list is not shared, this operation takes <a href="containers.html#algorithmic-complexity">constant time</a>.</p>
+<p>删除当前列表中的第一项并并返回第一项。 This is the same as <a href="qlist.html#takeAt">takeAt</a>(0). This function assumes the list is not empty. To avoid failure, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
+<p>If this list is not shared, this operation takes <a href="containers.html#algorithmic-complexity">常量级时间</a>.</p>
 <p>If you don't use the return value, <a href="qlist.html#removeFirst">removeFirst</a>() is more efficient.</p>
 <p><b> 参见 </b><a href="qlist.html#takeLast">takeLast</a>(), <a href="qlist.html#takeAt">takeAt</a>(), 和 <a href="qlist.html#removeFirst">removeFirst</a>().</p>
 <!-- @@@takeFirst -->
 <!-- $$$takeLast[overload1]$$$takeLast -->
 <h3 class="fn" id="takeLast"><a name="takeLast"></a><span class="type">T</span> QList::<span class="name">takeLast</span>()</h3>
-<p>Removes the last item in the list and returns it. This is the same as <a href="qlist.html#takeAt">takeAt</a>(<a href="qlist.html#size">size</a>() - 1). This function assumes the list is not empty. To avoid failure, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
-<p>If this list is not shared, this operation takes <a href="containers.html#algorithmic-complexity">constant time</a>.</p>
+<p>删除当前列表中的最后一项并并返回最后一项。 This is the same as <a href="qlist.html#takeAt">takeAt</a>(<a href="qlist.html#size">size</a>() - 1). This function assumes the list is not empty. To avoid failure, call <a href="qlist.html#isEmpty">isEmpty</a>() before calling this function.</p>
+<p>If this list is not shared, this operation takes <a href="containers.html#algorithmic-complexity">常量级时间</a>.</p>
 <p>If you don't use the return value, <a href="qlist.html#removeLast">removeLast</a>() is more efficient.</p>
 <p><b> 参见 </b><a href="qlist.html#takeFirst">takeFirst</a>(), <a href="qlist.html#takeAt">takeAt</a>(), 和 <a href="qlist.html#removeLast">removeLast</a>().</p>
 <!-- @@@takeLast -->
@@ -872,7 +872,7 @@
 <!-- $$$value$$$valueintconstT& -->
 <h3 class="fn" id="value-1"><a name="value-1"></a><span class="type">T</span> QList::<span class="name">value</span>(<span class="type">int</span> <i>i</i>, const <span class="type">T</span> &amp;<i>defaultValue</i>) const</h3>
 <p>这是一个重载函数。</p>
-<p>If the index <i>i</i> is out of bounds, the function returns <i>defaultValue</i>.</p>
+<p>若索引值 <i>i</i> 越界，则该函数将返回默认值 <i>defaultValue</i>。</p>
 <!-- @@@value -->
 <!-- $$$operator!=[overload1]$$$operator!=constQList<T>& -->
 <h3 class="fn" id="operator-not-eq"><a name="operator-not-eq"></a><span class="type">bool</span> QList::<span class="name">operator!=</span>(const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>) const</h3>
@@ -926,13 +926,13 @@
 <!-- $$$operator[][overload1]$$$operator[]int -->
 <h3 class="fn" id="operator-5b-5d"><a name="operator-5b-5d"></a><span class="type">T</span> &amp;QList::<span class="name">operator[]</span>(<span class="type">int</span> <i>i</i>)</h3>
 <p>Returns the item at index position <i>i</i> as a modifiable reference. <i>i</i> must be a valid index position in the list (i.e&#x2e;, 0 &lt;= <i>i</i> &lt; <a href="qlist.html#size">size</a>()).</p>
-<p>If this function is called on a list that is currently being shared, it will trigger a copy of all elements. Otherwise, this function runs in <a href="containers.html#algorithmic-complexity">constant time</a>. If you do not want to modify the list you should use <a href="qlist.html#at">QList::at</a>().</p>
+<p>If this function is called on a list that is currently being shared, it will trigger a copy of all elements. Otherwise, this function runs in <a href="containers.html#algorithmic-complexity">常量级时间</a>. If you do not want to modify the list you should use <a href="qlist.html#at">QList::at</a>().</p>
 <p><b> 参见 </b><a href="qlist.html#at">at</a>() 和 <a href="qlist.html#value">value</a>().</p>
 <!-- @@@operator[] -->
 <!-- $$$operator[]$$$operator[]int -->
 <h3 class="fn" id="operator-5b-5d-1"><a name="operator-5b-5d-1"></a>const <span class="type">T</span> &amp;QList::<span class="name">operator[]</span>(<span class="type">int</span> <i>i</i>) const</h3>
 <p>这是一个重载函数。</p>
-<p>等同于 <a href="qlist.html#at">at</a>(). This function runs in <a href="containers.html#algorithmic-complexity">constant time</a>.</p>
+<p>等同于 <a href="qlist.html#at">at</a>(). This function runs in <a href="containers.html#algorithmic-complexity">常量级时间</a>.</p>
 <!-- @@@operator[] -->
 </div>
 <div class="vars">
