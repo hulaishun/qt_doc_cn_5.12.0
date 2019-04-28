@@ -111,7 +111,7 @@
 <p>The <a href="qfuture.html">QFuture</a> class represents the result of an asynchronous computation.</p>
 <p>To start a computation, use one of the APIs in the <a href="../qtconcurrent/qtconcurrent-index.html">Qt并发</a> framework.</p>
 <p><a href="qfuture.html">QFuture</a> allows threads to be synchronized against one or more results which will be ready at a later point in time. The result can be of any type that has a default constructor and a copy constructor. If a result is not available at the time of calling the <a href="qfuture.html#result">result</a>(), <a href="qfuture.html#resultAt">resultAt</a>(), or <a href="qfuture.html#results">results</a>() functions, <a href="qfuture.html">QFuture</a> will wait until the result becomes available. You can use the <a href="qfuture.html#isResultReadyAt">isResultReadyAt</a>() function to determine if a result is ready or not. For <a href="qfuture.html">QFuture</a> objects that report more than one result, the <a href="qfuture.html#resultCount">resultCount</a>() function returns the number of continuous results. This means that it is always safe to iterate through the results from 0 to <a href="qfuture.html#resultCount">resultCount</a>().</p>
-<p><a href="qfuture.html">QFuture</a> provides a <a href="containers.html#java-style-iterators">Java-style iterator</a> (<a href="qfutureiterator.html">QFutureIterator</a>) and an <a href="containers.html#stl-style-iterators">STL-style iterator</a> (<a href="qfuture-const-iterator.html">QFuture::const_iterator</a>). Using these iterators is another way to access results in the future.</p>
+<p><a href="qfuture.html">QFuture</a> provides a <a href="containers.html#java-style-iterators">Java-style iterator</a> (<a href="qfutureiterator.html">QFutureIterator</a>) and an <a href="containers.html#stl-style-iterators">STL样式迭代器</a> (<a href="qfuture-const-iterator.html">QFuture::const_iterator</a>). Using these iterators is another way to access results in the future.</p>
 <p><a href="qfuture.html">QFuture</a> also offers ways to interact with a runnning computation. For instance, the computation can be canceled with the <a href="qfuture.html#cancel">cancel</a>() function. To pause the computation, use the <a href="qfuture.html#setPaused">setPaused</a>() function or one of the <a href="qfuture.html#pause">pause</a>(), <a href="qfuture.html#resume">resume</a>(), or <a href="qfuture.html#togglePaused">togglePaused</a>() convenience functions. Be aware that not all asynchronous computations can be canceled or paused. For example, the future returned by <a href="../qtconcurrent/qtconcurrent.html#run">QtConcurrent::run</a>() cannot be canceled; but the future returned by <a href="../qtconcurrent/qtconcurrent.html#mappedReduced-1">QtConcurrent::mappedReduced</a>() can.</p>
 <p>Progress information is provided by the <a href="qfuture.html#progressValue">progressValue</a>(), <a href="qfuture.html#progressMinimum">progressMinimum</a>(), <a href="qfuture.html#progressMaximum">progressMaximum</a>(), 和 <a href="qfuture.html#progressText">progressText</a>() functions. The <a href="qfuture.html#waitForFinished">waitForFinished</a>() function causes the calling thread to block and wait for the computation to finish, ensuring that all results are available.</p>
 <p>The state of the computation represented by a <a href="qfuture.html">QFuture</a> can be queried using the <a href="qfuture.html#isCanceled">isCanceled</a>(), <a href="qfuture.html#isStarted">isStarted</a>(), <a href="qfuture.html#isFinished">isFinished</a>(), <a href="qfuture.html#isRunning">isRunning</a>(), or <a href="qfuture.html#isPaused">isPaused</a>() functions.</p>
@@ -149,7 +149,7 @@
 <!-- @@@~QFuture -->
 <!-- $$$begin[overload1]$$$begin -->
 <h3 class="fn" id="begin"><a name="begin"></a><span class="type"><a href="qfuture-const-iterator.html">QFuture::const_iterator</a></span> QFuture::<span class="name">begin</span>() const</h3>
-<p>Returns a const <a href="containers.html#stl-style-iterators">STL-style iterator</a> pointing to the first result in the future.</p>
+<p>Returns a const <a href="containers.html#stl-style-iterators">STL样式迭代器</a> pointing to the first result in the future.</p>
 <p><b> 参见 </b><a href="qfuture.html#constBegin">constBegin</a>() 和 <a href="qfuture.html#end">end</a>().</p>
 <!-- @@@begin -->
 <!-- $$$cancel[overload1]$$$cancel -->
@@ -160,17 +160,17 @@
 <!-- @@@cancel -->
 <!-- $$$constBegin[overload1]$$$constBegin -->
 <h3 class="fn" id="constBegin"><a name="constBegin"></a><span class="type"><a href="qfuture-const-iterator.html">QFuture::const_iterator</a></span> QFuture::<span class="name">constBegin</span>() const</h3>
-<p>Returns a const <a href="containers.html#stl-style-iterators">STL-style iterator</a> pointing to the first result in the future.</p>
+<p>Returns a const <a href="containers.html#stl-style-iterators">STL样式迭代器</a> pointing to the first result in the future.</p>
 <p><b> 参见 </b><a href="qfuture.html#begin">begin</a>() 和 <a href="qfuture.html#constEnd">constEnd</a>().</p>
 <!-- @@@constBegin -->
 <!-- $$$constEnd[overload1]$$$constEnd -->
 <h3 class="fn" id="constEnd"><a name="constEnd"></a><span class="type"><a href="qfuture-const-iterator.html">QFuture::const_iterator</a></span> QFuture::<span class="name">constEnd</span>() const</h3>
-<p>Returns a const <a href="containers.html#stl-style-iterators">STL-style iterator</a> pointing to the imaginary result after the last result in the future.</p>
+<p>Returns a const <a href="containers.html#stl-style-iterators">STL样式迭代器</a> pointing to the imaginary result after the last result in the future.</p>
 <p><b> 参见 </b><a href="qfuture.html#constBegin">constBegin</a>() 和 <a href="qfuture.html#end">end</a>().</p>
 <!-- @@@constEnd -->
 <!-- $$$end[overload1]$$$end -->
 <h3 class="fn" id="end"><a name="end"></a><span class="type"><a href="qfuture-const-iterator.html">QFuture::const_iterator</a></span> QFuture::<span class="name">end</span>() const</h3>
-<p>Returns a const <a href="containers.html#stl-style-iterators">STL-style iterator</a> pointing to the imaginary result after the last result in the future.</p>
+<p>Returns a const <a href="containers.html#stl-style-iterators">STL样式迭代器</a> pointing to the imaginary result after the last result in the future.</p>
 <p><b> 参见 </b><a href="qfuture.html#begin">begin</a>() 和 <a href="qfuture.html#constEnd">constEnd</a>().</p>
 <!-- @@@end -->
 <!-- $$$isCanceled[overload1]$$$isCanceled -->
