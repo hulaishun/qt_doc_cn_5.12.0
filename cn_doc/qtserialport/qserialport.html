@@ -507,7 +507,7 @@
 <!-- $$$atEnd[overload1]$$$atEnd -->
 <h3 class="fn" id="atEnd"><a name="atEnd"></a><code>[重载虚函数] </code><span class="type">bool</span> QSerialPort::<span class="name">atEnd</span>() const</h3>
 <p>重新实现了父类函数接口 <a href="../qtcore/qiodevice.html#atEnd">QIODevice::atEnd</a>().</p>
-<p>Returns <code>true</code> if no more data is currently available for reading; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if no more data is currently available for reading; 否则则返回 <code>false</code>。</p>
 <p>This function is most commonly used when reading data from the serial port in a loop. For example:</p>
 <pre class="cpp">
 
@@ -543,12 +543,12 @@
 <!-- $$$canReadLine[overload1]$$$canReadLine -->
 <h3 class="fn" id="canReadLine"><a name="canReadLine"></a><code>[重载虚函数] </code><span class="type">bool</span> QSerialPort::<span class="name">canReadLine</span>() const</h3>
 <p>重新实现了父类函数接口 <a href="../qtcore/qiodevice.html#canReadLine">QIODevice::canReadLine</a>().</p>
-<p>Returns <code>true</code> if a line of data can be read from the serial port; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if a line of data can be read from the serial port; 否则则返回 <code>false</code>。</p>
 <p><b> 参见 </b><a href="../qtcore/qiodevice.html#readLine-1">readLine</a>().</p>
 <!-- @@@canReadLine -->
 <!-- $$$clear[overload1]$$$clearQSerialPort::Directions -->
 <h3 class="fn" id="clear"><a name="clear"></a><span class="type">bool</span> QSerialPort::<span class="name">clear</span>(<span class="type"><a href="qserialport.html#Direction-enum">QSerialPort::Directions</a></span> <i>directions</i>)</h3>
-<p>Discards all characters from the output or input buffer, depending on given directions <i>directions</i>. This includes clearing the internal class buffers and the UART (driver) buffers. Also terminate pending read or write operations. If successful, returns <code>true</code>; otherwise returns <code>false</code>.</p>
+<p>Discards all characters from the output or input buffer, depending on given directions <i>directions</i>. This includes clearing the internal class buffers and the UART (driver) buffers. Also terminate pending read or write operations. If successful, returns <code>true</code>; 否则则返回 <code>false</code>。</p>
 <p><b>注意： </b>The serial port has to be open before trying to clear any buffered data; otherwise returns <code>false</code> and sets the <a href="qserialport.html#SerialPortError-enum">NotOpenError</a> error code.</p><!-- @@@clear -->
 <!-- $$$close[overload1]$$$close -->
 <h3 class="fn" id="close"><a name="close"></a><code>[重载虚函数] </code><span class="type">void</span> QSerialPort::<span class="name">close</span>()</h3>
@@ -578,7 +578,7 @@
 <!-- @@@flowControlChanged -->
 <!-- $$$flush[overload1]$$$flush -->
 <h3 class="fn" id="flush"><a name="flush"></a><span class="type">bool</span> QSerialPort::<span class="name">flush</span>()</h3>
-<p>This function writes as much as possible from the internal write buffer to the underlying serial port without blocking. If any data was written, this function returns <code>true</code>; otherwise returns <code>false</code>.</p>
+<p>This function writes as much as possible from the internal write buffer to the underlying serial port without blocking. If any data was written, this function returns <code>true</code>; 否则则返回 <code>false</code>。</p>
 <p>Call this function for sending the buffered data immediately to the serial port. The number of bytes successfully written depends on the operating system. In most cases, this function does not need to be called, because the <a href="qserialport.html">QSerialPort</a> class will start sending data automatically once control is returned to the event loop. In the absence of an event loop, call <a href="qserialport.html#waitForBytesWritten">waitForBytesWritten</a>() instead.</p>
 <p><b>注意： </b>The serial port has to be open before trying to flush any buffered data; otherwise returns <code>false</code> and sets the <a href="qserialport.html#SerialPortError-enum">NotOpenError</a> error code.</p><p><b> 参见 </b><a href="../qtcore/qiodevice.html#write-2">write</a>() 和 <a href="qserialport.html#waitForBytesWritten">waitForBytesWritten</a>().</p>
 <!-- @@@flush -->
@@ -642,7 +642,7 @@
 <!-- @@@requestToSendChanged -->
 <!-- $$$sendBreak[overload1]$$$sendBreakint -->
 <h3 class="fn" id="sendBreak"><a name="sendBreak"></a><span class="type">bool</span> QSerialPort::<span class="name">sendBreak</span>(<span class="type">int</span> <i>duration</i> = 0)</h3>
-<p>Sends a continuous stream of zero bits during a specified period of time <i>duration</i> in msec if the terminal is using asynchronous serial data. If successful, returns <code>true</code>; otherwise returns <code>false</code>.</p>
+<p>Sends a continuous stream of zero bits during a specified period of time <i>duration</i> in msec if the terminal is using asynchronous serial data. If successful, returns <code>true</code>; 否则则返回 <code>false</code>。</p>
 <p>If the duration is zero then zero bits are transmitted by at least <code>0.25</code> seconds, but no more than <code>0.5</code> seconds.</p>
 <p>If the duration is non zero then zero bits are transmitted within a certain period of time depending on the implementation.</p>
 <p><b>注意： </b>The serial port has to be open before trying to send a break duration; otherwise returns <code>false</code> and sets the <a href="qserialport.html#SerialPortError-enum">NotOpenError</a> error code.</p><p><b> 参见 </b><a href="qserialport.html#breakEnabled-prop">setBreakEnabled</a>().</p>

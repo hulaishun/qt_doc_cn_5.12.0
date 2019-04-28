@@ -208,7 +208,7 @@
 <div class="descr">
 <h2 id="details">详细描述</h2>
 <p>The <a href="qvector.html">QVector</a> class is a template class that provides a dynamic array.</p>
-<p><a href="qvector.html">QVector</a>&lt;T&gt; is one of Qt's generic <a href="containers.html">container classes</a>. It stores its items in adjacent memory locations and provides fast index-based access.</p>
+<p><a href="qvector.html">QVector</a>&lt;T&gt; is one of Qt's generic <a href="containers.html">容器类</a>. It stores its items in adjacent memory locations and provides fast index-based access.</p>
 <p><a href="qlist.html">QList</a>&lt;T&gt;, <a href="qlinkedlist.html">QLinkedList</a>&lt;T&gt;, <a href="qvector.html">QVector</a>&lt;T&gt;, and <a href="qvarlengtharray.html">QVarLengthArray</a>&lt;T&gt; provide similar APIs and functionality. They are often interchangeable, but there are performance consequences. Here is an overview of use cases:</p>
 <ul>
 <li><a href="qvector.html">QVector</a> should be your default first choice. <a href="qvector.html">QVector</a>&lt;T&gt; will usually give better performance than <a href="qlist.html">QList</a>&lt;T&gt;, because <a href="qvector.html">QVector</a>&lt;T&gt; always stores its items sequentially in memory, where <a href="qlist.html">QList</a>&lt;T&gt; will allocate its items on the heap unless <code>sizeof(T) &lt;= sizeof(void*)</code> and T has been declared to be either a <code>Q_MOVABLE_TYPE</code> or a <code>Q_PRIMITIVE_TYPE</code> using <a href="qtglobal.html#Q_DECLARE_TYPEINFO">Q_DECLARE_TYPEINFO</a>. See the <a href="http://marcmutz.wordpress.com/effective-qt/containers/#containers-qlist">Pros and Cons of Using QList</a> for an explanation.</li>
@@ -491,7 +491,7 @@
 <!-- @@@back -->
 <!-- $$$begin[overload1]$$$begin -->
 <h3 class="fn" id="begin"><a name="begin"></a><span class="type"><a href="qvector.html#iterator-typedefx">QVector::iterator</a></span> QVector::<span class="name">begin</span>()</h3>
-<p>Returns an <a href="containers.html#stl-style-iterators">STL样式迭代器</a> pointing to the first item in the vector.</p>
+<p>返回 <a href="containers.html#stl-style-iterators">STL样式迭代器</a>，指向当前向量表中的第一项。</p>
 <p><b> 参见 </b><a href="qvector.html#constBegin">constBegin</a>() 和 <a href="qvector.html#end">end</a>().</p>
 <!-- @@@begin -->
 <!-- $$$begin$$$begin -->
@@ -559,7 +559,7 @@
 <!-- @@@constLast -->
 <!-- $$$contains[overload1]$$$containsconstT& -->
 <h3 class="fn" id="contains"><a name="contains"></a><span class="type">bool</span> QVector::<span class="name">contains</span>(const <span class="type">T</span> &amp;<i>value</i>) const</h3>
-<p>Returns <code>true</code> if the vector contains an occurrence of <i>value</i>; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if the vector contains an occurrence of <i>value</i>; 否则则返回 <code>false</code>。</p>
 <p>该函数邀请值类型的列表元素实现了 <code>operator==()</code>.</p>
 <p><b> 参见 </b><a href="qvector.html#indexOf">indexOf</a>() 和 <a href="qvector.html#count-1">count</a>().</p>
 <!-- @@@contains -->
@@ -621,7 +621,7 @@
 <!-- @@@end -->
 <!-- $$$endsWith[overload1]$$$endsWithconstT& -->
 <h3 class="fn" id="endsWith"><a name="endsWith"></a><span class="type">bool</span> QVector::<span class="name">endsWith</span>(const <span class="type">T</span> &amp;<i>value</i>) const</h3>
-<p>Returns <code>true</code> if this vector is not empty and its last item is equal to <i>value</i>; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if this vector is not empty and its last item is equal to <i>value</i>; 否则则返回 <code>false</code>。</p>
 <p>这个函数是在Qt 4.5版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qvector.html#isEmpty">isEmpty</a>() 和 <a href="qvector.html#last">last</a>().</p>
 <!-- @@@endsWith -->
@@ -736,7 +736,7 @@
 <!-- @@@insert -->
 <!-- $$$isEmpty[overload1]$$$isEmpty -->
 <h3 class="fn" id="isEmpty"><a name="isEmpty"></a><span class="type">bool</span> QVector::<span class="name">isEmpty</span>() const</h3>
-<p>Returns <code>true</code> if the vector has size 0; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if the vector has size 0; 否则则返回 <code>false</code>。</p>
 <p><b> 参见 </b><a href="qvector.html#size">size</a>() 和 <a href="qvector.html#resize">resize</a>().</p>
 <!-- @@@isEmpty -->
 <!-- $$$last[overload1]$$$last -->
@@ -910,18 +910,18 @@
 <!-- @@@squeeze -->
 <!-- $$$startsWith[overload1]$$$startsWithconstT& -->
 <h3 class="fn" id="startsWith"><a name="startsWith"></a><span class="type">bool</span> QVector::<span class="name">startsWith</span>(const <span class="type">T</span> &amp;<i>value</i>) const</h3>
-<p>Returns <code>true</code> if this vector is not empty and its first item is equal to <i>value</i>; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if this vector is not empty and its first item is equal to <i>value</i>; 否则则返回 <code>false</code>。</p>
 <p>这个函数是在Qt 4.5版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qvector.html#isEmpty">isEmpty</a>() 和 <a href="qvector.html#first">first</a>().</p>
 <!-- @@@startsWith -->
 <!-- $$$swap[overload1]$$$swapQVector<T>& -->
 <h3 class="fn" id="swap"><a name="swap"></a><span class="type">void</span> QVector::<span class="name">swap</span>(<span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>)</h3>
-<p>Swaps vector <i>other</i> with this vector. This operation is very fast and never fails.</p>
+<p>Swaps vector <i>other</i> with this vector. 此操作巨快，且从未失手失败过。</p>
 <p>这个函数是在Qt 4.8版本中新增引入的。</p>
 <!-- @@@swap -->
 <!-- $$$takeAt[overload1]$$$takeAtint -->
 <h3 class="fn" id="takeAt"><a name="takeAt"></a><span class="type">T</span> QVector::<span class="name">takeAt</span>(<span class="type">int</span> <i>i</i>)</h3>
-<p>Removes the element at index position <i>i</i> and returns it.</p>
+<p>删除位于索引值<i>i</i>处的项，并返回该项。</p>
 <p>Equivalent to</p>
 <pre class="cpp">
 
@@ -936,13 +936,13 @@
 <!-- @@@takeAt -->
 <!-- $$$takeFirst[overload1]$$$takeFirst -->
 <h3 class="fn" id="takeFirst"><a name="takeFirst"></a><span class="type">T</span> QVector::<span class="name">takeFirst</span>()</h3>
-<p>Removes the first item in the vector and returns it. This function assumes the vector is not empty. To avoid failure, call <a href="qvector.html#isEmpty">isEmpty</a>() before calling this function.</p>
+<p>Removes the first item in the vector and returns it. 该函数假设当前向量表不为空。 To avoid failure, call <a href="qvector.html#isEmpty">isEmpty</a>() before calling this function.</p>
 <p>这个函数是在Qt 5.1版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qvector.html#takeLast">takeLast</a>() 和 <a href="qvector.html#removeFirst">removeFirst</a>().</p>
 <!-- @@@takeFirst -->
 <!-- $$$takeLast[overload1]$$$takeLast -->
 <h3 class="fn" id="takeLast"><a name="takeLast"></a><span class="type">T</span> QVector::<span class="name">takeLast</span>()</h3>
-<p>删除当前列表中的最后一项并并返回最后一项。 This function assumes the vector is not empty. To avoid failure, call <a href="qvector.html#isEmpty">isEmpty</a>() before calling this function.</p>
+<p>删除当前列表中的最后一项并并返回最后一项。 该函数假设当前向量表不为空。 To avoid failure, call <a href="qvector.html#isEmpty">isEmpty</a>() before calling this function.</p>
 <p>若不适用返回值， <a href="qvector.html#removeLast">removeLast</a>()函数将更高效。</p>
 <p>这个函数是在Qt 5.1版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qvector.html#takeFirst">takeFirst</a>() 和 <a href="qvector.html#removeLast">removeLast</a>().</p>
@@ -988,7 +988,7 @@
 <!-- @@@value -->
 <!-- $$$operator!=[overload1]$$$operator!=constQVector<T>& -->
 <h3 class="fn" id="operator-not-eq"><a name="operator-not-eq"></a><span class="type">bool</span> QVector::<span class="name">operator!=</span>(const <span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>) const</h3>
-<p>Returns <code>true</code> if <i>other</i> is not equal to this vector; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if <i>other</i> is not equal to this vector; 否则则返回 <code>false</code>。</p>
 <p>Two vectors are considered equal if they contain the same values in the same order.</p>
 <p>该函数邀请值类型的列表元素实现了 <code>operator==()</code>.</p>
 <p><b> 参见 </b><a href="qvector.html#operator-eq-eq">operator==</a>().</p>
@@ -1041,7 +1041,7 @@
 <!-- @@@operator= -->
 <!-- $$$operator==[overload1]$$$operator==constQVector<T>& -->
 <h3 class="fn" id="operator-eq-eq"><a name="operator-eq-eq"></a><span class="type">bool</span> QVector::<span class="name">operator==</span>(const <span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>other</i>) const</h3>
-<p>Returns <code>true</code> if <i>other</i> is equal to this vector; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if <i>other</i> is equal to this vector; 否则则返回 <code>false</code>。</p>
 <p>Two vectors are considered equal if they contain the same values in the same order.</p>
 <p>该函数邀请值类型的列表元素实现了 <code>operator==()</code>.</p>
 <p><b> 参见 </b><a href="qvector.html#operator-not-eq">operator!=</a>().</p>
@@ -1072,7 +1072,7 @@
 <!-- @@@qHash -->
 <!-- $$$operator<[overload1]$$$operator<constQVector<T>&constQVector<T>& -->
 <h3 class="fn" id="operator-lt"><a name="operator-lt"></a><span class="type">bool</span> <span class="name">operator&lt;</span>(const <span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>lhs</i>, const <span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>rhs</i>)</h3>
-<p>Returns <code>true</code> if vector <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically less than</a> <i>rhs</i>; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if vector <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically less than</a> <i>rhs</i>; 否则则返回 <code>false</code>。</p>
 <p>该函数邀请值类型的列表元素实现了 <code>operator&lt;()</code>.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <!-- @@@operator< -->
@@ -1084,19 +1084,19 @@
 <!-- @@@operator<< -->
 <!-- $$$operator<=[overload1]$$$operator<=constQVector<T>&constQVector<T>& -->
 <h3 class="fn" id="operator-lt-eq"><a name="operator-lt-eq"></a><span class="type">bool</span> <span class="name">operator&lt;=</span>(const <span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>lhs</i>, const <span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>rhs</i>)</h3>
-<p>Returns <code>true</code> if vector <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically less than or equal to</a> <i>rhs</i>; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if vector <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically less than or equal to</a> <i>rhs</i>; 否则则返回 <code>false</code>。</p>
 <p>该函数邀请值类型的列表元素实现了 <code>operator&lt;()</code>.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <!-- @@@operator<= -->
 <!-- $$$operator>[overload1]$$$operator>constQVector<T>&constQVector<T>& -->
 <h3 class="fn" id="operator-gt"><a name="operator-gt"></a><span class="type">bool</span> <span class="name">operator&gt;</span>(const <span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>lhs</i>, const <span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>rhs</i>)</h3>
-<p>Returns <code>true</code> if vector <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically greater than</a> <i>rhs</i>; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if vector <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically greater than</a> <i>rhs</i>; 否则则返回 <code>false</code>。</p>
 <p>该函数邀请值类型的列表元素实现了 <code>operator&lt;()</code>.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <!-- @@@operator> -->
 <!-- $$$operator>=[overload1]$$$operator>=constQVector<T>&constQVector<T>& -->
 <h3 class="fn" id="operator-gt-eq"><a name="operator-gt-eq"></a><span class="type">bool</span> <span class="name">operator&gt;=</span>(const <span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>lhs</i>, const <span class="type"><a href="qvector.html#QVector">QVector</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>rhs</i>)</h3>
-<p>Returns <code>true</code> if vector <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically greater than or equal to</a> <i>rhs</i>; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if vector <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically greater than or equal to</a> <i>rhs</i>; 否则则返回 <code>false</code>。</p>
 <p>该函数邀请值类型的列表元素实现了 <code>operator&lt;()</code>.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <!-- @@@operator>= -->

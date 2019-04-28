@@ -633,7 +633,7 @@
 <!-- @@@clipPath -->
 <!-- $$$collidesWithItem[overload1]$$$collidesWithItemconstQGraphicsItem*Qt::ItemSelectionMode -->
 <h3 class="fn" id="collidesWithItem"><a name="collidesWithItem"></a><code>[虚函数] </code><span class="type">bool</span> QGraphicsItem::<span class="name">collidesWithItem</span>(const <span class="type"><a href="qgraphicsitem.html#QGraphicsItem">QGraphicsItem</a></span> *<i>other</i>, <span class="type">Qt::ItemSelectionMode</span> <i>mode</i> = Qt::IntersectsItemShape) const</h3>
-<p>Returns <code>true</code> if this item collides with <i>other</i>; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if this item collides with <i>other</i>; 否则则返回 <code>false</code>。</p>
 <p>The <i>mode</i> is applied to <i>other</i>, and the resulting shape or bounding rectangle is then compared to this item's shape. The default value for <i>mode</i> is <a href="../qtcore/qt.html#ItemSelectionMode-enum">Qt::IntersectsItemShape</a>; <i>other</i> collides with this item if it either intersects, contains, or is contained by this item's shape (see <a href="../qtcore/qt.html#ItemSelectionMode-enum">Qt::ItemSelectionMode</a> for details).</p>
 <p>The default implementation is based on shape intersection, and it calls <a href="qgraphicsitem.html#shape">shape</a>() on both items. Because the complexity of arbitrary shape-shape intersection grows with an order of magnitude when the shapes are complex, this operation can be noticably time consuming. You have the option of reimplementing this function in a subclass of <a href="qgraphicsitem.html">QGraphicsItem</a> to provide a custom algorithm. This allows you to make use of natural constraints in the shapes of your own items, in order to improve the performance of the collision detection. For instance, two untransformed perfectly circular items' collision can be determined very efficiently by comparing their positions and radii.</p>
 <p>Keep in mind that when reimplementing this function and calling <a href="qgraphicsitem.html#shape">shape</a>() or <a href="qgraphicsitem.html#boundingRect">boundingRect</a>() on <i>other</i>, the returned coordinates must be mapped to this item's coordinate system before any intersection can take place.</p>
@@ -956,7 +956,7 @@
 <!-- @@@installSceneEventFilter -->
 <!-- $$$isActive[overload1]$$$isActive -->
 <h3 class="fn" id="isActive"><a name="isActive"></a><span class="type">bool</span> QGraphicsItem::<span class="name">isActive</span>() const</h3>
-<p>Returns <code>true</code> if this item is active; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if this item is active; 否则则返回 <code>false</code>。</p>
 <p>An item can only be active if the scene is active. An item is active if it is, or is a descendent of, an active panel. Items in non-active panels are not active.</p>
 <p>Items that are not part of a panel follow scene activation when the scene has no active panel.</p>
 <p>Only active items can gain input focus.</p>
@@ -1008,7 +1008,7 @@
 <!-- @@@isObscuredBy -->
 <!-- $$$isPanel[overload1]$$$isPanel -->
 <h3 class="fn" id="isPanel"><a name="isPanel"></a><span class="type">bool</span> QGraphicsItem::<span class="name">isPanel</span>() const</h3>
-<p>Returns <code>true</code> if the item is a panel; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if the item is a panel; 否则则返回 <code>false</code>。</p>
 <p>这个函数是在Qt 4.6版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qgraphicsitem.html#panel">QGraphicsItem::panel</a>() 和 <a href="qgraphicsitem.html#GraphicsItemFlag-enum">ItemIsPanel</a>.</p>
 <!-- @@@isPanel -->

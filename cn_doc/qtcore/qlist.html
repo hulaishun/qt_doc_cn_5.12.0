@@ -187,7 +187,7 @@
 <div class="descr">
 <h2 id="details">详细描述</h2>
 <p>The <a href="qlist.html">QList</a> class is a template class that provides lists.</p>
-<p><a href="qlist.html">QList</a>&lt;T&gt; is one of Qt's generic <a href="containers.html">container classes</a>. It stores items in a list that provides fast index-based access and index-based insertions and removals.</p>
+<p><a href="qlist.html">QList</a>&lt;T&gt; is one of Qt's generic <a href="containers.html">容器类</a>. It stores items in a list that provides fast index-based access and index-based insertions and removals.</p>
 <p><a href="qlist.html">QList</a>&lt;T&gt;, <a href="qlinkedlist.html">QLinkedList</a>&lt;T&gt;, and <a href="qvector.html">QVector</a>&lt;T&gt; provide similar APIs and functionality. They are often interchangeable, but there are performance consequences. Here is an overview of use cases:</p>
 <ul>
 <li><a href="qvector.html">QVector</a> should be your default first choice. <a href="qvector.html">QVector</a>&lt;T&gt; will usually give better performance than <a href="qlist.html">QList</a>&lt;T&gt;, because <a href="qvector.html">QVector</a>&lt;T&gt; always stores its items sequentially in memory, where <a href="qlist.html">QList</a>&lt;T&gt; will allocate its items on the heap unless <code>sizeof(T) &lt;= sizeof(void*)</code> and T has been declared to be either a <code>Q_MOVABLE_TYPE</code> or a <code>Q_PRIMITIVE_TYPE</code> using <a href="qtglobal.html#Q_DECLARE_TYPEINFO">Q_DECLARE_TYPEINFO</a>. See the <a href="http://marcmutz.wordpress.com/effective-qt/containers/#containers-qlist">Pros and Cons of Using QList</a> for an explanation.</li>
@@ -484,7 +484,7 @@
 <!-- @@@end -->
 <!-- $$$endsWith[overload1]$$$endsWithconstT& -->
 <h3 class="fn" id="endsWith"><a name="endsWith"></a><span class="type">bool</span> QList::<span class="name">endsWith</span>(const <span class="type">T</span> &amp;<i>value</i>) const</h3>
-<p>Returns <code>true</code> if this list is not empty and its last item is equal to <i>value</i>; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if this list is not empty and its last item is equal to <i>value</i>; 否则则返回 <code>false</code>。</p>
 <p>这个函数是在Qt 4.5版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qlist.html#isEmpty">isEmpty</a>() 和 <a href="qlist.html#contains">contains</a>().</p>
 <!-- @@@endsWith -->
@@ -731,7 +731,7 @@
 <!-- @@@removeLast -->
 <!-- $$$removeOne[overload1]$$$removeOneconstT& -->
 <h3 class="fn" id="removeOne"><a name="removeOne"></a><span class="type">bool</span> QList::<span class="name">removeOne</span>(const <span class="type">T</span> &amp;<i>value</i>)</h3>
-<p>Removes the first occurrence of <i>value</i> in the list and returns true on success; otherwise returns <code>false</code>.</p>
+<p>Removes the first occurrence of <i>value</i> in the list and returns true on success; 否则则返回 <code>false</code>。</p>
 <p>样例：</p>
 <pre class="cpp">
 
@@ -948,7 +948,7 @@
 <!-- @@@qHash -->
 <!-- $$$operator<[overload1]$$$operator<constQList<T>&constQList<T>& -->
 <h3 class="fn" id="operator-lt"><a name="operator-lt"></a><span class="type">bool</span> <span class="name">operator&lt;</span>(const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>lhs</i>, const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>rhs</i>)</h3>
-<p>Returns <code>true</code> if list <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically less than</a> <i>rhs</i>; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if list <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically less than</a> <i>rhs</i>; 否则则返回 <code>false</code>。</p>
 <p>该函数要求值类型的列表元素实现了 <code>operator&lt;()</code>.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <!-- @@@operator< -->
@@ -960,19 +960,19 @@
 <!-- @@@operator<< -->
 <!-- $$$operator<=[overload1]$$$operator<=constQList<T>&constQList<T>& -->
 <h3 class="fn" id="operator-lt-eq"><a name="operator-lt-eq"></a><span class="type">bool</span> <span class="name">operator&lt;=</span>(const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>lhs</i>, const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>rhs</i>)</h3>
-<p>Returns <code>true</code> if list <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically less than or equal to</a> <i>rhs</i>; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if list <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically less than or equal to</a> <i>rhs</i>; 否则则返回 <code>false</code>。</p>
 <p>该函数要求值类型的列表元素实现了 <code>operator&lt;()</code>.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <!-- @@@operator<= -->
 <!-- $$$operator>[overload1]$$$operator>constQList<T>&constQList<T>& -->
 <h3 class="fn" id="operator-gt"><a name="operator-gt"></a><span class="type">bool</span> <span class="name">operator&gt;</span>(const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>lhs</i>, const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>rhs</i>)</h3>
-<p>Returns <code>true</code> if list <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically greater than</a> <i>rhs</i>; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if list <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically greater than</a> <i>rhs</i>; 否则则返回 <code>false</code>。</p>
 <p>该函数要求值类型的列表元素实现了 <code>operator&lt;()</code>.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <!-- @@@operator> -->
 <!-- $$$operator>=[overload1]$$$operator>=constQList<T>&constQList<T>& -->
 <h3 class="fn" id="operator-gt-eq"><a name="operator-gt-eq"></a><span class="type">bool</span> <span class="name">operator&gt;=</span>(const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>lhs</i>, const <span class="type"><a href="qlist.html#QList">QList</a></span>&lt;<span class="type">T</span>&gt; &amp;<i>rhs</i>)</h3>
-<p>Returns <code>true</code> if list <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically greater than or equal to</a> <i>rhs</i>; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if list <i>lhs</i> is <a href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographically greater than or equal to</a> <i>rhs</i>; 否则则返回 <code>false</code>。</p>
 <p>该函数要求值类型的列表元素实现了 <code>operator&lt;()</code>.</p>
 <p>这个函数是在Qt 5.6版本中新增引入的。</p>
 <!-- @@@operator>= -->

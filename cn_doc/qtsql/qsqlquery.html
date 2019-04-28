@@ -336,14 +336,14 @@
 <!-- @@@exec -->
 <!-- $$$exec$$$exec -->
 <h3 class="fn" id="exec-1"><a name="exec-1"></a><span class="type">bool</span> QSqlQuery::<span class="name">exec</span>()</h3>
-<p>Executes a previously prepared SQL query. Returns <code>true</code> if the query executed successfully; otherwise returns <code>false</code>.</p>
+<p>Executes a previously prepared SQL query. Returns <code>true</code> if the query executed successfully; 否则则返回 <code>false</code>。</p>
 <p>Note that the last error for this query is reset when exec() is called.</p>
 <p><b> 参见 </b><a href="qsqlquery.html#prepare">prepare</a>(), <a href="qsqlquery.html#bindValue">bindValue</a>(), <a href="qsqlquery.html#addBindValue">addBindValue</a>(), <a href="qsqlquery.html#boundValue">boundValue</a>(), 和 <a href="qsqlquery.html#boundValues">boundValues</a>().</p>
 <!-- @@@exec -->
 <!-- $$$execBatch[overload1]$$$execBatchQSqlQuery::BatchExecutionMode -->
 <h3 class="fn" id="execBatch"><a name="execBatch"></a><span class="type">bool</span> QSqlQuery::<span class="name">execBatch</span>(<span class="type"><a href="qsqlquery.html#BatchExecutionMode-enum">QSqlQuery::BatchExecutionMode</a></span> <i>mode</i> = ValuesAsRows)</h3>
 <p>Executes a previously prepared SQL query in a batch. All the bound parameters have to be lists of variants. If the database doesn't support batch executions, the driver will simulate it using conventional <a href="qsqlquery.html#exec-1">exec</a>() calls.</p>
-<p>Returns <code>true</code> if the query is executed successfully; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if the query is executed successfully; 否则则返回 <code>false</code>。</p>
 <p>样例：</p>
 <pre class="cpp">
 
@@ -401,7 +401,7 @@
 <!-- @@@isActive -->
 <!-- $$$isForwardOnly[overload1]$$$isForwardOnly -->
 <h3 class="fn" id="isForwardOnly"><a name="isForwardOnly"></a><span class="type">bool</span> QSqlQuery::<span class="name">isForwardOnly</span>() const</h3>
-<p>Returns <code>true</code> if you can only scroll forward through a result set; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if you can only scroll forward through a result set; 否则则返回 <code>false</code>。</p>
 <p><b> 参见 </b><a href="qsqlquery.html#setForwardOnly">setForwardOnly</a>() 和 <a href="qsqlquery.html#next">next</a>().</p>
 <!-- @@@isForwardOnly -->
 <!-- $$$isNull[overload1]$$$isNullint -->
@@ -417,11 +417,11 @@
 <!-- @@@isNull -->
 <!-- $$$isSelect[overload1]$$$isSelect -->
 <h3 class="fn" id="isSelect"><a name="isSelect"></a><span class="type">bool</span> QSqlQuery::<span class="name">isSelect</span>() const</h3>
-<p>Returns <code>true</code> if the current query is a <code>SELECT</code> statement; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if the current query is a <code>SELECT</code> statement; 否则则返回 <code>false</code>。</p>
 <!-- @@@isSelect -->
 <!-- $$$isValid[overload1]$$$isValid -->
 <h3 class="fn" id="isValid"><a name="isValid"></a><span class="type">bool</span> QSqlQuery::<span class="name">isValid</span>() const</h3>
-<p>Returns <code>true</code> if the query is currently positioned on a valid record; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if the query is currently positioned on a valid record; 否则则返回 <code>false</code>。</p>
 <!-- @@@isValid -->
 <!-- $$$last[overload1]$$$last -->
 <h3 class="fn" id="last"><a name="last"></a><span class="type">bool</span> QSqlQuery::<span class="name">last</span>()</h3>
@@ -478,7 +478,7 @@
 <!-- @@@numericalPrecisionPolicy -->
 <!-- $$$prepare[overload1]$$$prepareconstQString& -->
 <h3 class="fn" id="prepare"><a name="prepare"></a><span class="type">bool</span> QSqlQuery::<span class="name">prepare</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>query</i>)</h3>
-<p>Prepares the SQL query <i>query</i> for execution. Returns <code>true</code> if the query is prepared successfully; otherwise returns <code>false</code>.</p>
+<p>Prepares the SQL query <i>query</i> for execution. Returns <code>true</code> if the query is prepared successfully; 否则则返回 <code>false</code>。</p>
 <p>The query may contain placeholders for binding values. Both Oracle style colon-name (e.g&#x2e;, <code>:surname</code>), and ODBC style (<code>?</code>) placeholders are supported; but they cannot be mixed in the same query. See the <a href="qsqlquery.html#qsqlquery-examples">详细描述</a> for examples.</p>
 <p>Portability notes: Some databases choose to delay preparing a query until it is executed the first time. In this case, preparing a syntactically wrong query succeeds, but every consecutive <a href="qsqlquery.html#exec-1">exec</a>() will fail. When the database does not support named placeholders directly, the placeholder can only contain characters in the range [a-zA-Z0-9_].</p>
 <p>For <a href="qtsql-attribution-sqlite.html">SQLite</a>, the query string can contain only one statement at a time. If more than one statement is given, the function returns <code>false</code>.</p>

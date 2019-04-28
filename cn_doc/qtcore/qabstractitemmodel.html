@@ -432,7 +432,7 @@
 <!-- @@@canDropMimeData -->
 <!-- $$$canFetchMore[overload1]$$$canFetchMoreconstQModelIndex& -->
 <h3 class="fn" id="canFetchMore"><a name="canFetchMore"></a><code>[虚函数] </code><span class="type">bool</span> QAbstractItemModel::<span class="name">canFetchMore</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i>) const</h3>
-<p>Returns <code>true</code> if there is more data available for <i>parent</i>; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if there is more data available for <i>parent</i>; 否则则返回 <code>false</code>。</p>
 <p>The default implementation always returns <code>false</code>.</p>
 <p>If canFetchMore() returns <code>true</code>, the <a href="qabstractitemmodel.html#fetchMore">fetchMore</a>() function should be called. This is the behavior of <a href="../qtwidgets/qabstractitemview.html">QAbstractItemView</a>, for example.</p>
 <p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
@@ -554,7 +554,7 @@
 <!-- $$$dropMimeData[overload1]$$$dropMimeDataconstQMimeData*Qt::DropActionintintconstQModelIndex& -->
 <h3 class="fn" id="dropMimeData"><a name="dropMimeData"></a><code>[虚函数] </code><span class="type">bool</span> QAbstractItemModel::<span class="name">dropMimeData</span>(const <span class="type"><a href="qmimedata.html">QMimeData</a></span> *<i>data</i>, <span class="type">Qt::DropAction</span> <i>action</i>, <span class="type">int</span> <i>row</i>, <span class="type">int</span> <i>column</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i>)</h3>
 <p>Handles the <i>data</i> supplied by a drag and drop operation that ended with the given <i>action</i>.</p>
-<p>Returns <code>true</code> if the data and action were handled by the model; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if the data and action were handled by the model; 否则则返回 <code>false</code>。</p>
 <p>The specified <i>row</i>, <i>column</i> and <i>parent</i> indicate the location of an item in the model where the operation ended. It is the responsibility of the model to complete the action at the correct location.</p>
 <p>For instance, a drop action on an item in a <a href="../qtwidgets/qtreeview.html">QTreeView</a> can result in new items either being inserted as children of the item specified by <i>row</i>, <i>column</i>, and <i>parent</i>, or as siblings of the item.</p>
 <p>When <i>row</i> and <i>column</i> are -1 it means that the dropped data should be considered as dropped directly on <i>parent</i>. Usually this will mean appending the data as child items of <i>parent</i>. If <i>row</i> and <i>column</i> are greater than or equal zero, it means that the drop occurred just before the specified <i>row</i> and <i>column</i> in the specified <i>parent</i>.</p>
@@ -624,7 +624,7 @@
 <!-- @@@flags -->
 <!-- $$$hasChildren[overload1]$$$hasChildrenconstQModelIndex& -->
 <h3 class="fn" id="hasChildren"><a name="hasChildren"></a><code>[虚函数] </code><span class="type">bool</span> QAbstractItemModel::<span class="name">hasChildren</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i> = QModelIndex()) const</h3>
-<p>Returns <code>true</code> if <i>parent</i> has any children; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if <i>parent</i> has any children; 否则则返回 <code>false</code>。</p>
 <p>Use <a href="qabstractitemmodel.html#rowCount">rowCount</a>() on the parent to find out the number of children.</p>
 <p>Note that it is undefined behavior to report that a particular index hasChildren with this method if the same index has the flag <a href="qt.html#ItemFlag-enum">Qt::ItemNeverHasChildren</a> set.</p>
 <p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
@@ -632,7 +632,7 @@
 <!-- @@@hasChildren -->
 <!-- $$$hasIndex[overload1]$$$hasIndexintintconstQModelIndex& -->
 <h3 class="fn" id="hasIndex"><a name="hasIndex"></a><span class="type">bool</span> QAbstractItemModel::<span class="name">hasIndex</span>(<span class="type">int</span> <i>row</i>, <span class="type">int</span> <i>column</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i> = QModelIndex()) const</h3>
-<p>Returns <code>true</code> if the model returns a valid <a href="qmodelindex.html">QModelIndex</a> for <i>row</i> and <i>column</i> with <i>parent</i>, otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if the model returns a valid <a href="qmodelindex.html">QModelIndex</a> for <i>row</i> and <i>column</i> with <i>parent</i>, 否则则返回 <code>false</code>。</p>
 <p><b>注意： </b>This function can be invoked via the meta-object system and from QML. See <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a>.</p>
 <!-- @@@hasIndex -->
 <!-- $$$headerData[overload1]$$$headerDataintQt::Orientationint -->
@@ -659,7 +659,7 @@
 <!-- $$$insertColumn[overload1]$$$insertColumnintconstQModelIndex& -->
 <h3 class="fn" id="insertColumn"><a name="insertColumn"></a><span class="type">bool</span> QAbstractItemModel::<span class="name">insertColumn</span>(<span class="type">int</span> <i>column</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i> = QModelIndex())</h3>
 <p>Inserts a single column before the given <i>column</i> in the child items of the <i>parent</i> specified.</p>
-<p>Returns <code>true</code> if the column is inserted; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if the column is inserted; 否则则返回 <code>false</code>。</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#insertColumns">insertColumns</a>(), <a href="qabstractitemmodel.html#insertRow">insertRow</a>(), 和 <a href="qabstractitemmodel.html#removeColumn">removeColumn</a>().</p>
 <!-- @@@insertColumn -->
 <!-- $$$insertColumns[overload1]$$$insertColumnsintintconstQModelIndex& -->
@@ -668,7 +668,7 @@
 <p>If <i>column</i> is 0, the columns are prepended to any existing columns.</p>
 <p>If <i>column</i> is <a href="qabstractitemmodel.html#columnCount">columnCount</a>(), the columns are appended to any existing columns.</p>
 <p>If <i>parent</i> has no children, a single row with <i>count</i> columns is inserted.</p>
-<p>Returns <code>true</code> if the columns were successfully inserted; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if the columns were successfully inserted; 否则则返回 <code>false</code>。</p>
 <p>基类实现未做任何处理，直接返回了 <code>false</code>。</p>
 <p>If you implement your own model, you can reimplement this function if you want to support insertions. Alternatively, you can provide your own API for altering the data.</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#insertRows">insertRows</a>(), <a href="qabstractitemmodel.html#removeColumns">removeColumns</a>(), <a href="qabstractitemmodel.html#beginInsertColumns">beginInsertColumns</a>(), 和 <a href="qabstractitemmodel.html#endInsertColumns">endInsertColumns</a>().</p>
@@ -676,7 +676,7 @@
 <!-- $$$insertRow[overload1]$$$insertRowintconstQModelIndex& -->
 <h3 class="fn" id="insertRow"><a name="insertRow"></a><span class="type">bool</span> QAbstractItemModel::<span class="name">insertRow</span>(<span class="type">int</span> <i>row</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i> = QModelIndex())</h3>
 <p>Inserts a single row before the given <i>row</i> in the child items of the <i>parent</i> specified.</p>
-<p><b>注意： </b>This function calls the virtual method <a href="qabstractitemmodel.html#insertRows">insertRows</a>.</p><p>Returns <code>true</code> if the row is inserted; otherwise returns <code>false</code>.</p>
+<p><b>注意： </b>This function calls the virtual method <a href="qabstractitemmodel.html#insertRows">insertRows</a>.</p><p>Returns <code>true</code> if the row is inserted; 否则则返回 <code>false</code>。</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#insertRows">insertRows</a>(), <a href="qabstractitemmodel.html#insertColumn">insertColumn</a>(), 和 <a href="qabstractitemmodel.html#removeRow">removeRow</a>().</p>
 <!-- @@@insertRow -->
 <!-- $$$insertRows[overload1]$$$insertRowsintintconstQModelIndex& -->
@@ -685,7 +685,7 @@
 <p>If <i>row</i> is 0, the rows are prepended to any existing rows in the parent.</p>
 <p>If <i>row</i> is <a href="qabstractitemmodel.html#rowCount">rowCount</a>(), the rows are appended to any existing rows in the parent.</p>
 <p>If <i>parent</i> has no children, a single column with <i>count</i> rows is inserted.</p>
-<p>Returns <code>true</code> if the rows were successfully inserted; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if the rows were successfully inserted; 否则则返回 <code>false</code>。</p>
 <p>If you implement your own model, you can reimplement this function if you want to support insertions. Alternatively, you can provide your own API for altering the data. In either case, you will need to call <a href="qabstractitemmodel.html#beginInsertRows">beginInsertRows</a>() 和 <a href="qabstractitemmodel.html#endInsertRows">endInsertRows</a>() to notify other components that the model has changed.</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#insertColumns">insertColumns</a>(), <a href="qabstractitemmodel.html#removeRows">removeRows</a>(), <a href="qabstractitemmodel.html#beginInsertRows">beginInsertRows</a>(), 和 <a href="qabstractitemmodel.html#endInsertRows">endInsertRows</a>().</p>
 <!-- @@@insertRows -->
@@ -757,13 +757,13 @@
 <!-- $$$moveColumn[overload1]$$$moveColumnconstQModelIndex&intconstQModelIndex&int -->
 <h3 class="fn" id="moveColumn"><a name="moveColumn"></a><span class="type">bool</span> QAbstractItemModel::<span class="name">moveColumn</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>sourceParent</i>, <span class="type">int</span> <i>sourceColumn</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>destinationParent</i>, <span class="type">int</span> <i>destinationChild</i>)</h3>
 <p>On models that support this, moves <i>sourceColumn</i> from <i>sourceParent</i> to <i>destinationChild</i> under <i>destinationParent</i>.</p>
-<p>Returns <code>true</code> if the columns were successfully moved; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if the columns were successfully moved; 否则则返回 <code>false</code>。</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#moveColumns">moveColumns</a>() 和 <a href="qabstractitemmodel.html#moveRow">moveRow</a>().</p>
 <!-- @@@moveColumn -->
 <!-- $$$moveColumns[overload1]$$$moveColumnsconstQModelIndex&intintconstQModelIndex&int -->
 <h3 class="fn" id="moveColumns"><a name="moveColumns"></a><code>[虚函数] </code><span class="type">bool</span> QAbstractItemModel::<span class="name">moveColumns</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>sourceParent</i>, <span class="type">int</span> <i>sourceColumn</i>, <span class="type">int</span> <i>count</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>destinationParent</i>, <span class="type">int</span> <i>destinationChild</i>)</h3>
 <p>On models that support this, moves <i>count</i> columns starting with the given <i>sourceColumn</i> under parent <i>sourceParent</i> to column <i>destinationChild</i> under parent <i>destinationParent</i>.</p>
-<p>Returns <code>true</code> if the columns were successfully moved; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if the columns were successfully moved; 否则则返回 <code>false</code>。</p>
 <p>基类实现未做任何处理，直接返回了 <code>false</code>。</p>
 <p>If you implement your own model, you can reimplement this function if you want to support moving. Alternatively, you can provide your own API for altering the data.</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#beginMoveColumns">beginMoveColumns</a>() 和 <a href="qabstractitemmodel.html#endMoveColumns">endMoveColumns</a>().</p>
@@ -771,13 +771,13 @@
 <!-- $$$moveRow[overload1]$$$moveRowconstQModelIndex&intconstQModelIndex&int -->
 <h3 class="fn" id="moveRow"><a name="moveRow"></a><span class="type">bool</span> QAbstractItemModel::<span class="name">moveRow</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>sourceParent</i>, <span class="type">int</span> <i>sourceRow</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>destinationParent</i>, <span class="type">int</span> <i>destinationChild</i>)</h3>
 <p>On models that support this, moves <i>sourceRow</i> from <i>sourceParent</i> to <i>destinationChild</i> under <i>destinationParent</i>.</p>
-<p>Returns <code>true</code> if the rows were successfully moved; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if the rows were successfully moved; 否则则返回 <code>false</code>。</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#moveRows">moveRows</a>() 和 <a href="qabstractitemmodel.html#moveColumn">moveColumn</a>().</p>
 <!-- @@@moveRow -->
 <!-- $$$moveRows[overload1]$$$moveRowsconstQModelIndex&intintconstQModelIndex&int -->
 <h3 class="fn" id="moveRows"><a name="moveRows"></a><code>[虚函数] </code><span class="type">bool</span> QAbstractItemModel::<span class="name">moveRows</span>(const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>sourceParent</i>, <span class="type">int</span> <i>sourceRow</i>, <span class="type">int</span> <i>count</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>destinationParent</i>, <span class="type">int</span> <i>destinationChild</i>)</h3>
 <p>On models that support this, moves <i>count</i> rows starting with the given <i>sourceRow</i> under parent <i>sourceParent</i> to row <i>destinationChild</i> under parent <i>destinationParent</i>.</p>
-<p>Returns <code>true</code> if the rows were successfully moved; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if the rows were successfully moved; 否则则返回 <code>false</code>。</p>
 <p>基类实现未做任何处理，直接返回了 <code>false</code>。</p>
 <p>If you implement your own model, you can reimplement this function if you want to support moving. Alternatively, you can provide your own API for altering the data.</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#beginMoveRows">beginMoveRows</a>() 和 <a href="qabstractitemmodel.html#endMoveRows">endMoveRows</a>().</p>
@@ -798,13 +798,13 @@
 <!-- $$$removeColumn[overload1]$$$removeColumnintconstQModelIndex& -->
 <h3 class="fn" id="removeColumn"><a name="removeColumn"></a><span class="type">bool</span> QAbstractItemModel::<span class="name">removeColumn</span>(<span class="type">int</span> <i>column</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i> = QModelIndex())</h3>
 <p>Removes the given <i>column</i> from the child items of the <i>parent</i> specified.</p>
-<p>Returns <code>true</code> if the column is removed; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if the column is removed; 否则则返回 <code>false</code>。</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#removeColumns">removeColumns</a>(), <a href="qabstractitemmodel.html#removeRow">removeRow</a>(), 和 <a href="qabstractitemmodel.html#insertColumn">insertColumn</a>().</p>
 <!-- @@@removeColumn -->
 <!-- $$$removeColumns[overload1]$$$removeColumnsintintconstQModelIndex& -->
 <h3 class="fn" id="removeColumns"><a name="removeColumns"></a><code>[虚函数] </code><span class="type">bool</span> QAbstractItemModel::<span class="name">removeColumns</span>(<span class="type">int</span> <i>column</i>, <span class="type">int</span> <i>count</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i> = QModelIndex())</h3>
 <p>On models that support this, removes <i>count</i> columns starting with the given <i>column</i> under parent <i>parent</i> from the model.</p>
-<p>Returns <code>true</code> if the columns were successfully removed; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if the columns were successfully removed; 否则则返回 <code>false</code>。</p>
 <p>基类实现未做任何处理，直接返回了 <code>false</code>。</p>
 <p>If you implement your own model, you can reimplement this function if you want to support removing. Alternatively, you can provide your own API for altering the data.</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#removeColumn">removeColumn</a>(), <a href="qabstractitemmodel.html#removeRows">removeRows</a>(), <a href="qabstractitemmodel.html#insertColumns">insertColumns</a>(), <a href="qabstractitemmodel.html#beginRemoveColumns">beginRemoveColumns</a>(), 和 <a href="qabstractitemmodel.html#endRemoveColumns">endRemoveColumns</a>().</p>
@@ -812,14 +812,14 @@
 <!-- $$$removeRow[overload1]$$$removeRowintconstQModelIndex& -->
 <h3 class="fn" id="removeRow"><a name="removeRow"></a><span class="type">bool</span> QAbstractItemModel::<span class="name">removeRow</span>(<span class="type">int</span> <i>row</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i> = QModelIndex())</h3>
 <p>Removes the given <i>row</i> from the child items of the <i>parent</i> specified.</p>
-<p>Returns <code>true</code> if the row is removed; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if the row is removed; 否则则返回 <code>false</code>。</p>
 <p>This is a convenience function that calls <a href="qabstractitemmodel.html#removeRows">removeRows</a>(). The <a href="qabstractitemmodel.html">QAbstractItemModel</a> implementation of <a href="qabstractitemmodel.html#removeRows">removeRows</a>() does nothing.</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#removeRows">removeRows</a>(), <a href="qabstractitemmodel.html#removeColumn">removeColumn</a>(), 和 <a href="qabstractitemmodel.html#insertRow">insertRow</a>().</p>
 <!-- @@@removeRow -->
 <!-- $$$removeRows[overload1]$$$removeRowsintintconstQModelIndex& -->
 <h3 class="fn" id="removeRows"><a name="removeRows"></a><code>[虚函数] </code><span class="type">bool</span> QAbstractItemModel::<span class="name">removeRows</span>(<span class="type">int</span> <i>row</i>, <span class="type">int</span> <i>count</i>, const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp;<i>parent</i> = QModelIndex())</h3>
 <p>On models that support this, removes <i>count</i> rows starting with the given <i>row</i> under parent <i>parent</i> from the model.</p>
-<p>Returns <code>true</code> if the rows were successfully removed; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if the rows were successfully removed; 否则则返回 <code>false</code>。</p>
 <p>基类实现未做任何处理，直接返回了 <code>false</code>。</p>
 <p>If you implement your own model, you can reimplement this function if you want to support removing. Alternatively, you can provide your own API for altering the data.</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#removeRow">removeRow</a>(), <a href="qabstractitemmodel.html#removeColumns">removeColumns</a>(), <a href="qabstractitemmodel.html#insertColumns">insertColumns</a>(), <a href="qabstractitemmodel.html#beginRemoveRows">beginRemoveRows</a>(), 和 <a href="qabstractitemmodel.html#endRemoveRows">endRemoveRows</a>().</p>
@@ -944,7 +944,7 @@
 <!-- $$$setHeaderData[overload1]$$$setHeaderDataintQt::OrientationconstQVariant&int -->
 <h3 class="fn" id="setHeaderData"><a name="setHeaderData"></a><code>[虚函数] </code><span class="type">bool</span> QAbstractItemModel::<span class="name">setHeaderData</span>(<span class="type">int</span> <i>section</i>, <span class="type">Qt::Orientation</span> <i>orientation</i>, const <span class="type"><a href="qvariant.html">QVariant</a></span> &amp;<i>value</i>, <span class="type">int</span> <i>role</i> = Qt::EditRole)</h3>
 <p>Sets the data for the given <i>role</i> and <i>section</i> in the header with the specified <i>orientation</i> to the <i>value</i> supplied.</p>
-<p>Returns <code>true</code> if the header's data was updated; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if the header's data was updated; 否则则返回 <code>false</code>。</p>
 <p>When reimplementing this function, the <a href="qabstractitemmodel.html#headerDataChanged">headerDataChanged</a>() signal must be emitted explicitly.</p>
 <p><b> 参见 </b><a href="qt.html#ItemDataRole-enum">Qt::ItemDataRole</a> 和 <a href="qabstractitemmodel.html#headerData">headerData</a>().</p>
 <!-- @@@setHeaderData -->
@@ -975,7 +975,7 @@
 <!-- $$$submit[overload1]$$$submit -->
 <h3 class="fn" id="submit"><a name="submit"></a><code>[虚槽函数] </code><span class="type">bool</span> QAbstractItemModel::<span class="name">submit</span>()</h3>
 <p>Lets the model know that it should submit cached information to permanent storage. This function is typically used for row editing.</p>
-<p>Returns <code>true</code> if there is no error; otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if there is no error; 否则则返回 <code>false</code>。</p>
 <p><b> 参见 </b><a href="qabstractitemmodel.html#revert">revert</a>().</p>
 <!-- @@@submit -->
 <!-- $$$supportedDragActions[overload1]$$$supportedDragActions -->
