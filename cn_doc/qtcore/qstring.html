@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- qstring.cpp -->
-  <title>QString Class | Qt核心模块 5.12</title>
+  <title>字符串类 | Qt核心模块 5.12</title>
   <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
   <script type="text/javascript">
     document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
@@ -44,19 +44,19 @@
 <li class="level1"><a href="#related-non-members">相关非成员</a></li>
 <li class="level1"><a href="#macros">宏定义</a></li>
 <li class="level1"><a href="#details">详细描述</a></li>
-<li class="level2"><a href="#initializing-a-string">Initializing a String</a></li>
-<li class="level2"><a href="#manipulating-string-data">Manipulating String Data</a></li>
-<li class="level2"><a href="#querying-string-data">Querying String Data</a></li>
-<li class="level2"><a href="#converting-between-8-bit-strings-and-unicode-strings">Converting Between 8-Bit Strings and Unicode Strings</a></li>
-<li class="level2"><a href="#distinction-between-null-and-empty-strings">Distinction Between Null and Empty Strings</a></li>
-<li class="level2"><a href="#argument-formats">Argument Formats</a></li>
-<li class="level2"><a href="#more-efficient-string-construction">More Efficient String Construction</a></li>
+<li class="level2"><a href="#initializing-a-string">初始化字符串</a></li>
+<li class="level2"><a href="#manipulating-string-data">操作字符串</a></li>
+<li class="level2"><a href="#querying-string-data">查询字符串数据</a></li>
+<li class="level2"><a href="#converting-between-8-bit-strings-and-unicode-strings">在8位字符串和Unicode字符串之间转换</a></li>
+<li class="level2"><a href="#distinction-between-null-and-empty-strings">Null字符串和空字符串的比较</a></li>
+<li class="level2"><a href="#argument-formats">参数格式化</a></li>
+<li class="level2"><a href="#more-efficient-string-construction">更高效的字符串构造</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title">QString Class</h1>
+<h1 class="title">字符串类</h1>
 <!-- $$$QString-brief -->
-<p>The <a href="qstring.html">QString</a> class provides a Unicode character string. <a href="#details">更多详情...</a></p>
+<p> <a href="qstring.html">QString</a> 类提供了Unicode字符串。 <a href="#details">更多详情...</a></p>
 <!-- @@@QString -->
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> 头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QString&gt;</span>
@@ -427,13 +427,13 @@
 <!-- $$$QString-description -->
 <div class="descr">
 <h2 id="details">详细描述</h2>
-<p>The <a href="qstring.html">QString</a> class provides a Unicode character string.</p>
+<p> <a href="qstring.html">QString</a> 类提供了Unicode字符串。</p>
 <p><a href="qstring.html">QString</a> stores a string of 16-bit <a href="qchar.html">QChar</a>s, where each <a href="qchar.html">QChar</a> corresponds to one UTF-16 code unit. (Unicode characters with code values above 65535 are stored using surrogate pairs, i.e&#x2e;, two consecutive <a href="qchar.html">QChar</a>s.)</p>
 <p><a href="../qtdoc/unicode.html">Unicode</a> is an international standard that supports most of the writing systems in use today. It is a superset of US-ASCII (ANSI X3.4-1986) and Latin-1 (ISO 8859-1), and all the US-ASCII/Latin-1 characters are available at the same code positions.</p>
 <p>Behind the scenes, <a href="qstring.html">QString</a> uses <a href="implicit-sharing.html">implicit sharing</a> (copy-on-write) to reduce memory usage and to avoid the needless copying of data. This also helps reduce the inherent overhead of storing 16-bit characters instead of 8-bit characters.</p>
 <p>In addition to <a href="qstring.html">QString</a>, Qt also provides the <a href="qbytearray.html">QByteArray</a> class to store raw bytes and traditional 8-bit '\0'-terminated strings. For most purposes, <a href="qstring.html">QString</a> is the class you want to use. It is used throughout the Qt API, and the Unicode support ensures that your applications will be easy to translate if you want to expand your application's market at some point. The two main cases where <a href="qbytearray.html">QByteArray</a> is appropriate are when you need to store raw binary data, and when memory conservation is critical (like in embedded systems).</p>
 <a name="initializing-a-string"></a>
-<h3 >Initializing a String</h3>
+<h3 >初始化字符串</h3>
 <p>One way to initialize a <a href="qstring.html">QString</a> is simply to pass a <code>const char *</code> to its constructor. For example, the following code creates a <a href="qstring.html">QString</a> of size 5 containing the data &quot;Hello&quot;:</p>
 <pre class="cpp">
 
@@ -489,7 +489,7 @@
 </pre>
 <p>You can also pass string literals to functions that take QStrings as arguments, invoking the <a href="qstring.html">QString</a>(const char *) constructor. Similarly, you can pass a <a href="qstring.html">QString</a> to a function that takes a <code>const char *</code> argument using the <a href="qtglobal.html#qPrintable">qPrintable</a>() macro which returns the given <a href="qstring.html">QString</a> as a <code>const char *</code>. This is equivalent to calling &lt;<a href="qstring.html">QString</a>&gt;.<a href="qstring.html#toLocal8Bit">toLocal8Bit</a>().<a href="qstring.html#constData">constData</a>().</p>
 <a name="manipulating-string-data"></a>
-<h3 >Manipulating String Data</h3>
+<h3 >操作字符串</h3>
 <p><a href="qstring.html">QString</a> provides the following basic functions for modifying the character data: <a href="qstring.html#append">append</a>(), <a href="qstring.html#prepend">prepend</a>(), <a href="qstring.html#insert">insert</a>(), <a href="qstring.html#replace">replace</a>(), 和 <a href="qstring.html#remove">remove</a>(). For example:</p>
 <pre class="cpp">
 
@@ -518,12 +518,12 @@
 <p>To get an upper- or lowercase version of a string use <a href="qstring.html#toUpper">toUpper</a>() or <a href="qstring.html#toLower">toLower</a>().</p>
 <p>Lists of strings are handled by the <a href="qstringlist.html">QStringList</a> class. You can split a string into a list of strings using the <a href="qstring.html#split">split</a>() function, and join a list of strings into a single string with an optional separator using <a href="qstringlist.html#join">QStringList::join</a>(). You can obtain a list of strings from a string list that contain a particular substring or that match a particular <a href="qregexp.html">QRegExp</a> using the <a href="qstringlist.html#filter">QStringList::filter</a>() function.</p>
 <a name="querying-string-data"></a>
-<h3 >Querying String Data</h3>
+<h3 >查询字符串数据</h3>
 <p>If you want to see if a <a href="qstring.html">QString</a> starts or ends with a particular substring use <a href="qstring.html#startsWith">startsWith</a>() or <a href="qstring.html#endsWith">endsWith</a>(). If you simply want to check whether a <a href="qstring.html">QString</a> contains a particular character or substring, use the <a href="qstring.html#contains">contains</a>() function. If you want to find out how many times a particular character or substring occurs in the string, use <a href="qstring.html#count-2">count</a>().</p>
 <p>QStrings can be compared using overloaded operators such as <a href="qstring.html#operator-lt">operator&lt;</a>(), <a href="qstring.html#operator-lt-eq">operator&lt;=</a>(), <a href="qstring.html#operator-eq-eq">operator==</a>(), <a href="qstring.html#operator-gt-eq">operator&gt;=</a>(), and so on. Note that the comparison is based exclusively on the numeric Unicode values of the characters. It is very fast, but is not what a human would expect; the <a href="qstring.html#localeAwareCompare">QString::localeAwareCompare</a>() function is a better choice for sorting user-interface strings.</p>
 <p>To obtain a pointer to the actual character data, call <a href="qstring.html#data">data</a>() or <a href="qstring.html#constData">constData</a>(). These functions return a pointer to the beginning of the <a href="qchar.html">QChar</a> data. The pointer is guaranteed to remain valid until a non-const function is called on the <a href="qstring.html">QString</a>.</p>
 <a name="converting-between-8-bit-strings-and-unicode-strings"></a>
-<h3 >Converting Between 8-Bit Strings and Unicode Strings</h3>
+<h3 >在8位字符串和Unicode字符串之间转换</h3>
 <p><a href="qstring.html">QString</a> provides the following three functions that return a <code>const char *</code> version of the string as <a href="qbytearray.html">QByteArray</a>: <a href="qstring.html#toUtf8">toUtf8</a>(), <a href="qstring.html#toLatin1">toLatin1</a>(), 和 <a href="qstring.html#toLocal8Bit">toLocal8Bit</a>().</p>
 <ul>
 <li><a href="qstring.html#toLatin1">toLatin1</a>() returns a Latin-1 (ISO 8859-1) encoded 8-bit string.</li>
@@ -570,7 +570,7 @@
 </td></tr>
 </table></div>
 <a name="distinction-between-null-and-empty-strings"></a>
-<h3 >Distinction Between Null and Empty Strings</h3>
+<h3 >Null字符串和空字符串的比较</h3>
 <p>For historical reasons, <a href="qstring.html">QString</a> distinguishes between a null string and an empty string. A <i>null</i> string is a string that is initialized using <a href="qstring.html">QString</a>'s default constructor or by passing (const char *)0 to the constructor. An <i>empty</i> string is any string with size 0. A null string is always empty, but an empty string isn't necessarily null:</p>
 <pre class="cpp">
 
@@ -586,7 +586,7 @@
 </pre>
 <p>All functions except <a href="qstring.html#isNull">isNull</a>() treat null strings the same as empty strings. For example, <a href="qstring.html#toUtf8">toUtf8</a>().<a href="qstring.html#constData">constData</a>() returns a pointer to a '\0' character for a null string (<i>not</i> a null pointer), and <a href="qstring.html#QString">QString</a>() compares equal to <a href="qstring.html">QString</a>(&quot;&quot;). We recommend that you always use the <a href="qstring.html#isEmpty">isEmpty</a>() function and avoid <a href="qstring.html#isNull">isNull</a>().</p>
 <a name="argument-formats"></a>
-<h3 >Argument Formats</h3>
+<h3 >参数格式化</h3>
 <p>In member functions where an argument <i>format</i> can be specified (e.g&#x2e;, <a href="qstring.html#arg">arg</a>(), <a href="qstring.html#number">number</a>()), the argument <i>format</i> can be one of the following:</p>
 <div class="table"><table class="generic">
  <thead><tr class="qt-style"><th >格式</th><th >Meaning</th></tr></thead>
@@ -598,7 +598,7 @@
 </table></div>
 <p>A <i>precision</i> is also specified with the argument <i>format</i>. For the 'e', 'E', and 'f' formats, the <i>precision</i> represents the number of digits <i>after</i> the decimal point. For the 'g' and 'G' formats, the <i>precision</i> represents the maximum number of significant digits (trailing zeroes are omitted).</p>
 <a name="more-efficient-string-construction"></a>
-<h3 >More Efficient String Construction</h3>
+<h3 >更高效的字符串构造</h3>
 <p>Many strings are known at compile time. But the trivial constructor <a href="qstring.html">QString</a>(&quot;Hello&quot;), will copy the contents of the string, treating the contents as Latin-1. To avoid this one can use the <a href="qstring.html#QStringLiteral">QStringLiteral</a> macro to directly create the required data at compile time. Constructing a <a href="qstring.html">QString</a> out of the literal does then not cause any overhead at runtime.</p>
 <p>A slightly less efficient way is to use <a href="qlatin1string.html">QLatin1String</a>. This class wraps a C string literal, precalculates it length at compile time and can then be used for faster comparison with QStrings and conversion to QStrings than a regular C string literal.</p>
 <p>Using the <a href="qstring.html">QString</a> <code>'+'</code> operator, it is easy to construct a complex string from multiple substrings. You will often write code like this:</p>
@@ -740,7 +740,7 @@
 <h2>成员函数文档</h2>
 <!-- $$$QString[overload1]$$$QString -->
 <h3 class="fn" id="QString"><a name="QString"></a>QString::<span class="name">QString</span>()</h3>
-<p>Constructs a null string. Null strings are also empty.</p>
+<p>构造函数，创建一个Null字符串。Null字符串也是个空字符串。</p>
 <p><b> 参见 </b><a href="qstring.html#isEmpty">isEmpty</a>().</p>
 <!-- @@@QString -->
 <!-- $$$QString$$$QStringconstQChar*int -->
@@ -790,11 +790,11 @@
 <!-- @@@QString -->
 <!-- $$$~QString[overload1]$$$~QString -->
 <h3 class="fn" id="dtor.QString"><a name="dtor.QString"></a>QString::<span class="name">~QString</span>()</h3>
-<p>Destroys the string.</p>
+<p>析构函数，释放字符串。</p>
 <!-- @@@~QString -->
 <!-- $$$append[overload1]$$$appendconstQString& -->
 <h3 class="fn" id="append"><a name="append"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">append</span>(const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>str</i>)</h3>
-<p>Appends the string <i>str</i> onto the end of this string.</p>
+<p>追加字符串 <i>str</i> 到当前字符串的末尾。</p>
 <p>样例：</p>
 <pre class="cpp">
 
@@ -816,14 +816,14 @@
 <!-- @@@append -->
 <!-- $$$append$$$appendconstQChar*int -->
 <h3 class="fn" id="append-1"><a name="append-1"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">append</span>(const <span class="type"><a href="qchar.html">QChar</a></span> *<i>str</i>, <span class="type">int</span> <i>len</i>)</h3>
-<p>This function overloads <a href="qstring.html#append">append</a>().</p>
+<p>此函数重载了 <a href="qstring.html#append">append</a>().</p>
 <p>Appends <i>len</i> characters from the <a href="qchar.html">QChar</a> array <i>str</i> to this string.</p>
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <!-- @@@append -->
 <!-- $$$append$$$appendQChar -->
 <h3 class="fn" id="append-2"><a name="append-2"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">append</span>(<span class="type"><a href="qchar.html">QChar</a></span> <i>ch</i>)</h3>
-<p>This function overloads <a href="qstring.html#append">append</a>().</p>
-<p>Appends the character <i>ch</i> to this string.</p>
+<p>此函数重载了 <a href="qstring.html#append">append</a>().</p>
+<p>追加字符 <i>ch</i> 到当前字符串的末尾。</p>
 <!-- @@@append -->
 <!-- $$$append$$$appendconstQStringRef& -->
 <h3 class="fn" id="append-3"><a name="append-3"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">append</span>(const <span class="type"><a href="qstringref.html">QStringRef</a></span> &amp;<i>reference</i>)</h3>
@@ -832,19 +832,19 @@
 <!-- @@@append -->
 <!-- $$$append$$$appendQLatin1String -->
 <h3 class="fn" id="append-4"><a name="append-4"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">append</span>(<span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>str</i>)</h3>
-<p>This function overloads <a href="qstring.html#append">append</a>().</p>
-<p>Appends the Latin-1 string <i>str</i> to this string.</p>
+<p>此函数重载了 <a href="qstring.html#append">append</a>().</p>
+<p>追加Latin-1字符串 <i>str</i> 到当前字符串的末尾。</p>
 <!-- @@@append -->
 <!-- $$$append$$$appendconstchar* -->
 <h3 class="fn" id="append-5"><a name="append-5"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">append</span>(const <span class="type">char</span> *<i>str</i>)</h3>
-<p>This function overloads <a href="qstring.html#append">append</a>().</p>
-<p>Appends the string <i>str</i> to this string. The given const char pointer is converted to Unicode using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function.</p>
+<p>此函数重载了 <a href="qstring.html#append">append</a>().</p>
+<p>追加字符串 <i>str</i> 到当前字符串的末尾。 The given const char pointer is converted to Unicode using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function.</p>
 <p>You can disable this function by defining <code>QT_NO_CAST_FROM_ASCII</code> when you compile your applications. This can be useful if you want to ensure that all user-visible strings go through <a href="qobject.html#tr">QObject::tr</a>(), for example.</p>
 <!-- @@@append -->
 <!-- $$$append$$$appendconstQByteArray& -->
 <h3 class="fn" id="append-6"><a name="append-6"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">append</span>(const <span class="type"><a href="qbytearray.html">QByteArray</a></span> &amp;<i>ba</i>)</h3>
-<p>This function overloads <a href="qstring.html#append">append</a>().</p>
-<p>Appends the byte array <i>ba</i> to this string. The given byte array is converted to Unicode using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function.</p>
+<p>此函数重载了 <a href="qstring.html#append">append</a>().</p>
+<p>追加字节数组 <i>ba</i> 到当前字符串的末尾。 The given byte array is converted to Unicode using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function.</p>
 <p>You can disable this function by defining <code>QT_NO_CAST_FROM_ASCII</code> when you compile your applications. This can be useful if you want to ensure that all user-visible strings go through <a href="qobject.html#tr">QObject::tr</a>(), for example.</p>
 <!-- @@@append -->
 <!-- $$$arg[overload1]$$$argconstQString&intQChar -->
@@ -868,14 +868,14 @@
 <!-- @@@arg -->
 <!-- $$$arg$$$argqulonglongintintQChar -->
 <h3 class="fn" id="arg-1"><a name="arg-1"></a><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">arg</span>(<span class="type"><a href="qtglobal.html#qulonglong-typedef">qulonglong</a></span> <i>a</i>, <span class="type">int</span> <i>fieldWidth</i> = 0, <span class="type">int</span> <i>base</i> = 10, <span class="type"><a href="qchar.html">QChar</a></span> <i>fillChar</i> = QLatin1Char(' ')) const</h3>
-<p>This function overloads <a href="qstring.html#arg">arg</a>().</p>
+<p>此函数重载了 <a href="qstring.html#arg">arg</a>().</p>
 <p><i>fieldWidth</i> specifies the minimum amount of space that <i>a</i> is padded to and filled with the character <i>fillChar</i>. A positive value produces right-aligned text; a negative value produces left-aligned text.</p>
 <p>The <i>base</i> argument specifies the base to use when converting the integer <i>a</i> into a string. <i>base</i> must be between 2 and 36, with 8 giving octal, 10 decimal, and 16 hexadecimal numbers.</p>
 <p>If <i>fillChar</i> is '0' (the number 0, ASCII 48), the locale's zero is used. For negative numbers, zero padding might appear before the minus sign.</p>
 <!-- @@@arg -->
 <!-- $$$arg$$$arglongintintQChar -->
 <h3 class="fn" id="arg-2"><a name="arg-2"></a><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">arg</span>(<span class="type">long</span> <i>a</i>, <span class="type">int</span> <i>fieldWidth</i> = 0, <span class="type">int</span> <i>base</i> = 10, <span class="type"><a href="qchar.html">QChar</a></span> <i>fillChar</i> = QLatin1Char(' ')) const</h3>
-<p>This function overloads <a href="qstring.html#arg">arg</a>().</p>
+<p>此函数重载了 <a href="qstring.html#arg">arg</a>().</p>
 <p><i>fieldWidth</i> specifies the minimum amount of space that <i>a</i> is padded to and filled with the character <i>fillChar</i>. A positive value produces right-aligned text; a negative value produces left-aligned text.</p>
 <p>The <i>a</i> argument is expressed in the given <i>base</i>, which is 10 by default and must be between 2 and 36.</p>
 <p>The '%' can be followed by an 'L', in which case the sequence is replaced with a localized representation of <i>a</i>. The conversion uses the default locale. The default locale is determined from the system's locale settings at application startup. It can be changed using <a href="qlocale.html#setDefault">QLocale::setDefault</a>(). The 'L' flag is ignored if <i>base</i> is not 10.</p>
@@ -898,14 +898,14 @@
 <!-- @@@arg -->
 <!-- $$$arg$$$argulongintintQChar -->
 <h3 class="fn" id="arg-3"><a name="arg-3"></a><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">arg</span>(<span class="type"><a href="qtglobal.html#ulong-typedef">ulong</a></span> <i>a</i>, <span class="type">int</span> <i>fieldWidth</i> = 0, <span class="type">int</span> <i>base</i> = 10, <span class="type"><a href="qchar.html">QChar</a></span> <i>fillChar</i> = QLatin1Char(' ')) const</h3>
-<p>This function overloads <a href="qstring.html#arg">arg</a>().</p>
+<p>此函数重载了 <a href="qstring.html#arg">arg</a>().</p>
 <p><i>fieldWidth</i> specifies the minimum amount of space that <i>a</i> is padded to and filled with the character <i>fillChar</i>. A positive value produces right-aligned text; a negative value produces left-aligned text.</p>
 <p>The <i>base</i> argument specifies the base to use when converting the integer <i>a</i> to a string. The base must be between 2 and 36, with 8 giving octal, 10 decimal, and 16 hexadecimal numbers.</p>
 <p>If <i>fillChar</i> is '0' (the number 0, ASCII 48), the locale's zero is used. For negative numbers, zero padding might appear before the minus sign.</p>
 <!-- @@@arg -->
 <!-- $$$arg$$$argintintintQChar -->
 <h3 class="fn" id="arg-4"><a name="arg-4"></a><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">arg</span>(<span class="type">int</span> <i>a</i>, <span class="type">int</span> <i>fieldWidth</i> = 0, <span class="type">int</span> <i>base</i> = 10, <span class="type"><a href="qchar.html">QChar</a></span> <i>fillChar</i> = QLatin1Char(' ')) const</h3>
-<p>This function overloads <a href="qstring.html#arg">arg</a>().</p>
+<p>此函数重载了 <a href="qstring.html#arg">arg</a>().</p>
 <p>The <i>a</i> argument is expressed in base <i>base</i>, which is 10 by default and must be between 2 and 36. For bases other than 10, <i>a</i> is treated as an unsigned integer.</p>
 <p><i>fieldWidth</i> specifies the minimum amount of space that <i>a</i> is padded to and filled with the character <i>fillChar</i>. A positive value produces right-aligned text; a negative value produces left-aligned text.</p>
 <p>The '%' can be followed by an 'L', in which case the sequence is replaced with a localized representation of <i>a</i>. The conversion uses the default locale, set by <a href="qlocale.html#setDefault">QLocale::setDefault</a>(). If no default locale was specified, the &quot;C&quot; locale is used. The 'L' flag is ignored if <i>base</i> is not 10.</p>
@@ -928,28 +928,28 @@
 <!-- @@@arg -->
 <!-- $$$arg$$$arguintintintQChar -->
 <h3 class="fn" id="arg-5"><a name="arg-5"></a><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">arg</span>(<span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> <i>a</i>, <span class="type">int</span> <i>fieldWidth</i> = 0, <span class="type">int</span> <i>base</i> = 10, <span class="type"><a href="qchar.html">QChar</a></span> <i>fillChar</i> = QLatin1Char(' ')) const</h3>
-<p>This function overloads <a href="qstring.html#arg">arg</a>().</p>
+<p>此函数重载了 <a href="qstring.html#arg">arg</a>().</p>
 <p>The <i>base</i> argument specifies the base to use when converting the integer <i>a</i> into a string. The base must be between 2 and 36.</p>
 <p>If <i>fillChar</i> is '0' (the number 0, ASCII 48), the locale's zero is used. For negative numbers, zero padding might appear before the minus sign.</p>
 <!-- @@@arg -->
 <!-- $$$arg$$$argshortintintQChar -->
 <h3 class="fn" id="arg-6"><a name="arg-6"></a><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">arg</span>(<span class="type">short</span> <i>a</i>, <span class="type">int</span> <i>fieldWidth</i> = 0, <span class="type">int</span> <i>base</i> = 10, <span class="type"><a href="qchar.html">QChar</a></span> <i>fillChar</i> = QLatin1Char(' ')) const</h3>
-<p>This function overloads <a href="qstring.html#arg">arg</a>().</p>
+<p>此函数重载了 <a href="qstring.html#arg">arg</a>().</p>
 <p><i>fieldWidth</i> specifies the minimum amount of space that <i>a</i> is padded to and filled with the character <i>fillChar</i>. A positive value produces right-aligned text; a negative value produces left-aligned text.</p>
 <p>The <i>base</i> argument specifies the base to use when converting the integer <i>a</i> into a string. The base must be between 2 and 36, with 8 giving octal, 10 decimal, and 16 hexadecimal numbers.</p>
 <p>If <i>fillChar</i> is '0' (the number 0, ASCII 48), the locale's zero is used. For negative numbers, zero padding might appear before the minus sign.</p>
 <!-- @@@arg -->
 <!-- $$$arg$$$argushortintintQChar -->
 <h3 class="fn" id="arg-7"><a name="arg-7"></a><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">arg</span>(<span class="type"><a href="qtglobal.html#ushort-typedef">ushort</a></span> <i>a</i>, <span class="type">int</span> <i>fieldWidth</i> = 0, <span class="type">int</span> <i>base</i> = 10, <span class="type"><a href="qchar.html">QChar</a></span> <i>fillChar</i> = QLatin1Char(' ')) const</h3>
-<p>This function overloads <a href="qstring.html#arg">arg</a>().</p>
+<p>此函数重载了 <a href="qstring.html#arg">arg</a>().</p>
 <p><i>fieldWidth</i> specifies the minimum amount of space that <i>a</i> is padded to and filled with the character <i>fillChar</i>. A positive value produces right-aligned text; a negative value produces left-aligned text.</p>
 <p>The <i>base</i> argument specifies the base to use when converting the integer <i>a</i> into a string. The base must be between 2 and 36, with 8 giving octal, 10 decimal, and 16 hexadecimal numbers.</p>
 <p>If <i>fillChar</i> is '0' (the number 0, ASCII 48), the locale's zero is used. For negative numbers, zero padding might appear before the minus sign.</p>
 <!-- @@@arg -->
 <!-- $$$arg$$$argdoubleintcharintQChar -->
 <h3 class="fn" id="arg-8"><a name="arg-8"></a><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">arg</span>(<span class="type">double</span> <i>a</i>, <span class="type">int</span> <i>fieldWidth</i> = 0, <span class="type">char</span> <i>format</i> = 'g', <span class="type">int</span> <i>precision</i> = -1, <span class="type"><a href="qchar.html">QChar</a></span> <i>fillChar</i> = QLatin1Char(' ')) const</h3>
-<p>This function overloads <a href="qstring.html#arg">arg</a>().</p>
-<p>Argument <i>a</i> is formatted according to the specified <i>format</i> and <i>precision</i>. See <a href="qstring.html#argument-formats">Argument Formats</a> for details.</p>
+<p>此函数重载了 <a href="qstring.html#arg">arg</a>().</p>
+<p>Argument <i>a</i> is formatted according to the specified <i>format</i> and <i>precision</i>. See <a href="qstring.html#argument-formats">参数格式化</a> for details.</p>
 <p><i>fieldWidth</i> specifies the minimum amount of space that <i>a</i> is padded to and filled with the character <i>fillChar</i>. A positive value produces right-aligned text; a negative value produces left-aligned text.</p>
 <pre class="cpp">
 
@@ -964,16 +964,16 @@
 <!-- @@@arg -->
 <!-- $$$arg$$$argcharintQChar -->
 <h3 class="fn" id="arg-9"><a name="arg-9"></a><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">arg</span>(<span class="type">char</span> <i>a</i>, <span class="type">int</span> <i>fieldWidth</i> = 0, <span class="type"><a href="qchar.html">QChar</a></span> <i>fillChar</i> = QLatin1Char(' ')) const</h3>
-<p>This function overloads <a href="qstring.html#arg">arg</a>().</p>
+<p>此函数重载了 <a href="qstring.html#arg">arg</a>().</p>
 <p>The <i>a</i> argument is interpreted as a Latin-1 character.</p>
 <!-- @@@arg -->
 <!-- $$$arg$$$argQCharintQChar -->
 <h3 class="fn" id="arg-10"><a name="arg-10"></a><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">arg</span>(<span class="type"><a href="qchar.html">QChar</a></span> <i>a</i>, <span class="type">int</span> <i>fieldWidth</i> = 0, <span class="type"><a href="qchar.html">QChar</a></span> <i>fillChar</i> = QLatin1Char(' ')) const</h3>
-<p>This function overloads <a href="qstring.html#arg">arg</a>().</p>
+<p>此函数重载了 <a href="qstring.html#arg">arg</a>().</p>
 <!-- @@@arg -->
 <!-- $$$arg$$$argqlonglongintintQChar -->
 <h3 class="fn" id="arg-11"><a name="arg-11"></a><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">arg</span>(<span class="type"><a href="qtglobal.html#qlonglong-typedef">qlonglong</a></span> <i>a</i>, <span class="type">int</span> <i>fieldWidth</i> = 0, <span class="type">int</span> <i>base</i> = 10, <span class="type"><a href="qchar.html">QChar</a></span> <i>fillChar</i> = QLatin1Char(' ')) const</h3>
-<p>This function overloads <a href="qstring.html#arg">arg</a>().</p>
+<p>此函数重载了 <a href="qstring.html#arg">arg</a>().</p>
 <p><i>fieldWidth</i> specifies the minimum amount of space that <i>a</i> is padded to and filled with the character <i>fillChar</i>. A positive value produces right-aligned text; a negative value produces left-aligned text.</p>
 <p>The <i>base</i> argument specifies the base to use when converting the integer <i>a</i> into a string. The base must be between 2 and 36, with 8 giving octal, 10 decimal, and 16 hexadecimal numbers.</p>
 <p>If <i>fillChar</i> is '0' (the number 0, ASCII 48), the locale's zero is used. For negative numbers, zero padding might appear before the minus sign.</p>
@@ -1010,7 +1010,7 @@
 <!-- @@@arg -->
 <!-- $$$arg$$$argconstQString&constQString& -->
 <h3 class="fn" id="arg-14"><a name="arg-14"></a><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">arg</span>(const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a1</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a2</i>) const</h3>
-<p>This function overloads <a href="qstring.html#arg">arg</a>().</p>
+<p>此函数重载了 <a href="qstring.html#arg">arg</a>().</p>
 <p>此函数等同于 <code>str.arg(a1).arg(a2)</code>, except that the strings <i>a1</i> and <i>a2</i> are replaced in one pass. This can make a difference if <i>a1</i> contains e.g&#x2e; <code>%1</code>:</p>
 <pre class="cpp">
 
@@ -1050,38 +1050,38 @@
 <!-- @@@arg -->
 <!-- $$$arg$$$argconstQString&constQString&constQString& -->
 <h3 class="fn" id="arg-15"><a name="arg-15"></a><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">arg</span>(const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a1</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a2</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a3</i>) const</h3>
-<p>This function overloads <a href="qstring.html#arg">arg</a>().</p>
-<p>此函数等同于 calling <code>str.arg(a1).arg(a2).arg(a3)</code>, except that the strings <i>a1</i>, <i>a2</i> and <i>a3</i> are replaced in one pass.</p>
+<p>此函数重载了 <a href="qstring.html#arg">arg</a>().</p>
+<p>此函数等同于调用了 <code>str.arg(a1).arg(a2).arg(a3)</code>, except that the strings <i>a1</i>, <i>a2</i> and <i>a3</i> are replaced in one pass.</p>
 <!-- @@@arg -->
 <!-- $$$arg$$$argconstQString&constQString&constQString&constQString& -->
 <h3 class="fn" id="arg-16"><a name="arg-16"></a><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">arg</span>(const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a1</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a2</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a3</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a4</i>) const</h3>
-<p>This function overloads <a href="qstring.html#arg">arg</a>().</p>
-<p>此函数等同于 calling <code>str.arg(a1).arg(a2).arg(a3).arg(a4)</code>, except that the strings <i>a1</i>, <i>a2</i>, <i>a3</i> and <i>a4</i> are replaced in one pass.</p>
+<p>此函数重载了 <a href="qstring.html#arg">arg</a>().</p>
+<p>此函数等同于调用了 <code>str.arg(a1).arg(a2).arg(a3).arg(a4)</code>, except that the strings <i>a1</i>, <i>a2</i>, <i>a3</i> and <i>a4</i> are replaced in one pass.</p>
 <!-- @@@arg -->
 <!-- $$$arg$$$argconstQString&constQString&constQString&constQString&constQString& -->
 <h3 class="fn" id="arg-17"><a name="arg-17"></a><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">arg</span>(const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a1</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a2</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a3</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a4</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a5</i>) const</h3>
-<p>This function overloads <a href="qstring.html#arg">arg</a>().</p>
-<p>此函数等同于 calling <code>str.arg(a1).arg(a2).arg(a3).arg(a4).arg(a5)</code>, except that the strings <i>a1</i>, <i>a2</i>, <i>a3</i>, <i>a4</i>, and <i>a5</i> are replaced in one pass.</p>
+<p>此函数重载了 <a href="qstring.html#arg">arg</a>().</p>
+<p>此函数等同于调用了 <code>str.arg(a1).arg(a2).arg(a3).arg(a4).arg(a5)</code>, except that the strings <i>a1</i>, <i>a2</i>, <i>a3</i>, <i>a4</i>, and <i>a5</i> are replaced in one pass.</p>
 <!-- @@@arg -->
 <!-- $$$arg$$$argconstQString&constQString&constQString&constQString&constQString&constQString& -->
 <h3 class="fn" id="arg-18"><a name="arg-18"></a><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">arg</span>(const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a1</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a2</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a3</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a4</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a5</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a6</i>) const</h3>
-<p>This function overloads <a href="qstring.html#arg">arg</a>().</p>
-<p>此函数等同于 calling <code>str.arg(a1).arg(a2).arg(a3).arg(a4).arg(a5).arg(a6))</code>, except that the strings <i>a1</i>, <i>a2</i>, <i>a3</i>, <i>a4</i>, <i>a5</i>, and <i>a6</i> are replaced in one pass.</p>
+<p>此函数重载了 <a href="qstring.html#arg">arg</a>().</p>
+<p>此函数等同于调用了 <code>str.arg(a1).arg(a2).arg(a3).arg(a4).arg(a5).arg(a6))</code>, except that the strings <i>a1</i>, <i>a2</i>, <i>a3</i>, <i>a4</i>, <i>a5</i>, and <i>a6</i> are replaced in one pass.</p>
 <!-- @@@arg -->
 <!-- $$$arg$$$argconstQString&constQString&constQString&constQString&constQString&constQString&constQString& -->
 <h3 class="fn" id="arg-19"><a name="arg-19"></a><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">arg</span>(const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a1</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a2</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a3</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a4</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a5</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a6</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a7</i>) const</h3>
-<p>This function overloads <a href="qstring.html#arg">arg</a>().</p>
-<p>此函数等同于 calling <code>str.arg(a1).arg(a2).arg(a3).arg(a4).arg(a5).arg(a6).arg(a7)</code>, except that the strings <i>a1</i>, <i>a2</i>, <i>a3</i>, <i>a4</i>, <i>a5</i>, <i>a6</i>, and <i>a7</i> are replaced in one pass.</p>
+<p>此函数重载了 <a href="qstring.html#arg">arg</a>().</p>
+<p>此函数等同于调用了 <code>str.arg(a1).arg(a2).arg(a3).arg(a4).arg(a5).arg(a6).arg(a7)</code>, except that the strings <i>a1</i>, <i>a2</i>, <i>a3</i>, <i>a4</i>, <i>a5</i>, <i>a6</i>, and <i>a7</i> are replaced in one pass.</p>
 <!-- @@@arg -->
 <!-- $$$arg$$$argconstQString&constQString&constQString&constQString&constQString&constQString&constQString&constQString& -->
 <h3 class="fn" id="arg-20"><a name="arg-20"></a><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">arg</span>(const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a1</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a2</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a3</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a4</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a5</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a6</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a7</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a8</i>) const</h3>
-<p>This function overloads <a href="qstring.html#arg">arg</a>().</p>
-<p>此函数等同于 calling <code>str.arg(a1).arg(a2).arg(a3).arg(a4).arg(a5).arg(a6).arg(a7).arg(a8)</code>, except that the strings <i>a1</i>, <i>a2</i>, <i>a3</i>, <i>a4</i>, <i>a5</i>, <i>a6</i>, <i>a7</i>, and <i>a8</i> are replaced in one pass.</p>
+<p>此函数重载了 <a href="qstring.html#arg">arg</a>().</p>
+<p>此函数等同于调用了 <code>str.arg(a1).arg(a2).arg(a3).arg(a4).arg(a5).arg(a6).arg(a7).arg(a8)</code>, except that the strings <i>a1</i>, <i>a2</i>, <i>a3</i>, <i>a4</i>, <i>a5</i>, <i>a6</i>, <i>a7</i>, and <i>a8</i> are replaced in one pass.</p>
 <!-- @@@arg -->
 <!-- $$$arg$$$argconstQString&constQString&constQString&constQString&constQString&constQString&constQString&constQString&constQString& -->
 <h3 class="fn" id="arg-21"><a name="arg-21"></a><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">arg</span>(const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a1</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a2</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a3</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a4</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a5</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a6</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a7</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a8</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>a9</i>) const</h3>
-<p>This function overloads <a href="qstring.html#arg">arg</a>().</p>
-<p>此函数等同于 calling <code>str.arg(a1).arg(a2).arg(a3).arg(a4).arg(a5).arg(a6).arg(a7).arg(a8).arg(a9)</code>, except that the strings <i>a1</i>, <i>a2</i>, <i>a3</i>, <i>a4</i>, <i>a5</i>, <i>a6</i>, <i>a7</i>, <i>a8</i>, and <i>a9</i> are replaced in one pass.</p>
+<p>此函数重载了 <a href="qstring.html#arg">arg</a>().</p>
+<p>此函数等同于调用了 <code>str.arg(a1).arg(a2).arg(a3).arg(a4).arg(a5).arg(a6).arg(a7).arg(a8).arg(a9)</code>, except that the strings <i>a1</i>, <i>a2</i>, <i>a3</i>, <i>a4</i>, <i>a5</i>, <i>a6</i>, <i>a7</i>, <i>a8</i>, and <i>a9</i> are replaced in one pass.</p>
 <!-- @@@arg -->
 <!-- $$$asprintf[overload1]$$$asprintfconstchar*... -->
 <h3 class="fn" id="asprintf"><a name="asprintf"></a><code>[静态函数] </code><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">asprintf</span>(const <span class="type">char</span> *<i>cformat</i>, <i>...</i>)</h3>
@@ -1108,7 +1108,7 @@
 <!-- $$$back[overload1]$$$back -->
 <h3 class="fn" id="back"><a name="back"></a><span class="type"><a href="qchar.html">QChar</a></span> QString::<span class="name">back</span>() const</h3>
 <p>Returns the last character in the string. Same as <code>at(size() - 1)</code>.</p>
-<p>This function is provided for STL compatibility.</p>
+<p>此函数用于STL风格的兼容性。</p>
 <p><b>警告：</b> Calling this function on an empty string constitutes undefined behavior.</p>
 <p>这个函数是在Qt 5.10版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qstring.html#front">front</a>(), <a href="qstring.html#at">at</a>(), 和 <a href="qstring.html#operator-5b-5d">operator[]</a>().</p>
@@ -1116,7 +1116,7 @@
 <!-- $$$back$$$back -->
 <h3 class="fn" id="back-1"><a name="back-1"></a><span class="type">QCharRef</span> QString::<span class="name">back</span>()</h3>
 <p>Returns a reference to the last character in the string. Same as <code>operator[](size() - 1)</code>.</p>
-<p>This function is provided for STL compatibility.</p>
+<p>此函数用于STL风格的兼容性。</p>
 <p><b>警告：</b> Calling this function on an empty string constitutes undefined behavior.</p>
 <p>这个函数是在Qt 5.10版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qstring.html#front">front</a>(), <a href="qstring.html#at">at</a>(), 和 <a href="qstring.html#operator-5b-5d">operator[]</a>().</p>
@@ -1128,7 +1128,7 @@
 <!-- @@@begin -->
 <!-- $$$begin$$$begin -->
 <h3 class="fn" id="begin-1"><a name="begin-1"></a><span class="type"><a href="qstring.html#const_iterator-typedef">QString::const_iterator</a></span> QString::<span class="name">begin</span>() const</h3>
-<p>This function overloads <a href="qstring.html#begin">begin</a>().</p>
+<p>此函数重载了 <a href="qstring.html#begin">begin</a>().</p>
 <!-- @@@begin -->
 <!-- $$$capacity[overload1]$$$capacity -->
 <h3 class="fn" id="capacity"><a name="capacity"></a><span class="type">int</span> QString::<span class="name">capacity</span>() const</h3>
@@ -1191,43 +1191,43 @@
 <!-- @@@compare -->
 <!-- $$$compare$$$compareconstQStringRef&Qt::CaseSensitivity -->
 <h3 class="fn" id="compare-1"><a name="compare-1"></a><span class="type">int</span> QString::<span class="name">compare</span>(const <span class="type"><a href="qstringref.html">QStringRef</a></span> &amp;<i>ref</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = ...) const</h3>
-<p>This function overloads <a href="qstring.html#compare">compare</a>().</p>
+<p>此函数重载了 <a href="qstring.html#compare">compare</a>().</p>
 <p>Compares the string reference, <i>ref</i>, with the string and returns an integer less than, equal to, or greater than zero if the string is less than, equal to, or greater than <i>ref</i>.</p>
 <!-- @@@compare -->
 <!-- $$$compare$$$compareQLatin1StringQt::CaseSensitivity -->
 <h3 class="fn" id="compare-2"><a name="compare-2"></a><span class="type">int</span> QString::<span class="name">compare</span>(<span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>other</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive) const</h3>
-<p>This function overloads <a href="qstring.html#compare">compare</a>().</p>
+<p>此函数重载了 <a href="qstring.html#compare">compare</a>().</p>
 <p>Same as compare(*this, <i>other</i>, <i>cs</i>).</p>
 <p>这个函数是在Qt 4.2版本中新增引入的。</p>
 <!-- @@@compare -->
 <!-- $$$compare$$$compareQStringViewQt::CaseSensitivity -->
 <h3 class="fn" id="compare-3"><a name="compare-3"></a><span class="type">int</span> QString::<span class="name">compare</span>(<span class="type"><a href="qstringview.html">QStringView</a></span> <i>s</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = ...) const</h3>
-<p>This function overloads <a href="qstring.html#compare">compare</a>().</p>
+<p>此函数重载了 <a href="qstring.html#compare">compare</a>().</p>
 <p>Performs a comparison of this with <i>s</i>, using the case sensitivity setting <i>cs</i>.</p>
 <p>这个函数是在Qt 5.12版本中新增引入的。</p>
 <!-- @@@compare -->
 <!-- $$$compare$$$compareconstQString&Qt::CaseSensitivity -->
 <h3 class="fn" id="compare-4"><a name="compare-4"></a><span class="type">int</span> QString::<span class="name">compare</span>(const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>other</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive) const</h3>
-<p>This function overloads <a href="qstring.html#compare">compare</a>().</p>
+<p>此函数重载了 <a href="qstring.html#compare">compare</a>().</p>
 <p>Lexically compares this string with the <i>other</i> string and returns an integer less than, equal to, or greater than zero if this string is less than, equal to, or greater than the other string.</p>
 <p>Same as compare(*this, <i>other</i>, <i>cs</i>).</p>
 <p>这个函数是在Qt 4.2版本中新增引入的。</p>
 <!-- @@@compare -->
 <!-- $$$compare$$$compareconstQString&QLatin1StringQt::CaseSensitivity -->
 <h3 class="fn" id="compare-5"><a name="compare-5"></a><code>[静态函数] </code><span class="type">int</span> QString::<span class="name">compare</span>(const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>s1</i>, <span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>s2</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive)</h3>
-<p>This function overloads <a href="qstring.html#compare">compare</a>().</p>
+<p>此函数重载了 <a href="qstring.html#compare">compare</a>().</p>
 <p>Performs a comparison of <i>s1</i> and <i>s2</i>, using the case sensitivity setting <i>cs</i>.</p>
 <p>这个函数是在Qt 4.2版本中新增引入的。</p>
 <!-- @@@compare -->
 <!-- $$$compare$$$compareQLatin1StringconstQString&Qt::CaseSensitivity -->
 <h3 class="fn" id="compare-6"><a name="compare-6"></a><code>[静态函数] </code><span class="type">int</span> QString::<span class="name">compare</span>(<span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>s1</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>s2</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = ...)</h3>
-<p>This function overloads <a href="qstring.html#compare">compare</a>().</p>
+<p>此函数重载了 <a href="qstring.html#compare">compare</a>().</p>
 <p>Performs a comparison of <i>s1</i> and <i>s2</i>, using the case sensitivity setting <i>cs</i>.</p>
 <p>这个函数是在Qt 4.2版本中新增引入的。</p>
 <!-- @@@compare -->
 <!-- $$$compare$$$compareconstQString&constQStringRef&Qt::CaseSensitivity -->
 <h3 class="fn" id="compare-7"><a name="compare-7"></a><code>[静态函数] </code><span class="type">int</span> QString::<span class="name">compare</span>(const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>s1</i>, const <span class="type"><a href="qstringref.html">QStringRef</a></span> &amp;<i>s2</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = ...)</h3>
-<p>This function overloads <a href="qstring.html#compare">compare</a>().</p>
+<p>此函数重载了 <a href="qstring.html#compare">compare</a>().</p>
 <!-- @@@compare -->
 <!-- $$$constBegin[overload1]$$$constBegin -->
 <h3 class="fn" id="constBegin"><a name="constBegin"></a><span class="type"><a href="qstring.html#const_iterator-typedef">QString::const_iterator</a></span> QString::<span class="name">constBegin</span>() const</h3>
@@ -1260,12 +1260,12 @@
 <!-- @@@contains -->
 <!-- $$$contains$$$containsQCharQt::CaseSensitivity -->
 <h3 class="fn" id="contains-1"><a name="contains-1"></a><span class="type">bool</span> QString::<span class="name">contains</span>(<span class="type"><a href="qchar.html">QChar</a></span> <i>ch</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = ...) const</h3>
-<p>This function overloads <a href="qstring.html#contains">contains</a>().</p>
+<p>此函数重载了 <a href="qstring.html#contains">contains</a>().</p>
 <p>Returns <code>true</code> if this string contains an occurrence of the character <i>ch</i>; 否则则返回 <code>false</code>。</p>
 <!-- @@@contains -->
 <!-- $$$contains$$$containsQLatin1StringQt::CaseSensitivity -->
 <h3 class="fn" id="contains-2"><a name="contains-2"></a><span class="type">bool</span> QString::<span class="name">contains</span>(<span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>str</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = ...) const</h3>
-<p>This function overloads <a href="qstring.html#contains">contains</a>().</p>
+<p>此函数重载了 <a href="qstring.html#contains">contains</a>().</p>
 <p>Returns <code>true</code> if this string contains an occurrence of the latin-1 string <i>str</i>; 否则则返回 <code>false</code>。</p>
 <p>这个函数是在Qt 5.3版本中新增引入的。</p>
 <!-- @@@contains -->
@@ -1278,25 +1278,25 @@
 <!-- @@@contains -->
 <!-- $$$contains$$$containsconstQRegExp& -->
 <h3 class="fn" id="contains-4"><a name="contains-4"></a><span class="type">bool</span> QString::<span class="name">contains</span>(const <span class="type"><a href="qregexp.html">QRegExp</a></span> &amp;<i>rx</i>) const</h3>
-<p>This function overloads <a href="qstring.html#contains">contains</a>().</p>
+<p>此函数重载了 <a href="qstring.html#contains">contains</a>().</p>
 <p>Returns <code>true</code> if the regular expression <i>rx</i> matches somewhere in this string; 否则则返回 <code>false</code>。</p>
 <!-- @@@contains -->
 <!-- $$$contains$$$containsQRegExp& -->
 <h3 class="fn" id="contains-5"><a name="contains-5"></a><span class="type">bool</span> QString::<span class="name">contains</span>(<span class="type"><a href="qregexp.html">QRegExp</a></span> &amp;<i>rx</i>) const</h3>
-<p>This function overloads <a href="qstring.html#contains">contains</a>().</p>
+<p>此函数重载了 <a href="qstring.html#contains">contains</a>().</p>
 <p>Returns <code>true</code> if the regular expression <i>rx</i> matches somewhere in this string; 否则则返回 <code>false</code>。</p>
 <p>If there is a match, the <i>rx</i> regular expression will contain the matched captures (see <a href="qregexp.html#matchedLength">QRegExp::matchedLength</a>, <a href="qregexp.html#cap">QRegExp::cap</a>).</p>
 <p>这个函数是在Qt 4.5版本中新增引入的。</p>
 <!-- @@@contains -->
 <!-- $$$contains$$$containsconstQRegularExpression& -->
 <h3 class="fn" id="contains-6"><a name="contains-6"></a><span class="type">bool</span> QString::<span class="name">contains</span>(const <span class="type"><a href="qregularexpression.html">QRegularExpression</a></span> &amp;<i>re</i>) const</h3>
-<p>This function overloads <a href="qstring.html#contains">contains</a>().</p>
+<p>此函数重载了 <a href="qstring.html#contains">contains</a>().</p>
 <p>Returns <code>true</code> if the regular expression <i>re</i> matches somewhere in this string; 否则则返回 <code>false</code>。</p>
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <!-- @@@contains -->
 <!-- $$$contains$$$containsconstQRegularExpression&QRegularExpressionMatch* -->
 <h3 class="fn" id="contains-7"><a name="contains-7"></a><span class="type">bool</span> QString::<span class="name">contains</span>(const <span class="type"><a href="qregularexpression.html">QRegularExpression</a></span> &amp;<i>re</i>, <span class="type"><a href="qregularexpressionmatch.html">QRegularExpressionMatch</a></span> *<i>match</i>) const</h3>
-<p>This function overloads <a href="qstring.html#contains">contains</a>().</p>
+<p>此函数重载了 <a href="qstring.html#contains">contains</a>().</p>
 <p>Returns <code>true</code> if the regular expression <i>re</i> matches somewhere in this string; 否则则返回 <code>false</code>。</p>
 <p>If the match is successful and <i>match</i> is not a null pointer, it also writes the results of the match into the <a href="qregularexpressionmatch.html">QRegularExpressionMatch</a> object pointed to by <i>match</i>.</p>
 <p>这个函数是在Qt 5.1版本中新增引入的。</p>
@@ -1310,7 +1310,7 @@
 <!-- @@@count -->
 <!-- $$$count$$$countQCharQt::CaseSensitivity -->
 <h3 class="fn" id="count-1"><a name="count-1"></a><span class="type">int</span> QString::<span class="name">count</span>(<span class="type"><a href="qchar.html">QChar</a></span> <i>ch</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive) const</h3>
-<p>This function overloads <a href="qstring.html#count-2">count</a>().</p>
+<p>此函数重载了 <a href="qstring.html#count-2">count</a>().</p>
 <p>Returns the number of occurrences of character <i>ch</i> in the string.</p>
 <p>If <i>cs</i> is <a href="qt.html#CaseSensitivity-enum">Qt::CaseSensitive</a> (default), the search is case sensitive; otherwise the search is case insensitive.</p>
 <p><b> 参见 </b><a href="qstring.html#contains">contains</a>() 和 <a href="qstring.html#indexOf">indexOf</a>().</p>
@@ -1322,7 +1322,7 @@
 <!-- @@@count -->
 <!-- $$$count$$$countconstQStringRef&Qt::CaseSensitivity -->
 <h3 class="fn" id="count-3"><a name="count-3"></a><span class="type">int</span> QString::<span class="name">count</span>(const <span class="type"><a href="qstringref.html">QStringRef</a></span> &amp;<i>str</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive) const</h3>
-<p>This function overloads <a href="qstring.html#count-2">count</a>().</p>
+<p>此函数重载了 <a href="qstring.html#count-2">count</a>().</p>
 <p>Returns the number of (potentially overlapping) occurrences of the string reference <i>str</i> in this string.</p>
 <p>If <i>cs</i> is <a href="qt.html#CaseSensitivity-enum">Qt::CaseSensitive</a> (default), the search is case sensitive; otherwise the search is case insensitive.</p>
 <p>这个函数是在Qt 4.8版本中新增引入的。</p>
@@ -1330,7 +1330,7 @@
 <!-- @@@count -->
 <!-- $$$count$$$countconstQRegExp& -->
 <h3 class="fn" id="count-4"><a name="count-4"></a><span class="type">int</span> QString::<span class="name">count</span>(const <span class="type"><a href="qregexp.html">QRegExp</a></span> &amp;<i>rx</i>) const</h3>
-<p>This function overloads <a href="qstring.html#count-2">count</a>().</p>
+<p>此函数重载了 <a href="qstring.html#count-2">count</a>().</p>
 <p>Returns the number of times the regular expression <i>rx</i> matches in the string.</p>
 <p>This function counts overlapping matches, so in the example below, there are four instances of &quot;ana&quot; or &quot;ama&quot;:</p>
 <pre class="cpp">
@@ -1342,7 +1342,7 @@
 <!-- @@@count -->
 <!-- $$$count$$$countconstQRegularExpression& -->
 <h3 class="fn" id="count-5"><a name="count-5"></a><span class="type">int</span> QString::<span class="name">count</span>(const <span class="type"><a href="qregularexpression.html">QRegularExpression</a></span> &amp;<i>re</i>) const</h3>
-<p>This function overloads <a href="qstring.html#count-2">count</a>().</p>
+<p>此函数重载了 <a href="qstring.html#count-2">count</a>().</p>
 <p>Returns the number of times the regular expression <i>re</i> matches in the string.</p>
 <p>This function counts overlapping matches, so in the example below, there are four instances of &quot;ana&quot; or &quot;ama&quot;:</p>
 <pre class="cpp">
@@ -1395,7 +1395,7 @@
 <!-- @@@end -->
 <!-- $$$end$$$end -->
 <h3 class="fn" id="end-1"><a name="end-1"></a><span class="type"><a href="qstring.html#const_iterator-typedef">QString::const_iterator</a></span> QString::<span class="name">end</span>() const</h3>
-<p>This function overloads <a href="qstring.html#end">end</a>().</p>
+<p>此函数重载了 <a href="qstring.html#end">end</a>().</p>
 <!-- @@@end -->
 <!-- $$$endsWith[overload1]$$$endsWithconstQString&Qt::CaseSensitivity -->
 <h3 class="fn" id="endsWith"><a name="endsWith"></a><span class="type">bool</span> QString::<span class="name">endsWith</span>(const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>s</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive) const</h3>
@@ -1412,7 +1412,7 @@
 <!-- @@@endsWith -->
 <!-- $$$endsWith$$$endsWithconstQStringRef&Qt::CaseSensitivity -->
 <h3 class="fn" id="endsWith-1"><a name="endsWith-1"></a><span class="type">bool</span> QString::<span class="name">endsWith</span>(const <span class="type"><a href="qstringref.html">QStringRef</a></span> &amp;<i>s</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive) const</h3>
-<p>This function overloads <a href="qstring.html#endsWith">endsWith</a>().</p>
+<p>此函数重载了 <a href="qstring.html#endsWith">endsWith</a>().</p>
 <p>Returns <code>true</code> if the string ends with the string reference <i>s</i>; 否则则返回 <code>false</code>。</p>
 <p>If <i>cs</i> is <a href="qt.html#CaseSensitivity-enum">Qt::CaseSensitive</a> (default), the search is case sensitive; otherwise the search is case insensitive.</p>
 <p>这个函数是在Qt 4.8版本中新增引入的。</p>
@@ -1420,7 +1420,7 @@
 <!-- @@@endsWith -->
 <!-- $$$endsWith$$$endsWithQStringViewQt::CaseSensitivity -->
 <h3 class="fn" id="endsWith-2"><a name="endsWith-2"></a><span class="type">bool</span> QString::<span class="name">endsWith</span>(<span class="type"><a href="qstringview.html">QStringView</a></span> <i>str</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive) const</h3>
-<p>This function overloads <a href="qstring.html#endsWith">endsWith</a>().</p>
+<p>此函数重载了 <a href="qstring.html#endsWith">endsWith</a>().</p>
 <p>Returns <code>true</code> if the string ends with the string view <i>str</i>; 否则则返回 <code>false</code>。</p>
 <p>If <i>cs</i> is <a href="qt.html#CaseSensitivity-enum">Qt::CaseSensitive</a> (default), the search is case sensitive; otherwise the search is case insensitive.</p>
 <p>这个函数是在Qt 5.10版本中新增引入的。</p>
@@ -1428,12 +1428,12 @@
 <!-- @@@endsWith -->
 <!-- $$$endsWith$$$endsWithQLatin1StringQt::CaseSensitivity -->
 <h3 class="fn" id="endsWith-3"><a name="endsWith-3"></a><span class="type">bool</span> QString::<span class="name">endsWith</span>(<span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>s</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive) const</h3>
-<p>This function overloads <a href="qstring.html#endsWith">endsWith</a>().</p>
+<p>此函数重载了 <a href="qstring.html#endsWith">endsWith</a>().</p>
 <!-- @@@endsWith -->
 <!-- $$$endsWith$$$endsWithQCharQt::CaseSensitivity -->
 <h3 class="fn" id="endsWith-4"><a name="endsWith-4"></a><span class="type">bool</span> QString::<span class="name">endsWith</span>(<span class="type"><a href="qchar.html">QChar</a></span> <i>c</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive) const</h3>
 <p>Returns <code>true</code> if the string ends with <i>c</i>; 否则则返回 <code>false</code>。</p>
-<p>This function overloads <a href="qstring.html#endsWith">endsWith</a>().</p>
+<p>此函数重载了 <a href="qstring.html#endsWith">endsWith</a>().</p>
 <!-- @@@endsWith -->
 <!-- $$$fill[overload1]$$$fillQCharint -->
 <h3 class="fn" id="fill"><a name="fill"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">fill</span>(<span class="type"><a href="qchar.html">QChar</a></span> <i>ch</i>, <span class="type">int</span> <i>size</i> = -1)</h3>
@@ -1587,7 +1587,7 @@
 <!-- $$$front[overload1]$$$front -->
 <h3 class="fn" id="front"><a name="front"></a><span class="type"><a href="qchar.html">QChar</a></span> QString::<span class="name">front</span>() const</h3>
 <p>Returns the first character in the string. Same as <code>at(0)</code>.</p>
-<p>This function is provided for STL compatibility.</p>
+<p>此函数用于STL风格的兼容性。</p>
 <p><b>警告：</b> Calling this function on an empty string constitutes undefined behavior.</p>
 <p>这个函数是在Qt 5.10版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qstring.html#back">back</a>(), <a href="qstring.html#at">at</a>(), 和 <a href="qstring.html#operator-5b-5d">operator[]</a>().</p>
@@ -1595,7 +1595,7 @@
 <!-- $$$front$$$front -->
 <h3 class="fn" id="front-1"><a name="front-1"></a><span class="type">QCharRef</span> QString::<span class="name">front</span>()</h3>
 <p>Returns a reference to the first character in the string. Same as <code>operator[](0)</code>.</p>
-<p>This function is provided for STL compatibility.</p>
+<p>此函数用于STL风格的兼容性。</p>
 <p><b>警告：</b> Calling this function on an empty string constitutes undefined behavior.</p>
 <p>这个函数是在Qt 5.10版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qstring.html#back">back</a>(), <a href="qstring.html#at">at</a>(), 和 <a href="qstring.html#operator-5b-5d">operator[]</a>().</p>
@@ -1620,7 +1620,7 @@
 <!-- @@@indexOf -->
 <!-- $$$indexOf$$$indexOfQCharintQt::CaseSensitivity -->
 <h3 class="fn" id="indexOf-1"><a name="indexOf-1"></a><span class="type">int</span> QString::<span class="name">indexOf</span>(<span class="type"><a href="qchar.html">QChar</a></span> <i>ch</i>, <span class="type">int</span> <i>from</i> = 0, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive) const</h3>
-<p>This function overloads <a href="qstring.html#indexOf">indexOf</a>().</p>
+<p>此函数重载了 <a href="qstring.html#indexOf">indexOf</a>().</p>
 <p>Returns the index position of the first occurrence of the character <i>ch</i> in the string, searching forward from index position <i>from</i>. Returns -1 if <i>ch</i> could not be found.</p>
 <!-- @@@indexOf -->
 <!-- $$$indexOf$$$indexOfQLatin1StringintQt::CaseSensitivity -->
@@ -1644,14 +1644,14 @@
 <!-- @@@indexOf -->
 <!-- $$$indexOf$$$indexOfconstQStringRef&intQt::CaseSensitivity -->
 <h3 class="fn" id="indexOf-3"><a name="indexOf-3"></a><span class="type">int</span> QString::<span class="name">indexOf</span>(const <span class="type"><a href="qstringref.html">QStringRef</a></span> &amp;<i>str</i>, <span class="type">int</span> <i>from</i> = 0, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive) const</h3>
-<p>This function overloads <a href="qstring.html#indexOf">indexOf</a>().</p>
+<p>此函数重载了 <a href="qstring.html#indexOf">indexOf</a>().</p>
 <p>Returns the index position of the first occurrence of the string reference <i>str</i> in this string, searching forward from index position <i>from</i>. Returns -1 if <i>str</i> is not found.</p>
 <p>If <i>cs</i> is <a href="qt.html#CaseSensitivity-enum">Qt::CaseSensitive</a> (default), the search is case sensitive; otherwise the search is case insensitive.</p>
 <p>这个函数是在Qt 4.8版本中新增引入的。</p>
 <!-- @@@indexOf -->
 <!-- $$$indexOf$$$indexOfconstQRegExp&int -->
 <h3 class="fn" id="indexOf-4"><a name="indexOf-4"></a><span class="type">int</span> QString::<span class="name">indexOf</span>(const <span class="type"><a href="qregexp.html">QRegExp</a></span> &amp;<i>rx</i>, <span class="type">int</span> <i>from</i> = 0) const</h3>
-<p>This function overloads <a href="qstring.html#indexOf">indexOf</a>().</p>
+<p>此函数重载了 <a href="qstring.html#indexOf">indexOf</a>().</p>
 <p>Returns the index position of the first match of the regular expression <i>rx</i> in the string, searching forward from index position <i>from</i>. Returns -1 if <i>rx</i> didn't match anywhere.</p>
 <p>样例：</p>
 <pre class="cpp">
@@ -1663,7 +1663,7 @@
 <!-- @@@indexOf -->
 <!-- $$$indexOf$$$indexOfQRegExp&int -->
 <h3 class="fn" id="indexOf-5"><a name="indexOf-5"></a><span class="type">int</span> QString::<span class="name">indexOf</span>(<span class="type"><a href="qregexp.html">QRegExp</a></span> &amp;<i>rx</i>, <span class="type">int</span> <i>from</i> = 0) const</h3>
-<p>This function overloads <a href="qstring.html#indexOf">indexOf</a>().</p>
+<p>此函数重载了 <a href="qstring.html#indexOf">indexOf</a>().</p>
 <p>Returns the index position of the first match of the regular expression <i>rx</i> in the string, searching forward from index position <i>from</i>. Returns -1 if <i>rx</i> didn't match anywhere.</p>
 <p>If there is a match, the <i>rx</i> regular expression will contain the matched captures (see <a href="qregexp.html#matchedLength">QRegExp::matchedLength</a>, <a href="qregexp.html#cap">QRegExp::cap</a>).</p>
 <p>样例：</p>
@@ -1677,7 +1677,7 @@
 <!-- @@@indexOf -->
 <!-- $$$indexOf$$$indexOfconstQRegularExpression&int -->
 <h3 class="fn" id="indexOf-6"><a name="indexOf-6"></a><span class="type">int</span> QString::<span class="name">indexOf</span>(const <span class="type"><a href="qregularexpression.html">QRegularExpression</a></span> &amp;<i>re</i>, <span class="type">int</span> <i>from</i> = 0) const</h3>
-<p>This function overloads <a href="qstring.html#indexOf">indexOf</a>().</p>
+<p>此函数重载了 <a href="qstring.html#indexOf">indexOf</a>().</p>
 <p>Returns the index position of the first match of the regular expression <i>re</i> in the string, searching forward from index position <i>from</i>. Returns -1 if <i>re</i> didn't match anywhere.</p>
 <p>样例：</p>
 <pre class="cpp">
@@ -1720,29 +1720,29 @@
 <!-- @@@insert -->
 <!-- $$$insert$$$insertintconstQChar*int -->
 <h3 class="fn" id="insert-1"><a name="insert-1"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">insert</span>(<span class="type">int</span> <i>position</i>, const <span class="type"><a href="qchar.html">QChar</a></span> *<i>unicode</i>, <span class="type">int</span> <i>size</i>)</h3>
-<p>This function overloads <a href="qstring.html#insert">insert</a>().</p>
+<p>此函数重载了 <a href="qstring.html#insert">insert</a>().</p>
 <p>Inserts the first <i>size</i> characters of the <a href="qchar.html">QChar</a> array <i>unicode</i> at the given index <i>position</i> in the string.</p>
 <!-- @@@insert -->
 <!-- $$$insert$$$insertintQChar -->
 <h3 class="fn" id="insert-2"><a name="insert-2"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">insert</span>(<span class="type">int</span> <i>position</i>, <span class="type"><a href="qchar.html">QChar</a></span> <i>ch</i>)</h3>
-<p>This function overloads <a href="qstring.html#insert">insert</a>().</p>
+<p>此函数重载了 <a href="qstring.html#insert">insert</a>().</p>
 <p>Inserts <i>ch</i> at the given index <i>position</i> in the string.</p>
 <!-- @@@insert -->
 <!-- $$$insert$$$insertintconstQStringRef& -->
 <h3 class="fn" id="insert-3"><a name="insert-3"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">insert</span>(<span class="type">int</span> <i>position</i>, const <span class="type"><a href="qstringref.html">QStringRef</a></span> &amp;<i>str</i>)</h3>
-<p>This function overloads <a href="qstring.html#insert">insert</a>().</p>
+<p>此函数重载了 <a href="qstring.html#insert">insert</a>().</p>
 <p>Inserts the string reference <i>str</i> at the given index <i>position</i> and returns a reference to this string.</p>
 <p>If the given <i>position</i> is greater than <a href="qstring.html#size">size</a>(), the array is first extended using <a href="qstring.html#resize">resize</a>().</p>
 <p>这个函数是在Qt 5.5版本中新增引入的。</p>
 <!-- @@@insert -->
 <!-- $$$insert$$$insertintQLatin1String -->
 <h3 class="fn" id="insert-4"><a name="insert-4"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">insert</span>(<span class="type">int</span> <i>position</i>, <span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>str</i>)</h3>
-<p>This function overloads <a href="qstring.html#insert">insert</a>().</p>
+<p>此函数重载了 <a href="qstring.html#insert">insert</a>().</p>
 <p>Inserts the Latin-1 string <i>str</i> at the given index <i>position</i>.</p>
 <!-- @@@insert -->
 <!-- $$$insert$$$insertintconstchar* -->
 <h3 class="fn" id="insert-5"><a name="insert-5"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">insert</span>(<span class="type">int</span> <i>position</i>, const <span class="type">char</span> *<i>str</i>)</h3>
-<p>This function overloads <a href="qstring.html#insert">insert</a>().</p>
+<p>此函数重载了 <a href="qstring.html#insert">insert</a>().</p>
 <p>Inserts the C string <i>str</i> at the given index <i>position</i> and returns a reference to this string.</p>
 <p>If the given <i>position</i> is greater than <a href="qstring.html#size">size</a>(), the array is first extended using <a href="qstring.html#resize">resize</a>().</p>
 <p>This function is not available when <a href="qstring.html#QT_NO_CAST_FROM_ASCII">QT_NO_CAST_FROM_ASCII</a> is defined.</p>
@@ -1750,7 +1750,7 @@
 <!-- @@@insert -->
 <!-- $$$insert$$$insertintconstQByteArray& -->
 <h3 class="fn" id="insert-6"><a name="insert-6"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">insert</span>(<span class="type">int</span> <i>position</i>, const <span class="type"><a href="qbytearray.html">QByteArray</a></span> &amp;<i>str</i>)</h3>
-<p>This function overloads <a href="qstring.html#insert">insert</a>().</p>
+<p>此函数重载了 <a href="qstring.html#insert">insert</a>().</p>
 <p>Inserts the byte array <i>str</i> at the given index <i>position</i> and returns a reference to this string.</p>
 <p>If the given <i>position</i> is greater than <a href="qstring.html#size">size</a>(), the array is first extended using <a href="qstring.html#resize">resize</a>().</p>
 <p>This function is not available when <a href="qstring.html#QT_NO_CAST_FROM_ASCII">QT_NO_CAST_FROM_ASCII</a> is defined.</p>
@@ -1820,12 +1820,12 @@
 <!-- @@@lastIndexOf -->
 <!-- $$$lastIndexOf$$$lastIndexOfQCharintQt::CaseSensitivity -->
 <h3 class="fn" id="lastIndexOf-1"><a name="lastIndexOf-1"></a><span class="type">int</span> QString::<span class="name">lastIndexOf</span>(<span class="type"><a href="qchar.html">QChar</a></span> <i>ch</i>, <span class="type">int</span> <i>from</i> = -1, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive) const</h3>
-<p>This function overloads <a href="qstring.html#lastIndexOf">lastIndexOf</a>().</p>
+<p>此函数重载了 <a href="qstring.html#lastIndexOf">lastIndexOf</a>().</p>
 <p>Returns the index position of the last occurrence of the character <i>ch</i>, searching backward from position <i>from</i>.</p>
 <!-- @@@lastIndexOf -->
 <!-- $$$lastIndexOf$$$lastIndexOfQLatin1StringintQt::CaseSensitivity -->
 <h3 class="fn" id="lastIndexOf-2"><a name="lastIndexOf-2"></a><span class="type">int</span> QString::<span class="name">lastIndexOf</span>(<span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>str</i>, <span class="type">int</span> <i>from</i> = -1, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive) const</h3>
-<p>This function overloads <a href="qstring.html#lastIndexOf">lastIndexOf</a>().</p>
+<p>此函数重载了 <a href="qstring.html#lastIndexOf">lastIndexOf</a>().</p>
 <p>Returns the index position of the last occurrence of the string <i>str</i> in this string, searching backward from index position <i>from</i>. If <i>from</i> is -1 (default), the search starts at the last character; if <i>from</i> is -2, at the next to last character and so on. Returns -1 if <i>str</i> is not found.</p>
 <p>If <i>cs</i> is <a href="qt.html#CaseSensitivity-enum">Qt::CaseSensitive</a> (default), the search is case sensitive; otherwise the search is case insensitive.</p>
 <p>样例：</p>
@@ -1844,7 +1844,7 @@
 <!-- @@@lastIndexOf -->
 <!-- $$$lastIndexOf$$$lastIndexOfconstQStringRef&intQt::CaseSensitivity -->
 <h3 class="fn" id="lastIndexOf-3"><a name="lastIndexOf-3"></a><span class="type">int</span> QString::<span class="name">lastIndexOf</span>(const <span class="type"><a href="qstringref.html">QStringRef</a></span> &amp;<i>str</i>, <span class="type">int</span> <i>from</i> = -1, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive) const</h3>
-<p>This function overloads <a href="qstring.html#lastIndexOf">lastIndexOf</a>().</p>
+<p>此函数重载了 <a href="qstring.html#lastIndexOf">lastIndexOf</a>().</p>
 <p>Returns the index position of the last occurrence of the string reference <i>str</i> in this string, searching backward from index position <i>from</i>. If <i>from</i> is -1 (default), the search starts at the last character; if <i>from</i> is -2, at the next to last character and so on. Returns -1 if <i>str</i> is not found.</p>
 <p>If <i>cs</i> is <a href="qt.html#CaseSensitivity-enum">Qt::CaseSensitive</a> (default), the search is case sensitive; otherwise the search is case insensitive.</p>
 <p>这个函数是在Qt 4.8版本中新增引入的。</p>
@@ -1852,7 +1852,7 @@
 <!-- @@@lastIndexOf -->
 <!-- $$$lastIndexOf$$$lastIndexOfconstQRegExp&int -->
 <h3 class="fn" id="lastIndexOf-4"><a name="lastIndexOf-4"></a><span class="type">int</span> QString::<span class="name">lastIndexOf</span>(const <span class="type"><a href="qregexp.html">QRegExp</a></span> &amp;<i>rx</i>, <span class="type">int</span> <i>from</i> = -1) const</h3>
-<p>This function overloads <a href="qstring.html#lastIndexOf">lastIndexOf</a>().</p>
+<p>此函数重载了 <a href="qstring.html#lastIndexOf">lastIndexOf</a>().</p>
 <p>Returns the index position of the last match of the regular expression <i>rx</i> in the string, searching backward from index position <i>from</i>. Returns -1 if <i>rx</i> didn't match anywhere.</p>
 <p>样例：</p>
 <pre class="cpp">
@@ -1864,7 +1864,7 @@
 <!-- @@@lastIndexOf -->
 <!-- $$$lastIndexOf$$$lastIndexOfQRegExp&int -->
 <h3 class="fn" id="lastIndexOf-5"><a name="lastIndexOf-5"></a><span class="type">int</span> QString::<span class="name">lastIndexOf</span>(<span class="type"><a href="qregexp.html">QRegExp</a></span> &amp;<i>rx</i>, <span class="type">int</span> <i>from</i> = -1) const</h3>
-<p>This function overloads <a href="qstring.html#lastIndexOf">lastIndexOf</a>().</p>
+<p>此函数重载了 <a href="qstring.html#lastIndexOf">lastIndexOf</a>().</p>
 <p>Returns the index position of the last match of the regular expression <i>rx</i> in the string, searching backward from index position <i>from</i>. Returns -1 if <i>rx</i> didn't match anywhere.</p>
 <p>If there is a match, the <i>rx</i> regular expression will contain the matched captures (see <a href="qregexp.html#matchedLength">QRegExp::matchedLength</a>, <a href="qregexp.html#cap">QRegExp::cap</a>).</p>
 <p>样例：</p>
@@ -1878,7 +1878,7 @@
 <!-- @@@lastIndexOf -->
 <!-- $$$lastIndexOf$$$lastIndexOfconstQRegularExpression&int -->
 <h3 class="fn" id="lastIndexOf-6"><a name="lastIndexOf-6"></a><span class="type">int</span> QString::<span class="name">lastIndexOf</span>(const <span class="type"><a href="qregularexpression.html">QRegularExpression</a></span> &amp;<i>re</i>, <span class="type">int</span> <i>from</i> = -1) const</h3>
-<p>This function overloads <a href="qstring.html#lastIndexOf">lastIndexOf</a>().</p>
+<p>此函数重载了 <a href="qstring.html#lastIndexOf">lastIndexOf</a>().</p>
 <p>Returns the index position of the last match of the regular expression <i>re</i> in the string, which starts before the index position <i>from</i>. Returns -1 if <i>re</i> didn't match anywhere.</p>
 <p>样例：</p>
 <pre class="cpp">
@@ -1963,14 +1963,14 @@
 <!-- @@@localeAwareCompare -->
 <!-- $$$localeAwareCompare$$$localeAwareCompareconstQString& -->
 <h3 class="fn" id="localeAwareCompare-1"><a name="localeAwareCompare-1"></a><span class="type">int</span> QString::<span class="name">localeAwareCompare</span>(const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>other</i>) const</h3>
-<p>This function overloads <a href="qstring.html#localeAwareCompare">localeAwareCompare</a>().</p>
+<p>此函数重载了 <a href="qstring.html#localeAwareCompare">localeAwareCompare</a>().</p>
 <p>Compares this string with the <i>other</i> string and returns an integer less than, equal to, or greater than zero if this string is less than, equal to, or greater than the <i>other</i> string.</p>
 <p>The comparison is performed in a locale- and also platform-dependent manner. Use this function to present sorted lists of strings to the user.</p>
 <p>等同于 <code>localeAwareCompare(*this, other)</code>.</p>
 <!-- @@@localeAwareCompare -->
 <!-- $$$localeAwareCompare$$$localeAwareCompareconstQStringRef& -->
 <h3 class="fn" id="localeAwareCompare-2"><a name="localeAwareCompare-2"></a><span class="type">int</span> QString::<span class="name">localeAwareCompare</span>(const <span class="type"><a href="qstringref.html">QStringRef</a></span> &amp;<i>other</i>) const</h3>
-<p>This function overloads <a href="qstring.html#localeAwareCompare">localeAwareCompare</a>().</p>
+<p>此函数重载了 <a href="qstring.html#localeAwareCompare">localeAwareCompare</a>().</p>
 <p>Compares this string with the <i>other</i> string and returns an integer less than, equal to, or greater than zero if this string is less than, equal to, or greater than the <i>other</i> string.</p>
 <p>The comparison is performed in a locale- and also platform-dependent manner. Use this function to present sorted lists of strings to the user.</p>
 <p>等同于 <code>localeAwareCompare(*this, other)</code>.</p>
@@ -1978,7 +1978,7 @@
 <!-- @@@localeAwareCompare -->
 <!-- $$$localeAwareCompare$$$localeAwareCompareconstQString&constQStringRef& -->
 <h3 class="fn" id="localeAwareCompare-3"><a name="localeAwareCompare-3"></a><code>[静态函数] </code><span class="type">int</span> QString::<span class="name">localeAwareCompare</span>(const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>s1</i>, const <span class="type"><a href="qstringref.html">QStringRef</a></span> &amp;<i>s2</i>)</h3>
-<p>This function overloads <a href="qstring.html#localeAwareCompare">localeAwareCompare</a>().</p>
+<p>此函数重载了 <a href="qstring.html#localeAwareCompare">localeAwareCompare</a>().</p>
 <p>Compares <i>s1</i> with <i>s2</i> and returns an integer less than, equal to, or greater than zero if <i>s1</i> is less than, equal to, or greater than <i>s2</i>.</p>
 <p>The comparison is performed in a locale- and also platform-dependent manner. Use this function to present sorted lists of strings to the user.</p>
 <p>这个函数是在Qt 4.5版本中新增引入的。</p>
@@ -2053,7 +2053,7 @@
 <!-- @@@number -->
 <!-- $$$number$$$numberdoublecharint -->
 <h3 class="fn" id="number-6"><a name="number-6"></a><code>[静态函数] </code><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">number</span>(<span class="type">double</span> <i>n</i>, <span class="type">char</span> <i>format</i> = 'g', <span class="type">int</span> <i>precision</i> = 6)</h3>
-<p>Returns a string equivalent of the number <i>n</i>, formatted according to the specified <i>format</i> and <i>precision</i>. See <a href="qstring.html#argument-formats">Argument Formats</a> for details.</p>
+<p>Returns a string equivalent of the number <i>n</i>, formatted according to the specified <i>format</i> and <i>precision</i>. See <a href="qstring.html#argument-formats">参数格式化</a> for details.</p>
 <p>Unlike <a href="qlocale.html#toString">QLocale::toString</a>(), this function does not honor the user's locale settings.</p>
 <p><b> 参见 </b><a href="qstring.html#setNum">setNum</a>() 和 <a href="qlocale.html#toString">QLocale::toString</a>().</p>
 <!-- @@@number -->
@@ -2073,47 +2073,47 @@
 <!-- @@@prepend -->
 <!-- $$$prepend$$$prependconstQChar*int -->
 <h3 class="fn" id="prepend-1"><a name="prepend-1"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">prepend</span>(const <span class="type"><a href="qchar.html">QChar</a></span> *<i>str</i>, <span class="type">int</span> <i>len</i>)</h3>
-<p>This function overloads <a href="qstring.html#prepend">prepend</a>().</p>
+<p>此函数重载了 <a href="qstring.html#prepend">prepend</a>().</p>
 <p>Prepends <i>len</i> characters from the <a href="qchar.html">QChar</a> array <i>str</i> to this string and returns a reference to this string.</p>
 <p>这个函数是在Qt 5.5版本中新增引入的。</p>
 <!-- @@@prepend -->
 <!-- $$$prepend$$$prependQChar -->
 <h3 class="fn" id="prepend-2"><a name="prepend-2"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">prepend</span>(<span class="type"><a href="qchar.html">QChar</a></span> <i>ch</i>)</h3>
-<p>This function overloads <a href="qstring.html#prepend">prepend</a>().</p>
-<p>Prepends the character <i>ch</i> to this string.</p>
+<p>此函数重载了 <a href="qstring.html#prepend">prepend</a>().</p>
+<p>添加字符 <i>ch</i> 到当前字符串的前面。</p>
 <!-- @@@prepend -->
 <!-- $$$prepend$$$prependconstQStringRef& -->
 <h3 class="fn" id="prepend-3"><a name="prepend-3"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">prepend</span>(const <span class="type"><a href="qstringref.html">QStringRef</a></span> &amp;<i>str</i>)</h3>
-<p>This function overloads <a href="qstring.html#prepend">prepend</a>().</p>
-<p>Prepends the string reference <i>str</i> to the beginning of this string and returns a reference to this string.</p>
+<p>此函数重载了 <a href="qstring.html#prepend">prepend</a>().</p>
+<p>添加字符串 <i>str</i> 到当前字符串的前面，并返回当前字符串。</p>
 <p>这个函数是在Qt 5.5版本中新增引入的。</p>
 <!-- @@@prepend -->
 <!-- $$$prepend$$$prependQLatin1String -->
 <h3 class="fn" id="prepend-4"><a name="prepend-4"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">prepend</span>(<span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>str</i>)</h3>
-<p>This function overloads <a href="qstring.html#prepend">prepend</a>().</p>
-<p>Prepends the Latin-1 string <i>str</i> to this string.</p>
+<p>此函数重载了 <a href="qstring.html#prepend">prepend</a>().</p>
+<p>添加Latin-1字符串 <i>str</i> 到当前字符串的前面。</p>
 <!-- @@@prepend -->
 <!-- $$$prepend$$$prependconstchar* -->
 <h3 class="fn" id="prepend-5"><a name="prepend-5"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">prepend</span>(const <span class="type">char</span> *<i>str</i>)</h3>
-<p>This function overloads <a href="qstring.html#prepend">prepend</a>().</p>
+<p>此函数重载了 <a href="qstring.html#prepend">prepend</a>().</p>
 <p>Prepends the string <i>str</i> to this string. The const char pointer is converted to Unicode using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function.</p>
 <p>You can disable this function by defining <code>QT_NO_CAST_FROM_ASCII</code> when you compile your applications. This can be useful if you want to ensure that all user-visible strings go through <a href="qobject.html#tr">QObject::tr</a>(), for example.</p>
 <!-- @@@prepend -->
 <!-- $$$prepend$$$prependconstQByteArray& -->
 <h3 class="fn" id="prepend-6"><a name="prepend-6"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">prepend</span>(const <span class="type"><a href="qbytearray.html">QByteArray</a></span> &amp;<i>ba</i>)</h3>
-<p>This function overloads <a href="qstring.html#prepend">prepend</a>().</p>
-<p>Prepends the byte array <i>ba</i> to this string. The byte array is converted to Unicode using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function.</p>
+<p>此函数重载了 <a href="qstring.html#prepend">prepend</a>().</p>
+<p>添加字节数组 <i>ba</i> 到当前字符串的前面。 The byte array is converted to Unicode using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function.</p>
 <p>You can disable this function by defining <code>QT_NO_CAST_FROM_ASCII</code> when you compile your applications. This can be useful if you want to ensure that all user-visible strings go through <a href="qobject.html#tr">QObject::tr</a>(), for example.</p>
 <!-- @@@prepend -->
 <!-- $$$push_back[overload1]$$$push_backconstQString& -->
 <h3 class="fn" id="push_back"><a name="push_back"></a><span class="type">void</span> QString::<span class="name">push_back</span>(const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>other</i>)</h3>
-<p>This function is provided for STL compatibility, appending the given <i>other</i> string onto the end of this string. It 等同于 <code>append(other)</code>.</p>
+<p>This function is provided for STL compatibility，追加字符串 <i>other</i> 到当前字符串的末尾。 It 等同于 <code>append(other)</code>.</p>
 <p><b> 参见 </b><a href="qstring.html#append">append</a>().</p>
 <!-- @@@push_back -->
 <!-- $$$push_back$$$push_backQChar -->
 <h3 class="fn" id="push_back-1"><a name="push_back-1"></a><span class="type">void</span> QString::<span class="name">push_back</span>(<span class="type"><a href="qchar.html">QChar</a></span> <i>ch</i>)</h3>
 <p>这是一个重载函数。</p>
-<p>Appends the given <i>ch</i> character onto the end of this string.</p>
+<p>追加字符 <i>ch</i> 到当前字符串的末尾。</p>
 <!-- @@@push_back -->
 <!-- $$$push_front[overload1]$$$push_frontconstQString& -->
 <h3 class="fn" id="push_front"><a name="push_front"></a><span class="type">void</span> QString::<span class="name">push_front</span>(const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>other</i>)</h3>
@@ -2123,7 +2123,7 @@
 <!-- $$$push_front$$$push_frontQChar -->
 <h3 class="fn" id="push_front-1"><a name="push_front-1"></a><span class="type">void</span> QString::<span class="name">push_front</span>(<span class="type"><a href="qchar.html">QChar</a></span> <i>ch</i>)</h3>
 <p>这是一个重载函数。</p>
-<p>Prepends the given <i>ch</i> character to the beginning of this string.</p>
+<p>添加字符 <i>ch</i> 到当前字符串的前面。</p>
 <!-- @@@push_front -->
 <!-- $$$rbegin[overload1]$$$rbegin -->
 <h3 class="fn" id="rbegin"><a name="rbegin"></a><span class="type"><a href="qstring.html#reverse_iterator-typedef">QString::reverse_iterator</a></span> QString::<span class="name">rbegin</span>()</h3>
@@ -2245,51 +2245,51 @@
 <!-- @@@replace -->
 <!-- $$$replace$$$replaceintintconstQChar*int -->
 <h3 class="fn" id="replace-1"><a name="replace-1"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">replace</span>(<span class="type">int</span> <i>position</i>, <span class="type">int</span> <i>n</i>, const <span class="type"><a href="qchar.html">QChar</a></span> *<i>unicode</i>, <span class="type">int</span> <i>size</i>)</h3>
-<p>This function overloads <a href="qstring.html#replace">replace</a>().</p>
+<p>此函数重载了 <a href="qstring.html#replace">replace</a>().</p>
 <p>Replaces <i>n</i> characters beginning at index <i>position</i> with the first <i>size</i> characters of the <a href="qchar.html">QChar</a> array <i>unicode</i> and returns a reference to this string.</p>
 <!-- @@@replace -->
 <!-- $$$replace$$$replaceintintQChar -->
 <h3 class="fn" id="replace-2"><a name="replace-2"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">replace</span>(<span class="type">int</span> <i>position</i>, <span class="type">int</span> <i>n</i>, <span class="type"><a href="qchar.html">QChar</a></span> <i>after</i>)</h3>
-<p>This function overloads <a href="qstring.html#replace">replace</a>().</p>
+<p>此函数重载了 <a href="qstring.html#replace">replace</a>().</p>
 <p>Replaces <i>n</i> characters beginning at index <i>position</i> with the character <i>after</i> and returns a reference to this string.</p>
 <!-- @@@replace -->
 <!-- $$$replace$$$replaceQCharQCharQt::CaseSensitivity -->
 <h3 class="fn" id="replace-3"><a name="replace-3"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">replace</span>(<span class="type"><a href="qchar.html">QChar</a></span> <i>before</i>, <span class="type"><a href="qchar.html">QChar</a></span> <i>after</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive)</h3>
-<p>This function overloads <a href="qstring.html#replace">replace</a>().</p>
+<p>此函数重载了 <a href="qstring.html#replace">replace</a>().</p>
 <p>Replaces every occurrence of the character <i>before</i> with the character <i>after</i> and returns a reference to this string.</p>
 <p>If <i>cs</i> is <a href="qt.html#CaseSensitivity-enum">Qt::CaseSensitive</a> (default), the search is case sensitive; otherwise the search is case insensitive.</p>
 <!-- @@@replace -->
 <!-- $$$replace$$$replaceconstQChar*intconstQChar*intQt::CaseSensitivity -->
 <h3 class="fn" id="replace-4"><a name="replace-4"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">replace</span>(const <span class="type"><a href="qchar.html">QChar</a></span> *<i>before</i>, <span class="type">int</span> <i>blen</i>, const <span class="type"><a href="qchar.html">QChar</a></span> *<i>after</i>, <span class="type">int</span> <i>alen</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive)</h3>
-<p>This function overloads <a href="qstring.html#replace">replace</a>().</p>
+<p>此函数重载了 <a href="qstring.html#replace">replace</a>().</p>
 <p>Replaces each occurrence in this string of the first <i>blen</i> characters of <i>before</i> with the first <i>alen</i> characters of <i>after</i> and returns a reference to this string.</p>
 <p>If <i>cs</i> is <a href="qt.html#CaseSensitivity-enum">Qt::CaseSensitive</a> (default), the search is case sensitive; otherwise the search is case insensitive.</p>
 <p>这个函数是在Qt 4.5版本中新增引入的。</p>
 <!-- @@@replace -->
 <!-- $$$replace$$$replaceQLatin1StringQLatin1StringQt::CaseSensitivity -->
 <h3 class="fn" id="replace-5"><a name="replace-5"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">replace</span>(<span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>before</i>, <span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>after</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive)</h3>
-<p>This function overloads <a href="qstring.html#replace">replace</a>().</p>
+<p>此函数重载了 <a href="qstring.html#replace">replace</a>().</p>
 <p>Replaces every occurrence of the string <i>before</i> with the string <i>after</i> and returns a reference to this string.</p>
 <p>If <i>cs</i> is <a href="qt.html#CaseSensitivity-enum">Qt::CaseSensitive</a> (default), the search is case sensitive; otherwise the search is case insensitive.</p>
 <p><b>注意： </b>The text is not rescanned after a replacement.</p><p>这个函数是在Qt 4.5版本中新增引入的。</p>
 <!-- @@@replace -->
 <!-- $$$replace$$$replaceQLatin1StringconstQString&Qt::CaseSensitivity -->
 <h3 class="fn" id="replace-6"><a name="replace-6"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">replace</span>(<span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>before</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>after</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive)</h3>
-<p>This function overloads <a href="qstring.html#replace">replace</a>().</p>
+<p>此函数重载了 <a href="qstring.html#replace">replace</a>().</p>
 <p>Replaces every occurrence of the string <i>before</i> with the string <i>after</i> and returns a reference to this string.</p>
 <p>If <i>cs</i> is <a href="qt.html#CaseSensitivity-enum">Qt::CaseSensitive</a> (default), the search is case sensitive; otherwise the search is case insensitive.</p>
 <p><b>注意： </b>The text is not rescanned after a replacement.</p><p>这个函数是在Qt 4.5版本中新增引入的。</p>
 <!-- @@@replace -->
 <!-- $$$replace$$$replaceconstQString&QLatin1StringQt::CaseSensitivity -->
 <h3 class="fn" id="replace-7"><a name="replace-7"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">replace</span>(const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>before</i>, <span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>after</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive)</h3>
-<p>This function overloads <a href="qstring.html#replace">replace</a>().</p>
+<p>此函数重载了 <a href="qstring.html#replace">replace</a>().</p>
 <p>Replaces every occurrence of the string <i>before</i> with the string <i>after</i> and returns a reference to this string.</p>
 <p>If <i>cs</i> is <a href="qt.html#CaseSensitivity-enum">Qt::CaseSensitive</a> (default), the search is case sensitive; otherwise the search is case insensitive.</p>
 <p><b>注意： </b>The text is not rescanned after a replacement.</p><p>这个函数是在Qt 4.5版本中新增引入的。</p>
 <!-- @@@replace -->
 <!-- $$$replace$$$replaceconstQString&constQString&Qt::CaseSensitivity -->
 <h3 class="fn" id="replace-8"><a name="replace-8"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">replace</span>(const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>before</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>after</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive)</h3>
-<p>This function overloads <a href="qstring.html#replace">replace</a>().</p>
+<p>此函数重载了 <a href="qstring.html#replace">replace</a>().</p>
 <p>Replaces every occurrence of the string <i>before</i> with the string <i>after</i> and returns a reference to this string.</p>
 <p>If <i>cs</i> is <a href="qt.html#CaseSensitivity-enum">Qt::CaseSensitive</a> (default), the search is case sensitive; otherwise the search is case insensitive.</p>
 <p>样例：</p>
@@ -2311,20 +2311,20 @@
 <!-- @@@replace -->
 <!-- $$$replace$$$replaceQCharconstQString&Qt::CaseSensitivity -->
 <h3 class="fn" id="replace-9"><a name="replace-9"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">replace</span>(<span class="type"><a href="qchar.html">QChar</a></span> <i>ch</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>after</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive)</h3>
-<p>This function overloads <a href="qstring.html#replace">replace</a>().</p>
+<p>此函数重载了 <a href="qstring.html#replace">replace</a>().</p>
 <p>Replaces every occurrence of the character <i>ch</i> in the string with <i>after</i> and returns a reference to this string.</p>
 <p>If <i>cs</i> is <a href="qt.html#CaseSensitivity-enum">Qt::CaseSensitive</a> (default), the search is case sensitive; otherwise the search is case insensitive.</p>
 <!-- @@@replace -->
 <!-- $$$replace$$$replaceQCharQLatin1StringQt::CaseSensitivity -->
 <h3 class="fn" id="replace-10"><a name="replace-10"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">replace</span>(<span class="type"><a href="qchar.html">QChar</a></span> <i>c</i>, <span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>after</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive)</h3>
-<p>This function overloads <a href="qstring.html#replace">replace</a>().</p>
+<p>此函数重载了 <a href="qstring.html#replace">replace</a>().</p>
 <p>Replaces every occurrence of the character <i>c</i> with the string <i>after</i> and returns a reference to this string.</p>
 <p>If <i>cs</i> is <a href="qt.html#CaseSensitivity-enum">Qt::CaseSensitive</a> (default), the search is case sensitive; otherwise the search is case insensitive.</p>
 <p><b>注意： </b>The text is not rescanned after a replacement.</p><p>这个函数是在Qt 4.5版本中新增引入的。</p>
 <!-- @@@replace -->
 <!-- $$$replace$$$replaceconstQRegExp&constQString& -->
 <h3 class="fn" id="replace-11"><a name="replace-11"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">replace</span>(const <span class="type"><a href="qregexp.html">QRegExp</a></span> &amp;<i>rx</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>after</i>)</h3>
-<p>This function overloads <a href="qstring.html#replace">replace</a>().</p>
+<p>此函数重载了 <a href="qstring.html#replace">replace</a>().</p>
 <p>Replaces every occurrence of the regular expression <i>rx</i> in the string with <i>after</i>. Returns a reference to the string. For example:</p>
 <pre class="cpp">
 
@@ -2345,7 +2345,7 @@
 <!-- @@@replace -->
 <!-- $$$replace$$$replaceconstQRegularExpression&constQString& -->
 <h3 class="fn" id="replace-12"><a name="replace-12"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">replace</span>(const <span class="type"><a href="qregularexpression.html">QRegularExpression</a></span> &amp;<i>re</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>after</i>)</h3>
-<p>This function overloads <a href="qstring.html#replace">replace</a>().</p>
+<p>此函数重载了 <a href="qstring.html#replace">replace</a>().</p>
 <p>Replaces every occurrence of the regular expression <i>re</i> in the string with <i>after</i>. Returns a reference to the string. For example:</p>
 <pre class="cpp">
 
@@ -2500,7 +2500,7 @@
 <!-- @@@section -->
 <!-- $$$section$$$sectionconstQString&intintQString::SectionFlags -->
 <h3 class="fn" id="section-1"><a name="section-1"></a><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">section</span>(const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>sep</i>, <span class="type">int</span> <i>start</i>, <span class="type">int</span> <i>end</i> = -1, <span class="type"><a href="qstring.html#SectionFlag-enum">QString::SectionFlags</a></span> <i>flags</i> = SectionDefault) const</h3>
-<p>This function overloads <a href="qstring.html#section">section</a>().</p>
+<p>此函数重载了 <a href="qstring.html#section">section</a>().</p>
 <pre class="cpp">
 
   <span class="type"><a href="qstring.html#QString">QString</a></span> str;
@@ -2514,7 +2514,7 @@
 <!-- @@@section -->
 <!-- $$$section$$$sectionconstQRegExp&intintQString::SectionFlags -->
 <h3 class="fn" id="section-2"><a name="section-2"></a><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">section</span>(const <span class="type"><a href="qregexp.html">QRegExp</a></span> &amp;<i>reg</i>, <span class="type">int</span> <i>start</i>, <span class="type">int</span> <i>end</i> = -1, <span class="type"><a href="qstring.html#SectionFlag-enum">QString::SectionFlags</a></span> <i>flags</i> = SectionDefault) const</h3>
-<p>This function overloads <a href="qstring.html#section">section</a>().</p>
+<p>此函数重载了 <a href="qstring.html#section">section</a>().</p>
 <p>This string is treated as a sequence of fields separated by the regular expression, <i>reg</i>.</p>
 <pre class="cpp">
 
@@ -2529,7 +2529,7 @@
 <!-- @@@section -->
 <!-- $$$section$$$sectionconstQRegularExpression&intintQString::SectionFlags -->
 <h3 class="fn" id="section-3"><a name="section-3"></a><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">section</span>(const <span class="type"><a href="qregularexpression.html">QRegularExpression</a></span> &amp;<i>re</i>, <span class="type">int</span> <i>start</i>, <span class="type">int</span> <i>end</i> = -1, <span class="type"><a href="qstring.html#SectionFlag-enum">QString::SectionFlags</a></span> <i>flags</i> = SectionDefault) const</h3>
-<p>This function overloads <a href="qstring.html#section">section</a>().</p>
+<p>此函数重载了 <a href="qstring.html#section">section</a>().</p>
 <p>This string is treated as a sequence of fields separated by the regular expression, <i>re</i>.</p>
 <pre class="cpp">
 
@@ -2593,7 +2593,7 @@
 <h3 class="fn" id="setNum-9"><a name="setNum-9"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">setNum</span>(<span class="type">double</span> <i>n</i>, <span class="type">char</span> <i>format</i> = 'g', <span class="type">int</span> <i>precision</i> = 6)</h3>
 <p>这是一个重载函数。</p>
 <p>Sets the string to the printed value of <i>n</i>, formatted according to the given <i>format</i> and <i>precision</i>, and returns a reference to the string.</p>
-<p>The <i>format</i> can be 'e', 'E', 'f', 'g' or 'G' (see <a href="qstring.html#argument-formats">Argument Formats</a> for an explanation of the formats).</p>
+<p>The <i>format</i> can be 'e', 'E', 'f', 'g' or 'G' (see <a href="qstring.html#argument-formats">参数格式化</a> for an explanation of the formats).</p>
 <p>The formatting always uses <a href="qlocale.html#Language-enum">QLocale::C</a>, i.e&#x2e;, English/UnitedStates. To get a localized string representation of a number, use <a href="qlocale.html#toString">QLocale::toString</a>() with the appropriate locale.</p>
 <!-- @@@setNum -->
 <!-- $$$setRawData[overload1]$$$setRawDataconstQChar*int -->
@@ -2820,11 +2820,11 @@
 <!-- @@@startsWith -->
 <!-- $$$startsWith$$$startsWithQLatin1StringQt::CaseSensitivity -->
 <h3 class="fn" id="startsWith-3"><a name="startsWith-3"></a><span class="type">bool</span> QString::<span class="name">startsWith</span>(<span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>s</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive) const</h3>
-<p>This function overloads <a href="qstring.html#startsWith">startsWith</a>().</p>
+<p>此函数重载了 <a href="qstring.html#startsWith">startsWith</a>().</p>
 <!-- @@@startsWith -->
 <!-- $$$startsWith$$$startsWithQCharQt::CaseSensitivity -->
 <h3 class="fn" id="startsWith-4"><a name="startsWith-4"></a><span class="type">bool</span> QString::<span class="name">startsWith</span>(<span class="type"><a href="qchar.html">QChar</a></span> <i>c</i>, <span class="type">Qt::CaseSensitivity</span> <i>cs</i> = Qt::CaseSensitive) const</h3>
-<p>This function overloads <a href="qstring.html#startsWith">startsWith</a>().</p>
+<p>此函数重载了 <a href="qstring.html#startsWith">startsWith</a>().</p>
 <p>Returns <code>true</code> if the string starts with <i>c</i>; 否则则返回 <code>false</code>。</p>
 <!-- @@@startsWith -->
 <!-- $$$swap[overload1]$$$swapQString& -->
@@ -3133,7 +3133,7 @@
 <!-- @@@toUcs4 -->
 <!-- $$$toUpper[overload1]$$$toUpper -->
 <h3 class="fn" id="toUpper"><a name="toUpper"></a><span class="type"><a href="qstring.html#QString">QString</a></span> QString::<span class="name">toUpper</span>() const</h3>
-<p>Returns an uppercase copy of the string.</p>
+<p>返回当前字符串的大写形式。</p>
 <pre class="cpp">
 
   <span class="type"><a href="qstring.html#QString">QString</a></span> str <span class="operator">=</span> <span class="string">&quot;TeXt&quot;</span>;
@@ -3207,24 +3207,24 @@
 <!-- @@@vasprintf -->
 <!-- $$$operator!=[overload1]$$$operator!=QLatin1String -->
 <h3 class="fn" id="operator-not-eq"><a name="operator-not-eq"></a><span class="type">bool</span> QString::<span class="name">operator!=</span>(<span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>other</i>) const</h3>
-<p>Returns <code>true</code> if this string is not equal to parameter string <i>other</i>. Otherwise returns <code>false</code>.</p>
-<p>This function overloads operator!=().</p>
+<p>Returns <code>true</code> if this string is not equal to parameter string <i>other</i>。 否则返回 <code>false</code>。</p>
+<p>此函数重载了 operator!=().</p>
 <!-- @@@operator!= -->
 <!-- $$$operator!=$$$operator!=constchar* -->
 <h3 class="fn" id="operator-not-eq-1"><a name="operator-not-eq-1"></a><span class="type">bool</span> QString::<span class="name">operator!=</span>(const <span class="type">char</span> *<i>other</i>) const</h3>
-<p>This function overloads <a href="qstring.html#operator-not-eq">operator!=</a>().</p>
+<p>此函数重载了 <a href="qstring.html#operator-not-eq">operator!=</a>().</p>
 <p>The <i>other</i> const char pointer is converted to a <a href="qstring.html">QString</a> using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function.</p>
 <p>You can disable this operator by defining <code>QT_NO_CAST_FROM_ASCII</code> when you compile your applications. This can be useful if you want to ensure that all user-visible strings go through <a href="qobject.html#tr">QObject::tr</a>(), for example.</p>
 <!-- @@@operator!= -->
 <!-- $$$operator!=$$$operator!=constQByteArray& -->
 <h3 class="fn" id="operator-not-eq-2"><a name="operator-not-eq-2"></a><span class="type">bool</span> QString::<span class="name">operator!=</span>(const <span class="type"><a href="qbytearray.html">QByteArray</a></span> &amp;<i>other</i>) const</h3>
-<p>This function overloads <a href="qstring.html#operator-not-eq">operator!=</a>().</p>
+<p>此函数重载了 <a href="qstring.html#operator-not-eq">operator!=</a>().</p>
 <p>The <i>other</i> byte array is converted to a <a href="qstring.html">QString</a> using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function. If any NUL characters ('\0') are embedded in the byte array, they will be included in the transformation.</p>
 <p>You can disable this operator by defining <code>QT_NO_CAST_FROM_ASCII</code> when you compile your applications. This can be useful if you want to ensure that all user-visible strings go through <a href="qobject.html#tr">QObject::tr</a>(), for example.</p>
 <!-- @@@operator!= -->
 <!-- $$$operator+=[overload1]$$$operator+=constQString& -->
 <h3 class="fn" id="operator-2b-eq"><a name="operator-2b-eq"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">operator+=</span>(const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>other</i>)</h3>
-<p>Appends the string <i>other</i> onto the end of this string and returns a reference to this string.</p>
+<p>追加字符串 <i>other</i> 到当前字符串的末尾，并返回当前字符串。</p>
 <p>样例：</p>
 <pre class="cpp">
 
@@ -3239,69 +3239,69 @@
 <!-- @@@operator+= -->
 <!-- $$$operator+=$$$operator+=QChar -->
 <h3 class="fn" id="operator-2b-eq-2"><a name="operator-2b-eq-2"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">operator+=</span>(<span class="type"><a href="qchar.html">QChar</a></span> <i>ch</i>)</h3>
-<p>This function overloads <a href="qstring.html#operator-2b-eq">operator+=</a>().</p>
-<p>Appends the character <i>ch</i> to the string.</p>
+<p>此函数重载了 <a href="qstring.html#operator-2b-eq">operator+=</a>().</p>
+<p>追加字符 <i>ch</i> 到当前字符串的末尾。</p>
 <!-- @@@operator+= -->
 <!-- $$$operator+=$$$operator+=constQStringRef& -->
 <h3 class="fn" id="operator-2b-eq-3"><a name="operator-2b-eq-3"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">operator+=</span>(const <span class="type"><a href="qstringref.html">QStringRef</a></span> &amp;<i>str</i>)</h3>
-<p>This function overloads <a href="qstring.html#operator-2b-eq">operator+=</a>().</p>
+<p>此函数重载了 <a href="qstring.html#operator-2b-eq">operator+=</a>().</p>
 <p>Appends the string section referenced by <i>str</i> to this string.</p>
 <!-- @@@operator+= -->
 <!-- $$$operator+=$$$operator+=QLatin1String -->
 <h3 class="fn" id="operator-2b-eq-4"><a name="operator-2b-eq-4"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">operator+=</span>(<span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>str</i>)</h3>
-<p>This function overloads <a href="qstring.html#operator-2b-eq">operator+=</a>().</p>
-<p>Appends the Latin-1 string <i>str</i> to this string.</p>
+<p>此函数重载了 <a href="qstring.html#operator-2b-eq">operator+=</a>().</p>
+<p>追加Latin-1字符串 <i>str</i> 到当前字符串的末尾。</p>
 <!-- @@@operator+= -->
 <!-- $$$operator+=$$$operator+=constchar* -->
 <h3 class="fn" id="operator-2b-eq-5"><a name="operator-2b-eq-5"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">operator+=</span>(const <span class="type">char</span> *<i>str</i>)</h3>
-<p>This function overloads <a href="qstring.html#operator-2b-eq">operator+=</a>().</p>
-<p>Appends the string <i>str</i> to this string. The const char pointer is converted to Unicode using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function.</p>
+<p>此函数重载了 <a href="qstring.html#operator-2b-eq">operator+=</a>().</p>
+<p>追加字符串 <i>str</i> 到当前字符串的末尾。 The const char pointer is converted to Unicode using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function.</p>
 <p>You can disable this function by defining <code>QT_NO_CAST_FROM_ASCII</code> when you compile your applications. This can be useful if you want to ensure that all user-visible strings go through <a href="qobject.html#tr">QObject::tr</a>(), for example.</p>
 <!-- @@@operator+= -->
 <!-- $$$operator+=$$$operator+=constQByteArray& -->
 <h3 class="fn" id="operator-2b-eq-6"><a name="operator-2b-eq-6"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">operator+=</span>(const <span class="type"><a href="qbytearray.html">QByteArray</a></span> &amp;<i>ba</i>)</h3>
-<p>This function overloads <a href="qstring.html#operator-2b-eq">operator+=</a>().</p>
-<p>Appends the byte array <i>ba</i> to this string. The byte array is converted to Unicode using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function. If any NUL characters ('\0') are embedded in the <i>ba</i> byte array, they will be included in the transformation.</p>
+<p>此函数重载了 <a href="qstring.html#operator-2b-eq">operator+=</a>().</p>
+<p>追加字节数组 <i>ba</i> 到当前字符串的末尾。 The byte array is converted to Unicode using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function. If any NUL characters ('\0') are embedded in the <i>ba</i> byte array, they will be included in the transformation.</p>
 <p>You can disable this function by defining <code>QT_NO_CAST_FROM_ASCII</code> when you compile your applications. This can be useful if you want to ensure that all user-visible strings go through <a href="qobject.html#tr">QObject::tr</a>(), for example.</p>
 <!-- @@@operator+= -->
 <!-- $$$operator+=$$$operator+=char -->
 <h3 class="fn" id="operator-2b-eq-7"><a name="operator-2b-eq-7"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">operator+=</span>(<span class="type">char</span> <i>ch</i>)</h3>
-<p>This function overloads <a href="qstring.html#operator-2b-eq">operator+=</a>().</p>
+<p>此函数重载了 <a href="qstring.html#operator-2b-eq">operator+=</a>().</p>
 <p>Appends the character <i>ch</i> to this string. Note that the character is converted to Unicode using the <a href="qstring.html#fromLatin1">fromLatin1</a>() function, unlike other 8-bit functions that operate on UTF-8 data.</p>
 <p>You can disable this function by defining <code>QT_NO_CAST_FROM_ASCII</code> when you compile your applications. This can be useful if you want to ensure that all user-visible strings go through <a href="qobject.html#tr">QObject::tr</a>(), for example.</p>
 <!-- @@@operator+= -->
 <!-- $$$operator<[overload1]$$$operator<QLatin1String -->
 <h3 class="fn" id="operator-lt"><a name="operator-lt"></a><span class="type">bool</span> QString::<span class="name">operator&lt;</span>(<span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>other</i>) const</h3>
-<p>This function overloads operator&lt;().</p>
+<p>此函数重载了 operator&lt;().</p>
 <p>Returns <code>true</code> if this string is lexically less than the parameter string called <i>other</i>; 否则则返回 <code>false</code>。</p>
 <!-- @@@operator< -->
 <!-- $$$operator<$$$operator<constchar* -->
 <h3 class="fn" id="operator-lt-1"><a name="operator-lt-1"></a><span class="type">bool</span> QString::<span class="name">operator&lt;</span>(const <span class="type">char</span> *<i>other</i>) const</h3>
-<p>Returns <code>true</code> if this string is lexically less than string <i>other</i>. Otherwise returns <code>false</code>.</p>
-<p>This function overloads <a href="qstring.html#operator-lt">operator&lt;</a>().</p>
+<p>Returns <code>true</code> if this string is lexically less than string <i>other</i>。 否则返回 <code>false</code>。</p>
+<p>此函数重载了 <a href="qstring.html#operator-lt">operator&lt;</a>().</p>
 <p>The <i>other</i> const char pointer is converted to a <a href="qstring.html">QString</a> using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function.</p>
 <p>You can disable this operator by defining <code>QT_NO_CAST_FROM_ASCII</code> when you compile your applications. This can be useful if you want to ensure that all user-visible strings go through <a href="qobject.html#tr">QObject::tr</a>(), for example.</p>
 <!-- @@@operator< -->
 <!-- $$$operator<$$$operator<constQByteArray& -->
 <h3 class="fn" id="operator-lt-2"><a name="operator-lt-2"></a><span class="type">bool</span> QString::<span class="name">operator&lt;</span>(const <span class="type"><a href="qbytearray.html">QByteArray</a></span> &amp;<i>other</i>) const</h3>
-<p>This function overloads <a href="qstring.html#operator-lt">operator&lt;</a>().</p>
+<p>此函数重载了 <a href="qstring.html#operator-lt">operator&lt;</a>().</p>
 <p>The <i>other</i> byte array is converted to a <a href="qstring.html">QString</a> using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function. If any NUL characters ('\0') are embedded in the byte array, they will be included in the transformation.</p>
 <p>You can disable this operator by defining <code>QT_NO_CAST_FROM_ASCII</code> when you compile your applications. This can be useful if you want to ensure that all user-visible strings go through <a href="qobject.html#tr">QObject::tr</a>(), for example.</p>
 <!-- @@@operator< -->
 <!-- $$$operator<=[overload1]$$$operator<=QLatin1String -->
 <h3 class="fn" id="operator-lt-eq"><a name="operator-lt-eq"></a><span class="type">bool</span> QString::<span class="name">operator&lt;=</span>(<span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>other</i>) const</h3>
-<p>Returns <code>true</code> if this string is lexically less than or equal to parameter string <i>other</i>. Otherwise returns <code>false</code>.</p>
-<p>This function overloads operator&lt;=().</p>
+<p>Returns <code>true</code> if this string is lexically less than or equal to parameter string <i>other</i>。 否则返回 <code>false</code>。</p>
+<p>此函数重载了 operator&lt;=().</p>
 <!-- @@@operator<= -->
 <!-- $$$operator<=$$$operator<=constchar* -->
 <h3 class="fn" id="operator-lt-eq-1"><a name="operator-lt-eq-1"></a><span class="type">bool</span> QString::<span class="name">operator&lt;=</span>(const <span class="type">char</span> *<i>other</i>) const</h3>
-<p>This function overloads <a href="qstring.html#operator-lt-eq">operator&lt;=</a>().</p>
+<p>此函数重载了 <a href="qstring.html#operator-lt-eq">operator&lt;=</a>().</p>
 <p>The <i>other</i> const char pointer is converted to a <a href="qstring.html">QString</a> using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function.</p>
 <p>You can disable this operator by defining <code>QT_NO_CAST_FROM_ASCII</code> when you compile your applications. This can be useful if you want to ensure that all user-visible strings go through <a href="qobject.html#tr">QObject::tr</a>(), for example.</p>
 <!-- @@@operator<= -->
 <!-- $$$operator<=$$$operator<=constQByteArray& -->
 <h3 class="fn" id="operator-lt-eq-2"><a name="operator-lt-eq-2"></a><span class="type">bool</span> QString::<span class="name">operator&lt;=</span>(const <span class="type"><a href="qbytearray.html">QByteArray</a></span> &amp;<i>other</i>) const</h3>
-<p>This function overloads <a href="qstring.html#operator-lt-eq">operator&lt;=</a>().</p>
+<p>此函数重载了 <a href="qstring.html#operator-lt-eq">operator&lt;=</a>().</p>
 <p>The <i>other</i> byte array is converted to a <a href="qstring.html">QString</a> using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function. If any NUL characters ('\0') are embedded in the byte array, they will be included in the transformation.</p>
 <p>You can disable this operator by defining <code>QT_NO_CAST_FROM_ASCII</code> when you compile your applications. This can be useful if you want to ensure that all user-visible strings go through <a href="qobject.html#tr">QObject::tr</a>(), for example.</p>
 <!-- @@@operator<= -->
@@ -3311,12 +3311,12 @@
 <!-- @@@operator= -->
 <!-- $$$operator=$$$operator=QChar -->
 <h3 class="fn" id="operator-eq-1"><a name="operator-eq-1"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">operator=</span>(<span class="type"><a href="qchar.html">QChar</a></span> <i>ch</i>)</h3>
-<p>This function overloads <a href="qstring.html#operator-eq">operator=</a>().</p>
+<p>此函数重载了 <a href="qstring.html#operator-eq">operator=</a>().</p>
 <p>Sets the string to contain the single character <i>ch</i>.</p>
 <!-- @@@operator= -->
 <!-- $$$operator=$$$operator=QLatin1String -->
 <h3 class="fn" id="operator-eq-2"><a name="operator-eq-2"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">operator=</span>(<span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>str</i>)</h3>
-<p>This function overloads <a href="qstring.html#operator-eq">operator=</a>().</p>
+<p>此函数重载了 <a href="qstring.html#operator-eq">operator=</a>().</p>
 <p>Assigns the Latin-1 string <i>str</i> to this string.</p>
 <!-- @@@operator= -->
 <!-- $$$operator=$$$operator=QString&& -->
@@ -3326,71 +3326,71 @@
 <!-- @@@operator= -->
 <!-- $$$operator=$$$operator=constchar* -->
 <h3 class="fn" id="operator-eq-4"><a name="operator-eq-4"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">operator=</span>(const <span class="type">char</span> *<i>str</i>)</h3>
-<p>This function overloads <a href="qstring.html#operator-eq">operator=</a>().</p>
+<p>此函数重载了 <a href="qstring.html#operator-eq">operator=</a>().</p>
 <p>Assigns <i>str</i> to this string. The const char pointer is converted to Unicode using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function.</p>
 <p>You can disable this operator by defining <code>QT_NO_CAST_FROM_ASCII</code> or <code>QT_RESTRICTED_CAST_FROM_ASCII</code> when you compile your applications. This can be useful if you want to ensure that all user-visible strings go through <a href="qobject.html#tr">QObject::tr</a>(), for example.</p>
 <!-- @@@operator= -->
 <!-- $$$operator=$$$operator=constQByteArray& -->
 <h3 class="fn" id="operator-eq-5"><a name="operator-eq-5"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">operator=</span>(const <span class="type"><a href="qbytearray.html">QByteArray</a></span> &amp;<i>ba</i>)</h3>
-<p>This function overloads <a href="qstring.html#operator-eq">operator=</a>().</p>
+<p>此函数重载了 <a href="qstring.html#operator-eq">operator=</a>().</p>
 <p>Assigns <i>ba</i> to this string. The byte array is converted to Unicode using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function. This function stops conversion at the first NUL character found, or the end of the <i>ba</i> byte array.</p>
 <p>You can disable this operator by defining <code>QT_NO_CAST_FROM_ASCII</code> when you compile your applications. This can be useful if you want to ensure that all user-visible strings go through <a href="qobject.html#tr">QObject::tr</a>(), for example.</p>
 <!-- @@@operator= -->
 <!-- $$$operator=$$$operator=char -->
 <h3 class="fn" id="operator-eq-6"><a name="operator-eq-6"></a><span class="type"><a href="qstring.html#QString">QString</a></span> &amp;QString::<span class="name">operator=</span>(<span class="type">char</span> <i>ch</i>)</h3>
-<p>This function overloads <a href="qstring.html#operator-eq">operator=</a>().</p>
+<p>此函数重载了 <a href="qstring.html#operator-eq">operator=</a>().</p>
 <p>Assigns character <i>ch</i> to this string. Note that the character is converted to Unicode using the <a href="qstring.html#fromLatin1">fromLatin1</a>() function, unlike other 8-bit functions that operate on UTF-8 data.</p>
 <p>You can disable this operator by defining <code>QT_NO_CAST_FROM_ASCII</code> when you compile your applications. This can be useful if you want to ensure that all user-visible strings go through <a href="qobject.html#tr">QObject::tr</a>(), for example.</p>
 <!-- @@@operator= -->
 <!-- $$$operator==[overload1]$$$operator==QLatin1String -->
 <h3 class="fn" id="operator-eq-eq"><a name="operator-eq-eq"></a><span class="type">bool</span> QString::<span class="name">operator==</span>(<span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>other</i>) const</h3>
-<p>This function overloads operator==().</p>
+<p>此函数重载了 operator==().</p>
 <p>Returns <code>true</code> if this string is equal to <i>other</i>; 否则则返回 <code>false</code>。</p>
 <!-- @@@operator== -->
 <!-- $$$operator==$$$operator==constchar* -->
 <h3 class="fn" id="operator-eq-eq-1"><a name="operator-eq-eq-1"></a><span class="type">bool</span> QString::<span class="name">operator==</span>(const <span class="type">char</span> *<i>other</i>) const</h3>
-<p>This function overloads <a href="qstring.html#operator-eq-eq">operator==</a>().</p>
+<p>此函数重载了 <a href="qstring.html#operator-eq-eq">operator==</a>().</p>
 <p>The <i>other</i> const char pointer is converted to a <a href="qstring.html">QString</a> using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function.</p>
 <p>You can disable this operator by defining <code>QT_NO_CAST_FROM_ASCII</code> when you compile your applications. This can be useful if you want to ensure that all user-visible strings go through <a href="qobject.html#tr">QObject::tr</a>(), for example.</p>
 <!-- @@@operator== -->
 <!-- $$$operator==$$$operator==constQByteArray& -->
 <h3 class="fn" id="operator-eq-eq-2"><a name="operator-eq-eq-2"></a><span class="type">bool</span> QString::<span class="name">operator==</span>(const <span class="type"><a href="qbytearray.html">QByteArray</a></span> &amp;<i>other</i>) const</h3>
-<p>This function overloads <a href="qstring.html#operator-eq-eq">operator==</a>().</p>
+<p>此函数重载了 <a href="qstring.html#operator-eq-eq">operator==</a>().</p>
 <p>The <i>other</i> byte array is converted to a <a href="qstring.html">QString</a> using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function. This function stops conversion at the first NUL character found, or the end of the byte array.</p>
 <p>You can disable this operator by defining <code>QT_NO_CAST_FROM_ASCII</code> when you compile your applications. This can be useful if you want to ensure that all user-visible strings go through <a href="qobject.html#tr">QObject::tr</a>(), for example.</p>
-<p>Returns <code>true</code> if this string is lexically equal to the parameter string <i>other</i>. Otherwise returns <code>false</code>.</p>
+<p>Returns <code>true</code> if this string is lexically equal to the parameter string <i>other</i>。 否则返回 <code>false</code>。</p>
 <!-- @@@operator== -->
 <!-- $$$operator>[overload1]$$$operator>QLatin1String -->
 <h3 class="fn" id="operator-gt"><a name="operator-gt"></a><span class="type">bool</span> QString::<span class="name">operator&gt;</span>(<span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>other</i>) const</h3>
-<p>This function overloads operator&gt;().</p>
+<p>此函数重载了 operator&gt;().</p>
 <p>Returns <code>true</code> if this string is lexically greater than the parameter string <i>other</i>; 否则则返回 <code>false</code>。</p>
 <!-- @@@operator> -->
 <!-- $$$operator>$$$operator>constchar* -->
 <h3 class="fn" id="operator-gt-1"><a name="operator-gt-1"></a><span class="type">bool</span> QString::<span class="name">operator&gt;</span>(const <span class="type">char</span> *<i>other</i>) const</h3>
-<p>This function overloads <a href="qstring.html#operator-gt">operator&gt;</a>().</p>
+<p>此函数重载了 <a href="qstring.html#operator-gt">operator&gt;</a>().</p>
 <p>The <i>other</i> const char pointer is converted to a <a href="qstring.html">QString</a> using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function.</p>
 <p>You can disable this operator by defining <code>QT_NO_CAST_FROM_ASCII</code> when you compile your applications. This can be useful if you want to ensure that all user-visible strings go through <a href="qobject.html#tr">QObject::tr</a>(), for example.</p>
 <!-- @@@operator> -->
 <!-- $$$operator>$$$operator>constQByteArray& -->
 <h3 class="fn" id="operator-gt-2"><a name="operator-gt-2"></a><span class="type">bool</span> QString::<span class="name">operator&gt;</span>(const <span class="type"><a href="qbytearray.html">QByteArray</a></span> &amp;<i>other</i>) const</h3>
-<p>This function overloads <a href="qstring.html#operator-gt">operator&gt;</a>().</p>
+<p>此函数重载了 <a href="qstring.html#operator-gt">operator&gt;</a>().</p>
 <p>The <i>other</i> byte array is converted to a <a href="qstring.html">QString</a> using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function. If any NUL characters ('\0') are embedded in the byte array, they will be included in the transformation.</p>
 <p>You can disable this operator by defining <code>QT_NO_CAST_FROM_ASCII</code> when you compile your applications. This can be useful if you want to ensure that all user-visible strings go through <a href="qobject.html#tr">QObject::tr</a>(), for example.</p>
 <!-- @@@operator> -->
 <!-- $$$operator>=[overload1]$$$operator>=QLatin1String -->
 <h3 class="fn" id="operator-gt-eq"><a name="operator-gt-eq"></a><span class="type">bool</span> QString::<span class="name">operator&gt;=</span>(<span class="type"><a href="qlatin1string.html">QLatin1String</a></span> <i>other</i>) const</h3>
-<p>Returns <code>true</code> if this string is lexically greater than or equal to parameter string <i>other</i>. Otherwise returns <code>false</code>.</p>
-<p>This function overloads operator&gt;=().</p>
+<p>Returns <code>true</code> if this string is lexically greater than or equal to parameter string <i>other</i>。 否则返回 <code>false</code>。</p>
+<p>此函数重载了 operator&gt;=().</p>
 <!-- @@@operator>= -->
 <!-- $$$operator>=$$$operator>=constchar* -->
 <h3 class="fn" id="operator-gt-eq-1"><a name="operator-gt-eq-1"></a><span class="type">bool</span> QString::<span class="name">operator&gt;=</span>(const <span class="type">char</span> *<i>other</i>) const</h3>
-<p>This function overloads <a href="qstring.html#operator-gt-eq">operator&gt;=</a>().</p>
+<p>此函数重载了 <a href="qstring.html#operator-gt-eq">operator&gt;=</a>().</p>
 <p>The <i>other</i> const char pointer is converted to a <a href="qstring.html">QString</a> using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function.</p>
 <p>You can disable this operator by defining <code>QT_NO_CAST_FROM_ASCII</code> when you compile your applications. This can be useful if you want to ensure that all user-visible strings go through <a href="qobject.html#tr">QObject::tr</a>(), for example.</p>
 <!-- @@@operator>= -->
 <!-- $$$operator>=$$$operator>=constQByteArray& -->
 <h3 class="fn" id="operator-gt-eq-2"><a name="operator-gt-eq-2"></a><span class="type">bool</span> QString::<span class="name">operator&gt;=</span>(const <span class="type"><a href="qbytearray.html">QByteArray</a></span> &amp;<i>other</i>) const</h3>
-<p>This function overloads <a href="qstring.html#operator-gt-eq">operator&gt;=</a>().</p>
+<p>此函数重载了 <a href="qstring.html#operator-gt-eq">operator&gt;=</a>().</p>
 <p>The <i>other</i> byte array is converted to a <a href="qstring.html">QString</a> using the <a href="qstring.html#fromUtf8">fromUtf8</a>() function. If any NUL characters ('\0') are embedded in the byte array, they will be included in the transformation.</p>
 <p>You can disable this operator by defining <code>QT_NO_CAST_FROM_ASCII</code> when you compile your applications. This can be useful if you want to ensure that all user-visible strings go through <a href="qobject.html#tr">QObject::tr</a>(), for example.</p>
 <!-- @@@operator>= -->
@@ -3411,15 +3411,15 @@
 <!-- @@@operator[] -->
 <!-- $$$operator[]$$$operator[]int -->
 <h3 class="fn" id="operator-5b-5d-1"><a name="operator-5b-5d-1"></a>const <span class="type"><a href="qchar.html">QChar</a></span> QString::<span class="name">operator[]</span>(<span class="type">int</span> <i>position</i>) const</h3>
-<p>This function overloads <a href="qstring.html#operator-5b-5d">operator[]</a>().</p>
+<p>此函数重载了 <a href="qstring.html#operator-5b-5d">operator[]</a>().</p>
 <!-- @@@operator[] -->
 <!-- $$$operator[]$$$operator[]uint -->
 <h3 class="fn" id="operator-5b-5d-2"><a name="operator-5b-5d-2"></a>const <span class="type"><a href="qchar.html">QChar</a></span> QString::<span class="name">operator[]</span>(<span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> <i>position</i>) const</h3>
-<p>等同于 <code>at(position)</code>. <p>This function overloads <a href="qstring.html#operator-5b-5d">operator[]</a>().</p>
+<p>等同于 <code>at(position)</code>. <p>此函数重载了 <a href="qstring.html#operator-5b-5d">operator[]</a>().</p>
 <!-- @@@operator[] -->
 <!-- $$$operator[]$$$operator[]uint -->
 <h3 class="fn" id="operator-5b-5d-3"><a name="operator-5b-5d-3"></a><span class="type">QCharRef</span> QString::<span class="name">operator[]</span>(<span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> <i>position</i>)</h3>
-<p>This function overloads <a href="qstring.html#operator-5b-5d">operator[]</a>().</p>
+<p>此函数重载了 <a href="qstring.html#operator-5b-5d">operator[]</a>().</p>
 <p>Returns the character at the specified <i>position</i> in the string as a modifiable reference.</p>
 <!-- @@@operator[] -->
 </div>
@@ -3430,7 +3430,7 @@
 <h2>相关非成员</h2>
 <!-- $$$operator!=$$$operator!=constQString&constQString& -->
 <h3 class="fn" id="operator-not-eq-3"><a name="operator-not-eq-3"></a><span class="type">bool</span> <span class="name">operator!=</span>(const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>s1</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>s2</i>)</h3>
-<p>Returns <code>true</code> if string <i>s1</i> is not equal to string <i>s2</i>; 否则则返回 <code>false</code>。</p>
+<p>若字符串 <i>s1</i> 不等于字符串 <i>s2</i>，则返回<code>true</code>； 否则则返回 <code>false</code>。</p>
 <p>The comparison is based exclusively on the numeric Unicode values of the characters and is very fast, but is not what a human would expect. Consider sorting user-interface strings with localeAwareCompare().</p>
 <!-- @@@operator!= -->
 <!-- $$$operator!=$$$operator!=constchar*constQString& -->
@@ -3467,7 +3467,7 @@
 <!-- @@@operator< -->
 <!-- $$$operator<$$$operator<constchar*constQString& -->
 <h3 class="fn" id="operator-lt-4"><a name="operator-lt-4"></a><span class="type">bool</span> <span class="name">operator&lt;</span>(const <span class="type">char</span> *<i>s1</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>s2</i>)</h3>
-<p>Returns <code>true</code> if <i>s1</i> is lexically less than <i>s2</i>; otherwise returns <code>false</code>. For <i>s1</i> != 0, this 等同于 <code>compare(s1, s2) &lt; 0</code>.</p>
+<p>Returns <code>true</code> if <i>s1</i> is lexically less than <i>s2</i>；否则则返回 <code>false</code>。 For <i>s1</i> != 0, this 等同于 <code>compare(s1, s2) &lt; 0</code>.</p>
 <p>The comparison is based exclusively on the numeric Unicode values of the characters and is very fast, but is not what a human would expect. Consider sorting user-interface strings using the <a href="qstring.html#localeAwareCompare">QString::localeAwareCompare</a>() function.</p>
 <!-- @@@operator< -->
 <!-- $$$operator<<[overload1]$$$operator<<QDataStream&constQString& -->
@@ -3482,7 +3482,7 @@
 <!-- @@@operator<= -->
 <!-- $$$operator<=$$$operator<=constchar*constQString& -->
 <h3 class="fn" id="operator-lt-eq-4"><a name="operator-lt-eq-4"></a><span class="type">bool</span> <span class="name">operator&lt;=</span>(const <span class="type">char</span> *<i>s1</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>s2</i>)</h3>
-<p>Returns <code>true</code> if <i>s1</i> is lexically less than or equal to <i>s2</i>; otherwise returns <code>false</code>. For <i>s1</i> != 0, this 等同于 <code>compare(s1, s2) &lt;= 0</code>.</p>
+<p>Returns <code>true</code> if <i>s1</i> is lexically less than or equal to <i>s2</i>；否则则返回 <code>false</code>。 For <i>s1</i> != 0, this 等同于 <code>compare(s1, s2) &lt;= 0</code>.</p>
 <p>The comparison is based exclusively on the numeric Unicode values of the characters and is very fast, but is not what a human would expect. Consider sorting user-interface strings with <a href="qstring.html#localeAwareCompare">QString::localeAwareCompare</a>().</p>
 <!-- @@@operator<= -->
 <!-- $$$operator==$$$operator==constQString&constQString& -->
@@ -3492,8 +3492,8 @@
 <!-- @@@operator== -->
 <!-- $$$operator==$$$operator==constchar*constQString& -->
 <h3 class="fn" id="operator-eq-eq-4"><a name="operator-eq-eq-4"></a><span class="type">bool</span> <span class="name">operator==</span>(const <span class="type">char</span> *<i>s1</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>s2</i>)</h3>
-<p>This function overloads <a href="qchar.html#operator-eq-eq">operator==</a>().</p>
-<p>Returns <code>true</code> if <i>s1</i> is equal to <i>s2</i>; otherwise returns <code>false</code>. Note that no string is equal to <i>s1</i> being 0.</p>
+<p>此函数重载了 <a href="qchar.html#operator-eq-eq">operator==</a>().</p>
+<p>Returns <code>true</code> if <i>s1</i> is equal to <i>s2</i>；否则则返回 <code>false</code>。 Note that no string is equal to <i>s1</i> being 0.</p>
 <p>等同于 <code>s1 != 0 &amp;&amp; compare(s1, s2) == 0</code>.</p>
 <!-- @@@operator== -->
 <!-- $$$operator>$$$operator>constQString&constQString& -->
@@ -3503,7 +3503,7 @@
 <!-- @@@operator> -->
 <!-- $$$operator>$$$operator>constchar*constQString& -->
 <h3 class="fn" id="operator-gt-4"><a name="operator-gt-4"></a><span class="type">bool</span> <span class="name">operator&gt;</span>(const <span class="type">char</span> *<i>s1</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>s2</i>)</h3>
-<p>Returns <code>true</code> if <i>s1</i> is lexically greater than <i>s2</i>; otherwise returns <code>false</code>. Equivalent to <code>compare(s1, s2) &gt; 0</code>.</p>
+<p>Returns <code>true</code> if <i>s1</i> is lexically greater than <i>s2</i>；否则则返回 <code>false</code>。 Equivalent to <code>compare(s1, s2) &gt; 0</code>.</p>
 <p>The comparison is based exclusively on the numeric Unicode values of the characters and is very fast, but is not what a human would expect. Consider sorting user-interface strings using the <a href="qstring.html#localeAwareCompare">QString::localeAwareCompare</a>() function.</p>
 <!-- @@@operator> -->
 <!-- $$$operator>=$$$operator>=constQString&constQString& -->
@@ -3513,7 +3513,7 @@
 <!-- @@@operator>= -->
 <!-- $$$operator>=$$$operator>=constchar*constQString& -->
 <h3 class="fn" id="operator-gt-eq-4"><a name="operator-gt-eq-4"></a><span class="type">bool</span> <span class="name">operator&gt;=</span>(const <span class="type">char</span> *<i>s1</i>, const <span class="type"><a href="qstring.html#QString">QString</a></span> &amp;<i>s2</i>)</h3>
-<p>Returns <code>true</code> if <i>s1</i> is lexically greater than or equal to <i>s2</i>; otherwise returns <code>false</code>. For <i>s1</i> != 0, this 等同于 <code>compare(s1, s2) &gt;= 0</code>.</p>
+<p>Returns <code>true</code> if <i>s1</i> is lexically greater than or equal to <i>s2</i>；否则则返回 <code>false</code>。 For <i>s1</i> != 0, this 等同于 <code>compare(s1, s2) &gt;= 0</code>.</p>
 <p>The comparison is based exclusively on the numeric Unicode values of the characters and is very fast, but is not what a human would expect. Consider sorting user-interface strings using the <a href="qstring.html#localeAwareCompare">QString::localeAwareCompare</a>() function.</p>
 <!-- @@@operator>= -->
 <!-- $$$operator>>[overload1]$$$operator>>QDataStream&QString& -->

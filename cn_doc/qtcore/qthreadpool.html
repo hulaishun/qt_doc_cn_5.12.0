@@ -229,7 +229,7 @@
 <!-- @@@tryStart -->
 <!-- $$$tryTake[overload1]$$$tryTakeQRunnable* -->
 <h3 class="fn" id="tryTake"><a name="tryTake"></a><span class="type">bool</span> QThreadPool::<span class="name">tryTake</span>(<span class="type"><a href="qrunnable.html">QRunnable</a></span> *<i>runnable</i>)</h3>
-<p>Attempts to remove the specified <i>runnable</i> from the queue if it is not yet started. If the runnable had not been started, returns <code>true</code>, and ownership of <i>runnable</i> is transferred to the caller (even when <code>runnable-&gt;autoDelete() == true</code>). Otherwise returns <code>false</code>.</p>
+<p>Attempts to remove the specified <i>runnable</i> from the queue if it is not yet started. If the runnable had not been started, returns <code>true</code>, and ownership of <i>runnable</i> is transferred to the caller (even when <code>runnable-&gt;autoDelete() == true</code>)。 否则返回 <code>false</code>。</p>
 <p><b>注意： </b>If <code>runnable-&gt;autoDelete() == true</code>, this function may remove the wrong runnable. This is known as the <a href="https://en.wikipedia.org/wiki/ABA_problem">ABA problem</a>: the original <i>runnable</i> may already have executed and has since been deleted. The memory is re-used for another runnable, which then gets removed instead of the intended one. For this reason, we recommend calling this function only for runnables that are not auto-deleting.</p><p>这个函数是在Qt 5.9版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qthreadpool.html#start">start</a>() 和 <a href="qrunnable.html#autoDelete">QRunnable::autoDelete</a>().</p>
 <!-- @@@tryTake -->

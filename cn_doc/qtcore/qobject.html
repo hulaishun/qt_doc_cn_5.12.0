@@ -397,7 +397,7 @@
 <!-- @@@connect -->
 <!-- $$$connect$$$connectconstQObject*constchar*constchar*Qt::ConnectionType -->
 <h3 class="fn" id="connect-2"><a name="connect-2"></a><span class="type"><a href="qmetaobject-connection.html">QMetaObject::Connection</a></span> QObject::<span class="name">connect</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>sender</i>, const <span class="type">char</span> *<i>signal</i>, const <span class="type">char</span> *<i>method</i>, <span class="type">Qt::ConnectionType</span> <i>type</i> = Qt::AutoConnection) const</h3>
-<p>This function overloads <a href="qobject.html#connect">connect</a>().</p>
+<p>此函数重载了 <a href="qobject.html#connect">connect</a>().</p>
 <p>Connects <i>signal</i> from the <i>sender</i> object to this object's <i>method</i>.</p>
 <p>Equivalent to connect(<i>sender</i>, <i>signal</i>, <code>this</code>, <i>method</i>, <i>type</i>).</p>
 <p>Every connection you make emits a signal, so duplicate connections emit two signals. You can break a connection using <a href="qobject.html#disconnect">disconnect</a>().</p>
@@ -406,7 +406,7 @@
 <!-- @@@connect -->
 <!-- $$$connect$$$connectconstQObject*PointerToMemberFunctionconstQObject*PointerToMemberFunctionQt::ConnectionType -->
 <h3 class="fn" id="connect-3"><a name="connect-3"></a><code>[静态函数] </code><span class="type"><a href="qmetaobject-connection.html">QMetaObject::Connection</a></span> QObject::<span class="name">connect</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>sender</i>, <span class="type">PointerToMemberFunction</span> <i>signal</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, <span class="type">PointerToMemberFunction</span> <i>method</i>, <span class="type">Qt::ConnectionType</span> <i>type</i> = Qt::AutoConnection)</h3>
-<p>This function overloads <a href="qobject.html#connect">connect</a>().</p>
+<p>此函数重载了 <a href="qobject.html#connect">connect</a>().</p>
 <p>Creates a connection of the given <i>type</i> from the <i>signal</i> in the <i>sender</i> object to the <i>method</i> in the <i>receiver</i> object. Returns a handle to the connection that can be used to disconnect it later.</p>
 <p>The signal must be a function declared as a signal in the header. The slot function can be any member function that can be connected to the signal. A slot can be connected to a given signal if the signal has at least as many arguments as the slot, and there is an implicit conversion between the types of the corresponding arguments in the signal and the slot.</p>
 <p>样例：</p>
@@ -437,7 +437,7 @@
 <!-- @@@connect -->
 <!-- $$$connect$$$connectconstQObject*PointerToMemberFunctionFunctor -->
 <h3 class="fn" id="connect-4"><a name="connect-4"></a><code>[静态函数] </code><span class="type"><a href="qmetaobject-connection.html">QMetaObject::Connection</a></span> QObject::<span class="name">connect</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>sender</i>, <span class="type">PointerToMemberFunction</span> <i>signal</i>, <span class="type">Functor</span> <i>functor</i>)</h3>
-<p>This function overloads <a href="qobject.html#connect">connect</a>().</p>
+<p>此函数重载了 <a href="qobject.html#connect">connect</a>().</p>
 <p>Creates a connection from <i>signal</i> in <i>sender</i> object to <i>functor</i>, and returns a handle to the connection</p>
 <p>The signal must be a function declared as a signal in the header. The slot function can be any function or functor that can be connected to the signal. A function can be connected to a given signal if the signal has at least as many argument as the slot. A functor can be connected to a signal if they have exactly the same number of arguments. There must exist implicit conversion between the types of the corresponding arguments in the signal and the slot.</p>
 <p>样例：</p>
@@ -465,7 +465,7 @@
 <!-- @@@connect -->
 <!-- $$$connect$$$connectconstQObject*PointerToMemberFunctionconstQObject*FunctorQt::ConnectionType -->
 <h3 class="fn" id="connect-5"><a name="connect-5"></a><code>[静态函数] </code><span class="type"><a href="qmetaobject-connection.html">QMetaObject::Connection</a></span> QObject::<span class="name">connect</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>sender</i>, <span class="type">PointerToMemberFunction</span> <i>signal</i>, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>context</i>, <span class="type">Functor</span> <i>functor</i>, <span class="type">Qt::ConnectionType</span> <i>type</i> = Qt::AutoConnection)</h3>
-<p>This function overloads <a href="qobject.html#connect">connect</a>().</p>
+<p>此函数重载了 <a href="qobject.html#connect">connect</a>().</p>
 <p>Creates a connection of a given <i>type</i> from <i>signal</i> in <i>sender</i> object to <i>functor</i> to be placed in a specific event loop of <i>context</i>, and returns a handle to the connection.</p>
 <p><b>注意： </b>Qt::UniqueConnections do not work for lambdas, non-member functions and functors; they only apply to connecting to member functions.</p><p>The signal must be a function declared as a signal in the header. The slot function can be any function or functor that can be connected to the signal. A function can be connected to a given signal if the signal has at least as many argument as the slot. A functor can be connected to a signal if they have exactly the same number of arguments. There must exist implicit conversion between the types of the corresponding arguments in the signal and the slot.</p>
 <p>样例：</p>
@@ -592,14 +592,14 @@
 <!-- @@@disconnect -->
 <!-- $$$disconnect$$$disconnectconstchar*constQObject*constchar* -->
 <h3 class="fn" id="disconnect-2"><a name="disconnect-2"></a><span class="type">bool</span> QObject::<span class="name">disconnect</span>(const <span class="type">char</span> *<i>signal</i> = nullptr, const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i> = nullptr, const <span class="type">char</span> *<i>method</i> = nullptr) const</h3>
-<p>This function overloads <a href="qobject.html#disconnect">disconnect</a>().</p>
+<p>此函数重载了 <a href="qobject.html#disconnect">disconnect</a>().</p>
 <p>Disconnects <i>signal</i> from <i>method</i> of <i>receiver</i>.</p>
 <p>A signal-slot connection is removed when either of the objects involved are destroyed.</p>
 <p><b>注意：</b> 此函数是 <a href="../qtdoc/threads-reentrancy.html">线程安全的</a>。</p>
 <!-- @@@disconnect -->
 <!-- $$$disconnect$$$disconnectconstQObject*constchar* -->
 <h3 class="fn" id="disconnect-3"><a name="disconnect-3"></a><span class="type">bool</span> QObject::<span class="name">disconnect</span>(const <span class="type"><a href="qobject.html#QObject">QObject</a></span> *<i>receiver</i>, const <span class="type">char</span> *<i>method</i> = nullptr) const</h3>
-<p>This function overloads <a href="qobject.html#disconnect">disconnect</a>().</p>
+<p>此函数重载了 <a href="qobject.html#disconnect">disconnect</a>().</p>
 <p>Disconnects all signals in this object from <i>receiver</i>'s <i>method</i>.</p>
 <p>A signal-slot connection is removed when either of the objects involved are destroyed.</p>
 <!-- @@@disconnect -->
@@ -813,12 +813,12 @@
 <!-- @@@findChildren -->
 <!-- $$$findChildren$$$findChildrenconstQRegExp&Qt::FindChildOptions -->
 <h3 class="fn" id="findChildren-1"><a name="findChildren-1"></a><span class="type"><a href="qlist.html">QList</a></span>&lt;<span class="type">T</span>&gt; QObject::<span class="name">findChildren</span>(const <span class="type"><a href="qregexp.html">QRegExp</a></span> &amp;<i>regExp</i>, <span class="type">Qt::FindChildOptions</span> <i>options</i> = Qt::FindChildrenRecursively) const</h3>
-<p>This function overloads <a href="qobject.html#findChildren">findChildren</a>().</p>
+<p>此函数重载了 <a href="qobject.html#findChildren">findChildren</a>().</p>
 <p>Returns the children of this object that can be cast to type T and that have names matching the regular expression <i>regExp</i>, or an empty list if there are no such objects. The search is performed recursively, unless <i>options</i> specifies the option FindDirectChildrenOnly.</p>
 <!-- @@@findChildren -->
 <!-- $$$findChildren$$$findChildrenconstQRegularExpression&Qt::FindChildOptions -->
 <h3 class="fn" id="findChildren-2"><a name="findChildren-2"></a><span class="type"><a href="qlist.html">QList</a></span>&lt;<span class="type">T</span>&gt; QObject::<span class="name">findChildren</span>(const <span class="type"><a href="qregularexpression.html">QRegularExpression</a></span> &amp;<i>re</i>, <span class="type">Qt::FindChildOptions</span> <i>options</i> = Qt::FindChildrenRecursively) const</h3>
-<p>This function overloads <a href="qobject.html#findChildren">findChildren</a>().</p>
+<p>此函数重载了 <a href="qobject.html#findChildren">findChildren</a>().</p>
 <p>Returns the children of this object that can be cast to type T and that have names matching the regular expression <i>re</i>, or an empty list if there are no such objects. The search is performed recursively, unless <i>options</i> specifies the option FindDirectChildrenOnly.</p>
 <p>这个函数是在Qt 5.0版本中新增引入的。</p>
 <!-- @@@findChildren -->

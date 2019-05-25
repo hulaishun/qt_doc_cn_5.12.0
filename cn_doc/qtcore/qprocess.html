@@ -784,7 +784,7 @@
 <!-- @@@start -->
 <!-- $$$startDetached[overload1]$$$startDetachedqint64* -->
 <h3 class="fn" id="startDetached"><a name="startDetached"></a><span class="type">bool</span> QProcess::<span class="name">startDetached</span>(<span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> *<i>pid</i> = nullptr)</h3>
-<p>Starts the program set by <a href="qprocess.html#setProgram">setProgram</a>() with arguments set by <a href="qprocess.html#setArguments">setArguments</a>() in a new process, and detaches from it. Returns <code>true</code> on success; otherwise returns <code>false</code>. If the calling process exits, the detached process will continue to run unaffected.</p>
+<p>Starts the program set by <a href="qprocess.html#setProgram">setProgram</a>() with arguments set by <a href="qprocess.html#setArguments">setArguments</a>() in a new process, and detaches from it. Returns <code>true</code> on success；否则则返回 <code>false</code>。 If the calling process exits, the detached process will continue to run unaffected.</p>
 <p><b>Unix:</b> The started process will run in its own session and act like a daemon.</p>
 <p>The process will be started in the directory set by <a href="qprocess.html#setWorkingDirectory">setWorkingDirectory</a>(). If <a href="qprocess.html#workingDirectory">workingDirectory</a>() is empty, the working directory is inherited from the calling process.</p>
 <p><b>注意： </b>On QNX, this may cause all application threads to temporarily freeze.</p><p>If the function is successful then *<i>pid</i> is set to the process identifier of the started process. Note that the child process may exit and the PID may become invalid without notice. Furthermore, after the child process exits, the same PID may be recycled and used by a completely different process. User code should be careful when using this variable, especially if one intends to forcibly terminate the process by operating system means.</p>
@@ -806,8 +806,8 @@
 <!-- @@@startDetached -->
 <!-- $$$startDetached$$$startDetachedconstQString&constQStringList&constQString&qint64* -->
 <h3 class="fn" id="startDetached-1"><a name="startDetached-1"></a><code>[静态函数] </code><span class="type">bool</span> QProcess::<span class="name">startDetached</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>program</i>, const <span class="type"><a href="qstringlist.html">QStringList</a></span> &amp;<i>arguments</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>workingDirectory</i> = QString(), <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> *<i>pid</i> = nullptr)</h3>
-<p>This function overloads <a href="qprocess.html#startDetached">startDetached</a>().</p>
-<p>Starts the program <i>program</i> with the arguments <i>arguments</i> in a new process, and detaches from it. Returns <code>true</code> on success; otherwise returns <code>false</code>. If the calling process exits, the detached process will continue to run unaffected.</p>
+<p>此函数重载了 <a href="qprocess.html#startDetached">startDetached</a>().</p>
+<p>Starts the program <i>program</i> with the arguments <i>arguments</i> in a new process, and detaches from it. Returns <code>true</code> on success；否则则返回 <code>false</code>。 If the calling process exits, the detached process will continue to run unaffected.</p>
 <p>Argument handling is identical to the respective <a href="qprocess.html#start">start</a>() overload.</p>
 <p>The process will be started in the directory <i>workingDirectory</i>. If <i>workingDirectory</i> is empty, the working directory is inherited from the calling process.</p>
 <p>If the function is successful then *<i>pid</i> is set to the process identifier of the started process.</p>
@@ -815,7 +815,7 @@
 <!-- @@@startDetached -->
 <!-- $$$startDetached$$$startDetachedconstQString& -->
 <h3 class="fn" id="startDetached-2"><a name="startDetached-2"></a><code>[静态函数] </code><span class="type">bool</span> QProcess::<span class="name">startDetached</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>command</i>)</h3>
-<p>This function overloads <a href="qprocess.html#startDetached">startDetached</a>().</p>
+<p>此函数重载了 <a href="qprocess.html#startDetached">startDetached</a>().</p>
 <p>Starts the command <i>command</i> in a new process, and detaches from it. Returns <code>true</code> on success; 否则则返回 <code>false</code>。</p>
 <p>Argument handling is identical to the respective <a href="qprocess.html#start">start</a>() overload.</p>
 <p>After the <i>command</i> string has been split and unquoted, this function behaves like the overload which takes the arguments as a string list.</p>

@@ -326,7 +326,7 @@
 <p>For edit strategies <a href="qsqltablemodel.html#EditStrategy-enum">OnFieldChange</a> 和 <a href="qsqltablemodel.html#EditStrategy-enum">OnRowChange</a>, only one row may be inserted at a time and the model may not contain other cached changes.</p>
 <p>The <a href="qsqltablemodel.html#primeInsert">primeInsert</a>() signal will be emitted for each new row. Connect to it if you want to initialize the new row with default values.</p>
 <p>Does not submit rows, regardless of edit strategy.</p>
-<p>Returns <code>false</code> if the parameters are out of bounds or the row cannot be inserted; otherwise returns <code>true</code>.</p>
+<p>Returns <code>false</code> if the parameters are out of bounds or the row cannot be inserted；否则则返回 <code>true</code>。</p>
 <p><b> 参见 </b><a href="qsqltablemodel.html#primeInsert">primeInsert</a>() 和 <a href="qsqltablemodel.html#insertRecord">insertRecord</a>().</p>
 <!-- @@@insertRows -->
 <!-- $$$isDirty[overload1]$$$isDirtyconstQModelIndex& -->
@@ -390,7 +390,7 @@
 <p>After failed deletion, the operation is not reverted in the model. The application may resubmit or revert.</p>
 <p>Inserted but not yet successfully submitted rows in the range to be removed are immediately removed from the model.</p>
 <p>Before a row is deleted from the database, the <a href="qsqltablemodel.html#beforeDelete">beforeDelete</a>() signal is emitted.</p>
-<p>If row &lt; 0 or row + count &gt; <a href="qsqltablemodel.html#rowCount">rowCount</a>(), no action is taken and false is returned. Returns <code>true</code> if all rows could be removed; otherwise returns <code>false</code>. Detailed database error information can be retrieved using <a href="qsqlquerymodel.html#lastError">lastError</a>().</p>
+<p>If row &lt; 0 or row + count &gt; <a href="qsqltablemodel.html#rowCount">rowCount</a>(), no action is taken and false is returned. Returns <code>true</code> if all rows could be removed；否则则返回 <code>false</code>。 Detailed database error information can be retrieved using <a href="qsqlquerymodel.html#lastError">lastError</a>().</p>
 <p><b> 参见 </b><a href="qsqltablemodel.html#removeColumns">removeColumns</a>() 和 <a href="qsqltablemodel.html#insertRows">insertRows</a>().</p>
 <!-- @@@removeRows -->
 <!-- $$$revert[overload1]$$$revert -->
@@ -499,7 +499,7 @@
 <p>This reimplemented slot is called by the item delegates when the user stopped editing the current row.</p>
 <p>Submits the currently edited row if the model's strategy is set to <a href="qsqltablemodel.html#EditStrategy-enum">OnRowChange</a> or <a href="qsqltablemodel.html#EditStrategy-enum">OnFieldChange</a>. Does nothing for the <a href="qsqltablemodel.html#EditStrategy-enum">OnManualSubmit</a> strategy.</p>
 <p>Use <a href="qsqltablemodel.html#submitAll">submitAll</a>() to submit all pending changes for the <a href="qsqltablemodel.html#EditStrategy-enum">OnManualSubmit</a> strategy.</p>
-<p>Returns <code>true</code> on success; otherwise returns <code>false</code>. Use <a href="qsqlquerymodel.html#lastError">lastError</a>() to query detailed error information.</p>
+<p>Returns <code>true</code> on success；否则则返回 <code>false</code>。 Use <a href="qsqlquerymodel.html#lastError">lastError</a>() to query detailed error information.</p>
 <p>Does not automatically repopulate the model. Submitted rows are refreshed from the database on success.</p>
 <p><b> 参见 </b><a href="qsqltablemodel.html#revert">revert</a>(), <a href="qsqltablemodel.html#revertRow">revertRow</a>(), <a href="qsqltablemodel.html#submitAll">submitAll</a>(), <a href="qsqltablemodel.html#revertAll">revertAll</a>(), 和 <a href="qsqlquerymodel.html#lastError">lastError</a>().</p>
 <!-- @@@submit -->

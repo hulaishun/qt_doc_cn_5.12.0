@@ -258,7 +258,7 @@
 <!-- @@@nextPendingConnection -->
 <!-- $$$removeServer[overload1]$$$removeServerconstQString& -->
 <h3 class="fn" id="removeServer"><a name="removeServer"></a><code>[静态函数] </code><span class="type">bool</span> QLocalServer::<span class="name">removeServer</span>(const <span class="type"><a href="../qtcore/qstring.html">QString</a></span> &amp;<i>name</i>)</h3>
-<p>Removes any server instance that might cause a call to <a href="qlocalserver.html#listen">listen</a>() to fail and returns <code>true</code> if successful; otherwise returns <code>false</code>. This function is meant to recover from a crash, when the previous server instance has not been cleaned up.</p>
+<p>Removes any server instance that might cause a call to <a href="qlocalserver.html#listen">listen</a>() to fail and returns <code>true</code> if successful；否则则返回 <code>false</code>。 This function is meant to recover from a crash, when the previous server instance has not been cleaned up.</p>
 <p>On Windows, this function does nothing; on Unix, it removes the socket file given by <i>name</i>.</p>
 <p><b>警告：</b> Be careful to avoid removing sockets of running instances.</p>
 <p>这个函数是在Qt 4.5版本中新增引入的。</p>
@@ -299,7 +299,7 @@
 <!-- @@@socketOptions -->
 <!-- $$$waitForNewConnection[overload1]$$$waitForNewConnectionintbool* -->
 <h3 class="fn" id="waitForNewConnection"><a name="waitForNewConnection"></a><span class="type">bool</span> QLocalServer::<span class="name">waitForNewConnection</span>(<span class="type">int</span> <i>msec</i> = 0, <span class="type">bool</span> *<i>timedOut</i> = nullptr)</h3>
-<p>Waits for at most <i>msec</i> milliseconds or until an incoming connection is available. Returns <code>true</code> if a connection is available; otherwise returns <code>false</code>. If the operation timed out and <i>timedOut</i> is not 0, *timedOut will be set to true.</p>
+<p>Waits for at most <i>msec</i> milliseconds or until an incoming connection is available. Returns <code>true</code> if a connection is available；否则则返回 <code>false</code>。 If the operation timed out and <i>timedOut</i> is not 0, *timedOut will be set to true.</p>
 <p>This is a blocking function call. Its use is ill-advised in a single-threaded GUI application, since the whole application will stop responding until the function returns. waitForNewConnection() is mostly useful when there is no event loop available.</p>
 <p>The non-blocking alternative is to connect to the <a href="qlocalserver.html#newConnection">newConnection</a>() signal.</p>
 <p>If msec is -1, this function will not time out.</p>
