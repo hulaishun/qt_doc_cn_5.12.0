@@ -44,7 +44,7 @@
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title">ConstIterator Class</h1>
+<h1 class="title">常量迭代器类</h1>
 <span class="small-subtitle">(<a href="qcborarray-constiterator.html">QCborArray::ConstIterator</a>)<br/></span>
 <!-- $$$ConstIterator-brief -->
 <p>The <a href="qcborarray-constiterator.html">QCborArray::ConstIterator</a> class provides an STL-style const iterator for <a href="qcborarray.html">QCborArray</a>. <a href="#details">更多详情...</a></p>
@@ -154,7 +154,7 @@
 <!-- @@@ -->
 <!-- $$$ConstIterator[overload1]$$$ConstIterator -->
 <h3 class="fn" id="ConstIterator"><a name="ConstIterator"></a>ConstIterator::<span class="name">ConstIterator</span>()</h3>
-<p>Constructs an uninitialized iterator.</p>
+<p>构造函数，创建一个未初始化的迭代器。</p>
 <p>Functions like operator*() and operator++() should not be called on an uninitialized iterator. Use operator=() to assign a value to it before using it.</p>
 <p><b> 参见 </b><a href="qcborarray.html#constBegin">QCborArray::constBegin</a>() 和 <a href="qcborarray.html#constEnd">QCborArray::constEnd</a>().</p>
 <!-- @@@ConstIterator -->
@@ -173,14 +173,14 @@
 <!-- @@@operator+ -->
 <!-- $$$operator++[overload1]$$$operator++ -->
 <h3 class="fn" id="operator-2b-2b"><a name="operator-2b-2b"></a><span class="type"><a href="qcborarray-constiterator.html#ConstIterator">ConstIterator</a></span> &amp;ConstIterator::<span class="name">operator++</span>()</h3>
-<p>The prefix ++ operator, <code>++it</code>, advances the iterator to the next item in the array and returns this iterator.</p>
+<<p>前置++操作符， <code>++it</code>, advances the iterator to the next item in the array and returns this iterator.</p>
 <p>Calling this function on <a href="qcborarray.html#end">QCborArray::end</a>() leads to undefined results.</p>
 <p><b> 参见 </b><a href="qcborarray-constiterator.html#operator--">operator--</a>().</p>
 <!-- @@@operator++ -->
 <!-- $$$operator++$$$operator++int -->
 <h3 class="fn" id="operator-2b-2b-1"><a name="operator-2b-2b-1"></a><span class="type"><a href="qcborarray-constiterator.html#ConstIterator">ConstIterator</a></span> ConstIterator::<span class="name">operator++</span>(<i>int</i>)</h3>
 <p>这是一个重载函数。</p>
-<p>The postfix ++ operator, <code>it++</code>, advances the iterator to the next item in the array and returns an iterator to the previously current item.</p>
+<p>后置++操作符， <code>it++</code>, advances the iterator to the next item in the array and returns an iterator to the previously current item.</p>
 <!-- @@@operator++ -->
 <!-- $$$operator+=[overload1]$$$operator+=qsizetype -->
 <h3 class="fn" id="operator-2b-eq"><a name="operator-2b-eq"></a><span class="type"><a href="qcborarray-constiterator.html#ConstIterator">ConstIterator</a></span> &amp;ConstIterator::<span class="name">operator+=</span>(<span class="type">qsizetype</span> <i>j</i>)</h3>
@@ -198,14 +198,14 @@
 <!-- @@@operator- -->
 <!-- $$$operator--[overload1]$$$operator-- -->
 <h3 class="fn" id="operator--"><a name="operator--"></a><span class="type"><a href="qcborarray-constiterator.html#ConstIterator">ConstIterator</a></span> &amp;ConstIterator::<span class="name">operator--</span>()</h3>
-<p>The prefix -- operator, <code>--it</code>, makes the preceding item current and returns this iterator.</p>
+<p>前置--操作符， <code>--it</code>, 使前一项成为当前项，并返回当前迭代器。</p>
 <p>Calling this function on <a href="qcborarray.html#begin">QCborArray::begin</a>() leads to undefined results.</p>
 <p><b> 参见 </b><a href="qcborarray-constiterator.html#operator-2b-2b">operator++</a>().</p>
 <!-- @@@operator-- -->
 <!-- $$$operator--$$$operator--int -->
 <h3 class="fn" id="operator---1"><a name="operator---1"></a><span class="type"><a href="qcborarray-constiterator.html#ConstIterator">ConstIterator</a></span> ConstIterator::<span class="name">operator--</span>(<i>int</i>)</h3>
 <p>这是一个重载函数。</p>
-<p>The postfix -- operator, <code>it--</code>, makes the preceding item current and returns an iterator to the previously current item.</p>
+<p>后置--操作符， <code>it--</code>, makes the preceding item current and returns an iterator to the previously current item.</p>
 <!-- @@@operator-- -->
 <!-- $$$operator-=[overload1]$$$operator-=qsizetype -->
 <h3 class="fn" id="operator--eq"><a name="operator--eq"></a><span class="type"><a href="qcborarray-constiterator.html#ConstIterator">ConstIterator</a></span> &amp;ConstIterator::<span class="name">operator-=</span>(<span class="type">qsizetype</span> <i>j</i>)</h3>
@@ -218,7 +218,7 @@
 <!-- @@@operator-> -->
 <!-- $$$operator=[overload1]$$$operator=constConstIterator& -->
 <h3 class="fn" id="operator-eq"><a name="operator-eq"></a><span class="type"><a href="qcborarray-constiterator.html#ConstIterator">ConstIterator</a></span> &amp;ConstIterator::<span class="name">operator=</span>(const <span class="type"><a href="qcborarray-constiterator.html#ConstIterator">ConstIterator</a></span> &amp;<i>other</i>)</h3>
-<p>Makes this iterator a copy of <i>other</i> and returns a reference to this iterator.</p>
+<p>使当前迭代器拷贝于 <i>other</i>，并返回当前迭代器的引用。</p>
 <!-- @@@operator= -->
 <!-- $$$operator[][overload1]$$$operator[]qsizetype -->
 <h3 class="fn" id="operator-5b-5d"><a name="operator-5b-5d"></a>const <span class="type">QCborValueRef</span> ConstIterator::<span class="name">operator[]</span>(<span class="type">qsizetype</span> <i>j</i>)</h3>
