@@ -170,7 +170,7 @@
 <!-- @@@staleLockTime -->
 <!-- $$$tryLock[overload1]$$$tryLockint -->
 <h3 class="fn" id="tryLock"><a name="tryLock"></a><span class="type">bool</span> QLockFile::<span class="name">tryLock</span>(<span class="type">int</span> <i>timeout</i> = 0)</h3>
-<p>Attempts to create the lock file. This function returns <code>true</code> if the lock was obtained; otherwise it returns <code>false</code>. If another process (or another thread) has created the lock file already, this function will wait for at most <i>timeout</i> milliseconds for the lock file to become available.</p>
+<p>Attempts to create the lock file. This function returns <code>true</code> if the lock was obtained；否则将返回 <code>false</code>。 If another process (or another thread) has created the lock file already, this function will wait for at most <i>timeout</i> milliseconds for the lock file to become available.</p>
 <p>Note: Passing a negative number as the <i>timeout</i> is equivalent to calling <a href="qlockfile.html#lock">lock</a>(), i.e&#x2e; this function will wait forever until the lock file can be locked if <i>timeout</i> is negative.</p>
 <p>If the lock was obtained, it must be released with <a href="qlockfile.html#unlock">unlock</a>() before another process (or thread) can successfully lock it.</p>
 <p>Calling this function multiple times on the same lock from the same thread without unlocking first is not allowed, this function will <i>always</i> return false when attempting to lock the file recursively.</p>

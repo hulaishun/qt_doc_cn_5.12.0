@@ -195,7 +195,7 @@
 <!-- @@@lock -->
 <!-- $$$tryLock[overload1]$$$tryLockint -->
 <h3 class="fn" id="tryLock"><a name="tryLock"></a><span class="type">bool</span> QMutex::<span class="name">tryLock</span>(<span class="type">int</span> <i>timeout</i> = 0)</h3>
-<p>Attempts to lock the mutex. This function returns <code>true</code> if the lock was obtained; otherwise it returns <code>false</code>. If another thread has locked the mutex, this function will wait for at most <i>timeout</i> milliseconds for the mutex to become available.</p>
+<p>Attempts to lock the mutex. This function returns <code>true</code> if the lock was obtained；否则将返回 <code>false</code>。 If another thread has locked the mutex, this function will wait for at most <i>timeout</i> milliseconds for the mutex to become available.</p>
 <p>Note: Passing a negative number as the <i>timeout</i> is equivalent to calling <a href="qmutex.html#lock">lock</a>(), i.e&#x2e; this function will wait forever until mutex can be locked if <i>timeout</i> is negative.</p>
 <p>If the lock was obtained, the mutex must be unlocked with <a href="qmutex.html#unlock">unlock</a>() before another thread can successfully lock it.</p>
 <p>Calling this function multiple times on the same mutex from the same thread is allowed if this mutex is a <a href="qmutex.html#RecursionMode-enum">recursive mutex</a>. If this mutex is a <a href="qmutex.html#RecursionMode-enum">non-recursive mutex</a>, this function will <i>always</i> return false when attempting to lock the mutex recursively.</p>
@@ -203,14 +203,14 @@
 <!-- @@@tryLock -->
 <!-- $$$try_lock[overload1]$$$try_lock -->
 <h3 class="fn" id="try_lock"><a name="try_lock"></a><span class="type">bool</span> QMutex::<span class="name">try_lock</span>()</h3>
-<p>Attempts to lock the mutex. This function returns <code>true</code> if the lock was obtained; otherwise it returns <code>false</code>.</p>
+<p>Attempts to lock the mutex. This function returns <code>true</code> if the lock was obtained；否则将返回 <code>false</code>。</p>
 <p>This function is provided for compatibility with the Standard Library concept <code>Lockable</code>. It 等同于 <a href="qmutex.html#tryLock">tryLock</a>().</p>
 <p>The function returns <code>true</code> if the lock was obtained; otherwise it returns <code>false</code></p>
 <p>这个函数是在Qt 5.8版本中新增引入的。</p>
 <!-- @@@try_lock -->
 <!-- $$$try_lock_for[overload1]$$$try_lock_forstd::chrono::duration<Rep,Period> -->
 <h3 class="fn" id="try_lock_for"><a name="try_lock_for"></a><span class="type">bool</span> QMutex::<span class="name">try_lock_for</span>(<span class="type">std::chrono::duration</span>&lt;<span class="type">Rep</span>, <span class="type">Period</span>&gt; <i>duration</i>)</h3>
-<p>Attempts to lock the mutex. This function returns <code>true</code> if the lock was obtained; otherwise it returns <code>false</code>. If another thread has locked the mutex, this function will wait for at least <i>duration</i> for the mutex to become available.</p>
+<p>Attempts to lock the mutex. This function returns <code>true</code> if the lock was obtained；否则将返回 <code>false</code>。 If another thread has locked the mutex, this function will wait for at least <i>duration</i> for the mutex to become available.</p>
 <p>Note: Passing a negative duration as the <i>duration</i> is equivalent to calling <a href="qmutex.html#try_lock">try_lock</a>(). This behavior differs from <a href="qmutex.html#tryLock">tryLock</a>().</p>
 <p>If the lock was obtained, the mutex must be unlocked with <a href="qmutex.html#unlock">unlock</a>() before another thread can successfully lock it.</p>
 <p>Calling this function multiple times on the same mutex from the same thread is allowed if this mutex is a <a href="qmutex.html#RecursionMode-enum">recursive mutex</a>. If this mutex is a <a href="qmutex.html#RecursionMode-enum">non-recursive mutex</a>, this function will <i>always</i> return false when attempting to lock the mutex recursively.</p>
@@ -219,7 +219,7 @@
 <!-- @@@try_lock_for -->
 <!-- $$$try_lock_until[overload1]$$$try_lock_untilstd::chrono::time_point<Clock,Duration> -->
 <h3 class="fn" id="try_lock_until"><a name="try_lock_until"></a><span class="type">bool</span> QMutex::<span class="name">try_lock_until</span>(<span class="type">std::chrono::time_point</span>&lt;<span class="type">Clock</span>, <span class="type">Duration</span>&gt; <i>timePoint</i>)</h3>
-<p>Attempts to lock the mutex. This function returns <code>true</code> if the lock was obtained; otherwise it returns <code>false</code>. If another thread has locked the mutex, this function will wait at least until <i>timePoint</i> for the mutex to become available.</p>
+<p>Attempts to lock the mutex. This function returns <code>true</code> if the lock was obtained；否则将返回 <code>false</code>。 If another thread has locked the mutex, this function will wait at least until <i>timePoint</i> for the mutex to become available.</p>
 <p>Note: Passing a <i>timePoint</i> which has already passed is equivalent to calling <a href="qmutex.html#try_lock">try_lock</a>(). This behavior differs from <a href="qmutex.html#tryLock">tryLock</a>().</p>
 <p>If the lock was obtained, the mutex must be unlocked with <a href="qmutex.html#unlock">unlock</a>() before another thread can successfully lock it.</p>
 <p>Calling this function multiple times on the same mutex from the same thread is allowed if this mutex is a <a href="qmutex.html#RecursionMode-enum">recursive mutex</a>. If this mutex is a <a href="qmutex.html#RecursionMode-enum">non-recursive mutex</a>, this function will <i>always</i> return false when attempting to lock the mutex recursively.</p>

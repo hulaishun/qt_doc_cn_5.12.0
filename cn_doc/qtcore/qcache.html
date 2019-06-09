@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- qcache.qdoc -->
-  <title>QCache Class | Qt核心模块 5.12</title>
+  <title>缓存类 | Qt核心模块 5.12</title>
   <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
   <script type="text/javascript">
     document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
@@ -43,9 +43,9 @@
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
-<h1 class="title">QCache Class</h1>
+<h1 class="title">缓存类</h1>
 <!-- $$$QCache-brief -->
-<p>The <a href="qcache.html">QCache</a> class is a template class that provides a cache. <a href="#details">更多详情...</a></p>
+<p><a href="qcache.html">QCache</a>类是个支持缓存的模板类。<a href="#details">更多详情...</a></p>
 <!-- @@@QCache -->
 <div class="table"><table class="alignedsummary">
 <tr><td class="memItemLeft rightAlign topAlign"> 头文件：</td><td class="memItemRight bottomAlign">   <span class="preprocessor">#include &lt;QCache&gt;</span>
@@ -77,14 +77,14 @@
 <!-- $$$QCache-description -->
 <div class="descr">
 <h2 id="details">详细描述</h2>
-<p>The <a href="qcache.html">QCache</a> class is a template class that provides a cache.</p>
+<p><a href="qcache.html">QCache</a>类是个支持缓存的模板类。</p>
 <p><a href="qcache.html">QCache</a>&lt;Key, T&gt; defines a cache that stores objects of type T associated with keys of type Key. For example, here's the definition of a cache that stores objects of type Employee associated with an integer key:</p>
 <pre class="cpp">
 
   <span class="type"><a href="qcache.html#QCache">QCache</a></span><span class="operator">&lt;</span><span class="type">int</span><span class="operator">,</span> Employee<span class="operator">&gt;</span> cache;
 
 </pre>
-<p>Here's how to insert an object in the cache:</p>
+<p>如下演示了如何插入对象到缓存中：</p>
 <pre class="cpp">
 
   Employee <span class="operator">*</span>employee <span class="operator">=</span> <span class="keyword">new</span> Employee;
@@ -117,20 +117,20 @@
 <h2>成员函数文档</h2>
 <!-- $$$QCache[overload1]$$$QCacheint -->
 <h3 class="fn" id="QCache"><a name="QCache"></a>QCache::<span class="name">QCache</span>(<span class="type">int</span> <i>maxCost</i> = ...)</h3>
-<p>Constructs a cache whose contents will never have a total cost greater than <i>maxCost</i>.</p>
+<p>构造函数，创建一个内容总成本不超过<i>maxCost</i>数量的缓存。</p>
 <!-- @@@QCache -->
 <!-- $$$~QCache[overload1]$$$~QCache -->
 <h3 class="fn" id="dtor.QCache"><a name="dtor.QCache"></a>QCache::<span class="name">~QCache</span>()</h3>
-<p>Destroys the cache. Deletes all the objects in the cache.</p>
+<p>析构函数，删除缓存中所有对象。</p>
 <!-- @@@~QCache -->
 <!-- $$$clear[overload1]$$$clear -->
 <h3 class="fn" id="clear"><a name="clear"></a><span class="type">void</span> QCache::<span class="name">clear</span>()</h3>
-<p>Deletes all the objects in the cache.</p>
+<p>删除缓存中所有对象。</p>
 <p><b> 参见 </b><a href="qcache.html#remove">remove</a>() 和 <a href="qcache.html#take">take</a>().</p>
 <!-- @@@clear -->
 <!-- $$$contains[overload1]$$$containsconstKey& -->
 <h3 class="fn" id="contains"><a name="contains"></a><span class="type">bool</span> QCache::<span class="name">contains</span>(const <span class="type">Key</span> &amp;<i>key</i>) const</h3>
-<p>Returns <code>true</code> if the cache contains an object associated with key <i>key</i>; 否则则返回 <code>false</code>。</p>
+<p>若缓存中包含关键字为<i>key</i>的对象则返回 <code>true</code> ； 否则则返回 <code>false</code>。</p>
 <p><b> 参见 </b><a href="qcache.html#take">take</a>() 和 <a href="qcache.html#remove">remove</a>().</p>
 <!-- @@@contains -->
 <!-- $$$count[overload1]$$$count -->
@@ -141,61 +141,61 @@
 <h3 class="fn" id="insert"><a name="insert"></a><span class="type">bool</span> QCache::<span class="name">insert</span>(const <span class="type">Key</span> &amp;<i>key</i>, <span class="type">T</span> *<i>object</i>, <span class="type">int</span> <i>cost</i> = ...)</h3>
 <p>Inserts <i>object</i> into the cache with key <i>key</i> and associated cost <i>cost</i>. Any object with the same key already in the cache will be removed.</p>
 <p>After this call, <i>object</i> is owned by the <a href="qcache.html">QCache</a> and may be deleted at any time. In particular, if <i>cost</i> is greater than <a href="qcache.html#maxCost">maxCost</a>(), the object will be deleted immediately.</p>
-<p>The function returns <code>true</code> if the object was inserted into the cache; otherwise it returns <code>false</code>.</p>
+<p>若对象已增加到缓存中，则该函数返回 <code>true</code>；否则将返回 <code>false</code>。</p>
 <p><b> 参见 </b><a href="qcache.html#take">take</a>() 和 <a href="qcache.html#remove">remove</a>().</p>
 <!-- @@@insert -->
 <!-- $$$isEmpty[overload1]$$$isEmpty -->
 <h3 class="fn" id="isEmpty"><a name="isEmpty"></a><span class="type">bool</span> QCache::<span class="name">isEmpty</span>() const</h3>
-<p>Returns <code>true</code> if the cache contains no objects; 否则则返回 <code>false</code>。</p>
+<p>若缓存中不包含任何对象则返回 <code>true</code> ； 否则则返回 <code>false</code>。</p>
 <p><b> 参见 </b><a href="qcache.html#size">size</a>().</p>
 <!-- @@@isEmpty -->
 <!-- $$$keys[overload1]$$$keys -->
 <h3 class="fn" id="keys"><a name="keys"></a><span class="type"><a href="qlist.html">QList</a></span>&lt;<span class="type">Key</span>&gt; QCache::<span class="name">keys</span>() const</h3>
-<p>Returns a list of the keys in the cache.</p>
+<p>返回缓存中所有关键字的列表。</p>
 <!-- @@@keys -->
 <!-- $$$maxCost[overload1]$$$maxCost -->
 <h3 class="fn" id="maxCost"><a name="maxCost"></a><span class="type">int</span> QCache::<span class="name">maxCost</span>() const</h3>
-<p>Returns the maximum allowed total cost of the cache.</p>
+<p>返回缓存中最大允许的总成本。</p>
 <p><b> 参见 </b><a href="qcache.html#setMaxCost">setMaxCost</a>() 和 <a href="qcache.html#totalCost">totalCost</a>().</p>
 <!-- @@@maxCost -->
 <!-- $$$object[overload1]$$$objectconstKey& -->
 <h3 class="fn" id="object"><a name="object"></a><span class="type">T</span> *QCache::<span class="name">object</span>(const <span class="type">Key</span> &amp;<i>key</i>) const</h3>
-<p>Returns the object associated with key <i>key</i>, or 0 if the key does not exist in the cache.</p>
-<p><b>警告：</b> The returned object is owned by <a href="qcache.html">QCache</a> and may be deleted at any time.</p>
+<p>返回关键字为<i>key</i>的关联对象，若缓存中不存在此关键字则返回0。</p>
+<p><b>警告：</b> 返回对象属于 <a href="qcache.html">QCache</a>，因此有可能在任何时间被缓存删除了。 </p>
 <p><b> 参见 </b><a href="qcache.html#take">take</a>() 和 <a href="qcache.html#remove">remove</a>().</p>
 <!-- @@@object -->
 <!-- $$$remove[overload1]$$$removeconstKey& -->
 <h3 class="fn" id="remove"><a name="remove"></a><span class="type">bool</span> QCache::<span class="name">remove</span>(const <span class="type">Key</span> &amp;<i>key</i>)</h3>
-<p>Deletes the object associated with key <i>key</i>. Returns <code>true</code> if the object was found in the cache; 否则则返回 <code>false</code>。</p>
+<p>删除关联的关键字为<i>key</i>的对象。 若在缓存中找到此对象则返回 <code>true</code>。 否则则返回 <code>false</code>。</p>
 <p><b> 参见 </b><a href="qcache.html#take">take</a>() 和 <a href="qcache.html#clear">clear</a>().</p>
 <!-- @@@remove -->
 <!-- $$$setMaxCost[overload1]$$$setMaxCostint -->
 <h3 class="fn" id="setMaxCost"><a name="setMaxCost"></a><span class="type">void</span> QCache::<span class="name">setMaxCost</span>(<span class="type">int</span> <i>cost</i>)</h3>
-<p>Sets the maximum allowed total cost of the cache to <i>cost</i>. If the current total cost is greater than <i>cost</i>, some objects are deleted immediately.</p>
+<p>设置缓存中最大允许的对象数量为 <i>cost</i>。 If the current total cost is greater than <i>cost</i>, some objects are deleted immediately.</p>
 <p><b> 参见 </b><a href="qcache.html#maxCost">maxCost</a>() 和 <a href="qcache.html#totalCost">totalCost</a>().</p>
 <!-- @@@setMaxCost -->
 <!-- $$$size[overload1]$$$size -->
 <h3 class="fn" id="size"><a name="size"></a><span class="type">int</span> QCache::<span class="name">size</span>() const</h3>
-<p>Returns the number of objects in the cache.</p>
+<p>返回缓存中所有对象的数量。</p>
 <p><b> 参见 </b><a href="qcache.html#isEmpty">isEmpty</a>().</p>
 <!-- @@@size -->
 <!-- $$$take[overload1]$$$takeconstKey& -->
 <h3 class="fn" id="take"><a name="take"></a><span class="type">T</span> *QCache::<span class="name">take</span>(const <span class="type">Key</span> &amp;<i>key</i>)</h3>
-<p>Takes the object associated with key <i>key</i> out of the cache without deleting it. Returns a pointer to the object taken out, or 0 if the key does not exist in the cache.</p>
-<p>The ownership of the returned object is passed to the caller.</p>
+<p>从缓存中取走关键字为<i>key</i>关联的对象，但不会delete此对象。 返回被取走对象的指针，若缓存中不存在此关键字则返回0。</p>
+<p>返回对象的所有权将传递给调用值。</p>
 <p><b> 参见 </b><a href="qcache.html#remove">remove</a>().</p>
 <!-- @@@take -->
 <!-- $$$totalCost[overload1]$$$totalCost -->
 <h3 class="fn" id="totalCost"><a name="totalCost"></a><span class="type">int</span> QCache::<span class="name">totalCost</span>() const</h3>
-<p>Returns the total cost of the objects in the cache.</p>
+<p>返回缓存中所有对象的总成本数量。</p>
 <p>This value is normally below <a href="qcache.html#maxCost">maxCost</a>(), but <a href="qcache.html">QCache</a> makes an exception for Qt's <a href="implicit-sharing.html">implicitly shared</a> classes. If a cached object shares its internal data with another instance, <a href="qcache.html">QCache</a> may keep the object lying around, possibly contributing to making totalCost() larger than <a href="qcache.html#maxCost">maxCost</a>().</p>
 <p><b> 参见 </b><a href="qcache.html#setMaxCost">setMaxCost</a>().</p>
 <!-- @@@totalCost -->
 <!-- $$$operator[][overload1]$$$operator[]constKey& -->
 <h3 class="fn" id="operator-5b-5d"><a name="operator-5b-5d"></a><span class="type">T</span> *QCache::<span class="name">operator[]</span>(const <span class="type">Key</span> &amp;<i>key</i>) const</h3>
-<p>Returns the object associated with key <i>key</i>, or 0 if the key does not exist in the cache.</p>
+<p>返回关键字为<i>key</i>的关联对象，若缓存中不存在此关键字则返回0。</p>
 <p>此函数等同于 <a href="qcache.html#object">object</a>().</p>
-<p><b>警告：</b> The returned object is owned by <a href="qcache.html">QCache</a> and may be deleted at any time.</p>
+<p><b>警告：</b> 返回对象属于 <a href="qcache.html">QCache</a>，因此有可能在任何时间被缓存删除了。 </p>
 <!-- @@@operator[] -->
 </div>
 <div class="vars">
