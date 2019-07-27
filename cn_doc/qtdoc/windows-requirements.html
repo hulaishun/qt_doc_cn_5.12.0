@@ -38,17 +38,17 @@
 <div class="toc">
 <h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#libraries">Libraries</a></li>
+<li class="level1"><a href="#libraries">库</a></li>
 <li class="level2"><a href="#icu">ICU</a></li>
-<li class="level1"><a href="#graphics-drivers">Graphics Drivers</a></li>
-<li class="level2"><a href="#dynamically-loading-graphics-drivers">Dynamically Loading Graphics Drivers</a></li>
-<li class="level1"><a href="#building-from-source">Building from Source</a></li>
-<li class="level1"><a href="#compilers">Compilers</a></li>
+<li class="level1"><a href="#graphics-drivers">图形驱动程序</a></li>
+<li class="level2"><a href="#dynamically-loading-graphics-drivers">动态加载图形驱动程序</a></li>
+<li class="level1"><a href="#building-from-source">从源码构建</a></li>
+<li class="level1"><a href="#compilers">编译器</a></li>
 <li class="level2"><a href="#visual-studio">Visual Studio</a></li>
 <li class="level2"><a href="#intel-c-compiler-windows-altix">Intel C++ Compiler (Windows, Altix)</a></li>
 <li class="level2"><a href="#gcc-mingw-builds">GCC (MinGW-builds)</a></li>
 <li class="level2"><a href="#clang-clang-cl">Clang(clang-cl)</a></li>
-<li class="level2"><a href="#building-qt-webengine">Building Qt WebEngine</a></li>
+<li class="level2"><a href="#building-qt-webengine">构建Qt WebEngine</a></li>
 <li class="level1"><a href="#qdoc-dependencies">QDoc 依赖项</a></li>
 </ul>
 </div>
@@ -59,7 +59,7 @@
 <div class="descr"> <a name="details"></a>
 <p>This page describes the required libraries and environment for <a href="windows.html">Qt for Windows</a>.</p>
 <a name="libraries"></a>
-<h2 id="libraries">Libraries</h2>
+<h2 id="libraries">库</h2>
 <p>The following third-party libraries may be used when running Qt 5 applications on Windows.</p>
 <ul>
 <li><a href="http://site.icu-project.org/">ICU</a>: Qt 5 can make use of the ICU library for enhanced UNICODE and Globalization support (see <a href="../qtcore/qtextcodec.html">QTextCodec</a>, <a href="../qtcore/qcollator.html#setNumericMode">QCollator::setNumericMode</a>()).<p>At compile time, the <i>include</i> and <i>lib</i> folders of the ICU installation must be appended to the <code>INCLUDE</code> and <code>LIB</code> environment variables. At run-time, the ICU DLLs need to be found by copying the DLLs to the application folder or by adding the <i>bin</i> folder of the ICU installation to the <code>PATH</code> environment variable.</p>
@@ -84,7 +84,7 @@
 
 </pre>
 <a name="graphics-drivers"></a>
-<h2 id="graphics-drivers">Graphics Drivers</h2>
+<h2 id="graphics-drivers">图形驱动程序</h2>
 <p>For <a href="../qtquick/qtquick-index.html">Qt Quick</a> 2 to work, a graphics driver that provides OpenGL 2.1 or higher is required. The default driver from Windows is OpenGL 1.1&#x2e; Qt includes a version of the <a href="https://chromium.googlesource.com/angle/angle/+/master/README.md">ANGLE</a> project which is included from the Windows Qt installers. ANGLE implements the OpenGL ES 2.0 API on top of DirectX 11 or DirectX 9. ANGLE requires that the DirectX SDK is installed when building Qt.</p>
 <p>ANGLE chooses the render backend depending on availability. DirectX 11 is usually preferable. However, some graphics cards may not fully support it. For these cases, the environment variable <code>QT_ANGLE_PLATFORM</code> (introduced in Qt 5.4) can be used to control the render backend. Possible values are <code>d3d11</code>, <code>d3d9</code> and <code>warp</code>.</p>
 <p>To use a custom version of ANGLE, set the <code>ANGLE_DIR</code> environment variable to point to the ANGLE source tree before building Qt.</p>
@@ -101,7 +101,7 @@
 
 </pre>
 <a name="dynamically-loading-graphics-drivers"></a>
-<h3 >Dynamically Loading Graphics Drivers</h3>
+<h3 >动态加载图形驱动程序</h3>
 <p>In addition to the build time configuration, Qt supports choosing and loading the OpenGL implementation at runtime. To use this mode, pass <code>-opengl dynamic</code> to the configure script.</p>
 <pre class="cpp">
 
@@ -172,7 +172,7 @@
 <li><code>gl_vendor</code> - Matches when the value is a substring of the <code>GL_VENDOR</code> string</li>
 </ul>
 <a name="building-from-source"></a>
-<h2 id="building-from-source">Building from Source</h2>
+<h2 id="building-from-source">从源码构建</h2>
 <p>These tools are not needed to run Qt 5 applications, but they are required for building Qt 5 from source.</p>
 <ul>
 <li><a href="http://www.activestate.com/Products/activeperl/index.mhtml">ActivePerl</a> - Install a recent version of <a href="http://www.activestate.com/Products/activeperl/index.mhtml">ActivePerl</a> (<a href="http://www.activestate.com/activeperl">download page</a>) and add the installation location to your <code>PATH</code>.</li>
@@ -186,7 +186,7 @@
 <p>The <i>gnuwin32/bin</i> folder should be added to the <code>PATH</code> variable.</p>
 <p><b>注意： </b>If you are building qtbase outside of qt5.git, you will need to download <i>win_bison</i> and <i>win_flex</i> from the link above and rename them to <i>bison</i> and <i>flex</i>.</p><p>For instructions for building the Qt 5 source, read the <a href="windows-building.html">Qt for Windows - Building from Source</a> page.</p>
 <a name="compilers"></a>
-<h2 id="compilers">Compilers</h2>
+<h2 id="compilers">编译器</h2>
 <a name="visual-studio"></a>
 <h3 >Visual Studio</h3>
 <p>Qt can be built with Visual Studio 2015 (Update 2), Visual Studio 2017, and Build Tools for Visual Studio 2017 (see also <a href="supported-platforms.html">所支持的平台</a>).</p>
@@ -205,7 +205,7 @@
 <h3 >Clang(clang-cl)</h3>
 <p>Qt has been tested successfully with Clang 3.8(llvm svn rev. 256453 and clang svn rev. 256453). Visual Studio 2015 Update 1 was used to build clang. Mkspec is using the clang-cl tool to build Qt. Clang 3.8 does not support precompiled headers.</p>
 <a name="building-qt-webengine"></a>
-<h3 >Building Qt WebEngine</h3>
+<h3 >构建Qt WebEngine</h3>
 <p><a href="../qtwebengine/qtwebengine-index.html">Qt WebEngine</a> has additional build requirements which are listed in the <a href="../qtwebengine/qtwebengine-platform-notes.html">Qt WebEngine Platform Notes</a>.</p>
 <a name="qdoc-dependencies"></a>
 <h2 id="qdoc-dependencies">QDoc 依赖项</h2>

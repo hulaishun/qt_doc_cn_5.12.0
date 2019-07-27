@@ -45,11 +45,11 @@
 <li class="level1"><a href="#input">Input</a></li>
 <li class="level2"><a href="#using-libinput">Using libinput</a></li>
 <li class="level2"><a href="#input-on-eglfs-and-linuxfb-without-libinput">Input on eglfs and linuxfb without libinput</a></li>
-<li class="level2"><a href="#mouse">Mouse</a></li>
-<li class="level2"><a href="#keyboard">Keyboard</a></li>
-<li class="level2"><a href="#touch">Touch</a></li>
+<li class="level2"><a href="#mouse">鼠标</a></li>
+<li class="level2"><a href="#keyboard">键盘</a></li>
+<li class="level2"><a href="#touch">触摸屏</a></li>
 <li class="level2"><a href="#pen-based-tablets">Pen-based tablets</a></li>
-<li class="level2"><a href="#debugging-input-devices">Debugging Input Devices</a></li>
+<li class="level2"><a href="#debugging-input-devices">调试输入设备</a></li>
 <li class="level2"><a href="#using-custom-mouse-cursor-images">Using Custom Mouse Cursor Images</a></li>
 <li class="level1"><a href="#display-output">Display Output</a></li>
 <li class="level2"><a href="#eglfs-with-eglfs-kms-backend">eglfs with eglfs_kms backend</a></li>
@@ -161,7 +161,7 @@
 <p>Parameters like the device node name can be set in the environment variables <code>QT_QPA_EVDEV_MOUSE_PARAMETERS</code>, <code>QT_QPA_EVDEV_KEYBOARD_PARAMETERS</code> and <code>QT_QPA_EVDEV_TOUCHSCREEN_PARAMETERS</code>. Separate the entries with colons. These parameters act as an alternative to passing the settings in the <code>-plugin</code> command-line argument, and with some backends they are essential: eglfs and linuxfb use built-in input handlers so there is no separate <code>-plugin</code> argument in use.</p>
 <p>Additionally, the built-in input handlers can be disabled by setting <code>QT_QPA_EGLFS_DISABLE_INPUT</code> or <code>QT_QPA_FB_DISABLE_INPUT</code> to <code>1</code>.</p>
 <a name="mouse"></a>
-<h3 >Mouse</h3>
+<h3 >鼠标</h3>
 <p>The mouse cursor shows up whenever <code>QT_QPA_EGLFS_HIDECURSOR</code> (for eglfs) or <code>QT_QPA_FB_HIDECURSOR</code> (for linuxfb) is not set and Qt's libudev-based device discovery reports that at least one mouse is available. When <code>libudev</code> support is not present, the mouse cursor always show up unless explicitly disabled via the environment variable.</p>
 <p>Hot plugging is supported, but only if Qt was configured with <code>libudev</code> support (that is, if the <i>libudev</i> development headers are present in the sysroot at configure time). This allows connecting or disconnecting an input device while the application is running.</p>
 <p>The <i>evdev</i> mouse handler supports the following extra parameters:</p>
@@ -173,7 +173,7 @@
 <li><code>abs</code> - Some touchscreens report absolute coordinates and cannot be differentiated from touchpads. In this special situation pass <code>abs</code> to indicate that the device is using absolute events.</li>
 </ul>
 <a name="keyboard"></a>
-<h3 >Keyboard</h3>
+<h3 >键盘</h3>
 <p>The <i>evdev</i> keyboard handler supports the following extra parameters:</p>
 <ul>
 <li><code>/dev/input/..&#x2e;</code> - Specifies the name of the input device. When not given, Qt looks for a suitable device either via <i>libudev</i> or by walking through the available nodes.</li>
@@ -203,7 +203,7 @@
 
 </pre>
 <p><b>注意： </b><code>kmap2qmap</code> does not support all the (pseudo) symbols that the Linux kernel supports. When converting a standard keymap, a number of warnings will be shown regarding <code>Show_Registers</code>, <code>Hex_A</code>, and so on; these messages can safely be ignored.</p><a name="touch"></a>
-<h3 >Touch</h3>
+<h3 >触摸屏</h3>
 <p>For some resistive, single-touch touch screens it may be necessary to fall back to using <code>tslib</code> instead of relying on the Linux multi-touch protocol and the event devices. For modern touch screens this is not necessary. <code>tslib</code> support can be enabled by setting the environment variable <code>QT_QPA_EGLFS_TSLIB</code> or <code>QT_QPA_FB_TSLIB</code> to 1. To change the device, set the environment variable <code>TSLIB_TSDEVICE</code> or pass the device name on the command-line. Note that the <code>tslib</code> input handler generates mouse events and supports single touch only, as opposed to <code>evdevtouch</code> which generates true multi-touch <a href="../qtgui/qtouchevent.html">QTouchEvent</a> events too.</p>
 <p>The <i>evdev</i> touch handler supports the following extra parameters:</p>
 <ul>
@@ -216,7 +216,7 @@
 <h3 >Pen-based tablets</h3>
 <p>The <code>evdevtablet</code> plugin provides basic support for Wacom and similar, pen-based tablets. It generates <a href="../qtgui/qtabletevent.html">QTabletEvent</a> events only. To enable it, pass <code>QT_QPA_GENERIC_PLUGINS=evdevtablet</code> in the environment or, alternatively, pass <code>-plugin evdevtablet</code> argument on the command-line. The plugin can take a device node parameter, for example <code>QT_QPA_GENERIC_PLUGINS=evdevtablet:/dev/event1</code>, in case the Qt's automatic device discovery (based either on <i>libudev</i> or a walkthrough of <code>/dev/input/event*</code>) is not functional or misbehaving.</p>
 <a name="debugging-input-devices"></a>
-<h3 >Debugging Input Devices</h3>
+<h3 >调试输入设备</h3>
 <p>It is possible to print some information to the debug output by enabling the <code>qt.qpa.input</code> logging rule, for example by setting the <code>QT_LOGGING_RULES</code> environment variable to <code>qt.qpa.input=true</code>. This is useful for detecting which device is being used, or to troubleshoot device discovery issues.</p>
 <a name="using-custom-mouse-cursor-images"></a>
 <h3 >Using Custom Mouse Cursor Images</h3>

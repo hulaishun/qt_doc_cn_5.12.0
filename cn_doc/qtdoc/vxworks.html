@@ -43,9 +43,9 @@
 <li class="level1"><a href="#requirements-for-vxworks">Requirements for VxWorks</a></li>
 <li class="level2"><a href="#qtwidget-applications">QtWidget Applications</a></li>
 <li class="level2"><a href="#qt-quick-2-applications">Qt Quick 2 Applications</a></li>
-<li class="level1"><a href="#supported-modules">Supported Modules</a></li>
+<li class="level1"><a href="#supported-modules">已支持的模块</a></li>
 <li class="level2"><a href="#limitations-for-essential-modules">Limitations for Essential modules</a></li>
-<li class="level2"><a href="#supported-add-ons">Supported Add-ons</a></li>
+<li class="level2"><a href="#supported-add-ons">已支持的附加组件</a></li>
 <li class="level1"><a href="#platform-notes">平台注意事项</a></li>
 <li class="level1"><a href="#configuring-for-a-specific-device">Configuring for a Specific Device</a></li>
 <li class="level1"><a href="#building-and-installing-qt-5">Building and Installing Qt 5</a></li>
@@ -55,16 +55,16 @@
 <li class="level2"><a href="#vxworksfb">VxWorksFB</a></li>
 <li class="level1"><a href="#input">Input</a></li>
 <li class="level2"><a href="#input-on-eglfs-and-vxworksfb">Input on eglfs and vxworksfb</a></li>
-<li class="level2"><a href="#mouse">Mouse</a></li>
-<li class="level2"><a href="#keyboard">Keyboard</a></li>
-<li class="level2"><a href="#touch">Touch</a></li>
-<li class="level2"><a href="#debugging-input-devices">Debugging Input Devices</a></li>
+<li class="level2"><a href="#mouse">鼠标</a></li>
+<li class="level2"><a href="#keyboard">键盘</a></li>
+<li class="level2"><a href="#touch">触摸屏</a></li>
+<li class="level2"><a href="#debugging-input-devices">调试输入设备</a></li>
 <li class="level2"><a href="#using-custom-mouse-cursor-images">Using Custom Mouse Cursor Images</a></li>
 <li class="level1"><a href="#qml-component-loader-thread">QML Component Loader Thread</a></li>
 <li class="level1"><a href="#preventing-timeouts-in-qeventdispatcher">Preventing Timeouts in QEventDispatcher</a></li>
-<li class="level1"><a href="#running-qt-applications">Running Qt Applications</a></li>
+<li class="level1"><a href="#running-qt-applications">运行Qt应用程序</a></li>
 <li class="level1"><a href="#limitations">Limitations</a></li>
-<li class="level2"><a href="#openssl-support">OpenSSL Support</a></li>
+<li class="level2"><a href="#openssl-support">OpenSSL支持</a></li>
 <li class="level2"><a href="#video-memory">Video Memory</a></li>
 <li class="level2"><a href="#vxworksfb">vxworksfb</a></li>
 </ul>
@@ -100,7 +100,7 @@
 <li>GPU device (GPUDEV) for OpenGL ES 2.0</li>
 </ul>
 <a name="supported-modules"></a>
-<h2 id="supported-modules">Supported Modules</h2>
+<h2 id="supported-modules">已支持的模块</h2>
 <p>Almost all essential <a href="qtmodules.html">Qt modules</a> and some add-on modules supported.</p>
 <a name="limitations-for-essential-modules"></a>
 <h3 >Limitations for Essential modules</h3>
@@ -112,7 +112,7 @@
 <tr valign="top" class="even"><td >Qt <a href="../qtwebengine/qtwebengine-3rdparty-webkit.html">WebKit</a> Widgets</td><td >Not supported</td><td ></td></tr>
 </table></div>
 <a name="supported-add-ons"></a>
-<h3 >Supported Add-ons</h3>
+<h3 >已支持的附加组件</h3>
 <div class="table"><table class="generic" width="80%">
  <thead><tr class="qt-style"><th >Qt Add-on</th><th >说明</th></tr></thead>
 <tr valign="top" class="odd"><td ><a href="../qtcharts/qtcharts-index.html">Qt图表</a></td><td >Version 2.0&#x2e;1</td></tr>
@@ -215,21 +215,21 @@
 <h3 >Input on eglfs and vxworksfb</h3>
 <p>Parameters like the device node name can be set in the environment variables <code>QT_QPA_EVDEV_MOUSE_PARAMETERS</code>, <code>QT_QPA_EVDEV_KEYBOARD_PARAMETERS</code> and <code>QT_QPA_EVDEV_TOUCHSCREEN_PARAMETERS</code>. Additionally, the built-in input handlers can be disabled by setting <code>QT_QPA_EGLFS_DISABLE_INPUT</code> or <code>QT_QPA_FB_DISABLE_INPUT</code> to <code>1</code>. On some touch screens the coordinates will need to be rotated. This can be enabled by setting <code>QT_QPA_EVDEV_TOUCHSCREEN_PARAMETERS</code> to <code>rotate=180</code>.</p>
 <a name="mouse"></a>
-<h3 >Mouse</h3>
+<h3 >鼠标</h3>
 <p>The mouse cursor will show up whenever <code>QT_QPA_EGLFS_HIDECURSOR</code> (for eglfs) or <code>QT_QPA_FB_HIDECURSOR</code> (for vxworksfb) is not set, the mouse cursor will always show up unless explicitly disabled via the environment variable.</p>
 <p>Hot plugging is not supported.</p>
 <a name="keyboard"></a>
-<h3 >Keyboard</h3>
+<h3 >键盘</h3>
 <p>The evdev keyboard handler supports the following extra parameters:</p>
 <ul>
 <li><code>/input/..&#x2e;</code> - Specifies the name of the input device. When not given, Qt will look for a suitable device by walking through the available nodes.</li>
 </ul>
 <p>If the default, built-in keymap is not sufficient, a different one can be specified either via the <code>keymap</code> parameter or by using the eglfs-specific <a href="../qtplatformheaders/qeglfsfunctions.html#loadKeymap">loadKeymap()</a> function. The latter allows switching the keymap at runtime. Note however that this requires using eglfs' built-in keyboard handler; it is not supported when the keyboard handler is loaded via the <code>-plugin</code> command-line parameter.</p>
 <a name="touch"></a>
-<h3 >Touch</h3>
+<h3 >触摸屏</h3>
 <p>Both single and multitouch devices are supported and require that <a href="vxworks.html">VxWorks</a> has been properly configured to support touch devices.</p>
 <a name="debugging-input-devices"></a>
-<h3 >Debugging Input Devices</h3>
+<h3 >调试输入设备</h3>
 <p>It is possible to print some information to the debug output by enabling the <code>qt.qpa.input</code> logging rule, for example by setting the <code>QT_LOGGING_RULES</code> environment variable to <code>qt.qpa.input=true</code>. This is useful for detecting which device is being used, or to troubleshoot device discovery issues.</p>
 <a name="using-custom-mouse-cursor-images"></a>
 <h3 >Using Custom Mouse Cursor Images</h3>
@@ -257,7 +257,7 @@
 <h2 id="preventing-timeouts-in-qeventdispatcher">Preventing Timeouts in QEventDispatcher</h2>
 <p>Default system clock rate (SYS_CLK_RATE) for <a href="vxworks.html">VxWorks</a> 7 is 1/60s or ~16,67ms. In some cases this may cause a drop in the application frame rate; in QEventDispatcher, the select function is blocking for the entire system clock interval because a timeout is used. By defining an environment variable <code>QT_FORCE_SELECT_NOTIMEOUT=1</code>, the select function returns immediately if no new events are available and the resolution of the system clock is higher than 10ms, which is true with default value.</p>
 <a name="running-qt-applications"></a>
-<h2 id="running-qt-applications">Running Qt Applications</h2>
+<h2 id="running-qt-applications">运行Qt应用程序</h2>
 <p>Following example shows how to start an application when Qt 5 is built using shared libraries. With a statically build Qt 5, there is no need to use the LD_LIBRARY_PATH environment variable. This variable is only needed to point the location of <a href="vxworks.html">VxWorks</a> shared libraries (for example libc and OpenGL ES 2.0). It is not needed for Qt 5 shared libraries.</p>
 <pre class="cpp plain">
 
@@ -269,7 +269,7 @@
 <a name="limitations"></a>
 <h2 id="limitations">Limitations</h2>
 <a name="openssl-support"></a>
-<h3 >OpenSSL Support</h3>
+<h3 >OpenSSL支持</h3>
 <p>Qt 5 does not support OpenSSL for <a href="vxworks.html">VxWorks</a> as it does not support using OpenSSL in RTP mode.</p>
 <a name="video-memory"></a>
 <h3 >Video Memory</h3>

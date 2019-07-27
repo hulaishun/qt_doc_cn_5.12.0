@@ -178,7 +178,7 @@
 <p>Additionally, CBOR supports a form of type extensibility by associating a &quot;tag&quot; to one of the above types to convey more information. For example, a UUID is represented by a tag and a byte array containing the 16 bytes of the UUID content. <a href="qcborvalue.html">QCborValue</a> supports creating and decoding several of those extended types directly with Qt classes (like <a href="quuid.html">QUuid</a>).</p>
 <p>For the complete list, see <a href="qcborvalue.html#Type-enum">QCborValue::Type</a>. The type of a <a href="qcborvalue.html">QCborValue</a> can be queried using <a href="qcborvalue.html#type">type</a>() or one of the &quot;isXxxx&quot; functions.</p>
 <a name="extended-types-and-tagged-values"></a>
-<h3 >Extended types and tagged values</h3>
+<h3 >扩展类型和标签值</h3>
 <p>A tagged value is a normal <a href="qcborvalue.html">QCborValue</a> that is paired with a number that is its tag. See <a href="qtcborcommon.html#QCborKnownTags-enum">QCborKnownTags</a> for more information on what tags are in the API as well as the full, official list. Such combinations form extended types.</p>
 <p><a href="qcborvalue.html">QCborValue</a> has support for certain extended types in the API, like URL (with <a href="qurl.html">QUrl</a>) and UUID (with <a href="quuid.html">QUuid</a>). Other extended types not supported in the API are represented by a <a href="qcborvalue.html">QCborValue</a> of <a href="qcborvalue.html#Type-enum">标签</a> type. The tag can later be retrieved by <a href="qcborvalue.html#tag">tag</a>() and the tagged value using <a href="qcborvalue.html#taggedValue">taggedValue</a>().</p>
 <p>In order to support future compatibility, QCborValues containing extended Qt types compare equal to the tag type of the same contents. In other words, the following expression is true:</p>
@@ -188,22 +188,22 @@
 
 </pre>
 <a name="undefined-and-null-values"></a>
-<h3 >Undefined and null values</h3>
+<h3 >未定义和空值</h3>
 <p><a href="qcborvalue.html">QCborValue</a> can contain a value of &quot;null&quot;, which is not of any specific type. It resembles the C++ <code>std::nullptr_t</code> type, whose only possible value is <code>nullptr</code>. <a href="qcborvalue.html">QCborValue</a> has a constructor taking such a type and creates a null <a href="qcborvalue.html">QCborValue</a>.</p>
 <p>Null values are used to indicate that an optional value is not present. In that aspect, it is similar to the C++ Standard Library type <code>std::optional</code> when that is disengaged. Unlike the C++ type, CBOR nulls are simply of type &quot;Null&quot; and it is not possible to determine what concrete type it is replacing.</p>
 <p><a href="qcborvalue.html">QCborValue</a> can also be of the undefined type, which represents a value of &quot;undefined&quot;. In fact, that is what the <a href="qcborvalue.html">QCborValue</a> default constructor creates.</p>
 <p>Undefined values are different from null values. While nulls are used to indicate an optional value that is not provided, Undefined is usually used to indicate that an expected value could not be provided, usually due to an error or a precondition that could not be satisfied.</p>
 <p>Such values are completely valid and may appear in CBOR streams, unlike JSON content and <a href="qjsonvalue.html">QJsonValue</a>'s undefined bit. But like <a href="qjsonvalue.html">QJsonValue</a>'s Undefined, it is returned by QCborArray::value() when out of range or QCborMap::operator[] when the key is not found in the container. It is not possible to tell such a case apart from the value of Undefined, so if that is required, check the <a href="qcborarray.html">QCborArray</a> size and use the <a href="qcbormap.html">QCborMap</a> iterator API.</p>
 <a name="simple-types"></a>
-<h3 >Simple types</h3>
+<h3 >简单类型</h3>
 <p>CBOR supports additional simple types that, like Null and Undefined, carry no other value. They are called interchangeably &quot;Simple Types&quot; and &quot;Simple Values&quot;. CBOR encodes booleans as two distinct types (one for <code>true</code> and one for <code>false</code>), but <a href="qcborvalue.html">QCborValue</a> has a convenience API for them.</p>
 <p>There are currently no other defined CBOR simple types. <a href="qcborvalue.html">QCborValue</a> supports them simply by their number with API like <a href="qcborvalue.html#isSimpleType">isSimpleType</a>() 和 <a href="qcborvalue.html#toSimpleType">toSimpleType</a>(), available for compatibility with future specifications before the Qt API can be updated. Their use before such a specification is discouraged, as other CBOR implementations may not support them fully.</p>
 <a name="cbor-support"></a>
-<h3 >CBOR support</h3>
+<h3 >CBOR支持</h3>
 <p><a href="qcborvalue.html">QCborValue</a> supports all CBOR features required to create canonical and strict streams. It implements almost all of the features specified in <a href="https://tools.ietf.org/html/rfc7049">RFC 7049</a>.</p>
 <p>The following table lists the CBOR features that <a href="qcborvalue.html">QCborValue</a> supports.</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >特性</th><th >Support</th></tr></thead>
+ <thead><tr class="qt-style"><th >特性</th><th >支持</th></tr></thead>
 <tr valign="top" class="odd"><td >Unsigned numbers</td><td >Yes (<a href="qtglobal.html#qint64-typedef">qint64</a> range)</td></tr>
 <tr valign="top" class="even"><td >Negative numbers</td><td >Yes (<a href="qtglobal.html#qint64-typedef">qint64</a> range)</td></tr>
 <tr valign="top" class="odd"><td >Byte strings</td><td >Yes</td></tr>
@@ -480,7 +480,7 @@
 <p>Converts the JSON value contained in <i>v</i> into its corresponding CBOR value and returns it. There is no data loss in converting from JSON to CBOR, as the CBOR type set is richer than JSON's. Additionally, values converted to CBOR using this function can be converted back to JSON using <a href="qcborvalue.html#toJsonValue">toJsonValue</a>() with no data loss.</p>
 <p>The following table lists the mapping of JSON types to CBOR types:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >JSON Type</th><th >CBOR Type</th></tr></thead>
+ <thead><tr class="qt-style"><th >JSON类型</th><th >CBOR类型</th></tr></thead>
 <tr valign="top" class="odd"><td >Bool</td><td >Bool</td></tr>
 <tr valign="top" class="even"><td >Number</td><td >Integer (if the number has no fraction and is in the <a href="qtglobal.html#qint64-typedef">qint64</a> range) or Double</td></tr>
 <tr valign="top" class="odd"><td >String</td><td >String</td></tr>
@@ -497,7 +497,7 @@
 <p>QVariants may contain a large list of different meta types, many of which have no corresponding representation in CBOR. That includes all user-defined meta types. When preparing transmission using CBOR, it is suggested to encode carefully each value to prevent loss of representation.</p>
 <p>The following table lists the conversion this function will apply:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >Qt (C++) type</th><th >CBOR type</th></tr></thead>
+ <thead><tr class="qt-style"><th >Qt(C++)类型</th><th >CBOR type</th></tr></thead>
 <tr valign="top" class="odd"><td >invalid (QVariant())</td><td >Undefined</td></tr>
 <tr valign="top" class="even"><td ><code>bool</code></td><td >Bool</td></tr>
 <tr valign="top" class="odd"><td ><code>std::nullptr_t</code></td><td >Null</td></tr>
@@ -717,7 +717,7 @@
 <p>Converts this <a href="qcborvalue.html">QCborValue</a> object to an equivalent representation in JSON and returns it as a <a href="qjsonvalue.html">QJsonValue</a>.</p>
 <p>Please note that CBOR contains a richer and wider type set than JSON, so some information may be lost in this conversion. The following table compares CBOR types to JSON types and indicates whether information may be lost or not.</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >CBOR Type</th><th >JSON Type</th><th >Comments</th></tr></thead>
+ <thead><tr class="qt-style"><th >CBOR类型</th><th >JSON类型</th><th >注释</th></tr></thead>
 <tr valign="top" class="odd"><td >Bool</td><td >Bool</td><td >No data loss possible</td></tr>
 <tr valign="top" class="even"><td >Double</td><td >Number</td><td >Infinities and NaN will be converted to Null; no data loss for other values</td></tr>
 <tr valign="top" class="odd"><td >Integer</td><td >Number</td><td >Data loss possible in the conversion if the integer is larger than 2<sup>53</sup> or smaller than -2<sup>53</sup>.</td></tr>
@@ -736,7 +736,7 @@
 <h6 >Special handling of tags and extended types</h6>
 <p>Some tags are handled specially and change the transformation of the tagged value from CBOR to JSON. The following table lists those special cases:</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >标签</th><th >CBOR type</th><th >Transformation</th></tr></thead>
+ <thead><tr class="qt-style"><th >标签</th><th >CBOR type</th><th >转化</th></tr></thead>
 <tr valign="top" class="odd"><td ><a href="qtcborcommon.html#QCborKnownTags-enum">ExpectedBase64url</a></td><td >Byte array</td><td >Encodes the byte array as Base64url</td></tr>
 <tr valign="top" class="even"><td ><a href="qtcborcommon.html#QCborKnownTags-enum">ExpectedBase64</a></td><td >Byte array</td><td >Encodes the byte array as Base64</td></tr>
 <tr valign="top" class="odd"><td ><a href="qtcborcommon.html#QCborKnownTags-enum">ExpectedBase16</a></td><td >Byte array</td><td >Encodes the byte array as hex</td></tr>
@@ -792,7 +792,7 @@
 <p>Converts this value to a native Qt type and returns the corresponding <a href="qvariant.html">QVariant</a>.</p>
 <p>The following table lists the mapping performed between <a href="qcborvalue.html#Type-enum">QCborValue types</a> 和 <a href="qmetatype.html#Type-enum">Qt meta types</a>.</p>
 <div class="table"><table class="generic">
- <thead><tr class="qt-style"><th >CBOR Type</th><th >Qt or C++ type</th><th >说明</th></tr></thead>
+ <thead><tr class="qt-style"><th >CBOR类型</th><th >Qt或C++类型</th><th >说明</th></tr></thead>
 <tr valign="top" class="odd"><td >Integer</td><td ><a href="qtglobal.html#qint64-typedef">qint64</a></td><td ></td></tr>
 <tr valign="top" class="even"><td >Double</td><td ><code>double</code></td><td ></td></tr>
 <tr valign="top" class="odd"><td >Bool</td><td ><code>bool</code></td><td ></td></tr>

@@ -38,12 +38,12 @@
 <div class="toc">
 <h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#supported-configurations">Supported Configurations</a></li>
+<li class="level1"><a href="#supported-configurations">已支持的配置</a></li>
 <li class="level1"><a href="#requirements">Requirements</a></li>
 <li class="level1"><a href="#getting-started">入门</a></li>
 <li class="level2"><a href="#notes-to-desktop-users">Notes to Desktop Users</a></li>
 <li class="level2"><a href="#building-applications">Building Applications</a></li>
-<li class="level1"><a href="#building-from-source">Building from Source</a></li>
+<li class="level1"><a href="#building-from-source">从源码构建</a></li>
 <li class="level1"><a href="#running-applications-from-command-line">Running Applications from Command Line</a></li>
 <li class="level2"><a href="#package-content">Package Content</a></li>
 <li class="level2"><a href="#winrt-runner-tool">WinRT Runner Tool</a></li>
@@ -57,7 +57,7 @@
 <p>Qt for <a href="supported-platforms.html#winrt">WinRT</a> allows you to run Qt applications on devices supporting the Windows Store App APIs. This covers Modern UI applications on Windows 10, Windows 10 Mobile and Windows 10 IoT.</p>
 <p>Microsoft introduced a new design paradigm with the Windows 8 Modern UI. A core part of this new approach is Windows Runtime (<a href="supported-platforms.html#winrt">WinRT</a>) that supports development using different programming languages, such as C++/CX (component extensions), C# VB.NET, or JavaScript. The Qt port uses the C++ capabilities. While <a href="supported-platforms.html#winrt">WinRT</a> supports the component extensions internally, they are not used inside Qt and you do not need to use them. <a href="supported-platforms.html#winrt">WinRT</a> applications run in a sandboxed environment for security reasons and support different architectures, such as ARM and x86.</p>
 <a name="winrt-supported-configurations"></a><a name="supported-configurations"></a>
-<h2 id="supported-configurations">Supported Configurations</h2>
+<h2 id="supported-configurations">已支持的配置</h2>
 <p>The following configurations are supported.</p>
 <div class="table"><table class="generic" width="80%">
  <thead><tr class="qt-style"><th >Platform Version</th><th >Architecture</th><th >Compiler</th><th >Build Environment</th></tr></thead>
@@ -113,7 +113,7 @@
 <p>You will not need to do any conversion to open your project in Qt Creator. Please follow the generic instructions on how to open and build a project.</p>
 <p>Qt Creator deploys your application on the <a href="supported-platforms.html#winrt">WinRT</a> device, if the device is detected by the PC.</p>
 <p><b>注意： </b>Remote PCs, such as the Surface, are not yet supported for deployment by Creator.</p><a name="building-from-source"></a>
-<h2 id="building-from-source">Building from Source</h2>
+<h2 id="building-from-source">从源码构建</h2>
 <p>We assume that you have cloned the Qt 5 repositories (or obtained the Qt sources elsewhere) and followed the platform-independent requirements for building Qt. The process of building Qt is found in the <a href="build-sources.html">Building Qt Sources</a> page.</p>
 <p>Qt for <a href="supported-platforms.html#winrt">WinRT</a> is always built as a cross-build, because tools, such as qmake, are built as desktop applications. For compiling those, a desktop development environment is required. If you have installed Visual Studio 2013 for Windows, this will only create binaries for <a href="supported-platforms.html#winrt">WinRT</a>. You will need Visual Studio for Windows Desktop as well to create those desktop tools.</p>
 <p>Please make sure to use an x86 command prompt (either use the <i>VS x86 Native Tools Command Prompt</i> or call <i>vcvarsall.bat</i> without any parameter or with <code>x86</code>) for every <a href="supported-platforms.html#winrt">WinRT</a> build. While the toolchain which is used for the target is set automatically, the command prompt decides what will be used for the host tools like <i>qmake</i> or <i>moc</i>. Building these tools might fail if another command prompt is used.</p>
