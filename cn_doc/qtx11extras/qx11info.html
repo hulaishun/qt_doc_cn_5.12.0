@@ -138,41 +138,41 @@
 <!-- @@@appRootWindow -->
 <!-- $$$appScreen[overload1]$$$appScreen -->
 <h3 class="fn" id="appScreen"><a name="appScreen"></a><code>[静态] </code><span class="type">int</span> QX11Info::<span class="name">appScreen</span>()</h3>
-<p>Returns the number of the screen where the application is being displayed.</p>
+<p>返回正处于显示中应用程序的所在屏幕编号。</p>
 <p>This method refers to screens in the original X11 meaning with a different DISPLAY environment variable per screen. This information is only useful if your application needs to know on which X screen it is running.</p>
 <p>In a typical multi-head configuration, multiple physical monitors are combined in one X11 screen. This means this method returns the same number for each of the physical monitors. In such a setup you are interested in the monitor information as provided by the X11 RandR extension. This is available through QDesktopWidget and QScreen.</p>
 <p><b> 参见 </b><a href="qx11info.html#display">display</a>().</p>
 <!-- @@@appScreen -->
 <!-- $$$appTime[overload1]$$$appTime -->
 <h3 class="fn" id="appTime"><a name="appTime"></a><code>[静态] </code><span class="type">unsigned</span> <span class="type">long</span> QX11Info::<span class="name">appTime</span>()</h3>
-<p>Returns the X11 time.</p>
+<p>返回X11时间。</p>
 <p><b> 参见 </b><a href="qx11info.html#setAppTime">setAppTime</a>() 和 <a href="qx11info.html#appUserTime">appUserTime</a>().</p>
 <!-- @@@appTime -->
 <!-- $$$appUserTime[overload1]$$$appUserTime -->
 <h3 class="fn" id="appUserTime"><a name="appUserTime"></a><code>[静态] </code><span class="type">unsigned</span> <span class="type">long</span> QX11Info::<span class="name">appUserTime</span>()</h3>
-<p>Returns the X11 user time.</p>
+<p>返回X11用户时间。</p>
 <p><b> 参见 </b><a href="qx11info.html#setAppUserTime">setAppUserTime</a>() 和 <a href="qx11info.html#appTime">appTime</a>().</p>
 <!-- @@@appUserTime -->
 <!-- $$$connection[overload1]$$$connection -->
 <h3 class="fn" id="connection"><a name="connection"></a><code>[静态] </code><span class="type">xcb_connection_t</span> *QX11Info::<span class="name">connection</span>()</h3>
-<p>Returns the default XCB connection for the application.</p>
+<p>返回应用程序的默认XCB连接。</p>
 <p><b> 参见 </b><a href="qx11info.html#display">display</a>().</p>
 <!-- @@@connection -->
 <!-- $$$display[overload1]$$$display -->
 <h3 class="fn" id="display"><a name="display"></a><code>[静态] </code><span class="type">Display</span> *QX11Info::<span class="name">display</span>()</h3>
-<p>Returns the default display for the application.</p>
+<p>返回应用程序的默认显示。</p>
 <p><b> 参见 </b><a href="qx11info.html#appScreen">appScreen</a>().</p>
 <!-- @@@display -->
 <!-- $$$generatePeekerId[overload1]$$$generatePeekerId -->
 <h3 class="fn" id="generatePeekerId"><a name="generatePeekerId"></a><code>[静态] </code><span class="type"><a href="../qtcore/qtglobal.html#qint32-typedef">qint32</a></span> QX11Info::<span class="name">generatePeekerId</span>()</h3>
 <p>Returns a new peeker id or -1 if some interal error has occurred. Each peeker id is associated with an index in the buffered native event queue.</p>
-<p>For more details see <a href="qx11info.html#PeekOption-enum">QX11Info::PeekOption</a> 和 <a href="qx11info.html#peekEventQueue">peekEventQueue</a>().</p>
+<p>获取更多详情请参考<a href="qx11info.html#PeekOption-enum">QX11Info::PeekOption</a> 和 <a href="qx11info.html#peekEventQueue">peekEventQueue</a>().</p>
 <p>这个函数是在Qt 5.10版本中新增引入的。</p>
 <p><b> 参见 </b><a href="qx11info.html#peekEventQueue">peekEventQueue</a>() 和 <a href="qx11info.html#removePeekerId">removePeekerId</a>().</p>
 <!-- @@@generatePeekerId -->
 <!-- $$$getTimestamp[overload1]$$$getTimestamp -->
 <h3 class="fn" id="getTimestamp"><a name="getTimestamp"></a><code>[静态] </code><span class="type">unsigned</span> <span class="type">long</span> QX11Info::<span class="name">getTimestamp</span>()</h3>
-<p>Fetches the current X11 time stamp from the X Server.</p>
+<p>从X服务器上获取当前X11时间戳。</p>
 <p>This method creates a property notify event and blocks till it is received back from the X Server.</p>
 <p>这个函数是在Qt 5.2版本中新增引入的。</p>
 <!-- @@@getTimestamp -->
@@ -184,7 +184,7 @@
 <!-- @@@isCompositingManagerRunning -->
 <!-- $$$isPlatformX11[overload1]$$$isPlatformX11 -->
 <h3 class="fn" id="isPlatformX11"><a name="isPlatformX11"></a><code>[静态] </code><span class="type">bool</span> QX11Info::<span class="name">isPlatformX11</span>()</h3>
-<p>Returns true if the application is currently running on X11.</p>
+<p>若应用程序当前正运行在X11下则返回true。</p>
 <p>这个函数是在Qt 5.2版本中新增引入的。</p>
 <!-- @@@isPlatformX11 -->
 <!-- $$$nextStartupId[overload1]$$$nextStartupId -->
@@ -214,17 +214,17 @@
 <!-- @@@removePeekerId -->
 <!-- $$$setAppTime[overload1]$$$setAppTimeunsignedlong -->
 <h3 class="fn" id="setAppTime"><a name="setAppTime"></a><code>[静态] </code><span class="type">void</span> QX11Info::<span class="name">setAppTime</span>(<span class="type">unsigned</span> <span class="type">long</span> <i>time</i>)</h3>
-<p>Sets the X11 time to the value specified by <i>time</i>.</p>
+<p>设置X11时间为传入的参数值 <i>time</i>。</p>
 <p><b> 参见 </b><a href="qx11info.html#appTime">appTime</a>() 和 <a href="qx11info.html#setAppUserTime">setAppUserTime</a>().</p>
 <!-- @@@setAppTime -->
 <!-- $$$setAppUserTime[overload1]$$$setAppUserTimeunsignedlong -->
 <h3 class="fn" id="setAppUserTime"><a name="setAppUserTime"></a><code>[静态] </code><span class="type">void</span> QX11Info::<span class="name">setAppUserTime</span>(<span class="type">unsigned</span> <span class="type">long</span> <i>time</i>)</h3>
-<p>Sets the X11 user time as specified by <i>time</i>.</p>
+<p>设置X11用户时间为传入的参数值 <i>time</i>。</p>
 <p><b> 参见 </b><a href="qx11info.html#appUserTime">appUserTime</a>() 和 <a href="qx11info.html#setAppTime">setAppTime</a>().</p>
 <!-- @@@setAppUserTime -->
 <!-- $$$setNextStartupId[overload1]$$$setNextStartupIdconstQByteArray& -->
 <h3 class="fn" id="setNextStartupId"><a name="setNextStartupId"></a><code>[静态] </code><span class="type">void</span> QX11Info::<span class="name">setNextStartupId</span>(const <span class="type"><a href="../qtcore/qbytearray.html">QByteArray</a></span> &amp;<i>id</i>)</h3>
-<p>Sets the next startup ID to <i>id</i>.</p>
+<p>设置下一个启动ID为 <i>id</i>。</p>
 <p>This is the startup ID that will be used for the next window to be shown by this process.</p>
 <p>The startup ID of the first window comes from the environment variable DESKTOP_STARTUP_ID. This method is useful for subsequent windows, when the request comes from another process (e.g&#x2e; via DBus).</p>
 <p>这个函数是在Qt 5.4版本中新增引入的。</p>
