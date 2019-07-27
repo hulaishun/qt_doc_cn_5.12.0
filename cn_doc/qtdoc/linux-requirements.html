@@ -38,11 +38,11 @@
 <div class="toc">
 <h3><a name="toc">目录</a></h3>
 <ul>
-<li class="level1"><a href="#platform-plugin-dependencies">Platform Plugin Dependencies</a></li>
-<li class="level1"><a href="#opengl-dependencies">OpenGL Dependencies</a></li>
-<li class="level1"><a href="#multimedia-dependencies">Multimedia Dependencies</a></li>
-<li class="level1"><a href="#qt-webengine-dependencies">Qt WebEngine Dependencies</a></li>
-<li class="level1"><a href="#qdoc-dependencies">QDoc Dependencies</a></li>
+<li class="level1"><a href="#platform-plugin-dependencies">平台插件依赖项</a></li>
+<li class="level1"><a href="#opengl-dependencies">OpenGL依赖项</a></li>
+<li class="level1"><a href="#multimedia-dependencies">多媒体依赖项</a></li>
+<li class="level1"><a href="#qt-webengine-dependencies">Qt WebEngine 依赖项</a></li>
+<li class="level1"><a href="#qdoc-dependencies">QDoc 依赖项</a></li>
 </ul>
 </div>
 <div class="sidebar-content" id="sidebar-content"></div></div>
@@ -51,11 +51,11 @@
 <!-- $$$linux-requirements.html-description -->
 <div class="descr"> <a name="details"></a>
 <a name="platform-plugin-dependencies"></a>
-<h2 id="platform-plugin-dependencies">Platform Plugin Dependencies</h2>
+<h2 id="platform-plugin-dependencies">平台插件依赖项</h2>
 <p>On Linux, the <i>xcb</i> QPA (Qt Platform Abstraction) platform plugin is used. It provides the basic functionality needed by <a href="../qtgui/qtgui-index.html">Qt GUI</a> 和 <a href="../qtwidgets/qtwidgets-index.html">Qt部件</a> to run against X11. Its library dependencies are described the following table. To build Qt from its source code, you will also need to install the development packages for these libraries for your system.</p>
 <p>It's possible to configure Qt with -qt-xcb, which compiles in a set of xcb helper libraries instead of trying to link against the system versions. This can help make Qt less dependent on some of the xcb helper libraries that might not be available on all distributions. The table specifies which dependencies are provided by -qt-xcb.</p>
 <div class="table"><table class="generic" width="100%">
- <thead><tr class="qt-style"><th >名称</th><th >Library</th><th >Notes</th><th >Configuration options</th><th >Minimum working version</th></tr></thead>
+ <thead><tr class="qt-style"><th >名称</th><th >库</th><th >说明</th><th >配置选项</th><th >最小工作版本</th></tr></thead>
 <tr id="OptionalColor"><td >XRender</td><td >libXrender</td><td >X Rendering Extension; used for anti-aliasing and alpha cursor support</td><td ><code>-xrender</code> or auto-detected</td><td >0.9&#x2e;0</td></tr>
 <tr id="OptionalColor"><td >xcb-render</td><td >libxcb-render</td><td >X C Bindings for Render extension</td><td >auto-detected or provided by -qt-xcb</td><td >1.8&#x2e;1</td></tr>
 <tr id="OptionalColor"><td >xcb-render-util</td><td >libxcb-render-util</td><td >Utility library for XCB for Render extension</td><td >auto-detected or provided by -qt-xcb</td><td >0.3&#x2e;8</td></tr>
@@ -106,17 +106,17 @@
 </ul>
 <p>Some of these packages depend on others in this list, so installing one may cause others to be automatically installed. Other distributions may provide system packages with similar names.</p>
 <a name="opengl-dependencies"></a>
-<h2 id="opengl-dependencies">OpenGL Dependencies</h2>
+<h2 id="opengl-dependencies">OpenGL依赖项</h2>
 <p>Configure attempts to automatically detect OpenGL ES 2.0, or later, or regular desktop OpenGL. You can disable OpenGL support by using the <code>-no-opengl</code> option.</p>
 <p><b>注意： </b>The Qt OpenGL module (which contains classes that start with <i>QGL</i>) has been deprecated in favor of the <a href="../qtgui/qtgui-index.html">Qt GUI</a> module (which contains classes that start with <i>QOpenGL</i>).</p><a name="multimedia-dependencies"></a>
-<h2 id="multimedia-dependencies">Multimedia Dependencies</h2>
+<h2 id="multimedia-dependencies">多媒体依赖项</h2>
 <p>As described in the <a href="qt5-intro.html#multimedia">多媒体</a> overview, Qt Multimedia uses the GStreamer multimedia framework as the backend for audio and video playback on Linux. The minimum required version of GStreamer is 0.10.24. The 1.x series is also supported.</p>
 <p>To build Qt Multimedia, you need the GStreamer library, base plugins, and development files for your system. To run applications that use Qt Multimedia, you might also need to install the following GStreamer plugins: 'good', 'ugly', 'bad', ffmpeg (0.10), and libav (1.x). These additional plugins contain various codecs for audio and video decoding, as well as the necessary components for using the camera APIs. The package names for GStreamer vary between Linux distributions; try searching for <code>gstreamer</code> or <code>libgstreamer</code> in your distribution's package repository to find suitable packages.</p>
 <a name="qt-webengine-dependencies"></a>
-<h2 id="qt-webengine-dependencies">Qt WebEngine Dependencies</h2>
+<h2 id="qt-webengine-dependencies">Qt WebEngine 依赖项</h2>
 <p><a href="../qtwebengine/qtwebengine-index.html">Qt WebEngine</a> has additional build requirements which are listed in the <a href="../qtwebengine/qtwebengine-platform-notes.html">Qt WebEngine Platform Notes</a>.</p>
 <a name="qdoc-dependencies"></a>
-<h2 id="qdoc-dependencies">QDoc Dependencies</h2>
+<h2 id="qdoc-dependencies">QDoc 依赖项</h2>
 <p>Since version 5.11, <a href="../qdoc/qdoc-index.html">QDoc</a> uses Clang to parse C++ code. If you wish to build <a href="qdoc-module.html">QDoc</a> manually, refer to <a href="../qdoc/qdoc-guide-clang.html">Installing Clang for QDoc</a> for specific build requirements.</p>
 </div>
 <!-- @@@linux-requirements.html -->
